@@ -1,0 +1,4 @@
+# Ignore large binary files; track the download script and documentation.
+*.bak
+*.BAK
+*.zip
