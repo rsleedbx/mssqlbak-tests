@@ -1,0 +1,501 @@
+{
+  "bak": "Chinook-id-pk.bak",
+  "captured_at": "2026-06-27T21:20:09.213690+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.Album",
+      "row_count": 347,
+      "key_columns": [
+        "Id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "Id",
+          "sql_type": "int",
+          "digest": "sha256:045ddf6717b1e6dd7efc6f4381d6e0f834e4e755d5396714b1cec16c0da85578",
+          "null_count": 0
+        },
+        {
+          "name": "Title",
+          "sql_type": "nvarchar(160)",
+          "digest": "sha256:121ea0569418cb240d67063b2b7c11ab1e986adc9fac39d2e413935e2c4479f1",
+          "null_count": 0
+        },
+        {
+          "name": "ArtistId",
+          "sql_type": "int",
+          "digest": "sha256:8c564036f7f4ed9f2b0e33f009498527401326032faf740e538148554e74fdc6",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.Artist",
+      "row_count": 275,
+      "key_columns": [
+        "Id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "Id",
+          "sql_type": "int",
+          "digest": "sha256:f48a15a71fee793294a345806f7ae4d73989afdfedc3c5c9e84fdbe2a4464074",
+          "null_count": 0
+        },
+        {
+          "name": "Name",
+          "sql_type": "nvarchar(120)",
+          "digest": "sha256:eddcafd18efd5e8bec5fb95d5fb71369940565b7f7ffb0cf0e39afb496077d69",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.Customer",
+      "row_count": 59,
+      "key_columns": [
+        "Id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "Id",
+          "sql_type": "int",
+          "digest": "sha256:7ef5d0b83897edffe314693226ef4a5c24a9d10b81594fb75c07427793f5936b",
+          "null_count": 0
+        },
+        {
+          "name": "FirstName",
+          "sql_type": "nvarchar(40)",
+          "digest": "sha256:788d3c86cde976ff015d5fb1bf531f690f867cdc7d51ac29547d58cb54fa22a9",
+          "null_count": 0
+        },
+        {
+          "name": "LastName",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:f5e9c72ca2a81ec134350d0c973196b72e1a17fcc983b73a900ec2404f80070b",
+          "null_count": 0
+        },
+        {
+          "name": "Company",
+          "sql_type": "nvarchar(80)",
+          "digest": "sha256:042036ba29b95673630024c625c53ac37c175f15a5c71d8f643b0a7afb1c3cc3",
+          "null_count": 49
+        },
+        {
+          "name": "Address",
+          "sql_type": "nvarchar(70)",
+          "digest": "sha256:8baf916323d4594aae975fc91d2c2743f614c6ff8900e93d3908de2e4508b5a3",
+          "null_count": 0
+        },
+        {
+          "name": "City",
+          "sql_type": "nvarchar(40)",
+          "digest": "sha256:defe265b47cbd5b008f8c0063e3b952a29df251466893db8a34f7e8f474f6a2b",
+          "null_count": 0
+        },
+        {
+          "name": "State",
+          "sql_type": "nvarchar(40)",
+          "digest": "sha256:edd6ab4eadf160a303e696d64dbcc143bbea1c7d9c7c7c14df784dbe6c5323a6",
+          "null_count": 29
+        },
+        {
+          "name": "Country",
+          "sql_type": "nvarchar(40)",
+          "digest": "sha256:78cf14b76fa714fd3990919fd0a9edf46ecb0e7ace2563b1338fa4883f0e9187",
+          "null_count": 0
+        },
+        {
+          "name": "PostalCode",
+          "sql_type": "nvarchar(10)",
+          "digest": "sha256:c1113cc1c3a91ae98f86bbd11706e63fc08977de2f96945dbc67a9bfa8c3634d",
+          "null_count": 4
+        },
+        {
+          "name": "Phone",
+          "sql_type": "nvarchar(24)",
+          "digest": "sha256:9815fb54c060ca890e5bc47a738f0f0beaf05f038e9927243bcdded119bd9814",
+          "null_count": 1
+        },
+        {
+          "name": "Fax",
+          "sql_type": "nvarchar(24)",
+          "digest": "sha256:aaf082cb6caeaddb333b290710071322f440bb4d7a20bb6a97abf910204d2a35",
+          "null_count": 47
+        },
+        {
+          "name": "Email",
+          "sql_type": "nvarchar(60)",
+          "digest": "sha256:96acb49a56e352a965a713169ff7cf7f20bc4c01e594c43a917a430c6003f414",
+          "null_count": 0
+        },
+        {
+          "name": "SupportRepId",
+          "sql_type": "int",
+          "digest": "sha256:db2e9dc99c8674687f2e313096538c64046d239cddcc8d5071eb18ba7d3a9c24",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.Employee",
+      "row_count": 8,
+      "key_columns": [
+        "Id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "Id",
+          "sql_type": "int",
+          "digest": "sha256:d80b029b568ac107d5f83a0a19ad93330f3e8629c9e06d418d691b4d6f33d120",
+          "null_count": 0
+        },
+        {
+          "name": "LastName",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:0cee91c61bd32a9fdf0817d6bd2b976c6ecf38ff129589c4574c01125baa5530",
+          "null_count": 0
+        },
+        {
+          "name": "FirstName",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:b002c01ef0ebb842c1c1123f5fb971064b3ced5726c69c57d9653e9c6a81127e",
+          "null_count": 0
+        },
+        {
+          "name": "Title",
+          "sql_type": "nvarchar(30)",
+          "digest": "sha256:677ae5df9964a0b316f55540ed70578c7feda5ca0309b156c550f6b6f5cc9256",
+          "null_count": 0
+        },
+        {
+          "name": "ReportsTo",
+          "sql_type": "int",
+          "digest": "sha256:fcf04ee43dc18113da188b09c73cb3fdd8d119debdfd015ae6b216f0e8691f57",
+          "null_count": 1
+        },
+        {
+          "name": "BirthDate",
+          "sql_type": "datetime",
+          "digest": "sha256:e542a5cfa65f9afd1fc9aacbc62c123a639244f651d516932f6316d9ec966c1e",
+          "null_count": 0
+        },
+        {
+          "name": "HireDate",
+          "sql_type": "datetime",
+          "digest": "sha256:bb2579b8801a3ddd2983a9351f718d761f48095d30a8b03e48c3bf8aee07ea20",
+          "null_count": 0
+        },
+        {
+          "name": "Address",
+          "sql_type": "nvarchar(70)",
+          "digest": "sha256:2f5fa2ec3b180460d638bee23096eb832732596b0e503e94e127197f29af83a4",
+          "null_count": 0
+        },
+        {
+          "name": "City",
+          "sql_type": "nvarchar(40)",
+          "digest": "sha256:79bba9f76ddbc9221a04b35acdb961de3ee5eafeb16861012a08c730beacac30",
+          "null_count": 0
+        },
+        {
+          "name": "State",
+          "sql_type": "nvarchar(40)",
+          "digest": "sha256:49bd7ee89e018124725b96bed0d91827104edeffa33b550c055597c097cd65d3",
+          "null_count": 0
+        },
+        {
+          "name": "Country",
+          "sql_type": "nvarchar(40)",
+          "digest": "sha256:fec25cf7d787b28019ea4ec7c08ddfc198df4be7cce6f99fa391d608cb477309",
+          "null_count": 0
+        },
+        {
+          "name": "PostalCode",
+          "sql_type": "nvarchar(10)",
+          "digest": "sha256:4e2242a190955556146cea5c2c12822c0894eb42f1047c34b7aa42d00156e3b6",
+          "null_count": 0
+        },
+        {
+          "name": "Phone",
+          "sql_type": "nvarchar(24)",
+          "digest": "sha256:258d218fee9207dfe664ad613530f9fc6b89fae9f4c048f8d70e98eb3dca2b6d",
+          "null_count": 0
+        },
+        {
+          "name": "Fax",
+          "sql_type": "nvarchar(24)",
+          "digest": "sha256:92e5923e2c55dc0a1fb68df380c4b5c80a91f754a7ddc9a23940002b785ed571",
+          "null_count": 0
+        },
+        {
+          "name": "Email",
+          "sql_type": "nvarchar(60)",
+          "digest": "sha256:b4f2168713e4f51d8373a8026471454404cf54ac9b938b3100574cf74499867d",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.Genre",
+      "row_count": 25,
+      "key_columns": [
+        "Id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "Id",
+          "sql_type": "int",
+          "digest": "sha256:e3f3dbdb0edd1a837967003249f857e8603e8bb2d45a6f03bc703c3e87287cd6",
+          "null_count": 0
+        },
+        {
+          "name": "Name",
+          "sql_type": "nvarchar(120)",
+          "digest": "sha256:fc48bc1bd4c29c699439888e6cf09df30589681207be6a0cb8e400f1d370a090",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.Invoice",
+      "row_count": 458,
+      "key_columns": [
+        "Id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "Id",
+          "sql_type": "int",
+          "digest": "sha256:1b93b1d21abf31db89b3d60ea74030f3b6f2baba297a106c72761b9bd642d527",
+          "null_count": 0
+        },
+        {
+          "name": "CustomerId",
+          "sql_type": "int",
+          "digest": "sha256:177899551c22acf609153a94ff65ad414adef96ad03545f1d6e0c8bd559a3624",
+          "null_count": 0
+        },
+        {
+          "name": "InvoiceDate",
+          "sql_type": "datetime",
+          "digest": "sha256:7401b0447da51fe0299f4889ef8dc52a8979cec571aa6fd72e2d8c88306c00f5",
+          "null_count": 0
+        },
+        {
+          "name": "BillingAddress",
+          "sql_type": "nvarchar(70)",
+          "digest": "sha256:3b2215d68a85f23ac27966562d76222f817307c53e39f4dc06113ab8a3931d0f",
+          "null_count": 0
+        },
+        {
+          "name": "BillingCity",
+          "sql_type": "nvarchar(40)",
+          "digest": "sha256:c6aa2e7a43bf6b0f891cc4f9bbe052165f61b3c3cf1f5f847509779f7273408c",
+          "null_count": 0
+        },
+        {
+          "name": "BillingState",
+          "sql_type": "nvarchar(40)",
+          "digest": "sha256:925f7daab817ec98646ab573c04bc93073d8cb9f131fec58c8b93e97492d0a69",
+          "null_count": 218
+        },
+        {
+          "name": "BillingCountry",
+          "sql_type": "nvarchar(40)",
+          "digest": "sha256:fc179f9491c6c38a5e57538b65b2c7df46a9a2f4244a75b61b09b0686bae7096",
+          "null_count": 0
+        },
+        {
+          "name": "BillingPostalCode",
+          "sql_type": "nvarchar(10)",
+          "digest": "sha256:4e7dbd251eca235587ff9198e6c38ff8d06a3d930434a4420b84f05a3e82fc0b",
+          "null_count": 34
+        },
+        {
+          "name": "Total",
+          "sql_type": "numeric(10,2)",
+          "digest": "sha256:a7e30c2aabf9230a0b016aff570a4b80e821cd35fab093f44c50e09e623b3f0f",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.InvoiceLine",
+      "row_count": 2662,
+      "key_columns": [
+        "Id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "Id",
+          "sql_type": "int",
+          "digest": "sha256:5e84e048de7b7767b04b0808f31bf7a8218bcee1c707ff019c45370776a5388d",
+          "null_count": 0
+        },
+        {
+          "name": "InvoiceId",
+          "sql_type": "int",
+          "digest": "sha256:21094c18bc76e00425ed6587ac19b01090aac58ff5b8bcdc31fcea9805f3997a",
+          "null_count": 0
+        },
+        {
+          "name": "TrackId",
+          "sql_type": "int",
+          "digest": "sha256:36cd72e802ed6db3c243f6ede539ecc48c0237dfc7e7b99d4cd30ca6ede6141f",
+          "null_count": 0
+        },
+        {
+          "name": "UnitPrice",
+          "sql_type": "numeric(10,2)",
+          "digest": "sha256:0a024b2607770c5c4ff75fb2faf04b56b15fd4a03e3523d2f333bf18d40b7d9a",
+          "null_count": 0
+        },
+        {
+          "name": "Quantity",
+          "sql_type": "int",
+          "digest": "sha256:4b9728b64daeb2e38a324528b6113648144dea1f28a47103614cf960378a8180",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.MediaType",
+      "row_count": 5,
+      "key_columns": [
+        "Id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "Id",
+          "sql_type": "int",
+          "digest": "sha256:ea73e51ecad26eb8490a320f5ae148a8aa3569530627f335bfe2060c1a54b550",
+          "null_count": 0
+        },
+        {
+          "name": "Name",
+          "sql_type": "nvarchar(120)",
+          "digest": "sha256:7fe66f84f3a59e656592f4b1b9e7a74e1002d865c64169c22b00d061facc0b3b",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.Playlist",
+      "row_count": 18,
+      "key_columns": [
+        "Id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "Id",
+          "sql_type": "int",
+          "digest": "sha256:8b066feac7826f2f202ac53eb24b9bda08590151297d6293a3f50a9a482487cf",
+          "null_count": 0
+        },
+        {
+          "name": "Name",
+          "sql_type": "nvarchar(120)",
+          "digest": "sha256:f0a7bf7cb673640b9376b19c4fb4470705980f6bb230a3d453695db99006912c",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.PlaylistTrack",
+      "row_count": 8715,
+      "key_columns": [
+        "PlaylistId",
+        "TrackId"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "PlaylistId",
+          "sql_type": "int",
+          "digest": "sha256:5c8b239349a05087ac87d40f9b62ae9176346e5f5742a361d5e1e4f1c531b6c0",
+          "null_count": 0
+        },
+        {
+          "name": "TrackId",
+          "sql_type": "int",
+          "digest": "sha256:9ad04a1ca577552bcb1d2e19cc3ca97323305c7e6436be7acfd6c6e51163db92",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.Track",
+      "row_count": 3503,
+      "key_columns": [
+        "Id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "Id",
+          "sql_type": "int",
+          "digest": "sha256:d6f4db7a092dffb7f30b375a615ad36879efe8ab76247e848c64eecac95ff99a",
+          "null_count": 0
+        },
+        {
+          "name": "Name",
+          "sql_type": "nvarchar(200)",
+          "digest": "sha256:287a595aca9f10c639b9b3db437cc5233d014b0178b8ffdd146910e40572384b",
+          "null_count": 0
+        },
+        {
+          "name": "AlbumId",
+          "sql_type": "int",
+          "digest": "sha256:68ecaf375e74bcd42d0f63824fe428593b73d6ac29a1b29582a1c002bbaf3b1d",
+          "null_count": 0
+        },
+        {
+          "name": "MediaTypeId",
+          "sql_type": "int",
+          "digest": "sha256:99a161f5314768f98532e12145911ece2c17cbfbf154b70bf9471d2c913901f1",
+          "null_count": 0
+        },
+        {
+          "name": "GenreId",
+          "sql_type": "int",
+          "digest": "sha256:3bb6de9329f3749cec4d4b0c2359a81877eb3a1d68a174f39f31c8a5723ba323",
+          "null_count": 0
+        },
+        {
+          "name": "Composer",
+          "sql_type": "nvarchar(220)",
+          "digest": "sha256:95e40702fdf21f4260a1f8965de0f55de39e34d75d216ef4b359e652e97470f4",
+          "null_count": 978
+        },
+        {
+          "name": "Milliseconds",
+          "sql_type": "int",
+          "digest": "sha256:28b942e0960745c75d57d4c5d484649a760ad079cb1f99f13261505c10dff2bc",
+          "null_count": 0
+        },
+        {
+          "name": "Bytes",
+          "sql_type": "int",
+          "digest": "sha256:faedac165e55687bca7dfee3017d78ec3fa3b1ee583b6f9667670e4957e98824",
+          "null_count": 0
+        },
+        {
+          "name": "UnitPrice",
+          "sql_type": "numeric(10,2)",
+          "digest": "sha256:bb731901ddf97f5175f4238ea5730b8b934be084a5c4d8d8fb147d71a668dc1c",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}

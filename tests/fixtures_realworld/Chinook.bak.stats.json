@@ -1,0 +1,535 @@
+{
+  "sql_version": "Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (X64)",
+  "bak": "Chinook.bak",
+  "bak_size_mb": 6.098,
+  "database": "RegisterBak_Chinook",
+  "registered_at": "2026-06-10T01:44:20.945297+00:00",
+  "sqlserver_restore_s": 2.166,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "Album",
+      "row_count": 347,
+      "columns": [
+        {
+          "name": "AlbumId",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "347"
+        },
+        {
+          "name": "Title",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "...And Justice For All",
+          "max_val": "Zooropa"
+        },
+        {
+          "name": "ArtistId",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "275"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "Artist",
+      "row_count": 275,
+      "columns": [
+        {
+          "name": "ArtistId",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "275"
+        },
+        {
+          "name": "Name",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "A Cor Do Som",
+          "max_val": "Zeca Pagodinho"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "Customer",
+      "row_count": 59,
+      "columns": [
+        {
+          "name": "CustomerId",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "59"
+        },
+        {
+          "name": "FirstName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Aaron",
+          "max_val": "Wyatt"
+        },
+        {
+          "name": "LastName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Almeida",
+          "max_val": "Zimmermann"
+        },
+        {
+          "name": "Company",
+          "sql_type": "nvarchar",
+          "null_count": 49,
+          "min_val": "Apple Inc.",
+          "max_val": "Woodstock Discos"
+        },
+        {
+          "name": "Address",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "1 Infinite Loop",
+          "max_val": "Via Degli Scipioni, 43"
+        },
+        {
+          "name": "City",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Amsterdam",
+          "max_val": "Yellowknife"
+        },
+        {
+          "name": "State",
+          "sql_type": "nvarchar",
+          "null_count": 29,
+          "min_val": "AB",
+          "max_val": "WI"
+        },
+        {
+          "name": "Country",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Argentina",
+          "max_val": "USA"
+        },
+        {
+          "name": "PostalCode",
+          "sql_type": "nvarchar",
+          "null_count": 4,
+          "min_val": "00192",
+          "max_val": "X1A 1N6"
+        },
+        {
+          "name": "Phone",
+          "sql_type": "nvarchar",
+          "null_count": 1,
+          "min_val": "+1 (204) 452-6452",
+          "max_val": "+91 080 22289999"
+        },
+        {
+          "name": "Fax",
+          "sql_type": "nvarchar",
+          "null_count": 47,
+          "min_val": "+1 (212) 221-4679",
+          "max_val": "+55 (61) 3363-7855"
+        },
+        {
+          "name": "Email",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "aaronmitchell@yahoo.ca",
+          "max_val": "wyatt.girard@yahoo.fr"
+        },
+        {
+          "name": "SupportRepId",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "3",
+          "max_val": "5"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "Employee",
+      "row_count": 8,
+      "columns": [
+        {
+          "name": "EmployeeId",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "8"
+        },
+        {
+          "name": "LastName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Adams",
+          "max_val": "Peacock"
+        },
+        {
+          "name": "FirstName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Andrew",
+          "max_val": "Steve"
+        },
+        {
+          "name": "Title",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "General Manager",
+          "max_val": "Sales Support Agent"
+        },
+        {
+          "name": "ReportsTo",
+          "sql_type": "int",
+          "null_count": 1,
+          "min_val": "1",
+          "max_val": "6"
+        },
+        {
+          "name": "BirthDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Sep 19 1947 12:00AM",
+          "max_val": "Aug 29 1973 12:00AM"
+        },
+        {
+          "name": "HireDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Apr  1 2002 12:00AM",
+          "max_val": "Mar  4 2004 12:00AM"
+        },
+        {
+          "name": "Address",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "1111 6 Ave SW",
+          "max_val": "923 7 ST NW"
+        },
+        {
+          "name": "City",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Calgary",
+          "max_val": "Lethbridge"
+        },
+        {
+          "name": "State",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "AB",
+          "max_val": "AB"
+        },
+        {
+          "name": "Country",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Canada",
+          "max_val": "Canada"
+        },
+        {
+          "name": "PostalCode",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "T1H 1Y8",
+          "max_val": "T5K 2N1"
+        },
+        {
+          "name": "Phone",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "+1 (403) 246-9887",
+          "max_val": "1 (780) 836-9987"
+        },
+        {
+          "name": "Fax",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "+1 (403) 246-9899",
+          "max_val": "1 (780) 836-9543"
+        },
+        {
+          "name": "Email",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "andrew@chinookcorp.com",
+          "max_val": "steve@chinookcorp.com"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "Genre",
+      "row_count": 25,
+      "columns": [
+        {
+          "name": "GenreId",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "25"
+        },
+        {
+          "name": "Name",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Alternative",
+          "max_val": "World"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "Invoice",
+      "row_count": 458,
+      "columns": [
+        {
+          "name": "InvoiceId",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "458"
+        },
+        {
+          "name": "CustomerId",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "58"
+        },
+        {
+          "name": "InvoiceDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jan  2 2007 12:00AM",
+          "max_val": "Dec 27 2010 12:00AM"
+        },
+        {
+          "name": "BillingAddress",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "1 Infinite Loop",
+          "max_val": "Via Degli Scipioni, 43"
+        },
+        {
+          "name": "BillingCity",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Amsterdam",
+          "max_val": "Yellowknife"
+        },
+        {
+          "name": "BillingState",
+          "sql_type": "nvarchar",
+          "null_count": 218,
+          "min_val": "AB",
+          "max_val": "WI"
+        },
+        {
+          "name": "BillingCountry",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Argentina",
+          "max_val": "USA"
+        },
+        {
+          "name": "BillingPostalCode",
+          "sql_type": "nvarchar",
+          "null_count": 34,
+          "min_val": "00192",
+          "max_val": "X1A 1N6"
+        },
+        {
+          "name": "Total",
+          "sql_type": "numeric",
+          "null_count": 0,
+          "min_val": "0.99",
+          "max_val": "14.86"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "InvoiceLine",
+      "row_count": 2662,
+      "columns": [
+        {
+          "name": "InvoiceLineId",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "2662"
+        },
+        {
+          "name": "InvoiceId",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "458"
+        },
+        {
+          "name": "TrackId",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "4",
+          "max_val": "3501"
+        },
+        {
+          "name": "UnitPrice",
+          "sql_type": "numeric",
+          "null_count": 0,
+          "min_val": "0.99",
+          "max_val": "1.99"
+        },
+        {
+          "name": "Quantity",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "MediaType",
+      "row_count": 5,
+      "columns": [
+        {
+          "name": "MediaTypeId",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "5"
+        },
+        {
+          "name": "Name",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "AAC audio file",
+          "max_val": "Purchased AAC audio file"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "Playlist",
+      "row_count": 18,
+      "columns": [
+        {
+          "name": "PlaylistId",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "18"
+        },
+        {
+          "name": "Name",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "90\u2019s Music",
+          "max_val": "TV Shows"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "PlaylistTrack",
+      "row_count": 8715,
+      "columns": [
+        {
+          "name": "PlaylistId",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "18"
+        },
+        {
+          "name": "TrackId",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3503"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "Track",
+      "row_count": 3503,
+      "columns": [
+        {
+          "name": "TrackId",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3503"
+        },
+        {
+          "name": "Name",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "\"?\"",
+          "max_val": "Zooropa"
+        },
+        {
+          "name": "AlbumId",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "347"
+        },
+        {
+          "name": "MediaTypeId",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "5"
+        },
+        {
+          "name": "GenreId",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "25"
+        },
+        {
+          "name": "Composer",
+          "sql_type": "nvarchar",
+          "null_count": 978,
+          "min_val": "A. F. Iommi, W. Ward, T. Butler, J. Osbourne",
+          "max_val": "Wright, Waters"
+        },
+        {
+          "name": "Milliseconds",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1071",
+          "max_val": "5286953"
+        },
+        {
+          "name": "Bytes",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "38747",
+          "max_val": "1059546140"
+        },
+        {
+          "name": "UnitPrice",
+          "sql_type": "numeric",
+          "null_count": 0,
+          "min_val": "0.99",
+          "max_val": "1.99"
+        }
+      ]
+    }
+  ]
+}

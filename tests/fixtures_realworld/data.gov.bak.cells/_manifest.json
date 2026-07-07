@@ -1,0 +1,118 @@
+{
+  "bak": "data.gov.bak",
+  "captured_at": "2026-06-27T22:18:22.363558+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.Electric_Vehicle_Population_Data",
+      "row_count": 150482,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "VIN (1-10)",
+          "sql_type": "varchar(10)",
+          "digest": "sha256:06038e016d53433a80c850a777c5f2fe5554ee77aa587ad7b4b614a79a2851b0",
+          "null_count": 0
+        },
+        {
+          "name": "County",
+          "sql_type": "varchar(20)",
+          "digest": "sha256:095e9a6c77fa954d6ac1d9cfee993f242e90280467b3364fa17adb92cf5f4493",
+          "null_count": 0
+        },
+        {
+          "name": "City",
+          "sql_type": "varchar(24)",
+          "digest": "sha256:39adc67be744fe8d8823f62cab2862a4504c2cc7a6f08796eb08ad547b7c39a3",
+          "null_count": 0
+        },
+        {
+          "name": "State",
+          "sql_type": "varchar(2)",
+          "digest": "sha256:00fbacacb5521d858effba423df43a63a3daaca8ac7d1dda86ec34c20e128a74",
+          "null_count": 0
+        },
+        {
+          "name": "Postal Code",
+          "sql_type": "bigint",
+          "digest": "sha256:382f88c763dbde36d342278c86826bd98c6dab4e94484173f1778f66b44428dd",
+          "null_count": 0
+        },
+        {
+          "name": "Model Year",
+          "sql_type": "bigint",
+          "digest": "sha256:2cf10dfb1ca038091aa0fddde022591b0d29300711345e72de63f2b6c9400969",
+          "null_count": 0
+        },
+        {
+          "name": "Make",
+          "sql_type": "varchar(20)",
+          "digest": "sha256:91357e3e76ed4b6a062e2cf031b14216849eca260dbaaaca5b5883fbaa6e4aa2",
+          "null_count": 0
+        },
+        {
+          "name": "Model",
+          "sql_type": "varchar(24)",
+          "digest": "sha256:9d10af2d1ca7eee573b66615b74fc23445920c15aa09dbaa5a0e73da0bf26866",
+          "null_count": 0
+        },
+        {
+          "name": "Electric Vehicle Type",
+          "sql_type": "varchar(38)",
+          "digest": "sha256:3008d3aa8b9f5de8ff6d00c0b5c2bd7c8fa4209c2883d40998793f9aa8244015",
+          "null_count": 0
+        },
+        {
+          "name": "Clean Alternative Fuel Vehicle (CAFV) Eligibility",
+          "sql_type": "varchar(60)",
+          "digest": "sha256:b56edd5b15ccfd8af7f2ca767e4c6a9cb8056a03f907de033d42dd3722913e9d",
+          "null_count": 0
+        },
+        {
+          "name": "Electric Range",
+          "sql_type": "bigint",
+          "digest": "sha256:9483841f1615fd9912e6f069377b2d212cd916bd3ac4c18c4bebbe7d52717184",
+          "null_count": 0
+        },
+        {
+          "name": "Base MSRP",
+          "sql_type": "bigint",
+          "digest": "sha256:0e6d49e26a35819a126b717841c6c532cd015ee8871a8731f685c35e349b5563",
+          "null_count": 0
+        },
+        {
+          "name": "Legislative District",
+          "sql_type": "bigint",
+          "digest": "sha256:bfd0dce67130b21576d9965239f660b1ca70919cc70f933299879b588ebf8f04",
+          "null_count": 0
+        },
+        {
+          "name": "DOL Vehicle ID",
+          "sql_type": "bigint",
+          "digest": "sha256:b9fc2904f3b18da4fb1378021f67b268a37c7a66ce6e744ffa3343f12434eb09",
+          "null_count": 0
+        },
+        {
+          "name": "Vehicle Location",
+          "sql_type": "varchar(35)",
+          "digest": "sha256:e700c2b1b739231a06b2ec7b55d4d0531420b6b45c89034b6f1e2cc348b56e6f",
+          "null_count": 0
+        },
+        {
+          "name": "Electric Utility",
+          "sql_type": "varchar(200)",
+          "digest": "sha256:bcb89c63f3826bf7dbe4dba3395f606640c78e3e30a81d435f509896dae032ef",
+          "null_count": 0
+        },
+        {
+          "name": "2020 Census Tract",
+          "sql_type": "varchar(200)",
+          "digest": "sha256:2d8576d545d8c6f4cd836b50a8074acaa6224427fd51285db069051ba5270730",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true,
+      "values_capped": 100000
+    }
+  ]
+}

@@ -1,0 +1,3686 @@
+{
+  "bak": "WideWorldImporters-Full_old.bak",
+  "captured_at": "2026-06-27T22:14:09.972904+00:00",
+  "tables": [
+    {
+      "fqn": "Application.Cities",
+      "row_count": 37940,
+      "key_columns": [
+        "CityID"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "CityID",
+          "sql_type": "int",
+          "digest": "sha256:4ce9311affba04c9f3d861b9f2691f1eac2f32c4d60caa5615f74cc2e76fc673",
+          "null_count": 0
+        },
+        {
+          "name": "CityName",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:606f52f0303cac87ad1c77f4dcc510d1902e148389536da71af55b55a24c10ee",
+          "null_count": 0
+        },
+        {
+          "name": "StateProvinceID",
+          "sql_type": "int",
+          "digest": "sha256:89e5f6088ed12e9eee840ccaa74e4cab9f6f1b5b8c0afd5d2f7c91831d20bbfd",
+          "null_count": 0
+        },
+        {
+          "name": "Location",
+          "sql_type": "geography",
+          "digest": "sha256:9a1e8f46ba21bd8b9d166c99223e19baf809c6064027f5522bb52aee690e4c2e",
+          "null_count": 0
+        },
+        {
+          "name": "LatestRecordedPopulation",
+          "sql_type": "bigint",
+          "digest": "sha256:0a83bdba3a5435a235d661963333b26980440b7f97d457c114abc8792bfa080a",
+          "null_count": 11048
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "digest": "sha256:8c6139072da658dd8564c61d702b787b48a199fb962e3d1eea1f0bfa47ea7a57",
+          "null_count": 0
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "digest": "sha256:28494225868db6a4c99024a065ffadc130f0fd414df04a4ae120ed5e440f7a88",
+          "null_count": 0
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "digest": "sha256:d15c602604be5a8c5fec86b3278040318a1679dcb5b2a5ad74fb06b134b5e695",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "Application.Cities_Archive",
+      "row_count": 28,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "CityID",
+          "sql_type": "int",
+          "digest": "sha256:7298205b674c421119bb65e7ce64e882e58edf4590b5a375afed92db71419692",
+          "null_count": 0
+        },
+        {
+          "name": "CityName",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:42f84806098df164a8f03fe9ee83d63d050f7eb8a47b0573199f8ab86480a120",
+          "null_count": 0
+        },
+        {
+          "name": "StateProvinceID",
+          "sql_type": "int",
+          "digest": "sha256:0522e7c0f5fddb555f4246ea7792edfb9be38aa8e777949d3ba0c59d655c89e4",
+          "null_count": 0
+        },
+        {
+          "name": "Location",
+          "sql_type": "geography",
+          "digest": "sha256:5f7b7edc731af35c743ea6638ec82c931df4d95a67c27cfb6ed7d8449d93c57a",
+          "null_count": 0
+        },
+        {
+          "name": "LatestRecordedPopulation",
+          "sql_type": "bigint",
+          "digest": "sha256:0f1b13176f9e0bae1f84368fbbc422cc468c9c210766eb0162d1b06eaf5e6ca6",
+          "null_count": 11
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "digest": "sha256:210fc4091fdba954642afbc3426a6e172be32e87074e900ca9fa3226a6f4d726",
+          "null_count": 0
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "digest": "sha256:088a63c92350181bf91997042485c67665c62e3d4aac7d9e810a4ca41437c29e",
+          "null_count": 0
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "digest": "sha256:2fae10abb810e87541a703ba60d6d747dfb28527a5188d8bd68aa9e1685f8890",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true
+    },
+    {
+      "fqn": "Application.Countries",
+      "row_count": 190,
+      "key_columns": [
+        "CountryID"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "CountryID",
+          "sql_type": "int",
+          "digest": "sha256:d59df00ec189d7a28cfcea89eac2c16fad70b234242cda73cd93589798ff9470",
+          "null_count": 0
+        },
+        {
+          "name": "CountryName",
+          "sql_type": "nvarchar(60)",
+          "digest": "sha256:b794492573fd93a7d3d0ddfaf74a7f2d719c898347a66733e488498ea8561bf7",
+          "null_count": 0
+        },
+        {
+          "name": "FormalName",
+          "sql_type": "nvarchar(60)",
+          "digest": "sha256:66e09b2a58b2bdde5d92769501b2fb2b5ef7fc48e8571c2412f5deba7111ea31",
+          "null_count": 0
+        },
+        {
+          "name": "IsoAlpha3Code",
+          "sql_type": "nvarchar(3)",
+          "digest": "sha256:6fa77d257cab66e7e5848c3f2ea0d6d0b44cf4b51da9764d076e21eb858de3e6",
+          "null_count": 0
+        },
+        {
+          "name": "IsoNumericCode",
+          "sql_type": "int",
+          "digest": "sha256:4a6f5ea0f90593e1adf4e07573866c3f635128a62a9dea92cd2423a22d8c1c83",
+          "null_count": 0
+        },
+        {
+          "name": "CountryType",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:adca51caec926dcb32c366195a096ab4f797357c2b8687c7c131871fb71a33d4",
+          "null_count": 0
+        },
+        {
+          "name": "LatestRecordedPopulation",
+          "sql_type": "bigint",
+          "digest": "sha256:9ab7e6fa18882bdc631e5faba8b8c5de8c46701ec11b28a8e9009eee9ee0fcd1",
+          "null_count": 0
+        },
+        {
+          "name": "Continent",
+          "sql_type": "nvarchar(30)",
+          "digest": "sha256:15e2f13ddbdb00292942bd0b7b58da95720767cc6d19f90d0abf0d9f03bf5c50",
+          "null_count": 0
+        },
+        {
+          "name": "Region",
+          "sql_type": "nvarchar(30)",
+          "digest": "sha256:8bc11b3c1bede927edc7f335ff8e034a094f8f0055d678ecf46fe20571d396ce",
+          "null_count": 0
+        },
+        {
+          "name": "Subregion",
+          "sql_type": "nvarchar(30)",
+          "digest": "sha256:03311e208a7354919f006cb463bca9c69ff04aca97d85440aa127b85fdc76fcc",
+          "null_count": 0
+        },
+        {
+          "name": "Border",
+          "sql_type": "geography",
+          "digest": "sha256:53f340039485138a7fd86c792ba1ed9693fda0a46e29975029d5cbe7935184c5",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "digest": "sha256:2fa9001584a270953f6b901369ba660c33451bf8780399e7d915ef72ed288239",
+          "null_count": 0
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "digest": "sha256:02c8d106a6f4a071060dd88824d200da8e1cd7c7391e3124ed3533ece4915f2c",
+          "null_count": 0
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "digest": "sha256:1b66391faaa663f1535ca4b7a6e742b9dfad489c670efe7832ba530ae234e30d",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "Application.Countries_Archive",
+      "row_count": 36,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "CountryID",
+          "sql_type": "int",
+          "digest": "sha256:6a560b31d5a196c250664e124d92e3aa4ad2ebdcf82fcb7886dfeae91963235b",
+          "null_count": 0
+        },
+        {
+          "name": "CountryName",
+          "sql_type": "nvarchar(60)",
+          "digest": "sha256:ec545acf9b0fab1903666e0a3c6c4f90d2051322778bec8ca03cb4c82d9b9d38",
+          "null_count": 0
+        },
+        {
+          "name": "FormalName",
+          "sql_type": "nvarchar(60)",
+          "digest": "sha256:e74d23306759ff881a089d8a16ba1d4e94c5f18502a36e51dbd5cef1be834238",
+          "null_count": 0
+        },
+        {
+          "name": "IsoAlpha3Code",
+          "sql_type": "nvarchar(3)",
+          "digest": "sha256:c36d597331b4bb59369ad03294a369dbaa4ef93d546b9b0d6ba6938a1ac0f886",
+          "null_count": 0
+        },
+        {
+          "name": "IsoNumericCode",
+          "sql_type": "int",
+          "digest": "sha256:fa82d0ca2c1994d853647a8d7c5214593eb8c2e1cf715d22dc91a017b2142085",
+          "null_count": 0
+        },
+        {
+          "name": "CountryType",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:60e62644e8fe337e6fc97cbe586cc237483b2c5c58328604cf23a5a39827b56a",
+          "null_count": 0
+        },
+        {
+          "name": "LatestRecordedPopulation",
+          "sql_type": "bigint",
+          "digest": "sha256:31117cbaca78251433e3a6360cfc376b3bae886809fe865a2d7d5e5e039fcd99",
+          "null_count": 0
+        },
+        {
+          "name": "Continent",
+          "sql_type": "nvarchar(30)",
+          "digest": "sha256:a3025004350db7606d6fc8db25b075cf30f8fa769d4c50c446133535fb43e429",
+          "null_count": 0
+        },
+        {
+          "name": "Region",
+          "sql_type": "nvarchar(30)",
+          "digest": "sha256:61b6edd4d24ec931e80e74d493ab407af1003b74e9e0aba52e4c9c8c94807c64",
+          "null_count": 0
+        },
+        {
+          "name": "Subregion",
+          "sql_type": "nvarchar(30)",
+          "digest": "sha256:08ee48f1b33cb63e6d29c6f9bf32559a82477aee9e2ea227154f7c60a1578e5f",
+          "null_count": 0
+        },
+        {
+          "name": "Border",
+          "sql_type": "geography",
+          "digest": "sha256:c6468c320d4c54903520c5fe8f11b8212c7218cb9d10a9bee9cde263ff455ac4",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "digest": "sha256:78474f77db7e4fe960010566705783fe02983dc486fa4ba598fc0808999bf5e5",
+          "null_count": 0
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "digest": "sha256:303dc669374b782aa949d0f96dcc4629ad137a7f7b620bb6075c831f585fd194",
+          "null_count": 0
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "digest": "sha256:39c081254bc3c8fc7efe301492b9489f55c857c35a0564d3cec30c5a1e602483",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true
+    },
+    {
+      "fqn": "Application.DeliveryMethods",
+      "row_count": 10,
+      "key_columns": [
+        "DeliveryMethodID"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "DeliveryMethodID",
+          "sql_type": "int",
+          "digest": "sha256:9580f3b016d3581180d64a6c2ffd7883350f5d7d48a0d547e5f7ad688f05048a",
+          "null_count": 0
+        },
+        {
+          "name": "DeliveryMethodName",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:ee70160430b38b41afea043227a55466b17fa5056ecad9d4ed0215b34eeacbd4",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "digest": "sha256:1288adc99254d9803f5a2329de39d7086e670b918f7e0a47c085c3676845be21",
+          "null_count": 0
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "digest": "sha256:db59b8fc1a2d663bc015d914fc6d74b4bac6005e1b88486e04877e0ec3139975",
+          "null_count": 0
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "digest": "sha256:b172bf6d0cfd79def40bb3d668e8d45409c55e0fc51c5447e9facce8546f323b",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "Application.DeliveryMethods_Archive",
+      "row_count": 1,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "DeliveryMethodID",
+          "sql_type": "int",
+          "digest": "sha256:dbf364ae4c854398d11fd05a796a923d722785ad0fb0d9268384f1ce4e44fad7",
+          "null_count": 0
+        },
+        {
+          "name": "DeliveryMethodName",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:7fa9fbfb3cb4ba7ff85efb4686981f1fa65d6c14dec66146c8fe0b69e1b9ba29",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "digest": "sha256:d7c0db5a2a0b7eb9abf5c315453ababfd88818917d8672d8c8889558477d6102",
+          "null_count": 0
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "digest": "sha256:1bbb609f9ad84ebb3d6eb8bcebfc57de1796feb91f23c7719d63cc3eda66e9e0",
+          "null_count": 0
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "digest": "sha256:3da68fdfd76671ada33ae886706537366bb189b11c247b292762472459216564",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true
+    },
+    {
+      "fqn": "Application.PaymentMethods",
+      "row_count": 4,
+      "key_columns": [
+        "PaymentMethodID"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "PaymentMethodID",
+          "sql_type": "int",
+          "digest": "sha256:ff4a8c130447f52354261f27135cf2bdb7b593e8c872fda57a934632c2234483",
+          "null_count": 0
+        },
+        {
+          "name": "PaymentMethodName",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:1e020682127495c77e35ad6582ba10ae4cbea9e8633b036dabf7e6b1be131fad",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "digest": "sha256:8afd693eadc697975f8845458b9b3532362a0658c4fea7319c77de6903562caa",
+          "null_count": 0
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "digest": "sha256:ffcb612d21923be36bb7ed65ccb731417319b8ccb97e88e6b61a66b1c5ffe1db",
+          "null_count": 0
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "digest": "sha256:9fa41d3c77abdb147d7932c9dfeb9a93e82a4f6b717c4e9d75f7d2e54d122eb9",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "Application.PaymentMethods_Archive",
+      "row_count": 1,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "PaymentMethodID",
+          "sql_type": "int",
+          "digest": "sha256:da6e339afa589c0452d8d5ef14c58d5f083c32ea2b68b5fe47baf9b4ab6628c6",
+          "null_count": 0
+        },
+        {
+          "name": "PaymentMethodName",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:6f81618797c6bb88739e7bf48bcbb5ba01523bac5efb14f1967301cb1585c513",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "digest": "sha256:d7c0db5a2a0b7eb9abf5c315453ababfd88818917d8672d8c8889558477d6102",
+          "null_count": 0
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "digest": "sha256:1bbb609f9ad84ebb3d6eb8bcebfc57de1796feb91f23c7719d63cc3eda66e9e0",
+          "null_count": 0
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "digest": "sha256:44400c947fb382b90f19de3380ed801932e77fce593254a45a80a1af0c4e922f",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true
+    },
+    {
+      "fqn": "Application.People",
+      "row_count": 1111,
+      "key_columns": [
+        "PersonID"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "PersonID",
+          "sql_type": "int",
+          "digest": "sha256:fca7df835f3a138a877a09cdc0eb3d1bf519e205f6735f92a458ab6b56bb60e2",
+          "null_count": 0
+        },
+        {
+          "name": "FullName",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:1193b813da7d5251d68d392756b1319045a80707c06e93dfb7ce197c7aa751b1",
+          "null_count": 0
+        },
+        {
+          "name": "PreferredName",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:e805593696f20386b7478cc226aefc957dcfc28133e1cb147653931bdb2f71f2",
+          "null_count": 0
+        },
+        {
+          "name": "IsPermittedToLogon",
+          "sql_type": "bit",
+          "digest": "sha256:05cc116a1cfdc57e0f277aae397be8311b2f999416f86095a8ee189fc0703b3c",
+          "null_count": 0
+        },
+        {
+          "name": "LogonName",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:890e904af61cd39ac53edb05c964146ef0f81031d74db8ec128316df66f954e1",
+          "null_count": 0
+        },
+        {
+          "name": "IsExternalLogonProvider",
+          "sql_type": "bit",
+          "digest": "sha256:673584ed861dab70258e0f575625b139ac728d03d8cea3d37ca175ede63a639e",
+          "null_count": 0
+        },
+        {
+          "name": "HashedPassword",
+          "sql_type": "varbinary(max)",
+          "digest": "sha256:b01494854a1aa15fea85ffdb9a1765557dfac1254e54afd89594b7b4e8c7de1b",
+          "null_count": 954
+        },
+        {
+          "name": "IsSystemUser",
+          "sql_type": "bit",
+          "digest": "sha256:ef3f8dcf239ac310a2a4e138c1bb25ea82a76b6f824ad9492a1f1dece0857552",
+          "null_count": 0
+        },
+        {
+          "name": "IsEmployee",
+          "sql_type": "bit",
+          "digest": "sha256:d3b18cc2a06cd9d6810a5bab48d191452f3901b5281c827948da691f97bb2936",
+          "null_count": 0
+        },
+        {
+          "name": "IsSalesperson",
+          "sql_type": "bit",
+          "digest": "sha256:8f5fcf1649dc45903ab8f6d2611151ff6910d48c20c65c0d7a32fa2286d83f2c",
+          "null_count": 0
+        },
+        {
+          "name": "UserPreferences",
+          "sql_type": "nvarchar(max)",
+          "digest": "sha256:025c5bb50acb3ee696cb00b31e2dcc24ba3123fe2098874793a4f039c25329e3",
+          "null_count": 929
+        },
+        {
+          "name": "PhoneNumber",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:6896b1e12f5691599ade4bf337305efc3c266daf20f0e7ad03c30e014fd43a07",
+          "null_count": 1
+        },
+        {
+          "name": "FaxNumber",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:85c7e3521b66b8a5ef0196cfd9f3af6ab56a3e7c19685172fb73b1e10136e0d3",
+          "null_count": 1
+        },
+        {
+          "name": "EmailAddress",
+          "sql_type": "nvarchar(256)",
+          "digest": "sha256:ba4efa0522b5cff3a514d35f7675a951510d226b608048ec5697b252425995c6",
+          "null_count": 1
+        },
+        {
+          "name": "Photo",
+          "sql_type": "varbinary(max)",
+          "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "null_count": 1111
+        },
+        {
+          "name": "CustomFields",
+          "sql_type": "nvarchar(max)",
+          "digest": "sha256:266619185b8b4cf75ece5792ee0d5f561d8719d5275a9fc02a3b88feabe83c0d",
+          "null_count": 1092
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "digest": "sha256:ef751137b3e974dcda0e3b7f7a955682eac0a570a0b63e434d3e21c84aaaf2c9",
+          "null_count": 0
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "digest": "sha256:70c938d1563ca5f87b3a307366718b4334172180b467b66ef46c76d4fb90b218",
+          "null_count": 0
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "digest": "sha256:2c57e1107e5a79bb306ee1b6f86b0917dfcb6dc216eccb630ba77de21b40825b",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "Application.People_Archive",
+      "row_count": 961,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "PersonID",
+          "sql_type": "int",
+          "digest": "sha256:06e4618ed59c56810d5be96e23e6042d8dfd2b2fb3a2f31a895e83ce81de3f13",
+          "null_count": 0
+        },
+        {
+          "name": "FullName",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:1c5c398fbacef98dcb193d3160203ffa7c16ddcef81241c0ec2a93dbbb1493cd",
+          "null_count": 0
+        },
+        {
+          "name": "PreferredName",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:09aae980e4897c203bedd66f4ae748901ddfbe7081bb635f6af09d2be0d0ed58",
+          "null_count": 0
+        },
+        {
+          "name": "SearchName",
+          "sql_type": "nvarchar(101)",
+          "digest": "sha256:f665da5cb51dc355137eda4d71e69287241ca7b132c6f474dd9f495081402d9c",
+          "null_count": 0
+        },
+        {
+          "name": "IsPermittedToLogon",
+          "sql_type": "bit",
+          "digest": "sha256:af0cc7b20adf51156e55bb390c3888963fbbe10ca26910e7c303e7a99bcfcef8",
+          "null_count": 0
+        },
+        {
+          "name": "LogonName",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:476af5704d2b6bfc9d6a7f24a58efce99b349123765639e74c536717264bcf19",
+          "null_count": 0
+        },
+        {
+          "name": "IsExternalLogonProvider",
+          "sql_type": "bit",
+          "digest": "sha256:de95946269a839e1e6f4a618be5437e399c404fb7b26d532420b94a43f65a6ec",
+          "null_count": 0
+        },
+        {
+          "name": "HashedPassword",
+          "sql_type": "varbinary(max)",
+          "digest": "sha256:33868c83cd7e449630e4bad5f3a1c300653ea42720ead46917b4addde14c6c2d",
+          "null_count": 163
+        },
+        {
+          "name": "IsSystemUser",
+          "sql_type": "bit",
+          "digest": "sha256:fe69c60b0615df547a3e8776dd6f17c6b740fa214c06db60d927a03b0cf137d7",
+          "null_count": 0
+        },
+        {
+          "name": "IsEmployee",
+          "sql_type": "bit",
+          "digest": "sha256:f86581325d78abf2303d56421d3acc8850bdf34c9bf594cc906432f7e7469f2b",
+          "null_count": 0
+        },
+        {
+          "name": "IsSalesperson",
+          "sql_type": "bit",
+          "digest": "sha256:ee212371a9b173d67dd0b9ada4ddf3619bdbff2729391d824cd2b13ec028577d",
+          "null_count": 0
+        },
+        {
+          "name": "UserPreferences",
+          "sql_type": "nvarchar(max)",
+          "digest": "sha256:d2ce73e2e2ac43fc5864fc8895a997519ec10fc0452ad58eb8d32d0b86c1daaf",
+          "null_count": 136
+        },
+        {
+          "name": "PhoneNumber",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:a13484f9a6f5528427f89c4ba7e3441316afa783f70dd0c8058f8dd68c51437e",
+          "null_count": 1
+        },
+        {
+          "name": "FaxNumber",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:d2a9893aa8ec4d189e433a6093fdb1a93eff0c73523d5afed15d156d2c52a1c2",
+          "null_count": 1
+        },
+        {
+          "name": "EmailAddress",
+          "sql_type": "nvarchar(256)",
+          "digest": "sha256:6c423bee4ca41e879425ba4bbd5b0c7ceff1803371db033bdfc9eadf5d14d38c",
+          "null_count": 1
+        },
+        {
+          "name": "Photo",
+          "sql_type": "varbinary(max)",
+          "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "null_count": 961
+        },
+        {
+          "name": "CustomFields",
+          "sql_type": "nvarchar(max)",
+          "digest": "sha256:266619185b8b4cf75ece5792ee0d5f561d8719d5275a9fc02a3b88feabe83c0d",
+          "null_count": 942
+        },
+        {
+          "name": "OtherLanguages",
+          "sql_type": "nvarchar(max)",
+          "digest": "sha256:6296738440c11aee8d743085c59b362140e6ade6de255fc0a2b7e5a8f4c2b5be",
+          "null_count": 942
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "digest": "sha256:4554b3af9df8a52caed82858fa71147b89354bb1000b1a51372f8a792004817a",
+          "null_count": 0
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "digest": "sha256:5c989585244f94e68bf60f832faea4008e796acb4da0096b4df8f660bfa77342",
+          "null_count": 0
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "digest": "sha256:c229a0a5edb581a7bb1f5cae507b5611fd67bf298e622a6a7509213112c9cb69",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true
+    },
+    {
+      "fqn": "Application.StateProvinces",
+      "row_count": 53,
+      "key_columns": [
+        "StateProvinceID"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "StateProvinceID",
+          "sql_type": "int",
+          "digest": "sha256:aa1cb6092a7bfa5d5bfdba12abfaded4e2a7fa9ed9e739190cb0eb75033c18bc",
+          "null_count": 0
+        },
+        {
+          "name": "StateProvinceCode",
+          "sql_type": "nvarchar(5)",
+          "digest": "sha256:9729c9adb626ec00fa29298292257f790dacb9924fc0e3add5390417f799d2af",
+          "null_count": 0
+        },
+        {
+          "name": "StateProvinceName",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:615fce842ec48bbe95f121643d5c56abec1101174c21fd478f61bc6b67355861",
+          "null_count": 0
+        },
+        {
+          "name": "CountryID",
+          "sql_type": "int",
+          "digest": "sha256:819b52a9cd464f2c4e495eca8001ef688988512e31ebaac01ccfb6ac48205493",
+          "null_count": 0
+        },
+        {
+          "name": "SalesTerritory",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:d131c63e1e425366d6c19ce497fb595b036ee9faa8d585fa72e1756f1d30284e",
+          "null_count": 0
+        },
+        {
+          "name": "Border",
+          "sql_type": "geography",
+          "digest": "sha256:59b69dc961d1e8c11572f09b09cc4ff0cf01fe87ddd6e9f7a4eb584e9e6e4aaa",
+          "null_count": 1
+        },
+        {
+          "name": "LatestRecordedPopulation",
+          "sql_type": "bigint",
+          "digest": "sha256:7255fbe3dfe40f1215d798a27dc1520fa9e0052ecf51112c2bc0864bbed6bee0",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "digest": "sha256:4fa52c23e58777c0464c1941d906e214de28fb4c2158e732a4266d052e11f2ca",
+          "null_count": 0
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "digest": "sha256:f9a5746fc2cea145ec477222bbfabc9704310f48eb102c66f1a985a879a9c9ba",
+          "null_count": 0
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "digest": "sha256:c68017850f8ac10c743ace266a410d7f9401c083fa317ecc3cb205874e14169c",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "Application.StateProvinces_Archive",
+      "row_count": 104,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "StateProvinceID",
+          "sql_type": "int",
+          "digest": "sha256:66792f3520f277cc8c31d4437a5faa8450a9b71cdacada1728b9c7b6519bf2e9",
+          "null_count": 0
+        },
+        {
+          "name": "StateProvinceCode",
+          "sql_type": "nvarchar(5)",
+          "digest": "sha256:eafc21f9f2195158f9d74ad0497557eb24c6c1c300f89186ca8d08de7575a348",
+          "null_count": 0
+        },
+        {
+          "name": "StateProvinceName",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:ed17d4c74f95ac41ab85f42bdbb53eb88b98801bdc6d9afcf4d9767a40c2460c",
+          "null_count": 0
+        },
+        {
+          "name": "CountryID",
+          "sql_type": "int",
+          "digest": "sha256:76deea6952e6061a55ec6165bdcd0b3c0e1f88b11e6927282c8f99b2eafbede8",
+          "null_count": 0
+        },
+        {
+          "name": "SalesTerritory",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:5340c97e38dae0b7421b1135d270c7a438a7d693b40ca258a82695a438cf8c63",
+          "null_count": 0
+        },
+        {
+          "name": "Border",
+          "sql_type": "geography",
+          "digest": "sha256:8317af5ad1fc9fdfe39e1b2bf078ce258bb4959d23bac6d71f847f1429394d55",
+          "null_count": 52
+        },
+        {
+          "name": "LatestRecordedPopulation",
+          "sql_type": "bigint",
+          "digest": "sha256:7240946327602c7ced6ffea76c20cbd45fa3fa3ffa7bdf9314d02a95b6e2be54",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "digest": "sha256:050e3a870020cb9838b95742f3b7efd0ae306150ffd98d80eef200b8df5eb40b",
+          "null_count": 0
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "digest": "sha256:8463bc329564e0a97e384167df8dbcdfeb70260698a44db7c56189ff19a3717a",
+          "null_count": 0
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "digest": "sha256:5fe0fbcec50c0a4694ae3646f5548eba07199eaeea2a3b1e001f080ad1939598",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true
+    },
+    {
+      "fqn": "Application.SystemParameters",
+      "row_count": 1,
+      "key_columns": [
+        "SystemParameterID"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "SystemParameterID",
+          "sql_type": "int",
+          "digest": "sha256:d7c0db5a2a0b7eb9abf5c315453ababfd88818917d8672d8c8889558477d6102",
+          "null_count": 0
+        },
+        {
+          "name": "DeliveryAddressLine1",
+          "sql_type": "nvarchar(60)",
+          "digest": "sha256:390925f4fbb1472bbf8275431b21cb4c97ade33b6f5ea12d2bea66c524a79a10",
+          "null_count": 0
+        },
+        {
+          "name": "DeliveryAddressLine2",
+          "sql_type": "nvarchar(60)",
+          "digest": "sha256:ef2507ca06dbd205babcc1a934bc3717c7f3c00727cd72dc2a4717a7a9f12afc",
+          "null_count": 0
+        },
+        {
+          "name": "DeliveryCityID",
+          "sql_type": "int",
+          "digest": "sha256:8aa5f48be13d9cff243a6b463233de73e33c40652edd344daadc2808032d0c98",
+          "null_count": 0
+        },
+        {
+          "name": "DeliveryPostalCode",
+          "sql_type": "nvarchar(10)",
+          "digest": "sha256:505d29ab6601ad0b03bcc1214157aafeaa1d7a0b55ff06f56c5f4ee98fa3fdcb",
+          "null_count": 0
+        },
+        {
+          "name": "DeliveryLocation",
+          "sql_type": "geography",
+          "digest": "sha256:3c5227ee1a93bd0e874ce7c65c5cacb162c260392988ddf1dcfb5985cd72c61f",
+          "null_count": 0
+        },
+        {
+          "name": "PostalAddressLine1",
+          "sql_type": "nvarchar(60)",
+          "digest": "sha256:ada6c5ba2c3299f0eef273d6b444415789e69551a24ef2a21dc22fcb476a6c8b",
+          "null_count": 0
+        },
+        {
+          "name": "PostalAddressLine2",
+          "sql_type": "nvarchar(60)",
+          "digest": "sha256:aedc79b29319d8bfac84b57d018f35c4e5afbd5719d904386ac6ab571efa06e1",
+          "null_count": 0
+        },
+        {
+          "name": "PostalCityID",
+          "sql_type": "int",
+          "digest": "sha256:8aa5f48be13d9cff243a6b463233de73e33c40652edd344daadc2808032d0c98",
+          "null_count": 0
+        },
+        {
+          "name": "PostalPostalCode",
+          "sql_type": "nvarchar(10)",
+          "digest": "sha256:505d29ab6601ad0b03bcc1214157aafeaa1d7a0b55ff06f56c5f4ee98fa3fdcb",
+          "null_count": 0
+        },
+        {
+          "name": "ApplicationSettings",
+          "sql_type": "nvarchar(max)",
+          "digest": "sha256:2e231b59d3533c34bed1ea4114185f02ace250d335b64e47efe4d83eed935ff3",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "digest": "sha256:d7c0db5a2a0b7eb9abf5c315453ababfd88818917d8672d8c8889558477d6102",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedWhen",
+          "sql_type": "datetime2",
+          "digest": "sha256:1bbb609f9ad84ebb3d6eb8bcebfc57de1796feb91f23c7719d63cc3eda66e9e0",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "Application.TransactionTypes",
+      "row_count": 13,
+      "key_columns": [
+        "TransactionTypeID"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "TransactionTypeID",
+          "sql_type": "int",
+          "digest": "sha256:56158b8cdf36a1569c2e11454eddbe75366b24b04c906e9c6fa3236cbd0d5810",
+          "null_count": 0
+        },
+        {
+          "name": "TransactionTypeName",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:49c36673b1201a0079aee5cc7c011e1eee6e322635055ec3432abdbde4b78831",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "digest": "sha256:5841b79fd9f6ab79d89c079dda6226a2eedf65694ee56a4174ea0c7906be930e",
+          "null_count": 0
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "digest": "sha256:6213c51132ae0503bfcdb7cfeebb79719e0a32af292644fc8cbb1870a09d4a55",
+          "null_count": 0
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "digest": "sha256:9b8497fb90357fad71dc1c6563656be047c104ac0ca657f7efdfc0836011edcf",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "Application.TransactionTypes_Archive",
+      "row_count": 1,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "TransactionTypeID",
+          "sql_type": "int",
+          "digest": "sha256:215c3c744e504f160a73bf1ce5c09955fcc0a8feed3042b83b972985eb9f22ac",
+          "null_count": 0
+        },
+        {
+          "name": "TransactionTypeName",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:cb61e00b475fe3c6b625f4f07826e9701d6697afcf0ffb7f65b61a60de4dd5a3",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "digest": "sha256:f8892a9d0f564e0b9da490bee267751e2b6752d4afb467d1d6592ab7ddc5abe4",
+          "null_count": 0
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "digest": "sha256:44400c947fb382b90f19de3380ed801932e77fce593254a45a80a1af0c4e922f",
+          "null_count": 0
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "digest": "sha256:60aced89a6a8ee9b9e3a436a0860e969446e87bcf9da11a07c19405c32dfba98",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true
+    },
+    {
+      "fqn": "Purchasing.PurchaseOrderLines",
+      "row_count": 8367,
+      "key_columns": [
+        "PurchaseOrderLineID"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "PurchaseOrderLineID",
+          "sql_type": "int",
+          "digest": "sha256:8c8b5c10906aa434cbf7f2e024039d29e6d338e065529cfaa66a06ff9de59f9a",
+          "null_count": 0
+        },
+        {
+          "name": "PurchaseOrderID",
+          "sql_type": "int",
+          "digest": "sha256:2770aecb7062516da8b26e477dc6fbefad57e2475839d84353d7b5315c4ce597",
+          "null_count": 0
+        },
+        {
+          "name": "StockItemID",
+          "sql_type": "int",
+          "digest": "sha256:38c01aa7a1a0c2a6d18de4fbf115edddbc570cc4a663f1dd3a58975962d5714e",
+          "null_count": 0
+        },
+        {
+          "name": "OrderedOuters",
+          "sql_type": "int",
+          "digest": "sha256:5e557ad1af057b89b342726b6ba121d6d29cdaee12da94f0d0e4cdd025ff848a",
+          "null_count": 0
+        },
+        {
+          "name": "Description",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:5a9dc79560073ed12967ca2af95f06189afdd0fc8883345b06a13a2906aeebbc",
+          "null_count": 0
+        },
+        {
+          "name": "ReceivedOuters",
+          "sql_type": "int",
+          "digest": "sha256:9d05aa5379efb8bcb04263b6610bc78931935facbb58cc627678aaa342bbb0b3",
+          "null_count": 0
+        },
+        {
+          "name": "PackageTypeID",
+          "sql_type": "int",
+          "digest": "sha256:28295b28fde24e553748f18947d02893a2300014cabcb9ce385ce646f9472e78",
+          "null_count": 0
+        },
+        {
+          "name": "ExpectedUnitPricePerOuter",
+          "sql_type": "decimal(18,2)",
+          "digest": "sha256:48f6689de92a2536707076aa7b3997381762bf3f0a670b210072238758b23514",
+          "null_count": 0
+        },
+        {
+          "name": "LastReceiptDate",
+          "sql_type": "date",
+          "digest": "sha256:825b563483c47682fe5d268e6a1ca0d247dff86d7853b597bc590d3739f9f6cf",
+          "null_count": 9
+        },
+        {
+          "name": "IsOrderLineFinalized",
+          "sql_type": "bit",
+          "digest": "sha256:beb754f98c381ea787585866ee92e9ac0abfa75d927a8313013f945922e5f086",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "digest": "sha256:01386b5c4d7e9c28f5b58daed0d6ca69f9f51770ebd1e30d5d58868bfff4b4e6",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedWhen",
+          "sql_type": "datetime2",
+          "digest": "sha256:a83622326bc7acf5549514f1992ecd174e6e252438fdd46f542ecb081c009dbc",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "Purchasing.PurchaseOrders",
+      "row_count": 2074,
+      "key_columns": [
+        "PurchaseOrderID"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "PurchaseOrderID",
+          "sql_type": "int",
+          "digest": "sha256:056b0165ff88cf1805eabd0102dba9dec30504ec09d961730e442120dedd05a0",
+          "null_count": 0
+        },
+        {
+          "name": "SupplierID",
+          "sql_type": "int",
+          "digest": "sha256:bdc81396490fbe6b57cbc7d077c4a64799df46e473444f9fed53a6e9552e4c40",
+          "null_count": 0
+        },
+        {
+          "name": "OrderDate",
+          "sql_type": "date",
+          "digest": "sha256:ce22142de0aae98a536e9b0db7dbd4579d74d12852be15008d21d272060052cb",
+          "null_count": 0
+        },
+        {
+          "name": "DeliveryMethodID",
+          "sql_type": "int",
+          "digest": "sha256:d197ca4ee0927ed8e211811b651fc7ed11ca90ddcd0ef43e8c53c14fe22ee9d3",
+          "null_count": 0
+        },
+        {
+          "name": "ContactPersonID",
+          "sql_type": "int",
+          "digest": "sha256:cfc72bbed2e395727686d31606141d30e9f45f4e9b2c3716d0ef6df7771d8f12",
+          "null_count": 0
+        },
+        {
+          "name": "ExpectedDeliveryDate",
+          "sql_type": "date",
+          "digest": "sha256:bbf8df17e90b5184956a2c78afbe2a305b4c5fd7c75a224d3724f523f43db7b7",
+          "null_count": 0
+        },
+        {
+          "name": "SupplierReference",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:bae2f5370c20f4140cd3bb211e0b88f6aa96d4f69fe3aed9061e61b38d8ef93a",
+          "null_count": 0
+        },
+        {
+          "name": "IsOrderFinalized",
+          "sql_type": "bit",
+          "digest": "sha256:f99e8960d12587f89415679085d9780d5dcff9e9115b23a0b5b2a6f76aa98002",
+          "null_count": 0
+        },
+        {
+          "name": "Comments",
+          "sql_type": "nvarchar(max)",
+          "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "null_count": 2074
+        },
+        {
+          "name": "InternalComments",
+          "sql_type": "nvarchar(max)",
+          "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "null_count": 2074
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "digest": "sha256:0a0760ba0fa3fa882f60afca01257175e00346ab4fd2497754587876908f0e8b",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedWhen",
+          "sql_type": "datetime2",
+          "digest": "sha256:90b30d68c94e3ae1a09beb5bd16f461c65e107bb918e4785d46010b3fbe13bfd",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "Purchasing.SupplierCategories",
+      "row_count": 9,
+      "key_columns": [
+        "SupplierCategoryID"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "SupplierCategoryID",
+          "sql_type": "int",
+          "digest": "sha256:97b726022c3657a182eb84604410691335595cecfd9ed820aac3989134237a40",
+          "null_count": 0
+        },
+        {
+          "name": "SupplierCategoryName",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:079fea25a16f909f2a8534ba084f374c2210ff94daa8d053b4fa101247f71140",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "digest": "sha256:8d954ea06e5fb77fdf31b7e133ed3827871b7c722d38f1285056480ae0e0c31c",
+          "null_count": 0
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "digest": "sha256:a6f7630a0ed42041dff9173983ab2f4be30a98f8c3c1f790996f3b31d25b1eca",
+          "null_count": 0
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "digest": "sha256:b4694995e969ae064aa5af7f12d406a705412ba54da7b01def1448d816a652d5",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "Purchasing.SupplierCategories_Archive",
+      "row_count": 1,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "SupplierCategoryID",
+          "sql_type": "int",
+          "digest": "sha256:bd2501d23a674efadf3132c148da5a865e0b38312412c085d6b281bc95d16744",
+          "null_count": 0
+        },
+        {
+          "name": "SupplierCategoryName",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:badd21329f4eb59873d7e6c1c928afa97c22a2490dba6696e0a5830e29b2e4ef",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "digest": "sha256:d7c0db5a2a0b7eb9abf5c315453ababfd88818917d8672d8c8889558477d6102",
+          "null_count": 0
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "digest": "sha256:1bbb609f9ad84ebb3d6eb8bcebfc57de1796feb91f23c7719d63cc3eda66e9e0",
+          "null_count": 0
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "digest": "sha256:3da68fdfd76671ada33ae886706537366bb189b11c247b292762472459216564",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true
+    },
+    {
+      "fqn": "Purchasing.Suppliers",
+      "row_count": 13,
+      "key_columns": [
+        "SupplierID"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "SupplierID",
+          "sql_type": "int",
+          "digest": "sha256:56158b8cdf36a1569c2e11454eddbe75366b24b04c906e9c6fa3236cbd0d5810",
+          "null_count": 0
+        },
+        {
+          "name": "SupplierName",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:a536a733ffbbd47a86d4957c51d8f04afb5716ff09acb3bae74a4253da510a21",
+          "null_count": 0
+        },
+        {
+          "name": "SupplierCategoryID",
+          "sql_type": "int",
+          "digest": "sha256:c42f03c08a5dc7b4db666a6ca87850154cae23fff731e0f97967b08cdf623bcc",
+          "null_count": 0
+        },
+        {
+          "name": "PrimaryContactPersonID",
+          "sql_type": "int",
+          "digest": "sha256:5ea1a9ce248ba02c1f8c5429122973a4b307f1ce9b75057fe73ea4639c7a97dd",
+          "null_count": 0
+        },
+        {
+          "name": "AlternateContactPersonID",
+          "sql_type": "int",
+          "digest": "sha256:7a7b309fde9ebbba6507eb5e51af4a92ae2416b7ce486f717749802881cf454d",
+          "null_count": 0
+        },
+        {
+          "name": "DeliveryMethodID",
+          "sql_type": "int",
+          "digest": "sha256:9d32322ee4e7bb6785c67cb9726d4751801a6413947df8edf8f0027dba066d82",
+          "null_count": 4
+        },
+        {
+          "name": "DeliveryCityID",
+          "sql_type": "int",
+          "digest": "sha256:097eab021e825d9a207358a167c74e541e2dda1ad6c7f2d2aa4393342928a8c1",
+          "null_count": 0
+        },
+        {
+          "name": "PostalCityID",
+          "sql_type": "int",
+          "digest": "sha256:097eab021e825d9a207358a167c74e541e2dda1ad6c7f2d2aa4393342928a8c1",
+          "null_count": 0
+        },
+        {
+          "name": "SupplierReference",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:acc4d64e2f5c452580f172765bffe95c2d0ef5aebba620066b0c4182cd674b83",
+          "null_count": 0
+        },
+        {
+          "name": "BankAccountName",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:d731d83d08f6b9e9e78476aaebb8abe8cdc02d3ffe674dccc663e8d2c5a6c10a",
+          "null_count": 0
+        },
+        {
+          "name": "BankAccountBranch",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:3e03fca42ddc7303480ab13b93d3ddb059c687d72ca1de18ba03c5ca3f7d6c0a",
+          "null_count": 0
+        },
+        {
+          "name": "BankAccountCode",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:2f865c06a05b08cde9f18779d04cc045628db9e4308f1199d29e99d7f5fc04ae",
+          "null_count": 0
+        },
+        {
+          "name": "BankAccountNumber",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:030b75d886614c455cacc023a8302c60127457b348a4c47e9c11cb033c15a8e6",
+          "null_count": 0
+        },
+        {
+          "name": "BankInternationalCode",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:ae3b10392acdac2cb36797ef88ee8b1efde0c4f0ffc4b34421514bbe25b87fea",
+          "null_count": 0
+        },
+        {
+          "name": "PaymentDays",
+          "sql_type": "int",
+          "digest": "sha256:8ceadccbc38c9632126a07b2481ea5ac61455e66901ab61004a2f1083f872be3",
+          "null_count": 0
+        },
+        {
+          "name": "InternalComments",
+          "sql_type": "nvarchar(max)",
+          "digest": "sha256:2b326945dd1e0efb06fd4b5a5bd0fc21fc984742a3f51e6a76348333d36f65ab",
+          "null_count": 11
+        },
+        {
+          "name": "PhoneNumber",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:58c2422e74250fb197fcad380f674bbfeec7ac5a6548282b1f57aa7303cee895",
+          "null_count": 0
+        },
+        {
+          "name": "FaxNumber",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:b3548f5fdf960503abbad002eab1df91abe6c987cdacd77dde04a1db1b639ac4",
+          "null_count": 0
+        },
+        {
+          "name": "WebsiteURL",
+          "sql_type": "nvarchar(256)",
+          "digest": "sha256:5bee5057a5be34240603a0b95e48c680c8c582b9d31b2bef9e00b35220741955",
+          "null_count": 0
+        },
+        {
+          "name": "DeliveryAddressLine1",
+          "sql_type": "nvarchar(60)",
+          "digest": "sha256:5e74a61b93ce3ffcb8d197755768733e313a119bdba172a9172a7715ebbd7194",
+          "null_count": 0
+        },
+        {
+          "name": "DeliveryAddressLine2",
+          "sql_type": "nvarchar(60)",
+          "digest": "sha256:cb616b19e4723d75575c7edd46e122f7bc641d3b48dfb2c27d5240ad1f39532b",
+          "null_count": 0
+        },
+        {
+          "name": "DeliveryPostalCode",
+          "sql_type": "nvarchar(10)",
+          "digest": "sha256:0d8a8328f7b79a158a77e6b28c858893938f1cd34fbae766cd5c875b11f8d8fc",
+          "null_count": 0
+        },
+        {
+          "name": "DeliveryLocation",
+          "sql_type": "geography",
+          "digest": "sha256:3ad445e3e5e76fa30929691da731eb19bfd570d206f84601ec96007f8157473f",
+          "null_count": 0
+        },
+        {
+          "name": "PostalAddressLine1",
+          "sql_type": "nvarchar(60)",
+          "digest": "sha256:78fee0cc26de52aeb83dc1036a762ceca7f3b3af3a29337af860918b24e943a5",
+          "null_count": 0
+        },
+        {
+          "name": "PostalAddressLine2",
+          "sql_type": "nvarchar(60)",
+          "digest": "sha256:44296e6eb720c45740489de257196f5b22d7e256c001412ea4c916919e1f4b0c",
+          "null_count": 0
+        },
+        {
+          "name": "PostalPostalCode",
+          "sql_type": "nvarchar(10)",
+          "digest": "sha256:0d8a8328f7b79a158a77e6b28c858893938f1cd34fbae766cd5c875b11f8d8fc",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "digest": "sha256:d6690ea95a577b3fc88437d32e87f0334bf16bc58fee9d733f7996e5ae61afd1",
+          "null_count": 0
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "digest": "sha256:75dd66048a4a6a8fd75487a25038229dd87dc56931b816111bfff86094fd4c69",
+          "null_count": 0
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "digest": "sha256:9b8497fb90357fad71dc1c6563656be047c104ac0ca657f7efdfc0836011edcf",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "Purchasing.Suppliers_Archive",
+      "row_count": 13,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "SupplierID",
+          "sql_type": "int",
+          "digest": "sha256:56158b8cdf36a1569c2e11454eddbe75366b24b04c906e9c6fa3236cbd0d5810",
+          "null_count": 0
+        },
+        {
+          "name": "SupplierName",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:a536a733ffbbd47a86d4957c51d8f04afb5716ff09acb3bae74a4253da510a21",
+          "null_count": 0
+        },
+        {
+          "name": "SupplierCategoryID",
+          "sql_type": "int",
+          "digest": "sha256:c42f03c08a5dc7b4db666a6ca87850154cae23fff731e0f97967b08cdf623bcc",
+          "null_count": 0
+        },
+        {
+          "name": "PrimaryContactPersonID",
+          "sql_type": "int",
+          "digest": "sha256:5ea1a9ce248ba02c1f8c5429122973a4b307f1ce9b75057fe73ea4639c7a97dd",
+          "null_count": 0
+        },
+        {
+          "name": "AlternateContactPersonID",
+          "sql_type": "int",
+          "digest": "sha256:7a7b309fde9ebbba6507eb5e51af4a92ae2416b7ce486f717749802881cf454d",
+          "null_count": 0
+        },
+        {
+          "name": "DeliveryMethodID",
+          "sql_type": "int",
+          "digest": "sha256:9d32322ee4e7bb6785c67cb9726d4751801a6413947df8edf8f0027dba066d82",
+          "null_count": 4
+        },
+        {
+          "name": "DeliveryCityID",
+          "sql_type": "int",
+          "digest": "sha256:097eab021e825d9a207358a167c74e541e2dda1ad6c7f2d2aa4393342928a8c1",
+          "null_count": 0
+        },
+        {
+          "name": "PostalCityID",
+          "sql_type": "int",
+          "digest": "sha256:097eab021e825d9a207358a167c74e541e2dda1ad6c7f2d2aa4393342928a8c1",
+          "null_count": 0
+        },
+        {
+          "name": "SupplierReference",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:acc4d64e2f5c452580f172765bffe95c2d0ef5aebba620066b0c4182cd674b83",
+          "null_count": 0
+        },
+        {
+          "name": "BankAccountName",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:d731d83d08f6b9e9e78476aaebb8abe8cdc02d3ffe674dccc663e8d2c5a6c10a",
+          "null_count": 0
+        },
+        {
+          "name": "BankAccountBranch",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:3e03fca42ddc7303480ab13b93d3ddb059c687d72ca1de18ba03c5ca3f7d6c0a",
+          "null_count": 0
+        },
+        {
+          "name": "BankAccountCode",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:2f865c06a05b08cde9f18779d04cc045628db9e4308f1199d29e99d7f5fc04ae",
+          "null_count": 0
+        },
+        {
+          "name": "BankAccountNumber",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:030b75d886614c455cacc023a8302c60127457b348a4c47e9c11cb033c15a8e6",
+          "null_count": 0
+        },
+        {
+          "name": "BankInternationalCode",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:ae3b10392acdac2cb36797ef88ee8b1efde0c4f0ffc4b34421514bbe25b87fea",
+          "null_count": 0
+        },
+        {
+          "name": "PaymentDays",
+          "sql_type": "int",
+          "digest": "sha256:8ceadccbc38c9632126a07b2481ea5ac61455e66901ab61004a2f1083f872be3",
+          "null_count": 0
+        },
+        {
+          "name": "InternalComments",
+          "sql_type": "nvarchar(max)",
+          "digest": "sha256:2b326945dd1e0efb06fd4b5a5bd0fc21fc984742a3f51e6a76348333d36f65ab",
+          "null_count": 11
+        },
+        {
+          "name": "PhoneNumber",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:58c2422e74250fb197fcad380f674bbfeec7ac5a6548282b1f57aa7303cee895",
+          "null_count": 0
+        },
+        {
+          "name": "FaxNumber",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:b3548f5fdf960503abbad002eab1df91abe6c987cdacd77dde04a1db1b639ac4",
+          "null_count": 0
+        },
+        {
+          "name": "WebsiteURL",
+          "sql_type": "nvarchar(256)",
+          "digest": "sha256:5bee5057a5be34240603a0b95e48c680c8c582b9d31b2bef9e00b35220741955",
+          "null_count": 0
+        },
+        {
+          "name": "DeliveryAddressLine1",
+          "sql_type": "nvarchar(60)",
+          "digest": "sha256:5e74a61b93ce3ffcb8d197755768733e313a119bdba172a9172a7715ebbd7194",
+          "null_count": 0
+        },
+        {
+          "name": "DeliveryAddressLine2",
+          "sql_type": "nvarchar(60)",
+          "digest": "sha256:cb616b19e4723d75575c7edd46e122f7bc641d3b48dfb2c27d5240ad1f39532b",
+          "null_count": 0
+        },
+        {
+          "name": "DeliveryPostalCode",
+          "sql_type": "nvarchar(10)",
+          "digest": "sha256:0d8a8328f7b79a158a77e6b28c858893938f1cd34fbae766cd5c875b11f8d8fc",
+          "null_count": 0
+        },
+        {
+          "name": "DeliveryLocation",
+          "sql_type": "geography",
+          "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "null_count": 13
+        },
+        {
+          "name": "PostalAddressLine1",
+          "sql_type": "nvarchar(60)",
+          "digest": "sha256:78fee0cc26de52aeb83dc1036a762ceca7f3b3af3a29337af860918b24e943a5",
+          "null_count": 0
+        },
+        {
+          "name": "PostalAddressLine2",
+          "sql_type": "nvarchar(60)",
+          "digest": "sha256:44296e6eb720c45740489de257196f5b22d7e256c001412ea4c916919e1f4b0c",
+          "null_count": 0
+        },
+        {
+          "name": "PostalPostalCode",
+          "sql_type": "nvarchar(10)",
+          "digest": "sha256:0d8a8328f7b79a158a77e6b28c858893938f1cd34fbae766cd5c875b11f8d8fc",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "digest": "sha256:d6690ea95a577b3fc88437d32e87f0334bf16bc58fee9d733f7996e5ae61afd1",
+          "null_count": 0
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "digest": "sha256:967b323ceb2be2fdb33750aef71c9acbebde7bb77664ff98aa08d1a2efc3d8c9",
+          "null_count": 0
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "digest": "sha256:75dd66048a4a6a8fd75487a25038229dd87dc56931b816111bfff86094fd4c69",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true
+    },
+    {
+      "fqn": "Purchasing.SupplierTransactions",
+      "row_count": 2438,
+      "key_columns": [
+        "SupplierTransactionID"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "SupplierTransactionID",
+          "sql_type": "int",
+          "digest": "sha256:10ffa3111725867c3a7f4e761c92ea0a85b9661bd8c8917a9ceedef8abaeece0",
+          "null_count": 0
+        },
+        {
+          "name": "SupplierID",
+          "sql_type": "int",
+          "digest": "sha256:82f6f9c496e072765079183cc4c1b8556441bc1c122db3eb83ac0d26dd891bf8",
+          "null_count": 0
+        },
+        {
+          "name": "TransactionTypeID",
+          "sql_type": "int",
+          "digest": "sha256:3b33ab55bdd068c36e9fca2946520d0ef9254bdb1fe34798fd0d7be714d5ef9a",
+          "null_count": 0
+        },
+        {
+          "name": "PurchaseOrderID",
+          "sql_type": "int",
+          "digest": "sha256:fb93f3afcb78ca6f95029898866a49e4159981558c78db0a44cc8a3a08623023",
+          "null_count": 366
+        },
+        {
+          "name": "PaymentMethodID",
+          "sql_type": "int",
+          "digest": "sha256:d7e01ca97096ea9a15adb96076a4ed3279482f9daa5fac938a03339c0d778221",
+          "null_count": 0
+        },
+        {
+          "name": "SupplierInvoiceNumber",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:b515dc0faf09233f165e2fc3c8884e6583f475b76ba220c09b5c449b305019aa",
+          "null_count": 366
+        },
+        {
+          "name": "TransactionDate",
+          "sql_type": "date",
+          "digest": "sha256:7d23fcd610f9149461aa6b41c98b5b36a679218790385b535ab983294b91a26c",
+          "null_count": 0
+        },
+        {
+          "name": "AmountExcludingTax",
+          "sql_type": "decimal(18,2)",
+          "digest": "sha256:ae0764b7239c212acf8bdc17049c70694e5321c5d07c3e15b80cdcc7c560deff",
+          "null_count": 0
+        },
+        {
+          "name": "TaxAmount",
+          "sql_type": "decimal(18,2)",
+          "digest": "sha256:bdfb9b5478498f651e2e9f91e8d5e178658f87a5b8c6651a1c328b8f8f3382ca",
+          "null_count": 0
+        },
+        {
+          "name": "TransactionAmount",
+          "sql_type": "decimal(18,2)",
+          "digest": "sha256:e94116ac8bbf21dd270cc874985c58c1215b8aadd1a0316e79e893b3f1e6234d",
+          "null_count": 0
+        },
+        {
+          "name": "OutstandingBalance",
+          "sql_type": "decimal(18,2)",
+          "digest": "sha256:0b54510f74397b474831035a1a8fc2ca48dd820aa6f971531f8e302f349ea361",
+          "null_count": 0
+        },
+        {
+          "name": "FinalizationDate",
+          "sql_type": "date",
+          "digest": "sha256:74853890da45f3d61feb663b547f6fbd0ca3e9641f36e4a512fd5443c8aff1ae",
+          "null_count": 2
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "digest": "sha256:f3df42fe1a27599817d1751f51684acb9f0a6c910cb71ca7df15ba1d8e38c845",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedWhen",
+          "sql_type": "datetime2",
+          "digest": "sha256:e5fc09b9c99908bd48e616dabf3db93c43a61d75aabb1c559e2045ec03698c4a",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "Sales.BuyingGroups",
+      "row_count": 2,
+      "key_columns": [
+        "BuyingGroupID"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "BuyingGroupID",
+          "sql_type": "int",
+          "digest": "sha256:64dace15d2023b649d3f3378b19327afb63d7bd23e0d4a8b971b5dddb935751d",
+          "null_count": 0
+        },
+        {
+          "name": "BuyingGroupName",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:0f0c6b0553491a0ecda514b425fd3fa36088477541c8d906d5c5d00fe2296a67",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "digest": "sha256:d56a8b0c2af3e95c25d68e2571a3c2df452ff3109398d15775accd210d42be34",
+          "null_count": 0
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "digest": "sha256:e9cd8b043ee14e2f274e7250901802055a859abd21a2851af0187daa13ca795b",
+          "null_count": 0
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "digest": "sha256:2a682595327459e9e8cb88750e2c00ad9249f76a1ee65233533a46e301c3b143",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "Sales.CustomerCategories",
+      "row_count": 8,
+      "key_columns": [
+        "CustomerCategoryID"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "CustomerCategoryID",
+          "sql_type": "int",
+          "digest": "sha256:d80b029b568ac107d5f83a0a19ad93330f3e8629c9e06d418d691b4d6f33d120",
+          "null_count": 0
+        },
+        {
+          "name": "CustomerCategoryName",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:2643673799aec051135bdbb6f6b41c2bac4d9c062064a72ace5e454fda5b4480",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "digest": "sha256:70cd16e45539bf19b8cda215becedf327c01254e7dcf81b6541ca11752c7d673",
+          "null_count": 0
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "digest": "sha256:c21e4e8c652a8f7ff8f5b8911ad371fce8597f56f62f54b77dd6848d429b4c4c",
+          "null_count": 0
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "digest": "sha256:91d32278dfa74ac02a38a84e0b140c9b94ac6ac340dab940be77cd60511c9780",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "Sales.CustomerCategories_Archive",
+      "row_count": 1,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "CustomerCategoryID",
+          "sql_type": "int",
+          "digest": "sha256:7d0d6d71a7ead3da9f31a8a35fc1985bafade5d2a3232384ea5c4c9bf64c229b",
+          "null_count": 0
+        },
+        {
+          "name": "CustomerCategoryName",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:d92393ea0a8ea1e78cbb616179965e88d5e9b2b2189b6b407174b9206ba43e44",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "digest": "sha256:d7c0db5a2a0b7eb9abf5c315453ababfd88818917d8672d8c8889558477d6102",
+          "null_count": 0
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "digest": "sha256:fcc330d506aa467e4a2e643419d4b0a5d27d981ac00eceb54d78e2c262304049",
+          "null_count": 0
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "digest": "sha256:260b2f21c4386853d7f66bb8f6613b50b3814a04ea3c4b4806475e38c4667f8a",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true
+    },
+    {
+      "fqn": "Sales.Customers",
+      "row_count": 663,
+      "key_columns": [
+        "CustomerID"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "CustomerID",
+          "sql_type": "int",
+          "digest": "sha256:dbdbe232e197cb9fefaa5e05b2020e55c2d22241e86c9b07e4842bd49e33818b",
+          "null_count": 0
+        },
+        {
+          "name": "CustomerName",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:6e47279ecc5841b0d080ecf6a7c4292428a8d33dba47a3468c758f940b002658",
+          "null_count": 0
+        },
+        {
+          "name": "BillToCustomerID",
+          "sql_type": "int",
+          "digest": "sha256:9b2e5c77b74dc6664abec3dfec093085fbdb179a97be063e79415f072d304dd6",
+          "null_count": 0
+        },
+        {
+          "name": "CustomerCategoryID",
+          "sql_type": "int",
+          "digest": "sha256:e13bf606b42effc5ccc3c2d18fa857353f0003893b9dafa0d170e3d3b24a6c2d",
+          "null_count": 0
+        },
+        {
+          "name": "BuyingGroupID",
+          "sql_type": "int",
+          "digest": "sha256:bfa0fc97ac7dcd76a328c003c6f985a1ecb3dd3811cd30554f0a5d3746f4d108",
+          "null_count": 261
+        },
+        {
+          "name": "PrimaryContactPersonID",
+          "sql_type": "int",
+          "digest": "sha256:c5b8a94a7b16a49d6a47ab726f57f66bb656bcc74a02cefcdb8950af7ac7eb26",
+          "null_count": 0
+        },
+        {
+          "name": "AlternateContactPersonID",
+          "sql_type": "int",
+          "digest": "sha256:52684dcf18739f9d0812c5609afcfe35dce46f65d4a1029f4b044b39fd037d43",
+          "null_count": 261
+        },
+        {
+          "name": "DeliveryMethodID",
+          "sql_type": "int",
+          "digest": "sha256:3e176a1df5180f5cdce0a1a0002fb8185a88f66a2ebd0478b3f5dc136dfda086",
+          "null_count": 0
+        },
+        {
+          "name": "DeliveryCityID",
+          "sql_type": "int",
+          "digest": "sha256:ddd201f5382041247d10b3fb342a42ecccfa228f7aa0b0d97526e06b3d3e0edc",
+          "null_count": 0
+        },
+        {
+          "name": "PostalCityID",
+          "sql_type": "int",
+          "digest": "sha256:ddd201f5382041247d10b3fb342a42ecccfa228f7aa0b0d97526e06b3d3e0edc",
+          "null_count": 0
+        },
+        {
+          "name": "CreditLimit",
+          "sql_type": "decimal(18,2)",
+          "digest": "sha256:f1e705ca34eb01ef4eaccc15e73b75ddc39ea05d181c285f7e69f883c5d4ed97",
+          "null_count": 402
+        },
+        {
+          "name": "AccountOpenedDate",
+          "sql_type": "date",
+          "digest": "sha256:83412a942cdb7aa1bc78fc50d53f97e2158aa87179856cd14dc2fe3653540460",
+          "null_count": 0
+        },
+        {
+          "name": "StandardDiscountPercentage",
+          "sql_type": "decimal(18,3)",
+          "digest": "sha256:97594758babf6521f362d6e564e435f4f3e981fb4055518d4afab49d6a3be838",
+          "null_count": 0
+        },
+        {
+          "name": "IsStatementSent",
+          "sql_type": "bit",
+          "digest": "sha256:dff69b665a78ceb0187c09e3a6a3a7103d1fe5b8758629bedfdf3ae04161421d",
+          "null_count": 0
+        },
+        {
+          "name": "IsOnCreditHold",
+          "sql_type": "bit",
+          "digest": "sha256:dff69b665a78ceb0187c09e3a6a3a7103d1fe5b8758629bedfdf3ae04161421d",
+          "null_count": 0
+        },
+        {
+          "name": "PaymentDays",
+          "sql_type": "int",
+          "digest": "sha256:c9e1f0ad6b91103b23415208cfe8bc3cb879c60b63e7d50b5bc170b1dbb643ad",
+          "null_count": 0
+        },
+        {
+          "name": "PhoneNumber",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:b1fed1dc5123fc333a3ec1f64c9359316d83cbb4c56f040088714dbd6662b442",
+          "null_count": 0
+        },
+        {
+          "name": "FaxNumber",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:6d89420ebaa678cff8bf4f7e2e86f256b73149ba515c70db7476d46b15436490",
+          "null_count": 0
+        },
+        {
+          "name": "DeliveryRun",
+          "sql_type": "nvarchar(5)",
+          "digest": "sha256:5d81987966a0197c8a663d8800d87b97c0c5ea4f619d42f44e22bf5321d14cbb",
+          "null_count": 61
+        },
+        {
+          "name": "RunPosition",
+          "sql_type": "nvarchar(5)",
+          "digest": "sha256:5d81987966a0197c8a663d8800d87b97c0c5ea4f619d42f44e22bf5321d14cbb",
+          "null_count": 61
+        },
+        {
+          "name": "WebsiteURL",
+          "sql_type": "nvarchar(256)",
+          "digest": "sha256:839bbee3c74facf9f490df9196030d306ff1c5936ac63c675235881af220979c",
+          "null_count": 0
+        },
+        {
+          "name": "DeliveryAddressLine1",
+          "sql_type": "nvarchar(60)",
+          "digest": "sha256:fd849e0efaa6213affff32f1788cb95faacec98186e13b34d7a288c4ad027a8d",
+          "null_count": 0
+        },
+        {
+          "name": "DeliveryAddressLine2",
+          "sql_type": "nvarchar(60)",
+          "digest": "sha256:381f62e6fb5e01eb70e41a0ff097c9a11f3298296143c4fce3a4121b43463714",
+          "null_count": 0
+        },
+        {
+          "name": "DeliveryPostalCode",
+          "sql_type": "nvarchar(10)",
+          "digest": "sha256:d51154e1ced2e0e570a2a5539e0d56642132be7f77e405d44aefa3cf35bafe63",
+          "null_count": 0
+        },
+        {
+          "name": "DeliveryLocation",
+          "sql_type": "geography",
+          "digest": "sha256:72da8dcbe6f20062cf02c768fdd9bee17982859f3c9c736ec7db38a9545a6759",
+          "null_count": 0
+        },
+        {
+          "name": "PostalAddressLine1",
+          "sql_type": "nvarchar(60)",
+          "digest": "sha256:175a1b1dc0659748b25b649b61e1ecb2b9a93cde7e7a19ec2e438d5336400fd4",
+          "null_count": 0
+        },
+        {
+          "name": "PostalAddressLine2",
+          "sql_type": "nvarchar(60)",
+          "digest": "sha256:d26c5a861cd987ec5d7f5c43bcee35f5171cebeae8db41bae87deefe316d81dc",
+          "null_count": 0
+        },
+        {
+          "name": "PostalPostalCode",
+          "sql_type": "nvarchar(10)",
+          "digest": "sha256:d51154e1ced2e0e570a2a5539e0d56642132be7f77e405d44aefa3cf35bafe63",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "digest": "sha256:6638b4d0671f7ca76ded55ac39e08ae1970af25bed0e728444a45a0d01e9396b",
+          "null_count": 0
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "digest": "sha256:c11f2ea550be78f3773aa6667bdde4e6704656f2d4a4e4f330a3964b246cbd36",
+          "null_count": 0
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "digest": "sha256:bc85934e54dcfa2a142e6670184d9aa07a98a61af2aeff6f59e75291853f3d4c",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "Sales.Customers_Archive",
+      "row_count": 51,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "CustomerID",
+          "sql_type": "int",
+          "digest": "sha256:92a16de5f7b6998bea7a0f5ec0f4c9c1128525080031a10efad8ab026f4f51af",
+          "null_count": 0
+        },
+        {
+          "name": "CustomerName",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:e1810abd32e9ad445b4f6de829d50d51cb2847fd2213086f40269bdcb0bd947c",
+          "null_count": 0
+        },
+        {
+          "name": "BillToCustomerID",
+          "sql_type": "int",
+          "digest": "sha256:92a16de5f7b6998bea7a0f5ec0f4c9c1128525080031a10efad8ab026f4f51af",
+          "null_count": 0
+        },
+        {
+          "name": "CustomerCategoryID",
+          "sql_type": "int",
+          "digest": "sha256:075945faf260b9c6cab5e981c0d20f61838bd21861156646c44cd76b828d51ab",
+          "null_count": 0
+        },
+        {
+          "name": "BuyingGroupID",
+          "sql_type": "int",
+          "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "null_count": 51
+        },
+        {
+          "name": "PrimaryContactPersonID",
+          "sql_type": "int",
+          "digest": "sha256:81d41218e7ca9f2a1a1f56407dd109af1875cc226e457a5cc13a9e7ddb6dcfdf",
+          "null_count": 0
+        },
+        {
+          "name": "AlternateContactPersonID",
+          "sql_type": "int",
+          "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "null_count": 51
+        },
+        {
+          "name": "DeliveryMethodID",
+          "sql_type": "int",
+          "digest": "sha256:7281b01eac9ca3b7223e6952011c22cb12c1ef9948806a4c7c63d68dad4e0da7",
+          "null_count": 0
+        },
+        {
+          "name": "DeliveryCityID",
+          "sql_type": "int",
+          "digest": "sha256:5c45d82de373c6cfd566b8fc76e360112db62b470cf394bca7658ff54e93c6e9",
+          "null_count": 0
+        },
+        {
+          "name": "PostalCityID",
+          "sql_type": "int",
+          "digest": "sha256:5c45d82de373c6cfd566b8fc76e360112db62b470cf394bca7658ff54e93c6e9",
+          "null_count": 0
+        },
+        {
+          "name": "CreditLimit",
+          "sql_type": "decimal(18,2)",
+          "digest": "sha256:7c4a0f5cdfd474bc8a0e062cab784de9d76e907915154230796441e4af950c60",
+          "null_count": 0
+        },
+        {
+          "name": "AccountOpenedDate",
+          "sql_type": "date",
+          "digest": "sha256:c012630a7a5c89cfc887a2b378965864af964cbaac23e88a2f238e14185d4043",
+          "null_count": 0
+        },
+        {
+          "name": "StandardDiscountPercentage",
+          "sql_type": "decimal(18,3)",
+          "digest": "sha256:37471385ecf5e6192aee523053a11dfce55cfbd607fe02bb02a3ad54b1a7f38b",
+          "null_count": 0
+        },
+        {
+          "name": "IsStatementSent",
+          "sql_type": "bit",
+          "digest": "sha256:81810cc63efed16c47c725000d930b760d14bbc39207d862fa28bb5f4f27b65f",
+          "null_count": 0
+        },
+        {
+          "name": "IsOnCreditHold",
+          "sql_type": "bit",
+          "digest": "sha256:81810cc63efed16c47c725000d930b760d14bbc39207d862fa28bb5f4f27b65f",
+          "null_count": 0
+        },
+        {
+          "name": "PaymentDays",
+          "sql_type": "int",
+          "digest": "sha256:71cdc3815325522efeaebac8db9ea9ad256c0045a269251b270d11c953bf4657",
+          "null_count": 0
+        },
+        {
+          "name": "PhoneNumber",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:c9157e26a3668b7e00122685a10d1045fa149f597bac4a46eda26af910c5915e",
+          "null_count": 0
+        },
+        {
+          "name": "FaxNumber",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:d04c9015409ee176b2436482c36f72aa21c08bff0a09988e3c68602667bd01a5",
+          "null_count": 0
+        },
+        {
+          "name": "DeliveryRun",
+          "sql_type": "nvarchar(5)",
+          "digest": "sha256:86d2cf5b090f43ee54d8f7c1dcf746a853951191457ff6dac96269a9d24860b9",
+          "null_count": 7
+        },
+        {
+          "name": "RunPosition",
+          "sql_type": "nvarchar(5)",
+          "digest": "sha256:86d2cf5b090f43ee54d8f7c1dcf746a853951191457ff6dac96269a9d24860b9",
+          "null_count": 7
+        },
+        {
+          "name": "WebsiteURL",
+          "sql_type": "nvarchar(256)",
+          "digest": "sha256:c3ca82fcd84bea12a10dc04c4257f06198a659e0848aacb2046687587809a1aa",
+          "null_count": 0
+        },
+        {
+          "name": "DeliveryAddressLine1",
+          "sql_type": "nvarchar(60)",
+          "digest": "sha256:9cab1d526b8cc34f0983b112a1cb628ae8b6ed57969579bbb4860c91fe97d248",
+          "null_count": 0
+        },
+        {
+          "name": "DeliveryAddressLine2",
+          "sql_type": "nvarchar(60)",
+          "digest": "sha256:b0e5a58562692f923e98a8916ad0f071ddb5e2be3242d349c75276d02da75741",
+          "null_count": 0
+        },
+        {
+          "name": "DeliveryPostalCode",
+          "sql_type": "nvarchar(10)",
+          "digest": "sha256:12f0e49f164da68ce03b2496401b1983cdc2cc99877296f8c5d7f6a08ed42c11",
+          "null_count": 0
+        },
+        {
+          "name": "DeliveryLocation",
+          "sql_type": "geography",
+          "digest": "sha256:7165bb746604f63c228e44c025cd37c2b52638d1f7210ff566b5be280000c6e3",
+          "null_count": 0
+        },
+        {
+          "name": "PostalAddressLine1",
+          "sql_type": "nvarchar(60)",
+          "digest": "sha256:5e80bbf7eb7748ac80d4a2d3db231d140acefe96ee172fae1f85b58bba9f93a9",
+          "null_count": 0
+        },
+        {
+          "name": "PostalAddressLine2",
+          "sql_type": "nvarchar(60)",
+          "digest": "sha256:e8142f0a1c7d51e3f18d7c7a39b2a4d9ba83e6ac604b42466b4a9df7f866ef17",
+          "null_count": 0
+        },
+        {
+          "name": "PostalPostalCode",
+          "sql_type": "nvarchar(10)",
+          "digest": "sha256:12f0e49f164da68ce03b2496401b1983cdc2cc99877296f8c5d7f6a08ed42c11",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "digest": "sha256:c7ac1f57bd9795c97b6cff820daf5677fdbff995aa1ab23a215a7f8f893998b1",
+          "null_count": 0
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "digest": "sha256:ffa8f58b27e4d7585628a949e421dd93d8673af1dba30eeb866df03c02d3fa61",
+          "null_count": 0
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "digest": "sha256:33b6ec84d7f2746cf08d051a1f71695b58414cd384e0707cdf9ff4f3c81f8b10",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true
+    },
+    {
+      "fqn": "Sales.CustomerTransactions",
+      "row_count": 97147,
+      "key_columns": [
+        "CustomerTransactionID"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "CustomerTransactionID",
+          "sql_type": "int",
+          "digest": "sha256:15d7ef05a37852133574bb0383e19d2b75dd9fbddf084496195d6f5f29dc6faa",
+          "null_count": 0
+        },
+        {
+          "name": "CustomerID",
+          "sql_type": "int",
+          "digest": "sha256:d2028593b06890188ff80429c77992539c0996674ef828ec4b664d20a6b3dce8",
+          "null_count": 0
+        },
+        {
+          "name": "TransactionTypeID",
+          "sql_type": "int",
+          "digest": "sha256:56c55b6f8ebe36697ecfc999bd44a0ec8630056c3eee903f20a89ee1436b0d0f",
+          "null_count": 0
+        },
+        {
+          "name": "InvoiceID",
+          "sql_type": "int",
+          "digest": "sha256:371b78d712e0b0911e13c8377376e0b47a9bdfc7a3aa5b4e8cf54a25287cbb56",
+          "null_count": 26637
+        },
+        {
+          "name": "PaymentMethodID",
+          "sql_type": "int",
+          "digest": "sha256:9d1dc0e028a1761a81c7830505d3fc0b76d9a7cd0de8e8d5f78d6cbd722c31b3",
+          "null_count": 70510
+        },
+        {
+          "name": "TransactionDate",
+          "sql_type": "date",
+          "digest": "sha256:726eb5646247537906bcd19c9b0cbedb11313a1b5c545c1e2916c09073ec500c",
+          "null_count": 0
+        },
+        {
+          "name": "AmountExcludingTax",
+          "sql_type": "decimal(18,2)",
+          "digest": "sha256:cfd55459f5fd1ff71482d23e6d0b222a55a36b4a8ec858aaf2f0d01e67c0496f",
+          "null_count": 0
+        },
+        {
+          "name": "TaxAmount",
+          "sql_type": "decimal(18,2)",
+          "digest": "sha256:89247d95f3bcd753bc5c6e87f662b621add83735ce14ac3fb634ea3abacb3e14",
+          "null_count": 0
+        },
+        {
+          "name": "TransactionAmount",
+          "sql_type": "decimal(18,2)",
+          "digest": "sha256:ef7f749bd554c96fe7cd94fd606c1c4a9ab284e2f0885672e5bfb3f2cac5a384",
+          "null_count": 0
+        },
+        {
+          "name": "OutstandingBalance",
+          "sql_type": "decimal(18,2)",
+          "digest": "sha256:3217ac58aa7d0ec1dbdd5ec66fa831a0131fff1bfe43abd4a20d311eb6ecac2d",
+          "null_count": 0
+        },
+        {
+          "name": "FinalizationDate",
+          "sql_type": "date",
+          "digest": "sha256:401cb41454e0b19cb3cad8b79d2203d375c5f9792df7db7af99f54c41278582e",
+          "null_count": 84
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "digest": "sha256:2d9a9ac0a3f381085f7bed64809c0438d73789d4ad555aac563d1cdbd4578949",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedWhen",
+          "sql_type": "datetime2",
+          "digest": "sha256:883690e95cd0bc58bb189ce92fb490bb22e6a92e5213e54009c699d12156e3dd",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "Sales.InvoiceLines",
+      "row_count": 228265,
+      "key_columns": [
+        "InvoiceLineID"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "InvoiceLineID",
+          "sql_type": "int",
+          "digest": "sha256:9fba2c22bb910606aee8e5d7d544157c195e587e8dfbeb6353ce8a1127eca7af",
+          "null_count": 0
+        },
+        {
+          "name": "InvoiceID",
+          "sql_type": "int",
+          "digest": "sha256:dc13652996fb59f7483aa8ebcc0404887f0c2b5c9aa930e60c6a90483b99dcae",
+          "null_count": 0
+        },
+        {
+          "name": "StockItemID",
+          "sql_type": "int",
+          "digest": "sha256:70257008180fae2ca5308f24dac997e02eaaae007b252ef116ed3281e5546a9c",
+          "null_count": 0
+        },
+        {
+          "name": "Description",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:e525334f80442a036519aa89b77c9bef3f90cfd8d4ca82db0933e97d3219a023",
+          "null_count": 0
+        },
+        {
+          "name": "PackageTypeID",
+          "sql_type": "int",
+          "digest": "sha256:14531cb1eb13823c4cbf6a85e9735bc546946c6963386405c4fc45cbbee71a5f",
+          "null_count": 0
+        },
+        {
+          "name": "Quantity",
+          "sql_type": "int",
+          "digest": "sha256:c2605c050007c54aeebf731e22600f01c69e13662c3458ec0135ac74c3fb3955",
+          "null_count": 0
+        },
+        {
+          "name": "UnitPrice",
+          "sql_type": "decimal(18,2)",
+          "digest": "sha256:a53423a4275b5593930b7e998e2c87b3afd3fffcc26295cb02b132a0c2dbc450",
+          "null_count": 0
+        },
+        {
+          "name": "TaxRate",
+          "sql_type": "decimal(18,3)",
+          "digest": "sha256:15f24a5e07d877e0e8e19cb7476c76853374ece911cc080a96c1b8fc5367bbba",
+          "null_count": 0
+        },
+        {
+          "name": "TaxAmount",
+          "sql_type": "decimal(18,2)",
+          "digest": "sha256:728b7c2cc202302e6646e265fe9c05a9d3191a57dae4fa3c9d80b96a95b51790",
+          "null_count": 0
+        },
+        {
+          "name": "LineProfit",
+          "sql_type": "decimal(18,2)",
+          "digest": "sha256:f929e1654afe88f67bfeb519f3c72b7717c3e821ddc1920ea2677c28bc4acd08",
+          "null_count": 0
+        },
+        {
+          "name": "ExtendedPrice",
+          "sql_type": "decimal(18,2)",
+          "digest": "sha256:a6f9e4bf3bd649da520d3c0ab1ff591326246816585770b8620bb70ede99d110",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "digest": "sha256:fca8d4d9b5b6391fbbc4b7553e89cd20561e5759d39a98b1c82010238176e44d",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedWhen",
+          "sql_type": "datetime2",
+          "digest": "sha256:fbea6f46c375dc2c1bedd237841b8378a10561a01ce82e03f41a655723c15632",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "Sales.Invoices",
+      "row_count": 70510,
+      "key_columns": [
+        "InvoiceID"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "InvoiceID",
+          "sql_type": "int",
+          "digest": "sha256:371b78d712e0b0911e13c8377376e0b47a9bdfc7a3aa5b4e8cf54a25287cbb56",
+          "null_count": 0
+        },
+        {
+          "name": "CustomerID",
+          "sql_type": "int",
+          "digest": "sha256:6195c44b696b52c53fdac54a15f6d11e5a0fdcd145914fc1dd298051a1eb8d8f",
+          "null_count": 0
+        },
+        {
+          "name": "BillToCustomerID",
+          "sql_type": "int",
+          "digest": "sha256:2a306051dc23fb74bf5cc66ac57eef06446a681ed3363f43afc496e25a9fcace",
+          "null_count": 0
+        },
+        {
+          "name": "OrderID",
+          "sql_type": "int",
+          "digest": "sha256:3e822dc53cea6454cce22cb0ae7f16779fe8dce9f7ada42421249703cec101c8",
+          "null_count": 0
+        },
+        {
+          "name": "DeliveryMethodID",
+          "sql_type": "int",
+          "digest": "sha256:0b088fb80e5f887a329b1b81b3c30ee80a8dd712f7289314ce1bdfff5e8d9848",
+          "null_count": 0
+        },
+        {
+          "name": "ContactPersonID",
+          "sql_type": "int",
+          "digest": "sha256:f4884d16bce8ed2b20b8955b15fa91ba1a4554aa1acdebdfb530f85309605a65",
+          "null_count": 0
+        },
+        {
+          "name": "AccountsPersonID",
+          "sql_type": "int",
+          "digest": "sha256:a1b4528544693f8d6ec5c51368a40937d2cace459f9fe9ebfcdc7a28efc5af54",
+          "null_count": 0
+        },
+        {
+          "name": "SalespersonPersonID",
+          "sql_type": "int",
+          "digest": "sha256:31bee10c174301c76ccca41580085bd33341789e2daeaac2e03e61e1af91a175",
+          "null_count": 0
+        },
+        {
+          "name": "PackedByPersonID",
+          "sql_type": "int",
+          "digest": "sha256:274bf6e93e113dbd714a501081a7ea9e26fbf0e8f895d5662397a972138246f5",
+          "null_count": 0
+        },
+        {
+          "name": "InvoiceDate",
+          "sql_type": "date",
+          "digest": "sha256:aee1666ff15614caaffa5d51eacb38fbd326407852a5218684779cbdddfd4877",
+          "null_count": 0
+        },
+        {
+          "name": "CustomerPurchaseOrderNumber",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:8c71cb882d0db08952108de17ac8d41017bf82170e9611e33b49bc87d81e59a6",
+          "null_count": 0
+        },
+        {
+          "name": "IsCreditNote",
+          "sql_type": "bit",
+          "digest": "sha256:69e39fdb41fd71c2f6007e08cfaa5192cca8e17ba02094c5363834fb23c456c7",
+          "null_count": 0
+        },
+        {
+          "name": "CreditNoteReason",
+          "sql_type": "nvarchar(max)",
+          "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "null_count": 70510
+        },
+        {
+          "name": "Comments",
+          "sql_type": "nvarchar(max)",
+          "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "null_count": 70510
+        },
+        {
+          "name": "DeliveryInstructions",
+          "sql_type": "nvarchar(max)",
+          "digest": "sha256:29d53c6046baa88cfa0492a8e692d77bbfe00459657906839a8a817ca697f70d",
+          "null_count": 0
+        },
+        {
+          "name": "InternalComments",
+          "sql_type": "nvarchar(max)",
+          "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "null_count": 70510
+        },
+        {
+          "name": "TotalDryItems",
+          "sql_type": "int",
+          "digest": "sha256:cfafed270729c150d03fa9b35ce77ca2dca5e2d6308500aa596eda0e7522e936",
+          "null_count": 0
+        },
+        {
+          "name": "TotalChillerItems",
+          "sql_type": "int",
+          "digest": "sha256:3f81b2a52fc224fa6fe9ac442204c10ddc16e035fafbf53a0575335f62d507c1",
+          "null_count": 0
+        },
+        {
+          "name": "DeliveryRun",
+          "sql_type": "nvarchar(5)",
+          "digest": "sha256:016603ba898d0ed50a7a03b52008dc807e2367957e9009ff2cb9429b4c219440",
+          "null_count": 3858
+        },
+        {
+          "name": "RunPosition",
+          "sql_type": "nvarchar(5)",
+          "digest": "sha256:016603ba898d0ed50a7a03b52008dc807e2367957e9009ff2cb9429b4c219440",
+          "null_count": 3858
+        },
+        {
+          "name": "ReturnedDeliveryData",
+          "sql_type": "nvarchar(max)",
+          "digest": "sha256:ce38eaa49d824e56e5132d071a4bc8988ee74a76b0252d6b0b372a03a64ce969",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "digest": "sha256:486cd64cc72261884f52c734328965d1a6082afdf8521856bbc8590eb4f86ce8",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedWhen",
+          "sql_type": "datetime2",
+          "digest": "sha256:f83c273b5dc9110725d13fb83ccbd4b3a88c9422c325fc57f8d418433ace620c",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "Sales.OrderLines",
+      "row_count": 231412,
+      "key_columns": [
+        "OrderLineID"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "OrderLineID",
+          "sql_type": "int",
+          "digest": "sha256:1f0840f432b0643e9896493a417279dd9a823d97eef5167305d50e022bcdaf2d",
+          "null_count": 0
+        },
+        {
+          "name": "OrderID",
+          "sql_type": "int",
+          "digest": "sha256:5c702c6054b009811984428508692226a94a591d8822d8c9e68eaf0659cb8a22",
+          "null_count": 0
+        },
+        {
+          "name": "StockItemID",
+          "sql_type": "int",
+          "digest": "sha256:283de22a55c73149b14b589b33af82fc03244870285ce319ddac5cac228e413e",
+          "null_count": 0
+        },
+        {
+          "name": "Description",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:7ec116a1b0a4394c36424438ed52c936b84b05f6fa04b3522beb8ebea545c054",
+          "null_count": 0
+        },
+        {
+          "name": "PackageTypeID",
+          "sql_type": "int",
+          "digest": "sha256:8e4316f37c6030c9c422565db4cbf957cec5b211454855d7eeb631a23fa556de",
+          "null_count": 0
+        },
+        {
+          "name": "Quantity",
+          "sql_type": "int",
+          "digest": "sha256:a7e1b466f4fcbb6b796b521ca5a86e69283bdaaf0579653a6b12bef3df29d4b0",
+          "null_count": 0
+        },
+        {
+          "name": "UnitPrice",
+          "sql_type": "decimal(18,2)",
+          "digest": "sha256:644dd4936d7e7015f659a1a2e692ea3691626bef17568850793b1c87e076fac9",
+          "null_count": 0
+        },
+        {
+          "name": "TaxRate",
+          "sql_type": "decimal(18,3)",
+          "digest": "sha256:c11c978b6ebd234173fb9d6e93cae25e95146d92f90837110abe8c7ef09710c2",
+          "null_count": 0
+        },
+        {
+          "name": "PickedQuantity",
+          "sql_type": "int",
+          "digest": "sha256:fcd4879d912d294b344e5a8bc51b824857f4391567b6f5d77f1eb3a488f67443",
+          "null_count": 0
+        },
+        {
+          "name": "PickingCompletedWhen",
+          "sql_type": "datetime2",
+          "digest": "sha256:a91099f091df96e59b474493a912a29276dae45541fe27033d24cf6ffc8b21c0",
+          "null_count": 3147
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "digest": "sha256:85519532a97921105e1c07e9dbee8370da27a50edde2cab07fff6ad19cd85716",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedWhen",
+          "sql_type": "datetime2",
+          "digest": "sha256:fe269d23cbfb11291f1b6e86555592b6c327328253430514660429593d6b72f9",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "Sales.Orders",
+      "row_count": 73595,
+      "key_columns": [
+        "OrderID"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "OrderID",
+          "sql_type": "int",
+          "digest": "sha256:177591b1702e33c9c64ecaae14aa3f7f724b773d35491f08d5bdcf5b1db20c92",
+          "null_count": 0
+        },
+        {
+          "name": "CustomerID",
+          "sql_type": "int",
+          "digest": "sha256:23528a3fbc14d58e7bc54edff411f6cb6c4c33faeb21fe1ad7680718731d8b77",
+          "null_count": 0
+        },
+        {
+          "name": "SalespersonPersonID",
+          "sql_type": "int",
+          "digest": "sha256:9580bd88e5102efd026712ee0fd95f1e210b46d9d95c69ae75aee1dbd5601ce3",
+          "null_count": 0
+        },
+        {
+          "name": "PickedByPersonID",
+          "sql_type": "int",
+          "digest": "sha256:c58d2e408f2238e5ce77a3fe6283e9b302fa42605e823fc52f4b76e003ab0a75",
+          "null_count": 10623
+        },
+        {
+          "name": "ContactPersonID",
+          "sql_type": "int",
+          "digest": "sha256:85b21e7485016b8ccd4d484a9f4acf2c33a2e18dce407b9c90ac4e0ca5193c32",
+          "null_count": 0
+        },
+        {
+          "name": "BackorderOrderID",
+          "sql_type": "int",
+          "digest": "sha256:797861270510e9a5bfbcbcd1c21d7deddeb978dc110d7162da2c0c2c7c882701",
+          "null_count": 66057
+        },
+        {
+          "name": "OrderDate",
+          "sql_type": "date",
+          "digest": "sha256:7cb0bc3abf9f96ba0f195a8d9ec47833e27281f105c15374dbe334b0ff18eb77",
+          "null_count": 0
+        },
+        {
+          "name": "ExpectedDeliveryDate",
+          "sql_type": "date",
+          "digest": "sha256:6f997cab7c9f6575848f5f1d9ffb2dab00e68bb98d0101df0a4669d4159d15b1",
+          "null_count": 0
+        },
+        {
+          "name": "CustomerPurchaseOrderNumber",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:889223e6546f570c5fa9f5b8c711856c194e24754671f387928765378a196c58",
+          "null_count": 0
+        },
+        {
+          "name": "IsUndersupplyBackordered",
+          "sql_type": "bit",
+          "digest": "sha256:ab7398bfe910ea8587c2e53075ed7d1bf2fb44ac6dff3d6180270fd323921bb3",
+          "null_count": 0
+        },
+        {
+          "name": "Comments",
+          "sql_type": "nvarchar(max)",
+          "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "null_count": 73595
+        },
+        {
+          "name": "DeliveryInstructions",
+          "sql_type": "nvarchar(max)",
+          "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "null_count": 73595
+        },
+        {
+          "name": "InternalComments",
+          "sql_type": "nvarchar(max)",
+          "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "null_count": 73595
+        },
+        {
+          "name": "PickingCompletedWhen",
+          "sql_type": "datetime2",
+          "digest": "sha256:2780ab16464a3cef79c75853931b69e9a45e31e8ff14b5ad597750da8800b275",
+          "null_count": 3085
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "digest": "sha256:058646c62d38ae225c73f62fbcfefcef21b0ca390295e6cb5745dae0176267c2",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedWhen",
+          "sql_type": "datetime2",
+          "digest": "sha256:bfdfdd0f195d9f1d45a8142a2be80959d39a7ed9751bec8c84e78463a8b92bd6",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "Sales.SpecialDeals",
+      "row_count": 2,
+      "key_columns": [
+        "SpecialDealID"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "SpecialDealID",
+          "sql_type": "int",
+          "digest": "sha256:64dace15d2023b649d3f3378b19327afb63d7bd23e0d4a8b971b5dddb935751d",
+          "null_count": 0
+        },
+        {
+          "name": "StockItemID",
+          "sql_type": "int",
+          "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "null_count": 2
+        },
+        {
+          "name": "CustomerID",
+          "sql_type": "int",
+          "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "null_count": 2
+        },
+        {
+          "name": "BuyingGroupID",
+          "sql_type": "int",
+          "digest": "sha256:64dace15d2023b649d3f3378b19327afb63d7bd23e0d4a8b971b5dddb935751d",
+          "null_count": 0
+        },
+        {
+          "name": "CustomerCategoryID",
+          "sql_type": "int",
+          "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "null_count": 2
+        },
+        {
+          "name": "StockGroupID",
+          "sql_type": "int",
+          "digest": "sha256:a936262decae8adec571a79572a18d104b79041fb310bb38d1fdf38875bdd538",
+          "null_count": 0
+        },
+        {
+          "name": "DealDescription",
+          "sql_type": "nvarchar(30)",
+          "digest": "sha256:3a106890044f073eeeda83dd96dc40af8ef38250b3c4edd4dbf61ae0edc419f9",
+          "null_count": 0
+        },
+        {
+          "name": "StartDate",
+          "sql_type": "date",
+          "digest": "sha256:d5419e6694a5fc5b04731e61b75fe7fc91b6840e808e265937fd7d87630a9f86",
+          "null_count": 0
+        },
+        {
+          "name": "EndDate",
+          "sql_type": "date",
+          "digest": "sha256:c2ae226d6f0cd5a5051941e21fe3dfe981af2431d37d37b1204712a7246d0b99",
+          "null_count": 0
+        },
+        {
+          "name": "DiscountAmount",
+          "sql_type": "decimal(18,2)",
+          "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "null_count": 2
+        },
+        {
+          "name": "DiscountPercentage",
+          "sql_type": "decimal(18,3)",
+          "digest": "sha256:e483c0d7b34f93a3b4dd7671ed5ba0dae5356a1f317ec28f54a7dcb718f99663",
+          "null_count": 0
+        },
+        {
+          "name": "UnitPrice",
+          "sql_type": "decimal(18,2)",
+          "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "null_count": 2
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "digest": "sha256:090161a935cb40d3c6749f545f6e186d322661085aef33ffba253b4409ecc62e",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedWhen",
+          "sql_type": "datetime2",
+          "digest": "sha256:fcd29a154a03d1b40107acaf486909f2fa68d4a540edbc951460daf56fb0c584",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "Warehouse.ColdRoomTemperatures",
+      "row_count": 4,
+      "key_columns": [
+        "ColdRoomTemperatureID"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "ColdRoomTemperatureID",
+          "sql_type": "bigint",
+          "digest": "sha256:39c42e43e6c47b8bc3dddbdeba984553c7a30b42de9352905ce7837de0869fe9",
+          "null_count": 0
+        },
+        {
+          "name": "ColdRoomSensorNumber",
+          "sql_type": "int",
+          "digest": "sha256:ff4a8c130447f52354261f27135cf2bdb7b593e8c872fda57a934632c2234483",
+          "null_count": 0
+        },
+        {
+          "name": "RecordedWhen",
+          "sql_type": "datetime2",
+          "digest": "sha256:a1514c5e7e7c6619a0e27573dab8c111ac0e271865130fa60ef30a1b80f205b7",
+          "null_count": 0
+        },
+        {
+          "name": "Temperature",
+          "sql_type": "decimal(10,2)",
+          "digest": "sha256:ede11def3703bcd98a9664529ce781488ddb12fb9fec471deabdec26988139b8",
+          "null_count": 0
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "digest": "sha256:a1514c5e7e7c6619a0e27573dab8c111ac0e271865130fa60ef30a1b80f205b7",
+          "null_count": 0
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "digest": "sha256:9fa41d3c77abdb147d7932c9dfeb9a93e82a4f6b717c4e9d75f7d2e54d122eb9",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "Warehouse.ColdRoomTemperatures_Archive",
+      "row_count": 3654736,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "ColdRoomTemperatureID",
+          "sql_type": "bigint",
+          "digest": "sha256:57c2625ec77e7fd6aa304211bcca1785336948a8aa6ca715863f94feef338e9d",
+          "null_count": 0
+        },
+        {
+          "name": "ColdRoomSensorNumber",
+          "sql_type": "int",
+          "digest": "sha256:d4a860293bbfda633d75c9c9da9b1dafe38d808192dea260bf8bcefcae2c8e1a",
+          "null_count": 0
+        },
+        {
+          "name": "RecordedWhen",
+          "sql_type": "datetime2",
+          "digest": "sha256:e276642a93cb8f344644db528610401a90542fd2cb2ee71f8a3add19eef0165b",
+          "null_count": 0
+        },
+        {
+          "name": "Temperature",
+          "sql_type": "decimal(10,2)",
+          "digest": "sha256:19f88cd98e0069eb3839064b40f471505a9aebb19be62da384a1dd2c51626b43",
+          "null_count": 0
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "digest": "sha256:e276642a93cb8f344644db528610401a90542fd2cb2ee71f8a3add19eef0165b",
+          "null_count": 0
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "digest": "sha256:a460aa00b207e8287d391f52e8b16561497e8c13fd3e068eeb03f21bc4f88930",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true,
+      "values_capped": 100000
+    },
+    {
+      "fqn": "Warehouse.Colors",
+      "row_count": 36,
+      "key_columns": [
+        "ColorID"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "ColorID",
+          "sql_type": "int",
+          "digest": "sha256:bad775bebc598b900f2f72926545522624c91b0d262b4cafbac470de4f415bc3",
+          "null_count": 0
+        },
+        {
+          "name": "ColorName",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:8de4c4a126e70ede592dd6d7f3037530e35c71e44fee0f65809c8f136f7d884b",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "digest": "sha256:bfafcbba6b3b4c44da2b8dd78ebb41449f230ef0ff960625016947cbad719c6e",
+          "null_count": 0
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "digest": "sha256:81609ad6ccd6fddfaaab35f4b37782033d22257b91fb0d1b19e74d5634a25990",
+          "null_count": 0
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "digest": "sha256:f0cab4e4cbf8bdd73aa93ca6e7a5324a91a131d7fe2841eedc340b79e5879429",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "Warehouse.Colors_Archive",
+      "row_count": 1,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "ColorID",
+          "sql_type": "int",
+          "digest": "sha256:2617383b7fe5005be831f784d217f989ff913ccd2be45c7025551454eac55b1c",
+          "null_count": 0
+        },
+        {
+          "name": "ColorName",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:d156a117fdeb436f71c1f96f8cf6a13d58cd9d985f1a9e6213b0cfb62ad56bdb",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "digest": "sha256:d7c0db5a2a0b7eb9abf5c315453ababfd88818917d8672d8c8889558477d6102",
+          "null_count": 0
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "digest": "sha256:1bbb609f9ad84ebb3d6eb8bcebfc57de1796feb91f23c7719d63cc3eda66e9e0",
+          "null_count": 0
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "digest": "sha256:44400c947fb382b90f19de3380ed801932e77fce593254a45a80a1af0c4e922f",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true
+    },
+    {
+      "fqn": "Warehouse.PackageTypes",
+      "row_count": 14,
+      "key_columns": [
+        "PackageTypeID"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "PackageTypeID",
+          "sql_type": "int",
+          "digest": "sha256:7ee2ddc49b42afbace1cadbff60e1961af76614b073c834a5098cc771cd46581",
+          "null_count": 0
+        },
+        {
+          "name": "PackageTypeName",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:fda51a77903271777b547e4892353a46c85aa6539c603151342106d241fe88bc",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "digest": "sha256:ae59c1da6167717d65f29d83d2c5c5f376a47518759b4b8f1e63c5c9c61db254",
+          "null_count": 0
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "digest": "sha256:f9c9ac3b1915d345dd213be3317fbdd6bef00b8cb3c7416922b7abdd039ffba3",
+          "null_count": 0
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "digest": "sha256:f1c9e6e8474bc2960f5ab28ccf6718648c0ddd5255cc9d9b1d70941d99d804cc",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "Warehouse.StockGroups",
+      "row_count": 10,
+      "key_columns": [
+        "StockGroupID"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "StockGroupID",
+          "sql_type": "int",
+          "digest": "sha256:9580f3b016d3581180d64a6c2ffd7883350f5d7d48a0d547e5f7ad688f05048a",
+          "null_count": 0
+        },
+        {
+          "name": "StockGroupName",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:55dd3d1d506fdaef6d1504718ba39c69dd244f065b225f030519797eeb7e3853",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "digest": "sha256:fa7f0255f49f2114c377773cd7cca831cdd1b4598419d921a389ad7a5866aa1e",
+          "null_count": 0
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "digest": "sha256:ebf4bf22eca0bf7ed95caa0567c1f024b26ee818c033f89129468a6b73ebf504",
+          "null_count": 0
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "digest": "sha256:b172bf6d0cfd79def40bb3d668e8d45409c55e0fc51c5447e9facce8546f323b",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "Warehouse.StockGroups_Archive",
+      "row_count": 1,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "StockGroupID",
+          "sql_type": "int",
+          "digest": "sha256:7d0d6d71a7ead3da9f31a8a35fc1985bafade5d2a3232384ea5c4c9bf64c229b",
+          "null_count": 0
+        },
+        {
+          "name": "StockGroupName",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:90cc9e3e76c8c7d4f754d14751bcd94e1fa7be9821dcb9d26d66326f0ef84a82",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "digest": "sha256:d7c0db5a2a0b7eb9abf5c315453ababfd88818917d8672d8c8889558477d6102",
+          "null_count": 0
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "digest": "sha256:1bbb609f9ad84ebb3d6eb8bcebfc57de1796feb91f23c7719d63cc3eda66e9e0",
+          "null_count": 0
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "digest": "sha256:44400c947fb382b90f19de3380ed801932e77fce593254a45a80a1af0c4e922f",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true
+    },
+    {
+      "fqn": "Warehouse.StockItemHoldings",
+      "row_count": 227,
+      "key_columns": [
+        "StockItemID"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "StockItemID",
+          "sql_type": "int",
+          "digest": "sha256:25f72b061612ae12e5823b106ef56de045cd5c5b4b901d68121f485441d151cc",
+          "null_count": 0
+        },
+        {
+          "name": "QuantityOnHand",
+          "sql_type": "int",
+          "digest": "sha256:fa267b933999ad286c43b775b214418458dc954cc03f0fd105c9dcd0b0760b2f",
+          "null_count": 0
+        },
+        {
+          "name": "BinLocation",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:e44a6efde3bfbecb0be32c6b8a68b6d7164513919f00f49d9fa8f2c409f98c65",
+          "null_count": 0
+        },
+        {
+          "name": "LastStocktakeQuantity",
+          "sql_type": "int",
+          "digest": "sha256:937e1da4c66edf2b2aa89356235ba9f28d44d0d12bfb378291ac7b2f3646705b",
+          "null_count": 0
+        },
+        {
+          "name": "LastCostPrice",
+          "sql_type": "decimal(18,2)",
+          "digest": "sha256:6e6708fee6b24e24aa5c8fcca562204f8b0d22ea3a9a30f77aaccaf97bfc162d",
+          "null_count": 0
+        },
+        {
+          "name": "ReorderLevel",
+          "sql_type": "int",
+          "digest": "sha256:2b6a1a12fe5bdbbafd0899a9cab76e55736cd6ff8b32ff3b400a27a2ff819a35",
+          "null_count": 0
+        },
+        {
+          "name": "TargetStockLevel",
+          "sql_type": "int",
+          "digest": "sha256:5481afdbd3d9ef6fd1f938d3b5a8fdfcf7188f9d706a376ea0aa60d9042b6f47",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "digest": "sha256:9228ac31e872a26d6ff4f5d8550a820ac9557b87d613e610a81ab26178107239",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedWhen",
+          "sql_type": "datetime2",
+          "digest": "sha256:ee246c4aa14f1abd3d47e303bfb6e34a66aa442c5bc15f4ead98ae8a2dcfa736",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "Warehouse.StockItems",
+      "row_count": 227,
+      "key_columns": [
+        "StockItemID"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "StockItemID",
+          "sql_type": "int",
+          "digest": "sha256:25f72b061612ae12e5823b106ef56de045cd5c5b4b901d68121f485441d151cc",
+          "null_count": 0
+        },
+        {
+          "name": "StockItemName",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:16672ee68bb6227cf1caf37e5793cc66ab6f68232016ac47f9f1ea159e1e0d2f",
+          "null_count": 0
+        },
+        {
+          "name": "SupplierID",
+          "sql_type": "int",
+          "digest": "sha256:c1dccac203d7704df585e3ece2beb54a21cd91ce42ad97f67575df66fe5629fd",
+          "null_count": 0
+        },
+        {
+          "name": "ColorID",
+          "sql_type": "int",
+          "digest": "sha256:e2c21562a699120bd8cdd91c828c6f054924068baccde1d591d2ac2af31a8011",
+          "null_count": 99
+        },
+        {
+          "name": "UnitPackageID",
+          "sql_type": "int",
+          "digest": "sha256:ecd871d734550f61de2882e01f774b264718506f75ed915ec6824e0ed29a1879",
+          "null_count": 0
+        },
+        {
+          "name": "OuterPackageID",
+          "sql_type": "int",
+          "digest": "sha256:2b9076ac8e8a4ed9c046066b524521457a8614cb8f1031f9fc0820fb84a69103",
+          "null_count": 0
+        },
+        {
+          "name": "Brand",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:407fc44a1969c235f065138c9ba81efe490ac4f36b7d86ae289ea2724e136a5f",
+          "null_count": 209
+        },
+        {
+          "name": "Size",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:b3b5986d9fd97e5a5fc9d65f3880b9216cf9e66469cdd1d5ea4bd1313971cd4f",
+          "null_count": 64
+        },
+        {
+          "name": "LeadTimeDays",
+          "sql_type": "int",
+          "digest": "sha256:aebb17f57abc97b0272487aae1ef53902f91038c9d78a52290f6054d14a2b615",
+          "null_count": 0
+        },
+        {
+          "name": "QuantityPerOuter",
+          "sql_type": "int",
+          "digest": "sha256:df32f1747a2544461823a9febc200ad00b674e282cba9331269b7770f9f4c892",
+          "null_count": 0
+        },
+        {
+          "name": "IsChillerStock",
+          "sql_type": "bit",
+          "digest": "sha256:b0c9fa50a2f758a5a6228455db9ccd9d58a1cae0aafcebc146d8fc44d1305406",
+          "null_count": 0
+        },
+        {
+          "name": "Barcode",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:0bdb73c31a8c909dcd62866d2e5e36a43aae9308191b1d325883abac117f58a7",
+          "null_count": 219
+        },
+        {
+          "name": "TaxRate",
+          "sql_type": "decimal(18,3)",
+          "digest": "sha256:30d72d16307072d092aaa99bc82ff7b90045197de7e527fc50a87fb106e63e77",
+          "null_count": 0
+        },
+        {
+          "name": "UnitPrice",
+          "sql_type": "decimal(18,2)",
+          "digest": "sha256:4db63185cb4aac36e7807b3034ff703e913f3cbc409d3115618377e3346cfc37",
+          "null_count": 0
+        },
+        {
+          "name": "RecommendedRetailPrice",
+          "sql_type": "decimal(18,2)",
+          "digest": "sha256:cdbbe73d148e0a72fb5b488c5bb7184315ae9a3b44a50125fe30e7fa72093e42",
+          "null_count": 0
+        },
+        {
+          "name": "TypicalWeightPerUnit",
+          "sql_type": "decimal(18,3)",
+          "digest": "sha256:afc2235c538b3f8027a11082b774a4c65a5b5eb6bf210e5e4449c0c507800df3",
+          "null_count": 0
+        },
+        {
+          "name": "MarketingComments",
+          "sql_type": "nvarchar(max)",
+          "digest": "sha256:4a5f2140eaf4c5a92c48dd6a63294e8746678b2a7fa66d44efbe69082c4b09c2",
+          "null_count": 199
+        },
+        {
+          "name": "InternalComments",
+          "sql_type": "nvarchar(max)",
+          "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "null_count": 227
+        },
+        {
+          "name": "Photo",
+          "sql_type": "varbinary(max)",
+          "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "null_count": 227
+        },
+        {
+          "name": "CustomFields",
+          "sql_type": "nvarchar(max)",
+          "digest": "sha256:485ef9fa8600c2d4dd8fad7382efc06453d00bd99a86f8775d4135ea0b4c9ce8",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "digest": "sha256:d57b8133fab65695a432872a67893c9fa20abd08bf627c047936fb4e2f5a8287",
+          "null_count": 0
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "digest": "sha256:404280d6f1d937b12c9ef88381b78011d6f9d02c53492f2981f5d73c87c5a799",
+          "null_count": 0
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "digest": "sha256:03f9f6ac9bd9225a74ea98fb12025acf355d6bae7c1c0b365cec7dc1f5a2467d",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "Warehouse.StockItems_Archive",
+      "row_count": 444,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "StockItemID",
+          "sql_type": "int",
+          "digest": "sha256:495316a7f3066123f07a5e14fe95dcb635d43d3340116c6ad10133a7ca2e617d",
+          "null_count": 0
+        },
+        {
+          "name": "StockItemName",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:9a68bfa9a56dae6a01e60e30ed2758b393d26f472f8bac898948ca1669cd8a24",
+          "null_count": 0
+        },
+        {
+          "name": "SupplierID",
+          "sql_type": "int",
+          "digest": "sha256:5bf76ff21039958503b5eafec45bd7ca5b69f3c4431a720bcd9d4fd248dece33",
+          "null_count": 0
+        },
+        {
+          "name": "ColorID",
+          "sql_type": "int",
+          "digest": "sha256:cc7f2664853af2847644b0a6f4aa596e6a4e75e91e5b09681c6408e52e4ef124",
+          "null_count": 212
+        },
+        {
+          "name": "UnitPackageID",
+          "sql_type": "int",
+          "digest": "sha256:41f7cac46093641625b45a5d67bb2e07cc5180cbb4380ff6cf703d6b90f08508",
+          "null_count": 0
+        },
+        {
+          "name": "OuterPackageID",
+          "sql_type": "int",
+          "digest": "sha256:6d70d4fdb08f124cc9cf1e48290c06f19f5f40583db7d3b965bcb362faad580b",
+          "null_count": 0
+        },
+        {
+          "name": "Brand",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:93cafa32cb1a12ed449cf4463cee835b01f8ce2ca754f96a8cbcb99d7d85f5de",
+          "null_count": 395
+        },
+        {
+          "name": "Size",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:75030ae29fc8e5cc0f2ee17fbc57f55c7772c4cff9013f784be457b000ab6698",
+          "null_count": 139
+        },
+        {
+          "name": "LeadTimeDays",
+          "sql_type": "int",
+          "digest": "sha256:db4faf575cad22b10f8b9336899e5f3737f6bccb882f3166129bc5233f1f70d4",
+          "null_count": 0
+        },
+        {
+          "name": "QuantityPerOuter",
+          "sql_type": "int",
+          "digest": "sha256:bd48511175a3b40d3fc7da7481ecab7ac7bb719c004cab6c51e7463748d6be24",
+          "null_count": 0
+        },
+        {
+          "name": "IsChillerStock",
+          "sql_type": "bit",
+          "digest": "sha256:5de4814b7e650b17bd0a34f8c7c876e24fadca6eeb4f46a6500fa3e495c57fa0",
+          "null_count": 0
+        },
+        {
+          "name": "Barcode",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:0bdb73c31a8c909dcd62866d2e5e36a43aae9308191b1d325883abac117f58a7",
+          "null_count": 436
+        },
+        {
+          "name": "TaxRate",
+          "sql_type": "decimal(18,3)",
+          "digest": "sha256:38bcae8c43f60c577ce43848fb90ed91652d540c91c223051af4825a56bd87aa",
+          "null_count": 0
+        },
+        {
+          "name": "UnitPrice",
+          "sql_type": "decimal(18,2)",
+          "digest": "sha256:3a6a7d52f0ff4c4fe36689b5527fb69131063f560d36f48d893f9f2a3aa2f047",
+          "null_count": 0
+        },
+        {
+          "name": "RecommendedRetailPrice",
+          "sql_type": "decimal(18,2)",
+          "digest": "sha256:55ca4bcaab6e532334b058992affbfaeb5c00ea0e1400fcc39368894d8ee2355",
+          "null_count": 0
+        },
+        {
+          "name": "TypicalWeightPerUnit",
+          "sql_type": "decimal(18,3)",
+          "digest": "sha256:817c225e01b198a39c4e026d0f7316fbf574a7cf45c1f053b05a1647e53ce129",
+          "null_count": 0
+        },
+        {
+          "name": "MarketingComments",
+          "sql_type": "nvarchar(max)",
+          "digest": "sha256:f6ee1eb69ae399990a22eec77aa9400018cd8acc833885f1fc12a902dfb13bcb",
+          "null_count": 387
+        },
+        {
+          "name": "InternalComments",
+          "sql_type": "nvarchar(max)",
+          "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "null_count": 444
+        },
+        {
+          "name": "Photo",
+          "sql_type": "varbinary(max)",
+          "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "null_count": 444
+        },
+        {
+          "name": "CustomFields",
+          "sql_type": "nvarchar(max)",
+          "digest": "sha256:f81bf69ee266ab0fb00c8d4842302e49c192455b10e9038e6bf66312f14d63c7",
+          "null_count": 227
+        },
+        {
+          "name": "Tags",
+          "sql_type": "nvarchar(max)",
+          "digest": "sha256:b4e2bbd1ff1dc51d2310a334bb44952c21cc788dfd727cd39db3374e746fd49a",
+          "null_count": 227
+        },
+        {
+          "name": "SearchDetails",
+          "sql_type": "nvarchar(max)",
+          "digest": "sha256:9a9f33afa7f9913a7a2283a19952dcb1faf13efcd7e58644517b970688d7a678",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "digest": "sha256:98f2122e087461de19ba9a94592a1795cfd447b202bf8a9cbd338ad11fdf9281",
+          "null_count": 0
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "digest": "sha256:39684bb7c6ee96ba0b78ddef3e309ca15345b8e5a1b5968392b4e0852efbed41",
+          "null_count": 0
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "digest": "sha256:4775524a191b3b1a43c18380d18e141b42d411b97b13e4cf94980a58afe5b7e7",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true
+    },
+    {
+      "fqn": "Warehouse.StockItemStockGroups",
+      "row_count": 442,
+      "key_columns": [
+        "StockItemStockGroupID"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "StockItemStockGroupID",
+          "sql_type": "int",
+          "digest": "sha256:d78b6737925ab2fd4d063fc9ef45c28df8fd88a5ca93f6a783a5c24fb5bf583e",
+          "null_count": 0
+        },
+        {
+          "name": "StockItemID",
+          "sql_type": "int",
+          "digest": "sha256:77fc16072e0494f4a3706a85824f45b39dda6432b15ffa33d6fe93300fa22240",
+          "null_count": 0
+        },
+        {
+          "name": "StockGroupID",
+          "sql_type": "int",
+          "digest": "sha256:7a58b6d48bdc85f71536ef457d6f5e8b84425778fb49da499b0be8e5d1feedb1",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "digest": "sha256:7087c027190fd7198a3ed358349448d34517e958557bbcefc80e6e8417ebccd2",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedWhen",
+          "sql_type": "datetime2",
+          "digest": "sha256:e54145dde22f9fbde5dcfe9d9db43a0ec6dbfb5955c94cd00a8b1dbe5be2ee09",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "Warehouse.StockItemTransactions",
+      "row_count": 236667,
+      "key_columns": [
+        "StockItemTransactionID"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "StockItemTransactionID",
+          "sql_type": "int",
+          "digest": "sha256:f6c0750aa896b097a8c16c1e3d097c43914a26e4710559213a027c7f1e982f80",
+          "null_count": 0
+        },
+        {
+          "name": "StockItemID",
+          "sql_type": "int",
+          "digest": "sha256:7e45651c9d59dc1a4fc5a5633effcd70211311d7cae6ffc452152944c3c008d5",
+          "null_count": 0
+        },
+        {
+          "name": "TransactionTypeID",
+          "sql_type": "int",
+          "digest": "sha256:5fa717b2630297d9845b7d876eb4d6ecd12c22fc851b384c5ca85201e35fc083",
+          "null_count": 0
+        },
+        {
+          "name": "CustomerID",
+          "sql_type": "int",
+          "digest": "sha256:163082e5087e76d8b2f06575dd663122d6f8676ff3fb895d8221926ca5a1d9e1",
+          "null_count": 8402
+        },
+        {
+          "name": "InvoiceID",
+          "sql_type": "int",
+          "digest": "sha256:dc13652996fb59f7483aa8ebcc0404887f0c2b5c9aa930e60c6a90483b99dcae",
+          "null_count": 8402
+        },
+        {
+          "name": "SupplierID",
+          "sql_type": "int",
+          "digest": "sha256:dc2db9c70bc9f72b3bd50f6aa26553995c5c20a3d75002a424b4d55b3313b9ef",
+          "null_count": 228309
+        },
+        {
+          "name": "PurchaseOrderID",
+          "sql_type": "int",
+          "digest": "sha256:a9c26cccedb6c251db80b969aac43ea336708916a2c5f674eacb0ef6719436c2",
+          "null_count": 228309
+        },
+        {
+          "name": "TransactionOccurredWhen",
+          "sql_type": "datetime2",
+          "digest": "sha256:5aace67e1d924a3f9b763760d23f03aed7ec6b751548b7137e4ec26880bfa3f9",
+          "null_count": 0
+        },
+        {
+          "name": "Quantity",
+          "sql_type": "decimal(18,3)",
+          "digest": "sha256:49c075781307ad073adde99e80f41260fcfa504fb1f2e94d3c0bcb5739e3e15f",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "digest": "sha256:33cb46dfc0a0396e9efadb0658526748c081bcf1f1de90a1825e91afe082052e",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditedWhen",
+          "sql_type": "datetime2",
+          "digest": "sha256:5aace67e1d924a3f9b763760d23f03aed7ec6b751548b7137e4ec26880bfa3f9",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "Warehouse.VehicleTemperatures",
+      "row_count": 65998,
+      "key_columns": [
+        "VehicleTemperatureID"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "VehicleTemperatureID",
+          "sql_type": "bigint",
+          "digest": "sha256:07d14054d45adbce074c755c7ff8e04ca7ef8a20dcc8bd1c35188ad9504f4fb6",
+          "null_count": 0
+        },
+        {
+          "name": "VehicleRegistration",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:e08be8d01dbafc94dd8884706065fb7eb199c9d4fef514faa29c9283bf27ca76",
+          "null_count": 0
+        },
+        {
+          "name": "ChillerSensorNumber",
+          "sql_type": "int",
+          "digest": "sha256:74b9a783dbf2048fe4aed07d76e0f7e6b882bea607132a8af4c334b5948203b8",
+          "null_count": 0
+        },
+        {
+          "name": "RecordedWhen",
+          "sql_type": "datetime2",
+          "digest": "sha256:76b8c8200d736efbfcb3b875cb82d76694548228c79abc971c859bf995ea9087",
+          "null_count": 0
+        },
+        {
+          "name": "Temperature",
+          "sql_type": "decimal(10,2)",
+          "digest": "sha256:763c15eac557305da9ba5614983a24a36f03226c84301d69731b2c0b43318b7f",
+          "null_count": 0
+        },
+        {
+          "name": "FullSensorData",
+          "sql_type": "nvarchar(1000)",
+          "digest": "sha256:96249d22bdfb833ea040eeca47fc4cb9d02f007d63e1b5383f8ed72e8d5283da",
+          "null_count": 0
+        },
+        {
+          "name": "IsCompressed",
+          "sql_type": "bit",
+          "digest": "sha256:6ad7ba8a206c2d869364ff0c9bca0f7130d2e745f5b11776238c06b11f78f62e",
+          "null_count": 0
+        },
+        {
+          "name": "CompressedSensorData",
+          "sql_type": "varbinary(max)",
+          "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "null_count": 65998
+        }
+      ]
+    }
+  ]
+}

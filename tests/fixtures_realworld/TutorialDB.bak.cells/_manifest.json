@@ -1,0 +1,75 @@
+{
+  "bak": "TutorialDB.bak",
+  "captured_at": "2026-06-27T22:11:19.485394+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.rental_data",
+      "row_count": 453,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "Year",
+          "sql_type": "int",
+          "digest": "sha256:f06e456614b4884b4fa5778e5fb0e427cf879fadadc6c5895f0e4ab358c5a539",
+          "null_count": 0
+        },
+        {
+          "name": "Month",
+          "sql_type": "int",
+          "digest": "sha256:c6042eaf0509bc3fb7b4100c4cc73a6707e4db262b078f67ffb836c61760e086",
+          "null_count": 0
+        },
+        {
+          "name": "Day",
+          "sql_type": "int",
+          "digest": "sha256:a226915bf162e791f848c2a92fce3e9f6b1cd68ef77b004f433d7b126e948bec",
+          "null_count": 0
+        },
+        {
+          "name": "RentalCount",
+          "sql_type": "int",
+          "digest": "sha256:33092eb00618d83a1200e765d3625e4dc98be9a62b83e3f8610ba10b3f69f08a",
+          "null_count": 0
+        },
+        {
+          "name": "WeekDay",
+          "sql_type": "int",
+          "digest": "sha256:2a542baada803e786d5157fd4174f8396968a6597546968627663f7aa2a1df1d",
+          "null_count": 0
+        },
+        {
+          "name": "Holiday",
+          "sql_type": "int",
+          "digest": "sha256:8e7dc6990083877f8a16a547261f0fb2b67de5829f3786cfa5b87c10da176e55",
+          "null_count": 0
+        },
+        {
+          "name": "Snow",
+          "sql_type": "int",
+          "digest": "sha256:05e21b60d4f09855eae2b8c2ff0d0d3a9423a92c07efb8d557df6ac5838acc30",
+          "null_count": 0
+        },
+        {
+          "name": "FHoliday",
+          "sql_type": "nvarchar(255)",
+          "digest": "sha256:8e7dc6990083877f8a16a547261f0fb2b67de5829f3786cfa5b87c10da176e55",
+          "null_count": 0
+        },
+        {
+          "name": "FSnow",
+          "sql_type": "nvarchar(255)",
+          "digest": "sha256:05e21b60d4f09855eae2b8c2ff0d0d3a9423a92c07efb8d557df6ac5838acc30",
+          "null_count": 0
+        },
+        {
+          "name": "FWeekDay",
+          "sql_type": "nvarchar(255)",
+          "digest": "sha256:2a542baada803e786d5157fd4174f8396968a6597546968627663f7aa2a1df1d",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true
+    }
+  ]
+}

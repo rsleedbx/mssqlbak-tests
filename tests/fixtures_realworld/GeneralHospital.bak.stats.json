@@ -1,0 +1,560 @@
+{
+  "sql_version": "Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (X64)",
+  "bak": "GeneralHospital.bak",
+  "bak_size_mb": 316.084,
+  "database": "RegisterBak_GeneralHospital",
+  "registered_at": "2026-06-10T01:51:20.635769+00:00",
+  "sqlserver_restore_s": 11.97,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "Accounts",
+      "row_count": 53787,
+      "columns": []
+    },
+    {
+      "schema": "dbo",
+      "name": "Departments",
+      "row_count": 64,
+      "columns": []
+    },
+    {
+      "schema": "dbo",
+      "name": "Encounters",
+      "row_count": 12457,
+      "columns": []
+    },
+    {
+      "schema": "dbo",
+      "name": "Hospitals",
+      "row_count": 124,
+      "columns": []
+    },
+    {
+      "schema": "dbo",
+      "name": "OrdersProcedures",
+      "row_count": 1342130,
+      "columns": []
+    },
+    {
+      "schema": "dbo",
+      "name": "Patients",
+      "row_count": 7096,
+      "columns": []
+    },
+    {
+      "schema": "dbo",
+      "name": "Physicians",
+      "row_count": 10000,
+      "columns": []
+    },
+    {
+      "schema": "dbo",
+      "name": "Practices",
+      "row_count": 1000,
+      "columns": []
+    },
+    {
+      "schema": "dbo",
+      "name": "QualityMeasureData",
+      "row_count": 293706,
+      "columns": [
+        {
+          "name": "sClinicalMeasureKey",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "100",
+          "max_val": "99"
+        },
+        {
+          "name": "IsCompliant",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "No",
+          "max_val": "Yes"
+        },
+        {
+          "name": "IsNotCompliant",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "No",
+          "max_val": "Yes"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "Results",
+      "row_count": 224724,
+      "columns": [
+        {
+          "name": "ItemID",
+          "sql_type": "float",
+          "null_count": 0,
+          "min_val": "1.42464e+011",
+          "max_val": "4.3065e+012"
+        },
+        {
+          "name": "ActivityHeaderResultID",
+          "sql_type": "float",
+          "null_count": 0,
+          "min_val": "1.42464e+011",
+          "max_val": "4.3065e+012"
+        },
+        {
+          "name": "SignatureRequiredFLAG",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "N",
+          "max_val": "N"
+        },
+        {
+          "name": "AcknowledgementReqFLAG",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "N",
+          "max_val": "Y"
+        },
+        {
+          "name": "CompletionStatus",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "Incomplete",
+          "max_val": "Incomplete"
+        },
+        {
+          "name": "QODE",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "139",
+          "max_val": "6871"
+        },
+        {
+          "name": "Entryname",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": "Zinc, Plasma"
+        },
+        {
+          "name": "EntryCode",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "011020_c",
+          "max_val": "XRWRIST3VT"
+        },
+        {
+          "name": "QODET",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "Modifier1Name",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "Modifier2Name",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "Modifier3Name",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "QOModDET",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "QOClassificationDE",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "1545",
+          "max_val": "6918"
+        },
+        {
+          "name": "OrderableName",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "** Important Specimen Message:",
+          "max_val": "Zinc, Plasma"
+        },
+        {
+          "name": "OrderableCode",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "%SBCULI",
+          "max_val": "XRWRIST3VT"
+        },
+        {
+          "name": "QOClassificationDET",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "HasSecurityFLAG",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "N",
+          "max_val": "N"
+        },
+        {
+          "name": "HasAnnotationFLAG",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "N",
+          "max_val": "Y"
+        },
+        {
+          "name": "IsAbnormalFLAG",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "N",
+          "max_val": "Y"
+        },
+        {
+          "name": "IsErrorFLAG",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "N",
+          "max_val": "Y"
+        },
+        {
+          "name": "DetailType",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": "R"
+        },
+        {
+          "name": "ResultID",
+          "sql_type": "float",
+          "null_count": 0,
+          "min_val": "1.42528e+011",
+          "max_val": "4.3065e+012"
+        },
+        {
+          "name": "AnswerDE",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "424"
+        },
+        {
+          "name": "AnswerEntryName",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": "Yellow and Clear"
+        },
+        {
+          "name": "AnswerEntryCode",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": "YAC"
+        },
+        {
+          "name": "AnswerDET",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "AnswerDataTypeDE",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "3",
+          "max_val": "8"
+        },
+        {
+          "name": "AnswerDataTypeName",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "Numeric",
+          "max_val": "Text"
+        },
+        {
+          "name": "AnswerDataTypeCode",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "7"
+        },
+        {
+          "name": "SourceName",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "SourceCode",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "SourceDET",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "ResultStage",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "A",
+          "max_val": "P"
+        },
+        {
+          "name": "UnitsName",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": "times"
+        },
+        {
+          "name": "UnitsCode",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": "times"
+        },
+        {
+          "name": "UnitsDET",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": "XMIL/CMM"
+        },
+        {
+          "name": "ResultStatusName",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": "Unacknowledged"
+        },
+        {
+          "name": "ResultStatusCode",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "6"
+        },
+        {
+          "name": "NumericResult",
+          "sql_type": "float",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "190000"
+        },
+        {
+          "name": "ShortRefRange",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": "YELLOW"
+        },
+        {
+          "name": "NormalizedUnitsName",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": "times"
+        },
+        {
+          "name": "NormalizedUnitsCode",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": "times"
+        },
+        {
+          "name": "NormalizedUnitsDET",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": "X"
+        },
+        {
+          "name": "NormalizedValue",
+          "sql_type": "float",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "438"
+        },
+        {
+          "name": "ReasonForCreateType",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "A",
+          "max_val": "E"
+        },
+        {
+          "name": "HasResultTextFLAG",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "N",
+          "max_val": "Y"
+        },
+        {
+          "name": "HasRefRangeTextFLAG",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "N",
+          "max_val": "N"
+        },
+        {
+          "name": "HasReferenceRangeFLAG",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "N",
+          "max_val": "N"
+        },
+        {
+          "name": "AbnormalFlagType",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": "N"
+        },
+        {
+          "name": "DecodedValue",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "ResultFuzzyWhen",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "ResultAnswer",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "ValidationState",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "Invalid",
+          "max_val": "Verified"
+        },
+        {
+          "name": "LoincLabCode",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "SurgicalCosts",
+      "row_count": 211233,
+      "columns": []
+    },
+    {
+      "schema": "dbo",
+      "name": "SurgicalEncounters",
+      "row_count": 9403,
+      "columns": []
+    },
+    {
+      "schema": "dbo",
+      "name": "Vitals",
+      "row_count": 10216,
+      "columns": [
+        {
+          "name": "BloodPressureDiastolicNBR",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "169"
+        },
+        {
+          "name": "BloodPressureSystolicNBR",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "239"
+        },
+        {
+          "name": "BodyMassIndexNBR",
+          "sql_type": "float",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "4997.46"
+        },
+        {
+          "name": "BodySurfaceAreaNBR",
+          "sql_type": "float",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "4.19"
+        },
+        {
+          "name": "HeightFeetInchesTXT",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": "6' 9\""
+        },
+        {
+          "name": "PulseCNT",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "180"
+        },
+        {
+          "name": "RespirationCNT",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "100"
+        },
+        {
+          "name": "TemperatureFahrenheitNBR",
+          "sql_type": "float",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "106.8"
+        },
+        {
+          "name": "WeightOuncesQTY",
+          "sql_type": "float",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "12000"
+        }
+      ]
+    }
+  ]
+}

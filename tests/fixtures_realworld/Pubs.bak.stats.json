@@ -1,0 +1,535 @@
+{
+  "sql_version": "Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (X64)",
+  "bak": "Pubs.bak",
+  "bak_size_mb": 0.5,
+  "database": "RegisterBak_Pubs",
+  "registered_at": "2026-06-10T01:52:19.178272+00:00",
+  "sqlserver_restore_s": 2.121,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "authors",
+      "row_count": 23,
+      "columns": [
+        {
+          "name": "au_id",
+          "sql_type": "id",
+          "null_count": 0,
+          "min_val": "172-32-1176",
+          "max_val": "998-72-3567"
+        },
+        {
+          "name": "au_lname",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "Bennet",
+          "max_val": "Yokomoto"
+        },
+        {
+          "name": "au_fname",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "Abraham",
+          "max_val": "Sylvia"
+        },
+        {
+          "name": "phone",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "219 547-9982",
+          "max_val": "913 843-0462"
+        },
+        {
+          "name": "address",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "10 Mississippi Dr.",
+          "max_val": "PO Box 792"
+        },
+        {
+          "name": "city",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "Ann Arbor",
+          "max_val": "Walnut Creek"
+        },
+        {
+          "name": "state",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "CA",
+          "max_val": "UT"
+        },
+        {
+          "name": "zip",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "20853",
+          "max_val": "97330"
+        },
+        {
+          "name": "contract",
+          "sql_type": "bit",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "discounts",
+      "row_count": 3,
+      "columns": [
+        {
+          "name": "discounttype",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "Customer Discount",
+          "max_val": "Volume Discount"
+        },
+        {
+          "name": "stor_id",
+          "sql_type": "char",
+          "null_count": 2,
+          "min_val": "8042",
+          "max_val": "8042"
+        },
+        {
+          "name": "lowqty",
+          "sql_type": "smallint",
+          "null_count": 2,
+          "min_val": "100",
+          "max_val": "100"
+        },
+        {
+          "name": "highqty",
+          "sql_type": "smallint",
+          "null_count": 2,
+          "min_val": "1000",
+          "max_val": "1000"
+        },
+        {
+          "name": "discount",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "5.00",
+          "max_val": "10.50"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "employee",
+      "row_count": 43,
+      "columns": [
+        {
+          "name": "emp_id",
+          "sql_type": "empid",
+          "null_count": 0,
+          "min_val": "A-C71970F",
+          "max_val": "Y-L77953M"
+        },
+        {
+          "name": "fname",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "Anabela",
+          "max_val": "Yoshi"
+        },
+        {
+          "name": "minit",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": "Y"
+        },
+        {
+          "name": "lname",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "Accorti",
+          "max_val": "Tonini"
+        },
+        {
+          "name": "job_id",
+          "sql_type": "smallint",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "14"
+        },
+        {
+          "name": "job_lvl",
+          "sql_type": "tinyint",
+          "null_count": 0,
+          "min_val": "32",
+          "max_val": "246"
+        },
+        {
+          "name": "pub_id",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "0736",
+          "max_val": "9999"
+        },
+        {
+          "name": "hire_date",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jun 19 1988 12:00AM",
+          "max_val": "May  1 1994 12:00AM"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "jobs",
+      "row_count": 14,
+      "columns": [
+        {
+          "name": "job_id",
+          "sql_type": "smallint",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "14"
+        },
+        {
+          "name": "job_desc",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "Acquisitions Manager",
+          "max_val": "Sales Representative"
+        },
+        {
+          "name": "min_lvl",
+          "sql_type": "tinyint",
+          "null_count": 0,
+          "min_val": "10",
+          "max_val": "200"
+        },
+        {
+          "name": "max_lvl",
+          "sql_type": "tinyint",
+          "null_count": 0,
+          "min_val": "10",
+          "max_val": "250"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "pub_info",
+      "row_count": 8,
+      "columns": [
+        {
+          "name": "pub_id",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "0736",
+          "max_val": "9999"
+        },
+        {
+          "name": "logo",
+          "sql_type": "image",
+          "null_count": 0,
+          "min_val": "0x47494638396107012800B30F00000000800000008000808000000080800080008080808080C0C0C0FF000000FF00FFFF000000FFFF00FF00FFFFFFFFFF21F9040100000F002C00000000070128004004FFF0C949ABBD38EBCDBBFF60288E6469660005",
+          "max_val": "0x474946383961F5003400B30F00000000800000008000808000000080800080008080808080C0C0C0FF000000FF00FFFF000000FFFF00FF00FFFFFFFFFF21F9040100000F002C00000000F50034004004FFF0C949ABBD38EBCDBBFF60288E64D90166AA"
+        },
+        {
+          "name": "pr_info",
+          "sql_type": "text",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "publishers",
+      "row_count": 8,
+      "columns": [
+        {
+          "name": "pub_id",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "0736",
+          "max_val": "9999"
+        },
+        {
+          "name": "pub_name",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "Algodata Infosystems",
+          "max_val": "Scootney Books"
+        },
+        {
+          "name": "city",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "Berkeley",
+          "max_val": "Washington"
+        },
+        {
+          "name": "state",
+          "sql_type": "char",
+          "null_count": 2,
+          "min_val": "CA",
+          "max_val": "TX"
+        },
+        {
+          "name": "country",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "France",
+          "max_val": "USA"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "roysched",
+      "row_count": 86,
+      "columns": [
+        {
+          "name": "title_id",
+          "sql_type": "tid",
+          "null_count": 0,
+          "min_val": "BU1032",
+          "max_val": "TC7777"
+        },
+        {
+          "name": "lorange",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "40001"
+        },
+        {
+          "name": "hirange",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1000",
+          "max_val": "50000"
+        },
+        {
+          "name": "royalty",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "10",
+          "max_val": "24"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "sales",
+      "row_count": 21,
+      "columns": [
+        {
+          "name": "stor_id",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "6380",
+          "max_val": "8042"
+        },
+        {
+          "name": "ord_num",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "423LL922",
+          "max_val": "X999"
+        },
+        {
+          "name": "ord_date",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jun 15 1992 12:00AM",
+          "max_val": "Sep 14 1994 12:00AM"
+        },
+        {
+          "name": "qty",
+          "sql_type": "smallint",
+          "null_count": 0,
+          "min_val": "3",
+          "max_val": "75"
+        },
+        {
+          "name": "payterms",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "Net 30",
+          "max_val": "ON invoice"
+        },
+        {
+          "name": "title_id",
+          "sql_type": "tid",
+          "null_count": 0,
+          "min_val": "BU1032",
+          "max_val": "TC7777"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "stores",
+      "row_count": 6,
+      "columns": [
+        {
+          "name": "stor_id",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "6380",
+          "max_val": "8042"
+        },
+        {
+          "name": "stor_name",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "Barnum's",
+          "max_val": "News & Brews"
+        },
+        {
+          "name": "stor_address",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "24-A Avogadro Way",
+          "max_val": "89 Madison St."
+        },
+        {
+          "name": "city",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "Fremont",
+          "max_val": "Tustin"
+        },
+        {
+          "name": "state",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "CA",
+          "max_val": "WA"
+        },
+        {
+          "name": "zip",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "89076",
+          "max_val": "98056"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "titleauthor",
+      "row_count": 25,
+      "columns": [
+        {
+          "name": "au_id",
+          "sql_type": "id",
+          "null_count": 0,
+          "min_val": "172-32-1176",
+          "max_val": "998-72-3567"
+        },
+        {
+          "name": "title_id",
+          "sql_type": "tid",
+          "null_count": 0,
+          "min_val": "BU1032",
+          "max_val": "TC7777"
+        },
+        {
+          "name": "au_ord",
+          "sql_type": "tinyint",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3"
+        },
+        {
+          "name": "royaltyper",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "25",
+          "max_val": "100"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "titles",
+      "row_count": 18,
+      "columns": [
+        {
+          "name": "title_id",
+          "sql_type": "tid",
+          "null_count": 0,
+          "min_val": "BU1032",
+          "max_val": "TC7777"
+        },
+        {
+          "name": "title",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "But Is It User Friendly?",
+          "max_val": "You Can Combat Computer Stress!"
+        },
+        {
+          "name": "type",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "business",
+          "max_val": "UNDECIDED"
+        },
+        {
+          "name": "pub_id",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "0736",
+          "max_val": "1389"
+        },
+        {
+          "name": "price",
+          "sql_type": "money",
+          "null_count": 2,
+          "min_val": "2.9900",
+          "max_val": "22.9500"
+        },
+        {
+          "name": "advance",
+          "sql_type": "money",
+          "null_count": 2,
+          "min_val": "0.0000",
+          "max_val": "15000.0000"
+        },
+        {
+          "name": "royalty",
+          "sql_type": "int",
+          "null_count": 2,
+          "min_val": "10",
+          "max_val": "24"
+        },
+        {
+          "name": "ytd_sales",
+          "sql_type": "int",
+          "null_count": 2,
+          "min_val": "111",
+          "max_val": "22246"
+        },
+        {
+          "name": "notes",
+          "sql_type": "varchar",
+          "null_count": 1,
+          "min_val": "A must for the specialist, this book examines the difference between those who hate and fear computers and those who don't.",
+          "max_val": "What happens when the data runs dry?  Searching evaluations of information-shortage effects."
+        },
+        {
+          "name": "pubdate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jun  9 1991 12:00AM",
+          "max_val": "Sep 28 2023  8:51PM"
+        }
+      ]
+    }
+  ]
+}

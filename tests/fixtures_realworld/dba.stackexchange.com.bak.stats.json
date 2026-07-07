@@ -1,0 +1,507 @@
+{
+  "sql_version": "Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (X64)",
+  "bak": "dba.stackexchange.com.bak",
+  "bak_size_mb": 489.32,
+  "database": "RegisterBak_dba.stackexchange.com",
+  "registered_at": "2026-06-10T02:01:04.610826+00:00",
+  "sqlserver_restore_s": 25.465,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "Badge",
+      "row_count": 416662,
+      "columns": [
+        {
+          "name": "Id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "457607"
+        },
+        {
+          "name": "UserId",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "278920"
+        },
+        {
+          "name": "Name",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "aggregate",
+          "max_val": "Yearling"
+        },
+        {
+          "name": "Date",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jan  3 2011  8:19PM",
+          "max_val": "Sep  3 2023  1:22AM"
+        },
+        {
+          "name": "Class",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3"
+        },
+        {
+          "name": "TagBased",
+          "sql_type": "bit",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "Comments",
+      "row_count": 340158,
+      "columns": [
+        {
+          "name": "Id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "644331"
+        },
+        {
+          "name": "PostId",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "330838"
+        },
+        {
+          "name": "Score",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "88"
+        },
+        {
+          "name": "Text",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "! 1) Your code helped me write a trigger that actually compiled! Thank you! 2) The join you wrote perfectly captures the relationship between those three tables. 3) But I get an error when I use the t",
+          "max_val": "Zooming in on the graph doesn't show any disk/CPU spikes either. We're thinking of turning on RDS's [enhanced monitoring](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html"
+        },
+        {
+          "name": "CreationDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Sep 16 2008  7:03PM",
+          "max_val": "Sep  2 2023 10:14PM"
+        },
+        {
+          "name": "UserId",
+          "sql_type": "int",
+          "null_count": 13750,
+          "min_val": "-1",
+          "max_val": "278913"
+        },
+        {
+          "name": "ContentLicense",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "CC BY-SA 2.5",
+          "max_val": "CC BY-SA 4.0"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "PostHistory",
+      "row_count": 814930,
+      "columns": [
+        {
+          "name": "Id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1196326"
+        },
+        {
+          "name": "PostHistoryTypeId",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "66"
+        },
+        {
+          "name": "PostId",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "330839"
+        },
+        {
+          "name": "RevisionGUID",
+          "sql_type": "uniqueidentifier",
+          "null_count": 0,
+          "min_val": "9B293A5B-DC37-4F8E-AED9-00001643184D",
+          "max_val": "8EF370E8-8CCD-40C2-8E8B-FFFFFA7C2981"
+        },
+        {
+          "name": "CreationDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Sep 16 2008  7:00PM",
+          "max_val": "Sep  3 2023  3:01AM"
+        },
+        {
+          "name": "UserId",
+          "sql_type": "int",
+          "null_count": 64300,
+          "min_val": "-1",
+          "max_val": "278913"
+        },
+        {
+          "name": "Text",
+          "sql_type": "varchar",
+          "null_count": 112083,
+          "min_val": "",
+          "max_val": "Zooming in on the icon it looks like a red push pin."
+        },
+        {
+          "name": "ContentLicense",
+          "sql_type": "varchar",
+          "null_count": 112089,
+          "min_val": "CC BY-SA 2.5",
+          "max_val": "CC BY-SA 4.0"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "PostLinks",
+      "row_count": 24460,
+      "columns": [
+        {
+          "name": "Id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "125",
+          "max_val": "8154775"
+        },
+        {
+          "name": "CreationDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jan  3 2011 11:15PM",
+          "max_val": "Aug 31 2023  9:28PM"
+        },
+        {
+          "name": "PostId",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "330767"
+        },
+        {
+          "name": "RelatedPostId",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "330742"
+        },
+        {
+          "name": "LinkTypeId",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "Posts",
+      "row_count": 238555,
+      "columns": [
+        {
+          "name": "Id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "330839"
+        },
+        {
+          "name": "PostTypeId",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "7"
+        },
+        {
+          "name": "CreationDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Sep 16 2008  7:00PM",
+          "max_val": "Sep  3 2023 12:30AM"
+        },
+        {
+          "name": "Score",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "-12",
+          "max_val": "1988"
+        },
+        {
+          "name": "ViewCount",
+          "sql_type": "int",
+          "null_count": 137633,
+          "min_val": "3",
+          "max_val": "3119044"
+        },
+        {
+          "name": "Body",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": "z/OS is an operating system for mainframes, by IBM."
+        },
+        {
+          "name": "OwnerUserId",
+          "sql_type": "int",
+          "null_count": 6356,
+          "min_val": "-1",
+          "max_val": "278913"
+        },
+        {
+          "name": "LastEditorUserId",
+          "sql_type": "int",
+          "null_count": 127260,
+          "min_val": "-1",
+          "max_val": "278913"
+        },
+        {
+          "name": "LastEditDate",
+          "sql_type": "datetime",
+          "null_count": 123690,
+          "min_val": "Jan  3 2011  9:23PM",
+          "max_val": "Sep  2 2023 11:33PM"
+        },
+        {
+          "name": "LastActivityDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Sep 16 2008  7:10PM",
+          "max_val": "Sep  3 2023  3:01AM"
+        },
+        {
+          "name": "Title",
+          "sql_type": "varchar",
+          "null_count": 137633,
+          "min_val": "\"[ftdc] serverStatus was very slow\" - MongoDB 4.0.4",
+          "max_val": "Zoom in for MS SQL Server Database Connection screen"
+        },
+        {
+          "name": "Tags",
+          "sql_type": "varchar",
+          "null_count": 137633,
+          "min_val": "<access-control>",
+          "max_val": "<xquery>"
+        },
+        {
+          "name": "AnswerCount",
+          "sql_type": "int",
+          "null_count": 137633,
+          "min_val": "0",
+          "max_val": "21"
+        },
+        {
+          "name": "CommentCount",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "37"
+        },
+        {
+          "name": "ContentLicense",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "CC BY-SA 2.5",
+          "max_val": "CC BY-SA 4.0"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "Tags",
+      "row_count": 1217,
+      "columns": [
+        {
+          "name": "Id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "2629"
+        },
+        {
+          "name": "TagName",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "accelerated-database-recovery",
+          "max_val": "xtradb-cluster"
+        },
+        {
+          "name": "Count",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "33345"
+        },
+        {
+          "name": "RelatedPostId",
+          "sql_type": "int",
+          "null_count": 1217,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "ExcerptPostId",
+          "sql_type": "int",
+          "null_count": 488,
+          "min_val": "1237",
+          "max_val": "330782"
+        },
+        {
+          "name": "WikiPostId",
+          "sql_type": "int",
+          "null_count": 488,
+          "min_val": "1236",
+          "max_val": "330781"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "Users",
+      "row_count": 240423,
+      "columns": [
+        {
+          "name": "Id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "-1",
+          "max_val": "278921"
+        },
+        {
+          "name": "Reputation",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "180415"
+        },
+        {
+          "name": "CreationDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jan  3 2011  5:13PM",
+          "max_val": "Sep  3 2023  3:25AM"
+        },
+        {
+          "name": "DisplayName",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "? ?",
+          "max_val": "\u00d0o\u00e0n H?u D?ng"
+        },
+        {
+          "name": "LastAccessDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jan  3 2011  5:13PM",
+          "max_val": "Sep  3 2023  3:25AM"
+        },
+        {
+          "name": "WebsiteUrl",
+          "sql_type": "varchar",
+          "null_count": 185492,
+          "min_val": "",
+          "max_val": "https://zzz.buzz"
+        },
+        {
+          "name": "Location",
+          "sql_type": "varchar",
+          "null_count": 130299,
+          "min_val": "",
+          "max_val": "\u00d0\u00e0 N?ng, Viet Nam"
+        },
+        {
+          "name": "AboutMe",
+          "sql_type": "varchar",
+          "null_count": 159530,
+          "min_val": "",
+          "max_val": "Zounds."
+        },
+        {
+          "name": "Views",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "42792"
+        },
+        {
+          "name": "UpVotes",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "20647"
+        },
+        {
+          "name": "DownVotes",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "11875"
+        },
+        {
+          "name": "AccountId",
+          "sql_type": "int",
+          "null_count": 18,
+          "min_val": "-1",
+          "max_val": "29353507"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "Votes",
+      "row_count": 892171,
+      "columns": [
+        {
+          "name": "Id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1043920"
+        },
+        {
+          "name": "PostId",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "330838"
+        },
+        {
+          "name": "VoteTypeId",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "16"
+        },
+        {
+          "name": "CreationDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Aug  4 2008 12:00AM",
+          "max_val": "Sep  3 2023 12:00AM"
+        }
+      ]
+    }
+  ]
+}

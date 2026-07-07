@@ -1,0 +1,2880 @@
+{
+  "sql_version": "Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (X64)",
+  "bak": "ContosoRetailDW.bak",
+  "bak_size_mb": 629.956,
+  "database": "RegisterBak_ContosoRetailDW",
+  "registered_at": "2026-06-10T01:49:59.361942+00:00",
+  "sqlserver_restore_s": 27.025,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "DimAccount",
+      "row_count": 24,
+      "columns": [
+        {
+          "name": "AccountKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "24"
+        },
+        {
+          "name": "ParentAccountKey",
+          "sql_type": "int",
+          "null_count": 1,
+          "min_val": "1",
+          "max_val": "24"
+        },
+        {
+          "name": "AccountLabel",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "100000",
+          "max_val": "131000"
+        },
+        {
+          "name": "AccountName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Administration Expense",
+          "max_val": "Taxation"
+        },
+        {
+          "name": "AccountDescription",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Administration Expense",
+          "max_val": "Taxation"
+        },
+        {
+          "name": "AccountType",
+          "sql_type": "nvarchar",
+          "null_count": 2,
+          "min_val": "Expense",
+          "max_val": "Taxation"
+        },
+        {
+          "name": "Operator",
+          "sql_type": "nvarchar",
+          "null_count": 1,
+          "min_val": "-",
+          "max_val": "+"
+        },
+        {
+          "name": "CustomMembers",
+          "sql_type": "nvarchar",
+          "null_count": 24,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "ValueType",
+          "sql_type": "nvarchar",
+          "null_count": 2,
+          "min_val": "Expense",
+          "max_val": "Taxation"
+        },
+        {
+          "name": "CustomMemberOptions",
+          "sql_type": "nvarchar",
+          "null_count": 1,
+          "min_val": "-",
+          "max_val": "+"
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Aug 17 2009  8:45PM",
+          "max_val": "Aug 17 2009  8:45PM"
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Aug 17 2009  8:45PM",
+          "max_val": "Aug 17 2009  8:45PM"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "DimChannel",
+      "row_count": 4,
+      "columns": [
+        {
+          "name": "ChannelKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "4"
+        },
+        {
+          "name": "ChannelLabel",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "01",
+          "max_val": "04"
+        },
+        {
+          "name": "ChannelName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Catalog",
+          "max_val": "Store"
+        },
+        {
+          "name": "ChannelDescription",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Catalog",
+          "max_val": "Store"
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jul 11 2009  2:43PM",
+          "max_val": "Jul 11 2009  2:43PM"
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jul 11 2009  2:43PM",
+          "max_val": "Jul 11 2009  2:43PM"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "DimCurrency",
+      "row_count": 28,
+      "columns": [
+        {
+          "name": "CurrencyKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "28"
+        },
+        {
+          "name": "CurrencyLabel",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "001",
+          "max_val": "028"
+        },
+        {
+          "name": "CurrencyName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "AMD",
+          "max_val": "USD"
+        },
+        {
+          "name": "CurrencyDescription",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Armenian Dram",
+          "max_val": "US Dollar"
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jul 11 2009  2:43PM",
+          "max_val": "Jul 11 2009  6:43PM"
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jul 11 2009  2:43PM",
+          "max_val": "Jul 11 2009  6:43PM"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "DimCustomer",
+      "row_count": 18869,
+      "columns": [
+        {
+          "name": "CustomerKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "19145"
+        },
+        {
+          "name": "GeographyKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "423",
+          "max_val": "952"
+        },
+        {
+          "name": "CustomerLabel",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "11000",
+          "max_val": "CS952"
+        },
+        {
+          "name": "Title",
+          "sql_type": "nvarchar",
+          "null_count": 18768,
+          "min_val": "Mr.",
+          "max_val": "Sr."
+        },
+        {
+          "name": "FirstName",
+          "sql_type": "nvarchar",
+          "null_count": 385,
+          "min_val": "Aaron",
+          "max_val": "Zoe"
+        },
+        {
+          "name": "MiddleName",
+          "sql_type": "nvarchar",
+          "null_count": 8215,
+          "min_val": "A",
+          "max_val": "Z"
+        },
+        {
+          "name": "LastName",
+          "sql_type": "nvarchar",
+          "null_count": 385,
+          "min_val": "Adams",
+          "max_val": "Zukowski"
+        },
+        {
+          "name": "NameStyle",
+          "sql_type": "bit",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1"
+        },
+        {
+          "name": "BirthDate",
+          "sql_type": "date",
+          "null_count": 385,
+          "min_val": "1910-08-13",
+          "max_val": "1980-12-26"
+        },
+        {
+          "name": "MaritalStatus",
+          "sql_type": "nchar",
+          "null_count": 385,
+          "min_val": "M",
+          "max_val": "S"
+        },
+        {
+          "name": "Suffix",
+          "sql_type": "nvarchar",
+          "null_count": 18866,
+          "min_val": "Jr.",
+          "max_val": "Jr."
+        },
+        {
+          "name": "Gender",
+          "sql_type": "nvarchar",
+          "null_count": 385,
+          "min_val": "F",
+          "max_val": "M"
+        },
+        {
+          "name": "EmailAddress",
+          "sql_type": "nvarchar",
+          "null_count": 385,
+          "min_val": "aaron10@adventure-works.com",
+          "max_val": "zoe9@adventure-works.com"
+        },
+        {
+          "name": "YearlyIncome",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "10000.0000",
+          "max_val": "10000000.0000"
+        },
+        {
+          "name": "TotalChildren",
+          "sql_type": "tinyint",
+          "null_count": 385,
+          "min_val": "0",
+          "max_val": "5"
+        },
+        {
+          "name": "NumberChildrenAtHome",
+          "sql_type": "tinyint",
+          "null_count": 385,
+          "min_val": "0",
+          "max_val": "5"
+        },
+        {
+          "name": "Education",
+          "sql_type": "nvarchar",
+          "null_count": 385,
+          "min_val": "Bachelors",
+          "max_val": "Partial High School"
+        },
+        {
+          "name": "Occupation",
+          "sql_type": "nvarchar",
+          "null_count": 385,
+          "min_val": "Clerical",
+          "max_val": "Skilled Manual"
+        },
+        {
+          "name": "HouseOwnerFlag",
+          "sql_type": "nchar",
+          "null_count": 385,
+          "min_val": "0",
+          "max_val": "1"
+        },
+        {
+          "name": "NumberCarsOwned",
+          "sql_type": "tinyint",
+          "null_count": 385,
+          "min_val": "0",
+          "max_val": "4"
+        },
+        {
+          "name": "AddressLine1",
+          "sql_type": "nvarchar",
+          "null_count": 385,
+          "min_val": "00, rue Saint-Lazare",
+          "max_val": "Zur Lindung 787"
+        },
+        {
+          "name": "AddressLine2",
+          "sql_type": "nvarchar",
+          "null_count": 18557,
+          "min_val": "# 1",
+          "max_val": "Verkaufsabteilung"
+        },
+        {
+          "name": "Phone",
+          "sql_type": "nvarchar",
+          "null_count": 385,
+          "min_val": "1 (11) 500 555-0110",
+          "max_val": "999-555-0198"
+        },
+        {
+          "name": "DateFirstPurchase",
+          "sql_type": "date",
+          "null_count": 385,
+          "min_val": "2001-07-01",
+          "max_val": "2004-07-31"
+        },
+        {
+          "name": "CustomerType",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Company",
+          "max_val": "Person"
+        },
+        {
+          "name": "CompanyName",
+          "sql_type": "nvarchar",
+          "null_count": 18484,
+          "min_val": "AlbanyCompany",
+          "max_val": "YorkCompany"
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Oct  1 2009 12:00AM",
+          "max_val": "Oct  1 2009 12:00AM"
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Oct  1 2009 12:00AM",
+          "max_val": "Oct  1 2009 12:00AM"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "DimDate",
+      "row_count": 2556,
+      "columns": [
+        {
+          "name": "Datekey",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jan  1 2005 12:00AM",
+          "max_val": "Dec 31 2011 12:00AM"
+        },
+        {
+          "name": "FullDateLabel",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "2005-01-01",
+          "max_val": "2011-12-31"
+        },
+        {
+          "name": "DateDescription",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "2005/01/01",
+          "max_val": "2011/12/31"
+        },
+        {
+          "name": "CalendarYear",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "2005",
+          "max_val": "2011"
+        },
+        {
+          "name": "CalendarYearLabel",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Year 2005",
+          "max_val": "Year 2011"
+        },
+        {
+          "name": "CalendarHalfYear",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "20051",
+          "max_val": "20112"
+        },
+        {
+          "name": "CalendarHalfYearLabel",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "H1",
+          "max_val": "H2"
+        },
+        {
+          "name": "CalendarQuarter",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "20051",
+          "max_val": "20114"
+        },
+        {
+          "name": "CalendarQuarterLabel",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Q1",
+          "max_val": "Q4"
+        },
+        {
+          "name": "CalendarMonth",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "200501",
+          "max_val": "201112"
+        },
+        {
+          "name": "CalendarMonthLabel",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "April",
+          "max_val": "September"
+        },
+        {
+          "name": "CalendarWeek",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "200501",
+          "max_val": "201153"
+        },
+        {
+          "name": "CalendarWeekLabel",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Week 1",
+          "max_val": "Week 9"
+        },
+        {
+          "name": "CalendarDayOfWeek",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "2005017",
+          "max_val": "2011537"
+        },
+        {
+          "name": "CalendarDayOfWeekLabel",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Friday",
+          "max_val": "Wednesday"
+        },
+        {
+          "name": "FiscalYear",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "2005",
+          "max_val": "2011"
+        },
+        {
+          "name": "FiscalYearLabel",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "FiscalYear 2005",
+          "max_val": "FiscalYear 2011"
+        },
+        {
+          "name": "FiscalHalfYear",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "20051",
+          "max_val": "20112"
+        },
+        {
+          "name": "FiscalHalfYearLabel",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "H1",
+          "max_val": "H2"
+        },
+        {
+          "name": "FiscalQuarter",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "20051",
+          "max_val": "20114"
+        },
+        {
+          "name": "FiscalQuarterLabel",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Q1",
+          "max_val": "Q4"
+        },
+        {
+          "name": "FiscalMonth",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "200501",
+          "max_val": "201112"
+        },
+        {
+          "name": "FiscalMonthLabel",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Month 1",
+          "max_val": "Month 9"
+        },
+        {
+          "name": "IsWorkDay",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "WeekEnd",
+          "max_val": "WorkDay"
+        },
+        {
+          "name": "IsHoliday",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "0"
+        },
+        {
+          "name": "HolidayName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "None",
+          "max_val": "None"
+        },
+        {
+          "name": "EuropeSeason",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Back to School",
+          "max_val": "Spring/Business"
+        },
+        {
+          "name": "NorthAmericaSeason",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Back to School",
+          "max_val": "Spring/Back to Business"
+        },
+        {
+          "name": "AsiaSeason",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Holiday",
+          "max_val": "Tax Time/Summer"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "DimEmployee",
+      "row_count": 293,
+      "columns": [
+        {
+          "name": "EmployeeKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "296"
+        },
+        {
+          "name": "ParentEmployeeKey",
+          "sql_type": "int",
+          "null_count": 1,
+          "min_val": "1",
+          "max_val": "18"
+        },
+        {
+          "name": "FirstName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Aaron",
+          "max_val": "Zainal"
+        },
+        {
+          "name": "LastName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Abercrombie",
+          "max_val": "Zimprich"
+        },
+        {
+          "name": "MiddleName",
+          "sql_type": "nvarchar",
+          "null_count": 279,
+          "min_val": "B.",
+          "max_val": "T."
+        },
+        {
+          "name": "Title",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Sales Group Manager",
+          "max_val": "Sales Store Manager"
+        },
+        {
+          "name": "HireDate",
+          "sql_type": "date",
+          "null_count": 0,
+          "min_val": "1996-07-31",
+          "max_val": "2003-07-01"
+        },
+        {
+          "name": "BirthDate",
+          "sql_type": "date",
+          "null_count": 0,
+          "min_val": "1930-01-11",
+          "max_val": "1981-07-01"
+        },
+        {
+          "name": "EmailAddress",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "AaronPainter@contoso.com",
+          "max_val": "zheng0@contoso.com"
+        },
+        {
+          "name": "Phone",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "1 (11) 500 555-0117",
+          "max_val": "999-555-0155"
+        },
+        {
+          "name": "MaritalStatus",
+          "sql_type": "nchar",
+          "null_count": 0,
+          "min_val": "M",
+          "max_val": "S"
+        },
+        {
+          "name": "EmergencyContactName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Adam Carter",
+          "max_val": "Yossi Banai"
+        },
+        {
+          "name": "EmergencyContactPhone",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "1 (11) 500 555-0117",
+          "max_val": "999-555-0155"
+        },
+        {
+          "name": "SalariedFlag",
+          "sql_type": "bit",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1"
+        },
+        {
+          "name": "Gender",
+          "sql_type": "nchar",
+          "null_count": 0,
+          "min_val": "F",
+          "max_val": "M"
+        },
+        {
+          "name": "PayFrequency",
+          "sql_type": "tinyint",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "2"
+        },
+        {
+          "name": "BaseRate",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "25.0000",
+          "max_val": "125.0000"
+        },
+        {
+          "name": "VacationHours",
+          "sql_type": "smallint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "99"
+        },
+        {
+          "name": "CurrentFlag",
+          "sql_type": "bit",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "SalesPersonFlag",
+          "sql_type": "bit",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1"
+        },
+        {
+          "name": "DepartmentName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Document Control",
+          "max_val": "Tool Design"
+        },
+        {
+          "name": "StartDate",
+          "sql_type": "date",
+          "null_count": 0,
+          "min_val": "1996-07-31",
+          "max_val": "2003-12-15"
+        },
+        {
+          "name": "EndDate",
+          "sql_type": "date",
+          "null_count": 287,
+          "min_val": "1999-08-15",
+          "max_val": "2003-12-15"
+        },
+        {
+          "name": "Status",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Current",
+          "max_val": "NULL"
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Aug  1 2009 12:00AM",
+          "max_val": "Aug  1 2009 12:00AM"
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Aug  1 2009 12:00AM",
+          "max_val": "Aug  1 2009 12:00AM"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "DimEntity",
+      "row_count": 421,
+      "columns": [
+        {
+          "name": "EntityKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "949"
+        },
+        {
+          "name": "EntityLabel",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "01",
+          "max_val": "031501"
+        },
+        {
+          "name": "ParentEntityKey",
+          "sql_type": "int",
+          "null_count": 3,
+          "min_val": "1",
+          "max_val": "943"
+        },
+        {
+          "name": "ParentEntityLabel",
+          "sql_type": "nvarchar",
+          "null_count": 3,
+          "min_val": "Ahal Province",
+          "max_val": "Xinjiang"
+        },
+        {
+          "name": "EntityName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Contoso Ahal Province",
+          "max_val": "Contoso York Store"
+        },
+        {
+          "name": "EntityDescription",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Contoso Ahal Province",
+          "max_val": "National Capital Territory of Delhi"
+        },
+        {
+          "name": "EntityType",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Country/Region",
+          "max_val": "Store"
+        },
+        {
+          "name": "StartDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jul 31 1996 12:00AM",
+          "max_val": "Nov  1 2009 12:00AM"
+        },
+        {
+          "name": "EndDate",
+          "sql_type": "datetime",
+          "null_count": 421,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "Status",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Current",
+          "max_val": "Current"
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Aug  1 2009 12:00AM",
+          "max_val": "Aug  1 2009 12:00AM"
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Aug  1 2009 12:00AM",
+          "max_val": "Aug  1 2009 12:00AM"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "DimGeography",
+      "row_count": 674,
+      "columns": [
+        {
+          "name": "GeographyKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "952"
+        },
+        {
+          "name": "GeographyType",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "City",
+          "max_val": "State/Province"
+        },
+        {
+          "name": "ContinentName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Asia",
+          "max_val": "North America"
+        },
+        {
+          "name": "CityName",
+          "sql_type": "nvarchar",
+          "null_count": 157,
+          "min_val": "Albany",
+          "max_val": "York"
+        },
+        {
+          "name": "StateProvinceName",
+          "sql_type": "nvarchar",
+          "null_count": 37,
+          "min_val": "Ahal Province",
+          "max_val": "Yveline"
+        },
+        {
+          "name": "RegionCountryName",
+          "sql_type": "nvarchar",
+          "null_count": 3,
+          "min_val": "Armenia",
+          "max_val": "United States"
+        },
+        {
+          "name": "Geometry",
+          "sql_type": "geometry",
+          "null_count": 110,
+          "min_val": "MULTIPOLYGON (((-1.7798393066597171 43.360569144771191, -3.1531722343586068 43.355075813060395, -3.5871454395114557 43.508889100962676, -4.5155184986359052 43.399022466746764, -5.8558914360700216 43.6",
+          "max_val": "POLYGON ((92.0792263039932 26.869587348962927, 92.090212967414786 27.347507207802142, 91.678213089105114 27.48484050057203, 91.656239762261933 27.765000417822606, 91.661733093972728 27.946280364278859"
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Sep 28 2009  7:34PM",
+          "max_val": "Sep 28 2009  8:19PM"
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Sep 28 2009  7:34PM",
+          "max_val": "Sep 28 2009  8:19PM"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "DimMachine",
+      "row_count": 7816,
+      "columns": [
+        {
+          "name": "MachineKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "7816"
+        },
+        {
+          "name": "MachineLabel",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "HUB01199001",
+          "max_val": "WSR02307320"
+        },
+        {
+          "name": "StoreKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "307"
+        },
+        {
+          "name": "MachineType",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "HUB01",
+          "max_val": "WSR02"
+        },
+        {
+          "name": "MachineName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "A. Datum Corporation DUB-H7 High Speed USB 2.0 7-Port Hub",
+          "max_val": "Fabrikam Point of Sale System 2.0"
+        },
+        {
+          "name": "MachineDescription",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "4GB DDR2 Memory; 250GB Hard Drives; Windows 2003 Web Server",
+          "max_val": "PC and Mac Compatible; Up to 40 Times Faster than USB 1.1"
+        },
+        {
+          "name": "VendorName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "A. Datum Corporation",
+          "max_val": "Fabrikam, Inc."
+        },
+        {
+          "name": "MachineOS",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Linux2.6",
+          "max_val": "Windows Server 2008"
+        },
+        {
+          "name": "MachineSource",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Catalog Data Center",
+          "max_val": "Store"
+        },
+        {
+          "name": "MachineHardware",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "15\" LCD screen; 4 USB ports (USB 1.0)",
+          "max_val": "Dual 2.33GHz Core Processor; 8GB DDR2 667MHz PC5400 Memory;"
+        },
+        {
+          "name": "MachineSoftware",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Linux2.6",
+          "max_val": "Windows Server 2008"
+        },
+        {
+          "name": "Status",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Used",
+          "max_val": "Used"
+        },
+        {
+          "name": "ServiceStartDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jan 29 2003 12:00AM",
+          "max_val": "Sep  2 2009 12:00AM"
+        },
+        {
+          "name": "DecommissionDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jun 16 2010 12:00AM",
+          "max_val": "Jun 18 2016 12:00AM"
+        },
+        {
+          "name": "LastModifiedDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jan  1 2008 12:00AM",
+          "max_val": "Jul 17 2009 12:00AM"
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jan  1 2008 12:00AM",
+          "max_val": "Jul 17 2009 12:00AM"
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jan  1 2008 12:00AM",
+          "max_val": "Jul 17 2009 12:00AM"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "DimOutage",
+      "row_count": 303,
+      "columns": [
+        {
+          "name": "OutageKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "293",
+          "max_val": "595"
+        },
+        {
+          "name": "OutageLabel",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "0001",
+          "max_val": "0303"
+        },
+        {
+          "name": "OutageName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Change Management",
+          "max_val": "Software"
+        },
+        {
+          "name": "OutageDescription",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Change Management",
+          "max_val": "Software"
+        },
+        {
+          "name": "OutageType",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Asset Management",
+          "max_val": "Violation"
+        },
+        {
+          "name": "OutageTypeDescription",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Asset Management",
+          "max_val": "Violation"
+        },
+        {
+          "name": "OutageSubType",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "ACL",
+          "max_val": "WMI"
+        },
+        {
+          "name": "OutageSubTypeDescription",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "ACL",
+          "max_val": "WMI"
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "May  1 2008  8:01AM",
+          "max_val": "Feb 24 2009 12:00AM"
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "May  1 2008  8:01AM",
+          "max_val": "Feb 24 2009 12:00AM"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "DimProduct",
+      "row_count": 2517,
+      "columns": [
+        {
+          "name": "ProductKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "2517"
+        },
+        {
+          "name": "ProductLabel",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "0101001",
+          "max_val": "0808078"
+        },
+        {
+          "name": "ProductName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "A. Datum Advanced Digital Camera M300 Azure",
+          "max_val": "WWI Wireless Transmitter and Bluetooth Headphones X250 White"
+        },
+        {
+          "name": "ProductDescription",
+          "sql_type": "nvarchar",
+          "null_count": 1,
+          "min_val": "1.3 megapixel camera, touch screen display",
+          "max_val": "Zoo Tycoon2009"
+        },
+        {
+          "name": "ProductSubcategoryKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "48"
+        },
+        {
+          "name": "Manufacturer",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "A. Datum Corporation",
+          "max_val": "Wide World Importers"
+        },
+        {
+          "name": "BrandName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "A. Datum",
+          "max_val": "Wide World Importers"
+        },
+        {
+          "name": "ClassID",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3"
+        },
+        {
+          "name": "ClassName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Deluxe",
+          "max_val": "Regular"
+        },
+        {
+          "name": "StyleID",
+          "sql_type": "nvarchar",
+          "null_count": 30,
+          "min_val": "1",
+          "max_val": "9"
+        },
+        {
+          "name": "StyleName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Product0101001",
+          "max_val": "Product0808078"
+        },
+        {
+          "name": "ColorID",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "9"
+        },
+        {
+          "name": "ColorName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Azure",
+          "max_val": "Yellow"
+        },
+        {
+          "name": "Size",
+          "sql_type": "nvarchar",
+          "null_count": 570,
+          "min_val": "0.7 x 0.7 x 5.3",
+          "max_val": "98.8 x 54 x 12"
+        },
+        {
+          "name": "SizeRange",
+          "sql_type": "nvarchar",
+          "null_count": 1015,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "SizeUnitMeasureID",
+          "sql_type": "nvarchar",
+          "null_count": 992,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "Weight",
+          "sql_type": "float",
+          "null_count": 284,
+          "min_val": "0.17",
+          "max_val": "239"
+        },
+        {
+          "name": "WeightUnitMeasureID",
+          "sql_type": "nvarchar",
+          "null_count": 102,
+          "min_val": "",
+          "max_val": "pounds"
+        },
+        {
+          "name": "UnitOfMeasureID",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "2"
+        },
+        {
+          "name": "UnitOfMeasureName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "inches",
+          "max_val": "mm"
+        },
+        {
+          "name": "StockTypeID",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3"
+        },
+        {
+          "name": "StockTypeName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "High",
+          "max_val": "Mid"
+        },
+        {
+          "name": "UnitCost",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "0.4800",
+          "max_val": "1060.2200"
+        },
+        {
+          "name": "UnitPrice",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "0.9500",
+          "max_val": "3199.9900"
+        },
+        {
+          "name": "AvailableForSaleDate",
+          "sql_type": "datetime",
+          "null_count": 1,
+          "min_val": "Jan  1 2004 12:00AM",
+          "max_val": "Jul 21 2009 12:00AM"
+        },
+        {
+          "name": "StopSaleDate",
+          "sql_type": "datetime",
+          "null_count": 2517,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "Status",
+          "sql_type": "nvarchar",
+          "null_count": 295,
+          "min_val": "On",
+          "max_val": "On"
+        },
+        {
+          "name": "ImageURL",
+          "sql_type": "nvarchar",
+          "null_count": 2517,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "ProductURL",
+          "sql_type": "nvarchar",
+          "null_count": 2517,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "18"
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jan  1 2007 12:00AM",
+          "max_val": "Oct  1 2009 12:00AM"
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jan  1 2007 12:00AM",
+          "max_val": "Oct  1 2009 12:00AM"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "DimProductCategory",
+      "row_count": 8,
+      "columns": [
+        {
+          "name": "ProductCategoryKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "8"
+        },
+        {
+          "name": "ProductCategoryLabel",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "01",
+          "max_val": "08"
+        },
+        {
+          "name": "ProductCategoryName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Audio",
+          "max_val": "TV and Video"
+        },
+        {
+          "name": "ProductCategoryDescription",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Audio",
+          "max_val": "TV and Video"
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jul  7 2009 12:00AM",
+          "max_val": "Jul  7 2009 12:00AM"
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jul  7 2009 12:00AM",
+          "max_val": "Jul  7 2009 12:00AM"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "DimProductSubcategory",
+      "row_count": 44,
+      "columns": [
+        {
+          "name": "ProductSubcategoryKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "48"
+        },
+        {
+          "name": "ProductSubcategoryLabel",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "0101",
+          "max_val": "0808"
+        },
+        {
+          "name": "ProductSubcategoryName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Air Conditioners",
+          "max_val": "Water Heaters"
+        },
+        {
+          "name": "ProductSubcategoryDescription",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Air Conditioners",
+          "max_val": "Water Heaters"
+        },
+        {
+          "name": "ProductCategoryKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "8"
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jul  7 2009 12:00AM",
+          "max_val": "Jul  7 2009 12:00AM"
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jul  7 2009 12:00AM",
+          "max_val": "Jul  7 2009 12:00AM"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "DimPromotion",
+      "row_count": 28,
+      "columns": [
+        {
+          "name": "PromotionKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "28"
+        },
+        {
+          "name": "PromotionLabel",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "001",
+          "max_val": "028"
+        },
+        {
+          "name": "PromotionName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Asian Holiday Promotion",
+          "max_val": "North America Spring Promotion"
+        },
+        {
+          "name": "PromotionDescription",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Asian Holiday Promotion",
+          "max_val": "North America Spring Promotion"
+        },
+        {
+          "name": "DiscountPercent",
+          "sql_type": "float",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "0.2"
+        },
+        {
+          "name": "PromotionType",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "No Discount",
+          "max_val": "Seasonal Discount"
+        },
+        {
+          "name": "PromotionCategory",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "No Discount",
+          "max_val": "Store"
+        },
+        {
+          "name": "StartDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jan  1 2003 12:00AM",
+          "max_val": "Nov  1 2009 12:00AM"
+        },
+        {
+          "name": "EndDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Mar 31 2007 12:00AM",
+          "max_val": "Dec 31 2010 12:00AM"
+        },
+        {
+          "name": "MinQuantity",
+          "sql_type": "int",
+          "null_count": 28,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "MaxQuantity",
+          "sql_type": "int",
+          "null_count": 28,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Sep  1 2009 12:00AM",
+          "max_val": "Sep  1 2009 12:00AM"
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Sep  1 2009 12:00AM",
+          "max_val": "Sep  1 2009 12:00AM"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "DimSalesTerritory",
+      "row_count": 265,
+      "columns": [
+        {
+          "name": "SalesTerritoryKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "274"
+        },
+        {
+          "name": "GeographyKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "424",
+          "max_val": "952"
+        },
+        {
+          "name": "SalesTerritoryLabel",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "010101001",
+          "max_val": "031501001"
+        },
+        {
+          "name": "SalesTerritoryName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Albany",
+          "max_val": "York"
+        },
+        {
+          "name": "SalesTerritoryRegion",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Ahal Province",
+          "max_val": "Yeongnam"
+        },
+        {
+          "name": "SalesTerritoryCountry",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Armenia",
+          "max_val": "United States"
+        },
+        {
+          "name": "SalesTerritoryGroup",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Asia",
+          "max_val": "North America"
+        },
+        {
+          "name": "SalesTerritoryLevel",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "4",
+          "max_val": "4"
+        },
+        {
+          "name": "SalesTerritoryManager",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "14",
+          "max_val": "296"
+        },
+        {
+          "name": "StartDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Sep 29 2009  2:48AM",
+          "max_val": "Sep 29 2009  2:48AM"
+        },
+        {
+          "name": "EndDate",
+          "sql_type": "datetime",
+          "null_count": 265,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "Status",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Current",
+          "max_val": "Current"
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Aug  1 2009 12:00AM",
+          "max_val": "Aug  1 2009 12:00AM"
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Aug  1 2009 12:00AM",
+          "max_val": "Aug  1 2009 12:00AM"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "DimScenario",
+      "row_count": 3,
+      "columns": [
+        {
+          "name": "ScenarioKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3"
+        },
+        {
+          "name": "ScenarioLabel",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "01",
+          "max_val": "03"
+        },
+        {
+          "name": "ScenarioName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Actual",
+          "max_val": "Forecast"
+        },
+        {
+          "name": "ScenarioDescription",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Actual",
+          "max_val": "Forecast"
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jul 11 2009  2:43PM",
+          "max_val": "Jul 11 2009  2:43PM"
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jul 11 2009  2:43PM",
+          "max_val": "Jul 11 2009  2:43PM"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "DimStore",
+      "row_count": 306,
+      "columns": [
+        {
+          "name": "StoreKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "310"
+        },
+        {
+          "name": "GeographyKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "424",
+          "max_val": "952"
+        },
+        {
+          "name": "StoreManager",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "14",
+          "max_val": "296"
+        },
+        {
+          "name": "StoreType",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Catalog",
+          "max_val": "Store"
+        },
+        {
+          "name": "StoreName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Contoso Albany Store",
+          "max_val": "Contoso York Store"
+        },
+        {
+          "name": "StoreDescription",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Contoso Albany Store",
+          "max_val": "ContosoOttawa No.2 Store"
+        },
+        {
+          "name": "Status",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Off",
+          "max_val": "On"
+        },
+        {
+          "name": "OpenDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jan 29 2003 12:00AM",
+          "max_val": "Sep  2 2009 12:00AM"
+        },
+        {
+          "name": "CloseDate",
+          "sql_type": "datetime",
+          "null_count": 294,
+          "min_val": "Sep 22 2008 12:00AM",
+          "max_val": "Jul 12 2009 12:00AM"
+        },
+        {
+          "name": "EntityKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "58",
+          "max_val": "949"
+        },
+        {
+          "name": "ZipCode",
+          "sql_type": "nvarchar",
+          "null_count": 41,
+          "min_val": "10",
+          "max_val": "97232"
+        },
+        {
+          "name": "ZipCodeExtension",
+          "sql_type": "nvarchar",
+          "null_count": 41,
+          "min_val": "10",
+          "max_val": "97232"
+        },
+        {
+          "name": "StorePhone",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "1 (11) 500 555-",
+          "max_val": "999-555-0155"
+        },
+        {
+          "name": "StoreFax",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "1 (11) 500 555",
+          "max_val": "999-555-0155"
+        },
+        {
+          "name": "AddressLine1",
+          "sql_type": "nvarchar",
+          "null_count": 7,
+          "min_val": "Dundas Street East, Toronto, Canada",
+          "max_val": "Yakima, shopping mall"
+        },
+        {
+          "name": "AddressLine2",
+          "sql_type": "nvarchar",
+          "null_count": 7,
+          "min_val": "Dundas Street East, Toronto, Canada",
+          "max_val": "Yakima, shopping mall"
+        },
+        {
+          "name": "CloseReason",
+          "sql_type": "nvarchar",
+          "null_count": 294,
+          "min_val": "Relocation",
+          "max_val": "Store"
+        },
+        {
+          "name": "EmployeeCount",
+          "sql_type": "int",
+          "null_count": 1,
+          "min_val": "7",
+          "max_val": "325"
+        },
+        {
+          "name": "SellingAreaSize",
+          "sql_type": "float",
+          "null_count": 0,
+          "min_val": "450",
+          "max_val": "93800"
+        },
+        {
+          "name": "LastRemodelDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jun  5 2008 12:00AM",
+          "max_val": "Jun 20 2009 12:00AM"
+        },
+        {
+          "name": "GeoLocation",
+          "sql_type": "geography",
+          "null_count": 0,
+          "min_val": "POINT (-0.081711 51.3422)",
+          "max_val": "POINT (-99.1583 41.1378)"
+        },
+        {
+          "name": "Geometry",
+          "sql_type": "geometry",
+          "null_count": 0,
+          "min_val": "POINT (-0.081711 51.3422)",
+          "max_val": "POINT (-99.1583 41.1378)"
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Nov 21 2008 12:00AM",
+          "max_val": "Jul 10 2009 12:00AM"
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Nov 21 2008 12:00AM",
+          "max_val": "Jul  1 2009 12:00AM"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "FactExchangeRate",
+      "row_count": 773,
+      "columns": [
+        {
+          "name": "ExchangeRateKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "774"
+        },
+        {
+          "name": "CurrencyKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "26"
+        },
+        {
+          "name": "DateKey",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jan  1 2007 12:00AM",
+          "max_val": "Jul  1 2009 12:00AM"
+        },
+        {
+          "name": "AverageRate",
+          "sql_type": "float",
+          "null_count": 0,
+          "min_val": "0.21338",
+          "max_val": "10114.9"
+        },
+        {
+          "name": "EndOfDayRate",
+          "sql_type": "float",
+          "null_count": 0,
+          "min_val": "0.2885",
+          "max_val": "10199"
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jul  1 2009 12:00AM",
+          "max_val": "Jul  1 2009 12:00AM"
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jul  1 2009 12:00AM",
+          "max_val": "Jul  1 2009 12:00AM"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "FactInventory",
+      "row_count": 8013099,
+      "columns": [
+        {
+          "name": "InventoryKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "8013099"
+        },
+        {
+          "name": "DateKey",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jan  6 2007 12:00AM",
+          "max_val": "Dec 26 2009 12:00AM"
+        },
+        {
+          "name": "StoreKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "310"
+        },
+        {
+          "name": "ProductKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "2517"
+        },
+        {
+          "name": "CurrencyKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "OnHandQuantity",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "5517"
+        },
+        {
+          "name": "OnOrderQuantity",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "2770"
+        },
+        {
+          "name": "SafetyStockQuantity",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "3",
+          "max_val": "3228"
+        },
+        {
+          "name": "UnitCost",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "0.4800",
+          "max_val": "1060.2200"
+        },
+        {
+          "name": "DaysInStock",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "5",
+          "max_val": "119"
+        },
+        {
+          "name": "MinDayInStock",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "5",
+          "max_val": "59"
+        },
+        {
+          "name": "MaxDayInStock",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "60",
+          "max_val": "119"
+        },
+        {
+          "name": "Aging",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "7"
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jan  1 2010 12:00AM",
+          "max_val": "Jan  1 2010 12:00AM"
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jan  1 2010 12:00AM",
+          "max_val": "Jan  1 2010 12:00AM"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "FactITMachine",
+      "row_count": 23283,
+      "columns": [
+        {
+          "name": "ITMachinekey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "23283"
+        },
+        {
+          "name": "MachineKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "7816"
+        },
+        {
+          "name": "Datekey",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jan  1 2007 12:00AM",
+          "max_val": "Jan  1 2009 12:00AM"
+        },
+        {
+          "name": "CostAmount",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "390.0000",
+          "max_val": "18499.0000"
+        },
+        {
+          "name": "CostType",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Annual Maintenance Cost",
+          "max_val": "Equipment Costs"
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Aug 24 2009 11:59PM",
+          "max_val": "Aug 24 2009 11:59PM"
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Aug 24 2009 11:59PM",
+          "max_val": "Aug 24 2009 11:59PM"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "FactITSLA",
+      "row_count": 4925,
+      "columns": [
+        {
+          "name": "ITSLAkey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "4925"
+        },
+        {
+          "name": "DateKey",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jan  1 2007 12:00AM",
+          "max_val": "Dec 31 2009 12:00AM"
+        },
+        {
+          "name": "StoreKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "307"
+        },
+        {
+          "name": "MachineKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "7808"
+        },
+        {
+          "name": "OutageKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "293",
+          "max_val": "595"
+        },
+        {
+          "name": "OutageStartTime",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jan  1 2007  1:54PM",
+          "max_val": "Dec 31 2009  8:25PM"
+        },
+        {
+          "name": "OutageEndTime",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jan  1 2007  2:11PM",
+          "max_val": "Dec 31 2009  8:41PM"
+        },
+        {
+          "name": "DownTime",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1433"
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jan  1 2007 12:00AM",
+          "max_val": "Dec 31 2009 12:00AM"
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jan  1 2007 12:00AM",
+          "max_val": "Dec 31 2009 12:00AM"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "FactOnlineSales",
+      "row_count": 12627608,
+      "columns": [
+        {
+          "name": "OnlineSalesKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "19560484",
+          "max_val": "32188091"
+        },
+        {
+          "name": "DateKey",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jan  1 2007 12:00AM",
+          "max_val": "Dec 31 2009 12:00AM"
+        },
+        {
+          "name": "StoreKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "199",
+          "max_val": "307"
+        },
+        {
+          "name": "ProductKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "2517"
+        },
+        {
+          "name": "PromotionKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "28"
+        },
+        {
+          "name": "CurrencyKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "CustomerKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "19145"
+        },
+        {
+          "name": "SalesOrderNumber",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "20070101111015",
+          "max_val": "200912318CS952"
+        },
+        {
+          "name": "SalesOrderLineNumber",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "4972"
+        },
+        {
+          "name": "SalesQuantity",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1"
+        },
+        {
+          "name": "SalesAmount",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "0.0000",
+          "max_val": "3199.9900"
+        },
+        {
+          "name": "ReturnQuantity",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1"
+        },
+        {
+          "name": "ReturnAmount",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "0.0000",
+          "max_val": "3199.9900"
+        },
+        {
+          "name": "DiscountQuantity",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1"
+        },
+        {
+          "name": "DiscountAmount",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "0.0000",
+          "max_val": "639.9980"
+        },
+        {
+          "name": "TotalCost",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "0.4800",
+          "max_val": "1060.2200"
+        },
+        {
+          "name": "UnitCost",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "0.4800",
+          "max_val": "1060.2200"
+        },
+        {
+          "name": "UnitPrice",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "0.9500",
+          "max_val": "3199.9900"
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "null_count": 12627608,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "null_count": 12627608,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "null_count": 12627608,
+          "min_val": null,
+          "max_val": null
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "FactSales",
+      "row_count": 3406089,
+      "columns": [
+        {
+          "name": "SalesKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3406089"
+        },
+        {
+          "name": "DateKey",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jan  1 2007 12:00AM",
+          "max_val": "Dec 31 2009 12:00AM"
+        },
+        {
+          "name": "channelKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "4"
+        },
+        {
+          "name": "StoreKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "310"
+        },
+        {
+          "name": "ProductKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "2517"
+        },
+        {
+          "name": "PromotionKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "28"
+        },
+        {
+          "name": "CurrencyKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "UnitCost",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "0.4800",
+          "max_val": "1060.2200"
+        },
+        {
+          "name": "UnitPrice",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "0.9500",
+          "max_val": "3199.9900"
+        },
+        {
+          "name": "SalesQuantity",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "2880"
+        },
+        {
+          "name": "ReturnQuantity",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "5"
+        },
+        {
+          "name": "ReturnAmount",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "0.0000",
+          "max_val": "9996.0000"
+        },
+        {
+          "name": "DiscountQuantity",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "24"
+        },
+        {
+          "name": "DiscountAmount",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "0.0000",
+          "max_val": "7958.7000"
+        },
+        {
+          "name": "TotalCost",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "1.9200",
+          "max_val": "137117.7600"
+        },
+        {
+          "name": "SalesAmount",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "3.0400",
+          "max_val": "408016.0200"
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jan  1 2010 12:00AM",
+          "max_val": "Jan  1 2010 12:00AM"
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jan  1 2010 12:00AM",
+          "max_val": "Jan  1 2010 12:00AM"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "FactSalesQuota",
+      "row_count": 7465911,
+      "columns": [
+        {
+          "name": "SalesQuotaKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "7465911"
+        },
+        {
+          "name": "ChannelKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "4"
+        },
+        {
+          "name": "StoreKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "310"
+        },
+        {
+          "name": "ProductKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "2517"
+        },
+        {
+          "name": "DateKey",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jan  1 2007 12:00AM",
+          "max_val": "Dec  1 2009 12:00AM"
+        },
+        {
+          "name": "CurrencyKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "ScenarioKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3"
+        },
+        {
+          "name": "SalesQuantityQuota",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "1.0000",
+          "max_val": "6264.0000"
+        },
+        {
+          "name": "SalesAmountQuota",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "2.9684",
+          "max_val": "1142709.2197"
+        },
+        {
+          "name": "GrossMarginQuota",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "-1620.9545",
+          "max_val": "736727.1041"
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jan 19 2010  1:29AM",
+          "max_val": "Jan 19 2010  1:29AM"
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jan 19 2010  1:29AM",
+          "max_val": "Jan 19 2010  1:29AM"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "FactStrategyPlan",
+      "row_count": 2750628,
+      "columns": [
+        {
+          "name": "StrategyPlanKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3181386"
+        },
+        {
+          "name": "Datekey",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jan  1 2007 12:00AM",
+          "max_val": "Dec  1 2009 12:00AM"
+        },
+        {
+          "name": "EntityKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "58",
+          "max_val": "949"
+        },
+        {
+          "name": "ScenarioKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3"
+        },
+        {
+          "name": "AccountKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "4",
+          "max_val": "23"
+        },
+        {
+          "name": "CurrencyKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "ProductCategoryKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "8"
+        },
+        {
+          "name": "Amount",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "0.3240",
+          "max_val": "25931992.5114"
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Aug 30 2009 10:13PM",
+          "max_val": "Oct 10 2009 12:00AM"
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "null_count": 507444,
+          "min_val": "Oct 10 2009 12:00AM",
+          "max_val": "Oct 10 2009 12:00AM"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "sysdiagrams",
+      "row_count": 0,
+      "columns": [
+        {
+          "name": "name",
+          "sql_type": "sysname",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "principal_id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "diagram_id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "version",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "definition",
+          "sql_type": "varbinary",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        }
+      ]
+    }
+  ]
+}

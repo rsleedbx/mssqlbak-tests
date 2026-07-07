@@ -1,0 +1,1309 @@
+{
+  "bak": "GeneralHospital.bak",
+  "captured_at": "2026-06-27T22:05:14.261562+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.Accounts",
+      "row_count": 53787,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "Primary ICD Diagnosis Code",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:91b21801875c559b4c95c12abcc084245076b90481d1d4d1b18149a6092fa497",
+          "null_count": 0
+        },
+        {
+          "name": "Admit ICD Diangosis Code",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:928d2885876ccec40a0615f275e430f14318f9a0a267bf0687aad6e843cded60",
+          "null_count": 0
+        },
+        {
+          "name": "Hospital Account ID",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:b888f8288427c467562f071711249267269911372c9b82a938ee98866a125fbd",
+          "null_count": 0
+        },
+        {
+          "name": "Primary ICD Procedure Code",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:0dbc1135f9b8365ce17af799923e978153034a8d9906b194e889005050e30a59",
+          "null_count": 0
+        },
+        {
+          "name": "Primary Payor ID",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:e7aaea84a28facd8936d6142171e6f409f8eaed19eddde292d08d9d952a3a6d8",
+          "null_count": 0
+        },
+        {
+          "name": "Total Account Balance $",
+          "sql_type": "money",
+          "digest": "sha256:df8736ee6d66a19a4f06d4c38b1dc985857d6920e53d13f20d19152ee9d6b7ce",
+          "null_count": 0
+        },
+        {
+          "name": "Total Account Adjustment $",
+          "sql_type": "money",
+          "digest": "sha256:4d169523d0b7db380bd398f2d196d01581ff7be2f759b0b851f6be35f9f4d3a7",
+          "null_count": 0
+        },
+        {
+          "name": "Total Account Charge $",
+          "sql_type": "money",
+          "digest": "sha256:ebbd942c0bdd5973bcd0134d0e8f24034beb5e8f17f2170cdc443f59b56a4bd2",
+          "null_count": 0
+        },
+        {
+          "name": "Total Account Payment $",
+          "sql_type": "money",
+          "digest": "sha256:104cfb53e8c1b3c383bae04918a6b2f5bbe4c560464972ffdfda211abd2973ac",
+          "null_count": 0
+        },
+        {
+          "name": "HRRP Condition",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:85f9b1b47ba704fc694ac26a8bfe0f061b8b1d803bd44b10b4ae10e69f2fb420",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true
+    },
+    {
+      "fqn": "dbo.Departments",
+      "row_count": 64,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "Department Name",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:1f025686deabd193af5d8e6f23028044d07fa9fddca360108bf044d0d978f2c1",
+          "null_count": 0
+        },
+        {
+          "name": "Department ID",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:231426418b796936aa0611bcbf249a120bf9fa74f38b999f8c92f304037b533b",
+          "null_count": 0
+        },
+        {
+          "name": "Hospital ID",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:accd677bde80e3d0a63920001f0fac34c242b239acb746630429df8c02f7cebc",
+          "null_count": 0
+        },
+        {
+          "name": "Specialty Description",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:c9499d9ab617bc037a117e601eaaedb737751636c5652cf7ee456b95caae7ac4",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true
+    },
+    {
+      "fqn": "dbo.Encounters",
+      "row_count": 12457,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "Master Patient ID",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:9d563d7fdbaef0685d8a9f1bf94e417deceaa366e98cb4a299144099575d40bf",
+          "null_count": 0
+        },
+        {
+          "name": "Patient Encounter ID",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:e8eb2b36932987dfb5790a517ae8994df1ee4b90202b159f8a159ea28e2f3307",
+          "null_count": 0
+        },
+        {
+          "name": "Patient Admission Datetime",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:7f6193a95a70c3fcc0c077e8cf147d7845277b993998ef0badd0adda20123547",
+          "null_count": 0
+        },
+        {
+          "name": "Patient LOS",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:d8f5b586589d0925db787b1417dc2749570ef337c4449a72bc75c43623bcba0b",
+          "null_count": 0
+        },
+        {
+          "name": "Patient LOS Bucket",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:6da5173d8b959a0202ce4b62012b083bb4d4bc667199ebc69dc6ddd79eea48f6",
+          "null_count": 0
+        },
+        {
+          "name": "Patient LOS Bucket Sort",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:afa6d9567f06d66f76269e7031a6e1332755c4751ed40de9cefb69c02faf74c7",
+          "null_count": 0
+        },
+        {
+          "name": "Admitting Provider ID",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:63e2a45e4a4efe00e6064310db847cd0c5e5c29d284162dabcca5ab724cafb36",
+          "null_count": 0
+        },
+        {
+          "name": "Discharging Provider ID",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:71d91113ccdb578c88ceb155e394a7c70a563c0746763aa160d6f3b93fa86533",
+          "null_count": 0
+        },
+        {
+          "name": "Attending Provider ID",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:3dcdc56c95207d1d6d1ec93d5595806a23160b9e74ea85fb275efe70d66953ab",
+          "null_count": 0
+        },
+        {
+          "name": "Patient Discharge Datetime",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:bf50062f826eef1c1c5dfbe0e9bbcc9d40a67eee7728b61f4e1b0e5ba2d69334",
+          "null_count": 0
+        },
+        {
+          "name": "Department ID",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:e47258084d81662b5dda9af97470cd172b8ed558034949db1146965d2ccbcfed",
+          "null_count": 0
+        },
+        {
+          "name": "Hospital Account ID",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:2671b0f808d014d8a1cf8ad23b2b279f9632d22f9c4d61499ae0e37875899ed4",
+          "null_count": 0
+        },
+        {
+          "name": "Patient InICU Flag",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:090d63710070e091efdb613b4e69ff7399b94f9df4b120d696d70942311ffc2e",
+          "null_count": 0
+        },
+        {
+          "name": "Patient Admitted Flag",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:d9f2f92a8273ae595f8f2333c630a0d6fe0c8d1a73349321d9bddfaa45a4c19b",
+          "null_count": 0
+        },
+        {
+          "name": "Patient Readmission Flag",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:f4eea8433df3f115daed67ed435070c69a710956c5ebd234b33a528a44a9d785",
+          "null_count": 0
+        },
+        {
+          "name": "Patient Inpatient Readmission Flag",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:f4eea8433df3f115daed67ed435070c69a710956c5ebd234b33a528a44a9d785",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true
+    },
+    {
+      "fqn": "dbo.Hospitals",
+      "row_count": 124,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "Hospital ID",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:e9a767d4fd6c35ed062e5c2d2beacf6d086cbc856cc2945b4ea779f61f6a2bad",
+          "null_count": 0
+        },
+        {
+          "name": "Hospital Name",
+          "sql_type": "varchar(250)",
+          "digest": "sha256:7ece1e6c15d74795a14d01082d2c639e3cc9cc6a563de25ad75435694b3f2a2c",
+          "null_count": 0
+        },
+        {
+          "name": "Hospital Address Number",
+          "sql_type": "varchar(250)",
+          "digest": "sha256:3b2e4b455984abbaf183392d2e5aea88a0ba941725c4f0d8af0049c5b55ce8b6",
+          "null_count": 0
+        },
+        {
+          "name": "Hospital Address Street",
+          "sql_type": "varchar(350)",
+          "digest": "sha256:60706c1b89b0e4d6e3f794e0b070db4298da72a9253d1e211566ec958c3db751",
+          "null_count": 0
+        },
+        {
+          "name": "Hospital Address Full",
+          "sql_type": "varchar(350)",
+          "digest": "sha256:7b62b9be54d32003234f4dfa102d63ca04c3a6507b19d6b82f299630c8af73d7",
+          "null_count": 0
+        },
+        {
+          "name": "Hospital City",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:e7eb61cebcfdc70deda5528ada667ce82e8396a8662f476ce3a74855929066fa",
+          "null_count": 0
+        },
+        {
+          "name": "Hospital Zip Code",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:22e6f0c24773ec2c0c796f9dd37d0cb1e9780df512faf413a833e5c3f49c6dfc",
+          "null_count": 0
+        },
+        {
+          "name": "Hospital County",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:3e416ff1bcd4bcf27f9aa98179813e7155935867c317dd22691ad8d7ba63cfa6",
+          "null_count": 0
+        },
+        {
+          "name": "Hospital State",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:064f669b10fe12cc57b75789ce3e00cd910ece7adc2518d7a74f9fe213ae13ce",
+          "null_count": 0
+        },
+        {
+          "name": "Hospital Country",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:0949d0eb5de9ca83c5698c5680e6357ddd048a01dc1ec042b9a79f51ba3fe7d1",
+          "null_count": 0
+        },
+        {
+          "name": "Hospital Latitude",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:37f7fcae5ff8bc8a6fc0bb5e1e521bf0f9bdd1ab91b8f2470266bdb71cab7762",
+          "null_count": 0
+        },
+        {
+          "name": "Hospital Longitude",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:4d7c5be4cf0d35628663b322eb330ec2c5228af4a7f3c754c2fd27ca015388f8",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true
+    },
+    {
+      "fqn": "dbo.OrdersProcedures",
+      "row_count": 1342130,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "Patient Encounter ID",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:39c3a88cf3156f9aef61e4d46a5dcc9475de6ddff2d51e243870ed435e9ece19",
+          "null_count": 0
+        },
+        {
+          "name": "Ordering Provider ID",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:cea472746175faca4f45e1bce308feca7ec07c003c3f3794c9789713fee15087",
+          "null_count": 0
+        },
+        {
+          "name": "Order CPT",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:9585a5866ed29415a40eb422ccdf0eb970b053fe487ed9bdae9d91c7e3879ab8",
+          "null_count": 0
+        },
+        {
+          "name": "Order Procedure Description",
+          "sql_type": "varchar(350)",
+          "digest": "sha256:01fc29eb7119b0faa29a1686985215dcb0baecabeccd7c8db6ca4a17e1d9df6e",
+          "null_count": 0
+        },
+        {
+          "name": "Order Procedure ID",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:e1cb03da7a28b175d41317d081076f7252ebec9697b6cfe437ae39dacf8f5f55",
+          "null_count": 0
+        },
+        {
+          "name": "Order Lab Status Description",
+          "sql_type": "varchar(350)",
+          "digest": "sha256:a6c9428c7e03d7d47fd2a841ebd480d77df26bf43c57be537f60140f438683d9",
+          "null_count": 0
+        },
+        {
+          "name": "Order Lab Status ID",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:75c5685ccd66505d8f9a486fcb4c41fa435db604d84c3eba4186ed49f329c868",
+          "null_count": 0
+        },
+        {
+          "name": "Order Status Description",
+          "sql_type": "varchar(350)",
+          "digest": "sha256:42139e53c1149d0d0cf1c60d00badd3049e8b8b32124e3a8636b1b0539c249dd",
+          "null_count": 0
+        },
+        {
+          "name": "Order Parent Order ID",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:84b2a38516d0bd4f565c23272c9575ded2fe2e7f87edc1512ee2bd9fa6b9efad",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true,
+      "values_capped": 100000
+    },
+    {
+      "fqn": "dbo.Patients",
+      "row_count": 7096,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "Master Patient ID",
+          "sql_type": "varchar(150)",
+          "digest": "sha256:50179a6a203a0729df96844ca80c070bc8548f6d3f08f4dafe594e279f719fce",
+          "null_count": 0
+        },
+        {
+          "name": "Patient Address Number",
+          "sql_type": "varchar(250)",
+          "digest": "sha256:18c47b1787a319a71f248fe6f8912c3d365bee452e79cf7cbd4e0e0610e9b1c4",
+          "null_count": 0
+        },
+        {
+          "name": "Patient Address Street",
+          "sql_type": "varchar(250)",
+          "digest": "sha256:ff4d54d687ba0b74db0428b6798a6ffbfd4ff283e11721b4c52bff5dd54bfbdb",
+          "null_count": 0
+        },
+        {
+          "name": "Patient Address Full",
+          "sql_type": "varchar(500)",
+          "digest": "sha256:9a0af6f9b039a3adfc1de1b7dc73d5fbe5856ba417ac4ece8baa0d1edfbec3ec",
+          "null_count": 0
+        },
+        {
+          "name": "Patient City",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:0d340aa6365c77a309a090ce14c324bfb6e2b09577505da20f35bdc2d4212a6b",
+          "null_count": 0
+        },
+        {
+          "name": "Patient Zip Code",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:7f9f1429c2660cdc9324050afd1a1080170caa486763e218ba91ee2bcf78f551",
+          "null_count": 0
+        },
+        {
+          "name": "Patient County",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:4171104c76c697c2359625a2e39c42b11afbe7d7f96df7b9bf45382617b9a88a",
+          "null_count": 0
+        },
+        {
+          "name": "Patient State",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:c0c477db437196c91486548eec6c0565d9434dd3eec83ffc76900c19d758640f",
+          "null_count": 0
+        },
+        {
+          "name": "Patient Country",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:b0c256aa39601f5ca05a7607401c082010677be52a7436339aab6a747b9a459a",
+          "null_count": 0
+        },
+        {
+          "name": "Patient Latitude",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:1fa1f11816b833d914a0aa11fbc33bdd33a484fc96e43e4b11c692c3fa636225",
+          "null_count": 0
+        },
+        {
+          "name": "Patient Longitude",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:2b07a20318b556e1c636cc4779ff8a45c2677a9395d82b71007efd8ed49d8e2f",
+          "null_count": 0
+        },
+        {
+          "name": "Patient Name",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:8e49cda92be7bcdffc218e256756d4bd4231b0752913800e9fac5da3ca0baee4",
+          "null_count": 0
+        },
+        {
+          "name": "Patient Gender",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:ea14c68e6807545979ec2587eb360f52329e3539ffeed30145f14b2537a0ff48",
+          "null_count": 0
+        },
+        {
+          "name": "Patient LACE Score",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:ad380762a82dd975e29e453a205401d12e424d058fb5c19844628e7f0dc79f11",
+          "null_count": 0
+        },
+        {
+          "name": "Patient Geography Loaded",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:fcf2d1989987b95bf16e81f98736b106b22ab487704f0c70022006eb116916e4",
+          "null_count": 0
+        },
+        {
+          "name": "Patient DOB",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:9b576abbe36326c1d14063890c6350833777a8fbef5771dcda5ab3f05506c610",
+          "null_count": 0
+        },
+        {
+          "name": "Patient Marital Status",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:7420ed4bf5f017eaf01eefda7c469b397b85f8bf9afd89f25b2cca51e6ceb8e0",
+          "null_count": 0
+        },
+        {
+          "name": "Patient Primary Language",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:c23cfa83292e4cff6ede6d6dd32c702df36ebb0eedf3f175725c240fbaf3faa3",
+          "null_count": 0
+        },
+        {
+          "name": "Patient Is Citizen Flag",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:87e54d4c0dd1412b12e0fbd2b1a742d7d1ecb33640ace04829bd6ead77b632f2",
+          "null_count": 0
+        },
+        {
+          "name": "Patient Is Deceased Flag",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:a55c408c83c92c1146d370ae58dc27f7e4f72798aa3ddfc4e07ecd8d9007d49d",
+          "null_count": 0
+        },
+        {
+          "name": "Patient PCP Type",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:2e546c20fb4fcbec12378ae5fb265158dc219140602d8d5baac7f69c7f279cb8",
+          "null_count": 0
+        },
+        {
+          "name": "Patient PCP ID",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:ecc952d160a4aaff258ccca67643e1a0e372a9d85451610d9abc21092080cc8a",
+          "null_count": 0
+        },
+        {
+          "name": "Patient Ethnicity",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:40800415f30a3f10e4f093148db73c8841f35bcf7951338849c7b2b3bd2d6aa2",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true
+    },
+    {
+      "fqn": "dbo.Physicians",
+      "row_count": 10000,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "Provider First Name",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:18f7ef849e8b463c5d49df69b601313d5ea5347068648ca1ca7aa1c461955a53",
+          "null_count": 0
+        },
+        {
+          "name": "Provider Last Name",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:aaa7ea4f07a37a782f0290d458f16b8e96dfb4b5df5ac3274b0d73c928854d17",
+          "null_count": 0
+        },
+        {
+          "name": "Provider Full Name",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:29224415d518c6a5f6e6fa4014c00dc10f268f4acf45209314cbfdc0a43a41a9",
+          "null_count": 0
+        },
+        {
+          "name": "Provider ID",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:f8254ba95fc5a5db0bbb5ef17e451dfdc5da9d37cc80b230a1add8abc8e4fb06",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true
+    },
+    {
+      "fqn": "dbo.Practices",
+      "row_count": 1000,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "Practice ID",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:d2cecc9e516895a16642edc609f915954203f5b5c0c8243e63a6a797c026bdc9",
+          "null_count": 0
+        },
+        {
+          "name": "Practice Name",
+          "sql_type": "varchar(250)",
+          "digest": "sha256:9905a89672e45e76f25b1e1fd9af868a352dd49a2aaac28befbb7939bdee450a",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true
+    },
+    {
+      "fqn": "dbo.QualityMeasureData",
+      "row_count": 293706,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "Master Patient ID",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:34824e156bc6b85a2c6c31447b94abf4ed19195014d39747314c98464ea39ac7",
+          "null_count": 0
+        },
+        {
+          "name": "sClinicalMeasureKey",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:6623abd4ffe8a95abc8ab4b9163532aa2cb3f115ed5852accbe4569ce1bcec87",
+          "null_count": 0
+        },
+        {
+          "name": "Quality Measure Ctr",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:f87c4b8d3af121f61745f8d940d37f773197aa02c64180ee200ba80365d50503",
+          "null_count": 0
+        },
+        {
+          "name": "Quality Measure ID",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:c1b985b215725981135e073ead60f8f73122c37bb31addb044a37d1054b9d523",
+          "null_count": 0
+        },
+        {
+          "name": "Quality Provider ID",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:3e20f608975f8e510efc702bb2c19a94c083470826715111394a35c934199891",
+          "null_count": 0
+        },
+        {
+          "name": "IsCompliant",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:683833573c454a53fc799cd1ed5072fe02b7468c2b43217093f6dc23d4c18ed6",
+          "null_count": 0
+        },
+        {
+          "name": "IsNotCompliant",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:503deec37a66417a87e8bcccc876cca615681a60e41061ca90670d77333a3e61",
+          "null_count": 0
+        },
+        {
+          "name": "Hospital ID",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:0f3d59676b299bc1e85de71337a5ae61da8f6b4650318bce5c70e36c14be47e1",
+          "null_count": 0
+        },
+        {
+          "name": "Measure Name",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:f094224d6bd1b2c85c8b60eb93033eb1400f302a30da8c6755eac7ccb165ec7a",
+          "null_count": 0
+        },
+        {
+          "name": "Submeasure Name",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:85fb725d36f3def6ec45edbb5c3c45a167ed04598ad964d071044d0752750cdf",
+          "null_count": 0
+        },
+        {
+          "name": "Measure Type",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:cb8396bda0853c94f75cf81c4bd224d5a8b0683b01462f74290b7476c64aaf26",
+          "null_count": 0
+        },
+        {
+          "name": "Measure Attribute 1",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:dbaf783280e6d0dba800b2d1d785163b8bd078a6deeed0a663417504d5c83d25",
+          "null_count": 0
+        },
+        {
+          "name": "Measure Attribute 2",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:5fd286ae6e7496a3d0c6f788b723f9ab9c975a77be6b5af0454028c4d08d2324",
+          "null_count": 0
+        },
+        {
+          "name": "Measure Points",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:141734f2c305f5eb59d72cd6dad22e0d97d4142e329d03b71be84f2f1017276e",
+          "null_count": 0
+        },
+        {
+          "name": "Measure Target",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:c9d9e5799a121005c253b90a60dcc034dd1527f27bf43260b02914c97295f6ca",
+          "null_count": 0
+        },
+        {
+          "name": "Measure Hedis75",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:3c01d978b40601562209ed4af71a45fc9b892b3fd01237f9fbf387f635f019c0",
+          "null_count": 0
+        },
+        {
+          "name": "Measure Hedis90",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:192f7b8e37687d1747369400ff205b6e118d5adfda29c6601a2dda85508e23b1",
+          "null_count": 0
+        },
+        {
+          "name": "Measure Effective Date",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:785f5394256f531ac0cb03d47ac852619a66b66f5e231bca5bb3939c1718a766",
+          "null_count": 0
+        },
+        {
+          "name": "Measure End Date",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:e4965bacd0b03b34ac09a021d3d3b82ed2bcb1d1a7d2d706b08200f732e4c24a",
+          "null_count": 0
+        },
+        {
+          "name": "Latest Measure Flag",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:a9a38d90a8094fce6147679c489ba7746e8ee61a81457eebd95cf44437ea98fc",
+          "null_count": 0
+        },
+        {
+          "name": "Past Measure Flag",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:8439da301611e594010041dcddc082bdd004f377c029d43e12b81127d5dc3393",
+          "null_count": 0
+        },
+        {
+          "name": "Practice ID",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:30cab55a6014601ff14e0b4f8fb507f1e13c3ba4052e71cbe8caf6fddd47371b",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true,
+      "values_capped": 100000
+    },
+    {
+      "fqn": "dbo.Results",
+      "row_count": 224724,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "Master Patient ID",
+          "sql_type": "bigint",
+          "digest": "sha256:b4578c23633919958a59b544574f922e8fe26528a24e9d2d1d45788f924ce6f5",
+          "null_count": 0
+        },
+        {
+          "name": "ItemID",
+          "sql_type": "float",
+          "digest": "sha256:2c9d6b0aed2e83b7c91a461175eedc41a0f099480f071eba1a3c805f999224f2",
+          "null_count": 0
+        },
+        {
+          "name": "ActivityHeaderResultID",
+          "sql_type": "float",
+          "digest": "sha256:5252b0e686789198c6ae841f70e9308d99c9cf13316c2d0ebadbc31f943e4be2",
+          "null_count": 0
+        },
+        {
+          "name": "SignatureRequiredFLAG",
+          "sql_type": "varchar(1)",
+          "digest": "sha256:23797515a3ca2b8a5f2d8edd4a6a93e89dfa2dd8637e56a47697bc894a19ceee",
+          "null_count": 0
+        },
+        {
+          "name": "AcknowledgementReqFLAG",
+          "sql_type": "varchar(1)",
+          "digest": "sha256:1b31babe5e337931b65b34d2698e4a765a53999b2dade2bc8cbb09c76bc07932",
+          "null_count": 0
+        },
+        {
+          "name": "CompletionStatus",
+          "sql_type": "varchar(10)",
+          "digest": "sha256:67f62f2c481efe151a34ff63de3bd1deb656582bfb02952df5e7b04f78466deb",
+          "null_count": 0
+        },
+        {
+          "name": "QODE",
+          "sql_type": "bigint",
+          "digest": "sha256:1bf85c6ab9018cf9843f1ca43765bacbdb76c646e9989069fee37ea6b1246d43",
+          "null_count": 0
+        },
+        {
+          "name": "Entryname",
+          "sql_type": "varchar(100)",
+          "digest": "sha256:d99602807a8a93224217d8ae4c10dc5844189626f7bbff2c60356148af5aa184",
+          "null_count": 0
+        },
+        {
+          "name": "EntryCode",
+          "sql_type": "varchar(10)",
+          "digest": "sha256:4fdfe06832fb2bb31857653c392bb788937c20c473e80d5b3f673f2297e777f1",
+          "null_count": 0
+        },
+        {
+          "name": "QODET",
+          "sql_type": "varchar(max)",
+          "digest": "sha256:e8950362fb508d3981036b3bb54c848408eeca9560b07167f4d03b3e97b5081e",
+          "null_count": 0
+        },
+        {
+          "name": "Modifier1Name",
+          "sql_type": "varchar(max)",
+          "digest": "sha256:e8950362fb508d3981036b3bb54c848408eeca9560b07167f4d03b3e97b5081e",
+          "null_count": 0
+        },
+        {
+          "name": "Modifier2Name",
+          "sql_type": "varchar(max)",
+          "digest": "sha256:e8950362fb508d3981036b3bb54c848408eeca9560b07167f4d03b3e97b5081e",
+          "null_count": 0
+        },
+        {
+          "name": "Modifier3Name",
+          "sql_type": "varchar(max)",
+          "digest": "sha256:e8950362fb508d3981036b3bb54c848408eeca9560b07167f4d03b3e97b5081e",
+          "null_count": 0
+        },
+        {
+          "name": "QOModDET",
+          "sql_type": "varchar(max)",
+          "digest": "sha256:e8950362fb508d3981036b3bb54c848408eeca9560b07167f4d03b3e97b5081e",
+          "null_count": 0
+        },
+        {
+          "name": "QOClassificationDE",
+          "sql_type": "bigint",
+          "digest": "sha256:2f8be5d3562c8ab0adeb7ba0aca562288fc01688ff28c9dae26833a3bd72059c",
+          "null_count": 0
+        },
+        {
+          "name": "OrderableName",
+          "sql_type": "varchar(100)",
+          "digest": "sha256:0dc8363d4ec861bbdd49391e09a77675fffd4d1eac5c5cf4412600f3338c3937",
+          "null_count": 0
+        },
+        {
+          "name": "OrderableCode",
+          "sql_type": "varchar(10)",
+          "digest": "sha256:e04fc8de105ca060fb1dfc99fdd07b5dcdf90ad4c2c72cbd64701f979e507bcd",
+          "null_count": 0
+        },
+        {
+          "name": "QOClassificationDET",
+          "sql_type": "varchar(max)",
+          "digest": "sha256:e8950362fb508d3981036b3bb54c848408eeca9560b07167f4d03b3e97b5081e",
+          "null_count": 0
+        },
+        {
+          "name": "Create Datetime",
+          "sql_type": "datetime",
+          "digest": "sha256:6d71614c68d33b2d4ab0d9b58448a5fe7ea970fe93f8c72e5f1e7f3af1bb392b",
+          "null_count": 0
+        },
+        {
+          "name": "Last Update Datetime",
+          "sql_type": "datetime",
+          "digest": "sha256:7165290a34196a20c10d18f659b470602283814694673ef8feda5aecb631f495",
+          "null_count": 0
+        },
+        {
+          "name": "HasSecurityFLAG",
+          "sql_type": "varchar(1)",
+          "digest": "sha256:23797515a3ca2b8a5f2d8edd4a6a93e89dfa2dd8637e56a47697bc894a19ceee",
+          "null_count": 0
+        },
+        {
+          "name": "HasAnnotationFLAG",
+          "sql_type": "varchar(1)",
+          "digest": "sha256:f24a1233b9521328adf1d5461417b9fb6d70e5730d887a629af36df45742c292",
+          "null_count": 0
+        },
+        {
+          "name": "IsAbnormalFLAG",
+          "sql_type": "varchar(1)",
+          "digest": "sha256:f0252d8a451324ae7b2af5764505e2a0424fc37b013ba8cd3fb83cc19f127b05",
+          "null_count": 0
+        },
+        {
+          "name": "IsErrorFLAG",
+          "sql_type": "varchar(1)",
+          "digest": "sha256:4f64488e3376891b8458a9cd439a43da32c647bee2146ee7fe9fe0ea4593b87f",
+          "null_count": 0
+        },
+        {
+          "name": "DetailType",
+          "sql_type": "varchar(1)",
+          "digest": "sha256:ee4c673f5d6082246b3c9026640fdcf31a9ccd92370a762bc1c09d7f34788cd7",
+          "null_count": 0
+        },
+        {
+          "name": "ResultID",
+          "sql_type": "float",
+          "digest": "sha256:1b9ea2837bb143ccadeb3b2d12d94cf6195794dc4b3b0abd29d8ac8e3590aca3",
+          "null_count": 0
+        },
+        {
+          "name": "AnswerDE",
+          "sql_type": "bigint",
+          "digest": "sha256:f57c033457fa648182620eb1b9b15806708d8bd3d9ae74564df8dd8d7b4b22f7",
+          "null_count": 0
+        },
+        {
+          "name": "AnswerEntryName",
+          "sql_type": "varchar(22)",
+          "digest": "sha256:f7f13bdcdfbc6f958fe1d5b766987d1cfde99443061e723ca191ca322f038596",
+          "null_count": 0
+        },
+        {
+          "name": "AnswerEntryCode",
+          "sql_type": "varchar(10)",
+          "digest": "sha256:3898573f972bbb77ab2551f6fdd74930e7b73f9c48b59b2c70c38c57c8279e13",
+          "null_count": 0
+        },
+        {
+          "name": "AnswerDET",
+          "sql_type": "varchar(500)",
+          "digest": "sha256:59736b7785bf311b870ab2199d30c7fcf9456789bf4885ba92360d8978839bf6",
+          "null_count": 0
+        },
+        {
+          "name": "AnswerDataTypeDE",
+          "sql_type": "bigint",
+          "digest": "sha256:f129741d2656005399027d17e47544954c695b2086c30990d5b618ebadb8d9c1",
+          "null_count": 0
+        },
+        {
+          "name": "AnswerDataTypeName",
+          "sql_type": "varchar(8)",
+          "digest": "sha256:ccb2e057eefcbc00d7342b25f5b41f3ca45cd5921383367af3ce59d6151138c0",
+          "null_count": 0
+        },
+        {
+          "name": "AnswerDataTypeCode",
+          "sql_type": "bigint",
+          "digest": "sha256:93849436c77e3848a2decc6f0d2a75771a163fb60e198c7d3b22bf85b47c7bc9",
+          "null_count": 0
+        },
+        {
+          "name": "SourceName",
+          "sql_type": "varchar(max)",
+          "digest": "sha256:e8950362fb508d3981036b3bb54c848408eeca9560b07167f4d03b3e97b5081e",
+          "null_count": 0
+        },
+        {
+          "name": "SourceCode",
+          "sql_type": "varchar(max)",
+          "digest": "sha256:e8950362fb508d3981036b3bb54c848408eeca9560b07167f4d03b3e97b5081e",
+          "null_count": 0
+        },
+        {
+          "name": "SourceDET",
+          "sql_type": "varchar(max)",
+          "digest": "sha256:e8950362fb508d3981036b3bb54c848408eeca9560b07167f4d03b3e97b5081e",
+          "null_count": 0
+        },
+        {
+          "name": "ResultStage",
+          "sql_type": "varchar(1)",
+          "digest": "sha256:5e104b3dd6697d8dd27a2a623543df219c67f329d485aeadb2398650d7689f1a",
+          "null_count": 0
+        },
+        {
+          "name": "UnitsName",
+          "sql_type": "varchar(max)",
+          "digest": "sha256:d4bc044268b96a6b10e853ea2388dd8b724e3c530058e5346815898374170e63",
+          "null_count": 0
+        },
+        {
+          "name": "UnitsCode",
+          "sql_type": "varchar(max)",
+          "digest": "sha256:3974956f628359e9744ad8284c43b3af46961f8cb7a8f3113fa52826b3049b5c",
+          "null_count": 0
+        },
+        {
+          "name": "UnitsDET",
+          "sql_type": "varchar(150)",
+          "digest": "sha256:c591a8d45f023ebf920a96cf40b7502fe605d8e2bb2d6eb7a1b1a453f21f7c28",
+          "null_count": 0
+        },
+        {
+          "name": "Clinical Datetime",
+          "sql_type": "datetime",
+          "digest": "sha256:d030ad4290b5586e7d08755672681471dc816bd0444d069d2f6d2588b5173575",
+          "null_count": 0
+        },
+        {
+          "name": "Verify Datetime",
+          "sql_type": "datetime",
+          "digest": "sha256:540c510292f19c13125197867eae5f35e31473861a8f5fba8797f96b6bf4832f",
+          "null_count": 0
+        },
+        {
+          "name": "ResultStatusName",
+          "sql_type": "varchar(14)",
+          "digest": "sha256:24eef4df1d8bb46671837a544ce4972500c2300c57c4ef4ee291a7bbbad31246",
+          "null_count": 0
+        },
+        {
+          "name": "ResultStatusCode",
+          "sql_type": "bigint",
+          "digest": "sha256:fc353ed06d9c7c9d013ad1ff06b9c650cb9b0c00d51c5043c42ae5bf02b1d47b",
+          "null_count": 0
+        },
+        {
+          "name": "Result Datetime",
+          "sql_type": "datetime",
+          "digest": "sha256:b608187363dc3503fe16098c31866761c6c36aea94ab83c8de8394a05d4300fd",
+          "null_count": 0
+        },
+        {
+          "name": "NumericResult",
+          "sql_type": "float",
+          "digest": "sha256:494b5dc95197949800065d8dcf6863231643a03698ab275b8de1706425735b1f",
+          "null_count": 0
+        },
+        {
+          "name": "ShortRefRange",
+          "sql_type": "varchar(20)",
+          "digest": "sha256:3f7d8f7162b297f8b93e70c9fc587c5e84c764372149dc599db85083805547fa",
+          "null_count": 0
+        },
+        {
+          "name": "NormalizedUnitsName",
+          "sql_type": "varchar(max)",
+          "digest": "sha256:d4bc044268b96a6b10e853ea2388dd8b724e3c530058e5346815898374170e63",
+          "null_count": 0
+        },
+        {
+          "name": "NormalizedUnitsCode",
+          "sql_type": "varchar(max)",
+          "digest": "sha256:3974956f628359e9744ad8284c43b3af46961f8cb7a8f3113fa52826b3049b5c",
+          "null_count": 0
+        },
+        {
+          "name": "NormalizedUnitsDET",
+          "sql_type": "varchar(12)",
+          "digest": "sha256:c9936868b9d387bc2d3edb30c6c64d0e90221b239fc35fd0762fd2d45a116132",
+          "null_count": 0
+        },
+        {
+          "name": "NormalizedValue",
+          "sql_type": "float",
+          "digest": "sha256:02f72dcb17dcd4a04e378209edcfadb684a1cb2d3f6b8f5691d54c0aff517d1a",
+          "null_count": 0
+        },
+        {
+          "name": "ReasonForCreateType",
+          "sql_type": "varchar(1)",
+          "digest": "sha256:4c3bea126f68c1b02043eb0bcd5331856e8bee76aa2a5ac1061f52e7b8cf8609",
+          "null_count": 0
+        },
+        {
+          "name": "Performed Datetime",
+          "sql_type": "datetime",
+          "digest": "sha256:0c8a55b8f69a18f3b04e89894a6a3b102a4b430a23c445c3686a0522b5a48b7f",
+          "null_count": 0
+        },
+        {
+          "name": "Recorded Datetime",
+          "sql_type": "datetime",
+          "digest": "sha256:7165290a34196a20c10d18f659b470602283814694673ef8feda5aecb631f495",
+          "null_count": 0
+        },
+        {
+          "name": "HasResultTextFLAG",
+          "sql_type": "varchar(1)",
+          "digest": "sha256:5895a663382c8f2f62e2ef30182373d4661f62b4145494845927b51e09844974",
+          "null_count": 0
+        },
+        {
+          "name": "HasRefRangeTextFLAG",
+          "sql_type": "varchar(1)",
+          "digest": "sha256:23797515a3ca2b8a5f2d8edd4a6a93e89dfa2dd8637e56a47697bc894a19ceee",
+          "null_count": 0
+        },
+        {
+          "name": "HasReferenceRangeFLAG",
+          "sql_type": "varchar(1)",
+          "digest": "sha256:23797515a3ca2b8a5f2d8edd4a6a93e89dfa2dd8637e56a47697bc894a19ceee",
+          "null_count": 0
+        },
+        {
+          "name": "AbnormalFlagType",
+          "sql_type": "varchar(2)",
+          "digest": "sha256:de0ab2fe979e6de02e01d2eed22220ac772501b08eb5e3118e30cb5b1d76b8a3",
+          "null_count": 0
+        },
+        {
+          "name": "DecodedValue",
+          "sql_type": "varchar(500)",
+          "digest": "sha256:44a3d667ae8977a96f3aae35eea53fb79a37302a3acf11fd11e15060b37114ae",
+          "null_count": 0
+        },
+        {
+          "name": "ResultFuzzyWhen",
+          "sql_type": "varchar(max)",
+          "digest": "sha256:e8950362fb508d3981036b3bb54c848408eeca9560b07167f4d03b3e97b5081e",
+          "null_count": 0
+        },
+        {
+          "name": "ResultAnswer",
+          "sql_type": "varchar(500)",
+          "digest": "sha256:59736b7785bf311b870ab2199d30c7fcf9456789bf4885ba92360d8978839bf6",
+          "null_count": 0
+        },
+        {
+          "name": "ValidationState",
+          "sql_type": "varchar(150)",
+          "digest": "sha256:25a106a84cc17adff4098d945e4c7157b017725d7d4780f208bc80a1afadb69e",
+          "null_count": 0
+        },
+        {
+          "name": "LoincLabCode",
+          "sql_type": "varchar(max)",
+          "digest": "sha256:e8950362fb508d3981036b3bb54c848408eeca9560b07167f4d03b3e97b5081e",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true,
+      "values_capped": 100000
+    },
+    {
+      "fqn": "dbo.SurgicalCosts",
+      "row_count": 211233,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "Surgery ID",
+          "sql_type": "bigint",
+          "digest": "sha256:d55dc99b3d4f52957bf5ddac71d64bdcb25d05922e71fa7f4ab12027aede1392",
+          "null_count": 0
+        },
+        {
+          "name": "Surgical Cost ID",
+          "sql_type": "bigint",
+          "digest": "sha256:038775a94205a756376b4756b2ba73c00109175cff952a6dca9986cd9fae43bc",
+          "null_count": 0
+        },
+        {
+          "name": "Surgical Resource Name",
+          "sql_type": "varchar(150)",
+          "digest": "sha256:18c61bcbff805ff985a0cd1550d769b319f9c7b10bc2b8a1dd588e9de31e4443",
+          "null_count": 0
+        },
+        {
+          "name": "Surgical Resource Type",
+          "sql_type": "varchar(150)",
+          "digest": "sha256:8eaf72fb8a04b633177a355ebba197e338bc3a9afcd85bad6c24311012002aad",
+          "null_count": 0
+        },
+        {
+          "name": "Surgical Resource Cost",
+          "sql_type": "float",
+          "digest": "sha256:5dd10eb588010ad386320a5923008584c43006d42c022b97e6df1bdaf8193319",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true,
+      "values_capped": 100000
+    },
+    {
+      "fqn": "dbo.SurgicalEncounters",
+      "row_count": 9403,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "Master Patient ID",
+          "sql_type": "bigint",
+          "digest": "sha256:734d36aba096275e18657d68a5b69f50850e458034b8d51851695cddf42755ff",
+          "null_count": 0
+        },
+        {
+          "name": "Surgery ID",
+          "sql_type": "bigint",
+          "digest": "sha256:7badd90c7ffa6b52bbdb2e4767632bee2c10fcc84b26ba7ed3b252e55311c013",
+          "null_count": 0
+        },
+        {
+          "name": "Surgical Admission Date",
+          "sql_type": "datetime",
+          "digest": "sha256:c179cb4ad4b00c5abcb5c044a9c1f5f681ff529123e0b717fa69cb0a92fd0201",
+          "null_count": 0
+        },
+        {
+          "name": "Surgical Discharge Date",
+          "sql_type": "datetime",
+          "digest": "sha256:b0b93e0fc5ed0ac16ea61da48590458154908de2d9d6827b388b60a7801c1d41",
+          "null_count": 0
+        },
+        {
+          "name": "Surgical LOS",
+          "sql_type": "bigint",
+          "digest": "sha256:2ee46776f9adf5667b5d05ef483349fbb5e41f5231af5e43f50a83b71e71ef8d",
+          "null_count": 0
+        },
+        {
+          "name": "Surgical DRG Description",
+          "sql_type": "varchar(250)",
+          "digest": "sha256:5e5ce2ff0cd7578d5125877641c732e501b2f44eabdea3b5c18e7c45e83fcdb3",
+          "null_count": 0
+        },
+        {
+          "name": "Surgical Type",
+          "sql_type": "varchar(11)",
+          "digest": "sha256:2541e073c5ff7f9a5ccbfd3c8c841ff26c35a44e789fde344dd9003f0553f652",
+          "null_count": 0
+        },
+        {
+          "name": "Surgical Total Cost",
+          "sql_type": "float",
+          "digest": "sha256:379c5fefb9de6af5d1b1d6e3e1b81cde6c740e92da6a5185f49abad09bac8ffc",
+          "null_count": 0
+        },
+        {
+          "name": "Surgical Total Profit",
+          "sql_type": "float",
+          "digest": "sha256:7a7233efb650d2065a5785af5028757a8b4ed8b3ba27b375ac5b7480f6b68c95",
+          "null_count": 0
+        },
+        {
+          "name": "Surgical Unit Name",
+          "sql_type": "varchar(29)",
+          "digest": "sha256:5e865e4b3842f415a07af934a440cff01bae186d37e8281347c1004b40decdc5",
+          "null_count": 0
+        },
+        {
+          "name": "Surgical Admission Type",
+          "sql_type": "varchar(9)",
+          "digest": "sha256:36d5ddb8b80283a361db40e538d0c94797b0e1de3b9b4f621fdb2cc0ceb07527",
+          "null_count": 0
+        },
+        {
+          "name": "Surgical Admission Desecription",
+          "sql_type": "varchar(250)",
+          "digest": "sha256:cf519671c530b08014aa0bb063473f15fb615da8f9af73405e0173be72bd0846",
+          "null_count": 0
+        },
+        {
+          "name": "Surgical Admission Group",
+          "sql_type": "varchar(169)",
+          "digest": "sha256:ceb10dd64c77d67ed27505353f51dffdc34dc79ae366dc5b56fcb42d97cfd927",
+          "null_count": 0
+        },
+        {
+          "name": "Surgical Discharge Type",
+          "sql_type": "varchar(25)",
+          "digest": "sha256:207081f17a181b72912447f31886928a039b3c52d19b5fee54b97d9d6139a65d",
+          "null_count": 0
+        },
+        {
+          "name": "Surgical Discharge Description",
+          "sql_type": "varchar(250)",
+          "digest": "sha256:e9d5c19666a6ca4316a78e14d649a8243d821d612a30dce6e7c5de0f6f0dc1ca",
+          "null_count": 0
+        },
+        {
+          "name": "Surgeon ID",
+          "sql_type": "bigint",
+          "digest": "sha256:6da60e8ef0a9f92e47538ad0ae65549103fe27efe437282528e289e563cff01d",
+          "null_count": 0
+        },
+        {
+          "name": "Surgical Specialty",
+          "sql_type": "varchar(150)",
+          "digest": "sha256:014b48fa59b857c3bac535b3f5b07f2a76912a4f5a0686cbf57e7091db084af3",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true
+    },
+    {
+      "fqn": "dbo.Vitals",
+      "row_count": 10216,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "Patient Encounter ID",
+          "sql_type": "bigint",
+          "digest": "sha256:352ae12eb143e8833188c1dc441bbc2005056bbc2501e6f83d02959b1c00eb11",
+          "null_count": 0
+        },
+        {
+          "name": "BloodPressureDiastolicNBR",
+          "sql_type": "bigint",
+          "digest": "sha256:51777833bbb4c6583d4553b5555c094ba45d49190e4442c99dba43da61be36dc",
+          "null_count": 0
+        },
+        {
+          "name": "BloodPressureSystolicNBR",
+          "sql_type": "bigint",
+          "digest": "sha256:5e23aeec77696708104835b698844eabbb8842f6cfee6cafc02b3ff0d3d935b7",
+          "null_count": 0
+        },
+        {
+          "name": "BodyMassIndexNBR",
+          "sql_type": "float",
+          "digest": "sha256:a10118697b68bfee7dec3ca7a4ca23a3504e54c0b5599138a3a3133355dd6b39",
+          "null_count": 0
+        },
+        {
+          "name": "BodySurfaceAreaNBR",
+          "sql_type": "float",
+          "digest": "sha256:4559794eddf772bc67ec41a9e4cd73428e0ea0d57672f73ad31fe5b205110670",
+          "null_count": 0
+        },
+        {
+          "name": "HeightFeetInchesTXT",
+          "sql_type": "varchar(150)",
+          "digest": "sha256:90b2d94334ed3456c14ffcde48a0f3a00cfd9bc7ba7585de635d2642e508b460",
+          "null_count": 0
+        },
+        {
+          "name": "PulseCNT",
+          "sql_type": "bigint",
+          "digest": "sha256:f8069289bc89070ca283361380dd19ba8368e47c15eceeb284b5181d694a6046",
+          "null_count": 0
+        },
+        {
+          "name": "RespirationCNT",
+          "sql_type": "bigint",
+          "digest": "sha256:1db6954e3c9715b0eaae6e5b92f4073953f4e8a0819e93e23afca83bd2a8afeb",
+          "null_count": 0
+        },
+        {
+          "name": "TemperatureFahrenheitNBR",
+          "sql_type": "float",
+          "digest": "sha256:b2a5c7c6fae7136becbbf93c42534585dce9b200c422cba93039a5b55ba51d78",
+          "null_count": 0
+        },
+        {
+          "name": "WeightOuncesQTY",
+          "sql_type": "float",
+          "digest": "sha256:2f71cf6a4866bc4e4507925c1ae5b8f6a4eace733c7d390b4a4ed4e524bfbf76",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true
+    }
+  ]
+}

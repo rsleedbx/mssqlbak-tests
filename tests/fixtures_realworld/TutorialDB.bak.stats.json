@@ -1,0 +1,87 @@
+{
+  "sql_version": "Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (X64)",
+  "bak": "TutorialDB.bak",
+  "bak_size_mb": 0.411,
+  "database": "RegisterBak_TutorialDB",
+  "registered_at": "2026-06-10T01:54:53.280862+00:00",
+  "sqlserver_restore_s": 2.219,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "rental_data",
+      "row_count": 453,
+      "columns": [
+        {
+          "name": "Year",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "2013",
+          "max_val": "2015"
+        },
+        {
+          "name": "Month",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "12"
+        },
+        {
+          "name": "Day",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "31"
+        },
+        {
+          "name": "RentalCount",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "20",
+          "max_val": "846"
+        },
+        {
+          "name": "WeekDay",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "7"
+        },
+        {
+          "name": "Holiday",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1"
+        },
+        {
+          "name": "Snow",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1"
+        },
+        {
+          "name": "FHoliday",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1"
+        },
+        {
+          "name": "FSnow",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1"
+        },
+        {
+          "name": "FWeekDay",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "7"
+        }
+      ]
+    }
+  ]
+}

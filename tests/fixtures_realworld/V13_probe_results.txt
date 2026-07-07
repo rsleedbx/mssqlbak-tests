@@ -1,0 +1,167 @@
+Processed 1432 pages for database 'V13Probe', file 'WWI_Primary' on file 1.
+Processed 70824 pages for database 'V13Probe', file 'WWI_UserData' on file 1.
+Processed 6 pages for database 'V13Probe', file 'WWI_Log' on file 1.
+Converting database 'V13Probe' from version 852 to the current version 957.
+Database 'V13Probe' running the upgrade step from version 852 to version 853.
+Database 'V13Probe' running the upgrade step from version 853 to version 854.
+Database 'V13Probe' running the upgrade step from version 854 to version 855.
+Database 'V13Probe' running the upgrade step from version 855 to version 856.
+Database 'V13Probe' running the upgrade step from version 856 to version 857.
+Database 'V13Probe' running the upgrade step from version 857 to version 858.
+Database 'V13Probe' running the upgrade step from version 858 to version 859.
+Database 'V13Probe' running the upgrade step from version 859 to version 860.
+Database 'V13Probe' running the upgrade step from version 860 to version 861.
+Database 'V13Probe' running the upgrade step from version 861 to version 862.
+Database 'V13Probe' running the upgrade step from version 862 to version 863.
+Database 'V13Probe' running the upgrade step from version 863 to version 864.
+Database 'V13Probe' running the upgrade step from version 864 to version 865.
+Database 'V13Probe' running the upgrade step from version 865 to version 866.
+Database 'V13Probe' running the upgrade step from version 866 to version 867.
+Database 'V13Probe' running the upgrade step from version 867 to version 868.
+Database 'V13Probe' running the upgrade step from version 868 to version 869.
+Database 'V13Probe' running the upgrade step from version 869 to version 875.
+Database 'V13Probe' running the upgrade step from version 875 to version 876.
+Database 'V13Probe' running the upgrade step from version 876 to version 877.
+Database 'V13Probe' running the upgrade step from version 877 to version 878.
+Database 'V13Probe' running the upgrade step from version 878 to version 879.
+Database 'V13Probe' running the upgrade step from version 879 to version 880.
+Database 'V13Probe' running the upgrade step from version 880 to version 881.
+Database 'V13Probe' running the upgrade step from version 881 to version 882.
+Database 'V13Probe' running the upgrade step from version 882 to version 883.
+Database 'V13Probe' running the upgrade step from version 883 to version 884.
+Database 'V13Probe' running the upgrade step from version 884 to version 885.
+Database 'V13Probe' running the upgrade step from version 885 to version 886.
+Database 'V13Probe' running the upgrade step from version 886 to version 887.
+Database 'V13Probe' running the upgrade step from version 887 to version 888.
+Database 'V13Probe' running the upgrade step from version 888 to version 889.
+Database 'V13Probe' running the upgrade step from version 889 to version 890.
+Database 'V13Probe' running the upgrade step from version 890 to version 891.
+Database 'V13Probe' running the upgrade step from version 891 to version 892.
+Database 'V13Probe' running the upgrade step from version 892 to version 893.
+Database 'V13Probe' running the upgrade step from version 893 to version 894.
+Database 'V13Probe' running the upgrade step from version 894 to version 895.
+Database 'V13Probe' running the upgrade step from version 895 to version 896.
+Database 'V13Probe' running the upgrade step from version 896 to version 897.
+Database 'V13Probe' running the upgrade step from version 897 to version 898.
+Database 'V13Probe' running the upgrade step from version 898 to version 899.
+Database 'V13Probe' running the upgrade step from version 899 to version 900.
+Database 'V13Probe' running the upgrade step from version 900 to version 901.
+Database 'V13Probe' running the upgrade step from version 901 to version 902.
+Database 'V13Probe' running the upgrade step from version 902 to version 903.
+Database 'V13Probe' running the upgrade step from version 903 to version 904.
+Database 'V13Probe' running the upgrade step from version 904 to version 905.
+Database 'V13Probe' running the upgrade step from version 905 to version 906.
+Database 'V13Probe' running the upgrade step from version 906 to version 907.
+Database 'V13Probe' running the upgrade step from version 907 to version 908.
+Database 'V13Probe' running the upgrade step from version 908 to version 909.
+Database 'V13Probe' running the upgrade step from version 909 to version 910.
+Database 'V13Probe' running the upgrade step from version 910 to version 911.
+Database 'V13Probe' running the upgrade step from version 911 to version 912.
+Database 'V13Probe' running the upgrade step from version 912 to version 913.
+Database 'V13Probe' running the upgrade step from version 913 to version 914.
+Database 'V13Probe' running the upgrade step from version 914 to version 915.
+Database 'V13Probe' running the upgrade step from version 915 to version 916.
+Database 'V13Probe' running the upgrade step from version 916 to version 917.
+Database 'V13Probe' running the upgrade step from version 917 to version 918.
+Database 'V13Probe' running the upgrade step from version 918 to version 919.
+Database 'V13Probe' running the upgrade step from version 919 to version 920.
+Database 'V13Probe' running the upgrade step from version 920 to version 921.
+Database 'V13Probe' running the upgrade step from version 921 to version 922.
+Database 'V13Probe' running the upgrade step from version 922 to version 923.
+Database 'V13Probe' running the upgrade step from version 923 to version 924.
+Database 'V13Probe' running the upgrade step from version 924 to version 925.
+Database 'V13Probe' running the upgrade step from version 925 to version 926.
+Database 'V13Probe' running the upgrade step from version 926 to version 927.
+Database 'V13Probe' running the upgrade step from version 927 to version 928.
+Database 'V13Probe' running the upgrade step from version 928 to version 929.
+Database 'V13Probe' running the upgrade step from version 929 to version 930.
+Database 'V13Probe' running the upgrade step from version 930 to version 931.
+Database 'V13Probe' running the upgrade step from version 931 to version 932.
+Database 'V13Probe' running the upgrade step from version 932 to version 933.
+Database 'V13Probe' running the upgrade step from version 933 to version 934.
+Database 'V13Probe' running the upgrade step from version 934 to version 935.
+Database 'V13Probe' running the upgrade step from version 935 to version 936.
+Database 'V13Probe' running the upgrade step from version 936 to version 937.
+Database 'V13Probe' running the upgrade step from version 937 to version 938.
+Database 'V13Probe' running the upgrade step from version 938 to version 939.
+Database 'V13Probe' running the upgrade step from version 939 to version 940.
+Database 'V13Probe' running the upgrade step from version 940 to version 941.
+Database 'V13Probe' running the upgrade step from version 941 to version 942.
+Database 'V13Probe' running the upgrade step from version 942 to version 943.
+Database 'V13Probe' running the upgrade step from version 943 to version 944.
+Database 'V13Probe' running the upgrade step from version 944 to version 945.
+Database 'V13Probe' running the upgrade step from version 945 to version 946.
+Database 'V13Probe' running the upgrade step from version 946 to version 947.
+Database 'V13Probe' running the upgrade step from version 947 to version 948.
+Database 'V13Probe' running the upgrade step from version 948 to version 949.
+Database 'V13Probe' running the upgrade step from version 949 to version 950.
+Database 'V13Probe' running the upgrade step from version 950 to version 951.
+Database 'V13Probe' running the upgrade step from version 951 to version 952.
+Database 'V13Probe' running the upgrade step from version 952 to version 953.
+Database 'V13Probe' running the upgrade step from version 953 to version 954.
+Database 'V13Probe' running the upgrade step from version 954 to version 955.
+Database 'V13Probe' running the upgrade step from version 955 to version 956.
+Database 'V13Probe' running the upgrade step from version 956 to version 957.
+RESTORE DATABASE successfully processed 72262 pages in 1.809 seconds (312.074 MB/sec).
+Changed database context to 'V13Probe'.
+DBCC execution completed. If DBCC printed error messages, contact your system administrator.
+=== SYS.COLUMNS for Application.Countries_Archive ===
+column_id   name                                                                                                                             system_type_id is_hidden generated_always_type generated_always_type_desc                                   is_nullable
+----------- -------------------------------------------------------------------------------------------------------------------------------- -------------- --------- --------------------- ------------------------------------------------------------ -----------
+          1 CountryID                                                                                                                                    56         0                     0 NOT_APPLICABLE                                                         0
+          2 CountryName                                                                                                                                 231         0                     0 NOT_APPLICABLE                                                         0
+          3 FormalName                                                                                                                                  231         0                     0 NOT_APPLICABLE                                                         0
+          4 IsoAlpha3Code                                                                                                                               231         0                     0 NOT_APPLICABLE                                                         1
+          5 IsoNumericCode                                                                                                                               56         0                     0 NOT_APPLICABLE                                                         1
+          6 CountryType                                                                                                                                 231         0                     0 NOT_APPLICABLE                                                         1
+          7 LatestRecordedPopulation                                                                                                                    127         0                     0 NOT_APPLICABLE                                                         1
+          8 Continent                                                                                                                                   231         0                     0 NOT_APPLICABLE                                                         0
+          9 Region                                                                                                                                      231         0                     0 NOT_APPLICABLE                                                         0
+         10 Subregion                                                                                                                                   231         0                     0 NOT_APPLICABLE                                                         0
+         11 Border                                                                                                                                      240         0                     0 NOT_APPLICABLE                                                         1
+         12 LastEditedBy                                                                                                                                 56         0                     0 NOT_APPLICABLE                                                         0
+         13 ValidFrom                                                                                                                                    42         0                     0 NOT_APPLICABLE                                                         0
+         14 ValidTo                                                                                                                                      42         0                     0 NOT_APPLICABLE                                                         0
+=== RAW syscolpars status (hex) for Application.Countries_Archive ===
+sys.syscolpars not accessible: Invalid object name 'sys.syscolpars'.
+=== SYS.COLUMNS for Application.Countries (current temporal table) ===
+column_id   name                                                                                                                             system_type_id is_hidden generated_always_type generated_always_type_desc                                   is_nullable
+----------- -------------------------------------------------------------------------------------------------------------------------------- -------------- --------- --------------------- ------------------------------------------------------------ -----------
+          1 CountryID                                                                                                                                    56         0                     0 NOT_APPLICABLE                                                         0
+          2 CountryName                                                                                                                                 231         0                     0 NOT_APPLICABLE                                                         0
+          3 FormalName                                                                                                                                  231         0                     0 NOT_APPLICABLE                                                         0
+          4 IsoAlpha3Code                                                                                                                               231         0                     0 NOT_APPLICABLE                                                         1
+          5 IsoNumericCode                                                                                                                               56         0                     0 NOT_APPLICABLE                                                         1
+          6 CountryType                                                                                                                                 231         0                     0 NOT_APPLICABLE                                                         1
+          7 LatestRecordedPopulation                                                                                                                    127         0                     0 NOT_APPLICABLE                                                         1
+          8 Continent                                                                                                                                   231         0                     0 NOT_APPLICABLE                                                         0
+          9 Region                                                                                                                                      231         0                     0 NOT_APPLICABLE                                                         0
+         10 Subregion                                                                                                                                   231         0                     0 NOT_APPLICABLE                                                         0
+         11 Border                                                                                                                                      240         0                     0 NOT_APPLICABLE                                                         1
+         12 LastEditedBy                                                                                                                                 56         0                     0 NOT_APPLICABLE                                                         0
+         13 ValidFrom                                                                                                                                    42         0                     1 AS_ROW_START                                                           0
+         14 ValidTo                                                                                                                                      42         0                     2 AS_ROW_END                                                             0
+Msg 207, Level 16, State 1, Server robert-lee-mssql-2022--native-9, Line 11
+Invalid column name 'start_column_name'.
+Msg 207, Level 16, State 1, Server robert-lee-mssql-2022--native-9, Line 12
+Invalid column name 'end_column_name'.
+
+
+
+Processed 624 pages for database 'V13ProbeB', file 'FeatureCoverage' on file 1.
+Processed 20 pages for database 'V13ProbeB', file 'FeatureCoverage_log' on file 1.
+Processed 1 pages for database 'V13ProbeB', file 'FeatureCoverage_mem' on file 1.
+RESTORE DATABASE successfully processed 645 pages in 0.037 seconds (136.190 MB/sec).
+Changed database context to 'V13ProbeB'.
+DBCC execution completed. If DBCC printed error messages, contact your system administrator.
+=== PHASE B: SYS.COLUMNS for dbo.temporal_current ===
+column_id   name                                                                                                                             system_type_id is_hidden generated_always_type generated_always_type_desc                                   is_nullable
+----------- -------------------------------------------------------------------------------------------------------------------------------- -------------- --------- --------------------- ------------------------------------------------------------ -----------
+          1 id                                                                                                                                           56         0                     0 NOT_APPLICABLE                                                         0
+          2 value                                                                                                                                       106         0                     0 NOT_APPLICABLE                                                         0
+          3 valid_from                                                                                                                                   42         0                     1 AS_ROW_START                                                           0
+          4 valid_to                                                                                                                                     42         0                     2 AS_ROW_END                                                             0
+=== PHASE B: RAW syscolpars.status for dbo.temporal_current ===
+Msg 208, Level 16, State 1, Server robert-lee-mssql-2022--native-9, Line 7
+Invalid object name 'sys.syscolpars'.
+

@@ -1,0 +1,183 @@
+{
+  "bak": "SalesDBOriginal.bak",
+  "captured_at": "2026-06-27T22:09:19.257070+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.Customers",
+      "row_count": 19759,
+      "key_columns": [
+        "CustomerID"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "CustomerID",
+          "sql_type": "int",
+          "digest": "sha256:8beeeb572ae38efb3541d12b973c19b2031f1b83db4978710eb6068b01706a8c",
+          "null_count": 0
+        },
+        {
+          "name": "FirstName",
+          "sql_type": "nvarchar(40)",
+          "digest": "sha256:1772bf46491696b7c548fcab137ff854883aa4eee1c52c4ef7bf2776cbb0cdc0",
+          "null_count": 0
+        },
+        {
+          "name": "MiddleInitial",
+          "sql_type": "nvarchar(40)",
+          "digest": "sha256:9e4bc6350d6fd8786db131c0014bc76e156a4cdb0e0669d57a8dac63e986b6f5",
+          "null_count": 8333
+        },
+        {
+          "name": "LastName",
+          "sql_type": "nvarchar(40)",
+          "digest": "sha256:58c7ba15b8ef25062472d04ff6cf2469775a645607f6ea34219c634e88b0d9ee",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.Employees",
+      "row_count": 23,
+      "key_columns": [
+        "EmployeeID"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "EmployeeID",
+          "sql_type": "int",
+          "digest": "sha256:9a32927f3d7f17ea7a82b8edd7be7405e920d7d0a403d4f112c2fdcbfede2ba3",
+          "null_count": 0
+        },
+        {
+          "name": "FirstName",
+          "sql_type": "nvarchar(40)",
+          "digest": "sha256:b962cfd3e5bf5c73f4451dc2999eabc3dfc992cd9880722538936a367e35231c",
+          "null_count": 0
+        },
+        {
+          "name": "MiddleInitial",
+          "sql_type": "nvarchar(40)",
+          "digest": "sha256:36225b986691a74048524f733a278698999cd5a22fde35b4aec17296a031e959",
+          "null_count": 0
+        },
+        {
+          "name": "LastName",
+          "sql_type": "nvarchar(40)",
+          "digest": "sha256:e6202c32eec5f32c625fb471191d61b1ae342f55f5da94a7c757572da4f7bd1c",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.Products",
+      "row_count": 504,
+      "key_columns": [
+        "ProductID"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "ProductID",
+          "sql_type": "int",
+          "digest": "sha256:079a41afb9b55e341e875a081e18439bd27368e89bfcf0ffd2219a4b219800f2",
+          "null_count": 0
+        },
+        {
+          "name": "Name",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:097014ae20d78bc08d5911e225059eb2e5e17da0ebdf5bf1e821fbc46da7b124",
+          "null_count": 0
+        },
+        {
+          "name": "Price",
+          "sql_type": "money",
+          "digest": "sha256:d5efdbf6d7b90826e31b09c62115c076c5de12e83ee61e83eae21e61b850424d",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.Sales",
+      "row_count": 6715221,
+      "key_columns": [
+        "SalesID"
+      ],
+      "mode": "sample",
+      "columns": [
+        {
+          "name": "SalesID",
+          "sql_type": "int",
+          "digest": "sha256:571b8a757fcf77cb8d35dc3c06ee701a8999909c9ea67e140e3a36b83ad8bcca",
+          "null_count": 0
+        },
+        {
+          "name": "SalesPersonID",
+          "sql_type": "int",
+          "digest": "sha256:6bcc029d28ad7c56a23cbef6e18549f7b282e89e78a694ccb5bcff088dc890ba",
+          "null_count": 0
+        },
+        {
+          "name": "CustomerID",
+          "sql_type": "int",
+          "digest": "sha256:d89eab170526381b887e9a8254991fff9af97cb81ffe8422e8c837c789133c90",
+          "null_count": 0
+        },
+        {
+          "name": "ProductID",
+          "sql_type": "int",
+          "digest": "sha256:f2a14df103c33be9cc07663ee788206acd43fd4be8544ebd405cf2c8983b201c",
+          "null_count": 0
+        },
+        {
+          "name": "Quantity",
+          "sql_type": "int",
+          "digest": "sha256:c8e76a697c0664a00c8c8467ee0cbe30ec5cb986f39492bd65a9c7f0025ba6b0",
+          "null_count": 0
+        }
+      ],
+      "sample_n": 197507
+    },
+    {
+      "fqn": "dbo.sysdiagrams",
+      "row_count": 1,
+      "key_columns": [
+        "diagram_id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "name",
+          "sql_type": "sysname",
+          "digest": "sha256:fb71df12e78fb58e3cbb9039058bea5e32775d089d2563af5e7e3d8987d119d2",
+          "null_count": 0
+        },
+        {
+          "name": "principal_id",
+          "sql_type": "int",
+          "digest": "sha256:d7c0db5a2a0b7eb9abf5c315453ababfd88818917d8672d8c8889558477d6102",
+          "null_count": 0
+        },
+        {
+          "name": "diagram_id",
+          "sql_type": "int",
+          "digest": "sha256:d7c0db5a2a0b7eb9abf5c315453ababfd88818917d8672d8c8889558477d6102",
+          "null_count": 0
+        },
+        {
+          "name": "version",
+          "sql_type": "int",
+          "digest": "sha256:d7c0db5a2a0b7eb9abf5c315453ababfd88818917d8672d8c8889558477d6102",
+          "null_count": 0
+        },
+        {
+          "name": "definition",
+          "sql_type": "varbinary(max)",
+          "digest": "sha256:c202adc3cbf3863898142963207dbeead99e6fef740d26d3d592cabdc054c80c",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}

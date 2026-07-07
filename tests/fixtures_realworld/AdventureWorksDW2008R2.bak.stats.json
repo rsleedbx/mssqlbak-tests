@@ -1,0 +1,2495 @@
+{
+  "sql_version": "Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (X64)",
+  "bak": "AdventureWorksDW2008R2.bak",
+  "bak_size_mb": 74.109,
+  "database": "RegisterBak_AdventureWorksDW2008R2",
+  "registered_at": "2026-06-10T01:27:38.467842+00:00",
+  "sqlserver_restore_s": 4.873,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "AdventureWorksDWBuildVersion",
+      "row_count": 1,
+      "columns": [
+        {
+          "name": "DBVersion",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "10.50.91012.00",
+          "max_val": "10.50.91012.00"
+        },
+        {
+          "name": "VersionDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Oct 12 2009 12:00AM",
+          "max_val": "Oct 12 2009 12:00AM"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "DatabaseLog",
+      "row_count": 115,
+      "columns": [
+        {
+          "name": "DatabaseLogID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "115"
+        },
+        {
+          "name": "PostTime",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Mar 29 2012  1:43PM",
+          "max_val": "Mar 29 2012  1:43PM"
+        },
+        {
+          "name": "DatabaseUser",
+          "sql_type": "sysname",
+          "null_count": 0,
+          "min_val": "dbo",
+          "max_val": "dbo"
+        },
+        {
+          "name": "Event",
+          "sql_type": "sysname",
+          "null_count": 0,
+          "min_val": "ALTER_TABLE",
+          "max_val": "CREATE_VIEW"
+        },
+        {
+          "name": "Schema",
+          "sql_type": "sysname",
+          "null_count": 0,
+          "min_val": "dbo",
+          "max_val": "dbo"
+        },
+        {
+          "name": "Object",
+          "sql_type": "sysname",
+          "null_count": 0,
+          "min_val": "AdventureWorksDWBuildVersion",
+          "max_val": "vTimeSeries"
+        },
+        {
+          "name": "TSQL",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "XmlEvent",
+          "sql_type": "xml",
+          "null_count": 0,
+          "min_val": "<EVENT_INSTANCE><EventType>ALTER_TABLE</EventType><PostTime>2012-03-29T13:43:44.130</PostTime><SPID>52</SPID><ServerName>DERRICKV-MSFT</ServerName><LoginName>REDMOND\\derrickv</LoginName><UserName>dbo<",
+          "max_val": "<EVENT_INSTANCE><EventType>CREATE_VIEW</EventType><PostTime>2012-03-29T13:43:48.653</PostTime><SPID>52</SPID><ServerName>DERRICKV-MSFT</ServerName><LoginName>REDMOND\\derrickv</LoginName><UserName>dbo<"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "DimAccount",
+      "row_count": 99,
+      "columns": [
+        {
+          "name": "AccountKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "101"
+        },
+        {
+          "name": "ParentAccountKey",
+          "sql_type": "int",
+          "null_count": 3,
+          "min_val": "1",
+          "max_val": "95"
+        },
+        {
+          "name": "AccountCodeAlternateKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "9540"
+        },
+        {
+          "name": "ParentAccountCodeAlternateKey",
+          "sql_type": "int",
+          "null_count": 3,
+          "min_val": "1",
+          "max_val": "9500"
+        },
+        {
+          "name": "AccountDescription",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Accounts Payable",
+          "max_val": "Work in Process"
+        },
+        {
+          "name": "AccountType",
+          "sql_type": "nvarchar",
+          "null_count": 1,
+          "min_val": "Assets",
+          "max_val": "Statistical"
+        },
+        {
+          "name": "Operator",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "-",
+          "max_val": "+"
+        },
+        {
+          "name": "CustomMembers",
+          "sql_type": "nvarchar",
+          "null_count": 98,
+          "min_val": "[Account].[Accounts].[Account Level 04].&[50]/[Account].[Accounts].[Account Level 02].&[97]",
+          "max_val": "[Account].[Accounts].[Account Level 04].&[50]/[Account].[Accounts].[Account Level 02].&[97]"
+        },
+        {
+          "name": "ValueType",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Currency",
+          "max_val": "Units"
+        },
+        {
+          "name": "CustomMemberOptions",
+          "sql_type": "nvarchar",
+          "null_count": 99,
+          "min_val": null,
+          "max_val": null
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "DimCurrency",
+      "row_count": 105,
+      "columns": [
+        {
+          "name": "CurrencyKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "105"
+        },
+        {
+          "name": "CurrencyAlternateKey",
+          "sql_type": "nchar",
+          "null_count": 0,
+          "min_val": "AED",
+          "max_val": "ZWD"
+        },
+        {
+          "name": "CurrencyName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Afghani",
+          "max_val": "Zloty"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "DimCustomer",
+      "row_count": 18484,
+      "columns": [
+        {
+          "name": "CustomerKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "11000",
+          "max_val": "29483"
+        },
+        {
+          "name": "GeographyKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "654"
+        },
+        {
+          "name": "CustomerAlternateKey",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "AW00011000",
+          "max_val": "AW00029483"
+        },
+        {
+          "name": "Title",
+          "sql_type": "nvarchar",
+          "null_count": 18383,
+          "min_val": "Mr.",
+          "max_val": "Sr."
+        },
+        {
+          "name": "FirstName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Aaron",
+          "max_val": "Zoe"
+        },
+        {
+          "name": "MiddleName",
+          "sql_type": "nvarchar",
+          "null_count": 7830,
+          "min_val": "A",
+          "max_val": "Z"
+        },
+        {
+          "name": "LastName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Adams",
+          "max_val": "Zukowski"
+        },
+        {
+          "name": "NameStyle",
+          "sql_type": "bit",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "0"
+        },
+        {
+          "name": "BirthDate",
+          "sql_type": "date",
+          "null_count": 0,
+          "min_val": "1914-08-13",
+          "max_val": "1984-12-26"
+        },
+        {
+          "name": "MaritalStatus",
+          "sql_type": "nchar",
+          "null_count": 0,
+          "min_val": "M",
+          "max_val": "S"
+        },
+        {
+          "name": "Suffix",
+          "sql_type": "nvarchar",
+          "null_count": 18481,
+          "min_val": "Jr.",
+          "max_val": "Jr."
+        },
+        {
+          "name": "Gender",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "F",
+          "max_val": "M"
+        },
+        {
+          "name": "EmailAddress",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "aaron10@adventure-works.com",
+          "max_val": "zoe9@adventure-works.com"
+        },
+        {
+          "name": "YearlyIncome",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "10000.0000",
+          "max_val": "170000.0000"
+        },
+        {
+          "name": "TotalChildren",
+          "sql_type": "tinyint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "5"
+        },
+        {
+          "name": "NumberChildrenAtHome",
+          "sql_type": "tinyint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "5"
+        },
+        {
+          "name": "EnglishEducation",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Bachelors",
+          "max_val": "Partial High School"
+        },
+        {
+          "name": "SpanishEducation",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Educaci\u00f3n secundaria",
+          "max_val": "Licenciatura"
+        },
+        {
+          "name": "FrenchEducation",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Bac + 2",
+          "max_val": "Niveau bac"
+        },
+        {
+          "name": "EnglishOccupation",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Clerical",
+          "max_val": "Skilled Manual"
+        },
+        {
+          "name": "SpanishOccupation",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Administrativo",
+          "max_val": "Profesional"
+        },
+        {
+          "name": "FrenchOccupation",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Cadre",
+          "max_val": "Technicien"
+        },
+        {
+          "name": "HouseOwnerFlag",
+          "sql_type": "nchar",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1"
+        },
+        {
+          "name": "NumberCarsOwned",
+          "sql_type": "tinyint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "4"
+        },
+        {
+          "name": "AddressLine1",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "00, rue Saint-Lazare",
+          "max_val": "Zur Lindung 787"
+        },
+        {
+          "name": "AddressLine2",
+          "sql_type": "nvarchar",
+          "null_count": 18172,
+          "min_val": "# 1",
+          "max_val": "Verkaufsabteilung"
+        },
+        {
+          "name": "Phone",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "1 (11) 500 555-0110",
+          "max_val": "999-555-0198"
+        },
+        {
+          "name": "DateFirstPurchase",
+          "sql_type": "date",
+          "null_count": 0,
+          "min_val": "2005-07-01",
+          "max_val": "2008-07-31"
+        },
+        {
+          "name": "CommuteDistance",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "0-1 Miles",
+          "max_val": "5-10 Miles"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "DimDate",
+      "row_count": 1188,
+      "columns": [
+        {
+          "name": "DateKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "20050701",
+          "max_val": "20101130"
+        },
+        {
+          "name": "FullDateAlternateKey",
+          "sql_type": "date",
+          "null_count": 0,
+          "min_val": "2005-07-01",
+          "max_val": "2010-11-30"
+        },
+        {
+          "name": "DayNumberOfWeek",
+          "sql_type": "tinyint",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "7"
+        },
+        {
+          "name": "EnglishDayNameOfWeek",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Friday",
+          "max_val": "Wednesday"
+        },
+        {
+          "name": "SpanishDayNameOfWeek",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Domingo",
+          "max_val": "Viernes"
+        },
+        {
+          "name": "FrenchDayNameOfWeek",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Dimanche",
+          "max_val": "Vendredi"
+        },
+        {
+          "name": "DayNumberOfMonth",
+          "sql_type": "tinyint",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "31"
+        },
+        {
+          "name": "DayNumberOfYear",
+          "sql_type": "smallint",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "365"
+        },
+        {
+          "name": "WeekNumberOfYear",
+          "sql_type": "tinyint",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "53"
+        },
+        {
+          "name": "EnglishMonthName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "April",
+          "max_val": "September"
+        },
+        {
+          "name": "SpanishMonthName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Abril",
+          "max_val": "Septiembre"
+        },
+        {
+          "name": "FrenchMonthName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Ao\u00fbt",
+          "max_val": "Septembre"
+        },
+        {
+          "name": "MonthNumberOfYear",
+          "sql_type": "tinyint",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "12"
+        },
+        {
+          "name": "CalendarQuarter",
+          "sql_type": "tinyint",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "4"
+        },
+        {
+          "name": "CalendarYear",
+          "sql_type": "smallint",
+          "null_count": 0,
+          "min_val": "2005",
+          "max_val": "2010"
+        },
+        {
+          "name": "CalendarSemester",
+          "sql_type": "tinyint",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "2"
+        },
+        {
+          "name": "FiscalQuarter",
+          "sql_type": "tinyint",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "4"
+        },
+        {
+          "name": "FiscalYear",
+          "sql_type": "smallint",
+          "null_count": 0,
+          "min_val": "2006",
+          "max_val": "2011"
+        },
+        {
+          "name": "FiscalSemester",
+          "sql_type": "tinyint",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "2"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "DimDepartmentGroup",
+      "row_count": 7,
+      "columns": [
+        {
+          "name": "DepartmentGroupKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "7"
+        },
+        {
+          "name": "ParentDepartmentGroupKey",
+          "sql_type": "int",
+          "null_count": 1,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "DepartmentGroupName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Corporate",
+          "max_val": "Sales and Marketing"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "DimEmployee",
+      "row_count": 296,
+      "columns": [
+        {
+          "name": "EmployeeKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "296"
+        },
+        {
+          "name": "ParentEmployeeKey",
+          "sql_type": "int",
+          "null_count": 1,
+          "min_val": "3",
+          "max_val": "294"
+        },
+        {
+          "name": "EmployeeNationalIDAlternateKey",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "10708100",
+          "max_val": "999440576"
+        },
+        {
+          "name": "ParentEmployeeNationalIDAlternateKey",
+          "sql_type": "nvarchar",
+          "null_count": 296,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "SalesTerritoryKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "11"
+        },
+        {
+          "name": "FirstName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "A. Scott",
+          "max_val": "Zheng"
+        },
+        {
+          "name": "LastName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Abbas",
+          "max_val": "Zwilling"
+        },
+        {
+          "name": "MiddleName",
+          "sql_type": "nvarchar",
+          "null_count": 13,
+          "min_val": "A",
+          "max_val": "Z"
+        },
+        {
+          "name": "NameStyle",
+          "sql_type": "bit",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "0"
+        },
+        {
+          "name": "Title",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Accountant",
+          "max_val": "Vice President of Sales"
+        },
+        {
+          "name": "HireDate",
+          "sql_type": "date",
+          "null_count": 0,
+          "min_val": "2000-07-31",
+          "max_val": "2007-07-01"
+        },
+        {
+          "name": "BirthDate",
+          "sql_type": "date",
+          "null_count": 0,
+          "min_val": "1934-01-11",
+          "max_val": "1985-07-01"
+        },
+        {
+          "name": "LoginID",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "adventure-works\\alan0",
+          "max_val": "adventure-works\\zheng0"
+        },
+        {
+          "name": "EmailAddress",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "alan0@adventure-works.com",
+          "max_val": "zheng0@adventure-works.com"
+        },
+        {
+          "name": "Phone",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "1 (11) 500 555-0117",
+          "max_val": "999-555-0155"
+        },
+        {
+          "name": "MaritalStatus",
+          "sql_type": "nchar",
+          "null_count": 0,
+          "min_val": "M",
+          "max_val": "S"
+        },
+        {
+          "name": "EmergencyContactName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "A. Scott Wright",
+          "max_val": "Zheng Mu"
+        },
+        {
+          "name": "EmergencyContactPhone",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "1 (11) 500 555-0117",
+          "max_val": "999-555-0155"
+        },
+        {
+          "name": "SalariedFlag",
+          "sql_type": "bit",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1"
+        },
+        {
+          "name": "Gender",
+          "sql_type": "nchar",
+          "null_count": 0,
+          "min_val": "F",
+          "max_val": "M"
+        },
+        {
+          "name": "PayFrequency",
+          "sql_type": "tinyint",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "2"
+        },
+        {
+          "name": "BaseRate",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "9.0000",
+          "max_val": "125.5000"
+        },
+        {
+          "name": "VacationHours",
+          "sql_type": "smallint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "99"
+        },
+        {
+          "name": "SickLeaveHours",
+          "sql_type": "smallint",
+          "null_count": 0,
+          "min_val": "20",
+          "max_val": "80"
+        },
+        {
+          "name": "CurrentFlag",
+          "sql_type": "bit",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "SalesPersonFlag",
+          "sql_type": "bit",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1"
+        },
+        {
+          "name": "DepartmentName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Document Control",
+          "max_val": "Tool Design"
+        },
+        {
+          "name": "StartDate",
+          "sql_type": "date",
+          "null_count": 0,
+          "min_val": "2000-07-31",
+          "max_val": "2007-12-15"
+        },
+        {
+          "name": "EndDate",
+          "sql_type": "date",
+          "null_count": 290,
+          "min_val": "2003-08-15",
+          "max_val": "2007-12-15"
+        },
+        {
+          "name": "Status",
+          "sql_type": "nvarchar",
+          "null_count": 6,
+          "min_val": "Current",
+          "max_val": "Current"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "DimGeography",
+      "row_count": 655,
+      "columns": [
+        {
+          "name": "GeographyKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "655"
+        },
+        {
+          "name": "City",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Abingdon",
+          "max_val": "Zeeland"
+        },
+        {
+          "name": "StateProvinceCode",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "17",
+          "max_val": "WY"
+        },
+        {
+          "name": "StateProvinceName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Alabama",
+          "max_val": "Yveline"
+        },
+        {
+          "name": "CountryRegionCode",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "AU",
+          "max_val": "US"
+        },
+        {
+          "name": "EnglishCountryRegionName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Australia",
+          "max_val": "United States"
+        },
+        {
+          "name": "SpanishCountryRegionName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Alemania",
+          "max_val": "Reino Unido"
+        },
+        {
+          "name": "FrenchCountryRegionName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Allemagne",
+          "max_val": "Royaume-Uni"
+        },
+        {
+          "name": "PostalCode",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "01071",
+          "max_val": "YO15"
+        },
+        {
+          "name": "SalesTerritoryKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "10"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "DimOrganization",
+      "row_count": 14,
+      "columns": [
+        {
+          "name": "OrganizationKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "14"
+        },
+        {
+          "name": "ParentOrganizationKey",
+          "sql_type": "int",
+          "null_count": 1,
+          "min_val": "1",
+          "max_val": "14"
+        },
+        {
+          "name": "PercentageOfOwnership",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": ".25",
+          "max_val": "1"
+        },
+        {
+          "name": "OrganizationName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "AdventureWorks Cycle",
+          "max_val": "USA Operations"
+        },
+        {
+          "name": "CurrencyKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "6",
+          "max_val": "100"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "DimProduct",
+      "row_count": 606,
+      "columns": [
+        {
+          "name": "ProductKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "ProductAlternateKey",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "ProductSubcategoryKey",
+          "sql_type": "int",
+          "null_count": 209,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "WeightUnitMeasureCode",
+          "sql_type": "nchar",
+          "null_count": 324,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "SizeUnitMeasureCode",
+          "sql_type": "nchar",
+          "null_count": 353,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "EnglishProductName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "SpanishProductName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "FrenchProductName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "StandardCost",
+          "sql_type": "money",
+          "null_count": 211,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "FinishedGoodsFlag",
+          "sql_type": "bit",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "Color",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "SafetyStockLevel",
+          "sql_type": "smallint",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "ReorderPoint",
+          "sql_type": "smallint",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "ListPrice",
+          "sql_type": "money",
+          "null_count": 211,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "Size",
+          "sql_type": "nvarchar",
+          "null_count": 307,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "SizeRange",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "Weight",
+          "sql_type": "float",
+          "null_count": 324,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "DaysToManufacture",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "ProductLine",
+          "sql_type": "nchar",
+          "null_count": 226,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "DealerPrice",
+          "sql_type": "money",
+          "null_count": 211,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "Class",
+          "sql_type": "nchar",
+          "null_count": 276,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "Style",
+          "sql_type": "nchar",
+          "null_count": 305,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "ModelName",
+          "sql_type": "nvarchar",
+          "null_count": 209,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "LargePhoto",
+          "sql_type": "varbinary",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "EnglishDescription",
+          "sql_type": "nvarchar",
+          "null_count": 210,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "FrenchDescription",
+          "sql_type": "nvarchar",
+          "null_count": 210,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "ChineseDescription",
+          "sql_type": "nvarchar",
+          "null_count": 210,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "ArabicDescription",
+          "sql_type": "nvarchar",
+          "null_count": 210,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "HebrewDescription",
+          "sql_type": "nvarchar",
+          "null_count": 210,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "ThaiDescription",
+          "sql_type": "nvarchar",
+          "null_count": 210,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "GermanDescription",
+          "sql_type": "nvarchar",
+          "null_count": 210,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "JapaneseDescription",
+          "sql_type": "nvarchar",
+          "null_count": 210,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "TurkishDescription",
+          "sql_type": "nvarchar",
+          "null_count": 210,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "StartDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "EndDate",
+          "sql_type": "datetime",
+          "null_count": 406,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "Status",
+          "sql_type": "nvarchar",
+          "null_count": 200,
+          "min_val": null,
+          "max_val": null
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "DimProductCategory",
+      "row_count": 4,
+      "columns": [
+        {
+          "name": "ProductCategoryKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "4"
+        },
+        {
+          "name": "ProductCategoryAlternateKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "4"
+        },
+        {
+          "name": "EnglishProductCategoryName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Accessories",
+          "max_val": "Components"
+        },
+        {
+          "name": "SpanishProductCategoryName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Accesorio",
+          "max_val": "Prenda"
+        },
+        {
+          "name": "FrenchProductCategoryName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Accessoire",
+          "max_val": "V\u00eatements"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "DimProductSubcategory",
+      "row_count": 37,
+      "columns": [
+        {
+          "name": "ProductSubcategoryKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "37"
+        },
+        {
+          "name": "ProductSubcategoryAlternateKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "37"
+        },
+        {
+          "name": "EnglishProductSubcategoryName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Bib-Shorts",
+          "max_val": "Wheels"
+        },
+        {
+          "name": "SpanishProductSubcategoryName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Barra",
+          "max_val": "Soporte para bicicletas"
+        },
+        {
+          "name": "FrenchProductSubcategoryName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Antivol",
+          "max_val": "VTT"
+        },
+        {
+          "name": "ProductCategoryKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "4"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "DimPromotion",
+      "row_count": 16,
+      "columns": [
+        {
+          "name": "PromotionKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "16"
+        },
+        {
+          "name": "PromotionAlternateKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "16"
+        },
+        {
+          "name": "EnglishPromotionName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Half-Price Pedal Sale",
+          "max_val": "Volume Discount over 60"
+        },
+        {
+          "name": "SpanishPromotionName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Bicicleta de carretera: 650, oferta especial",
+          "max_val": "Venta de pedales a mitad de precio"
+        },
+        {
+          "name": "FrenchPromotionName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Aucune remise",
+          "max_val": "Vente de pneus de VTT"
+        },
+        {
+          "name": "DiscountPct",
+          "sql_type": "float",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "0.5"
+        },
+        {
+          "name": "EnglishPromotionType",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Discontinued Product",
+          "max_val": "Volume Discount"
+        },
+        {
+          "name": "SpanishPromotionType",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Descatalogado",
+          "max_val": "Sin descuento"
+        },
+        {
+          "name": "FrenchPromotionType",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Aucune remise",
+          "max_val": "Remise sur quantit\u00e9"
+        },
+        {
+          "name": "EnglishPromotionCategory",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Customer",
+          "max_val": "Reseller"
+        },
+        {
+          "name": "SpanishPromotionCategory",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Cliente",
+          "max_val": "Sin descuento"
+        },
+        {
+          "name": "FrenchPromotionCategory",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Aucune remise",
+          "max_val": "Revendeur"
+        },
+        {
+          "name": "StartDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jun  1 2005 12:00AM",
+          "max_val": "May  1 2008 12:00AM"
+        },
+        {
+          "name": "EndDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jun 30 2006 12:00AM",
+          "max_val": "Dec 31 2008 12:00AM"
+        },
+        {
+          "name": "MinQty",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "61"
+        },
+        {
+          "name": "MaxQty",
+          "sql_type": "int",
+          "null_count": 12,
+          "min_val": "14",
+          "max_val": "60"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "DimReseller",
+      "row_count": 701,
+      "columns": [
+        {
+          "name": "ResellerKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "701"
+        },
+        {
+          "name": "GeographyKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "655"
+        },
+        {
+          "name": "ResellerAlternateKey",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "AW00000001",
+          "max_val": "AW00000701"
+        },
+        {
+          "name": "Phone",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "1 (11) 500 555-0110",
+          "max_val": "996-555-0196"
+        },
+        {
+          "name": "BusinessType",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "Specialty Bike Shop",
+          "max_val": "Warehouse"
+        },
+        {
+          "name": "ResellerName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "A Bicycle Association",
+          "max_val": "Yellow Bicycle Company"
+        },
+        {
+          "name": "NumberEmployees",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "100"
+        },
+        {
+          "name": "OrderFrequency",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "A",
+          "max_val": "S"
+        },
+        {
+          "name": "OrderMonth",
+          "sql_type": "tinyint",
+          "null_count": 66,
+          "min_val": "1",
+          "max_val": "12"
+        },
+        {
+          "name": "FirstOrderYear",
+          "sql_type": "int",
+          "null_count": 66,
+          "min_val": "2005",
+          "max_val": "2008"
+        },
+        {
+          "name": "LastOrderYear",
+          "sql_type": "int",
+          "null_count": 66,
+          "min_val": "2005",
+          "max_val": "2008"
+        },
+        {
+          "name": "ProductLine",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Mountain",
+          "max_val": "Touring"
+        },
+        {
+          "name": "AddressLine1",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "#500-75 O'Connor Street",
+          "max_val": "Wymbush"
+        },
+        {
+          "name": "AddressLine2",
+          "sql_type": "nvarchar",
+          "null_count": 668,
+          "min_val": "114 Albert Road",
+          "max_val": "Verkaufsabteilung"
+        },
+        {
+          "name": "AnnualSales",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "300000.0000",
+          "max_val": "3000000.0000"
+        },
+        {
+          "name": "BankName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Guardian Bank",
+          "max_val": "United Security"
+        },
+        {
+          "name": "MinPaymentType",
+          "sql_type": "tinyint",
+          "null_count": 132,
+          "min_val": "1",
+          "max_val": "3"
+        },
+        {
+          "name": "MinPaymentAmount",
+          "sql_type": "money",
+          "null_count": 510,
+          "min_val": "200.0000",
+          "max_val": "1000.0000"
+        },
+        {
+          "name": "AnnualRevenue",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "30000.0000",
+          "max_val": "300000.0000"
+        },
+        {
+          "name": "YearOpened",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1970",
+          "max_val": "2001"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "DimSalesReason",
+      "row_count": 10,
+      "columns": [
+        {
+          "name": "SalesReasonKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "10"
+        },
+        {
+          "name": "SalesReasonAlternateKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "10"
+        },
+        {
+          "name": "SalesReasonName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Demo Event",
+          "max_val": "Television  Advertisement"
+        },
+        {
+          "name": "SalesReasonReasonType",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Marketing",
+          "max_val": "Promotion"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "DimSalesTerritory",
+      "row_count": 11,
+      "columns": [
+        {
+          "name": "SalesTerritoryKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "11"
+        },
+        {
+          "name": "SalesTerritoryAlternateKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "10"
+        },
+        {
+          "name": "SalesTerritoryRegion",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Australia",
+          "max_val": "United Kingdom"
+        },
+        {
+          "name": "SalesTerritoryCountry",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Australia",
+          "max_val": "United States"
+        },
+        {
+          "name": "SalesTerritoryGroup",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Europe",
+          "max_val": "Pacific"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "DimScenario",
+      "row_count": 3,
+      "columns": [
+        {
+          "name": "ScenarioKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3"
+        },
+        {
+          "name": "ScenarioName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Actual",
+          "max_val": "Forecast"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "FactAdditionalInternationalProductDescription",
+      "row_count": 15168,
+      "columns": [
+        {
+          "name": "ProductKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "210",
+          "max_val": "603"
+        },
+        {
+          "name": "CultureName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Afrikaans",
+          "max_val": "Zulu"
+        },
+        {
+          "name": "ProductDescription",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "HL \u090f\u0932\u094d\u092f\u0941\u092e\u0940\u0928\u093f\u092f\u092e \u095e\u094d\u0930\u0947\u092e \u0926\u093f\u0916\u0928\u0947 \u092e\u0947\u0902 \u0914\u0930 \u0915\u094d\u0937\u092e\u0924\u093e \u0926\u094b\u0928\u094b\u0902 \u092e\u0947\u0902 \u0935\u093f\u0936\u0947\u0937 \u0939\u0948; \u092f\u0939 \u0930\u094b\u095b\u092e\u0930\u094d\u0930\u093e \u0915\u0940 \u0921\u094d\u0930\u093e\u092f\u0935\u093f\u0902\u0917 \u0915\u0940 \u0915\u0920\u094b\u0930\u0924\u092e \u091a\u0941\u0928\u094c\u0924\u093f\u092f\u094b\u0902 \u0915\u093e \u0938\u093e\u092e\u0928\u093e \u0915\u0930\u0924\u093e \u0939\u0948.  \u092a\u0941\u0930\u0941\u0937 \u0938\u0902\u0938\u094d\u0915\u0930\u0923.",
+          "max_val": "\u9ad8\u78c5\u6578\u8010\u78e8\u77ed\u8eca\u8932\uff0c\u5167\u88e1\u8a2d\u8a08\u63a1\u7528\u7121\u7e2b\u840a\u5361\u6750\u8cea\uff0c\u800c\u9e82\u76ae\u5177\u6709\u6297\u83cc\u6548\u679c\uff0c\u4e26\u53ef\u63d0\u9ad8\u8212\u9069\u5ea6\u3002"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "FactCallCenter",
+      "row_count": 120,
+      "columns": [
+        {
+          "name": "FactCallCenterID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "120"
+        },
+        {
+          "name": "DateKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "20101101",
+          "max_val": "20101130"
+        },
+        {
+          "name": "WageType",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "holiday",
+          "max_val": "weekday"
+        },
+        {
+          "name": "Shift",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "AM",
+          "max_val": "PM2"
+        },
+        {
+          "name": "LevelOneOperators",
+          "sql_type": "smallint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "4"
+        },
+        {
+          "name": "LevelTwoOperators",
+          "sql_type": "smallint",
+          "null_count": 0,
+          "min_val": "3",
+          "max_val": "14"
+        },
+        {
+          "name": "TotalOperators",
+          "sql_type": "smallint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "44"
+        },
+        {
+          "name": "Calls",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "72",
+          "max_val": "699"
+        },
+        {
+          "name": "AutomaticResponses",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "58",
+          "max_val": "513"
+        },
+        {
+          "name": "Orders",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "50",
+          "max_val": "539"
+        },
+        {
+          "name": "IssuesRaised",
+          "sql_type": "smallint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "3"
+        },
+        {
+          "name": "AverageTimePerIssue",
+          "sql_type": "smallint",
+          "null_count": 0,
+          "min_val": "44",
+          "max_val": "120"
+        },
+        {
+          "name": "ServiceGrade",
+          "sql_type": "float",
+          "null_count": 0,
+          "min_val": "0.03",
+          "max_val": "0.21"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "FactCurrencyRate",
+      "row_count": 14264,
+      "columns": [
+        {
+          "name": "CurrencyKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "3",
+          "max_val": "103"
+        },
+        {
+          "name": "DateKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "20050701",
+          "max_val": "20080831"
+        },
+        {
+          "name": "AverageRate",
+          "sql_type": "float",
+          "null_count": 0,
+          "min_val": "0.000666667",
+          "max_val": "1.65399"
+        },
+        {
+          "name": "EndOfDayRate",
+          "sql_type": "float",
+          "null_count": 0,
+          "min_val": "0.000666689",
+          "max_val": "1.65536"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "FactFinance",
+      "row_count": 39409,
+      "columns": [
+        {
+          "name": "FinanceKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "39409"
+        },
+        {
+          "name": "DateKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "20050701",
+          "max_val": "20080630"
+        },
+        {
+          "name": "OrganizationKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "3",
+          "max_val": "13"
+        },
+        {
+          "name": "DepartmentGroupKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "7"
+        },
+        {
+          "name": "ScenarioKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "2"
+        },
+        {
+          "name": "AccountKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "4",
+          "max_val": "101"
+        },
+        {
+          "name": "Amount",
+          "sql_type": "float",
+          "null_count": 0,
+          "min_val": "-1.12192e+006",
+          "max_val": "4.82099e+006"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "FactInternetSales",
+      "row_count": 60398,
+      "columns": [
+        {
+          "name": "ProductKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "214",
+          "max_val": "606"
+        },
+        {
+          "name": "OrderDateKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "20050701",
+          "max_val": "20080731"
+        },
+        {
+          "name": "DueDateKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "20050713",
+          "max_val": "20080812"
+        },
+        {
+          "name": "ShipDateKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "20050708",
+          "max_val": "20080807"
+        },
+        {
+          "name": "CustomerKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "11000",
+          "max_val": "29483"
+        },
+        {
+          "name": "PromotionKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "14"
+        },
+        {
+          "name": "CurrencyKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "6",
+          "max_val": "100"
+        },
+        {
+          "name": "SalesTerritoryKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "10"
+        },
+        {
+          "name": "SalesOrderNumber",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "SO43697",
+          "max_val": "SO75123"
+        },
+        {
+          "name": "SalesOrderLineNumber",
+          "sql_type": "tinyint",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "8"
+        },
+        {
+          "name": "RevisionNumber",
+          "sql_type": "tinyint",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "OrderQuantity",
+          "sql_type": "smallint",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "UnitPrice",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "2.2900",
+          "max_val": "3578.2700"
+        },
+        {
+          "name": "ExtendedAmount",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "2.2900",
+          "max_val": "3578.2700"
+        },
+        {
+          "name": "UnitPriceDiscountPct",
+          "sql_type": "float",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "0"
+        },
+        {
+          "name": "DiscountAmount",
+          "sql_type": "float",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "0"
+        },
+        {
+          "name": "ProductStandardCost",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "0.8565",
+          "max_val": "2171.2942"
+        },
+        {
+          "name": "TotalProductCost",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "0.8565",
+          "max_val": "2171.2942"
+        },
+        {
+          "name": "SalesAmount",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "2.2900",
+          "max_val": "3578.2700"
+        },
+        {
+          "name": "TaxAmt",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "0.1832",
+          "max_val": "286.2616"
+        },
+        {
+          "name": "Freight",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "0.0573",
+          "max_val": "89.4568"
+        },
+        {
+          "name": "CarrierTrackingNumber",
+          "sql_type": "nvarchar",
+          "null_count": 60398,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "CustomerPONumber",
+          "sql_type": "nvarchar",
+          "null_count": 60398,
+          "min_val": null,
+          "max_val": null
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "FactInternetSalesReason",
+      "row_count": 64515,
+      "columns": [
+        {
+          "name": "SalesOrderNumber",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "SO43697",
+          "max_val": "SO75123"
+        },
+        {
+          "name": "SalesOrderLineNumber",
+          "sql_type": "tinyint",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "8"
+        },
+        {
+          "name": "SalesReasonKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "10"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "FactResellerSales",
+      "row_count": 60855,
+      "columns": [
+        {
+          "name": "ProductKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "212",
+          "max_val": "606"
+        },
+        {
+          "name": "OrderDateKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "20050701",
+          "max_val": "20080601"
+        },
+        {
+          "name": "DueDateKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "20050713",
+          "max_val": "20080613"
+        },
+        {
+          "name": "ShipDateKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "20050708",
+          "max_val": "20080608"
+        },
+        {
+          "name": "ResellerKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "701"
+        },
+        {
+          "name": "EmployeeKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "272",
+          "max_val": "296"
+        },
+        {
+          "name": "PromotionKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "16"
+        },
+        {
+          "name": "CurrencyKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "6",
+          "max_val": "100"
+        },
+        {
+          "name": "SalesTerritoryKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "10"
+        },
+        {
+          "name": "SalesOrderNumber",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "SO43659",
+          "max_val": "SO71952"
+        },
+        {
+          "name": "SalesOrderLineNumber",
+          "sql_type": "tinyint",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "72"
+        },
+        {
+          "name": "RevisionNumber",
+          "sql_type": "tinyint",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "2"
+        },
+        {
+          "name": "OrderQuantity",
+          "sql_type": "smallint",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "44"
+        },
+        {
+          "name": "UnitPrice",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "1.3282",
+          "max_val": "2146.9620"
+        },
+        {
+          "name": "ExtendedAmount",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "1.3740",
+          "max_val": "30992.9100"
+        },
+        {
+          "name": "UnitPriceDiscountPct",
+          "sql_type": "float",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "0.4"
+        },
+        {
+          "name": "DiscountAmount",
+          "sql_type": "float",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "4005.24"
+        },
+        {
+          "name": "ProductStandardCost",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "0.8565",
+          "max_val": "2171.2942"
+        },
+        {
+          "name": "TotalProductCost",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "0.8565",
+          "max_val": "38530.3854"
+        },
+        {
+          "name": "SalesAmount",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "1.3740",
+          "max_val": "27893.6190"
+        },
+        {
+          "name": "TaxAmt",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "0.1099",
+          "max_val": "2231.4895"
+        },
+        {
+          "name": "Freight",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "0.0344",
+          "max_val": "697.3405"
+        },
+        {
+          "name": "CarrierTrackingNumber",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "000A-434D-BC",
+          "max_val": "FFF9-4C3E-A9"
+        },
+        {
+          "name": "CustomerPONumber",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "PO10005144378",
+          "max_val": "PO9976195169"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "FactSalesQuota",
+      "row_count": 163,
+      "columns": [
+        {
+          "name": "SalesQuotaKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "163"
+        },
+        {
+          "name": "EmployeeKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "272",
+          "max_val": "296"
+        },
+        {
+          "name": "DateKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "20050701",
+          "max_val": "20080401"
+        },
+        {
+          "name": "CalendarYear",
+          "sql_type": "smallint",
+          "null_count": 0,
+          "min_val": "2005",
+          "max_val": "2008"
+        },
+        {
+          "name": "CalendarQuarter",
+          "sql_type": "tinyint",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "4"
+        },
+        {
+          "name": "SalesAmountQuota",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "1000.0000",
+          "max_val": "1898000.0000"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "FactSurveyResponse",
+      "row_count": 2727,
+      "columns": [
+        {
+          "name": "SurveyResponseKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "2768"
+        },
+        {
+          "name": "DateKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "20060901",
+          "max_val": "20061029"
+        },
+        {
+          "name": "CustomerKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "11001",
+          "max_val": "29482"
+        },
+        {
+          "name": "ProductCategoryKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "3",
+          "max_val": "4"
+        },
+        {
+          "name": "EnglishProductCategoryName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Accessories",
+          "max_val": "Clothing"
+        },
+        {
+          "name": "ProductSubcategoryKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "18",
+          "max_val": "37"
+        },
+        {
+          "name": "EnglishProductSubcategoryName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Bib-Shorts",
+          "max_val": "Vests"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "ProspectiveBuyer",
+      "row_count": 2059,
+      "columns": [
+        {
+          "name": "ProspectiveBuyerKey",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "2059"
+        },
+        {
+          "name": "ProspectAlternateKey",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "1000",
+          "max_val": "99944408535"
+        },
+        {
+          "name": "FirstName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Abby",
+          "max_val": "Zoe"
+        },
+        {
+          "name": "MiddleName",
+          "sql_type": "nvarchar",
+          "null_count": 852,
+          "min_val": "A",
+          "max_val": "Z"
+        },
+        {
+          "name": "LastName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Adams",
+          "max_val": "Zhu"
+        },
+        {
+          "name": "BirthDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Mar 12 1923 12:00AM",
+          "max_val": "Nov 14 1984 12:00AM"
+        },
+        {
+          "name": "MaritalStatus",
+          "sql_type": "nchar",
+          "null_count": 0,
+          "min_val": "M",
+          "max_val": "S"
+        },
+        {
+          "name": "Gender",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "F",
+          "max_val": "M"
+        },
+        {
+          "name": "EmailAddress",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "aalexander@lucernepublishing.com",
+          "max_val": "zward@consolidatedmessenger"
+        },
+        {
+          "name": "YearlyIncome",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "10000.0000",
+          "max_val": "170000.0000"
+        },
+        {
+          "name": "TotalChildren",
+          "sql_type": "tinyint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "5"
+        },
+        {
+          "name": "NumberChildrenAtHome",
+          "sql_type": "tinyint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "5"
+        },
+        {
+          "name": "Education",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Bachelors",
+          "max_val": "Partial Hi"
+        },
+        {
+          "name": "Occupation",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Clerical",
+          "max_val": "Skilled Manual"
+        },
+        {
+          "name": "HouseOwnerFlag",
+          "sql_type": "nchar",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1"
+        },
+        {
+          "name": "NumberCarsOwned",
+          "sql_type": "tinyint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "4"
+        },
+        {
+          "name": "AddressLine1",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "100 Fifth Drive",
+          "max_val": "Wrentham Village"
+        },
+        {
+          "name": "AddressLine2",
+          "sql_type": "nvarchar",
+          "null_count": 1993,
+          "min_val": "#1",
+          "max_val": "Unit H"
+        },
+        {
+          "name": "City",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Albany",
+          "max_val": "Zeeland"
+        },
+        {
+          "name": "StateProvinceCode",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "AL",
+          "max_val": "WY"
+        },
+        {
+          "name": "PostalCode",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "10007",
+          "max_val": "99362"
+        },
+        {
+          "name": "Phone",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "1 (11) 500 555-0110",
+          "max_val": "998-555-0123"
+        },
+        {
+          "name": "Salutation",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Mr.",
+          "max_val": "Ms."
+        },
+        {
+          "name": "Unknown",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "5"
+        }
+      ]
+    }
+  ]
+}

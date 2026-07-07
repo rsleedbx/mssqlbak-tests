@@ -1,0 +1,425 @@
+{
+  "bak": "StackOverflowMini.bak",
+  "captured_at": "2026-06-27T22:11:10.120583+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.Badges",
+      "row_count": 444073,
+      "key_columns": [
+        "Id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "Id",
+          "sql_type": "int",
+          "digest": "sha256:b9ba06c68335d9f14ea71833bfbb497902588ce2d65907972cbcc4bd6172b092",
+          "null_count": 0
+        },
+        {
+          "name": "Name",
+          "sql_type": "nvarchar(40)",
+          "digest": "sha256:f8ae744cf51dc68aa936f4901cf7836bec09328eceb3c3cf5dd54b295ef18f56",
+          "null_count": 0
+        },
+        {
+          "name": "UserId",
+          "sql_type": "int",
+          "digest": "sha256:67f14fa78fdd048dc2f4774d217f472f5eab6b48f41110fd69ce372d4ded9f67",
+          "null_count": 0
+        },
+        {
+          "name": "Date",
+          "sql_type": "datetime",
+          "digest": "sha256:013cdf5669aa87017dae65ccc167f22c52bad3836d33fb52118165f11a6e73f7",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.Comments",
+      "row_count": 1373756,
+      "key_columns": [
+        "Id"
+      ],
+      "mode": "sample",
+      "columns": [
+        {
+          "name": "Id",
+          "sql_type": "int",
+          "digest": "sha256:0bb9948abdf3da44c6264e7e16afa93699ac8996436242d4df154a03cdce42c4",
+          "null_count": 0
+        },
+        {
+          "name": "CreationDate",
+          "sql_type": "datetime",
+          "digest": "sha256:f145b8f3db67dc7950e1df5bae0babb8b24ecedad6acfaa4bf19f3db2fa38aa0",
+          "null_count": 0
+        },
+        {
+          "name": "PostId",
+          "sql_type": "int",
+          "digest": "sha256:a6a77345319c8ba140d77775cd2301ff6a0bd28a1c7d25f559505910413e44a8",
+          "null_count": 0
+        },
+        {
+          "name": "Score",
+          "sql_type": "int",
+          "digest": "sha256:d3188e482e893a4c1f5622959ef11839858d2f620f54a16049c6307a3f873cad",
+          "null_count": 0
+        },
+        {
+          "name": "Text",
+          "sql_type": "nvarchar(700)",
+          "digest": "sha256:79bd77d318da0571bc42e60ac4e4b32135b8b3add07d61019c177ee7dd099f86",
+          "null_count": 0
+        },
+        {
+          "name": "UserId",
+          "sql_type": "int",
+          "digest": "sha256:3b6399df62bd189f557f0ffd408a1abbc6c23a957425ac932fd1ab6a7b028466",
+          "null_count": 41626
+        }
+      ],
+      "sample_n": 196251
+    },
+    {
+      "fqn": "dbo.LinkTypes",
+      "row_count": 2,
+      "key_columns": [
+        "Id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "Id",
+          "sql_type": "int",
+          "digest": "sha256:0a15d0653e68f7f421ddfb3fe79cd8f357ce5a90894686c03cccd06f95bca8f2",
+          "null_count": 0
+        },
+        {
+          "name": "Type",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:05c3ca9def68c463709f12fe947d8c468a43ff2893a7ef24201fd5aced71e6cb",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.Posts",
+      "row_count": 1565425,
+      "key_columns": [
+        "Id"
+      ],
+      "mode": "sample",
+      "columns": [
+        {
+          "name": "Id",
+          "sql_type": "int",
+          "digest": "sha256:4c73d50c79e5131165a8de379f201864bffb47ef516891d91efba4dffab1c4e5",
+          "null_count": 0
+        },
+        {
+          "name": "AcceptedAnswerId",
+          "sql_type": "int",
+          "digest": "sha256:a304d18bf28969fe1ce29ed0fb1ae706c84e70a4b75116152cf44b43a259af37",
+          "null_count": 0
+        },
+        {
+          "name": "AnswerCount",
+          "sql_type": "int",
+          "digest": "sha256:15f5a3ccf2b18bceb3c539e2138b77bdd3add309c9a57de2e8883636c04ccbb4",
+          "null_count": 0
+        },
+        {
+          "name": "Body",
+          "sql_type": "nvarchar(4000)",
+          "digest": "sha256:909b464a28216ff8553ddd017941ddf3c9dfc15ebfd9024c73d1ac67ef38550d",
+          "null_count": 0
+        },
+        {
+          "name": "ClosedDate",
+          "sql_type": "datetime",
+          "digest": "sha256:4d5779c88fb9d7a5f7fa43e4cd28a222f58da75dc70bd1d70a5e3d31f575c8ed",
+          "null_count": 1547611
+        },
+        {
+          "name": "CommentCount",
+          "sql_type": "int",
+          "digest": "sha256:6a9ce2e9a18d3b557784f8c99ebc651c890fcb9fd19574db2244d7894519441d",
+          "null_count": 0
+        },
+        {
+          "name": "CommunityOwnedDate",
+          "sql_type": "datetime",
+          "digest": "sha256:fbead62fbdf6de237c36e588ecb094698b8a8a21303bbf4246e6af5f879735e5",
+          "null_count": 1521786
+        },
+        {
+          "name": "CreationDate",
+          "sql_type": "datetime",
+          "digest": "sha256:e27adcf3f9614d2d5fb3c9a561dff18657dc9a3a8f083e04ce322b42aef3b4ee",
+          "null_count": 0
+        },
+        {
+          "name": "FavoriteCount",
+          "sql_type": "int",
+          "digest": "sha256:938d45c0ba53d3ad7d8852744c0389efb3a939d417299cc1191ce96d7927d713",
+          "null_count": 0
+        },
+        {
+          "name": "LastActivityDate",
+          "sql_type": "datetime",
+          "digest": "sha256:934fb680f1b9747a30ba09b54605c8ded4158e4b0bc5e4623f85173fd4dd54fd",
+          "null_count": 0
+        },
+        {
+          "name": "LastEditDate",
+          "sql_type": "datetime",
+          "digest": "sha256:cae5983732ec994bb54d5fb84649751134ee779db919d4efdedc07fad8f798f2",
+          "null_count": 1019042
+        },
+        {
+          "name": "LastEditorDisplayName",
+          "sql_type": "nvarchar(40)",
+          "digest": "sha256:1321dad079e4ce834643acad19fd79e61e27c148e5d34ec3a6bcb8332aed84ba",
+          "null_count": 1436708
+        },
+        {
+          "name": "LastEditorUserId",
+          "sql_type": "int",
+          "digest": "sha256:6bbb75874561ec7e0e3d75450a3c44b7ecb41a626da148a3c90d2a156124c68d",
+          "null_count": 0
+        },
+        {
+          "name": "OwnerUserId",
+          "sql_type": "int",
+          "digest": "sha256:a041390abe234e2a0bd51d65d3671e10dfac98956c278174e35f43eeb65b462a",
+          "null_count": 0
+        },
+        {
+          "name": "ParentId",
+          "sql_type": "int",
+          "digest": "sha256:b15358718aceb7ed86a45eafe7cbba4400effe7ce1e03b801c2d981d6b2d03c2",
+          "null_count": 0
+        },
+        {
+          "name": "PostTypeId",
+          "sql_type": "int",
+          "digest": "sha256:a37a811117cc542a6f4af37bd6542a10825afd7eac2ffaef251ce19060f079ac",
+          "null_count": 0
+        },
+        {
+          "name": "Score",
+          "sql_type": "int",
+          "digest": "sha256:7ef0388432206f28291f429b79754d2dd9795906de49415d3d4b22fc82b3330d",
+          "null_count": 0
+        },
+        {
+          "name": "Tags",
+          "sql_type": "nvarchar(150)",
+          "digest": "sha256:240c00f7e89ca7667366d3f4e12783d115ec808f64cf61bd34ab3ee469cd72a1",
+          "null_count": 1163146
+        },
+        {
+          "name": "Title",
+          "sql_type": "nvarchar(250)",
+          "digest": "sha256:ee79d1a4e9774a49f4884d314ba34c6da4ab460b5d33629da27efe1f09df07b4",
+          "null_count": 1163147
+        },
+        {
+          "name": "ViewCount",
+          "sql_type": "int",
+          "digest": "sha256:a92c59ebc0ad367e00060e1b1ee997b19c3d356bbff7e6043be0f3348b263ada",
+          "null_count": 0
+        }
+      ],
+      "sample_n": 195679
+    },
+    {
+      "fqn": "dbo.PostTypes",
+      "row_count": 8,
+      "key_columns": [
+        "Id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "Id",
+          "sql_type": "int",
+          "digest": "sha256:d80b029b568ac107d5f83a0a19ad93330f3e8629c9e06d418d691b4d6f33d120",
+          "null_count": 0
+        },
+        {
+          "name": "Type",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:3c59fc2cbae8305352fd21ed03361b26ba5b3f9d67ccca839ff655c12bf13882",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.Users",
+      "row_count": 99869,
+      "key_columns": [
+        "Id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "Id",
+          "sql_type": "int",
+          "digest": "sha256:5d094ba96558933c3927d9cd8f4131c8c5f078d6955a412bd525d15a649296c2",
+          "null_count": 0
+        },
+        {
+          "name": "AboutMe",
+          "sql_type": "nvarchar(4000)",
+          "digest": "sha256:269595c2eef54ac01619318c05d94edbcef1a5ca05ecee0bb77af5fe6c3a2b2f",
+          "null_count": 26782
+        },
+        {
+          "name": "Age",
+          "sql_type": "int",
+          "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "null_count": 99869
+        },
+        {
+          "name": "CreationDate",
+          "sql_type": "datetime",
+          "digest": "sha256:2d668981e0cc9a9d806c80dd3611ced570d55fa169366cc03153e3335df922a8",
+          "null_count": 0
+        },
+        {
+          "name": "DisplayName",
+          "sql_type": "nvarchar(40)",
+          "digest": "sha256:b05dcec3718734db9ce1ed303bbb6a092bcdd5e19141bf58b2d2f3e0791a33ef",
+          "null_count": 0
+        },
+        {
+          "name": "DownVotes",
+          "sql_type": "int",
+          "digest": "sha256:dc47959d2a21dedc5961edacb9be5d50954a8b7fd82dc53e3cd173d0886337a4",
+          "null_count": 0
+        },
+        {
+          "name": "EmailHash",
+          "sql_type": "nvarchar(40)",
+          "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "null_count": 99869
+        },
+        {
+          "name": "LastAccessDate",
+          "sql_type": "datetime",
+          "digest": "sha256:d7e24ff8c00f69fab7b40c0b844a1c3a1f92bd68a5dcbbe22557dce17aa9d8c1",
+          "null_count": 0
+        },
+        {
+          "name": "Location",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:7993dfa43ba657951f3cba9ca4b83e6464562f4f9a938d49bceda07f67b968ac",
+          "null_count": 33247
+        },
+        {
+          "name": "Reputation",
+          "sql_type": "int",
+          "digest": "sha256:c67a3cf6b3d06d233940cc969b99ce4d9e1ec16016da89de049faadaf3a579fb",
+          "null_count": 0
+        },
+        {
+          "name": "UpVotes",
+          "sql_type": "int",
+          "digest": "sha256:d7b6dde32eb1abd0f979eccf10e124eb4e70a09bbb815a2d68f05c38e2aa1aad",
+          "null_count": 0
+        },
+        {
+          "name": "Views",
+          "sql_type": "int",
+          "digest": "sha256:701547422bf4fe3f44edf67a612f55c8241a49ccc3d94461b264aaec06e0e1bf",
+          "null_count": 0
+        },
+        {
+          "name": "WebsiteUrl",
+          "sql_type": "nvarchar(200)",
+          "digest": "sha256:6d86d213a98af33a367aee02a9e61152b8fe34951a8c88387e127427d7e24705",
+          "null_count": 27409
+        },
+        {
+          "name": "AccountId",
+          "sql_type": "int",
+          "digest": "sha256:aee5d77fa9f9fda5f6021a9c553b121c4d951be10b87be71592ecc42c4020d57",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.Votes",
+      "row_count": 4614189,
+      "key_columns": [
+        "Id"
+      ],
+      "mode": "sample",
+      "columns": [
+        {
+          "name": "Id",
+          "sql_type": "int",
+          "digest": "sha256:c9c3b1d920a06d4fea3285596d47fa8f452386687a2e6f19cf3d131a4cdbfa91",
+          "null_count": 0
+        },
+        {
+          "name": "PostId",
+          "sql_type": "int",
+          "digest": "sha256:a88292cb9388d85c0789c704bdd5890fac9571a353c8dca9634a736d99b481f3",
+          "null_count": 0
+        },
+        {
+          "name": "UserId",
+          "sql_type": "int",
+          "digest": "sha256:71b8a68bd9cad98d850c8cdca491e94e8f6b4680c4b5b11fc5ad67efcccea338",
+          "null_count": 4327434
+        },
+        {
+          "name": "BountyAmount",
+          "sql_type": "int",
+          "digest": "sha256:7f0c175a9092b5e761994e8d0e5ef63696ba26f469639e22c4420dfc4626d560",
+          "null_count": 4606518
+        },
+        {
+          "name": "VoteTypeId",
+          "sql_type": "int",
+          "digest": "sha256:e3512480971499ffb92cb1cadeb450410130617e553bc453a2890c17ac723149",
+          "null_count": 0
+        },
+        {
+          "name": "CreationDate",
+          "sql_type": "datetime",
+          "digest": "sha256:02fbbe6b7fc934a8f902a782c1100af1ae9861fbd9aee9d8155456f8feae73ed",
+          "null_count": 0
+        }
+      ],
+      "sample_n": 192258
+    },
+    {
+      "fqn": "dbo.VoteTypes",
+      "row_count": 15,
+      "key_columns": [
+        "Id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "Id",
+          "sql_type": "int",
+          "digest": "sha256:d314fb4f7f8f6b011ec0d54139d887d28a66aca9b16e990a326ca91a0a889c9b",
+          "null_count": 0
+        },
+        {
+          "name": "Name",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:336e2c3b8f58816343f03f101d41e2d864d36357bc3e547a4464c62cce79fad8",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}

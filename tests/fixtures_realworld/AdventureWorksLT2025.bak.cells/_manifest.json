@@ -1,0 +1,716 @@
+{
+  "bak": "AdventureWorksLT2025.bak",
+  "captured_at": "2026-06-30T22:42:21.894055+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.BuildVersion",
+      "row_count": 1,
+      "key_columns": [
+        "SystemInformationID"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "SystemInformationID",
+          "sql_type": "tinyint",
+          "digest": "sha256:d7c0db5a2a0b7eb9abf5c315453ababfd88818917d8672d8c8889558477d6102",
+          "null_count": 0
+        },
+        {
+          "name": "Database Version",
+          "sql_type": "nvarchar(25)",
+          "digest": "sha256:c376f035bea222fb02c849f45c6472f8715bb5b51ffbf9407fd03de8dcf07e7e",
+          "null_count": 0
+        },
+        {
+          "name": "VersionDate",
+          "sql_type": "datetime",
+          "digest": "sha256:46c743eea770e072ab3387f0aec2aa3f17bf26bf2a456c6ae0671222b10a4c80",
+          "null_count": 0
+        },
+        {
+          "name": "ModifiedDate",
+          "sql_type": "datetime",
+          "digest": "sha256:46c743eea770e072ab3387f0aec2aa3f17bf26bf2a456c6ae0671222b10a4c80",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "SalesLT.Address",
+      "row_count": 450,
+      "key_columns": [
+        "AddressID"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "AddressID",
+          "sql_type": "int",
+          "digest": "sha256:817bf89f400bd6a0c4e47a15d2a5e09fc5d54ac30d87441fffe4daef9d60e90f",
+          "null_count": 0
+        },
+        {
+          "name": "AddressLine1",
+          "sql_type": "nvarchar(60)",
+          "digest": "sha256:f0b735de2055615373f2c6a92a84262b805deed14d27532e5d7abea9095ffe57",
+          "null_count": 0
+        },
+        {
+          "name": "AddressLine2",
+          "sql_type": "nvarchar(60)",
+          "digest": "sha256:b5e1332a3005598bb43c6652a97fa036391bc6347ae5f811585e987dce3eb8e3",
+          "null_count": 439
+        },
+        {
+          "name": "City",
+          "sql_type": "nvarchar(30)",
+          "digest": "sha256:1fe8dc197868341a3926b37b208fc4d31526597c62921e3d01a7523868482cca",
+          "null_count": 0
+        },
+        {
+          "name": "StateProvince",
+          "sql_type": "name",
+          "digest": "sha256:2ab765da007895cdd5dbe315c8866f6fe2563c519b531aaa66eda6adc2e8a618",
+          "null_count": 0,
+          "base_sql_type": "nvarchar(50)"
+        },
+        {
+          "name": "CountryRegion",
+          "sql_type": "name",
+          "digest": "sha256:ca6e7a5d5dcd5ca642314ce357f0b326b9a093a8261c81d2e5b60b02c18e2a08",
+          "null_count": 0,
+          "base_sql_type": "nvarchar(50)"
+        },
+        {
+          "name": "PostalCode",
+          "sql_type": "nvarchar(15)",
+          "digest": "sha256:6c5a5faddb26e5ae85399b695e5617c2d16810e0faea1605e68ccd0f89570188",
+          "null_count": 0
+        },
+        {
+          "name": "rowguid",
+          "sql_type": "uniqueidentifier",
+          "digest": "sha256:048decfbd45dbe06a8886405914a542c0671d12de02b112eff88a8ba55d6a695",
+          "null_count": 0
+        },
+        {
+          "name": "ModifiedDate",
+          "sql_type": "datetime",
+          "digest": "sha256:65a72ffc317821525d9099bdb12f40c451c08b79514786d8ea6ab4e820d37ba6",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "SalesLT.Customer",
+      "row_count": 847,
+      "key_columns": [
+        "CustomerID"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "CustomerID",
+          "sql_type": "int",
+          "digest": "sha256:cb561db7e8462e9adc62b3bdd8f56094d60b48bc8ebf8d77d6ae3771be0c4c51",
+          "null_count": 0
+        },
+        {
+          "name": "NameStyle",
+          "sql_type": "namestyle",
+          "digest": "sha256:026b906add3b552fd0ad0a4e4e40d1dad5f3098cdf5ecf050b437f6dedd33398",
+          "null_count": 0,
+          "base_sql_type": "bit"
+        },
+        {
+          "name": "Title",
+          "sql_type": "nvarchar(8)",
+          "digest": "sha256:f74f85cba5aaf83d13beab6cce196ab4bdca680f6fc1a9352468b3ab41248ab3",
+          "null_count": 7
+        },
+        {
+          "name": "FirstName",
+          "sql_type": "name",
+          "digest": "sha256:e61adba35eb92b38dbeed8d21ac9ea4cbe44a3dca9a49f419f990382893b6649",
+          "null_count": 0,
+          "base_sql_type": "nvarchar(50)"
+        },
+        {
+          "name": "MiddleName",
+          "sql_type": "name",
+          "digest": "sha256:a5fea068acf94c4b6274ac7004b89254cf0a60d52d51c2376dfd8d65701c3bed",
+          "null_count": 343,
+          "base_sql_type": "nvarchar(50)"
+        },
+        {
+          "name": "LastName",
+          "sql_type": "name",
+          "digest": "sha256:e6856e4b6d612666ade0b0427512adeaf77219d9ba2353ec217d39161d05bfbb",
+          "null_count": 0,
+          "base_sql_type": "nvarchar(50)"
+        },
+        {
+          "name": "Suffix",
+          "sql_type": "nvarchar(10)",
+          "digest": "sha256:d9a790339dade5ac51a1a57cebac9fa38a956e651ed811452fce2755d40c8be6",
+          "null_count": 799
+        },
+        {
+          "name": "CompanyName",
+          "sql_type": "nvarchar(128)",
+          "digest": "sha256:25afae5bafa0b45a4a1b137ecfaa79d23ab375da1dbc3f975a8dfcb7de22add5",
+          "null_count": 0
+        },
+        {
+          "name": "SalesPerson",
+          "sql_type": "nvarchar(256)",
+          "digest": "sha256:fc6bbc19dc776396cf140c5b6d4f766212469c765d0709dd4eef704e66472e0a",
+          "null_count": 0
+        },
+        {
+          "name": "EmailAddress",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:db279905e93a3ef129ca1dd993393535be3dd2f220ad65a74c46889287759864",
+          "null_count": 0
+        },
+        {
+          "name": "Phone",
+          "sql_type": "phone",
+          "digest": "sha256:a43b743b6c56d778821221772b978a2db3857641e00624a6edd915a10f00031e",
+          "null_count": 0,
+          "base_sql_type": "nvarchar(25)"
+        },
+        {
+          "name": "PasswordHash",
+          "sql_type": "varchar(128)",
+          "digest": "sha256:77804d2acb9cd418aba5e8fb34ee39783ab58bdedf757a2bacabbb32a1a11155",
+          "null_count": 0
+        },
+        {
+          "name": "PasswordSalt",
+          "sql_type": "varchar(10)",
+          "digest": "sha256:48fb5a8bf013fbe2b08569251ba6c60156beb835616389e7a01b61494d44e741",
+          "null_count": 0
+        },
+        {
+          "name": "rowguid",
+          "sql_type": "uniqueidentifier",
+          "digest": "sha256:8657cc3af4bdbac8ab53228d5c904cc45dffd0061d17c36153c7d8e2defd7acd",
+          "null_count": 0
+        },
+        {
+          "name": "ModifiedDate",
+          "sql_type": "datetime",
+          "digest": "sha256:010301a6c4e7ad7c96693bb6e51b8b217ab8e45396809a4d18425ff3b0f0a7d9",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "SalesLT.CustomerAddress",
+      "row_count": 417,
+      "key_columns": [
+        "CustomerID",
+        "AddressID"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "CustomerID",
+          "sql_type": "int",
+          "digest": "sha256:3c3294cff549af5ba0cbcd2320c844ae8800727c44a7b58e7918e2b4e88d62ce",
+          "null_count": 0
+        },
+        {
+          "name": "AddressID",
+          "sql_type": "int",
+          "digest": "sha256:2b8d3b5c9d65e60fdd78c1e26fbdc8c49a81102fd83aba8bab054f9230144d11",
+          "null_count": 0
+        },
+        {
+          "name": "AddressType",
+          "sql_type": "name",
+          "digest": "sha256:df47418581cf1778288fb6b4c023e02075eb5b2bfc53ef2be465e6fe01b58970",
+          "null_count": 0,
+          "base_sql_type": "nvarchar(50)"
+        },
+        {
+          "name": "rowguid",
+          "sql_type": "uniqueidentifier",
+          "digest": "sha256:e3b4c5cc203af91a37ac5d71f663816d58e0ca289875c33ecdf266aa9ff65ea1",
+          "null_count": 0
+        },
+        {
+          "name": "ModifiedDate",
+          "sql_type": "datetime",
+          "digest": "sha256:54ce44a8b53842266ef3663554c3c3d5f1f8f5a11cae2d7b0e4e91eb18ff9d63",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "SalesLT.Product",
+      "row_count": 295,
+      "key_columns": [
+        "ProductID"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "ProductID",
+          "sql_type": "int",
+          "digest": "sha256:1251130720baaa51087aa6f6b9c662ccc5a7f05c2882fcdf1df8438c0ad9707d",
+          "null_count": 0
+        },
+        {
+          "name": "Name",
+          "sql_type": "name",
+          "digest": "sha256:377f5607935a60fb46d8d44805474505e4a5d3ae2914c2472f640ba1d4c3ad37",
+          "null_count": 0,
+          "base_sql_type": "nvarchar(50)"
+        },
+        {
+          "name": "ProductNumber",
+          "sql_type": "nvarchar(25)",
+          "digest": "sha256:2a485f13ba3b9dfbbd6b612deb00df2e3a2a2963f85be2edde99269bf3414e1c",
+          "null_count": 0
+        },
+        {
+          "name": "Color",
+          "sql_type": "nvarchar(15)",
+          "digest": "sha256:8402c2902efcab3a85aca8c883b18a15da91f3b58a2e2ef05d31646ee4c3ed61",
+          "null_count": 50
+        },
+        {
+          "name": "StandardCost",
+          "sql_type": "money",
+          "digest": "sha256:cc8bc5fe56b77d9f04100d2bb388cce6d5b3a5b8866b189cd97a93502cbda885",
+          "null_count": 0
+        },
+        {
+          "name": "ListPrice",
+          "sql_type": "money",
+          "digest": "sha256:14e688002ae365fffe787001c3634dcb5752c3f55e5abe78402163dcb9c536a2",
+          "null_count": 0
+        },
+        {
+          "name": "Size",
+          "sql_type": "nvarchar(5)",
+          "digest": "sha256:ca141d06a37b0d2b8fc7465e2c04272b1d53a67adf0d5c10b90e41ad765d0a3a",
+          "null_count": 84
+        },
+        {
+          "name": "Weight",
+          "sql_type": "decimal(8,2)",
+          "digest": "sha256:26bab94000314cb7e4b6ae80dd179289d9a48f452dca5cb9e717bd36c67c6107",
+          "null_count": 97
+        },
+        {
+          "name": "ProductCategoryID",
+          "sql_type": "int",
+          "digest": "sha256:a44387377b3d4ed73c01eb85469cbf59f628781192db1902ebffee9395197981",
+          "null_count": 0
+        },
+        {
+          "name": "ProductModelID",
+          "sql_type": "int",
+          "digest": "sha256:44467d2ef580fb3b29fa42781d6eb4648fcbdc5fea0446c1f235990eb5a0431e",
+          "null_count": 0
+        },
+        {
+          "name": "SellStartDate",
+          "sql_type": "datetime",
+          "digest": "sha256:ace5d3323e9150bff031a222486cdbef3e46eae2a22acc1999fbd504f6a987d5",
+          "null_count": 0
+        },
+        {
+          "name": "SellEndDate",
+          "sql_type": "datetime",
+          "digest": "sha256:c769eda2b96ec16c4f66627001b6a7ed0e50a574db2d710995c6e90af4d1e43c",
+          "null_count": 197
+        },
+        {
+          "name": "DiscontinuedDate",
+          "sql_type": "datetime",
+          "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "null_count": 295
+        },
+        {
+          "name": "ThumbNailPhoto",
+          "sql_type": "varbinary(max)",
+          "digest": "sha256:f1b746da7b3fbc1d783bb073641e4965ab8550dab6a7f3bc0a466270ddbf9a0c",
+          "null_count": 0
+        },
+        {
+          "name": "ThumbnailPhotoFileName",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:52ed121581bd2c1619ea6ffc061b3193e49b75e4d0a965bab7ac68d8eb556f65",
+          "null_count": 0
+        },
+        {
+          "name": "rowguid",
+          "sql_type": "uniqueidentifier",
+          "digest": "sha256:597e3e876aa7f4564da01e03f2b9ddae0673eeed6e88cafdc4605c6d3e7794cf",
+          "null_count": 0
+        },
+        {
+          "name": "ModifiedDate",
+          "sql_type": "datetime",
+          "digest": "sha256:53ef9557a7bd77f41eab32575a9b62ee596f455ad804b22ee29040c9e789deb1",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "SalesLT.ProductCategory",
+      "row_count": 41,
+      "key_columns": [
+        "ProductCategoryID"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "ProductCategoryID",
+          "sql_type": "int",
+          "digest": "sha256:6f720fbfd541e609490481e332f5681404b794128b4e7fcf10c299f9024a0d66",
+          "null_count": 0
+        },
+        {
+          "name": "ParentProductCategoryID",
+          "sql_type": "int",
+          "digest": "sha256:14dc2c3bafff55a90de8f2da8d972a41ee4ae61d45c482c7efa2ba6b7d032eac",
+          "null_count": 4
+        },
+        {
+          "name": "Name",
+          "sql_type": "name",
+          "digest": "sha256:282ffca2e1b77f8d2856b258767546dd26453120301d65ae6c6a7f2c21fe80d4",
+          "null_count": 0,
+          "base_sql_type": "nvarchar(50)"
+        },
+        {
+          "name": "rowguid",
+          "sql_type": "uniqueidentifier",
+          "digest": "sha256:ba4051503ede1566b7bc3491e7adf75bf0988c409727f6031f4f56d1a003983a",
+          "null_count": 0
+        },
+        {
+          "name": "ModifiedDate",
+          "sql_type": "datetime",
+          "digest": "sha256:6be70d108d8da29a7161ff8ed2bb3b12b4c5e7d89e20ae577b8910c2eee86398",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "SalesLT.ProductDescription",
+      "row_count": 762,
+      "key_columns": [
+        "ProductDescriptionID"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "ProductDescriptionID",
+          "sql_type": "int",
+          "digest": "sha256:db1d19dcef8c5f3c99e7dd00fcba8811f4d833462a9f775659167f8ffcba80d9",
+          "null_count": 0
+        },
+        {
+          "name": "Description",
+          "sql_type": "nvarchar(400)",
+          "digest": "sha256:bba76cb9c2d7618b2d7adfa09047c20d56710ee77783f8ce38a7330682dd09c2",
+          "null_count": 0
+        },
+        {
+          "name": "rowguid",
+          "sql_type": "uniqueidentifier",
+          "digest": "sha256:cd2db9b70bf38039a6be46a810daf51527b9fde6a01221f861350f58138e8428",
+          "null_count": 0
+        },
+        {
+          "name": "ModifiedDate",
+          "sql_type": "datetime",
+          "digest": "sha256:9a00d0b541d7c82266fe61e279ecf45232254c3189f86f8442476b2d0ea0b285",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "SalesLT.ProductModel",
+      "row_count": 128,
+      "key_columns": [
+        "ProductModelID"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "ProductModelID",
+          "sql_type": "int",
+          "digest": "sha256:289dd87752d7397cbd5fd335d3105f1e10695ce7d88134dffb1ec49c094e4466",
+          "null_count": 0
+        },
+        {
+          "name": "Name",
+          "sql_type": "name",
+          "digest": "sha256:d5b94fd6c80435aa2a9b865adee97145f9d073055b15379e95db38d02b22d43c",
+          "null_count": 0,
+          "base_sql_type": "nvarchar(50)"
+        },
+        {
+          "name": "CatalogDescription",
+          "sql_type": "xml",
+          "digest": "sha256:abfefe81bbc1e266b236af3905ba5e6da1e80eff35db0ec0d62d3c6d229d658d",
+          "null_count": 122
+        },
+        {
+          "name": "rowguid",
+          "sql_type": "uniqueidentifier",
+          "digest": "sha256:774521546094e0199b77af89e835bb7779f7c005b697a1b01b979c8c27bc545e",
+          "null_count": 0
+        },
+        {
+          "name": "ModifiedDate",
+          "sql_type": "datetime",
+          "digest": "sha256:3c9168c4dd57cc4326bf61756ee43a0f17ad543844bcdafb7aee0f68b5497180",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "SalesLT.ProductModelProductDescription",
+      "row_count": 762,
+      "key_columns": [
+        "ProductModelID",
+        "ProductDescriptionID",
+        "Culture"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "ProductModelID",
+          "sql_type": "int",
+          "digest": "sha256:74a66af84bceb5813113b70378fbcc5eefa74aa73048fbb1ab667a1a7c83160d",
+          "null_count": 0
+        },
+        {
+          "name": "ProductDescriptionID",
+          "sql_type": "int",
+          "digest": "sha256:db1d19dcef8c5f3c99e7dd00fcba8811f4d833462a9f775659167f8ffcba80d9",
+          "null_count": 0
+        },
+        {
+          "name": "Culture",
+          "sql_type": "nchar(6)",
+          "digest": "sha256:26e4c84815795e1c72728fded25a8087c63e5c8e02d3827943b50943f1d68467",
+          "null_count": 0
+        },
+        {
+          "name": "rowguid",
+          "sql_type": "uniqueidentifier",
+          "digest": "sha256:cb31ab2ebbd7978b66a3cbf320e32c7399d8a5ae3e6a3f3dba11913930d76386",
+          "null_count": 0
+        },
+        {
+          "name": "ModifiedDate",
+          "sql_type": "datetime",
+          "digest": "sha256:9d4840053c6dbb60eb2791266a46f11e05d094080a8fc7965527c2a81f8dfce5",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "SalesLT.SalesOrderDetail",
+      "row_count": 542,
+      "key_columns": [
+        "SalesOrderID",
+        "SalesOrderDetailID"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "SalesOrderID",
+          "sql_type": "int",
+          "digest": "sha256:0240443ae9ff85f6e63708be98036c799c026509714f8d4a4ed8d13bab281d58",
+          "null_count": 0
+        },
+        {
+          "name": "SalesOrderDetailID",
+          "sql_type": "int",
+          "digest": "sha256:69561b8bcdcd034a0c2ccf1771ab996d38a81c60854d12ccff52c81e9e8bef29",
+          "null_count": 0
+        },
+        {
+          "name": "OrderQty",
+          "sql_type": "smallint",
+          "digest": "sha256:2ba18554834839b3c73e8635ae18e5f9d9ea8bf1e49bacf3015a1598f35bb903",
+          "null_count": 0
+        },
+        {
+          "name": "ProductID",
+          "sql_type": "int",
+          "digest": "sha256:94f6fcccdb1ac23924c79196d1e1603d57bfeb5f393a463aff5ab6c90388b5fa",
+          "null_count": 0
+        },
+        {
+          "name": "UnitPrice",
+          "sql_type": "money",
+          "digest": "sha256:573dbd266a541960f802f6d433d8ec2bf1f225b11e20c658a738ab9fa223870e",
+          "null_count": 0
+        },
+        {
+          "name": "UnitPriceDiscount",
+          "sql_type": "money",
+          "digest": "sha256:a723e0040023dca8e19898bbb23b328e77e1c6af8def2864b58d90685fb1a6de",
+          "null_count": 0
+        },
+        {
+          "name": "rowguid",
+          "sql_type": "uniqueidentifier",
+          "digest": "sha256:7385772879b9194ef9be4420c834e5fe19bf59a16d50f16164453ca561c4672d",
+          "null_count": 0
+        },
+        {
+          "name": "ModifiedDate",
+          "sql_type": "datetime",
+          "digest": "sha256:f5b2a266a8060d6bc5fca90683bc9d19fcb1223601c99f3d676f6484d14d9273",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "SalesLT.SalesOrderHeader",
+      "row_count": 32,
+      "key_columns": [
+        "SalesOrderID"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "SalesOrderID",
+          "sql_type": "int",
+          "digest": "sha256:8384fd99e901d19ce01e03e4e7f8a69935e71b092289036e4d162d36c60c125f",
+          "null_count": 0
+        },
+        {
+          "name": "RevisionNumber",
+          "sql_type": "tinyint",
+          "digest": "sha256:90e617f1c22e67f49a331c998487bb8bc66a48278221f9871ba243e7c4b55e7b",
+          "null_count": 0
+        },
+        {
+          "name": "OrderDate",
+          "sql_type": "datetime",
+          "digest": "sha256:1464a5581911cd407f5fdc9ff84570c97a41c3594c89c4fa13a8f43db36786e8",
+          "null_count": 0
+        },
+        {
+          "name": "DueDate",
+          "sql_type": "datetime",
+          "digest": "sha256:47858f3382cdc8db747595bd1561ebf9f3463db14bf60c990bd2cd2da0dec915",
+          "null_count": 0
+        },
+        {
+          "name": "ShipDate",
+          "sql_type": "datetime",
+          "digest": "sha256:b144977b6a9742f3f9b76697834d046fc65852465ff585c31e4f5d6366f8c914",
+          "null_count": 0
+        },
+        {
+          "name": "Status",
+          "sql_type": "tinyint",
+          "digest": "sha256:74b6d7a9739f8a2e28c40b4ddea2b2ce8d1d1ce1e6f5861d0e3307f48c141a5d",
+          "null_count": 0
+        },
+        {
+          "name": "OnlineOrderFlag",
+          "sql_type": "flag",
+          "digest": "sha256:51195ec6638b6e2d5a02ca03091ed0056947acf935a98865cdc19d4f040fde13",
+          "null_count": 0,
+          "base_sql_type": "bit"
+        },
+        {
+          "name": "PurchaseOrderNumber",
+          "sql_type": "ordernumber",
+          "digest": "sha256:91ed712fdbf3ffc8f967bec25b8c48aff5bfc1eba4e1713cee76889c5251aae4",
+          "null_count": 0,
+          "base_sql_type": "nvarchar(25)"
+        },
+        {
+          "name": "AccountNumber",
+          "sql_type": "accountnumber",
+          "digest": "sha256:83c2c4b50c841b26e3f825d8f02edba986e450e3aaacab27f1622c2f0b0dfa72",
+          "null_count": 0,
+          "base_sql_type": "nvarchar(15)"
+        },
+        {
+          "name": "CustomerID",
+          "sql_type": "int",
+          "digest": "sha256:ec43a09f18dd6ff36ced64f4050579b9fb4a89918816f59515a2224bb1169b17",
+          "null_count": 0
+        },
+        {
+          "name": "ShipToAddressID",
+          "sql_type": "int",
+          "digest": "sha256:e8db797d25452f5fca91731e8beeb9b70ec5d2d2a795912877bcc1b9b602a74d",
+          "null_count": 0
+        },
+        {
+          "name": "BillToAddressID",
+          "sql_type": "int",
+          "digest": "sha256:e8db797d25452f5fca91731e8beeb9b70ec5d2d2a795912877bcc1b9b602a74d",
+          "null_count": 0
+        },
+        {
+          "name": "ShipMethod",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:6f3a7999ab4167377eaf00afdce1b8239c1f497de2baa13ef99d8c5e8f39b952",
+          "null_count": 0
+        },
+        {
+          "name": "CreditCardApprovalCode",
+          "sql_type": "varchar(15)",
+          "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "null_count": 32
+        },
+        {
+          "name": "SubTotal",
+          "sql_type": "money",
+          "digest": "sha256:29cc0451a0180544f3db37783ffe9f755432f746a41fcbd1000ac536ea89ef89",
+          "null_count": 0
+        },
+        {
+          "name": "TaxAmt",
+          "sql_type": "money",
+          "digest": "sha256:04daca90dfed55f9431e3f71fdc38d4ed63caf8d70bfb6723829c3ddb20832f1",
+          "null_count": 0
+        },
+        {
+          "name": "Freight",
+          "sql_type": "money",
+          "digest": "sha256:69ecb5c60e46d9d6890d7bc546de3a1be084d2d2a03de24fe91fe2fad246f97f",
+          "null_count": 0
+        },
+        {
+          "name": "Comment",
+          "sql_type": "nvarchar(max)",
+          "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "null_count": 32
+        },
+        {
+          "name": "rowguid",
+          "sql_type": "uniqueidentifier",
+          "digest": "sha256:a063af5d607e87c2f07053ca1b6bbab2a61d96c25d2742c99901d36961066788",
+          "null_count": 0
+        },
+        {
+          "name": "ModifiedDate",
+          "sql_type": "datetime",
+          "digest": "sha256:b144977b6a9742f3f9b76697834d046fc65852465ff585c31e4f5d6366f8c914",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}

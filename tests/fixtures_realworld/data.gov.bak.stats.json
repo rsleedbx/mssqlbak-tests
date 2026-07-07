@@ -1,0 +1,52 @@
+{
+  "sql_version": "Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (X64)",
+  "bak": "data.gov.bak",
+  "bak_size_mb": 12.047,
+  "database": "RegisterBak_data.gov",
+  "registered_at": "2026-06-10T02:00:04.916816+00:00",
+  "sqlserver_restore_s": 2.73,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "Electric_Vehicle_Population_Data",
+      "row_count": 150482,
+      "columns": [
+        {
+          "name": "County",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": "Yellowstone"
+        },
+        {
+          "name": "City",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": "Zillah"
+        },
+        {
+          "name": "State",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "AK",
+          "max_val": "WY"
+        },
+        {
+          "name": "Make",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "ALFA ROMEO",
+          "max_val": "WHEEGO ELECTRIC CARS"
+        },
+        {
+          "name": "Model",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "330E",
+          "max_val": "XC90"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2978 @@
+{
+  "sql_version": "Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (X64)",
+  "bak": "tpcxbb_1gb.bak",
+  "bak_size_mb": 233.98,
+  "database": "RegisterBak_tpcxbb_1gb",
+  "registered_at": "2026-06-10T02:03:15.196111+00:00",
+  "sqlserver_restore_s": 11.726,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "customer",
+      "row_count": 99000,
+      "columns": [
+        {
+          "name": "c_customer_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "98999"
+        },
+        {
+          "name": "c_customer_id",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "AAAAAAAAAAAAAAAA",
+          "max_val": "AAAAAAAAAAAAFQLR"
+        },
+        {
+          "name": "c_current_cdemo_sk",
+          "sql_type": "bigint",
+          "null_count": 18,
+          "min_val": "18",
+          "max_val": "1920796"
+        },
+        {
+          "name": "c_current_hdemo_sk",
+          "sql_type": "bigint",
+          "null_count": 29,
+          "min_val": "0",
+          "max_val": "7199"
+        },
+        {
+          "name": "c_current_addr_sk",
+          "sql_type": "bigint",
+          "null_count": 22,
+          "min_val": "0",
+          "max_val": "49499"
+        },
+        {
+          "name": "c_first_shipto_date_sk",
+          "sql_type": "bigint",
+          "null_count": 25,
+          "min_val": "3",
+          "max_val": "109570"
+        },
+        {
+          "name": "c_first_sales_date_sk",
+          "sql_type": "bigint",
+          "null_count": 18,
+          "min_val": "1",
+          "max_val": "109568"
+        },
+        {
+          "name": "c_salutation",
+          "sql_type": "char",
+          "null_count": 28,
+          "min_val": "Dr.",
+          "max_val": "Sir"
+        },
+        {
+          "name": "c_first_name",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "Aaron",
+          "max_val": "Zulma"
+        },
+        {
+          "name": "c_last_name",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "Aaron",
+          "max_val": "Zuniga"
+        },
+        {
+          "name": "c_preferred_cust_flag",
+          "sql_type": "char",
+          "null_count": 27,
+          "min_val": "N",
+          "max_val": "Y"
+        },
+        {
+          "name": "c_birth_day",
+          "sql_type": "int",
+          "null_count": 18,
+          "min_val": "1",
+          "max_val": "31"
+        },
+        {
+          "name": "c_birth_month",
+          "sql_type": "int",
+          "null_count": 25,
+          "min_val": "1",
+          "max_val": "12"
+        },
+        {
+          "name": "c_birth_year",
+          "sql_type": "int",
+          "null_count": 30,
+          "min_val": "1924",
+          "max_val": "1992"
+        },
+        {
+          "name": "c_birth_country",
+          "sql_type": "varchar",
+          "null_count": 16,
+          "min_val": "AFGHANISTAN",
+          "max_val": "ZIMBABWE"
+        },
+        {
+          "name": "c_login",
+          "sql_type": "char",
+          "null_count": 26,
+          "min_val": "0",
+          "max_val": "zZZp9nJdSm"
+        },
+        {
+          "name": "c_email_address",
+          "sql_type": "char",
+          "null_count": 23,
+          "min_val": "Aaron.Alexander@wildmail.com",
+          "max_val": "Zulma.Meyer@rediffmail.com"
+        },
+        {
+          "name": "c_last_review_date",
+          "sql_type": "char",
+          "null_count": 28,
+          "min_val": "0",
+          "max_val": "ZZZhlxh1"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "customer_address",
+      "row_count": 49500,
+      "columns": [
+        {
+          "name": "ca_address_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "49499"
+        },
+        {
+          "name": "ca_address_id",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "AAAAAAAAAAAAAAAA",
+          "max_val": "AAAAAAAAAAAACVFV"
+        },
+        {
+          "name": "ca_street_number",
+          "sql_type": "char",
+          "null_count": 14,
+          "min_val": "1",
+          "max_val": "999"
+        },
+        {
+          "name": "ca_street_name",
+          "sql_type": "varchar",
+          "null_count": 10,
+          "min_val": "10th",
+          "max_val": "Woodland Woodland"
+        },
+        {
+          "name": "ca_street_type",
+          "sql_type": "char",
+          "null_count": 13,
+          "min_val": "Ave",
+          "max_val": "Wy"
+        },
+        {
+          "name": "ca_suite_number",
+          "sql_type": "char",
+          "null_count": 23,
+          "min_val": "0",
+          "max_val": "ZzZ1"
+        },
+        {
+          "name": "ca_city",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "Aberdeen",
+          "max_val": "Zion"
+        },
+        {
+          "name": "ca_county",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "Abbeville County",
+          "max_val": "Ziebach County"
+        },
+        {
+          "name": "ca_state",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "AK",
+          "max_val": "WY"
+        },
+        {
+          "name": "ca_zip",
+          "sql_type": "char",
+          "null_count": 14,
+          "min_val": "10002",
+          "max_val": "99998"
+        },
+        {
+          "name": "ca_country",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "United States",
+          "max_val": "United States"
+        },
+        {
+          "name": "ca_gmt_offset",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "-10.00",
+          "max_val": "-5.00"
+        },
+        {
+          "name": "ca_location_type",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "apartment",
+          "max_val": "single family"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "customer_book_clusters",
+      "row_count": 4820,
+      "columns": [
+        {
+          "name": "cluster",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "10"
+        },
+        {
+          "name": "ss_customer_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "98991"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "customer_clusters",
+      "row_count": 51874,
+      "columns": [
+        {
+          "name": "cluster",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "10"
+        },
+        {
+          "name": "customer_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "98998"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "customer_demographics",
+      "row_count": 1920800,
+      "columns": [
+        {
+          "name": "cd_demo_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1920799"
+        },
+        {
+          "name": "cd_gender",
+          "sql_type": "char",
+          "null_count": 486,
+          "min_val": "F",
+          "max_val": "M"
+        },
+        {
+          "name": "cd_marital_status",
+          "sql_type": "char",
+          "null_count": 485,
+          "min_val": "D",
+          "max_val": "W"
+        },
+        {
+          "name": "cd_education_status",
+          "sql_type": "char",
+          "null_count": 506,
+          "min_val": "2 yr Degree",
+          "max_val": "Unknown"
+        },
+        {
+          "name": "cd_purchase_estimate",
+          "sql_type": "int",
+          "null_count": 507,
+          "min_val": "500",
+          "max_val": "10000"
+        },
+        {
+          "name": "cd_credit_rating",
+          "sql_type": "char",
+          "null_count": 506,
+          "min_val": "Good",
+          "max_val": "Unknown"
+        },
+        {
+          "name": "cd_dep_count",
+          "sql_type": "int",
+          "null_count": 544,
+          "min_val": "0",
+          "max_val": "9"
+        },
+        {
+          "name": "cd_dep_employed_count",
+          "sql_type": "int",
+          "null_count": 488,
+          "min_val": "0",
+          "max_val": "9"
+        },
+        {
+          "name": "cd_dep_college_count",
+          "sql_type": "int",
+          "null_count": 500,
+          "min_val": "0",
+          "max_val": "9"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "customer_return_clusters",
+      "row_count": 37336,
+      "columns": [
+        {
+          "name": "cluster",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "10"
+        },
+        {
+          "name": "user_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "98999"
+        },
+        {
+          "name": "orderRatio",
+          "sql_type": "float",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "2"
+        },
+        {
+          "name": "itemsRatio",
+          "sql_type": "float",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "11"
+        },
+        {
+          "name": "monetaryRatio",
+          "sql_type": "float",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "108.719"
+        },
+        {
+          "name": "frequency",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "10"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "date_dim",
+      "row_count": 109573,
+      "columns": [
+        {
+          "name": "d_date_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "109572"
+        },
+        {
+          "name": "d_date_id",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "AAAAAAAAAAAAAAAA",
+          "max_val": "AAAAAAAAAAAAGGCI"
+        },
+        {
+          "name": "d_date",
+          "sql_type": "date",
+          "null_count": 0,
+          "min_val": "1900-01-01",
+          "max_val": "2199-12-31"
+        },
+        {
+          "name": "d_month_seq",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "3599"
+        },
+        {
+          "name": "d_week_seq",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "15653"
+        },
+        {
+          "name": "d_quarter_seq",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1199"
+        },
+        {
+          "name": "d_year",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1900",
+          "max_val": "2199"
+        },
+        {
+          "name": "d_dow",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "7"
+        },
+        {
+          "name": "d_moy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "12"
+        },
+        {
+          "name": "d_dom",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "31"
+        },
+        {
+          "name": "d_qoy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "4"
+        },
+        {
+          "name": "d_fy_year",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1900",
+          "max_val": "2199"
+        },
+        {
+          "name": "d_fy_quarter_seq",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1199"
+        },
+        {
+          "name": "d_fy_week_seq",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "15653"
+        },
+        {
+          "name": "d_day_name",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "Friday",
+          "max_val": "Wednesday"
+        },
+        {
+          "name": "d_quarter_name",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "1900Q1",
+          "max_val": "2199Q4"
+        },
+        {
+          "name": "d_holiday",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "Y",
+          "max_val": "Y"
+        },
+        {
+          "name": "d_weekend",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "N",
+          "max_val": "Y"
+        },
+        {
+          "name": "d_following_holiday",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "N",
+          "max_val": "Y"
+        },
+        {
+          "name": "d_first_dom",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "2415021",
+          "max_val": "2488069"
+        },
+        {
+          "name": "d_last_dom",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "2415020",
+          "max_val": "2488370"
+        },
+        {
+          "name": "d_same_day_ly",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "2414657",
+          "max_val": "2487705"
+        },
+        {
+          "name": "d_same_day_lq",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "2414930",
+          "max_val": "2487977"
+        },
+        {
+          "name": "d_current_day",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "N",
+          "max_val": "Y"
+        },
+        {
+          "name": "d_current_week",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "N",
+          "max_val": "Y"
+        },
+        {
+          "name": "d_current_month",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "N",
+          "max_val": "Y"
+        },
+        {
+          "name": "d_current_quarter",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "N",
+          "max_val": "Y"
+        },
+        {
+          "name": "d_current_year",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "N",
+          "max_val": "Y"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "household_demographics",
+      "row_count": 7200,
+      "columns": [
+        {
+          "name": "hd_demo_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "7199"
+        },
+        {
+          "name": "hd_income_band_sk",
+          "sql_type": "bigint",
+          "null_count": 2,
+          "min_val": "0",
+          "max_val": "19"
+        },
+        {
+          "name": "hd_buy_potential",
+          "sql_type": "char",
+          "null_count": 1,
+          "min_val": ">10000",
+          "max_val": "Unknown"
+        },
+        {
+          "name": "hd_dep_count",
+          "sql_type": "int",
+          "null_count": 2,
+          "min_val": "0",
+          "max_val": "9"
+        },
+        {
+          "name": "hd_vehicle_count",
+          "sql_type": "int",
+          "null_count": 2,
+          "min_val": "-1",
+          "max_val": "4"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "income_band",
+      "row_count": 20,
+      "columns": [
+        {
+          "name": "ib_income_band_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "19"
+        },
+        {
+          "name": "ib_lower_bound",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "190001"
+        },
+        {
+          "name": "ib_upper_bound",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "10000",
+          "max_val": "200000"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "inventory",
+      "row_count": 23255100,
+      "columns": [
+        {
+          "name": "inv_date_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "36890",
+          "max_val": "38696"
+        },
+        {
+          "name": "inv_item_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "17999"
+        },
+        {
+          "name": "inv_warehouse_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "4"
+        },
+        {
+          "name": "inv_quantity_on_hand",
+          "sql_type": "int",
+          "null_count": 5999,
+          "min_val": "0",
+          "max_val": "1000"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "item",
+      "row_count": 17820,
+      "columns": [
+        {
+          "name": "i_item_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "17819"
+        },
+        {
+          "name": "i_item_id",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "AAAAAAAAAAAAAAAA",
+          "max_val": "AAAAAAAAAAAABAJJ"
+        },
+        {
+          "name": "i_rec_start_date",
+          "sql_type": "date",
+          "null_count": 0,
+          "min_val": "2000-01-03",
+          "max_val": "2000-12-31"
+        },
+        {
+          "name": "i_rec_end_date",
+          "sql_type": "date",
+          "null_count": 17820,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "i_item_desc",
+          "sql_type": "varchar",
+          "null_count": 4,
+          "min_val": "always blithe depths use bravely dugouts: blithely silent theodolites must have to nod regularly? quick close waters to the busily enticing dinos wake among the bold brave hockey players: reg",
+          "max_val": "waters without the doggedly bold braids affix among the bold courts: ironic braids beside the epitaphs eat upon the close brave decoys; grouches doubt regular asymptotes-- tithes after the ironic"
+        },
+        {
+          "name": "i_current_price",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.10",
+          "max_val": "99.98"
+        },
+        {
+          "name": "i_wholesale_cost",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.02",
+          "max_val": "87.35"
+        },
+        {
+          "name": "i_brand_id",
+          "sql_type": "int",
+          "null_count": 8,
+          "min_val": "1001703",
+          "max_val": "10015586"
+        },
+        {
+          "name": "i_brand",
+          "sql_type": "char",
+          "null_count": 6,
+          "min_val": "0",
+          "max_val": "zzUVVeFMs"
+        },
+        {
+          "name": "i_class_id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "16"
+        },
+        {
+          "name": "i_class",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "Accessories",
+          "max_val": "World Music"
+        },
+        {
+          "name": "i_category_id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "9"
+        },
+        {
+          "name": "i_category",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "Books",
+          "max_val": "Toys & Games"
+        },
+        {
+          "name": "i_manufact_id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1000"
+        },
+        {
+          "name": "i_manufact",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "ZZZ"
+        },
+        {
+          "name": "i_size",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "economy",
+          "max_val": "small"
+        },
+        {
+          "name": "i_formulation",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "ZZY703OKjQ"
+        },
+        {
+          "name": "i_color",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "almond",
+          "max_val": "yellow"
+        },
+        {
+          "name": "i_units",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "Box",
+          "max_val": "Unknown"
+        },
+        {
+          "name": "i_container",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "Unknown",
+          "max_val": "Unknown"
+        },
+        {
+          "name": "i_manager_id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "100"
+        },
+        {
+          "name": "i_product_name",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "007opddaOvFJaNhIv3bJnnaQdVzksWzjR8mmNdV",
+          "max_val": "ZZZcMWvmIU4iRZ98DtIBON"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "item_marketprices",
+      "row_count": 89100,
+      "columns": [
+        {
+          "name": "imp_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "89099"
+        },
+        {
+          "name": "imp_item_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "17819"
+        },
+        {
+          "name": "imp_competitor",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "AAAAAAAAAAAAAAAB",
+          "max_val": "AAAAAAAAAAAAABMM"
+        },
+        {
+          "name": "imp_competitor_price",
+          "sql_type": "decimal",
+          "null_count": 29,
+          "min_val": "0.09",
+          "max_val": "99.98"
+        },
+        {
+          "name": "imp_start_date",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "36890",
+          "max_val": "38697"
+        },
+        {
+          "name": "imp_end_date",
+          "sql_type": "bigint",
+          "null_count": 30,
+          "min_val": "36897",
+          "max_val": "38717"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "product_reviews",
+      "row_count": 89991,
+      "columns": [
+        {
+          "name": "pr_review_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "89990"
+        },
+        {
+          "name": "pr_review_date",
+          "sql_type": "date",
+          "null_count": 0,
+          "min_val": "2001-01-01",
+          "max_val": "2006-01-01"
+        },
+        {
+          "name": "pr_review_time",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "00:00:00",
+          "max_val": "23:59:51"
+        },
+        {
+          "name": "pr_review_rating",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "5"
+        },
+        {
+          "name": "pr_item_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "17819"
+        },
+        {
+          "name": "pr_user_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "98998"
+        },
+        {
+          "name": "pr_order_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "89097"
+        },
+        {
+          "name": "pr_review_content",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": "Zoot Suit Riot. The vocals are truly awesome, but,the sound quality was very suprised at how bad this set is. The sound reminds me of being in department store elevator stuck in the original. Rachmani"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "promotion",
+      "row_count": 300,
+      "columns": [
+        {
+          "name": "p_promo_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "299"
+        },
+        {
+          "name": "p_promo_id",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "AAAAAAAAAAAAAAAA",
+          "max_val": "AAAAAAAAAAAAAALN"
+        },
+        {
+          "name": "p_start_date_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "560",
+          "max_val": "109404"
+        },
+        {
+          "name": "p_end_date_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "2268",
+          "max_val": "109558"
+        },
+        {
+          "name": "p_item_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "9",
+          "max_val": "17812"
+        },
+        {
+          "name": "p_cost",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "12.63",
+          "max_val": "995.16"
+        },
+        {
+          "name": "p_response_target",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "p_promo_name",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "able",
+          "max_val": "pri"
+        },
+        {
+          "name": "p_channel_dmail",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "N",
+          "max_val": "Y"
+        },
+        {
+          "name": "p_channel_email",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "N",
+          "max_val": "Y"
+        },
+        {
+          "name": "p_channel_catalog",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "N",
+          "max_val": "Y"
+        },
+        {
+          "name": "p_channel_tv",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "N",
+          "max_val": "Y"
+        },
+        {
+          "name": "p_channel_radio",
+          "sql_type": "char",
+          "null_count": 1,
+          "min_val": "N",
+          "max_val": "Y"
+        },
+        {
+          "name": "p_channel_press",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "N",
+          "max_val": "Y"
+        },
+        {
+          "name": "p_channel_event",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "N",
+          "max_val": "Y"
+        },
+        {
+          "name": "p_channel_demo",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "N",
+          "max_val": "Y"
+        },
+        {
+          "name": "p_channel_details",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "always bold warthogs despite the dugouts will play closely",
+          "max_val": "waters upon the idle thin sheaves believe quickly stealthy permanen"
+        },
+        {
+          "name": "p_purpose",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "Unknown",
+          "max_val": "Unknown"
+        },
+        {
+          "name": "p_discount_active",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "N",
+          "max_val": "Y"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "reason",
+      "row_count": 35,
+      "columns": [
+        {
+          "name": "r_reason_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "34"
+        },
+        {
+          "name": "r_reason_id",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "4G46MvKID",
+          "max_val": "Zxe"
+        },
+        {
+          "name": "r_reason_desc",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "asymptotes toward the blithe careful foxes shall nag sil",
+          "max_val": "warthogs should grow: sentiments unwind-- quick regular instructions to the permanently dog"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "ship_mode",
+      "row_count": 20,
+      "columns": [
+        {
+          "name": "sm_ship_mode_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "19"
+        },
+        {
+          "name": "sm_ship_mode_id",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "3cWZvlXQV",
+          "max_val": "xYckuQ"
+        },
+        {
+          "name": "sm_type",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "087RxLVH9ZClcSxzeieU1QeMDhq",
+          "max_val": "tO0zD0DwrOzLD4hHrxNVG2dxXY6YPa"
+        },
+        {
+          "name": "sm_code",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "425",
+          "max_val": "ZzYZ"
+        },
+        {
+          "name": "sm_carrier",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "1hoB",
+          "max_val": "ZKe1isDG2"
+        },
+        {
+          "name": "sm_contract",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "86kCyujyVunz3EGDYCRE",
+          "max_val": "Xc6cFDMGQwqaCu"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "store",
+      "row_count": 12,
+      "columns": [
+        {
+          "name": "s_store_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "11"
+        },
+        {
+          "name": "s_store_id",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "AAAAAAAAAAAAAAAA",
+          "max_val": "AAAAAAAAAAAAAAAL"
+        },
+        {
+          "name": "s_rec_start_date",
+          "sql_type": "date",
+          "null_count": 0,
+          "min_val": "2000-01-03",
+          "max_val": "2000-11-01"
+        },
+        {
+          "name": "s_rec_end_date",
+          "sql_type": "date",
+          "null_count": 12,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "s_closed_date_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "6235",
+          "max_val": "88139"
+        },
+        {
+          "name": "s_store_name",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "Avalon",
+          "max_val": "Williamstown"
+        },
+        {
+          "name": "s_number_employees",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "213",
+          "max_val": "298"
+        },
+        {
+          "name": "s_floor_space",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "5777026",
+          "max_val": "8891512"
+        },
+        {
+          "name": "s_hours",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "8AM-12AM",
+          "max_val": "8AM-8AM"
+        },
+        {
+          "name": "s_manager",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "Arthur Hudson",
+          "max_val": "Rudy Bruce"
+        },
+        {
+          "name": "s_market_id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "8"
+        },
+        {
+          "name": "s_geography_class",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "Unknown",
+          "max_val": "Unknown"
+        },
+        {
+          "name": "s_market_desc",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "brave sly dependencies on the dolphins try to sublate fluffy do",
+          "max_val": "silent somas alongside of the regular asymptotes snooze thinly quietly final dolph"
+        },
+        {
+          "name": "s_market_manager",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "Adrian Vela",
+          "max_val": "Wayne Taylor"
+        },
+        {
+          "name": "s_division_id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "s_division_name",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "Unknown",
+          "max_val": "Unknown"
+        },
+        {
+          "name": "s_company_id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "s_company_name",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "Unknown",
+          "max_val": "Unknown"
+        },
+        {
+          "name": "s_street_number",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "132",
+          "max_val": "993"
+        },
+        {
+          "name": "s_street_name",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "1st",
+          "max_val": "Williams River"
+        },
+        {
+          "name": "s_street_type",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "Avenue",
+          "max_val": "Street"
+        },
+        {
+          "name": "s_suite_number",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "0fSBho",
+          "max_val": "ZbjTuCc"
+        },
+        {
+          "name": "s_city",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "Austin",
+          "max_val": "Union Hill"
+        },
+        {
+          "name": "s_county",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "Comanche County",
+          "max_val": "Union County"
+        },
+        {
+          "name": "s_state",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "CA",
+          "max_val": "WV"
+        },
+        {
+          "name": "s_zip",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "40988",
+          "max_val": "97832"
+        },
+        {
+          "name": "s_country",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "United States",
+          "max_val": "United States"
+        },
+        {
+          "name": "s_gmt_offset",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "-8.00",
+          "max_val": "-5.00"
+        },
+        {
+          "name": "s_tax_precentage",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.03",
+          "max_val": "0.10"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "store_returns",
+      "row_count": 37902,
+      "columns": [
+        {
+          "name": "sr_returned_date_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "36914",
+          "max_val": "39398"
+        },
+        {
+          "name": "sr_return_time_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "86399"
+        },
+        {
+          "name": "sr_item_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "17819"
+        },
+        {
+          "name": "sr_customer_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "98991"
+        },
+        {
+          "name": "sr_cdemo_sk",
+          "sql_type": "bigint",
+          "null_count": 21,
+          "min_val": "226",
+          "max_val": "1920352"
+        },
+        {
+          "name": "sr_hdemo_sk",
+          "sql_type": "bigint",
+          "null_count": 15,
+          "min_val": "1",
+          "max_val": "7197"
+        },
+        {
+          "name": "sr_addr_sk",
+          "sql_type": "bigint",
+          "null_count": 42,
+          "min_val": "8",
+          "max_val": "49493"
+        },
+        {
+          "name": "sr_store_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "11"
+        },
+        {
+          "name": "sr_reason_sk",
+          "sql_type": "bigint",
+          "null_count": 11,
+          "min_val": "0",
+          "max_val": "34"
+        },
+        {
+          "name": "sr_ticket_number",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "7",
+          "max_val": "89096"
+        },
+        {
+          "name": "sr_return_quantity",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "100"
+        },
+        {
+          "name": "sr_return_amt",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.00",
+          "max_val": "15441.30"
+        },
+        {
+          "name": "sr_return_tax",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.00",
+          "max_val": "1159.19"
+        },
+        {
+          "name": "sr_return_amt_inc_tax",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.00",
+          "max_val": "16522.19"
+        },
+        {
+          "name": "sr_fee",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.50",
+          "max_val": "100.00"
+        },
+        {
+          "name": "sr_return_ship_cost",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.00",
+          "max_val": "15089.41"
+        },
+        {
+          "name": "sr_refunded_cash",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.00",
+          "max_val": "12818.84"
+        },
+        {
+          "name": "sr_reversed_charge",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.00",
+          "max_val": "7473.37"
+        },
+        {
+          "name": "sr_store_credit",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.00",
+          "max_val": "8846.21"
+        },
+        {
+          "name": "sr_net_loss",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.00",
+          "max_val": "15089.41"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "store_sales",
+      "row_count": 667579,
+      "columns": [
+        {
+          "name": "ss_sold_date_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "36890",
+          "max_val": "38697"
+        },
+        {
+          "name": "ss_sold_time_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "86399"
+        },
+        {
+          "name": "ss_item_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "17819"
+        },
+        {
+          "name": "ss_customer_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "98999"
+        },
+        {
+          "name": "ss_cdemo_sk",
+          "sql_type": "bigint",
+          "null_count": 238,
+          "min_val": "18",
+          "max_val": "1920742"
+        },
+        {
+          "name": "ss_hdemo_sk",
+          "sql_type": "bigint",
+          "null_count": 295,
+          "min_val": "0",
+          "max_val": "7199"
+        },
+        {
+          "name": "ss_addr_sk",
+          "sql_type": "bigint",
+          "null_count": 448,
+          "min_val": "0",
+          "max_val": "49499"
+        },
+        {
+          "name": "ss_store_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "11"
+        },
+        {
+          "name": "ss_promo_sk",
+          "sql_type": "bigint",
+          "null_count": 158,
+          "min_val": "0",
+          "max_val": "299"
+        },
+        {
+          "name": "ss_ticket_number",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "89099"
+        },
+        {
+          "name": "ss_quantity",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "100"
+        },
+        {
+          "name": "ss_wholesale_cost",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "1.00",
+          "max_val": "100.00"
+        },
+        {
+          "name": "ss_list_price",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "1.00",
+          "max_val": "200.00"
+        },
+        {
+          "name": "ss_sales_price",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.00",
+          "max_val": "199.30"
+        },
+        {
+          "name": "ss_ext_discount_amt",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.00",
+          "max_val": "18984.00"
+        },
+        {
+          "name": "ss_ext_sales_price",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.00",
+          "max_val": "18745.00"
+        },
+        {
+          "name": "ss_ext_wholesale_cost",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "1.00",
+          "max_val": "9997.00"
+        },
+        {
+          "name": "ss_ext_list_price",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "1.20",
+          "max_val": "19814.00"
+        },
+        {
+          "name": "ss_ext_tax",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.00",
+          "max_val": "1637.80"
+        },
+        {
+          "name": "ss_coupon_amt",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.00",
+          "max_val": "14371.66"
+        },
+        {
+          "name": "ss_net_paid",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.00",
+          "max_val": "18745.00"
+        },
+        {
+          "name": "ss_net_paid_inc_tax",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.00",
+          "max_val": "19869.70"
+        },
+        {
+          "name": "ss_net_profit",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "-9866.60",
+          "max_val": "9134.00"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "time_dim",
+      "row_count": 86400,
+      "columns": [
+        {
+          "name": "t_time_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "86399"
+        },
+        {
+          "name": "t_time_id",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "AAAAAAAAAAAAAAAA",
+          "max_val": "AAAAAAAAAAAAEXVB"
+        },
+        {
+          "name": "t_time",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "86399"
+        },
+        {
+          "name": "t_hour",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "23"
+        },
+        {
+          "name": "t_minute",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "59"
+        },
+        {
+          "name": "t_second",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "59"
+        },
+        {
+          "name": "t_am_pm",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "AM",
+          "max_val": "PM"
+        },
+        {
+          "name": "t_shift",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "first",
+          "max_val": "third"
+        },
+        {
+          "name": "t_sub_shift",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "afternoon",
+          "max_val": "night"
+        },
+        {
+          "name": "t_meal_time",
+          "sql_type": "char",
+          "null_count": 50400,
+          "min_val": "breakfast",
+          "max_val": "lunch"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "warehouse",
+      "row_count": 5,
+      "columns": [
+        {
+          "name": "w_warehouse_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "4"
+        },
+        {
+          "name": "w_warehouse_id",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "AAAAAAAAAAAAAAAA",
+          "max_val": "AAAAAAAAAAAAAAAE"
+        },
+        {
+          "name": "w_warehouse_name",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "asymptotes need to",
+          "max_val": "somas between the ho"
+        },
+        {
+          "name": "w_warehouse_sq_ft",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "339122",
+          "max_val": "845707"
+        },
+        {
+          "name": "w_street_number",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "181",
+          "max_val": "738"
+        },
+        {
+          "name": "w_street_name",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "4th Forest",
+          "max_val": "Mill Locust"
+        },
+        {
+          "name": "w_street_type",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "Ave",
+          "max_val": "ST"
+        },
+        {
+          "name": "w_suite_number",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "hl",
+          "max_val": "Y5"
+        },
+        {
+          "name": "w_city",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "Bethel",
+          "max_val": "Sherwood Forest"
+        },
+        {
+          "name": "w_county",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "Chase County",
+          "max_val": "Union County"
+        },
+        {
+          "name": "w_state",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "FL",
+          "max_val": "WY"
+        },
+        {
+          "name": "w_zip",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "16496",
+          "max_val": "87891"
+        },
+        {
+          "name": "w_country",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "United States",
+          "max_val": "United States"
+        },
+        {
+          "name": "w_gmt_offset",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "-7.00",
+          "max_val": "-5.00"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "web_clickstreams",
+      "row_count": 6770550,
+      "columns": [
+        {
+          "name": "wcs_click_date_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "36890",
+          "max_val": "38697"
+        },
+        {
+          "name": "wcs_click_time_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "86399"
+        },
+        {
+          "name": "wcs_sales_sk",
+          "sql_type": "bigint",
+          "null_count": 6102498,
+          "min_val": "0",
+          "max_val": "89099"
+        },
+        {
+          "name": "wcs_item_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "17819"
+        },
+        {
+          "name": "wcs_web_page_sk",
+          "sql_type": "bigint",
+          "null_count": 164,
+          "min_val": "0",
+          "max_val": "59"
+        },
+        {
+          "name": "wcs_user_sk",
+          "sql_type": "bigint",
+          "null_count": 2853461,
+          "min_val": "0",
+          "max_val": "98998"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "web_page",
+      "row_count": 60,
+      "columns": [
+        {
+          "name": "wp_web_page_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "59"
+        },
+        {
+          "name": "wp_web_page_id",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "AAAAAAAAAAAAAAAA",
+          "max_val": "AAAAAAAAAAAAAACH"
+        },
+        {
+          "name": "wp_rec_start_date",
+          "sql_type": "date",
+          "null_count": 0,
+          "min_val": "2000-01-09",
+          "max_val": "2000-12-25"
+        },
+        {
+          "name": "wp_rec_end_date",
+          "sql_type": "date",
+          "null_count": 60,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "wp_creation_date_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "764",
+          "max_val": "105025"
+        },
+        {
+          "name": "wp_access_date_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "22445",
+          "max_val": "109285"
+        },
+        {
+          "name": "wp_autogen_flag",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1"
+        },
+        {
+          "name": "wp_customer_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "534",
+          "max_val": "97275"
+        },
+        {
+          "name": "wp_url",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "http://www.0B7vOFUFUzxa6W3IrYQEGiUldfN4L1IUYc9iukZ8yfTahMuTbTIpmUqzyXaABlnMKH.com",
+          "max_val": "http://www.yRaKjNMB7m06klc9hWTfgbKZuQqBIvFIZX8LzkWQSeNKIw1bJS6Hl.com"
+        },
+        {
+          "name": "wp_type",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "ad",
+          "max_val": "welcome"
+        },
+        {
+          "name": "wp_char_count",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "610",
+          "max_val": "7968"
+        },
+        {
+          "name": "wp_link_count",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "25"
+        },
+        {
+          "name": "wp_image_count",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "7"
+        },
+        {
+          "name": "wp_max_ad_count",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "4"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "web_returns",
+      "row_count": 38487,
+      "columns": [
+        {
+          "name": "wr_returned_date_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "36915",
+          "max_val": "39523"
+        },
+        {
+          "name": "wr_returned_time_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "86393"
+        },
+        {
+          "name": "wr_item_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "17818"
+        },
+        {
+          "name": "wr_refunded_customer_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "98989"
+        },
+        {
+          "name": "wr_refunded_cdemo_sk",
+          "sql_type": "bigint",
+          "null_count": 40,
+          "min_val": "226",
+          "max_val": "1920652"
+        },
+        {
+          "name": "wr_refunded_hdemo_sk",
+          "sql_type": "bigint",
+          "null_count": 19,
+          "min_val": "1",
+          "max_val": "7196"
+        },
+        {
+          "name": "wr_refunded_addr_sk",
+          "sql_type": "bigint",
+          "null_count": 42,
+          "min_val": "9",
+          "max_val": "49499"
+        },
+        {
+          "name": "wr_returning_customer_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "98989"
+        },
+        {
+          "name": "wr_returning_cdemo_sk",
+          "sql_type": "bigint",
+          "null_count": 63,
+          "min_val": "226",
+          "max_val": "1920652"
+        },
+        {
+          "name": "wr_returning_hdemo_sk",
+          "sql_type": "bigint",
+          "null_count": 33,
+          "min_val": "1",
+          "max_val": "7196"
+        },
+        {
+          "name": "wr_returning_addr_sk",
+          "sql_type": "bigint",
+          "null_count": 57,
+          "min_val": "9",
+          "max_val": "49499"
+        },
+        {
+          "name": "wr_web_page_sk",
+          "sql_type": "bigint",
+          "null_count": 10,
+          "min_val": "0",
+          "max_val": "59"
+        },
+        {
+          "name": "wr_reason_sk",
+          "sql_type": "bigint",
+          "null_count": 7,
+          "min_val": "0",
+          "max_val": "34"
+        },
+        {
+          "name": "wr_order_number",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "6",
+          "max_val": "89092"
+        },
+        {
+          "name": "wr_return_quantity",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "100"
+        },
+        {
+          "name": "wr_return_amt",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.00",
+          "max_val": "21944.16"
+        },
+        {
+          "name": "wr_return_tax",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.00",
+          "max_val": "1603.38"
+        },
+        {
+          "name": "wr_return_amt_inc_tax",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.00",
+          "max_val": "23041.37"
+        },
+        {
+          "name": "wr_fee",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.50",
+          "max_val": "100.00"
+        },
+        {
+          "name": "wr_return_ship_cost",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.00",
+          "max_val": "22251.64"
+        },
+        {
+          "name": "wr_refunded_cash",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.00",
+          "max_val": "17605.44"
+        },
+        {
+          "name": "wr_reversed_charge",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.00",
+          "max_val": "13448.48"
+        },
+        {
+          "name": "wr_account_credit",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.00",
+          "max_val": "14338.32"
+        },
+        {
+          "name": "wr_net_loss",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.00",
+          "max_val": "23511.98"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "web_sales",
+      "row_count": 668052,
+      "columns": [
+        {
+          "name": "ws_sold_date_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "36890",
+          "max_val": "38697"
+        },
+        {
+          "name": "ws_sold_time_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "86398"
+        },
+        {
+          "name": "ws_ship_date_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "36891",
+          "max_val": "38817"
+        },
+        {
+          "name": "ws_item_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "17819"
+        },
+        {
+          "name": "ws_bill_customer_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "98998"
+        },
+        {
+          "name": "ws_bill_cdemo_sk",
+          "sql_type": "bigint",
+          "null_count": 309,
+          "min_val": "18",
+          "max_val": "1920793"
+        },
+        {
+          "name": "ws_bill_hdemo_sk",
+          "sql_type": "bigint",
+          "null_count": 288,
+          "min_val": "0",
+          "max_val": "7199"
+        },
+        {
+          "name": "ws_bill_addr_sk",
+          "sql_type": "bigint",
+          "null_count": 272,
+          "min_val": "0",
+          "max_val": "49499"
+        },
+        {
+          "name": "ws_ship_customer_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "98998"
+        },
+        {
+          "name": "ws_ship_cdemo_sk",
+          "sql_type": "bigint",
+          "null_count": 492,
+          "min_val": "18",
+          "max_val": "1920793"
+        },
+        {
+          "name": "ws_ship_hdemo_sk",
+          "sql_type": "bigint",
+          "null_count": 495,
+          "min_val": "0",
+          "max_val": "7199"
+        },
+        {
+          "name": "ws_ship_addr_sk",
+          "sql_type": "bigint",
+          "null_count": 398,
+          "min_val": "0",
+          "max_val": "49499"
+        },
+        {
+          "name": "ws_web_page_sk",
+          "sql_type": "bigint",
+          "null_count": 164,
+          "min_val": "0",
+          "max_val": "59"
+        },
+        {
+          "name": "ws_web_site_sk",
+          "sql_type": "bigint",
+          "null_count": 154,
+          "min_val": "0",
+          "max_val": "29"
+        },
+        {
+          "name": "ws_ship_mode_sk",
+          "sql_type": "bigint",
+          "null_count": 170,
+          "min_val": "0",
+          "max_val": "19"
+        },
+        {
+          "name": "ws_warehouse_sk",
+          "sql_type": "bigint",
+          "null_count": 158,
+          "min_val": "0",
+          "max_val": "4"
+        },
+        {
+          "name": "ws_promo_sk",
+          "sql_type": "bigint",
+          "null_count": 121,
+          "min_val": "0",
+          "max_val": "299"
+        },
+        {
+          "name": "ws_order_number",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "89099"
+        },
+        {
+          "name": "ws_quantity",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "100"
+        },
+        {
+          "name": "ws_wholesale_cost",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "1.00",
+          "max_val": "100.00"
+        },
+        {
+          "name": "ws_list_price",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "1.03",
+          "max_val": "299.82"
+        },
+        {
+          "name": "ws_sales_price",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.00",
+          "max_val": "299.67"
+        },
+        {
+          "name": "ws_ext_discount_amt",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.00",
+          "max_val": "29682.18"
+        },
+        {
+          "name": "ws_ext_sales_price",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.00",
+          "max_val": "28808.01"
+        },
+        {
+          "name": "ws_ext_wholesale_cost",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "1.01",
+          "max_val": "9998.00"
+        },
+        {
+          "name": "ws_ext_list_price",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "1.28",
+          "max_val": "29858.00"
+        },
+        {
+          "name": "ws_ext_tax",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.00",
+          "max_val": "2421.72"
+        },
+        {
+          "name": "ws_coupon_amt",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.00",
+          "max_val": "27569.64"
+        },
+        {
+          "name": "ws_ext_ship_cost",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.00",
+          "max_val": "14216.37"
+        },
+        {
+          "name": "ws_net_paid",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.00",
+          "max_val": "28808.01"
+        },
+        {
+          "name": "ws_net_paid_inc_tax",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.00",
+          "max_val": "30248.41"
+        },
+        {
+          "name": "ws_net_paid_inc_ship",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.00",
+          "max_val": "38975.50"
+        },
+        {
+          "name": "ws_net_paid_inc_ship_tax",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.00",
+          "max_val": "41246.72"
+        },
+        {
+          "name": "ws_net_profit",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "-9894.06",
+          "max_val": "18977.31"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "web_site",
+      "row_count": 30,
+      "columns": [
+        {
+          "name": "web_site_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "29"
+        },
+        {
+          "name": "web_site_id",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "AAAAAAAAAAAAAAAA",
+          "max_val": "AAAAAAAAAAAAAABD"
+        },
+        {
+          "name": "web_rec_start_date",
+          "sql_type": "date",
+          "null_count": 0,
+          "min_val": "2000-04-09",
+          "max_val": "2003-11-17"
+        },
+        {
+          "name": "web_rec_end_date",
+          "sql_type": "date",
+          "null_count": 30,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "web_name",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "site_0",
+          "max_val": "site_4"
+        },
+        {
+          "name": "web_open_date_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "132",
+          "max_val": "108774"
+        },
+        {
+          "name": "web_close_date_sk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "14930",
+          "max_val": "109009"
+        },
+        {
+          "name": "web_class",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "Unknown",
+          "max_val": "Unknown"
+        },
+        {
+          "name": "web_manager",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "Charles Eaton",
+          "max_val": "William Ellis"
+        },
+        {
+          "name": "web_mkt_id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "6"
+        },
+        {
+          "name": "web_mkt_class",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "bold forges upon the realms must int",
+          "max_val": "warthogs must maintain ruthlessly even"
+        },
+        {
+          "name": "web_mkt_desc",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "blithe fluffy grouches breach into the ironic frets.",
+          "max_val": "thinly even multipliers sublate stealthily? fluffily quiet somas behind the slow dogged the"
+        },
+        {
+          "name": "web_market_manager",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "Alex Smith",
+          "max_val": "Walter Harris"
+        },
+        {
+          "name": "web_company_id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "6"
+        },
+        {
+          "name": "web_company_name",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "able",
+          "max_val": "pri"
+        },
+        {
+          "name": "web_street_number",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "17",
+          "max_val": "968"
+        },
+        {
+          "name": "web_street_name",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "10th",
+          "max_val": "Williams 4th"
+        },
+        {
+          "name": "web_street_type",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "Ave",
+          "max_val": "Wy"
+        },
+        {
+          "name": "web_suite_number",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "1S45TNS9NC",
+          "max_val": "wzM"
+        },
+        {
+          "name": "web_city",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "Amity",
+          "max_val": "Woodland Hills"
+        },
+        {
+          "name": "web_county",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "Barton County",
+          "max_val": "Waseca County"
+        },
+        {
+          "name": "web_state",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "AR",
+          "max_val": "WI"
+        },
+        {
+          "name": "web_zip",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "12092",
+          "max_val": "96546"
+        },
+        {
+          "name": "web_country",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "United States",
+          "max_val": "United States"
+        },
+        {
+          "name": "web_gmt_offset",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "-7.00",
+          "max_val": "-5.00"
+        },
+        {
+          "name": "web_tax_percentage",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.01",
+          "max_val": "0.11"
+        }
+      ]
+    },
+    {
+      "schema": "sqlr",
+      "name": "model_scoring_history",
+      "row_count": 1,
+      "columns": [
+        {
+          "name": "run_id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "model_id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "scoring_characteristics",
+          "sql_type": "varchar",
+          "null_count": 1,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "scoring_duration_ms",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "29",
+          "max_val": "29"
+        },
+        {
+          "name": "scoring_sample_rows",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "17736",
+          "max_val": "17736"
+        },
+        {
+          "name": "created_by",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "sa",
+          "max_val": "sa"
+        },
+        {
+          "name": "create_time",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2017-01-26 14:16:20.9725324",
+          "max_val": "2017-01-26 14:16:20.9725324"
+        },
+        {
+          "name": "host_name",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "MACHINE_NAME",
+          "max_val": "MACHINE_NAME"
+        },
+        {
+          "name": "app_name",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Microsoft SQL Server Management Studio - Query",
+          "max_val": "Microsoft SQL Server Management Studio - Query"
+        }
+      ]
+    },
+    {
+      "schema": "sqlr",
+      "name": "model_training_history",
+      "row_count": 8,
+      "columns": [
+        {
+          "name": "run_id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "10"
+        },
+        {
+          "name": "model_id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "6"
+        },
+        {
+          "name": "model_function_call",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "rxKmeans(formula = ~id1 + id2 + id3 + id4 + id5 + id6 + id7 +     id8 + id9 + id10 + id11 + id12 + id13 + id14 + id15 + id16,     data = customer_books, outFile = customer_book_clusters,     outColNam",
+          "max_val": "rxLogit(formula = book_category ~ college_education + male +     clicks_in_1 + clicks_in_2 + clicks_in_3 + clicks_in_4 + clicks_in_5 +     clicks_in_6 + clicks_in_7 + clicks_in_8 + clicks_in_9, data ="
+        },
+        {
+          "name": "model_formula",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "~id1 + id2 + id3 + id4 + id5 + id6 + id7 + id8 + id9 + id10 + id11 + id12 + id13 + id14 + id15 + id16",
+          "max_val": "book_category ~ college_education + male + clicks_in_1 + clicks_in_2 + clicks_in_3 + clicks_in_4 + clicks_in_5 + clicks_in_6 + clicks_in_7 + clicks_in_8 + clicks_in_9"
+        },
+        {
+          "name": "model_valid_observations",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "4820",
+          "max_val": "70944"
+        },
+        {
+          "name": "model_iterations",
+          "sql_type": "int",
+          "null_count": 6,
+          "min_val": "25",
+          "max_val": "25"
+        },
+        {
+          "name": "model_characteristics",
+          "sql_type": "nvarchar",
+          "null_count": 8,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "model_object",
+          "sql_type": "varbinary",
+          "null_count": 0,
+          "min_val": "0x580A000000020003020200020300000003130000000D0000020E0000001E3FE9FC0198F603FE3FF00000000000003FF00000000000003FF00000000000003FF00000000000003FF00000000000003FED6DC1FC49A36F3FEB261A5801A97D3FEF8B42EF",
+          "max_val": "0x580A000000020003020200020300000003130000001A0000020E0000000CC02F54FF2AD3E5D0BFB3FCE547F748A73FA500A2CA571DEDBFA5D4E77C4821E1BFA190A6B8CC234C40407004F39AC296BFA80E7C1BADF269BFB092F84108A757BFB30D24E7"
+        },
+        {
+          "name": "model_generation_duration_ms",
+          "sql_type": "float",
+          "null_count": 0,
+          "min_val": "3.04",
+          "max_val": "8.95"
+        },
+        {
+          "name": "training_duration_ms",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "4203",
+          "max_val": "10532"
+        },
+        {
+          "name": "created_by",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "sa",
+          "max_val": "sa"
+        },
+        {
+          "name": "create_time",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2017-01-26 13:51:10.6119574",
+          "max_val": "2017-01-26 15:42:51.1628813"
+        },
+        {
+          "name": "host_name",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "MACHINE_NAME",
+          "max_val": "MACHINE_NAME"
+        },
+        {
+          "name": "app_name",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Microsoft SQL Server Management Studio - Query",
+          "max_val": "Microsoft SQL Server Management Studio - Query"
+        }
+      ]
+    },
+    {
+      "schema": "sqlr",
+      "name": "models",
+      "row_count": 4,
+      "columns": [
+        {
+          "name": "model_id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "6"
+        },
+        {
+          "name": "model_name",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "TPCx-BB (1GB): Q20",
+          "max_val": "TPCx-BB: Q05"
+        },
+        {
+          "name": "model_type",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "rxKmeans",
+          "max_val": "rxLogit"
+        },
+        {
+          "name": "model_description",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "Cluster customers into book buddies/club groups based on their in-store book purchasing histories.",
+          "max_val": "Q05 - Predict book category click using web site activity & demographics."
+        },
+        {
+          "name": "model_version",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "2"
+        },
+        {
+          "name": "created_by",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "sa",
+          "max_val": "sa"
+        },
+        {
+          "name": "create_time",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2017-01-26 13:51:10.5963323",
+          "max_val": "2017-01-26 15:42:17.1149160"
+        },
+        {
+          "name": "modified_by",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "sa",
+          "max_val": "sa"
+        },
+        {
+          "name": "modified_time",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2017-01-26 14:16:16.6598936",
+          "max_val": "2017-01-26 15:42:51.1628813"
+        },
+        {
+          "name": "host_name",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "MACHINE_NAME",
+          "max_val": "MACHINE_NAME"
+        },
+        {
+          "name": "app_name",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Microsoft SQL Server Management Studio - Query",
+          "max_val": "Microsoft SQL Server Management Studio - Query"
+        }
+      ]
+    },
+    {
+      "schema": "sqlr",
+      "name": "scripts",
+      "row_count": 1,
+      "columns": [
+        {
+          "name": "script_name",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "extract_model_characteristics",
+          "max_val": "extract_model_characteristics"
+        },
+        {
+          "name": "script_definition",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "created_by",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "sa",
+          "max_val": "sa"
+        },
+        {
+          "name": "create_time",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2017-01-26 13:50:43.2987575",
+          "max_val": "2017-01-26 13:50:43.2987575"
+        },
+        {
+          "name": "host_name",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "MACHINE_NAME",
+          "max_val": "MACHINE_NAME"
+        },
+        {
+          "name": "app_name",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Microsoft SQL Server Management Studio - Query",
+          "max_val": "Microsoft SQL Server Management Studio - Query"
+        }
+      ]
+    }
+  ]
+}

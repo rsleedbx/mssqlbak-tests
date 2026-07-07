@@ -1,0 +1,500 @@
+{
+  "sql_version": "Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (X64)",
+  "bak": "StackOverflowMini.bak",
+  "bak_size_mb": 758.564,
+  "database": "RegisterBak_StackOverflowMini",
+  "registered_at": "2026-06-10T01:54:47.316351+00:00",
+  "sqlserver_restore_s": 34.412,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "Badges",
+      "row_count": 444073,
+      "columns": [
+        {
+          "name": "Id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "82946",
+          "max_val": "15444443"
+        },
+        {
+          "name": "Name",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": ".htaccess",
+          "max_val": "zend-framework"
+        },
+        {
+          "name": "UserId",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "4549416"
+        },
+        {
+          "name": "Date",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Aug  4 2008  8:01PM",
+          "max_val": "Dec 31 2009 11:57PM"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "Comments",
+      "row_count": 1373756,
+      "columns": [
+        {
+          "name": "Id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "88257265"
+        },
+        {
+          "name": "CreationDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Aug  1 2008  4:24PM",
+          "max_val": "Dec 31 2009 11:59PM"
+        },
+        {
+          "name": "PostId",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "4",
+          "max_val": "30250934"
+        },
+        {
+          "name": "Score",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "941"
+        },
+        {
+          "name": "Text",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "-              java",
+          "max_val": "\u63a2\u3057\u3066\u3044\u308b\u306e\u306f\u6a5f\u68b0\u8a9e\u306b\u3088\u3063\u3066\u95a2\u6570\u3092\u751f\u6210\u3059\u308b\u305f\u3081\u306e\u30da\u30fc\u30b8\u3067\u3059\u3002"
+        },
+        {
+          "name": "UserId",
+          "sql_type": "int",
+          "null_count": 41626,
+          "min_val": "1",
+          "max_val": "9786914"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "LinkTypes",
+      "row_count": 2,
+      "columns": [
+        {
+          "name": "Id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3"
+        },
+        {
+          "name": "Type",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "Duplicate",
+          "max_val": "Linked"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "PostLinks",
+      "row_count": 0,
+      "columns": [
+        {
+          "name": "Id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "CreationDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "PostId",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "RelatedPostId",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "LinkTypeId",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "Posts",
+      "row_count": 1565425,
+      "columns": [
+        {
+          "name": "Id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "4",
+          "max_val": "11432057"
+        },
+        {
+          "name": "AcceptedAnswerId",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "50489987"
+        },
+        {
+          "name": "AnswerCount",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "518"
+        },
+        {
+          "name": "Body",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "ClosedDate",
+          "sql_type": "datetime",
+          "null_count": 1547611,
+          "min_val": "Sep 22 2008  8:45PM",
+          "max_val": "Jun  2 2018  9:39PM"
+        },
+        {
+          "name": "CommentCount",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "100"
+        },
+        {
+          "name": "CommunityOwnedDate",
+          "sql_type": "datetime",
+          "null_count": 1521786,
+          "min_val": "Aug 12 2008  4:59AM",
+          "max_val": "May 28 2018 12:08AM"
+        },
+        {
+          "name": "CreationDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jul 31 2008  9:42PM",
+          "max_val": "Dec 31 2009 11:58PM"
+        },
+        {
+          "name": "FavoriteCount",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "8844"
+        },
+        {
+          "name": "LastActivityDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Aug  1 2008 12:19PM",
+          "max_val": "Jun  3 2018  5:08AM"
+        },
+        {
+          "name": "LastEditDate",
+          "sql_type": "datetime",
+          "null_count": 1019042,
+          "min_val": "Aug  1 2008 12:35PM",
+          "max_val": "Jun  3 2018 12:47AM"
+        },
+        {
+          "name": "LastEditorDisplayName",
+          "sql_type": "nvarchar",
+          "null_count": 1436708,
+          "min_val": "",
+          "max_val": "\u96ea\u57df\u98de\u8c82"
+        },
+        {
+          "name": "LastEditorUserId",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "-1",
+          "max_val": "9821631"
+        },
+        {
+          "name": "OwnerUserId",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "9786914"
+        },
+        {
+          "name": "ParentId",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "30250934"
+        },
+        {
+          "name": "PostTypeId",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "2"
+        },
+        {
+          "name": "Score",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "-61",
+          "max_val": "18677"
+        },
+        {
+          "name": "Tags",
+          "sql_type": "nvarchar",
+          "null_count": 1163146,
+          "min_val": "<.htaccess>",
+          "max_val": "\u00e9javascript\u00e0"
+        },
+        {
+          "name": "Title",
+          "sql_type": "nvarchar",
+          "null_count": 1163147,
+          "min_val": "- (void) keyDown: (NSEvent *) event does not work",
+          "max_val": "\u0421# webbrowser control - input click"
+        },
+        {
+          "name": "ViewCount",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "6449364"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "PostTypes",
+      "row_count": 8,
+      "columns": [
+        {
+          "name": "Id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "8"
+        },
+        {
+          "name": "Type",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Answer",
+          "max_val": "WikiPlaceholder"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "Users",
+      "row_count": 99869,
+      "columns": [
+        {
+          "name": "Id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "-1",
+          "max_val": "9786914"
+        },
+        {
+          "name": "AboutMe",
+          "sql_type": "nvarchar",
+          "null_count": 26782,
+          "min_val": "",
+          "max_val": "ZigBee wireless developer, primarily using the Ember Corporation's products."
+        },
+        {
+          "name": "Age",
+          "sql_type": "int",
+          "null_count": 99869,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "CreationDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jul 31 2008 12:00AM",
+          "max_val": "Dec 31 2009 11:49PM"
+        },
+        {
+          "name": "DisplayName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "\u00b5Bio",
+          "max_val": "\u9038\u98de."
+        },
+        {
+          "name": "DownVotes",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "956712"
+        },
+        {
+          "name": "EmailHash",
+          "sql_type": "nvarchar",
+          "null_count": 99869,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "LastAccessDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Aug  1 2008 12:59AM",
+          "max_val": "Jun  3 2018  5:18AM"
+        },
+        {
+          "name": "Location",
+          "sql_type": "nvarchar",
+          "null_count": 33247,
+          "min_val": "",
+          "max_val": "\u5965\u514b\u7ef4\u5c14, \u5b89\u5927\u7565\u7701, \u52a0\u62ff\u5927"
+        },
+        {
+          "name": "Reputation",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1029633"
+        },
+        {
+          "name": "UpVotes",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "261527"
+        },
+        {
+          "name": "Views",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1638712"
+        },
+        {
+          "name": "WebsiteUrl",
+          "sql_type": "nvarchar",
+          "null_count": 27409,
+          "min_val": "",
+          "max_val": "https://zzeroo.com"
+        },
+        {
+          "name": "AccountId",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "-1",
+          "max_val": "882355"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "Votes",
+      "row_count": 4614189,
+      "columns": [
+        {
+          "name": "Id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "30394155"
+        },
+        {
+          "name": "PostId",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "12887700"
+        },
+        {
+          "name": "UserId",
+          "sql_type": "int",
+          "null_count": 4327434,
+          "min_val": "-1",
+          "max_val": "5696608"
+        },
+        {
+          "name": "BountyAmount",
+          "sql_type": "int",
+          "null_count": 4606518,
+          "min_val": "0",
+          "max_val": "550"
+        },
+        {
+          "name": "VoteTypeId",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "12"
+        },
+        {
+          "name": "CreationDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jul 31 2008 12:00AM",
+          "max_val": "Dec 31 2009 12:00AM"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "VoteTypes",
+      "row_count": 15,
+      "columns": [
+        {
+          "name": "Id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "16"
+        },
+        {
+          "name": "Name",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "AcceptedByOriginator",
+          "max_val": "UpMod"
+        }
+      ]
+    }
+  ]
+}

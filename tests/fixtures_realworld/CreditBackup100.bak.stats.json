@@ -1,0 +1,731 @@
+{
+  "sql_version": "Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (X64)",
+  "bak": "CreditBackup100.bak",
+  "bak_size_mb": 52.739,
+  "database": "RegisterBak_CreditBackup100",
+  "registered_at": "2026-06-10T01:50:28.564716+00:00",
+  "sqlserver_restore_s": 4.612,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "category",
+      "row_count": 10,
+      "columns": [
+        {
+          "name": "category_no",
+          "sql_type": "numeric_id",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "10"
+        },
+        {
+          "name": "category_desc",
+          "sql_type": "normstring",
+          "null_count": 0,
+          "min_val": "Clothing",
+          "max_val": "Travel"
+        },
+        {
+          "name": "category_code",
+          "sql_type": "status_code",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "charge",
+      "row_count": 1600000,
+      "columns": [
+        {
+          "name": "charge_no",
+          "sql_type": "numeric_id",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "2000000"
+        },
+        {
+          "name": "member_no",
+          "sql_type": "numeric_id",
+          "null_count": 0,
+          "min_val": "63",
+          "max_val": "10000"
+        },
+        {
+          "name": "provider_no",
+          "sql_type": "numeric_id",
+          "null_count": 0,
+          "min_val": "24",
+          "max_val": "500"
+        },
+        {
+          "name": "category_no",
+          "sql_type": "numeric_id",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "10"
+        },
+        {
+          "name": "charge_dt",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Jun 15 1999 10:45AM",
+          "max_val": "Oct 13 1999 10:51AM"
+        },
+        {
+          "name": "charge_amt",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "1.0000",
+          "max_val": "5001.0000"
+        },
+        {
+          "name": "statement_no",
+          "sql_type": "numeric_id",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "30000"
+        },
+        {
+          "name": "charge_code",
+          "sql_type": "status_code",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "corporation",
+      "row_count": 500,
+      "columns": [
+        {
+          "name": "corp_no",
+          "sql_type": "numeric_id",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "500"
+        },
+        {
+          "name": "corp_name",
+          "sql_type": "normstring",
+          "null_count": 0,
+          "min_val": "Corp. Apex Key StonesAg.",
+          "max_val": "Corp. Just TransitLtd."
+        },
+        {
+          "name": "street",
+          "sql_type": "shortstring",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "city",
+          "sql_type": "shortstring",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "state_prov",
+          "sql_type": "statecode",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "country",
+          "sql_type": "countrycode",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "mail_code",
+          "sql_type": "mailcode",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "phone_no",
+          "sql_type": "phonenumber",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "expr_dt",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Oct 12 2004 10:41AM",
+          "max_val": "Oct 12 2004 10:41AM"
+        },
+        {
+          "name": "region_no",
+          "sql_type": "numeric_id",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "8"
+        },
+        {
+          "name": "corp_code",
+          "sql_type": "status_code",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "member",
+      "row_count": 10000,
+      "columns": [
+        {
+          "name": "member_no",
+          "sql_type": "numeric_id",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "10000"
+        },
+        {
+          "name": "lastname",
+          "sql_type": "shortstring",
+          "null_count": 0,
+          "min_val": "ANDERSON",
+          "max_val": "ZUCKER"
+        },
+        {
+          "name": "firstname",
+          "sql_type": "shortstring",
+          "null_count": 0,
+          "min_val": "AAEBZBKJXFAUZT",
+          "max_val": "ZZXWAQYMJGL"
+        },
+        {
+          "name": "middleinitial",
+          "sql_type": "letter",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "street",
+          "sql_type": "shortstring",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "city",
+          "sql_type": "shortstring",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "state_prov",
+          "sql_type": "statecode",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "country",
+          "sql_type": "countrycode",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "mail_code",
+          "sql_type": "mailcode",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "phone_no",
+          "sql_type": "phonenumber",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "photograph",
+          "sql_type": "image",
+          "null_count": 10000,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "issue_dt",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Oct 13 1999 10:41AM",
+          "max_val": "Oct 13 1999 10:43AM"
+        },
+        {
+          "name": "expr_dt",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Oct 12 2000 10:41AM",
+          "max_val": "Oct 12 2000 10:43AM"
+        },
+        {
+          "name": "region_no",
+          "sql_type": "numeric_id",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "9"
+        },
+        {
+          "name": "corp_no",
+          "sql_type": "numeric_id",
+          "null_count": 8498,
+          "min_val": "5",
+          "max_val": "500"
+        },
+        {
+          "name": "prev_balance",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "0.0000",
+          "max_val": "0.0000"
+        },
+        {
+          "name": "curr_balance",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "0.0000",
+          "max_val": "0.0000"
+        },
+        {
+          "name": "member_code",
+          "sql_type": "status_code",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "member2",
+      "row_count": 10000,
+      "columns": [
+        {
+          "name": "member_no",
+          "sql_type": "numeric_id",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "10000"
+        },
+        {
+          "name": "lastname",
+          "sql_type": "shortstring",
+          "null_count": 0,
+          "min_val": "ANDERSON",
+          "max_val": "ZUCKER"
+        },
+        {
+          "name": "firstname",
+          "sql_type": "shortstring",
+          "null_count": 0,
+          "min_val": "AAEBZBKJXFAUZT",
+          "max_val": "ZZXWAQYMJGL"
+        },
+        {
+          "name": "middleinitial",
+          "sql_type": "letter",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "street",
+          "sql_type": "shortstring",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "city",
+          "sql_type": "shortstring",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "state_prov",
+          "sql_type": "statecode",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "country",
+          "sql_type": "countrycode",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "mail_code",
+          "sql_type": "mailcode",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "phone_no",
+          "sql_type": "phonenumber",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "photograph",
+          "sql_type": "image",
+          "null_count": 10000,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "issue_dt",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Aug 19 1998 10:41AM",
+          "max_val": "Aug 19 1998 10:43AM"
+        },
+        {
+          "name": "expr_dt",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Aug 19 1999 10:41AM",
+          "max_val": "Aug 19 1999 10:43AM"
+        },
+        {
+          "name": "region_no",
+          "sql_type": "numeric_id",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "9"
+        },
+        {
+          "name": "corp_no",
+          "sql_type": "numeric_id",
+          "null_count": 8498,
+          "min_val": "5",
+          "max_val": "500"
+        },
+        {
+          "name": "prev_balance",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "0.0000",
+          "max_val": "0.0000"
+        },
+        {
+          "name": "curr_balance",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "0.0000",
+          "max_val": "0.0000"
+        },
+        {
+          "name": "member_code",
+          "sql_type": "status_code",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "payment",
+      "row_count": 15554,
+      "columns": [
+        {
+          "name": "payment_no",
+          "sql_type": "numeric_id",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "15554"
+        },
+        {
+          "name": "member_no",
+          "sql_type": "numeric_id",
+          "null_count": 0,
+          "min_val": "80",
+          "max_val": "10000"
+        },
+        {
+          "name": "payment_dt",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Sep  2 1999 12:00AM",
+          "max_val": "Oct  3 1999 12:00AM"
+        },
+        {
+          "name": "payment_amt",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "1.0000",
+          "max_val": "129829.0000"
+        },
+        {
+          "name": "statement_no",
+          "sql_type": "numeric_id",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "0"
+        },
+        {
+          "name": "payment_code",
+          "sql_type": "status_code",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "provider",
+      "row_count": 500,
+      "columns": [
+        {
+          "name": "provider_no",
+          "sql_type": "numeric_id",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "500"
+        },
+        {
+          "name": "provider_name",
+          "sql_type": "shortstring",
+          "null_count": 0,
+          "min_val": "Prov. Apex Key",
+          "max_val": "Prov. Just Tran"
+        },
+        {
+          "name": "street",
+          "sql_type": "shortstring",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "city",
+          "sql_type": "shortstring",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "state_prov",
+          "sql_type": "statecode",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "mail_code",
+          "sql_type": "mailcode",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "country",
+          "sql_type": "countrycode",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "phone_no",
+          "sql_type": "phonenumber",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "issue_dt",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Oct 13 1999 10:41AM",
+          "max_val": "Oct 13 1999 10:41AM"
+        },
+        {
+          "name": "expr_dt",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Oct 12 2000 10:41AM",
+          "max_val": "Oct 12 2000 10:41AM"
+        },
+        {
+          "name": "region_no",
+          "sql_type": "numeric_id",
+          "null_count": 0,
+          "min_val": "3",
+          "max_val": "9"
+        },
+        {
+          "name": "provider_code",
+          "sql_type": "status_code",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "region",
+      "row_count": 9,
+      "columns": [
+        {
+          "name": "region_no",
+          "sql_type": "numeric_id",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "9"
+        },
+        {
+          "name": "region_name",
+          "sql_type": "shortstring",
+          "null_count": 0,
+          "min_val": "Africa",
+          "max_val": "Western Europea"
+        },
+        {
+          "name": "street",
+          "sql_type": "shortstring",
+          "null_count": 0,
+          "min_val": "111 First St.",
+          "max_val": "999 Ninth St."
+        },
+        {
+          "name": "city",
+          "sql_type": "shortstring",
+          "null_count": 0,
+          "min_val": "Beijing",
+          "max_val": "Toronto"
+        },
+        {
+          "name": "state_prov",
+          "sql_type": "statecode",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": "ON"
+        },
+        {
+          "name": "country",
+          "sql_type": "countrycode",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": "Sw"
+        },
+        {
+          "name": "mail_code",
+          "sql_type": "mailcode",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "phone_no",
+          "sql_type": "phonenumber",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "region_code",
+          "sql_type": "status_code",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "statement",
+      "row_count": 20000,
+      "columns": [
+        {
+          "name": "statement_no",
+          "sql_type": "numeric_id",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "20000"
+        },
+        {
+          "name": "member_no",
+          "sql_type": "numeric_id",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "10000"
+        },
+        {
+          "name": "statement_dt",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Aug 13 1999 12:00AM",
+          "max_val": "Sep 13 1999 12:00AM"
+        },
+        {
+          "name": "due_dt",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "Sep  2 1999 12:00AM",
+          "max_val": "Oct  3 1999 12:00AM"
+        },
+        {
+          "name": "statement_amt",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "0.0000",
+          "max_val": "129829.0000"
+        },
+        {
+          "name": "statement_code",
+          "sql_type": "status_code",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "status",
+      "row_count": 1,
+      "columns": [
+        {
+          "name": "status_code",
+          "sql_type": "status_code",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "status_desc",
+          "sql_type": "normstring",
+          "null_count": 0,
+          "min_val": "ACTIVE",
+          "max_val": "ACTIVE"
+        }
+      ]
+    }
+  ]
+}

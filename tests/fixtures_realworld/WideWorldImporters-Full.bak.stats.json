@@ -1,0 +1,4189 @@
+{
+  "sql_version": "Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (X64)",
+  "bak": "WideWorldImporters-Full.bak",
+  "bak_size_mb": 121.223,
+  "database": "RegisterBak_WideWorldImporters-Full",
+  "registered_at": "2026-06-10T02:20:01.773814+00:00",
+  "sqlserver_restore_s": 18.145,
+  "tables": [
+    {
+      "schema": "Application",
+      "name": "Cities",
+      "row_count": 37940,
+      "columns": [
+        {
+          "name": "CityID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "38186"
+        },
+        {
+          "name": "CityName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "'Aiea",
+          "max_val": "Zwolle"
+        },
+        {
+          "name": "StateProvinceID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "53"
+        },
+        {
+          "name": "Location",
+          "sql_type": "geography",
+          "null_count": 0,
+          "min_val": "POINT (-100.0026272 39.61056)",
+          "max_val": "POINT (-99.9976041 34.2831266)"
+        },
+        {
+          "name": "LatestRecordedPopulation",
+          "sql_type": "bigint",
+          "null_count": 11048,
+          "min_val": "0",
+          "max_val": "8175133"
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "20"
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-01-01 00:00:00.0000000",
+          "max_val": "2015-07-01 16:00:00.0000000"
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "9999-12-31 23:59:59.9999999",
+          "max_val": "9999-12-31 23:59:59.9999999"
+        }
+      ]
+    },
+    {
+      "schema": "Application",
+      "name": "Cities_Archive",
+      "row_count": 28,
+      "columns": [
+        {
+          "name": "CityID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "164",
+          "max_val": "37232"
+        },
+        {
+          "name": "CityName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Adrian",
+          "max_val": "Williams Creek"
+        },
+        {
+          "name": "StateProvinceID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "4",
+          "max_val": "51"
+        },
+        {
+          "name": "Location",
+          "sql_type": "geography",
+          "null_count": 0,
+          "min_val": "POINT (-103.271613 35.9683688)",
+          "max_val": "POINT (-97.2933586 38.6872259)"
+        },
+        {
+          "name": "LatestRecordedPopulation",
+          "sql_type": "bigint",
+          "null_count": 11,
+          "min_val": "42",
+          "max_val": "6828"
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-01-01 00:00:00.0000000",
+          "max_val": "2013-01-01 00:00:00.0000000"
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-07-01 16:00:00.0000000",
+          "max_val": "2015-07-01 16:00:00.0000000"
+        }
+      ]
+    },
+    {
+      "schema": "Application",
+      "name": "Countries",
+      "row_count": 190,
+      "columns": [
+        {
+          "name": "CountryID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "241"
+        },
+        {
+          "name": "CountryName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Afghanistan",
+          "max_val": "Zimbabwe"
+        },
+        {
+          "name": "FormalName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Antigua and Barbuda",
+          "max_val": "United States of America"
+        },
+        {
+          "name": "IsoAlpha3Code",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "AFG",
+          "max_val": "ZWE"
+        },
+        {
+          "name": "IsoNumericCode",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "4",
+          "max_val": "894"
+        },
+        {
+          "name": "CountryType",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "UN Member State",
+          "max_val": "UN Member State"
+        },
+        {
+          "name": "LatestRecordedPopulation",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "14019",
+          "max_val": "1392157488"
+        },
+        {
+          "name": "Continent",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Africa",
+          "max_val": "South America"
+        },
+        {
+          "name": "Region",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Africa",
+          "max_val": "Oceania"
+        },
+        {
+          "name": "Subregion",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Australia and New Zealand",
+          "max_val": "Western Europe"
+        },
+        {
+          "name": "Border",
+          "sql_type": "geography",
+          "null_count": 0,
+          "min_val": "MULTIPOLYGON (((-1.0655761718749659 50.690234375000017, -1.1442382812500114 50.734716796875034, -1.3127929687499602 50.773486328125017, -1.3858398437499204 50.733544921874966, -1.5156738281249886 50.7",
+          "max_val": "POLYGON ((91.631933593750034 27.759960937499997, 91.62939453125 27.80087890625, 91.641894531249989 27.923242187499994, 91.605566406250034 27.951708984374996, 91.493359375000011 27.981787109375, 91.367"
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "20"
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-01-01 00:00:00.0000000",
+          "max_val": "2022-10-07 21:11:44.8930093"
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "9999-12-31 23:59:59.9999999",
+          "max_val": "9999-12-31 23:59:59.9999999"
+        }
+      ]
+    },
+    {
+      "schema": "Application",
+      "name": "Countries_Archive",
+      "row_count": 37,
+      "columns": [
+        {
+          "name": "CountryID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "3",
+          "max_val": "222"
+        },
+        {
+          "name": "CountryName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Albania",
+          "max_val": "Turkey"
+        },
+        {
+          "name": "FormalName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Argentine Republic",
+          "max_val": "Slovak Republic"
+        },
+        {
+          "name": "IsoAlpha3Code",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "ALB",
+          "max_val": "WSM"
+        },
+        {
+          "name": "IsoNumericCode",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "8",
+          "max_val": "882"
+        },
+        {
+          "name": "CountryType",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "UN Member State",
+          "max_val": "UN Member State"
+        },
+        {
+          "name": "LatestRecordedPopulation",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "83888",
+          "max_val": "1338612970"
+        },
+        {
+          "name": "Continent",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Africa",
+          "max_val": "South America"
+        },
+        {
+          "name": "Region",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Africa",
+          "max_val": "Oceania"
+        },
+        {
+          "name": "Subregion",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Australia and New Zealand",
+          "max_val": "Western Europe"
+        },
+        {
+          "name": "Border",
+          "sql_type": "geography",
+          "null_count": 0,
+          "min_val": "MULTIPOLYGON (((11.334667968750068 1.12075195312498, 11.333593750000006 1.3076171875000426, 11.332324218750017 1.5283691406249886, 11.331152343750063 1.7401855468749687, 11.330078125 1.935888671874963",
+          "max_val": "POLYGON ((88.109765625000023 27.87060546875, 88.023339843750023 27.8833984375, 87.933398437499989 27.890820312499997, 87.860742187500023 27.886083984375, 87.682714843750034 27.82138671875, 87.62255859"
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "20"
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-01-01 00:00:00.0000000",
+          "max_val": "2013-07-01 16:00:00.0000000"
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-07-01 16:00:00.0000000",
+          "max_val": "2022-10-07 21:11:44.8930093"
+        }
+      ]
+    },
+    {
+      "schema": "Application",
+      "name": "DeliveryMethods",
+      "row_count": 10,
+      "columns": [
+        {
+          "name": "DeliveryMethodID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "10"
+        },
+        {
+          "name": "DeliveryMethodName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Air Freight",
+          "max_val": "Road Freight"
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "16"
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-01-01 00:00:00.0000000",
+          "max_val": "2015-01-01 16:00:00.0000000"
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "9999-12-31 23:59:59.9999999",
+          "max_val": "9999-12-31 23:59:59.9999999"
+        }
+      ]
+    },
+    {
+      "schema": "Application",
+      "name": "DeliveryMethods_Archive",
+      "row_count": 1,
+      "columns": [
+        {
+          "name": "DeliveryMethodID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "5",
+          "max_val": "5"
+        },
+        {
+          "name": "DeliveryMethodName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Van with Chiller",
+          "max_val": "Van with Chiller"
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-01-01 00:00:00.0000000",
+          "max_val": "2013-01-01 00:00:00.0000000"
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2015-01-01 16:00:00.0000000",
+          "max_val": "2015-01-01 16:00:00.0000000"
+        }
+      ]
+    },
+    {
+      "schema": "Application",
+      "name": "PaymentMethods",
+      "row_count": 4,
+      "columns": [
+        {
+          "name": "PaymentMethodID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "4"
+        },
+        {
+          "name": "PaymentMethodName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Cash",
+          "max_val": "EFT"
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "9"
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-01-01 00:00:00.0000000",
+          "max_val": "2016-01-01 16:00:00.0000000"
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "9999-12-31 23:59:59.9999999",
+          "max_val": "9999-12-31 23:59:59.9999999"
+        }
+      ]
+    },
+    {
+      "schema": "Application",
+      "name": "PaymentMethods_Archive",
+      "row_count": 1,
+      "columns": [
+        {
+          "name": "PaymentMethodID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "3",
+          "max_val": "3"
+        },
+        {
+          "name": "PaymentMethodName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Credit Card",
+          "max_val": "Credit Card"
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-01-01 00:00:00.0000000",
+          "max_val": "2013-01-01 00:00:00.0000000"
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2016-01-01 16:00:00.0000000",
+          "max_val": "2016-01-01 16:00:00.0000000"
+        }
+      ]
+    },
+    {
+      "schema": "Application",
+      "name": "People",
+      "row_count": 1111,
+      "columns": [
+        {
+          "name": "PersonID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3261"
+        },
+        {
+          "name": "FullName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Aahlada Thota",
+          "max_val": "\u00c5\u0161ani Sen"
+        },
+        {
+          "name": "PreferredName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Aahlada",
+          "max_val": "\u00c5\u0161ani"
+        },
+        {
+          "name": "IsPermittedToLogon",
+          "sql_type": "bit",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1"
+        },
+        {
+          "name": "LogonName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "NO LOGON",
+          "max_val": "yves@example.com"
+        },
+        {
+          "name": "IsExternalLogonProvider",
+          "sql_type": "bit",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "0"
+        },
+        {
+          "name": "HashedPassword",
+          "sql_type": "varbinary",
+          "null_count": 954,
+          "min_val": "0x000D92459522EE57C9FA8EE36867819292D04E865BF28963B8113A32474E017B",
+          "max_val": "0xFBF469B0E38663243BB141AE80F893EDAE22E04AF66D040D17B492536C9D5136"
+        },
+        {
+          "name": "IsSystemUser",
+          "sql_type": "bit",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1"
+        },
+        {
+          "name": "IsEmployee",
+          "sql_type": "bit",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1"
+        },
+        {
+          "name": "IsSalesperson",
+          "sql_type": "bit",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1"
+        },
+        {
+          "name": "UserPreferences",
+          "sql_type": "nvarchar",
+          "null_count": 929,
+          "min_val": "{\"theme\":\"black-tie\",\"dateFormat\":\"DD, MM d, yy\",\"timeZone\": \"PST\",\"table\":{\"pagingType\":\"simple_numbers\",\"pageLength\": 10},\"favoritesOnDashboard\":true}",
+          "max_val": "{\"theme\":\"ui-darkness\",\"dateFormat\":\"yy-mm-dd\",\"timeZone\": \"PST\",\"table\":{\"pagingType\":\"full_numbers\",\"pageLength\": 25},\"favoritesOnDashboard\":true}"
+        },
+        {
+          "name": "PhoneNumber",
+          "sql_type": "nvarchar",
+          "null_count": 1,
+          "min_val": "(201) 555-0100",
+          "max_val": "(907) 555-0100"
+        },
+        {
+          "name": "FaxNumber",
+          "sql_type": "nvarchar",
+          "null_count": 1,
+          "min_val": "(201) 555-0101",
+          "max_val": "(907) 555-0101"
+        },
+        {
+          "name": "EmailAddress",
+          "sql_type": "nvarchar",
+          "null_count": 1,
+          "min_val": "aahlada@tailspintoys.com",
+          "max_val": "\u00e5\u0161ani@wingtiptoys.com"
+        },
+        {
+          "name": "Photo",
+          "sql_type": "varbinary",
+          "null_count": 1111,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "CustomFields",
+          "sql_type": "nvarchar",
+          "null_count": 1092,
+          "min_val": "{ \"OtherLanguages\": [\"Arabic\",\"Greek\"] ,\"HireDate\":\"2009-03-14T00:00:00\",\"Title\":\"Manager\",\"PrimarySalesTerritory\":\"Far West\",\"CommissionRate\":\"2.29\"}",
+          "max_val": "{ \"OtherLanguages\": [] ,\"HireDate\":\"2012-03-05T00:00:00\",\"Title\":\"Team Member\",\"PrimarySalesTerritory\":\"New England\",\"CommissionRate\":\"3.62\"}"
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-01-01 00:00:00.0000000",
+          "max_val": "2016-05-31 23:14:00.0000000"
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "9999-12-31 23:59:59.9999999",
+          "max_val": "9999-12-31 23:59:59.9999999"
+        }
+      ]
+    },
+    {
+      "schema": "Application",
+      "name": "People_Archive",
+      "row_count": 961,
+      "columns": [
+        {
+          "name": "PersonID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3237"
+        },
+        {
+          "name": "FullName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Aakarsha Nookala",
+          "max_val": "omer ozbek"
+        },
+        {
+          "name": "PreferredName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Aakarsha",
+          "max_val": "omer"
+        },
+        {
+          "name": "SearchName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Aakarsha Aakarsha Nookala",
+          "max_val": "omer omer ozbek"
+        },
+        {
+          "name": "IsPermittedToLogon",
+          "sql_type": "bit",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1"
+        },
+        {
+          "name": "LogonName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "NO LOGON",
+          "max_val": "yves@example.com"
+        },
+        {
+          "name": "IsExternalLogonProvider",
+          "sql_type": "bit",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "0"
+        },
+        {
+          "name": "HashedPassword",
+          "sql_type": "varbinary",
+          "null_count": 163,
+          "min_val": "0x000D92459522EE57C9FA8EE36867819292D04E865BF28963B8113A32474E017B",
+          "max_val": "0xFCA9E8036F1D1FAE2C227DF6545FD5B86964137321530735A2A7ACF68652E52B"
+        },
+        {
+          "name": "IsSystemUser",
+          "sql_type": "bit",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1"
+        },
+        {
+          "name": "IsEmployee",
+          "sql_type": "bit",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1"
+        },
+        {
+          "name": "IsSalesperson",
+          "sql_type": "bit",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1"
+        },
+        {
+          "name": "UserPreferences",
+          "sql_type": "nvarchar",
+          "null_count": 136,
+          "min_val": "{ \"theme\": \"defaultblue\", \"layout\": \"default\", \"dateformat\": \"m/d/yy\", \"timezoneoffset\": \"-8\", \"favoritesondashboard\": \"true\" }",
+          "max_val": "{ \"theme\": \"defaultblue\", \"layout\": \"default\", \"dateformat\": \"m/d/yy\", \"timezoneoffset\": \"-8\", \"favoritesondashboard\": \"true\" }"
+        },
+        {
+          "name": "PhoneNumber",
+          "sql_type": "nvarchar",
+          "null_count": 1,
+          "min_val": "(201) 555-0100",
+          "max_val": "(907) 555-0100"
+        },
+        {
+          "name": "FaxNumber",
+          "sql_type": "nvarchar",
+          "null_count": 1,
+          "min_val": "(201) 555-0101",
+          "max_val": "(907) 555-0101"
+        },
+        {
+          "name": "EmailAddress",
+          "sql_type": "nvarchar",
+          "null_count": 1,
+          "min_val": "aakarsha@tailspintoys.com",
+          "max_val": "yves@example.com"
+        },
+        {
+          "name": "Photo",
+          "sql_type": "varbinary",
+          "null_count": 961,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "CustomFields",
+          "sql_type": "nvarchar",
+          "null_count": 942,
+          "min_val": "{ \"OtherLanguages\": [\"Arabic\",\"Greek\"] ,\"HireDate\":\"2009-03-14T00:00:00\",\"Title\":\"Manager\",\"PrimarySalesTerritory\":\"Far West\",\"CommissionRate\":\"2.29\"}",
+          "max_val": "{ \"OtherLanguages\": [] ,\"HireDate\":\"2012-03-05T00:00:00\",\"Title\":\"Team Member\",\"PrimarySalesTerritory\":\"New England\",\"CommissionRate\":\"3.62\"}"
+        },
+        {
+          "name": "OtherLanguages",
+          "sql_type": "nvarchar",
+          "null_count": 942,
+          "min_val": "[\"Arabic\",\"Greek\"]",
+          "max_val": "[]"
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-01-01 00:00:00.0000000",
+          "max_val": "2016-05-31 23:13:00.0000000"
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-01-01 08:00:00.0000000",
+          "max_val": "2016-05-31 23:14:00.0000000"
+        }
+      ]
+    },
+    {
+      "schema": "Application",
+      "name": "StateProvinces",
+      "row_count": 53,
+      "columns": [
+        {
+          "name": "StateProvinceID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "53"
+        },
+        {
+          "name": "StateProvinceCode",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "AK",
+          "max_val": "WY"
+        },
+        {
+          "name": "StateProvinceName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Alabama",
+          "max_val": "Wyoming"
+        },
+        {
+          "name": "CountryID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "230",
+          "max_val": "230"
+        },
+        {
+          "name": "SalesTerritory",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "External",
+          "max_val": "Southwest"
+        },
+        {
+          "name": "Border",
+          "sql_type": "geography",
+          "null_count": 1,
+          "min_val": "MULTIPOLYGON (((-118.593969 33.467197999999996, -118.563442 33.434381, -118.482609 33.369914, -118.465368 33.326056, -118.374768 33.320065, -118.325244 33.299075, -118.286261 33.351462999999995, -118.",
+          "max_val": "POLYGON ((-97.229039 49.000687, -97.227854 48.945864, -97.187362 48.867598, -97.152588 48.772602, -97.121253 48.713592999999996, -97.100009 48.667925999999994, -97.142915 48.583732999999995, -97.14772"
+        },
+        {
+          "name": "LatestRecordedPopulation",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "104737",
+          "max_val": "41460453"
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "20"
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-01-01 00:00:00.0000000",
+          "max_val": "2015-07-01 16:00:00.0000000"
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "9999-12-31 23:59:59.9999999",
+          "max_val": "9999-12-31 23:59:59.9999999"
+        }
+      ]
+    },
+    {
+      "schema": "Application",
+      "name": "StateProvinces_Archive",
+      "row_count": 104,
+      "columns": [
+        {
+          "name": "StateProvinceID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "53"
+        },
+        {
+          "name": "StateProvinceCode",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "AK",
+          "max_val": "WY"
+        },
+        {
+          "name": "StateProvinceName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Alabama",
+          "max_val": "Wyoming"
+        },
+        {
+          "name": "CountryID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "230",
+          "max_val": "230"
+        },
+        {
+          "name": "SalesTerritory",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "External",
+          "max_val": "Southwest"
+        },
+        {
+          "name": "Border",
+          "sql_type": "geography",
+          "null_count": 52,
+          "min_val": "MULTIPOLYGON (((-118.593969 33.467197999999996, -118.563442 33.434381, -118.482609 33.369914, -118.465368 33.326056, -118.374768 33.320065, -118.325244 33.299075, -118.286261 33.351462999999995, -118.",
+          "max_val": "POLYGON ((-97.229039 49.000687, -97.227854 48.945864, -97.187362 48.867598, -97.152588 48.772602, -97.121253 48.713592999999996, -97.100009 48.667925999999994, -97.142915 48.583732999999995, -97.14772"
+        },
+        {
+          "name": "LatestRecordedPopulation",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "582658",
+          "max_val": "39865821"
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "20"
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-01-01 00:00:00.0000000",
+          "max_val": "2015-07-01 16:00:00.0000000"
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-01-01 00:01:00.0000000",
+          "max_val": "2015-07-01 16:00:00.0000000"
+        }
+      ]
+    },
+    {
+      "schema": "Application",
+      "name": "SystemParameters",
+      "row_count": 1,
+      "columns": [
+        {
+          "name": "SystemParameterID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "DeliveryAddressLine1",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Suite 14",
+          "max_val": "Suite 14"
+        },
+        {
+          "name": "DeliveryAddressLine2",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "1968 Martin Luther King Junior Drive",
+          "max_val": "1968 Martin Luther King Junior Drive"
+        },
+        {
+          "name": "DeliveryCityID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "30378",
+          "max_val": "30378"
+        },
+        {
+          "name": "DeliveryPostalCode",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "94129",
+          "max_val": "94129"
+        },
+        {
+          "name": "DeliveryLocation",
+          "sql_type": "geography",
+          "null_count": 0,
+          "min_val": "POINT (-122.504086 37.765786)",
+          "max_val": "POINT (-122.504086 37.765786)"
+        },
+        {
+          "name": "PostalAddressLine1",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "PO Box 201158",
+          "max_val": "PO Box 201158"
+        },
+        {
+          "name": "PostalAddressLine2",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Golden Gate Park",
+          "max_val": "Golden Gate Park"
+        },
+        {
+          "name": "PostalCityID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "30378",
+          "max_val": "30378"
+        },
+        {
+          "name": "PostalPostalCode",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "94129",
+          "max_val": "94129"
+        },
+        {
+          "name": "ApplicationSettings",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "LastEditedWhen",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-01-01 00:00:00.0000000",
+          "max_val": "2013-01-01 00:00:00.0000000"
+        }
+      ]
+    },
+    {
+      "schema": "Application",
+      "name": "TransactionTypes",
+      "row_count": 13,
+      "columns": [
+        {
+          "name": "TransactionTypeID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "13"
+        },
+        {
+          "name": "TransactionTypeName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Customer Contra",
+          "max_val": "Supplier Refund"
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "9"
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-01-01 00:00:00.0000000",
+          "max_val": "2016-01-01 16:05:00.0000000"
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "9999-12-31 23:59:59.9999999",
+          "max_val": "9999-12-31 23:59:59.9999999"
+        }
+      ]
+    },
+    {
+      "schema": "Application",
+      "name": "TransactionTypes_Archive",
+      "row_count": 1,
+      "columns": [
+        {
+          "name": "TransactionTypeID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "13",
+          "max_val": "13"
+        },
+        {
+          "name": "TransactionTypeName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Contra",
+          "max_val": "Contra"
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "9",
+          "max_val": "9"
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2016-01-01 16:00:00.0000000",
+          "max_val": "2016-01-01 16:00:00.0000000"
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2016-01-01 16:05:00.0000000",
+          "max_val": "2016-01-01 16:05:00.0000000"
+        }
+      ]
+    },
+    {
+      "schema": "Purchasing",
+      "name": "PurchaseOrderLines",
+      "row_count": 8367,
+      "columns": [
+        {
+          "name": "PurchaseOrderLineID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "8367"
+        },
+        {
+          "name": "PurchaseOrderID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "2074"
+        },
+        {
+          "name": "StockItemID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "227"
+        },
+        {
+          "name": "OrderedOuters",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3768"
+        },
+        {
+          "name": "Description",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "\"The Gu\" red shirt XML tag t-shirt (Black) 3XL",
+          "max_val": "White chocolate snow balls 250g"
+        },
+        {
+          "name": "ReceivedOuters",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "3768"
+        },
+        {
+          "name": "PackageTypeID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "6",
+          "max_val": "9"
+        },
+        {
+          "name": "ExpectedUnitPricePerOuter",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "4.50",
+          "max_val": "1140.00"
+        },
+        {
+          "name": "LastReceiptDate",
+          "sql_type": "date",
+          "null_count": 9,
+          "min_val": "2013-01-02",
+          "max_val": "2016-05-31"
+        },
+        {
+          "name": "IsOrderLineFinalized",
+          "sql_type": "bit",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1"
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "20"
+        },
+        {
+          "name": "LastEditedWhen",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-01-02 07:00:00.0000000",
+          "max_val": "2016-05-31 13:00:00.0000000"
+        }
+      ]
+    },
+    {
+      "schema": "Purchasing",
+      "name": "PurchaseOrders",
+      "row_count": 2074,
+      "columns": [
+        {
+          "name": "PurchaseOrderID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "2074"
+        },
+        {
+          "name": "SupplierID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "12"
+        },
+        {
+          "name": "OrderDate",
+          "sql_type": "date",
+          "null_count": 0,
+          "min_val": "2013-01-01",
+          "max_val": "2016-05-31"
+        },
+        {
+          "name": "DeliveryMethodID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "10"
+        },
+        {
+          "name": "ContactPersonID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "2"
+        },
+        {
+          "name": "ExpectedDeliveryDate",
+          "sql_type": "date",
+          "null_count": 0,
+          "min_val": "2013-01-15",
+          "max_val": "2016-06-20"
+        },
+        {
+          "name": "SupplierReference",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "08803922",
+          "max_val": "ML0300202"
+        },
+        {
+          "name": "IsOrderFinalized",
+          "sql_type": "bit",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1"
+        },
+        {
+          "name": "Comments",
+          "sql_type": "nvarchar",
+          "null_count": 2074,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "InternalComments",
+          "sql_type": "nvarchar",
+          "null_count": 2074,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "20"
+        },
+        {
+          "name": "LastEditedWhen",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-01-02 07:00:00.0000000",
+          "max_val": "2016-05-31 13:00:00.0000000"
+        }
+      ]
+    },
+    {
+      "schema": "Purchasing",
+      "name": "SupplierCategories",
+      "row_count": 9,
+      "columns": [
+        {
+          "name": "SupplierCategoryID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "9"
+        },
+        {
+          "name": "SupplierCategoryName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Clothing Supplier",
+          "max_val": "Toy Supplier"
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "16"
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-01-01 00:00:00.0000000",
+          "max_val": "2015-01-01 16:00:00.0000000"
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "9999-12-31 23:59:59.9999999",
+          "max_val": "9999-12-31 23:59:59.9999999"
+        }
+      ]
+    },
+    {
+      "schema": "Purchasing",
+      "name": "SupplierCategories_Archive",
+      "row_count": 1,
+      "columns": [
+        {
+          "name": "SupplierCategoryID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "6",
+          "max_val": "6"
+        },
+        {
+          "name": "SupplierCategoryName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Courier",
+          "max_val": "Courier"
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-01-01 00:00:00.0000000",
+          "max_val": "2013-01-01 00:00:00.0000000"
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2015-01-01 16:00:00.0000000",
+          "max_val": "2015-01-01 16:00:00.0000000"
+        }
+      ]
+    },
+    {
+      "schema": "Purchasing",
+      "name": "Suppliers",
+      "row_count": 13,
+      "columns": [
+        {
+          "name": "SupplierID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "13"
+        },
+        {
+          "name": "SupplierName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "A Datum Corporation",
+          "max_val": "Woodgrove Bank"
+        },
+        {
+          "name": "SupplierCategoryID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "9"
+        },
+        {
+          "name": "PrimaryContactPersonID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "21",
+          "max_val": "45"
+        },
+        {
+          "name": "AlternateContactPersonID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "22",
+          "max_val": "46"
+        },
+        {
+          "name": "DeliveryMethodID",
+          "sql_type": "int",
+          "null_count": 4,
+          "min_val": "2",
+          "max_val": "10"
+        },
+        {
+          "name": "DeliveryCityID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "7899",
+          "max_val": "38171"
+        },
+        {
+          "name": "PostalCityID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "7899",
+          "max_val": "38171"
+        },
+        {
+          "name": "SupplierReference",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "028034202",
+          "max_val": "ML0300202"
+        },
+        {
+          "name": "BankAccountName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "A Datum Corporation",
+          "max_val": "Woodgrove Bank"
+        },
+        {
+          "name": "BankAccountBranch",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Woodgrove Bank Crandon Lakes",
+          "max_val": "Woodgrove Bank Zionsville"
+        },
+        {
+          "name": "BankAccountCode",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "214568",
+          "max_val": "789568"
+        },
+        {
+          "name": "BankAccountNumber",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "1025869354",
+          "max_val": "8575824136"
+        },
+        {
+          "name": "BankInternationalCode",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "12546",
+          "max_val": "65893"
+        },
+        {
+          "name": "PaymentDays",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "7",
+          "max_val": "30"
+        },
+        {
+          "name": "InternalComments",
+          "sql_type": "nvarchar",
+          "null_count": 11,
+          "min_val": "Marcos is not in on Mondays",
+          "max_val": "Only speak to Donald if Hubert really is not available"
+        },
+        {
+          "name": "PhoneNumber",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "(201) 555-0105",
+          "max_val": "(847) 555-0100"
+        },
+        {
+          "name": "FaxNumber",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "(201) 555-0104",
+          "max_val": "(847) 555-0101"
+        },
+        {
+          "name": "WebsiteURL",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "http://www.adatum.com",
+          "max_val": "http://www.woodgrovebank.com"
+        },
+        {
+          "name": "DeliveryAddressLine1",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": "Unit 2"
+        },
+        {
+          "name": "DeliveryAddressLine2",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "183838 Southwest Boulevard",
+          "max_val": "9893 Mount Norris Road"
+        },
+        {
+          "name": "DeliveryPostalCode",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "07860",
+          "max_val": "98253"
+        },
+        {
+          "name": "DeliveryLocation",
+          "sql_type": "geography",
+          "null_count": 0,
+          "min_val": "POINT (-101.5098658 43.833882)",
+          "max_val": "POINT (-96.5205968 48.5774764)"
+        },
+        {
+          "name": "PostalAddressLine1",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "PO  Box 595",
+          "max_val": "PO Box 94829"
+        },
+        {
+          "name": "PostalAddressLine2",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Anderson",
+          "max_val": "Willow"
+        },
+        {
+          "name": "PostalPostalCode",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "07860",
+          "max_val": "98253"
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-01-01 00:05:00.0000000",
+          "max_val": "2013-01-01 00:05:00.0000000"
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "9999-12-31 23:59:59.9999999",
+          "max_val": "9999-12-31 23:59:59.9999999"
+        }
+      ]
+    },
+    {
+      "schema": "Purchasing",
+      "name": "Suppliers_Archive",
+      "row_count": 13,
+      "columns": [
+        {
+          "name": "SupplierID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "13"
+        },
+        {
+          "name": "SupplierName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "A Datum Corporation",
+          "max_val": "Woodgrove Bank"
+        },
+        {
+          "name": "SupplierCategoryID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "9"
+        },
+        {
+          "name": "PrimaryContactPersonID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "21",
+          "max_val": "45"
+        },
+        {
+          "name": "AlternateContactPersonID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "22",
+          "max_val": "46"
+        },
+        {
+          "name": "DeliveryMethodID",
+          "sql_type": "int",
+          "null_count": 4,
+          "min_val": "2",
+          "max_val": "10"
+        },
+        {
+          "name": "DeliveryCityID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "7899",
+          "max_val": "38171"
+        },
+        {
+          "name": "PostalCityID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "7899",
+          "max_val": "38171"
+        },
+        {
+          "name": "SupplierReference",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "028034202",
+          "max_val": "ML0300202"
+        },
+        {
+          "name": "BankAccountName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "A Datum Corporation",
+          "max_val": "Woodgrove Bank"
+        },
+        {
+          "name": "BankAccountBranch",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Woodgrove Bank Crandon Lakes",
+          "max_val": "Woodgrove Bank Zionsville"
+        },
+        {
+          "name": "BankAccountCode",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "214568",
+          "max_val": "789568"
+        },
+        {
+          "name": "BankAccountNumber",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "1025869354",
+          "max_val": "8575824136"
+        },
+        {
+          "name": "BankInternationalCode",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "12546",
+          "max_val": "65893"
+        },
+        {
+          "name": "PaymentDays",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "7",
+          "max_val": "30"
+        },
+        {
+          "name": "InternalComments",
+          "sql_type": "nvarchar",
+          "null_count": 11,
+          "min_val": "Marcos is not in on Mondays",
+          "max_val": "Only speak to Donald if Hubert really is not available"
+        },
+        {
+          "name": "PhoneNumber",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "(201) 555-0105",
+          "max_val": "(847) 555-0100"
+        },
+        {
+          "name": "FaxNumber",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "(201) 555-0104",
+          "max_val": "(847) 555-0101"
+        },
+        {
+          "name": "WebsiteURL",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "http://www.adatum.com",
+          "max_val": "http://www.woodgrovebank.com"
+        },
+        {
+          "name": "DeliveryAddressLine1",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "",
+          "max_val": "Unit 2"
+        },
+        {
+          "name": "DeliveryAddressLine2",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "183838 Southwest Boulevard",
+          "max_val": "9893 Mount Norris Road"
+        },
+        {
+          "name": "DeliveryPostalCode",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "07860",
+          "max_val": "98253"
+        },
+        {
+          "name": "DeliveryLocation",
+          "sql_type": "geography",
+          "null_count": 13,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "PostalAddressLine1",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "PO  Box 595",
+          "max_val": "PO Box 94829"
+        },
+        {
+          "name": "PostalAddressLine2",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Anderson",
+          "max_val": "Willow"
+        },
+        {
+          "name": "PostalPostalCode",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "07860",
+          "max_val": "98253"
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-01-01 00:00:00.0000000",
+          "max_val": "2013-01-01 00:00:00.0000000"
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-01-01 00:05:00.0000000",
+          "max_val": "2013-01-01 00:05:00.0000000"
+        }
+      ]
+    },
+    {
+      "schema": "Purchasing",
+      "name": "SupplierTransactions",
+      "row_count": 2438,
+      "columns": [
+        {
+          "name": "SupplierTransactionID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "134",
+          "max_val": "335847"
+        },
+        {
+          "name": "SupplierID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "12"
+        },
+        {
+          "name": "TransactionTypeID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "5",
+          "max_val": "7"
+        },
+        {
+          "name": "PurchaseOrderID",
+          "sql_type": "int",
+          "null_count": 366,
+          "min_val": "1",
+          "max_val": "2072"
+        },
+        {
+          "name": "PaymentMethodID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "4",
+          "max_val": "4"
+        },
+        {
+          "name": "SupplierInvoiceNumber",
+          "sql_type": "nvarchar",
+          "null_count": 366,
+          "min_val": "10",
+          "max_val": "9995"
+        },
+        {
+          "name": "TransactionDate",
+          "sql_type": "date",
+          "null_count": 0,
+          "min_val": "2013-01-02",
+          "max_val": "2016-05-31"
+        },
+        {
+          "name": "AmountExcludingTax",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.00",
+          "max_val": "1627734.00"
+        },
+        {
+          "name": "TaxAmount",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.00",
+          "max_val": "244160.10"
+        },
+        {
+          "name": "TransactionAmount",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "-9313012.80",
+          "max_val": "1871894.10"
+        },
+        {
+          "name": "OutstandingBalance",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.00",
+          "max_val": "1871894.10"
+        },
+        {
+          "name": "FinalizationDate",
+          "sql_type": "date",
+          "null_count": 2,
+          "min_val": "2013-01-07",
+          "max_val": "2016-05-30"
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "20"
+        },
+        {
+          "name": "LastEditedWhen",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-01-07 09:00:00.0000000",
+          "max_val": "2016-05-31 07:00:00.0000000"
+        }
+      ]
+    },
+    {
+      "schema": "Sales",
+      "name": "BuyingGroups",
+      "row_count": 2,
+      "columns": [
+        {
+          "name": "BuyingGroupID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "2"
+        },
+        {
+          "name": "BuyingGroupName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Tailspin Toys",
+          "max_val": "Wingtip Toys"
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-01-01 00:00:00.0000000",
+          "max_val": "2013-01-01 00:00:00.0000000"
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "9999-12-31 23:59:59.9999999",
+          "max_val": "9999-12-31 23:59:59.9999999"
+        }
+      ]
+    },
+    {
+      "schema": "Sales",
+      "name": "BuyingGroups_Archive",
+      "row_count": 0,
+      "columns": [
+        {
+          "name": "BuyingGroupID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "BuyingGroupName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        }
+      ]
+    },
+    {
+      "schema": "Sales",
+      "name": "CustomerCategories",
+      "row_count": 8,
+      "columns": [
+        {
+          "name": "CustomerCategoryID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "8"
+        },
+        {
+          "name": "CustomerCategoryName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Agent",
+          "max_val": "Wholesaler"
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "9"
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-01-01 00:00:00.0000000",
+          "max_val": "2014-01-01 16:15:00.0000000"
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "9999-12-31 23:59:59.9999999",
+          "max_val": "9999-12-31 23:59:59.9999999"
+        }
+      ]
+    },
+    {
+      "schema": "Sales",
+      "name": "CustomerCategories_Archive",
+      "row_count": 1,
+      "columns": [
+        {
+          "name": "CustomerCategoryID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "8",
+          "max_val": "8"
+        },
+        {
+          "name": "CustomerCategoryName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Retailer",
+          "max_val": "Retailer"
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2014-01-01 16:00:00.0000000",
+          "max_val": "2014-01-01 16:00:00.0000000"
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2014-01-01 16:15:00.0000000",
+          "max_val": "2014-01-01 16:15:00.0000000"
+        }
+      ]
+    },
+    {
+      "schema": "Sales",
+      "name": "Customers",
+      "row_count": 663,
+      "columns": [
+        {
+          "name": "CustomerID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1061"
+        },
+        {
+          "name": "CustomerName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Aakriti Byrraju",
+          "max_val": "Yves Belisle"
+        },
+        {
+          "name": "BillToCustomerID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1061"
+        },
+        {
+          "name": "CustomerCategoryID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "3",
+          "max_val": "7"
+        },
+        {
+          "name": "BuyingGroupID",
+          "sql_type": "int",
+          "null_count": 261,
+          "min_val": "1",
+          "max_val": "2"
+        },
+        {
+          "name": "PrimaryContactPersonID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1001",
+          "max_val": "3261"
+        },
+        {
+          "name": "AlternateContactPersonID",
+          "sql_type": "int",
+          "null_count": 261,
+          "min_val": "1002",
+          "max_val": "2402"
+        },
+        {
+          "name": "DeliveryMethodID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "3",
+          "max_val": "3"
+        },
+        {
+          "name": "DeliveryCityID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "15",
+          "max_val": "38184"
+        },
+        {
+          "name": "PostalCityID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "15",
+          "max_val": "38184"
+        },
+        {
+          "name": "CreditLimit",
+          "sql_type": "decimal",
+          "null_count": 402,
+          "min_val": "1100.00",
+          "max_val": "4630.50"
+        },
+        {
+          "name": "AccountOpenedDate",
+          "sql_type": "date",
+          "null_count": 0,
+          "min_val": "2013-01-01",
+          "max_val": "2016-05-07"
+        },
+        {
+          "name": "StandardDiscountPercentage",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.000",
+          "max_val": "0.000"
+        },
+        {
+          "name": "IsStatementSent",
+          "sql_type": "bit",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "0"
+        },
+        {
+          "name": "IsOnCreditHold",
+          "sql_type": "bit",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "0"
+        },
+        {
+          "name": "PaymentDays",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "7",
+          "max_val": "7"
+        },
+        {
+          "name": "PhoneNumber",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "(201) 555-0100",
+          "max_val": "(907) 555-0100"
+        },
+        {
+          "name": "FaxNumber",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "(201) 555-0101",
+          "max_val": "(907) 555-0101"
+        },
+        {
+          "name": "DeliveryRun",
+          "sql_type": "nvarchar",
+          "null_count": 61,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "RunPosition",
+          "sql_type": "nvarchar",
+          "null_count": 61,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "WebsiteURL",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "http://www.microsoft.com/",
+          "max_val": "http://www.wingtiptoys.com/Yaak"
+        },
+        {
+          "name": "DeliveryAddressLine1",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Shop 10",
+          "max_val": "Unit 95"
+        },
+        {
+          "name": "DeliveryAddressLine2",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "1000 Sykorova Boulevard",
+          "max_val": "999 Kasesalu Road"
+        },
+        {
+          "name": "DeliveryPostalCode",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "90002",
+          "max_val": "90800"
+        },
+        {
+          "name": "DeliveryLocation",
+          "sql_type": "geography",
+          "null_count": 0,
+          "min_val": "POINT (-100.2862511 38.0594637)",
+          "max_val": "POINT (-99.9866879885 36.4970385006)"
+        },
+        {
+          "name": "PostalAddressLine1",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "PO Box 101",
+          "max_val": "PO Box 9990"
+        },
+        {
+          "name": "PostalAddressLine2",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Abbasiville",
+          "max_val": "senturkville"
+        },
+        {
+          "name": "PostalPostalCode",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "90002",
+          "max_val": "90800"
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "20"
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-01-01 00:00:00.0000000",
+          "max_val": "2016-05-07 00:00:00.0000000"
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "9999-12-31 23:59:59.9999999",
+          "max_val": "9999-12-31 23:59:59.9999999"
+        }
+      ]
+    },
+    {
+      "schema": "Sales",
+      "name": "Customers_Archive",
+      "row_count": 51,
+      "columns": [
+        {
+          "name": "CustomerID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "802",
+          "max_val": "1046"
+        },
+        {
+          "name": "CustomerName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Abel Tatarescu",
+          "max_val": "Yves Belisle"
+        },
+        {
+          "name": "BillToCustomerID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "802",
+          "max_val": "1046"
+        },
+        {
+          "name": "CustomerCategoryID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "3",
+          "max_val": "7"
+        },
+        {
+          "name": "BuyingGroupID",
+          "sql_type": "int",
+          "null_count": 51,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "PrimaryContactPersonID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "3002",
+          "max_val": "3246"
+        },
+        {
+          "name": "AlternateContactPersonID",
+          "sql_type": "int",
+          "null_count": 51,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "DeliveryMethodID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "3",
+          "max_val": "3"
+        },
+        {
+          "name": "DeliveryCityID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "372",
+          "max_val": "37884"
+        },
+        {
+          "name": "PostalCityID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "372",
+          "max_val": "37884"
+        },
+        {
+          "name": "CreditLimit",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "1100.00",
+          "max_val": "4410.00"
+        },
+        {
+          "name": "AccountOpenedDate",
+          "sql_type": "date",
+          "null_count": 0,
+          "min_val": "2013-01-01",
+          "max_val": "2015-06-12"
+        },
+        {
+          "name": "StandardDiscountPercentage",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.000",
+          "max_val": "0.000"
+        },
+        {
+          "name": "IsStatementSent",
+          "sql_type": "bit",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "0"
+        },
+        {
+          "name": "IsOnCreditHold",
+          "sql_type": "bit",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "0"
+        },
+        {
+          "name": "PaymentDays",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "7",
+          "max_val": "7"
+        },
+        {
+          "name": "PhoneNumber",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "(201) 555-0100",
+          "max_val": "(907) 555-0100"
+        },
+        {
+          "name": "FaxNumber",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "(201) 555-0101",
+          "max_val": "(907) 555-0101"
+        },
+        {
+          "name": "DeliveryRun",
+          "sql_type": "nvarchar",
+          "null_count": 7,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "RunPosition",
+          "sql_type": "nvarchar",
+          "null_count": 7,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "WebsiteURL",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "http://www.microsoft.com/",
+          "max_val": "http://www.microsoft.com/YvesBelisle/"
+        },
+        {
+          "name": "DeliveryAddressLine1",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Shop 10",
+          "max_val": "Unit 8"
+        },
+        {
+          "name": "DeliveryAddressLine2",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "1077 Gunes Boulevard",
+          "max_val": "974 Mazzanti Avenue"
+        },
+        {
+          "name": "DeliveryPostalCode",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "90005",
+          "max_val": "90777"
+        },
+        {
+          "name": "DeliveryLocation",
+          "sql_type": "geography",
+          "null_count": 0,
+          "min_val": "POINT (-102.365715 43.1405442)",
+          "max_val": "POINT (-98.9480445885 36.1520431006)"
+        },
+        {
+          "name": "PostalAddressLine1",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "PO Box 1035",
+          "max_val": "PO Box 9571"
+        },
+        {
+          "name": "PostalAddressLine2",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Alexandrovaville",
+          "max_val": "Zujovicville"
+        },
+        {
+          "name": "PostalPostalCode",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "90005",
+          "max_val": "90777"
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "20"
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-01-01 00:00:00.0000000",
+          "max_val": "2015-06-12 00:00:00.0000000"
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-07-01 16:00:00.0000000",
+          "max_val": "2015-07-01 16:00:00.0000000"
+        }
+      ]
+    },
+    {
+      "schema": "Sales",
+      "name": "CustomerTransactions",
+      "row_count": 97147,
+      "columns": [
+        {
+          "name": "CustomerTransactionID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "336252"
+        },
+        {
+          "name": "CustomerID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1061"
+        },
+        {
+          "name": "TransactionTypeID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3"
+        },
+        {
+          "name": "InvoiceID",
+          "sql_type": "int",
+          "null_count": 26637,
+          "min_val": "1",
+          "max_val": "70510"
+        },
+        {
+          "name": "PaymentMethodID",
+          "sql_type": "int",
+          "null_count": 70510,
+          "min_val": "4",
+          "max_val": "4"
+        },
+        {
+          "name": "TransactionDate",
+          "sql_type": "date",
+          "null_count": 0,
+          "min_val": "2013-01-01",
+          "max_val": "2016-05-31"
+        },
+        {
+          "name": "AmountExcludingTax",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.00",
+          "max_val": "32026.00"
+        },
+        {
+          "name": "TaxAmount",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.00",
+          "max_val": "4803.90"
+        },
+        {
+          "name": "TransactionAmount",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "-169387.42",
+          "max_val": "36829.90"
+        },
+        {
+          "name": "OutstandingBalance",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.00",
+          "max_val": "28280.80"
+        },
+        {
+          "name": "FinalizationDate",
+          "sql_type": "date",
+          "null_count": 84,
+          "min_val": "2013-01-02",
+          "max_val": "2016-05-31"
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "20"
+        },
+        {
+          "name": "LastEditedWhen",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-01-02 11:30:00.0000000",
+          "max_val": "2016-05-31 12:00:00.0000000"
+        }
+      ]
+    },
+    {
+      "schema": "Sales",
+      "name": "InvoiceLines",
+      "row_count": 228265,
+      "columns": [
+        {
+          "name": "InvoiceLineID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "228265"
+        },
+        {
+          "name": "InvoiceID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "70510"
+        },
+        {
+          "name": "StockItemID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "227"
+        },
+        {
+          "name": "Description",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "\"The Gu\" red shirt XML tag t-shirt (Black) 3XL",
+          "max_val": "White chocolate snow balls 250g"
+        },
+        {
+          "name": "PackageTypeID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "10"
+        },
+        {
+          "name": "Quantity",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "360"
+        },
+        {
+          "name": "UnitPrice",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.66",
+          "max_val": "1899.00"
+        },
+        {
+          "name": "TaxRate",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "10.000",
+          "max_val": "15.000"
+        },
+        {
+          "name": "TaxAmount",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.38",
+          "max_val": "2848.50"
+        },
+        {
+          "name": "LineProfit",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "-645.00",
+          "max_val": "9200.00"
+        },
+        {
+          "name": "ExtendedPrice",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "2.88",
+          "max_val": "21838.50"
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "20"
+        },
+        {
+          "name": "LastEditedWhen",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-01-01 12:00:00.0000000",
+          "max_val": "2016-05-31 12:00:00.0000000"
+        }
+      ]
+    },
+    {
+      "schema": "Sales",
+      "name": "Invoices",
+      "row_count": 70510,
+      "columns": [
+        {
+          "name": "InvoiceID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "70510"
+        },
+        {
+          "name": "CustomerID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1061"
+        },
+        {
+          "name": "BillToCustomerID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1061"
+        },
+        {
+          "name": "OrderID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "73586"
+        },
+        {
+          "name": "DeliveryMethodID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "3",
+          "max_val": "3"
+        },
+        {
+          "name": "ContactPersonID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1001",
+          "max_val": "3261"
+        },
+        {
+          "name": "AccountsPersonID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1001",
+          "max_val": "3261"
+        },
+        {
+          "name": "SalespersonPersonID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "20"
+        },
+        {
+          "name": "PackedByPersonID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "20"
+        },
+        {
+          "name": "InvoiceDate",
+          "sql_type": "date",
+          "null_count": 0,
+          "min_val": "2013-01-01",
+          "max_val": "2016-05-31"
+        },
+        {
+          "name": "CustomerPurchaseOrderNumber",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "10001",
+          "max_val": "20000"
+        },
+        {
+          "name": "IsCreditNote",
+          "sql_type": "bit",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "0"
+        },
+        {
+          "name": "CreditNoteReason",
+          "sql_type": "nvarchar",
+          "null_count": 70510,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "Comments",
+          "sql_type": "nvarchar",
+          "null_count": 70510,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "DeliveryInstructions",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Shop 10, 1235 Lana Lane",
+          "max_val": "Unit 95, 882 Bhuiyan Crescent"
+        },
+        {
+          "name": "InternalComments",
+          "sql_type": "nvarchar",
+          "null_count": 70510,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "TotalDryItems",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "5"
+        },
+        {
+          "name": "TotalChillerItems",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "3"
+        },
+        {
+          "name": "DeliveryRun",
+          "sql_type": "nvarchar",
+          "null_count": 3858,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "RunPosition",
+          "sql_type": "nvarchar",
+          "null_count": 3858,
+          "min_val": "",
+          "max_val": ""
+        },
+        {
+          "name": "ReturnedDeliveryData",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "{\"Events\": [{ \"Event\":\"Ready for collection\",\"EventTime\":\"2013-01-01T12:00:00\",\"ConNote\":\"EAN-125-1051\"},{ \"Event\":\"DeliveryAttempt\",\"EventTime\":\"2013-01-02T07:05:00\",\"ConNote\":\"EAN-125-1051\",\"DriverI",
+          "max_val": "{\"Events\": [{ \"Event\":\"Ready for collection\",\"EventTime\":\"2016-05-31T12:00:00\",\"ConNote\":\"EAN-125-71560\"}]}"
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "20"
+        },
+        {
+          "name": "LastEditedWhen",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-01-02 07:00:00.0000000",
+          "max_val": "2016-05-31 12:00:00.0000000"
+        }
+      ]
+    },
+    {
+      "schema": "Sales",
+      "name": "OrderLines",
+      "row_count": 231412,
+      "columns": [
+        {
+          "name": "OrderLineID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "231412"
+        },
+        {
+          "name": "OrderID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "73595"
+        },
+        {
+          "name": "StockItemID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "227"
+        },
+        {
+          "name": "Description",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "\"The Gu\" red shirt XML tag t-shirt (Black) 3XL",
+          "max_val": "White chocolate snow balls 250g"
+        },
+        {
+          "name": "PackageTypeID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "10"
+        },
+        {
+          "name": "Quantity",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "360"
+        },
+        {
+          "name": "UnitPrice",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.66",
+          "max_val": "1899.00"
+        },
+        {
+          "name": "TaxRate",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "10.000",
+          "max_val": "15.000"
+        },
+        {
+          "name": "PickedQuantity",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "360"
+        },
+        {
+          "name": "PickingCompletedWhen",
+          "sql_type": "datetime2",
+          "null_count": 3147,
+          "min_val": "2013-01-01 11:00:00.0000000",
+          "max_val": "2016-05-31 11:00:00.0000000"
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "20"
+        },
+        {
+          "name": "LastEditedWhen",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-01-01 11:00:00.0000000",
+          "max_val": "2016-05-31 12:00:00.0000000"
+        }
+      ]
+    },
+    {
+      "schema": "Sales",
+      "name": "Orders",
+      "row_count": 73595,
+      "columns": [
+        {
+          "name": "OrderID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "73595"
+        },
+        {
+          "name": "CustomerID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1061"
+        },
+        {
+          "name": "SalespersonPersonID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "20"
+        },
+        {
+          "name": "PickedByPersonID",
+          "sql_type": "int",
+          "null_count": 10623,
+          "min_val": "2",
+          "max_val": "20"
+        },
+        {
+          "name": "ContactPersonID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1001",
+          "max_val": "3261"
+        },
+        {
+          "name": "BackorderOrderID",
+          "sql_type": "int",
+          "null_count": 66057,
+          "min_val": "45",
+          "max_val": "73595"
+        },
+        {
+          "name": "OrderDate",
+          "sql_type": "date",
+          "null_count": 0,
+          "min_val": "2013-01-01",
+          "max_val": "2016-05-31"
+        },
+        {
+          "name": "ExpectedDeliveryDate",
+          "sql_type": "date",
+          "null_count": 0,
+          "min_val": "2013-01-02",
+          "max_val": "2016-06-01"
+        },
+        {
+          "name": "CustomerPurchaseOrderNumber",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "10001",
+          "max_val": "20000"
+        },
+        {
+          "name": "IsUndersupplyBackordered",
+          "sql_type": "bit",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "Comments",
+          "sql_type": "nvarchar",
+          "null_count": 73595,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "DeliveryInstructions",
+          "sql_type": "nvarchar",
+          "null_count": 73595,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "InternalComments",
+          "sql_type": "nvarchar",
+          "null_count": 73595,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "PickingCompletedWhen",
+          "sql_type": "datetime2",
+          "null_count": 3085,
+          "min_val": "2013-01-01 11:00:00.0000000",
+          "max_val": "2016-05-31 12:00:00.0000000"
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "20"
+        },
+        {
+          "name": "LastEditedWhen",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-01-01 11:00:00.0000000",
+          "max_val": "2016-05-31 12:00:00.0000000"
+        }
+      ]
+    },
+    {
+      "schema": "Sales",
+      "name": "SpecialDeals",
+      "row_count": 2,
+      "columns": [
+        {
+          "name": "SpecialDealID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "2"
+        },
+        {
+          "name": "StockItemID",
+          "sql_type": "int",
+          "null_count": 2,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "CustomerID",
+          "sql_type": "int",
+          "null_count": 2,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "BuyingGroupID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "2"
+        },
+        {
+          "name": "CustomerCategoryID",
+          "sql_type": "int",
+          "null_count": 2,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "StockGroupID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "7",
+          "max_val": "7"
+        },
+        {
+          "name": "DealDescription",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "10% 1st qtr USB Wingtip",
+          "max_val": "15% 2nd qtr USB Tailspin"
+        },
+        {
+          "name": "StartDate",
+          "sql_type": "date",
+          "null_count": 0,
+          "min_val": "2016-01-01",
+          "max_val": "2016-04-01"
+        },
+        {
+          "name": "EndDate",
+          "sql_type": "date",
+          "null_count": 0,
+          "min_val": "2016-03-31",
+          "max_val": "2016-06-30"
+        },
+        {
+          "name": "DiscountAmount",
+          "sql_type": "decimal",
+          "null_count": 2,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "DiscountPercentage",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "10.000",
+          "max_val": "15.000"
+        },
+        {
+          "name": "UnitPrice",
+          "sql_type": "decimal",
+          "null_count": 2,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "2"
+        },
+        {
+          "name": "LastEditedWhen",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2015-12-31 16:00:00.0000000",
+          "max_val": "2015-12-31 16:00:00.0000000"
+        }
+      ]
+    },
+    {
+      "schema": "Warehouse",
+      "name": "ColdRoomTemperatures",
+      "row_count": 4,
+      "columns": [
+        {
+          "name": "ColdRoomTemperatureID",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "3654737",
+          "max_val": "3654740"
+        },
+        {
+          "name": "ColdRoomSensorNumber",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "4"
+        },
+        {
+          "name": "RecordedWhen",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2016-05-31 23:59:24.0000000",
+          "max_val": "2016-05-31 23:59:24.0000000"
+        },
+        {
+          "name": "Temperature",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "3.00",
+          "max_val": "4.70"
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2016-05-31 23:59:24.0000000",
+          "max_val": "2016-05-31 23:59:24.0000000"
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "9999-12-31 23:59:59.9999999",
+          "max_val": "9999-12-31 23:59:59.9999999"
+        }
+      ]
+    },
+    {
+      "schema": "Warehouse",
+      "name": "ColdRoomTemperatures_Archive",
+      "row_count": 3654736,
+      "columns": [
+        {
+          "name": "ColdRoomTemperatureID",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3654736"
+        },
+        {
+          "name": "ColdRoomSensorNumber",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "4"
+        },
+        {
+          "name": "RecordedWhen",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2015-12-20 00:00:00.0000000",
+          "max_val": "2016-05-31 23:59:00.0000000"
+        },
+        {
+          "name": "Temperature",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "3.00",
+          "max_val": "5.00"
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2015-12-20 00:00:00.0000000",
+          "max_val": "2016-05-31 23:59:00.0000000"
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2015-12-20 00:00:27.0000000",
+          "max_val": "2016-05-31 23:59:24.0000000"
+        }
+      ]
+    },
+    {
+      "schema": "Warehouse",
+      "name": "Colors",
+      "row_count": 36,
+      "columns": [
+        {
+          "name": "ColorID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "36"
+        },
+        {
+          "name": "ColorName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Azure",
+          "max_val": "Yellow"
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "9"
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-01-01 00:00:00.0000000",
+          "max_val": "2016-01-01 16:00:00.0000000"
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "9999-12-31 23:59:59.9999999",
+          "max_val": "9999-12-31 23:59:59.9999999"
+        }
+      ]
+    },
+    {
+      "schema": "Warehouse",
+      "name": "Colors_Archive",
+      "row_count": 1,
+      "columns": [
+        {
+          "name": "ColorID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "12",
+          "max_val": "12"
+        },
+        {
+          "name": "ColorName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Gray",
+          "max_val": "Gray"
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-01-01 00:00:00.0000000",
+          "max_val": "2013-01-01 00:00:00.0000000"
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2016-01-01 16:00:00.0000000",
+          "max_val": "2016-01-01 16:00:00.0000000"
+        }
+      ]
+    },
+    {
+      "schema": "Warehouse",
+      "name": "PackageTypes",
+      "row_count": 14,
+      "columns": [
+        {
+          "name": "PackageTypeID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "14"
+        },
+        {
+          "name": "PackageTypeName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Bag",
+          "max_val": "Tube"
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-01-01 00:00:00.0000000",
+          "max_val": "2013-01-01 00:00:00.0000000"
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "9999-12-31 23:59:59.9999999",
+          "max_val": "9999-12-31 23:59:59.9999999"
+        }
+      ]
+    },
+    {
+      "schema": "Warehouse",
+      "name": "PackageTypes_Archive",
+      "row_count": 0,
+      "columns": [
+        {
+          "name": "PackageTypeID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "PackageTypeName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        }
+      ]
+    },
+    {
+      "schema": "Warehouse",
+      "name": "StockGroups",
+      "row_count": 10,
+      "columns": [
+        {
+          "name": "StockGroupID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "10"
+        },
+        {
+          "name": "StockGroupName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Airline Novelties",
+          "max_val": "USB Novelties"
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "9"
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-01-01 00:00:00.0000000",
+          "max_val": "2016-01-01 16:00:00.0000000"
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "9999-12-31 23:59:59.9999999",
+          "max_val": "9999-12-31 23:59:59.9999999"
+        }
+      ]
+    },
+    {
+      "schema": "Warehouse",
+      "name": "StockGroups_Archive",
+      "row_count": 1,
+      "columns": [
+        {
+          "name": "StockGroupID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "8",
+          "max_val": "8"
+        },
+        {
+          "name": "StockGroupName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Footwear",
+          "max_val": "Footwear"
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-01-01 00:00:00.0000000",
+          "max_val": "2013-01-01 00:00:00.0000000"
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2016-01-01 16:00:00.0000000",
+          "max_val": "2016-01-01 16:00:00.0000000"
+        }
+      ]
+    },
+    {
+      "schema": "Warehouse",
+      "name": "StockItemHoldings",
+      "row_count": 227,
+      "columns": [
+        {
+          "name": "StockItemID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "227"
+        },
+        {
+          "name": "QuantityOnHand",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "3",
+          "max_val": "1034169"
+        },
+        {
+          "name": "BinLocation",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "CH-1",
+          "max_val": "L-3"
+        },
+        {
+          "name": "LastStocktakeQuantity",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1009444"
+        },
+        {
+          "name": "LastCostPrice",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.36",
+          "max_val": "1140.00"
+        },
+        {
+          "name": "ReorderLevel",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "240"
+        },
+        {
+          "name": "TargetStockLevel",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "500"
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "3",
+          "max_val": "16"
+        },
+        {
+          "name": "LastEditedWhen",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2016-05-31 07:00:00.0000000",
+          "max_val": "2016-05-31 12:00:00.0000000"
+        }
+      ]
+    },
+    {
+      "schema": "Warehouse",
+      "name": "StockItems",
+      "row_count": 227,
+      "columns": [
+        {
+          "name": "StockItemID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "227"
+        },
+        {
+          "name": "StockItemName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "\"The Gu\" red shirt XML tag t-shirt (Black) 3XL",
+          "max_val": "White chocolate snow balls 250g"
+        },
+        {
+          "name": "SupplierID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "12"
+        },
+        {
+          "name": "ColorID",
+          "sql_type": "int",
+          "null_count": 99,
+          "min_val": "3",
+          "max_val": "36"
+        },
+        {
+          "name": "UnitPackageID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "10"
+        },
+        {
+          "name": "OuterPackageID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "6",
+          "max_val": "9"
+        },
+        {
+          "name": "Brand",
+          "sql_type": "nvarchar",
+          "null_count": 209,
+          "min_val": "Northwind",
+          "max_val": "Northwind"
+        },
+        {
+          "name": "Size",
+          "sql_type": "nvarchar",
+          "null_count": 64,
+          "min_val": "1.5m",
+          "max_val": "XXS"
+        },
+        {
+          "name": "LeadTimeDays",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "20"
+        },
+        {
+          "name": "QuantityPerOuter",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "36"
+        },
+        {
+          "name": "IsChillerStock",
+          "sql_type": "bit",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1"
+        },
+        {
+          "name": "Barcode",
+          "sql_type": "nvarchar",
+          "null_count": 219,
+          "min_val": "8302039293647",
+          "max_val": "8792838293987"
+        },
+        {
+          "name": "TaxRate",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "10.000",
+          "max_val": "15.000"
+        },
+        {
+          "name": "UnitPrice",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.66",
+          "max_val": "1899.00"
+        },
+        {
+          "name": "RecommendedRetailPrice",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.99",
+          "max_val": "2839.01"
+        },
+        {
+          "name": "TypicalWeightPerUnit",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.050",
+          "max_val": "21.000"
+        },
+        {
+          "name": "MarketingComments",
+          "sql_type": "nvarchar",
+          "null_count": 199,
+          "min_val": "Complete with 12 projectiles",
+          "max_val": "Watch your friends faces when they eat these"
+        },
+        {
+          "name": "InternalComments",
+          "sql_type": "nvarchar",
+          "null_count": 227,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "Photo",
+          "sql_type": "varbinary",
+          "null_count": 227,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "CustomFields",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "{ \"CountryOfManufacture\": \"China\", \"Tags\": [\"Comedy\"] }",
+          "max_val": "{ \"CountryOfManufacture\": \"USA\", \"ShelfLife\": \"7 days\", \"Tags\": [] }"
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2016-05-31 23:00:00.0000000",
+          "max_val": "2016-05-31 23:12:00.0000000"
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "9999-12-31 23:59:59.9999999",
+          "max_val": "9999-12-31 23:59:59.9999999"
+        }
+      ]
+    },
+    {
+      "schema": "Warehouse",
+      "name": "StockItems_Archive",
+      "row_count": 444,
+      "columns": [
+        {
+          "name": "StockItemID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "227"
+        },
+        {
+          "name": "StockItemName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "\"The Gu\" red shirt XML tag t-shirt (Black) 3XL",
+          "max_val": "White chocolate snow balls 250g"
+        },
+        {
+          "name": "SupplierID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "12"
+        },
+        {
+          "name": "ColorID",
+          "sql_type": "int",
+          "null_count": 212,
+          "min_val": "3",
+          "max_val": "36"
+        },
+        {
+          "name": "UnitPackageID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "10"
+        },
+        {
+          "name": "OuterPackageID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "6",
+          "max_val": "9"
+        },
+        {
+          "name": "Brand",
+          "sql_type": "nvarchar",
+          "null_count": 395,
+          "min_val": "Northwind",
+          "max_val": "Northwind"
+        },
+        {
+          "name": "Size",
+          "sql_type": "nvarchar",
+          "null_count": 139,
+          "min_val": "1.5m",
+          "max_val": "XXS"
+        },
+        {
+          "name": "LeadTimeDays",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "20"
+        },
+        {
+          "name": "QuantityPerOuter",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "36"
+        },
+        {
+          "name": "IsChillerStock",
+          "sql_type": "bit",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1"
+        },
+        {
+          "name": "Barcode",
+          "sql_type": "nvarchar",
+          "null_count": 436,
+          "min_val": "8302039293647",
+          "max_val": "8792838293987"
+        },
+        {
+          "name": "TaxRate",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "10.000",
+          "max_val": "15.000"
+        },
+        {
+          "name": "UnitPrice",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.66",
+          "max_val": "1899.00"
+        },
+        {
+          "name": "RecommendedRetailPrice",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.99",
+          "max_val": "2839.01"
+        },
+        {
+          "name": "TypicalWeightPerUnit",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.050",
+          "max_val": "21.000"
+        },
+        {
+          "name": "MarketingComments",
+          "sql_type": "nvarchar",
+          "null_count": 387,
+          "min_val": "Complete with 12 projectiles",
+          "max_val": "Watch your friends faces when they eat these"
+        },
+        {
+          "name": "InternalComments",
+          "sql_type": "nvarchar",
+          "null_count": 444,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "Photo",
+          "sql_type": "varbinary",
+          "null_count": 444,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "CustomFields",
+          "sql_type": "nvarchar",
+          "null_count": 227,
+          "min_val": "{ \"CountryOfManufacture\": \"China\", \"Tags\": [\"Comfortable\"], \"Range\": \"Adult\" }",
+          "max_val": "{ \"CountryOfManufacture\": \"Japan\", \"Tags\": [] }"
+        },
+        {
+          "name": "Tags",
+          "sql_type": "nvarchar",
+          "null_count": 227,
+          "min_val": "[\"16GB\"]",
+          "max_val": "[]"
+        },
+        {
+          "name": "SearchDetails",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "\"The Gu\" red shirt XML tag t-shirt (Black) 3XL",
+          "max_val": "White chocolate snow balls 250g Perfect for your child's party"
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-01-01 00:00:00.0000000",
+          "max_val": "2016-05-31 23:09:00.0000000"
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2016-05-31 23:00:00.0000000",
+          "max_val": "2016-05-31 23:12:00.0000000"
+        }
+      ]
+    },
+    {
+      "schema": "Warehouse",
+      "name": "StockItemStockGroups",
+      "row_count": 442,
+      "columns": [
+        {
+          "name": "StockItemStockGroupID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "442"
+        },
+        {
+          "name": "StockItemID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "227"
+        },
+        {
+          "name": "StockGroupID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "10"
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "LastEditedWhen",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-01-01 00:00:00.0000000",
+          "max_val": "2016-01-05 00:00:00.0000000"
+        }
+      ]
+    },
+    {
+      "schema": "Warehouse",
+      "name": "StockItemTransactions",
+      "row_count": 236667,
+      "columns": [
+        {
+          "name": "StockItemTransactionID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "336251"
+        },
+        {
+          "name": "StockItemID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "227"
+        },
+        {
+          "name": "TransactionTypeID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "10",
+          "max_val": "12"
+        },
+        {
+          "name": "CustomerID",
+          "sql_type": "int",
+          "null_count": 8402,
+          "min_val": "1",
+          "max_val": "1061"
+        },
+        {
+          "name": "InvoiceID",
+          "sql_type": "int",
+          "null_count": 8402,
+          "min_val": "1",
+          "max_val": "70510"
+        },
+        {
+          "name": "SupplierID",
+          "sql_type": "int",
+          "null_count": 228309,
+          "min_val": "1",
+          "max_val": "12"
+        },
+        {
+          "name": "PurchaseOrderID",
+          "sql_type": "int",
+          "null_count": 228309,
+          "min_val": "1",
+          "max_val": "2072"
+        },
+        {
+          "name": "TransactionOccurredWhen",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-01-01 12:00:00.0000000",
+          "max_val": "2016-05-31 12:00:00.0000000"
+        },
+        {
+          "name": "Quantity",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "-360.000",
+          "max_val": "67368.000"
+        },
+        {
+          "name": "LastEditedBy",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "20"
+        },
+        {
+          "name": "LastEditedWhen",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2013-01-01 12:00:00.0000000",
+          "max_val": "2016-05-31 12:00:00.0000000"
+        }
+      ]
+    },
+    {
+      "schema": "Warehouse",
+      "name": "VehicleTemperatures",
+      "row_count": 65998,
+      "columns": [
+        {
+          "name": "VehicleTemperatureID",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "65998"
+        },
+        {
+          "name": "VehicleRegistration",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "WWI-321-A",
+          "max_val": "WWI-321-A"
+        },
+        {
+          "name": "ChillerSensorNumber",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "2"
+        },
+        {
+          "name": "RecordedWhen",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2016-01-01 07:00:00.0000000",
+          "max_val": "2016-05-31 15:57:19.0000000"
+        },
+        {
+          "name": "Temperature",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "3.00",
+          "max_val": "5.00"
+        },
+        {
+          "name": "FullSensorData",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "{\"Recordings\": [{\"type\":\"Feature\", \"geometry\": {\"type\":\"Point\", \"coordinates\":[-100.0006798,51.3814530] }, \"properties\":{\"rego\":\"WWI-321-A\",\"sensor\":\"2,\"when\":\"2016-04-30T08:51:10\",\"temp\":4.82}} ]",
+          "max_val": "{\"Recordings\": [{\"type\":\"Feature\", \"geometry\": {\"type\":\"Point\", \"coordinates\":[-99.9987028,57.0990838] }, \"properties\":{\"rego\":\"WWI-321-A\",\"sensor\":\"2,\"when\":\"2016-01-18T09:10:31\",\"temp\":4.33}} ]"
+        },
+        {
+          "name": "IsCompressed",
+          "sql_type": "bit",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "0"
+        },
+        {
+          "name": "CompressedSensorData",
+          "sql_type": "varbinary",
+          "null_count": 65998,
+          "min_val": null,
+          "max_val": null
+        }
+      ]
+    }
+  ]
+}

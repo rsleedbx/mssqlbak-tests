@@ -1,0 +1,2535 @@
+{
+  "bak": "ContosoRetailDW.bak",
+  "captured_at": "2026-06-27T22:03:33.642622+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.DimAccount",
+      "row_count": 24,
+      "key_columns": [
+        "AccountKey"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "AccountKey",
+          "sql_type": "int",
+          "digest": "sha256:58b7479a999f7dc7776192169a6091a6128f4af190939d6a6742d272b93979bb",
+          "null_count": 0
+        },
+        {
+          "name": "ParentAccountKey",
+          "sql_type": "int",
+          "digest": "sha256:4682b4a236eeaf026fffd7a6aa9111bc3ca0851eb483ab32c1828c62bc581204",
+          "null_count": 1
+        },
+        {
+          "name": "AccountLabel",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:e98fbc5f40381d20b71d4a519d34256de2c96f2b4d8e66070da4a723feaddc78",
+          "null_count": 0
+        },
+        {
+          "name": "AccountName",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:fb352c7b3c0293647c5a8c50e16e732bcc5c016e95d73e44330e7cc4e007dc1c",
+          "null_count": 0
+        },
+        {
+          "name": "AccountDescription",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:baa513b3df5e22ff36d86d5dc45cf1c35f292c6f9cc0a36b5d3e9ae1d40b7383",
+          "null_count": 0
+        },
+        {
+          "name": "AccountType",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:6b4ac619f2af8c6ddc92e68c64c87c31a00b3d1d750f350533f0751216f2d605",
+          "null_count": 2
+        },
+        {
+          "name": "Operator",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:7abc8c28cf9062d24f7bc50ef482595e1b1c5083a42eeaa1f3bda90e686d633f",
+          "null_count": 1
+        },
+        {
+          "name": "CustomMembers",
+          "sql_type": "nvarchar(300)",
+          "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "null_count": 24
+        },
+        {
+          "name": "ValueType",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:6b4ac619f2af8c6ddc92e68c64c87c31a00b3d1d750f350533f0751216f2d605",
+          "null_count": 2
+        },
+        {
+          "name": "CustomMemberOptions",
+          "sql_type": "nvarchar(200)",
+          "digest": "sha256:7abc8c28cf9062d24f7bc50ef482595e1b1c5083a42eeaa1f3bda90e686d633f",
+          "null_count": 1
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "digest": "sha256:c3f3a407c31d99530215cd4b8cbf33afd4649d835a42d903c2720356836e1bd9",
+          "null_count": 0
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "digest": "sha256:ef3a9cdb99345772fe68a6a180794830df16104a1aed8948037d9cc7ac2152ff",
+          "null_count": 0
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "digest": "sha256:ef3a9cdb99345772fe68a6a180794830df16104a1aed8948037d9cc7ac2152ff",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.DimChannel",
+      "row_count": 4,
+      "key_columns": [
+        "ChannelKey"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "ChannelKey",
+          "sql_type": "int",
+          "digest": "sha256:ff4a8c130447f52354261f27135cf2bdb7b593e8c872fda57a934632c2234483",
+          "null_count": 0
+        },
+        {
+          "name": "ChannelLabel",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:d19db0a7d0133c0b7dc562cc266a01124d46a427f091c12ccc7f7d2f84fc69c4",
+          "null_count": 0
+        },
+        {
+          "name": "ChannelName",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:8899c13b2ea62b76f9e93f179514e2322f67ac91ea1c180f71a111cbd7a0ea4c",
+          "null_count": 0
+        },
+        {
+          "name": "ChannelDescription",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:8899c13b2ea62b76f9e93f179514e2322f67ac91ea1c180f71a111cbd7a0ea4c",
+          "null_count": 0
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "digest": "sha256:747d9daccfaff807addb0e4110cf5663eba7197c59355fd1f485379a77a45e3a",
+          "null_count": 0
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "digest": "sha256:5713860d4f35a69be711cc7707f0040798d0bbc15f7e67894569a3b8ce139d51",
+          "null_count": 0
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "digest": "sha256:5713860d4f35a69be711cc7707f0040798d0bbc15f7e67894569a3b8ce139d51",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.DimCurrency",
+      "row_count": 28,
+      "key_columns": [
+        "CurrencyKey"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "CurrencyKey",
+          "sql_type": "int",
+          "digest": "sha256:b58f2108b2b43f5c224d87a838bd4b1322b28429c1734bb1435d12223a59a4f7",
+          "null_count": 0
+        },
+        {
+          "name": "CurrencyLabel",
+          "sql_type": "nvarchar(10)",
+          "digest": "sha256:0f02c56d44aa5d080cb2e32d256794364d614539e7f8c285935fb7880df7874f",
+          "null_count": 0
+        },
+        {
+          "name": "CurrencyName",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:e19049cbb3b65e0fdb2da07d240aa726d576cc1c400258a5979ebbe5a1f00ba9",
+          "null_count": 0
+        },
+        {
+          "name": "CurrencyDescription",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:348b038b53915e266bbd91e994b6d205d81469dc46c557605d2ba5d45d7dfad5",
+          "null_count": 0
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "digest": "sha256:210fc4091fdba954642afbc3426a6e172be32e87074e900ca9fa3226a6f4d726",
+          "null_count": 0
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "digest": "sha256:49064ddbdd142674a23707360346dc3bd127034da3f8daeb342833ad646d6a48",
+          "null_count": 0
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "digest": "sha256:49064ddbdd142674a23707360346dc3bd127034da3f8daeb342833ad646d6a48",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.DimCustomer",
+      "row_count": 18869,
+      "key_columns": [
+        "CustomerKey"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "CustomerKey",
+          "sql_type": "int",
+          "digest": "sha256:2e80b3828b7e6de3e13295514bd0ff5ca7c8cc7e6ece310c6ae0e6240fb05104",
+          "null_count": 0
+        },
+        {
+          "name": "GeographyKey",
+          "sql_type": "int",
+          "digest": "sha256:5937351a1dec35405a3ae8d3529956133ac46298b026bf893bb90d311effc92b",
+          "null_count": 0
+        },
+        {
+          "name": "CustomerLabel",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:394730933b7b6da09e5ba92561acd55f35ed38fb99fc650f593d072c85382f0c",
+          "null_count": 0
+        },
+        {
+          "name": "Title",
+          "sql_type": "nvarchar(8)",
+          "digest": "sha256:56c07edf339641fd994c5481e6ace58a09b591d288da91000dae542af3ac3980",
+          "null_count": 18768
+        },
+        {
+          "name": "FirstName",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:53c501b8a0d267405bc93ab33b75e12842c379e13a13bf0130e5451554b86a4c",
+          "null_count": 385
+        },
+        {
+          "name": "MiddleName",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:ebe220001c5c9411f149c3205fc5667914de4533dd612c7953bf07c8f7eceb0d",
+          "null_count": 8215
+        },
+        {
+          "name": "LastName",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:e2e0833ba37744c54bc7bc62c5afd8c6d9e6fd92f6733e9c1653dfc20c7e5f09",
+          "null_count": 385
+        },
+        {
+          "name": "NameStyle",
+          "sql_type": "bit",
+          "digest": "sha256:d148c6fe844400e5f4a8ae2d17108df2505b89bdf2d71062024c0958587f3b41",
+          "null_count": 0
+        },
+        {
+          "name": "BirthDate",
+          "sql_type": "date",
+          "digest": "sha256:fd809fe8b9ffa4590e1a282893979f4a8199ec808b213eea9222822610c24324",
+          "null_count": 385
+        },
+        {
+          "name": "MaritalStatus",
+          "sql_type": "nchar(1)",
+          "digest": "sha256:d2554df4cd534f34c52ea37772c293dca631448c56171c87cc1e417aaf06e32a",
+          "null_count": 385
+        },
+        {
+          "name": "Suffix",
+          "sql_type": "nvarchar(10)",
+          "digest": "sha256:9ada95f63651e5811674fe14b5bc194cfad9096e7014008dc47132ad3b9e16b2",
+          "null_count": 18866
+        },
+        {
+          "name": "Gender",
+          "sql_type": "nvarchar(1)",
+          "digest": "sha256:10936d8d60904b84c4ecbe31c912c779765b665b7ce31ae7f7f0288dbbeed3fd",
+          "null_count": 385
+        },
+        {
+          "name": "EmailAddress",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:54037a5095ab4e783fd39ae47241de6e0dc3aa9758ed35848334319f2112db86",
+          "null_count": 385
+        },
+        {
+          "name": "YearlyIncome",
+          "sql_type": "money",
+          "digest": "sha256:942a7b14010a954e6ed6bf8424aae0fc47870716a817f1dca007af2eaba86bd8",
+          "null_count": 0
+        },
+        {
+          "name": "TotalChildren",
+          "sql_type": "tinyint",
+          "digest": "sha256:c575496fa405afbb3cc1289f3815fb3ca28056aab1d06a49736846f384f4633f",
+          "null_count": 385
+        },
+        {
+          "name": "NumberChildrenAtHome",
+          "sql_type": "tinyint",
+          "digest": "sha256:9375239c0f0e63d0b1cbc82484010a570dddcfd2cff350e27006aa18afbc6c0d",
+          "null_count": 385
+        },
+        {
+          "name": "Education",
+          "sql_type": "nvarchar(40)",
+          "digest": "sha256:a5af7ce3a800b7e95385bbb5c428c0074fcb6aa80ee427dff50b8ff7936fcf19",
+          "null_count": 385
+        },
+        {
+          "name": "Occupation",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:4691d4772499cdef025fb5ce8fc0de41805b0a66095a8f3284cd7c6bcdf8a808",
+          "null_count": 385
+        },
+        {
+          "name": "HouseOwnerFlag",
+          "sql_type": "nchar(1)",
+          "digest": "sha256:29e2289827389600cf4e48cf2e9c02cc99c4212ed967a489e0f0f991fb7bb6b3",
+          "null_count": 385
+        },
+        {
+          "name": "NumberCarsOwned",
+          "sql_type": "tinyint",
+          "digest": "sha256:a7052f0d096c9f257b64eee66df3a1278604a7c4ee85538cb7e128fcead35d12",
+          "null_count": 385
+        },
+        {
+          "name": "AddressLine1",
+          "sql_type": "nvarchar(120)",
+          "digest": "sha256:41bf064940e2d5f65d30d88be6231f93929741b68c146a8c4834a33e9e922487",
+          "null_count": 385
+        },
+        {
+          "name": "AddressLine2",
+          "sql_type": "nvarchar(120)",
+          "digest": "sha256:ce38366db242b00a1d8dc387c568db20da22a739181117a6fb924e90465da04b",
+          "null_count": 18557
+        },
+        {
+          "name": "Phone",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:181ef6f8aa3002312ca478cdf52262e117415b0b54aaf4e8df82e7031e47a86d",
+          "null_count": 385
+        },
+        {
+          "name": "DateFirstPurchase",
+          "sql_type": "date",
+          "digest": "sha256:4ced9c8f34c7e867173887f0c9842fc0a86eaf27e8b09c82a91f6976efc09929",
+          "null_count": 385
+        },
+        {
+          "name": "CustomerType",
+          "sql_type": "nvarchar(15)",
+          "digest": "sha256:af9975b45ec2891a1eda6cdfcdb306341b4db7003fffd66a8c9df361b05fbe6c",
+          "null_count": 0
+        },
+        {
+          "name": "CompanyName",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:ac58247ae592a60a4d9282f3234b39a7a6256ed4d663b56f2c973adbdce9b3fa",
+          "null_count": 18484
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "digest": "sha256:2e66c5881e3ec7beedf3b391e5d1e6a95a0c865df64b740ce418501261089f72",
+          "null_count": 0
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "digest": "sha256:be78590f6c1c28ada17526524c808ccfd8c1700c7213277a71b8f7f9cbaaf0ed",
+          "null_count": 0
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "digest": "sha256:be78590f6c1c28ada17526524c808ccfd8c1700c7213277a71b8f7f9cbaaf0ed",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.DimDate",
+      "row_count": 2556,
+      "key_columns": [
+        "Datekey"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "Datekey",
+          "sql_type": "datetime",
+          "digest": "sha256:2477c34b6480e310d4e0d8577764f88fc426ea1c56a85aa18b65e6d00e05619c",
+          "null_count": 0
+        },
+        {
+          "name": "FullDateLabel",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:f3de04f5e5640a3ec1debaa63d18d34be029ed1e695decde3cc9e87fc9185778",
+          "null_count": 0
+        },
+        {
+          "name": "DateDescription",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:b1e00c540924cead249b6c6c73131c2fe74db7f72440d5f1eebc8d0782a82779",
+          "null_count": 0
+        },
+        {
+          "name": "CalendarYear",
+          "sql_type": "int",
+          "digest": "sha256:94d654a72ea071fd165ff664f87d7a38416eebe0759f0074b1966b9adc1bb730",
+          "null_count": 0
+        },
+        {
+          "name": "CalendarYearLabel",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:7c562be724f516f8cac44bb74a34f6d27597d354863cf8edd49d11dd2793a99f",
+          "null_count": 0
+        },
+        {
+          "name": "CalendarHalfYear",
+          "sql_type": "int",
+          "digest": "sha256:5252014ebba7861fcb2bbafd4759ab8694721ca8175767c0904b479f9cfba7ad",
+          "null_count": 0
+        },
+        {
+          "name": "CalendarHalfYearLabel",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:348ac128aa200fc765891c3c35fe852ca6d3d4b1e9bdab55b20f283347503f42",
+          "null_count": 0
+        },
+        {
+          "name": "CalendarQuarter",
+          "sql_type": "int",
+          "digest": "sha256:b7fb969b4f94410d874a57db21d0f30c86b8f8b46ccaea2eb34c4fc6ade8ba21",
+          "null_count": 0
+        },
+        {
+          "name": "CalendarQuarterLabel",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:fe878c0f79cd52fb67c59239412b5359eba44338ce21ccfe025e3ced9385d545",
+          "null_count": 0
+        },
+        {
+          "name": "CalendarMonth",
+          "sql_type": "int",
+          "digest": "sha256:b03e8f3fb81a8fd364473b573b9fb6c29574bf52cbf5963b3f2e0f6d21cc6b1c",
+          "null_count": 0
+        },
+        {
+          "name": "CalendarMonthLabel",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:e3cd1ea288f401cce0b0261caeb39d54d22bc0f937239aa557eeff644d989d7c",
+          "null_count": 0
+        },
+        {
+          "name": "CalendarWeek",
+          "sql_type": "int",
+          "digest": "sha256:5ef13964ce529fc086944fc01b09d5e6d25a91ae4e44ebed0d499218b0ef9913",
+          "null_count": 0
+        },
+        {
+          "name": "CalendarWeekLabel",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:adea0f018420d65fb74d8bab0aa35561ea01600602980f10c847ef63d18a0db6",
+          "null_count": 0
+        },
+        {
+          "name": "CalendarDayOfWeek",
+          "sql_type": "int",
+          "digest": "sha256:fdbecfd64fbe64b6ea9af480bbad54a34a3652a52c5c8db092d9a955c69ab580",
+          "null_count": 0
+        },
+        {
+          "name": "CalendarDayOfWeekLabel",
+          "sql_type": "nvarchar(10)",
+          "digest": "sha256:8ea112424915b85c2b886729806560df7ca34753800c06f22301c1bf133f52f5",
+          "null_count": 0
+        },
+        {
+          "name": "FiscalYear",
+          "sql_type": "int",
+          "digest": "sha256:94d654a72ea071fd165ff664f87d7a38416eebe0759f0074b1966b9adc1bb730",
+          "null_count": 0
+        },
+        {
+          "name": "FiscalYearLabel",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:729a07ec099857bbd3366a1ec976a8c39b38be894cd5cc5fe5bbc76cafc3255c",
+          "null_count": 0
+        },
+        {
+          "name": "FiscalHalfYear",
+          "sql_type": "int",
+          "digest": "sha256:5252014ebba7861fcb2bbafd4759ab8694721ca8175767c0904b479f9cfba7ad",
+          "null_count": 0
+        },
+        {
+          "name": "FiscalHalfYearLabel",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:348ac128aa200fc765891c3c35fe852ca6d3d4b1e9bdab55b20f283347503f42",
+          "null_count": 0
+        },
+        {
+          "name": "FiscalQuarter",
+          "sql_type": "int",
+          "digest": "sha256:b7fb969b4f94410d874a57db21d0f30c86b8f8b46ccaea2eb34c4fc6ade8ba21",
+          "null_count": 0
+        },
+        {
+          "name": "FiscalQuarterLabel",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:fe878c0f79cd52fb67c59239412b5359eba44338ce21ccfe025e3ced9385d545",
+          "null_count": 0
+        },
+        {
+          "name": "FiscalMonth",
+          "sql_type": "int",
+          "digest": "sha256:b03e8f3fb81a8fd364473b573b9fb6c29574bf52cbf5963b3f2e0f6d21cc6b1c",
+          "null_count": 0
+        },
+        {
+          "name": "FiscalMonthLabel",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:df63cba8e84c4c1956846c6c746899f01e43bf5a6b3de5fb7bb0aabe7c94b3fc",
+          "null_count": 0
+        },
+        {
+          "name": "IsWorkDay",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:2535e3ba881711cf69862f82d9e2c7954098ab49087505ac7b197d9bf67926ca",
+          "null_count": 0
+        },
+        {
+          "name": "IsHoliday",
+          "sql_type": "int",
+          "digest": "sha256:cf287024017ba465ead1661005d640833e6fbcb0f0189edd29b12a6d7d4a5bc1",
+          "null_count": 0
+        },
+        {
+          "name": "HolidayName",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:3fd4f912443318072409b15a6664bc5ce81bfb0ba1f87ebf4e19938420da84d2",
+          "null_count": 0
+        },
+        {
+          "name": "EuropeSeason",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:cc3aa0ee20d40f6ce406db4c7a6c2d02078b2442cb5bed9ea76ecbb39d53f1f1",
+          "null_count": 0
+        },
+        {
+          "name": "NorthAmericaSeason",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:be37a15cac7cdad1bf3687ecb72215864dc8021871213aef3e8f9a58237bda5c",
+          "null_count": 0
+        },
+        {
+          "name": "AsiaSeason",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:1ecf51a34b53f128e41aa85de84ad9f536b750a1627f8ee1b0a2f82d8040f884",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.DimEmployee",
+      "row_count": 293,
+      "key_columns": [
+        "EmployeeKey"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "EmployeeKey",
+          "sql_type": "int",
+          "digest": "sha256:449879c5c7da1c00b3df6d13446d84eab6b05df9346ae94395841788028c9e77",
+          "null_count": 0
+        },
+        {
+          "name": "ParentEmployeeKey",
+          "sql_type": "int",
+          "digest": "sha256:cf4e9623b73157f73c72fc72bb34ecf10b273cdd7b2bfe076dc4c292dac14b94",
+          "null_count": 1
+        },
+        {
+          "name": "FirstName",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:c3aa488e64271e28f3eeedf784546f82ad1da3e71085331dc298b416e7b34d93",
+          "null_count": 0
+        },
+        {
+          "name": "LastName",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:44c5687a642a5be69898e94f1bd51bb9107891fe69178ed7c69bd05772a14b27",
+          "null_count": 0
+        },
+        {
+          "name": "MiddleName",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:a7ba28662c288af40fa22cc7b274053ca880fbacf628d42877faa8a22e98b1a1",
+          "null_count": 279
+        },
+        {
+          "name": "Title",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:e00ae111c38e1f903701e65dc1c4d9957a325c71dcfdc4a1c8beea067e5b7830",
+          "null_count": 0
+        },
+        {
+          "name": "HireDate",
+          "sql_type": "date",
+          "digest": "sha256:b6d7b9967f6e3bb99d44167a9c695ffa9461a51fed8065a667a40ce51b94c5b2",
+          "null_count": 0
+        },
+        {
+          "name": "BirthDate",
+          "sql_type": "date",
+          "digest": "sha256:b48777056657732b112dd28bb4865e070d2a69f511ae5b2dfafd05b7a5554eed",
+          "null_count": 0
+        },
+        {
+          "name": "EmailAddress",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:4a208ce57c0a64fad454b5a6c05b6933e05a5c382325f6cc39a0dea94b465bec",
+          "null_count": 0
+        },
+        {
+          "name": "Phone",
+          "sql_type": "nvarchar(25)",
+          "digest": "sha256:7464240e84717b89ca88ae5985f505f1ae834b14dadde0d9f2d7759625ceadce",
+          "null_count": 0
+        },
+        {
+          "name": "MaritalStatus",
+          "sql_type": "nchar(1)",
+          "digest": "sha256:37d13849b332dd51e2051ed11a2aa4220bbc251d890cea6ddcec6edf4465c04f",
+          "null_count": 0
+        },
+        {
+          "name": "EmergencyContactName",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:977e117daa330868d0f806d97e9965430032d2d478fd269bb504931fe12429ac",
+          "null_count": 0
+        },
+        {
+          "name": "EmergencyContactPhone",
+          "sql_type": "nvarchar(25)",
+          "digest": "sha256:7464240e84717b89ca88ae5985f505f1ae834b14dadde0d9f2d7759625ceadce",
+          "null_count": 0
+        },
+        {
+          "name": "SalariedFlag",
+          "sql_type": "bit",
+          "digest": "sha256:c6424e0223c33519efb0a2a2b1f390f1cfd5911dc7a853e25e8eacda8abc3529",
+          "null_count": 0
+        },
+        {
+          "name": "Gender",
+          "sql_type": "nchar(1)",
+          "digest": "sha256:9150203ef688686762f85ad35c92b29695336c458b004295577215735c9d14c7",
+          "null_count": 0
+        },
+        {
+          "name": "PayFrequency",
+          "sql_type": "tinyint",
+          "digest": "sha256:7e24ee2de92fe5fa62b2bf00f47837379441e558a6a52734ccfe311d747cdd08",
+          "null_count": 0
+        },
+        {
+          "name": "BaseRate",
+          "sql_type": "money",
+          "digest": "sha256:76bbad5bd692f497e21ef165dd1a7a0159bf508c3457c361f6560d0b638d768e",
+          "null_count": 0
+        },
+        {
+          "name": "VacationHours",
+          "sql_type": "smallint",
+          "digest": "sha256:9ee0eeb6b923e5902387b3e5036b7437908a3c69a1f7e5ae8e36ea8a608662e8",
+          "null_count": 0
+        },
+        {
+          "name": "CurrentFlag",
+          "sql_type": "bit",
+          "digest": "sha256:ade19009999b565bf46c36fbb6f667821807437b6ea0e67d6a2eb66ec507a4be",
+          "null_count": 0
+        },
+        {
+          "name": "SalesPersonFlag",
+          "sql_type": "bit",
+          "digest": "sha256:0ccc76a2290609bc37499ea304440d74529a9a49bc512162287eda7c98471f9c",
+          "null_count": 0
+        },
+        {
+          "name": "DepartmentName",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:116822b953a7b4228cf9521d1fb65869db0dadb03b16242286419eee5b2dc475",
+          "null_count": 0
+        },
+        {
+          "name": "StartDate",
+          "sql_type": "date",
+          "digest": "sha256:b49b1e7e926768c4755796e01738857e23a306c922698d765182e659cf6f4d6b",
+          "null_count": 0
+        },
+        {
+          "name": "EndDate",
+          "sql_type": "date",
+          "digest": "sha256:e0f8242f44d4ef447e46ffe7beff792ed7ff5a32519e5bcaaee3e94abd83ed7a",
+          "null_count": 287
+        },
+        {
+          "name": "Status",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:619f1d8619fd219e7c023614e75511ca8c96e7160cc1c4fd6207273dd55bd0cd",
+          "null_count": 0
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "digest": "sha256:ade19009999b565bf46c36fbb6f667821807437b6ea0e67d6a2eb66ec507a4be",
+          "null_count": 0
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "digest": "sha256:806a0f4614040236be090d9a6d4bedba2777f2f2a6a8bcf9d25b7e35f30eb93c",
+          "null_count": 0
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "digest": "sha256:806a0f4614040236be090d9a6d4bedba2777f2f2a6a8bcf9d25b7e35f30eb93c",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.DimEntity",
+      "row_count": 421,
+      "key_columns": [
+        "EntityKey"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "EntityKey",
+          "sql_type": "int",
+          "digest": "sha256:c292abb08f169a76652df31666f9cd4ff37604cbcb3e5dc2006d37c9aae6e6a7",
+          "null_count": 0
+        },
+        {
+          "name": "EntityLabel",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:ba1f0b6c026c47abf6665abb48e8f780f1263dde2e7271c6654afe61f81dc6c3",
+          "null_count": 0
+        },
+        {
+          "name": "ParentEntityKey",
+          "sql_type": "int",
+          "digest": "sha256:60b3235485320f55f282cbbf86be05c7cce548a1ab2400a44987bc9eefcc2061",
+          "null_count": 3
+        },
+        {
+          "name": "ParentEntityLabel",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:566797ae8371644c5aee4f7e663a68d9c38a10a5353e42f79d4a33a7dc7e3b9a",
+          "null_count": 3
+        },
+        {
+          "name": "EntityName",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:5087cb07b7f567e09cca374a0b720f125878899eab8c387c7d77c6019762d248",
+          "null_count": 0
+        },
+        {
+          "name": "EntityDescription",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:5a991f034a49173ce3ebff2888f8984c03ec388e7b8129b9a07c33fda3acaefc",
+          "null_count": 0
+        },
+        {
+          "name": "EntityType",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:7768ea830a854ad468322cabb001340afe9d5d6cf2bbfb996e0e07f82737f9c8",
+          "null_count": 0
+        },
+        {
+          "name": "StartDate",
+          "sql_type": "datetime",
+          "digest": "sha256:5d29615f3e0dd22e32bd03425342e49d7fcc78a157462defe1adcc0fb50f5c4a",
+          "null_count": 0
+        },
+        {
+          "name": "EndDate",
+          "sql_type": "datetime",
+          "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "null_count": 421
+        },
+        {
+          "name": "Status",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:ec2d0f681dc50d70f1043f83c3fa57cb833aa49587dd2556d3a8b6a7970b7805",
+          "null_count": 0
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "digest": "sha256:5bfc5ff2f03dbbd4f1675ce1a33cb33dd5d3ea0b7053c31d477f9a1429e58b7c",
+          "null_count": 0
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "digest": "sha256:df8d244f3a22a8b05d02b23e287dc7bbce47cd154a7c45e68efead61ed23b2bd",
+          "null_count": 0
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "digest": "sha256:df8d244f3a22a8b05d02b23e287dc7bbce47cd154a7c45e68efead61ed23b2bd",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.DimGeography",
+      "row_count": 674,
+      "key_columns": [
+        "GeographyKey"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "GeographyKey",
+          "sql_type": "int",
+          "digest": "sha256:1809d199cc5a8e771a2172b25181b09f9bca12abc102d2ec56087222367d9df1",
+          "null_count": 0
+        },
+        {
+          "name": "GeographyType",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:2c793b29da1ed9505efc5e1a44133e119169102847a27d566082e52820e94e19",
+          "null_count": 0
+        },
+        {
+          "name": "ContinentName",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:637504c4d02674d3b12acfd23b46309332361e871e196379e3f892643741ccc5",
+          "null_count": 0
+        },
+        {
+          "name": "CityName",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:49b405a1ae61c23c19467971a31bdc7d74e193dbdeb5c24f62684a91ebf09337",
+          "null_count": 157
+        },
+        {
+          "name": "StateProvinceName",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:414332be7bfd1946da4cf334cf2fc174ca686bae2ce7e30c577c856246e2591a",
+          "null_count": 37
+        },
+        {
+          "name": "RegionCountryName",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:f39b5ea1452efe59a1d0a4a0e1fc64cb66e115f2655f45bd52c8487b62d61bd3",
+          "null_count": 3
+        },
+        {
+          "name": "Geometry",
+          "sql_type": "geometry",
+          "digest": "sha256:d246b10470ad80dc49d618f23de88a661378c240246cd9ca47716997235830c1",
+          "null_count": 110
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "digest": "sha256:9ed7b87068926ae7fadeef7d0adbcb76b08be187f519d7b615e87076b2ca553c",
+          "null_count": 0
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "digest": "sha256:cedda18f0913d5feeb3d0030796416ff04c03d0f0395733e71659ed2eb704ab1",
+          "null_count": 0
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "digest": "sha256:cedda18f0913d5feeb3d0030796416ff04c03d0f0395733e71659ed2eb704ab1",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.DimMachine",
+      "row_count": 7816,
+      "key_columns": [
+        "MachineKey"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "MachineKey",
+          "sql_type": "int",
+          "digest": "sha256:43f8e8b04842bbc01d167f8f4411666407a45d80df08d235d396205983cc7c59",
+          "null_count": 0
+        },
+        {
+          "name": "MachineLabel",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:ed0d52028ec21e0f2b36aa1aa8c89eed69a4ced568deeaf75ec34a10b0938631",
+          "null_count": 0
+        },
+        {
+          "name": "StoreKey",
+          "sql_type": "int",
+          "digest": "sha256:780c1834093d06afc30bccbe18bc1bffa55b8932c8449df455afeb1ac2044f2b",
+          "null_count": 0
+        },
+        {
+          "name": "MachineType",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:f50dfe542c1285eb8c2b033f745fb80ab69ad1d7798a5d50b32033bb7fb2599a",
+          "null_count": 0
+        },
+        {
+          "name": "MachineName",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:f3755e826c2a56cea06e2a735b0c1b507fe627b0eabdc27ec6b64222778da87b",
+          "null_count": 0
+        },
+        {
+          "name": "MachineDescription",
+          "sql_type": "nvarchar(200)",
+          "digest": "sha256:d681b5b2b29d6e9716c8e3ec301eb94c867227fa83016200fd71cbae7165c244",
+          "null_count": 0
+        },
+        {
+          "name": "VendorName",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:56e2e5227a3e9f58c32a8e5679ae24d377a452b849e3f246016f06b8819553d4",
+          "null_count": 0
+        },
+        {
+          "name": "MachineOS",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:6f4dcb58ec4247b8cf57b7187ba4ff2b19afbe767e60bcaf741718bb03c874bc",
+          "null_count": 0
+        },
+        {
+          "name": "MachineSource",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:86505e1ec04f2721d47d0a94c1952662b4ed82587db217e693da5fff047aab77",
+          "null_count": 0
+        },
+        {
+          "name": "MachineHardware",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:1424e3d90c7d3a16784e7ae5086615659728372ca5cb845f7085b285a1d982e0",
+          "null_count": 0
+        },
+        {
+          "name": "MachineSoftware",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:2c3d89dcd9753b760a731491ed1fa6e59d474c338a71dc3b2e92094dfc67a875",
+          "null_count": 0
+        },
+        {
+          "name": "Status",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:c14a16b344ffaa1257435f582ab9b05f28cc081bea2872975f57d154a0e9e502",
+          "null_count": 0
+        },
+        {
+          "name": "ServiceStartDate",
+          "sql_type": "datetime",
+          "digest": "sha256:a7fecdf35f2c8cc8c2a7ca2af8fb4cd930e26cc9510b93c3a62cba4adc85a28a",
+          "null_count": 0
+        },
+        {
+          "name": "DecommissionDate",
+          "sql_type": "datetime",
+          "digest": "sha256:20e88e3d5e99781675b66c476d51b6d923ecdb6c24c1e3b090188ecf2b263baa",
+          "null_count": 0
+        },
+        {
+          "name": "LastModifiedDate",
+          "sql_type": "datetime",
+          "digest": "sha256:673893078c9752e6e6fb20a4e3a115447572de61bcca1d4f818c2923fa679f2f",
+          "null_count": 0
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "digest": "sha256:ce509332403c89f851a84fdd03c6d9d9122928ef470d9d0d151c68e8e962a11a",
+          "null_count": 0
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "digest": "sha256:e6ed0599422ff352a510b820c7cbfdd2e0d25f8efa577c9a564ae701254bc31f",
+          "null_count": 0
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "digest": "sha256:b1963afbdc2ea828f68ed6929c1de744aa44124cc5c4790f9dc0cc902c2e5f5e",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.DimOutage",
+      "row_count": 303,
+      "key_columns": [
+        "OutageKey"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "OutageKey",
+          "sql_type": "int",
+          "digest": "sha256:4f76133258fe8d7c865476fda7543bf8b064f8b587700567150964f1aa137ff1",
+          "null_count": 0
+        },
+        {
+          "name": "OutageLabel",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:2ee51ff2b4b0cfe0b957cb60ace7bac8c6d6650ed8238dad78de67b777e00b2f",
+          "null_count": 0
+        },
+        {
+          "name": "OutageName",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:211d0e94a81319fa9a94e645e05e3ce190b6c0d7aba5ce5f7111ceebf17f360a",
+          "null_count": 0
+        },
+        {
+          "name": "OutageDescription",
+          "sql_type": "nvarchar(200)",
+          "digest": "sha256:211d0e94a81319fa9a94e645e05e3ce190b6c0d7aba5ce5f7111ceebf17f360a",
+          "null_count": 0
+        },
+        {
+          "name": "OutageType",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:67ca4f93f9dbfd66b900c12d2b6eeef2f20dc39eec782f561344c976b5934cce",
+          "null_count": 0
+        },
+        {
+          "name": "OutageTypeDescription",
+          "sql_type": "nvarchar(200)",
+          "digest": "sha256:4a0d07ab3da462bd7e35a1f0a0382f491bd57f3f85f17d60c79e7d09aa37f84e",
+          "null_count": 0
+        },
+        {
+          "name": "OutageSubType",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:5196334218f5109502f7b577a8c579d7126fef6fb94fe3b7cf04a7146fcc9de7",
+          "null_count": 0
+        },
+        {
+          "name": "OutageSubTypeDescription",
+          "sql_type": "nvarchar(200)",
+          "digest": "sha256:01886016f64b53544a00852de0d4b8ad862a42b577285a56c31cc06cf2196ef6",
+          "null_count": 0
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "digest": "sha256:f8d4a60b40535a7a28d3f1e306aca9fde72a76ff9b7b26027e58154c3215eb41",
+          "null_count": 0
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "digest": "sha256:e899be5673ced460a89044b61a1bd4afb62bba5852bd4c69d2dfc56f722fcaff",
+          "null_count": 0
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "digest": "sha256:e899be5673ced460a89044b61a1bd4afb62bba5852bd4c69d2dfc56f722fcaff",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.DimProduct",
+      "row_count": 2517,
+      "key_columns": [
+        "ProductKey"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "ProductKey",
+          "sql_type": "int",
+          "digest": "sha256:9db3555e7dada19dc2172626c485d4f511116315983cb09efd19dcea03f4ec1b",
+          "null_count": 0
+        },
+        {
+          "name": "ProductLabel",
+          "sql_type": "nvarchar(255)",
+          "digest": "sha256:d491837ec79bbbaf27785870d9d4cc186cd97428f3ebf0456576c1f37da3e885",
+          "null_count": 0
+        },
+        {
+          "name": "ProductName",
+          "sql_type": "nvarchar(500)",
+          "digest": "sha256:94031f59503c8efbfa3d7b8214f0dca15307fc496aa02be68a5d62945e01cc9a",
+          "null_count": 0
+        },
+        {
+          "name": "ProductDescription",
+          "sql_type": "nvarchar(400)",
+          "digest": "sha256:ba1da0f07060705f89efbb650399d93db2ec874f4e00e865ef2c8ac23fc8374f",
+          "null_count": 1
+        },
+        {
+          "name": "ProductSubcategoryKey",
+          "sql_type": "int",
+          "digest": "sha256:2e67648b2871008887a3a09adc3ce6eaf8384504a567482b95533c9b388f3b8d",
+          "null_count": 0
+        },
+        {
+          "name": "Manufacturer",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:9378a1687a24a3d262609a523875fceb071cec4098d01ad6235de04db2d14bc7",
+          "null_count": 0
+        },
+        {
+          "name": "BrandName",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:fe3d879d0e915efefbb859cbf382721042c41554b7b0b10fafca64e25367b021",
+          "null_count": 0
+        },
+        {
+          "name": "ClassID",
+          "sql_type": "nvarchar(10)",
+          "digest": "sha256:82e248c4faebd5c9dc302dc777d2f0b3218205c6e19ac5febd3739f1c17cf638",
+          "null_count": 0
+        },
+        {
+          "name": "ClassName",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:9ed60b0c982b75578ec280a1345846f487dbfdf6a1b090114d5547dcaa86e32e",
+          "null_count": 0
+        },
+        {
+          "name": "StyleID",
+          "sql_type": "nvarchar(10)",
+          "digest": "sha256:71f22fb760a52d9cf85a45285efe615527638c258aa048a77a313bea007331ea",
+          "null_count": 30
+        },
+        {
+          "name": "StyleName",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:2c98c00d65e24d8b8c797c72bc9a3bd675d70a91785d3ff18bbbcd0211467567",
+          "null_count": 0
+        },
+        {
+          "name": "ColorID",
+          "sql_type": "nvarchar(10)",
+          "digest": "sha256:b7242709cbcf4123b0b5eeeecf22f57e940a43534c3f379270e53b4480323b8e",
+          "null_count": 0
+        },
+        {
+          "name": "ColorName",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:b387056779044d9517210bbfb74d6e7accedfee1bf7aa7a31b4a2f3dd5cf42da",
+          "null_count": 0
+        },
+        {
+          "name": "Size",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:30ee7db20de2bb42e783b5040ccf925631da98d3c53981cbc22194010bb31b82",
+          "null_count": 570
+        },
+        {
+          "name": "SizeRange",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:c65cfbf4469409a0a02bc06186b6bae9afeccf4bfb602c3144f2eeffacf9eca8",
+          "null_count": 1015
+        },
+        {
+          "name": "SizeUnitMeasureID",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:89a77010f7844bcf5beabe989a255d83a1eb97091c9639502ed405b45b5d23f1",
+          "null_count": 992
+        },
+        {
+          "name": "Weight",
+          "sql_type": "float",
+          "digest": "sha256:7d8179f038dc62ddaa0a05ca4dbf9904870c8dea8da2a1bd2ff4e46e5c9eca89",
+          "null_count": 284
+        },
+        {
+          "name": "WeightUnitMeasureID",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:5906039ccce499a0c07991a7776bed9c47ebdcef17ce12021309098cdef715d1",
+          "null_count": 102
+        },
+        {
+          "name": "UnitOfMeasureID",
+          "sql_type": "nvarchar(10)",
+          "digest": "sha256:368531743d76e3f421aecbe2ca039e52390d90efdc62bf80eec13d138a564957",
+          "null_count": 0
+        },
+        {
+          "name": "UnitOfMeasureName",
+          "sql_type": "nvarchar(40)",
+          "digest": "sha256:8cd432b8ec565c276a51dc37ea8141507479772774bf4e5d04bb0de7b007d44c",
+          "null_count": 0
+        },
+        {
+          "name": "StockTypeID",
+          "sql_type": "nvarchar(10)",
+          "digest": "sha256:4345eefa004d7efee3381030e9e5313adcf7d151f7386422da08e8d2a211c31b",
+          "null_count": 0
+        },
+        {
+          "name": "StockTypeName",
+          "sql_type": "nvarchar(40)",
+          "digest": "sha256:0202f055160ebf792889fc902e7e9b348355ce8744a4ac74369e26cdd40d7cb9",
+          "null_count": 0
+        },
+        {
+          "name": "UnitCost",
+          "sql_type": "money",
+          "digest": "sha256:2ccec0633fe17b73793d97a4bd9741345d3a33e013fe892e810d50ff21b31efb",
+          "null_count": 0
+        },
+        {
+          "name": "UnitPrice",
+          "sql_type": "money",
+          "digest": "sha256:03fc4367d2e1709bf03d87940a2ba452d44e16594ba8c463df8b0ec6ad400f4f",
+          "null_count": 0
+        },
+        {
+          "name": "AvailableForSaleDate",
+          "sql_type": "datetime",
+          "digest": "sha256:3449e90c0a5bd475da1d444ddcd52d1bec92c1eee4ad4e916ce6f4b19b64502e",
+          "null_count": 1
+        },
+        {
+          "name": "StopSaleDate",
+          "sql_type": "datetime",
+          "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "null_count": 2517
+        },
+        {
+          "name": "Status",
+          "sql_type": "nvarchar(7)",
+          "digest": "sha256:be1f43eb01e81cd7799829611f2c455ff917e81a49f48d06196830546aa1b529",
+          "null_count": 295
+        },
+        {
+          "name": "ImageURL",
+          "sql_type": "nvarchar(150)",
+          "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "null_count": 2517
+        },
+        {
+          "name": "ProductURL",
+          "sql_type": "nvarchar(150)",
+          "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "null_count": 2517
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "digest": "sha256:eb5305389a4cb53f53fdfb5373d3782f402b18e9eddadc592b43d03cc0fb09dd",
+          "null_count": 0
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "digest": "sha256:c3d1f6f087cb33c7044be8e30acca234314e5eafd2c887c40399005d3bd1f03c",
+          "null_count": 0
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "digest": "sha256:c3d1f6f087cb33c7044be8e30acca234314e5eafd2c887c40399005d3bd1f03c",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.DimProductCategory",
+      "row_count": 8,
+      "key_columns": [
+        "ProductCategoryKey"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "ProductCategoryKey",
+          "sql_type": "int",
+          "digest": "sha256:d80b029b568ac107d5f83a0a19ad93330f3e8629c9e06d418d691b4d6f33d120",
+          "null_count": 0
+        },
+        {
+          "name": "ProductCategoryLabel",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:2defd844504634fd3974e4b1d48953e787b0ceee4c4aa8b03451b46020de2c0d",
+          "null_count": 0
+        },
+        {
+          "name": "ProductCategoryName",
+          "sql_type": "nvarchar(30)",
+          "digest": "sha256:6b47ebf63844300520f1e5b3c44a2cf8eea4f2bd5c1940357682950ebf5e786d",
+          "null_count": 0
+        },
+        {
+          "name": "ProductCategoryDescription",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:6b47ebf63844300520f1e5b3c44a2cf8eea4f2bd5c1940357682950ebf5e786d",
+          "null_count": 0
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "digest": "sha256:c422d2928d56f2b0c1b4edcfc608ac5b960cbf327905cfe265d142937292aa6b",
+          "null_count": 0
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "digest": "sha256:885e72bca2e4185c796254af4524f9f933df052d300b726bbd91e574db33c054",
+          "null_count": 0
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "digest": "sha256:885e72bca2e4185c796254af4524f9f933df052d300b726bbd91e574db33c054",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.DimProductSubcategory",
+      "row_count": 44,
+      "key_columns": [
+        "ProductSubcategoryKey"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "ProductSubcategoryKey",
+          "sql_type": "int",
+          "digest": "sha256:233df16a5a5acd62e2c969e6cd8ec35d5c4e8516d3d197927df767a107e7179d",
+          "null_count": 0
+        },
+        {
+          "name": "ProductSubcategoryLabel",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:9e59773db0c96969aa0f7714f45feb69a87d031e10a2a2861b632b66cc436b49",
+          "null_count": 0
+        },
+        {
+          "name": "ProductSubcategoryName",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:961aea6705b15903e0f43412061a0c0867d6cceb122d587503c8f298d25ba328",
+          "null_count": 0
+        },
+        {
+          "name": "ProductSubcategoryDescription",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:961aea6705b15903e0f43412061a0c0867d6cceb122d587503c8f298d25ba328",
+          "null_count": 0
+        },
+        {
+          "name": "ProductCategoryKey",
+          "sql_type": "int",
+          "digest": "sha256:1f01c1adafb40413516831be4522ba84d9bb50caa3a3222d886df0e54c4dd1e6",
+          "null_count": 0
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "digest": "sha256:c81045e2810f210d261369d46168f4fe9280f5edf3d87c9c2258a60953d3bea8",
+          "null_count": 0
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "digest": "sha256:ef5435fb6e7449e79bf4275ff0b058a25e2bb6c3a04d7492de4689cd2d69fce7",
+          "null_count": 0
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "digest": "sha256:ef5435fb6e7449e79bf4275ff0b058a25e2bb6c3a04d7492de4689cd2d69fce7",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.DimPromotion",
+      "row_count": 28,
+      "key_columns": [
+        "PromotionKey"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "PromotionKey",
+          "sql_type": "int",
+          "digest": "sha256:b58f2108b2b43f5c224d87a838bd4b1322b28429c1734bb1435d12223a59a4f7",
+          "null_count": 0
+        },
+        {
+          "name": "PromotionLabel",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:0f02c56d44aa5d080cb2e32d256794364d614539e7f8c285935fb7880df7874f",
+          "null_count": 0
+        },
+        {
+          "name": "PromotionName",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:d3c68ab27f9afd212bf820f85e15c8b1758657548197a26df94732a7cbf1ff10",
+          "null_count": 0
+        },
+        {
+          "name": "PromotionDescription",
+          "sql_type": "nvarchar(255)",
+          "digest": "sha256:d3c68ab27f9afd212bf820f85e15c8b1758657548197a26df94732a7cbf1ff10",
+          "null_count": 0
+        },
+        {
+          "name": "DiscountPercent",
+          "sql_type": "float",
+          "digest": "sha256:129163e0ed2acd0c45983419c3ccbbad46da8b9193c3eaa092e65a01cc951679",
+          "null_count": 0
+        },
+        {
+          "name": "PromotionType",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:367d12f8415545666a7261fd0320f2d719d4ce53e580f54ceb52846811b36021",
+          "null_count": 0
+        },
+        {
+          "name": "PromotionCategory",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:d369ad8b9d455f28a891c920bceb74ca05424610bf658a2fce4eed8a6f5f21ba",
+          "null_count": 0
+        },
+        {
+          "name": "StartDate",
+          "sql_type": "datetime",
+          "digest": "sha256:7eaa60e52ecc9dc45c5f06980c961f82968e3ad03c12747f52f858b597829fe6",
+          "null_count": 0
+        },
+        {
+          "name": "EndDate",
+          "sql_type": "datetime",
+          "digest": "sha256:1fc845cf4d2a8e9b0ad1bc684e038cd10bafc6f768becc83822e74a5808c14c1",
+          "null_count": 0
+        },
+        {
+          "name": "MinQuantity",
+          "sql_type": "int",
+          "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "null_count": 28
+        },
+        {
+          "name": "MaxQuantity",
+          "sql_type": "int",
+          "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "null_count": 28
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "digest": "sha256:210fc4091fdba954642afbc3426a6e172be32e87074e900ca9fa3226a6f4d726",
+          "null_count": 0
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "digest": "sha256:dcc650bbdbf8544836d5a56d3538bc72c8ad255de14fcd47a5025de560d665ce",
+          "null_count": 0
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "digest": "sha256:dcc650bbdbf8544836d5a56d3538bc72c8ad255de14fcd47a5025de560d665ce",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.DimSalesTerritory",
+      "row_count": 265,
+      "key_columns": [
+        "SalesTerritoryKey"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "SalesTerritoryKey",
+          "sql_type": "int",
+          "digest": "sha256:009eec8a3b87b9445ba62d9048d72e4ad045c5cb4b3417f22659a109980193dd",
+          "null_count": 0
+        },
+        {
+          "name": "GeographyKey",
+          "sql_type": "int",
+          "digest": "sha256:c99b671b10202b3ec0f0d5b001370b9962de0f8cbcb8e062615aaac1f2f1d391",
+          "null_count": 0
+        },
+        {
+          "name": "SalesTerritoryLabel",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:1ccdf26cf9d1015b3a7397420ed4d81f97736fcffc75e5aa30feb2277d28a9ac",
+          "null_count": 0
+        },
+        {
+          "name": "SalesTerritoryName",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:e2a51f7a10e6b0563ae9a2abd3ecf9227e7142cb9041941cff4d62dd426a6f36",
+          "null_count": 0
+        },
+        {
+          "name": "SalesTerritoryRegion",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:2e34dee61ffd90ef0d37259e39de29a833f7380bf551ae4c2b15d168ce1c84f5",
+          "null_count": 0
+        },
+        {
+          "name": "SalesTerritoryCountry",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:5e27ee82d693377a5b98ce6af63e515210c49231554f2eaa4e943be9e5884744",
+          "null_count": 0
+        },
+        {
+          "name": "SalesTerritoryGroup",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:b38c067ce0cf7435ab5311c7289dde977e49884860be7c08a1da3c190fa13904",
+          "null_count": 0
+        },
+        {
+          "name": "SalesTerritoryLevel",
+          "sql_type": "nvarchar(10)",
+          "digest": "sha256:d98f6c5627355d41bb28e7a3cfeb29686fae267dafe50ab53ab000c22aa237de",
+          "null_count": 0
+        },
+        {
+          "name": "SalesTerritoryManager",
+          "sql_type": "int",
+          "digest": "sha256:a64407b42352d9b6b6e2d1568d5013b4df75b96648bcf1f1554221471de89c20",
+          "null_count": 0
+        },
+        {
+          "name": "StartDate",
+          "sql_type": "datetime",
+          "digest": "sha256:e1afc9f0e637d04ca5b04c82b83dab8cfb5bf7d2c1994f7cb53b15b101d13c98",
+          "null_count": 0
+        },
+        {
+          "name": "EndDate",
+          "sql_type": "datetime",
+          "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "null_count": 265
+        },
+        {
+          "name": "Status",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:8847f6b403eee992b898b1ee47a24b20788251de1da37edfcb41ffce56ff276f",
+          "null_count": 0
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "digest": "sha256:0a45eacba1ceb074b2503fafcad68cf7f8d1c400b18cd39efe2aba8fb0c8eacc",
+          "null_count": 0
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "digest": "sha256:115b60d3d7e34030617debf765dc92644e82a17bf45c42532f6f11b4b6dc776d",
+          "null_count": 0
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "digest": "sha256:115b60d3d7e34030617debf765dc92644e82a17bf45c42532f6f11b4b6dc776d",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.DimScenario",
+      "row_count": 3,
+      "key_columns": [
+        "ScenarioKey"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "ScenarioKey",
+          "sql_type": "int",
+          "digest": "sha256:5be6c1972032e65c8852b651ad59e6dccaff8d9d07dc0e5718a63bff0f3f90bc",
+          "null_count": 0
+        },
+        {
+          "name": "ScenarioLabel",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:1a9460b7853598cda0e7e8a4957ba8d20bbd559b5a4d06513a7c148486b659a0",
+          "null_count": 0
+        },
+        {
+          "name": "ScenarioName",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:ca7686a5ab8499ca68483bd138d1ab16f73124ac0f4ab5ad5cec394d8faac4cd",
+          "null_count": 0
+        },
+        {
+          "name": "ScenarioDescription",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:ca7686a5ab8499ca68483bd138d1ab16f73124ac0f4ab5ad5cec394d8faac4cd",
+          "null_count": 0
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "digest": "sha256:af2ef9a29e0c46b908ff78b2d7bc6efd5b2a97e4982ec83370f640a17e268f66",
+          "null_count": 0
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "digest": "sha256:6b2d06a781a5252e32fdc92e121cb396e0ca78a8636451aa0c516603d2750f21",
+          "null_count": 0
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "digest": "sha256:6b2d06a781a5252e32fdc92e121cb396e0ca78a8636451aa0c516603d2750f21",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.DimStore",
+      "row_count": 306,
+      "key_columns": [
+        "StoreKey"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "StoreKey",
+          "sql_type": "int",
+          "digest": "sha256:a1c76a9e8eb00fc532c1d9710c90118b06b2f409623e8c63e13c88f621ecb854",
+          "null_count": 0
+        },
+        {
+          "name": "GeographyKey",
+          "sql_type": "int",
+          "digest": "sha256:10bbfdd678326bd1db8456eeeae5a1d411d0732afc636d1d9f8b0662086089b1",
+          "null_count": 0
+        },
+        {
+          "name": "StoreManager",
+          "sql_type": "int",
+          "digest": "sha256:2654b9bd74b7ac6ebb97e57eb1859a85053c0868c61235e447ec24a64446d63f",
+          "null_count": 0
+        },
+        {
+          "name": "StoreType",
+          "sql_type": "nvarchar(15)",
+          "digest": "sha256:faa4fdb5944944113ef55e2fa246a0f2fff6b3236969c33965954321171f9162",
+          "null_count": 0
+        },
+        {
+          "name": "StoreName",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:4355942486285b346bbdd17e4d43f90eacd496183c7138f74c22cc00fcd2c32d",
+          "null_count": 0
+        },
+        {
+          "name": "StoreDescription",
+          "sql_type": "nvarchar(300)",
+          "digest": "sha256:e5e14566fd445178c763c10325a2c3acfea2ed331912a8e749faef1621dade74",
+          "null_count": 0
+        },
+        {
+          "name": "Status",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:8f18d5ea96bede33f4aba4486816c4c46fa18e161de9b3ba7e2cd05546a677f4",
+          "null_count": 0
+        },
+        {
+          "name": "OpenDate",
+          "sql_type": "datetime",
+          "digest": "sha256:38e827d170ff4383b4fe2617cab8b35bf776e2137621b9ececf2ec70d2f6e7b4",
+          "null_count": 0
+        },
+        {
+          "name": "CloseDate",
+          "sql_type": "datetime",
+          "digest": "sha256:dfefb0c82a293691654cfd1230198ac1a5dcef387bc578a84223c78067f59486",
+          "null_count": 294
+        },
+        {
+          "name": "EntityKey",
+          "sql_type": "int",
+          "digest": "sha256:33d001ca264b9fdf1699aa2b21556254b41e624f4b33307cde4b823dad68aac2",
+          "null_count": 0
+        },
+        {
+          "name": "ZipCode",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:ac1c7cebbe64afd8738fcd9b87c8145e121cbc1dd86c173bd180da363eadc50b",
+          "null_count": 41
+        },
+        {
+          "name": "ZipCodeExtension",
+          "sql_type": "nvarchar(10)",
+          "digest": "sha256:b2cd4f14e26f6aec49c9ced86c0a65872e9d03543c60ffe65f07ce14f5904c54",
+          "null_count": 41
+        },
+        {
+          "name": "StorePhone",
+          "sql_type": "nvarchar(15)",
+          "digest": "sha256:9bad199de9d75511032b5c12b1f75c0fcd7bcbd08ee185d63c23a2ee38d2342f",
+          "null_count": 0
+        },
+        {
+          "name": "StoreFax",
+          "sql_type": "nvarchar(14)",
+          "digest": "sha256:5b5a2d149ed01fc6a425f746a6ddcc82ca5a7baae331e102adfaa23d9d840e9e",
+          "null_count": 0
+        },
+        {
+          "name": "AddressLine1",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:31d5c49fd8c1663cdf696ed0a342ad29a73fdb891a3e648232f577882cd2f457",
+          "null_count": 7
+        },
+        {
+          "name": "AddressLine2",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:702242ffe7ab4a021bcca4f7de507245d00f07d3f583accebe2b702c6436558c",
+          "null_count": 7
+        },
+        {
+          "name": "CloseReason",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:36f5556668dc421b67c7e845e698b7a4cdd4b19025dcd81352eeca1a4ae5a193",
+          "null_count": 294
+        },
+        {
+          "name": "EmployeeCount",
+          "sql_type": "int",
+          "digest": "sha256:6812404ab83c0bb3a72e7dd54df65d2d0ef5c1d9bbd3d8f186eb2a2d2d9e6734",
+          "null_count": 1
+        },
+        {
+          "name": "SellingAreaSize",
+          "sql_type": "float",
+          "digest": "sha256:21cef60300b8c5f4572ad854a6aae49af212cc4b1112f430b7a6ade12ce4d0ff",
+          "null_count": 0
+        },
+        {
+          "name": "LastRemodelDate",
+          "sql_type": "datetime",
+          "digest": "sha256:b3a8da868451d64f3368553aa4bc84e1e1f260d054c3496d00b7e87f1da9dd56",
+          "null_count": 0
+        },
+        {
+          "name": "GeoLocation",
+          "sql_type": "geography",
+          "digest": "sha256:8da7739e39e3da4abc23c742d01fb73ca10398f91630bd3c60c89f8bddbe80c9",
+          "null_count": 0
+        },
+        {
+          "name": "Geometry",
+          "sql_type": "geometry",
+          "digest": "sha256:b22221734e4229b96cad0df72e0cc45b90725f26cb403d225b7846c042bcae70",
+          "null_count": 0
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "digest": "sha256:75646ca88ddab5edf6029472522684b83e9841e41ab51af395d1cc7e329d1a8c",
+          "null_count": 0
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "digest": "sha256:79a0fdab76ac203f001d68ccacf7beec5dfa35ea5f77284b1e617f8363b4f419",
+          "null_count": 0
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "digest": "sha256:1854d647e2c4ce1698d3b175e3a71df9b8a8233f8f3985a28f55233252bc8537",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.FactExchangeRate",
+      "row_count": 773,
+      "key_columns": [
+        "ExchangeRateKey"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "ExchangeRateKey",
+          "sql_type": "int",
+          "digest": "sha256:01391408670e07a7d38ff7997b0d606b356990a2c5c1bc9e571a4d580b7022e5",
+          "null_count": 0
+        },
+        {
+          "name": "CurrencyKey",
+          "sql_type": "int",
+          "digest": "sha256:d41a694ee63bab184454528bc1e2693b63f161a8295fedff8c8edc28e823b22d",
+          "null_count": 0
+        },
+        {
+          "name": "DateKey",
+          "sql_type": "datetime",
+          "digest": "sha256:60137a0e5daadd604a10d2bed121a1963fd68dd35cc6018fd4d50168056fb88c",
+          "null_count": 0
+        },
+        {
+          "name": "AverageRate",
+          "sql_type": "float",
+          "digest": "sha256:f1e38ad80ba14d9682e89adee617669ac0fb85e18a3b22d299c0106fd703b890",
+          "null_count": 0
+        },
+        {
+          "name": "EndOfDayRate",
+          "sql_type": "float",
+          "digest": "sha256:0f9eb70993ab9e885742817cd59f1ec57607fbc527540a458edd6ae6b3e7a9c5",
+          "null_count": 0
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "digest": "sha256:548f288b2638af711789a81caab3bda3c2e7e098576ccc5d2cbfc1ec608070e0",
+          "null_count": 0
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "digest": "sha256:85c70466fac19203bb575fe8e9f31388cd65cbace62bb36a9ee9cf1d53222bee",
+          "null_count": 0
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "digest": "sha256:85c70466fac19203bb575fe8e9f31388cd65cbace62bb36a9ee9cf1d53222bee",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.FactInventory",
+      "row_count": 8013099,
+      "key_columns": [
+        "InventoryKey"
+      ],
+      "mode": "sample",
+      "columns": [
+        {
+          "name": "InventoryKey",
+          "sql_type": "int",
+          "digest": "sha256:8c5a14fc085f3db87e6791c40a34ec63e02c9a134acb0a42e6ef0a0a0c218901",
+          "null_count": 0
+        },
+        {
+          "name": "DateKey",
+          "sql_type": "datetime",
+          "digest": "sha256:078c442775e71a19ec19f1881101ceaa5fcc2b7d2a0f26c439f84e9e157c79c4",
+          "null_count": 0
+        },
+        {
+          "name": "StoreKey",
+          "sql_type": "int",
+          "digest": "sha256:88b1385b0f5a1c57205393174e2e3490ecf473db9f5ac0eb00b1c63c159a06cd",
+          "null_count": 0
+        },
+        {
+          "name": "ProductKey",
+          "sql_type": "int",
+          "digest": "sha256:e7b85ec423934d418e0df14893e198f87596399cc171ad35dbe8465e0309d976",
+          "null_count": 0
+        },
+        {
+          "name": "CurrencyKey",
+          "sql_type": "int",
+          "digest": "sha256:2d20644aecfc1858c22e35e5d4b929708ecf4d8588316f5535eb78b42e6411a4",
+          "null_count": 0
+        },
+        {
+          "name": "OnHandQuantity",
+          "sql_type": "int",
+          "digest": "sha256:39e05eb9d38597bc3b838cb9e62b5ab8a6519156a4f8833b6a4d81ddac171cee",
+          "null_count": 0
+        },
+        {
+          "name": "OnOrderQuantity",
+          "sql_type": "int",
+          "digest": "sha256:62ef3ecdf4e48046d9932b42f02a013cbd79b4abb01bfceee38ea80233908318",
+          "null_count": 0
+        },
+        {
+          "name": "SafetyStockQuantity",
+          "sql_type": "int",
+          "digest": "sha256:80468b7f124a1e6967c31f8bccc475374c18f394da542b6f95c2cc43e2658a53",
+          "null_count": 0
+        },
+        {
+          "name": "UnitCost",
+          "sql_type": "money",
+          "digest": "sha256:d80dd73c43d1a0912b2b4502225f7f9008bfd22efa0fdbdacab53f30596292bc",
+          "null_count": 0
+        },
+        {
+          "name": "DaysInStock",
+          "sql_type": "int",
+          "digest": "sha256:6d3dc30f371b97646e3a036b5433af73c07e964f54c5505ddff94c8b3809d578",
+          "null_count": 0
+        },
+        {
+          "name": "MinDayInStock",
+          "sql_type": "int",
+          "digest": "sha256:191f20335a54dd424cb08e655955eebfc2409be72685d9f4a458ae2e18c9c86f",
+          "null_count": 0
+        },
+        {
+          "name": "MaxDayInStock",
+          "sql_type": "int",
+          "digest": "sha256:aa2b4822a69f84f06a9fee39f5c84bc6458b1399d722c81989916516d19b571e",
+          "null_count": 0
+        },
+        {
+          "name": "Aging",
+          "sql_type": "int",
+          "digest": "sha256:aa33cbec0d8e9e60830628ae4a5587f7647f8249ade21fb65beaee9f3baecb5f",
+          "null_count": 0
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "digest": "sha256:2d20644aecfc1858c22e35e5d4b929708ecf4d8588316f5535eb78b42e6411a4",
+          "null_count": 0
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "digest": "sha256:09d5579525f9068776e764bd6d8304676ec4cc057c13af1b6cf14dfc61fd8879",
+          "null_count": 0
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "digest": "sha256:09d5579525f9068776e764bd6d8304676ec4cc057c13af1b6cf14dfc61fd8879",
+          "null_count": 0
+        }
+      ],
+      "sample_n": 195442
+    },
+    {
+      "fqn": "dbo.FactITMachine",
+      "row_count": 23283,
+      "key_columns": [
+        "ITMachinekey"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "ITMachinekey",
+          "sql_type": "int",
+          "digest": "sha256:e3de2552d2c117ed440d5d08d6b8e413ead67a840763cf9c2ac7d48410786f80",
+          "null_count": 0
+        },
+        {
+          "name": "MachineKey",
+          "sql_type": "int",
+          "digest": "sha256:7e1f7291d5ec9df4b98c18fb725592075deb62b65b3ea4910857a83d0dc3c1d3",
+          "null_count": 0
+        },
+        {
+          "name": "Datekey",
+          "sql_type": "datetime",
+          "digest": "sha256:b831efbaa8e4d5d91b512ecc4c75799bd118de922ada6fe69052077c5c94f49c",
+          "null_count": 0
+        },
+        {
+          "name": "CostAmount",
+          "sql_type": "money",
+          "digest": "sha256:531935f78b1d872e43467345efd994cabc51c7d7bdb311f606576f4b5f9b883f",
+          "null_count": 0
+        },
+        {
+          "name": "CostType",
+          "sql_type": "nvarchar(200)",
+          "digest": "sha256:3114cef72e3684ddd0781f485ebb461376b784928d9771a291e7cc3aa2805bd6",
+          "null_count": 0
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "digest": "sha256:5403e6c45d78edf8a1408e9a9c20acdfcf735e5a535e9b494d31968f66568e4c",
+          "null_count": 0
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "digest": "sha256:1b4e7e8c12c2c6d03e0a3083ee730961496acc0e3d6e1a4100096de35262f083",
+          "null_count": 0
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "digest": "sha256:1b4e7e8c12c2c6d03e0a3083ee730961496acc0e3d6e1a4100096de35262f083",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.FactITSLA",
+      "row_count": 4925,
+      "key_columns": [
+        "ITSLAkey"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "ITSLAkey",
+          "sql_type": "int",
+          "digest": "sha256:bbb3e7449878e71c3734421ef4b46351ee431dcbb5ed72a6a5e6bd835f3e5856",
+          "null_count": 0
+        },
+        {
+          "name": "DateKey",
+          "sql_type": "datetime",
+          "digest": "sha256:52618f086e04243f2c2998e599cfffe9dc46bdb231a3f5a67d8bc66050a26b09",
+          "null_count": 0
+        },
+        {
+          "name": "StoreKey",
+          "sql_type": "int",
+          "digest": "sha256:e8c2ffc3e7c50eded6a0d99b8bd7c3e3fdeafabeb942e8372840f3519246987d",
+          "null_count": 0
+        },
+        {
+          "name": "MachineKey",
+          "sql_type": "int",
+          "digest": "sha256:e2ecae7e76069681c93c46d19129b6e0a68db6f85783753abbb689d51a4db4ac",
+          "null_count": 0
+        },
+        {
+          "name": "OutageKey",
+          "sql_type": "int",
+          "digest": "sha256:98921447233becf4303dcc099502953e8ed9d4b7561f6b3b2095043da1a558c9",
+          "null_count": 0
+        },
+        {
+          "name": "OutageStartTime",
+          "sql_type": "datetime",
+          "digest": "sha256:19aa701592b1b0a907281de8f1e2d1b1eff362bb194f947166c6fe5a0ddb6796",
+          "null_count": 0
+        },
+        {
+          "name": "OutageEndTime",
+          "sql_type": "datetime",
+          "digest": "sha256:5df2faba9fed27970cf40e3cd55cecd79c00b4da5fcd602c31a869a9011d2444",
+          "null_count": 0
+        },
+        {
+          "name": "DownTime",
+          "sql_type": "int",
+          "digest": "sha256:26c8faedc5f6060bb1de180bb55437457324ea1c0ca3f5378d463f154fec97ee",
+          "null_count": 0
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "digest": "sha256:c4fd84ae95a352030ae2bbf4dc6ffb610e03cfc8938be0d77be4e6c9aff8aedd",
+          "null_count": 0
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "digest": "sha256:52618f086e04243f2c2998e599cfffe9dc46bdb231a3f5a67d8bc66050a26b09",
+          "null_count": 0
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "digest": "sha256:52618f086e04243f2c2998e599cfffe9dc46bdb231a3f5a67d8bc66050a26b09",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.FactOnlineSales",
+      "row_count": 12627608,
+      "key_columns": [
+        "OnlineSalesKey"
+      ],
+      "mode": "sample",
+      "columns": [
+        {
+          "name": "OnlineSalesKey",
+          "sql_type": "int",
+          "digest": "sha256:0219bc859dae5df12be8a918d3c23e4f1c70274186841c45d42c8eb02547f910",
+          "null_count": 0
+        },
+        {
+          "name": "DateKey",
+          "sql_type": "datetime",
+          "digest": "sha256:025f1ecf345b9a32c310d73db34ea0c938f0f283fd193daf1671ee42758e11e0",
+          "null_count": 0
+        },
+        {
+          "name": "StoreKey",
+          "sql_type": "int",
+          "digest": "sha256:fcbef7ac00a1680f8c7cc6c11fc32affd6060fb8ef535f1f91592114f8f643b3",
+          "null_count": 0
+        },
+        {
+          "name": "ProductKey",
+          "sql_type": "int",
+          "digest": "sha256:e32d72ea93681e0db1bbd6540cbe3c8cb665ee4715d348537d4146ce19f36241",
+          "null_count": 0
+        },
+        {
+          "name": "PromotionKey",
+          "sql_type": "int",
+          "digest": "sha256:725588a117d69ab1c3b01eb84ecf158253836439db8ee8505f940236792a32a7",
+          "null_count": 0
+        },
+        {
+          "name": "CurrencyKey",
+          "sql_type": "int",
+          "digest": "sha256:027355ca8fc7876a7511978697d75fb0ae6ce7b315da24650918adb04cb2628c",
+          "null_count": 0
+        },
+        {
+          "name": "CustomerKey",
+          "sql_type": "int",
+          "digest": "sha256:fadfd813bd04f79cd7f39d34c96e9e3d0653ff065da02814423b3bed4acb4c50",
+          "null_count": 0
+        },
+        {
+          "name": "SalesOrderNumber",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:c397f378f5ee93ef9188db26df6202a2674dc45852ad8a62250f845d126913fa",
+          "null_count": 0
+        },
+        {
+          "name": "SalesOrderLineNumber",
+          "sql_type": "int",
+          "digest": "sha256:6e9ceb18a6e09177d7cd7aa23d1eee94a3d0eca33d5d8097f0317a2a93a691fc",
+          "null_count": 0
+        },
+        {
+          "name": "SalesQuantity",
+          "sql_type": "int",
+          "digest": "sha256:a4d8eefb5d902263e479de7b7afb28cc5b3243d047eac3e27359fe8e057cc6d1",
+          "null_count": 0
+        },
+        {
+          "name": "SalesAmount",
+          "sql_type": "money",
+          "digest": "sha256:4147ae3a99a8ec70e5ab93b1b248f6b9d1f247f1b5093bd9e39d2ef0d5bfdb01",
+          "null_count": 0
+        },
+        {
+          "name": "ReturnQuantity",
+          "sql_type": "int",
+          "digest": "sha256:bcd66ee1bdf94a07d3b724837a2d14b4da4a43c5269a8647726b60801999ea50",
+          "null_count": 0
+        },
+        {
+          "name": "ReturnAmount",
+          "sql_type": "money",
+          "digest": "sha256:824a0c31fb9132aa4113b41b1c261ac486e2d4959c13a363d5773840a7c9ffe0",
+          "null_count": 0
+        },
+        {
+          "name": "DiscountQuantity",
+          "sql_type": "int",
+          "digest": "sha256:ab1d0a5df085e5678e01f021c1ff18ea8114753e95457178e56fb9d4ee48947d",
+          "null_count": 0
+        },
+        {
+          "name": "DiscountAmount",
+          "sql_type": "money",
+          "digest": "sha256:60f104300d6f49c619bad15e0681e83d26cabd96029b5f5f5ec64ef68c2961e5",
+          "null_count": 0
+        },
+        {
+          "name": "TotalCost",
+          "sql_type": "money",
+          "digest": "sha256:1a742ef162c6e8ee49056966d0b155d07bc0fe1ea7330e1859386b2aeb17c821",
+          "null_count": 0
+        },
+        {
+          "name": "UnitCost",
+          "sql_type": "money",
+          "digest": "sha256:9e7563f37adfed45d8c43e01f067d7ae129f84f47f99ce2870b595c5ad5dbcd9",
+          "null_count": 0
+        },
+        {
+          "name": "UnitPrice",
+          "sql_type": "money",
+          "digest": "sha256:1a8b8094c96fa75564d1c2a97e5ea31b707712c67c7891fd471fad673d8ec6d5",
+          "null_count": 0
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "null_count": 12627608
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "null_count": 12627608
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "null_count": 12627608
+        }
+      ],
+      "sample_n": 197307
+    },
+    {
+      "fqn": "dbo.FactSales",
+      "row_count": 3406089,
+      "key_columns": [
+        "SalesKey"
+      ],
+      "mode": "sample",
+      "columns": [
+        {
+          "name": "SalesKey",
+          "sql_type": "int",
+          "digest": "sha256:65b0b86ab836beac98870e6a639a4f350396c02b83d7fde1a08516147126faf0",
+          "null_count": 0
+        },
+        {
+          "name": "DateKey",
+          "sql_type": "datetime",
+          "digest": "sha256:1973fd67c705763f9903f11df1602ef5f02364b5e13b3cccc505a2b541ce585b",
+          "null_count": 0
+        },
+        {
+          "name": "channelKey",
+          "sql_type": "int",
+          "digest": "sha256:1a37fe82dea30752ef4971d5334bca68d2446f0d2bd76768f546ea753483c122",
+          "null_count": 0
+        },
+        {
+          "name": "StoreKey",
+          "sql_type": "int",
+          "digest": "sha256:6b143080c9c480882b4e12fedd1de51e94536c2577d60acdda8b6aa16416ece4",
+          "null_count": 0
+        },
+        {
+          "name": "ProductKey",
+          "sql_type": "int",
+          "digest": "sha256:399fcffe994dfed9db746cc0708fed21b48b34931259b0f416ecf6b302303fb7",
+          "null_count": 0
+        },
+        {
+          "name": "PromotionKey",
+          "sql_type": "int",
+          "digest": "sha256:5d04f390b28cd35c69f3cc9db1ba6d3b5ba0df659ee483b7b1af0f670ff53489",
+          "null_count": 0
+        },
+        {
+          "name": "CurrencyKey",
+          "sql_type": "int",
+          "digest": "sha256:de729e6e4e6ca54750755aac574cf8118723dfcc77189f3c3a0ea4de3128463a",
+          "null_count": 0
+        },
+        {
+          "name": "UnitCost",
+          "sql_type": "money",
+          "digest": "sha256:20bca8848ac539420c7246f6a1ca115aecba59c683ee644d172447b6897d85b7",
+          "null_count": 0
+        },
+        {
+          "name": "UnitPrice",
+          "sql_type": "money",
+          "digest": "sha256:263cb3d5da45c6afbcf45229ed99e6d599f510f82cadf45980f27ec8a2390798",
+          "null_count": 0
+        },
+        {
+          "name": "SalesQuantity",
+          "sql_type": "int",
+          "digest": "sha256:e4ba83026164ee560a4f9fbea10b59246be7e22188e26a9f432216ee6f5c76cf",
+          "null_count": 0
+        },
+        {
+          "name": "ReturnQuantity",
+          "sql_type": "int",
+          "digest": "sha256:7fa2e0a08edacedc0527307bb17f84432285ae6322757140b900df80607a1634",
+          "null_count": 0
+        },
+        {
+          "name": "ReturnAmount",
+          "sql_type": "money",
+          "digest": "sha256:b95928b4d5ddc6c1a177f1c166eb531b34fa5c6e91e2aff14c05972a6b671945",
+          "null_count": 0
+        },
+        {
+          "name": "DiscountQuantity",
+          "sql_type": "int",
+          "digest": "sha256:e29183ebd4ab78695d2f97ef8cde0a71c57e5508f46eab04ccabc67ed81ceb98",
+          "null_count": 0
+        },
+        {
+          "name": "DiscountAmount",
+          "sql_type": "money",
+          "digest": "sha256:eff88175c4b9e945ddbd8826f48dbcf379447b0ed18fa0639b753498bcbd9745",
+          "null_count": 0
+        },
+        {
+          "name": "TotalCost",
+          "sql_type": "money",
+          "digest": "sha256:80038d1a73e98fb99747a6c204f5039c6b11749b4a58e4e731e62e293418f0f4",
+          "null_count": 0
+        },
+        {
+          "name": "SalesAmount",
+          "sql_type": "money",
+          "digest": "sha256:95486d399de571e6b460d4ff88e72f6e358a5d22e1c09f3d51b0a0377811b53a",
+          "null_count": 0
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "digest": "sha256:de729e6e4e6ca54750755aac574cf8118723dfcc77189f3c3a0ea4de3128463a",
+          "null_count": 0
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "digest": "sha256:adec25c1d92b3cc50d5faf5cd61d9ade7cac5ef9f6304de976d666fa55b2f922",
+          "null_count": 0
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "digest": "sha256:adec25c1d92b3cc50d5faf5cd61d9ade7cac5ef9f6304de976d666fa55b2f922",
+          "null_count": 0
+        }
+      ],
+      "sample_n": 189228
+    },
+    {
+      "fqn": "dbo.FactSalesQuota",
+      "row_count": 7465911,
+      "key_columns": [
+        "SalesQuotaKey"
+      ],
+      "mode": "sample",
+      "columns": [
+        {
+          "name": "SalesQuotaKey",
+          "sql_type": "int",
+          "digest": "sha256:833e6204bad93485e637edb89223656cce014a457133e851ec2817d47b819679",
+          "null_count": 0
+        },
+        {
+          "name": "ChannelKey",
+          "sql_type": "int",
+          "digest": "sha256:41cc7486e23870333712dd490a3e8f1e8649eaee5eca7902780bbd8aa05dd3cb",
+          "null_count": 0
+        },
+        {
+          "name": "StoreKey",
+          "sql_type": "int",
+          "digest": "sha256:963d5db95a5999e4fc3420463f584e9db8f5d0245663cd25d8128de847f97727",
+          "null_count": 0
+        },
+        {
+          "name": "ProductKey",
+          "sql_type": "int",
+          "digest": "sha256:2e8302ff0159ced1ad6c010b8bf0eaacc690cd6a684842b9a3fefe074d775e82",
+          "null_count": 0
+        },
+        {
+          "name": "DateKey",
+          "sql_type": "datetime",
+          "digest": "sha256:e6ea6a9d258988935d2adfd576f2194545ece58ff2569aaa449a5654e0737af6",
+          "null_count": 0
+        },
+        {
+          "name": "CurrencyKey",
+          "sql_type": "int",
+          "digest": "sha256:c3fd2e65c1a385df30a2999413f0dee49b07a71e63d60a51eb7401e6943922ce",
+          "null_count": 0
+        },
+        {
+          "name": "ScenarioKey",
+          "sql_type": "int",
+          "digest": "sha256:174486689079d37f4cfeb9c1f7f1fe1007896db3ceb4c153cbeba1e8e06edb21",
+          "null_count": 0
+        },
+        {
+          "name": "SalesQuantityQuota",
+          "sql_type": "money",
+          "digest": "sha256:f64cb37bf00dd55095d151a8a7b32efe8e0b2eedc22d3f615dded834e17baf07",
+          "null_count": 0
+        },
+        {
+          "name": "SalesAmountQuota",
+          "sql_type": "money",
+          "digest": "sha256:881fff2b056d234ab57aca5feac22bc2a188904bf7c636c33abe47aaa9a8c698",
+          "null_count": 0
+        },
+        {
+          "name": "GrossMarginQuota",
+          "sql_type": "money",
+          "digest": "sha256:133661dae284643634c5c3da8825fd163d0be3e5bc257bb910c88e2a0eba97ce",
+          "null_count": 0
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "digest": "sha256:c3fd2e65c1a385df30a2999413f0dee49b07a71e63d60a51eb7401e6943922ce",
+          "null_count": 0
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "digest": "sha256:e98d0d3aea9a63525e0e856ac98e9342df642fee2f01da9624146aa111bb8f29",
+          "null_count": 0
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "digest": "sha256:e98d0d3aea9a63525e0e856ac98e9342df642fee2f01da9624146aa111bb8f29",
+          "null_count": 0
+        }
+      ],
+      "sample_n": 196472
+    },
+    {
+      "fqn": "dbo.FactStrategyPlan",
+      "row_count": 2750628,
+      "key_columns": [
+        "StrategyPlanKey"
+      ],
+      "mode": "sample",
+      "columns": [
+        {
+          "name": "StrategyPlanKey",
+          "sql_type": "int",
+          "digest": "sha256:4273d8c8b01f55fd693ae89544c1fbe83f261b3f8d8eae90ab0e7e0f78a6dfef",
+          "null_count": 0
+        },
+        {
+          "name": "Datekey",
+          "sql_type": "datetime",
+          "digest": "sha256:301e50ba10197315198c9f9794f8f2f262631d7916354b278fecf9d61e6fcc72",
+          "null_count": 0
+        },
+        {
+          "name": "EntityKey",
+          "sql_type": "int",
+          "digest": "sha256:44a9bb2270e785cd454952e030d4366b7afe05e5351c435c5ecbede556f8285f",
+          "null_count": 0
+        },
+        {
+          "name": "ScenarioKey",
+          "sql_type": "int",
+          "digest": "sha256:50a94f6ebe0c09197c7aabc15abf279281e15b85f633cec309bdb71a2638bdb5",
+          "null_count": 0
+        },
+        {
+          "name": "AccountKey",
+          "sql_type": "int",
+          "digest": "sha256:92a529cb420ff25ad358bf9f96d03b9f9e9f1170ce53bc4ea901e310fe88d68b",
+          "null_count": 0
+        },
+        {
+          "name": "CurrencyKey",
+          "sql_type": "int",
+          "digest": "sha256:bc5e3a482799f233a5ae34d2f31204d53f6890abacc657f8e2a2154ec9ec597d",
+          "null_count": 0
+        },
+        {
+          "name": "ProductCategoryKey",
+          "sql_type": "int",
+          "digest": "sha256:908a76560643e85a0e91fe8cc1ef35d252abd07dd8a4c024682caef7a8d8a7f2",
+          "null_count": 0
+        },
+        {
+          "name": "Amount",
+          "sql_type": "money",
+          "digest": "sha256:b1f34399570e40c8d6b2c7a8617809327d007d6492291d89d4e0f461889b6783",
+          "null_count": 0
+        },
+        {
+          "name": "ETLLoadID",
+          "sql_type": "int",
+          "digest": "sha256:bc5e3a482799f233a5ae34d2f31204d53f6890abacc657f8e2a2154ec9ec597d",
+          "null_count": 0
+        },
+        {
+          "name": "LoadDate",
+          "sql_type": "datetime",
+          "digest": "sha256:8f48b1179874a710bf1fdc0b026b497f57a89ef713b647a77b1e2ed605e3c2e5",
+          "null_count": 0
+        },
+        {
+          "name": "UpdateDate",
+          "sql_type": "datetime",
+          "digest": "sha256:b5e91b34f7ee64208ff08463a7b369d681250102cea42e7b9f9259411df4c465",
+          "null_count": 507444
+        }
+      ],
+      "sample_n": 196474
+    }
+  ]
+}

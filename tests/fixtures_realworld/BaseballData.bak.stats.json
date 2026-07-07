@@ -1,0 +1,2656 @@
+{
+  "sql_version": "Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (X64)",
+  "bak": "BaseballData.bak",
+  "bak_size_mb": 114.171,
+  "database": "RegisterBak_BaseballData",
+  "registered_at": "2026-06-10T01:43:29.133040+00:00",
+  "sqlserver_restore_s": 5.807,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "allstarfull",
+      "row_count": 4834,
+      "columns": [
+        {
+          "name": "playerID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "aaronha01",
+          "max_val": "zobribe01"
+        },
+        {
+          "name": "yearID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1933",
+          "max_val": "2012"
+        },
+        {
+          "name": "gameNum",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "2"
+        },
+        {
+          "name": "gameID",
+          "sql_type": "varchar",
+          "null_count": 49,
+          "min_val": "ALS193307060",
+          "max_val": "NLS201107120"
+        },
+        {
+          "name": "teamID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "ANA",
+          "max_val": "WS2"
+        },
+        {
+          "name": "lgID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "AL",
+          "max_val": "NL"
+        },
+        {
+          "name": "GP",
+          "sql_type": "int",
+          "null_count": 37,
+          "min_val": "0",
+          "max_val": "1"
+        },
+        {
+          "name": "startingPos",
+          "sql_type": "int",
+          "null_count": 3314,
+          "min_val": "0",
+          "max_val": "10"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "appearances",
+      "row_count": 96737,
+      "columns": [
+        {
+          "name": "yearID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1871",
+          "max_val": "2012"
+        },
+        {
+          "name": "teamID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "ALT",
+          "max_val": "WSU"
+        },
+        {
+          "name": "lgID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "AA",
+          "max_val": "UA"
+        },
+        {
+          "name": "playerID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "aardsda01",
+          "max_val": "zwilldu01"
+        },
+        {
+          "name": "G_all",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "165"
+        },
+        {
+          "name": "G_batting",
+          "sql_type": "int",
+          "null_count": 51718,
+          "min_val": "0",
+          "max_val": "163"
+        },
+        {
+          "name": "G_defense",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "165"
+        },
+        {
+          "name": "G_p",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "165"
+        },
+        {
+          "name": "G_c",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "106"
+        },
+        {
+          "name": "G_1b",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "160"
+        },
+        {
+          "name": "G_2b",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "162"
+        },
+        {
+          "name": "G_3b",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "163"
+        },
+        {
+          "name": "G_ss",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "164"
+        },
+        {
+          "name": "G_lf",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "165"
+        },
+        {
+          "name": "G_cf",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "163"
+        },
+        {
+          "name": "G_rf",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "162"
+        },
+        {
+          "name": "G_of",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "162"
+        },
+        {
+          "name": "G_dh",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "164"
+        },
+        {
+          "name": "G_ph",
+          "sql_type": "int",
+          "null_count": 51718,
+          "min_val": "0",
+          "max_val": "162"
+        },
+        {
+          "name": "G_pr",
+          "sql_type": "int",
+          "null_count": 51718,
+          "min_val": "0",
+          "max_val": "95"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "awardsmanagers",
+      "row_count": 156,
+      "columns": [
+        {
+          "name": "managerID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "aloufe01m",
+          "max_val": "zimmedo01m"
+        },
+        {
+          "name": "awardID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "BBWAA Manager of the year",
+          "max_val": "TSN Manager of the Year"
+        },
+        {
+          "name": "yearID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1936",
+          "max_val": "2012"
+        },
+        {
+          "name": "lgID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "AL",
+          "max_val": "NL"
+        },
+        {
+          "name": "tie",
+          "sql_type": "varchar",
+          "null_count": 154,
+          "min_val": "Y",
+          "max_val": "Y"
+        },
+        {
+          "name": "notes",
+          "sql_type": "varchar",
+          "null_count": 156,
+          "min_val": null,
+          "max_val": null
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "awardsplayers",
+      "row_count": 5919,
+      "columns": [
+        {
+          "name": "playerID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "aaronha01",
+          "max_val": "zitoba01"
+        },
+        {
+          "name": "awardID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "ALCS MVP",
+          "max_val": "World Series MVP"
+        },
+        {
+          "name": "yearID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1877",
+          "max_val": "2012"
+        },
+        {
+          "name": "lgID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "AA",
+          "max_val": "NL"
+        },
+        {
+          "name": "tie",
+          "sql_type": "varchar",
+          "null_count": 5874,
+          "min_val": "Y",
+          "max_val": "Y"
+        },
+        {
+          "name": "notes",
+          "sql_type": "varchar",
+          "null_count": 1379,
+          "min_val": "1B",
+          "max_val": "SS"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "awardssharemanagers",
+      "row_count": 372,
+      "columns": [
+        {
+          "name": "awardID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "Mgr of the year",
+          "max_val": "Mgr of the year"
+        },
+        {
+          "name": "yearID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1983",
+          "max_val": "2012"
+        },
+        {
+          "name": "lgID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "AL",
+          "max_val": "NL"
+        },
+        {
+          "name": "managerID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "actama99m",
+          "max_val": "zimmedo01m"
+        },
+        {
+          "name": "pointsWon",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "154"
+        },
+        {
+          "name": "pointsMax",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "24",
+          "max_val": "160"
+        },
+        {
+          "name": "votesFirst",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "30"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "awardsshareplayers",
+      "row_count": 6531,
+      "columns": [
+        {
+          "name": "awardID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "Cy Young",
+          "max_val": "Rookie of the Year"
+        },
+        {
+          "name": "yearID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1911",
+          "max_val": "2012"
+        },
+        {
+          "name": "lgID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "AL",
+          "max_val": "NL"
+        },
+        {
+          "name": "playerID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "aaronha01",
+          "max_val": "zobribe01"
+        },
+        {
+          "name": "pointsWon",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "448"
+        },
+        {
+          "name": "pointsMax",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "16",
+          "max_val": "448"
+        },
+        {
+          "name": "votesFirst",
+          "sql_type": "int",
+          "null_count": 358,
+          "min_val": "0",
+          "max_val": "32"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "batting",
+      "row_count": 96600,
+      "columns": [
+        {
+          "name": "playerID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "aardsda01",
+          "max_val": "zwilldu01"
+        },
+        {
+          "name": "yearID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1871",
+          "max_val": "2012"
+        },
+        {
+          "name": "stint",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "5"
+        },
+        {
+          "name": "teamID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "ALT",
+          "max_val": "WSU"
+        },
+        {
+          "name": "lgID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "AA",
+          "max_val": "UA"
+        },
+        {
+          "name": "G",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "165"
+        },
+        {
+          "name": "G_batting",
+          "sql_type": "int",
+          "null_count": 1406,
+          "min_val": "0",
+          "max_val": "165"
+        },
+        {
+          "name": "AB",
+          "sql_type": "int",
+          "null_count": 6413,
+          "min_val": "0",
+          "max_val": "716"
+        },
+        {
+          "name": "R",
+          "sql_type": "int",
+          "null_count": 6413,
+          "min_val": "0",
+          "max_val": "192"
+        },
+        {
+          "name": "H",
+          "sql_type": "int",
+          "null_count": 6413,
+          "min_val": "0",
+          "max_val": "262"
+        },
+        {
+          "name": "2B",
+          "sql_type": "int",
+          "null_count": 6413,
+          "min_val": "0",
+          "max_val": "67"
+        },
+        {
+          "name": "3B",
+          "sql_type": "int",
+          "null_count": 6413,
+          "min_val": "0",
+          "max_val": "36"
+        },
+        {
+          "name": "HR",
+          "sql_type": "int",
+          "null_count": 6413,
+          "min_val": "0",
+          "max_val": "73"
+        },
+        {
+          "name": "RBI",
+          "sql_type": "int",
+          "null_count": 6837,
+          "min_val": "0",
+          "max_val": "191"
+        },
+        {
+          "name": "SB",
+          "sql_type": "int",
+          "null_count": 7713,
+          "min_val": "0",
+          "max_val": "138"
+        },
+        {
+          "name": "CS",
+          "sql_type": "int",
+          "null_count": 29867,
+          "min_val": "0",
+          "max_val": "42"
+        },
+        {
+          "name": "BB",
+          "sql_type": "int",
+          "null_count": 6413,
+          "min_val": "0",
+          "max_val": "232"
+        },
+        {
+          "name": "SO",
+          "sql_type": "int",
+          "null_count": 14251,
+          "min_val": "0",
+          "max_val": "223"
+        },
+        {
+          "name": "IBB",
+          "sql_type": "int",
+          "null_count": 42977,
+          "min_val": "0",
+          "max_val": "120"
+        },
+        {
+          "name": "HBP",
+          "sql_type": "int",
+          "null_count": 9233,
+          "min_val": "0",
+          "max_val": "51"
+        },
+        {
+          "name": "SH",
+          "sql_type": "int",
+          "null_count": 12751,
+          "min_val": "0",
+          "max_val": "67"
+        },
+        {
+          "name": "SF",
+          "sql_type": "int",
+          "null_count": 42446,
+          "min_val": "0",
+          "max_val": "19"
+        },
+        {
+          "name": "GIDP",
+          "sql_type": "int",
+          "null_count": 32521,
+          "min_val": "0",
+          "max_val": "36"
+        },
+        {
+          "name": "G_old",
+          "sql_type": "int",
+          "null_count": 3900,
+          "min_val": "0",
+          "max_val": "165"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "battingpost",
+      "row_count": 10510,
+      "columns": [
+        {
+          "name": "yearID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1884",
+          "max_val": "2012"
+        },
+        {
+          "name": "round",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "AEDIV",
+          "max_val": "WS"
+        },
+        {
+          "name": "playerID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "aaronha01",
+          "max_val": "zumayjo01"
+        },
+        {
+          "name": "teamID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "ANA",
+          "max_val": "WS1"
+        },
+        {
+          "name": "lgID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "AA",
+          "max_val": "NL"
+        },
+        {
+          "name": "G",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "15"
+        },
+        {
+          "name": "AB",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "66"
+        },
+        {
+          "name": "R",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "13"
+        },
+        {
+          "name": "H",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "21"
+        },
+        {
+          "name": "2B",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "6"
+        },
+        {
+          "name": "3B",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "4"
+        },
+        {
+          "name": "HR",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "6"
+        },
+        {
+          "name": "RBI",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "13"
+        },
+        {
+          "name": "SB",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "15"
+        },
+        {
+          "name": "CS",
+          "sql_type": "int",
+          "null_count": 201,
+          "min_val": "0",
+          "max_val": "5"
+        },
+        {
+          "name": "BB",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "13"
+        },
+        {
+          "name": "SO",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "13"
+        },
+        {
+          "name": "IBB",
+          "sql_type": "int",
+          "null_count": 670,
+          "min_val": "0",
+          "max_val": "7"
+        },
+        {
+          "name": "HBP",
+          "sql_type": "int",
+          "null_count": 870,
+          "min_val": "0",
+          "max_val": "4"
+        },
+        {
+          "name": "SH",
+          "sql_type": "int",
+          "null_count": 871,
+          "min_val": "0",
+          "max_val": "5"
+        },
+        {
+          "name": "SF",
+          "sql_type": "int",
+          "null_count": 871,
+          "min_val": "0",
+          "max_val": "3"
+        },
+        {
+          "name": "GIDP",
+          "sql_type": "int",
+          "null_count": 871,
+          "min_val": "0",
+          "max_val": "5"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "els_teamnames",
+      "row_count": 314,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "314"
+        },
+        {
+          "name": "lgid",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "AA",
+          "max_val": "UA"
+        },
+        {
+          "name": "teamid",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "ALT",
+          "max_val": "WSU"
+        },
+        {
+          "name": "franchid",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "ALT",
+          "max_val": "WST"
+        },
+        {
+          "name": "name",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "Altoona Mountain City",
+          "max_val": "Worcester Ruby Legs"
+        },
+        {
+          "name": "park",
+          "sql_type": "varchar",
+          "null_count": 29,
+          "min_val": "23rd Street Grounds",
+          "max_val": "Yankee Stadium III"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "fielding",
+      "row_count": 144409,
+      "columns": [
+        {
+          "name": "playerID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "aardsda01",
+          "max_val": "zwilldu01"
+        },
+        {
+          "name": "yearID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1871",
+          "max_val": "2012"
+        },
+        {
+          "name": "stint",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "5"
+        },
+        {
+          "name": "teamID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "ALT",
+          "max_val": "WSU"
+        },
+        {
+          "name": "lgID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "AA",
+          "max_val": "UA"
+        },
+        {
+          "name": "POS",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "1B",
+          "max_val": "SS"
+        },
+        {
+          "name": "G",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "165"
+        },
+        {
+          "name": "GS",
+          "sql_type": "int",
+          "null_count": 51476,
+          "min_val": "0",
+          "max_val": "164"
+        },
+        {
+          "name": "InnOuts",
+          "sql_type": "int",
+          "null_count": 51476,
+          "min_val": "0",
+          "max_val": "4469"
+        },
+        {
+          "name": "PO",
+          "sql_type": "int",
+          "null_count": 6654,
+          "min_val": "0",
+          "max_val": "1846"
+        },
+        {
+          "name": "A",
+          "sql_type": "int",
+          "null_count": 6654,
+          "min_val": "0",
+          "max_val": "641"
+        },
+        {
+          "name": "E",
+          "sql_type": "int",
+          "null_count": 6655,
+          "min_val": "0",
+          "max_val": "119"
+        },
+        {
+          "name": "DP",
+          "sql_type": "int",
+          "null_count": 6654,
+          "min_val": "0",
+          "max_val": "194"
+        },
+        {
+          "name": "PB",
+          "sql_type": "int",
+          "null_count": 130672,
+          "min_val": "0",
+          "max_val": "105"
+        },
+        {
+          "name": "WP",
+          "sql_type": "int",
+          "null_count": 139491,
+          "min_val": "0",
+          "max_val": "69"
+        },
+        {
+          "name": "SB",
+          "sql_type": "int",
+          "null_count": 135107,
+          "min_val": "0",
+          "max_val": "155"
+        },
+        {
+          "name": "CS",
+          "sql_type": "int",
+          "null_count": 135107,
+          "min_val": "0",
+          "max_val": "70"
+        },
+        {
+          "name": "ZR",
+          "sql_type": "int",
+          "null_count": 139699,
+          "min_val": "0",
+          "max_val": "15"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "fieldingof",
+      "row_count": 12028,
+      "columns": [
+        {
+          "name": "playerID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "aaronha01",
+          "max_val": "zwilldu01"
+        },
+        {
+          "name": "yearID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1871",
+          "max_val": "1955"
+        },
+        {
+          "name": "stint",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "5"
+        },
+        {
+          "name": "Glf",
+          "sql_type": "int",
+          "null_count": 37,
+          "min_val": "0",
+          "max_val": "156"
+        },
+        {
+          "name": "Gcf",
+          "sql_type": "int",
+          "null_count": 37,
+          "min_val": "0",
+          "max_val": "162"
+        },
+        {
+          "name": "Grf",
+          "sql_type": "int",
+          "null_count": 43,
+          "min_val": "0",
+          "max_val": "160"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "fieldingpost",
+      "row_count": 11183,
+      "columns": [
+        {
+          "name": "playerID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "aaronha01",
+          "max_val": "zumayjo01"
+        },
+        {
+          "name": "yearID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1903",
+          "max_val": "2012"
+        },
+        {
+          "name": "teamID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "ANA",
+          "max_val": "WS1"
+        },
+        {
+          "name": "lgID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "AL",
+          "max_val": "NL"
+        },
+        {
+          "name": "round",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "AEDIV",
+          "max_val": "WS"
+        },
+        {
+          "name": "POS",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "1B",
+          "max_val": "SS"
+        },
+        {
+          "name": "G",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "11"
+        },
+        {
+          "name": "GS",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "8"
+        },
+        {
+          "name": "InnOuts",
+          "sql_type": "int",
+          "null_count": 321,
+          "min_val": "0",
+          "max_val": "222"
+        },
+        {
+          "name": "PO",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "91"
+        },
+        {
+          "name": "A",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "33"
+        },
+        {
+          "name": "E",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "8"
+        },
+        {
+          "name": "DP",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "13"
+        },
+        {
+          "name": "TP",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1"
+        },
+        {
+          "name": "PB",
+          "sql_type": "int",
+          "null_count": 9913,
+          "min_val": "0",
+          "max_val": "3"
+        },
+        {
+          "name": "SB",
+          "sql_type": "int",
+          "null_count": 5680,
+          "min_val": "0",
+          "max_val": "16"
+        },
+        {
+          "name": "CS",
+          "sql_type": "int",
+          "null_count": 5680,
+          "min_val": "0",
+          "max_val": "10"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "halloffame",
+      "row_count": 3883,
+      "columns": [
+        {
+          "name": "hofID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "aaronha01h",
+          "max_val": "ziskri01h"
+        },
+        {
+          "name": "yearID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1936",
+          "max_val": "2013"
+        },
+        {
+          "name": "votedBy",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "BBWAA",
+          "max_val": "Veterans"
+        },
+        {
+          "name": "ballots",
+          "sql_type": "int",
+          "null_count": 169,
+          "min_val": "78",
+          "max_val": "581"
+        },
+        {
+          "name": "needed",
+          "sql_type": "int",
+          "null_count": 251,
+          "min_val": "59",
+          "max_val": "436"
+        },
+        {
+          "name": "votes",
+          "sql_type": "int",
+          "null_count": 169,
+          "min_val": "0",
+          "max_val": "537"
+        },
+        {
+          "name": "inducted",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "N",
+          "max_val": "Y"
+        },
+        {
+          "name": "category",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "Manager",
+          "max_val": "Umpire"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "managers",
+      "row_count": 3306,
+      "columns": [
+        {
+          "name": "managerID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "actama99m",
+          "max_val": "zimmedo01m"
+        },
+        {
+          "name": "yearID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1871",
+          "max_val": "2012"
+        },
+        {
+          "name": "teamID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "ALT",
+          "max_val": "WSU"
+        },
+        {
+          "name": "lgID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "AA",
+          "max_val": "UA"
+        },
+        {
+          "name": "inseason",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "9"
+        },
+        {
+          "name": "G",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "165"
+        },
+        {
+          "name": "W",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "116"
+        },
+        {
+          "name": "L",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "120"
+        },
+        {
+          "name": "rank",
+          "sql_type": "int",
+          "null_count": 1,
+          "min_val": "1",
+          "max_val": "12"
+        },
+        {
+          "name": "plyrMgr",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "N",
+          "max_val": "Y"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "managershalf",
+      "row_count": 93,
+      "columns": [
+        {
+          "name": "managerID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "amalfjo01m",
+          "max_val": "zimmedo01m"
+        },
+        {
+          "name": "yearID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1892",
+          "max_val": "1981"
+        },
+        {
+          "name": "teamID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "ATL",
+          "max_val": "WSN"
+        },
+        {
+          "name": "lgID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "AL",
+          "max_val": "NL"
+        },
+        {
+          "name": "inseason",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "5"
+        },
+        {
+          "name": "half",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "2"
+        },
+        {
+          "name": "G",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "80"
+        },
+        {
+          "name": "W",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "53"
+        },
+        {
+          "name": "L",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "2",
+          "max_val": "46"
+        },
+        {
+          "name": "rank",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "12"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "pitching",
+      "row_count": 41857,
+      "columns": [
+        {
+          "name": "playerID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "aardsda01",
+          "max_val": "zuverge01"
+        },
+        {
+          "name": "yearID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1871",
+          "max_val": "2012"
+        },
+        {
+          "name": "stint",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "4"
+        },
+        {
+          "name": "teamID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "ALT",
+          "max_val": "WSU"
+        },
+        {
+          "name": "lgID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "AA",
+          "max_val": "UA"
+        },
+        {
+          "name": "W",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "59"
+        },
+        {
+          "name": "L",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "48"
+        },
+        {
+          "name": "G",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "106"
+        },
+        {
+          "name": "GS",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "75"
+        },
+        {
+          "name": "CG",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "75"
+        },
+        {
+          "name": "SHO",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "16"
+        },
+        {
+          "name": "SV",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "62"
+        },
+        {
+          "name": "IPouts",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "2040"
+        },
+        {
+          "name": "H",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "772"
+        },
+        {
+          "name": "ER",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "291"
+        },
+        {
+          "name": "HR",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "50"
+        },
+        {
+          "name": "BB",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "289"
+        },
+        {
+          "name": "SO",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "513"
+        },
+        {
+          "name": "BAOpp",
+          "sql_type": "int",
+          "null_count": 8441,
+          "min_val": "0",
+          "max_val": "9"
+        },
+        {
+          "name": "ERA",
+          "sql_type": "int",
+          "null_count": 84,
+          "min_val": "0",
+          "max_val": "189"
+        },
+        {
+          "name": "IBB",
+          "sql_type": "int",
+          "null_count": 14579,
+          "min_val": "0",
+          "max_val": "23"
+        },
+        {
+          "name": "WP",
+          "sql_type": "int",
+          "null_count": 137,
+          "min_val": "0",
+          "max_val": "63"
+        },
+        {
+          "name": "HBP",
+          "sql_type": "int",
+          "null_count": 562,
+          "min_val": "0",
+          "max_val": "41"
+        },
+        {
+          "name": "BK",
+          "sql_type": "int",
+          "null_count": 4,
+          "min_val": "0",
+          "max_val": "16"
+        },
+        {
+          "name": "BFP",
+          "sql_type": "int",
+          "null_count": 239,
+          "min_val": "0",
+          "max_val": "2906"
+        },
+        {
+          "name": "GF",
+          "sql_type": "int",
+          "null_count": 133,
+          "min_val": "0",
+          "max_val": "84"
+        },
+        {
+          "name": "R",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "519"
+        },
+        {
+          "name": "SH",
+          "sql_type": "int",
+          "null_count": 41857,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "SF",
+          "sql_type": "int",
+          "null_count": 41857,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "GIDP",
+          "sql_type": "int",
+          "null_count": 41857,
+          "min_val": null,
+          "max_val": null
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "pitchingpost",
+      "row_count": 4612,
+      "columns": [
+        {
+          "name": "playerID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "aasedo01",
+          "max_val": "zumayjo01"
+        },
+        {
+          "name": "yearID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1884",
+          "max_val": "2012"
+        },
+        {
+          "name": "round",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "AEDIV",
+          "max_val": "WS"
+        },
+        {
+          "name": "teamID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "ANA",
+          "max_val": "WS1"
+        },
+        {
+          "name": "lgID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "AA",
+          "max_val": "NL"
+        },
+        {
+          "name": "W",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "4"
+        },
+        {
+          "name": "L",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "4"
+        },
+        {
+          "name": "G",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "8"
+        },
+        {
+          "name": "GS",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "8"
+        },
+        {
+          "name": "CG",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "8"
+        },
+        {
+          "name": "SHO",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "3"
+        },
+        {
+          "name": "SV",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "4"
+        },
+        {
+          "name": "IPouts",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "213"
+        },
+        {
+          "name": "H",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "64"
+        },
+        {
+          "name": "ER",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "26"
+        },
+        {
+          "name": "HR",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "5"
+        },
+        {
+          "name": "BB",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "32"
+        },
+        {
+          "name": "SO",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "35"
+        },
+        {
+          "name": "BAOpp",
+          "sql_type": "int",
+          "null_count": 68,
+          "min_val": "0",
+          "max_val": "1"
+        },
+        {
+          "name": "ERA",
+          "sql_type": "int",
+          "null_count": 262,
+          "min_val": "0",
+          "max_val": "108"
+        },
+        {
+          "name": "IBB",
+          "sql_type": "int",
+          "null_count": 50,
+          "min_val": "0",
+          "max_val": "4"
+        },
+        {
+          "name": "WP",
+          "sql_type": "int",
+          "null_count": 50,
+          "min_val": "0",
+          "max_val": "5"
+        },
+        {
+          "name": "HBP",
+          "sql_type": "int",
+          "null_count": 50,
+          "min_val": "0",
+          "max_val": "3"
+        },
+        {
+          "name": "BK",
+          "sql_type": "int",
+          "null_count": 225,
+          "min_val": "0",
+          "max_val": "1"
+        },
+        {
+          "name": "BFP",
+          "sql_type": "int",
+          "null_count": 50,
+          "min_val": "1",
+          "max_val": "178"
+        },
+        {
+          "name": "GF",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "6"
+        },
+        {
+          "name": "R",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "36"
+        },
+        {
+          "name": "SH",
+          "sql_type": "int",
+          "null_count": 378,
+          "min_val": "0",
+          "max_val": "7"
+        },
+        {
+          "name": "SF",
+          "sql_type": "int",
+          "null_count": 378,
+          "min_val": "0",
+          "max_val": "4"
+        },
+        {
+          "name": "GIDP",
+          "sql_type": "int",
+          "null_count": 50,
+          "min_val": "0",
+          "max_val": "6"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "players",
+      "row_count": 16564,
+      "columns": [
+        {
+          "name": "lahmanID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "17616"
+        },
+        {
+          "name": "playerID",
+          "sql_type": "varchar",
+          "null_count": 153,
+          "min_val": "aardsda01",
+          "max_val": "zwilldu01"
+        },
+        {
+          "name": "managerID",
+          "sql_type": "varchar",
+          "null_count": 15896,
+          "min_val": "adairbi99m",
+          "max_val": "zimmedo01m"
+        },
+        {
+          "name": "hofID",
+          "sql_type": "varchar",
+          "null_count": 15394,
+          "min_val": "aaronha01h",
+          "max_val": "ziskri01h"
+        },
+        {
+          "name": "birthYear",
+          "sql_type": "int",
+          "null_count": 241,
+          "min_val": "1820",
+          "max_val": "1986"
+        },
+        {
+          "name": "birthMonth",
+          "sql_type": "int",
+          "null_count": 458,
+          "min_val": "1",
+          "max_val": "12"
+        },
+        {
+          "name": "birthDay",
+          "sql_type": "int",
+          "null_count": 601,
+          "min_val": "1",
+          "max_val": "31"
+        },
+        {
+          "name": "birthCountry",
+          "sql_type": "varchar",
+          "null_count": 341,
+          "min_val": "A Ship on Atlantic Ocean",
+          "max_val": "Wales"
+        },
+        {
+          "name": "birthState",
+          "sql_type": "varchar",
+          "null_count": 1647,
+          "min_val": "11",
+          "max_val": "WY"
+        },
+        {
+          "name": "birthCity",
+          "sql_type": "varchar",
+          "null_count": 456,
+          "min_val": "Aberdeen",
+          "max_val": "Zion"
+        },
+        {
+          "name": "deathYear",
+          "sql_type": "int",
+          "null_count": 8114,
+          "min_val": "1872",
+          "max_val": "2008"
+        },
+        {
+          "name": "deathMonth",
+          "sql_type": "int",
+          "null_count": 8120,
+          "min_val": "1",
+          "max_val": "12"
+        },
+        {
+          "name": "deathDay",
+          "sql_type": "int",
+          "null_count": 8120,
+          "min_val": "1",
+          "max_val": "31"
+        },
+        {
+          "name": "deathCountry",
+          "sql_type": "varchar",
+          "null_count": 8156,
+          "min_val": "American Samoa",
+          "max_val": "Venezuela"
+        },
+        {
+          "name": "deathState",
+          "sql_type": "varchar",
+          "null_count": 8244,
+          "min_val": "11",
+          "max_val": "WY"
+        },
+        {
+          "name": "deathCity",
+          "sql_type": "varchar",
+          "null_count": 8160,
+          "min_val": "Aberdeen",
+          "max_val": "Zimmerman"
+        },
+        {
+          "name": "nameFirst",
+          "sql_type": "varchar",
+          "null_count": 49,
+          "min_val": "A.J.",
+          "max_val": "Zoilo"
+        },
+        {
+          "name": "nameLast",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "Aardsma",
+          "max_val": "Zwilling"
+        },
+        {
+          "name": "nameNote",
+          "sql_type": "varchar",
+          "null_count": 16116,
+          "min_val": "a.k.a. Al West For 1 Game In 1883",
+          "max_val": "Wonderful Willie"
+        },
+        {
+          "name": "nameGiven",
+          "sql_type": "varchar",
+          "null_count": 809,
+          "min_val": "A. Harry",
+          "max_val": "Zoilo Casanova (Rodriguez)"
+        },
+        {
+          "name": "nameNick",
+          "sql_type": "varchar",
+          "null_count": 13775,
+          "min_val": "(Vedie)",
+          "max_val": "Zorro"
+        },
+        {
+          "name": "weight",
+          "sql_type": "int",
+          "null_count": 882,
+          "min_val": "65",
+          "max_val": "320"
+        },
+        {
+          "name": "height",
+          "sql_type": "int",
+          "null_count": 830,
+          "min_val": "43",
+          "max_val": "83"
+        },
+        {
+          "name": "bats",
+          "sql_type": "varchar",
+          "null_count": 1319,
+          "min_val": "B",
+          "max_val": "R"
+        },
+        {
+          "name": "throws",
+          "sql_type": "varchar",
+          "null_count": 1082,
+          "min_val": "L",
+          "max_val": "R"
+        },
+        {
+          "name": "debut",
+          "sql_type": "varchar",
+          "null_count": 155,
+          "min_val": "10/1/1874",
+          "max_val": "9/9/2005"
+        },
+        {
+          "name": "finalGame",
+          "sql_type": "varchar",
+          "null_count": 941,
+          "min_val": "10/1/1874",
+          "max_val": "9/9/2006"
+        },
+        {
+          "name": "college",
+          "sql_type": "varchar",
+          "null_count": 13239,
+          "min_val": "Abraham Baldwin Agricultural",
+          "max_val": "YSU"
+        },
+        {
+          "name": "lahman40ID",
+          "sql_type": "varchar",
+          "null_count": 817,
+          "min_val": "aaronha01",
+          "max_val": "zwilldu01"
+        },
+        {
+          "name": "lahman45ID",
+          "sql_type": "varchar",
+          "null_count": 817,
+          "min_val": "aaronha01",
+          "max_val": "zwilldu01"
+        },
+        {
+          "name": "retroID",
+          "sql_type": "varchar",
+          "null_count": 17,
+          "min_val": "aardd001",
+          "max_val": "zwild101"
+        },
+        {
+          "name": "holtzID",
+          "sql_type": "varchar",
+          "null_count": 809,
+          "min_val": "aaronha01",
+          "max_val": "zwilldu01"
+        },
+        {
+          "name": "bbrefID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "aardsda01",
+          "max_val": "zwilldu01"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "salaries",
+      "row_count": 23141,
+      "columns": [
+        {
+          "name": "yearID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1985",
+          "max_val": "2012"
+        },
+        {
+          "name": "teamID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "ANA",
+          "max_val": "WAS"
+        },
+        {
+          "name": "lgID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "AL",
+          "max_val": "NL"
+        },
+        {
+          "name": "playerID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "aardsda01",
+          "max_val": "zuvelpa01"
+        },
+        {
+          "name": "salary",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "33000000"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "schools",
+      "row_count": 749,
+      "columns": [
+        {
+          "name": "schoolID",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "abilchrist",
+          "max_val": "youngst"
+        },
+        {
+          "name": "schoolName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Abilene Christian University",
+          "max_val": "Youngstown State University"
+        },
+        {
+          "name": "schoolCity",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Abilene",
+          "max_val": "Ypsilanti"
+        },
+        {
+          "name": "schoolState",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "AL",
+          "max_val": "WY"
+        },
+        {
+          "name": "schoolNick",
+          "sql_type": "nvarchar",
+          "null_count": 5,
+          "min_val": "49ers",
+          "max_val": "Zips"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "schoolsplayers",
+      "row_count": 6147,
+      "columns": [
+        {
+          "name": "playerID",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "aardsda01",
+          "max_val": "zuvelpa01"
+        },
+        {
+          "name": "schoolID",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "abilchrist",
+          "max_val": "youngst"
+        },
+        {
+          "name": "yearMin",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "2006"
+        },
+        {
+          "name": "yearMax",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "2008"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "seriespost",
+      "row_count": 272,
+      "columns": [
+        {
+          "name": "yearID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1903",
+          "max_val": "2012"
+        },
+        {
+          "name": "round",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "AEDIV",
+          "max_val": "WS"
+        },
+        {
+          "name": "teamIDwinner",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "ANA",
+          "max_val": "WS1"
+        },
+        {
+          "name": "lgIDwinner",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "AL",
+          "max_val": "NL"
+        },
+        {
+          "name": "teamIDloser",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "ANA",
+          "max_val": "WS1"
+        },
+        {
+          "name": "lgIDloser",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "AL",
+          "max_val": "NL"
+        },
+        {
+          "name": "wins",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "5"
+        },
+        {
+          "name": "losses",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "3"
+        },
+        {
+          "name": "ties",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "0"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "teams",
+      "row_count": 2715,
+      "columns": [
+        {
+          "name": "yearID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1871",
+          "max_val": "2012"
+        },
+        {
+          "name": "lgID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "AA",
+          "max_val": "UA"
+        },
+        {
+          "name": "teamID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "ALT",
+          "max_val": "WSU"
+        },
+        {
+          "name": "franchID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "ALT",
+          "max_val": "WST"
+        },
+        {
+          "name": "divID",
+          "sql_type": "varchar",
+          "null_count": 1517,
+          "min_val": "C",
+          "max_val": "W"
+        },
+        {
+          "name": "Rank",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "13"
+        },
+        {
+          "name": "G",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "6",
+          "max_val": "165"
+        },
+        {
+          "name": "Ghome",
+          "sql_type": "int",
+          "null_count": 549,
+          "min_val": "44",
+          "max_val": "84"
+        },
+        {
+          "name": "W",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "116"
+        },
+        {
+          "name": "L",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "4",
+          "max_val": "134"
+        },
+        {
+          "name": "DivWin",
+          "sql_type": "varchar",
+          "null_count": 1545,
+          "min_val": "N",
+          "max_val": "Y"
+        },
+        {
+          "name": "WCWin",
+          "sql_type": "varchar",
+          "null_count": 2181,
+          "min_val": "N",
+          "max_val": "Y"
+        },
+        {
+          "name": "LgWin",
+          "sql_type": "varchar",
+          "null_count": 28,
+          "min_val": "N",
+          "max_val": "Y"
+        },
+        {
+          "name": "WSWin",
+          "sql_type": "varchar",
+          "null_count": 357,
+          "min_val": "N",
+          "max_val": "Y"
+        },
+        {
+          "name": "R",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "24",
+          "max_val": "1220"
+        },
+        {
+          "name": "AB",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "211",
+          "max_val": "5781"
+        },
+        {
+          "name": "H",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "33",
+          "max_val": "1783"
+        },
+        {
+          "name": "2B",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "3",
+          "max_val": "376"
+        },
+        {
+          "name": "3B",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "150"
+        },
+        {
+          "name": "HR",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "264"
+        },
+        {
+          "name": "BB",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "835"
+        },
+        {
+          "name": "SO",
+          "sql_type": "int",
+          "null_count": 120,
+          "min_val": "0",
+          "max_val": "1529"
+        },
+        {
+          "name": "SB",
+          "sql_type": "int",
+          "null_count": 144,
+          "min_val": "0",
+          "max_val": "581"
+        },
+        {
+          "name": "CS",
+          "sql_type": "int",
+          "null_count": 859,
+          "min_val": "0",
+          "max_val": "191"
+        },
+        {
+          "name": "HBP",
+          "sql_type": "int",
+          "null_count": 2325,
+          "min_val": "28",
+          "max_val": "103"
+        },
+        {
+          "name": "SF",
+          "sql_type": "int",
+          "null_count": 2325,
+          "min_val": "24",
+          "max_val": "75"
+        },
+        {
+          "name": "RA",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "34",
+          "max_val": "1252"
+        },
+        {
+          "name": "ER",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "25",
+          "max_val": "1023"
+        },
+        {
+          "name": "ERA",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "8"
+        },
+        {
+          "name": "CG",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "148"
+        },
+        {
+          "name": "SHO",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "32"
+        },
+        {
+          "name": "SV",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "68"
+        },
+        {
+          "name": "IPouts",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "162",
+          "max_val": "4518"
+        },
+        {
+          "name": "HA",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "49",
+          "max_val": "1993"
+        },
+        {
+          "name": "HRA",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "241"
+        },
+        {
+          "name": "BBA",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "827"
+        },
+        {
+          "name": "SOA",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1404"
+        },
+        {
+          "name": "E",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "47",
+          "max_val": "639"
+        },
+        {
+          "name": "DP",
+          "sql_type": "int",
+          "null_count": 317,
+          "min_val": "18",
+          "max_val": "217"
+        },
+        {
+          "name": "FP",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "0"
+        },
+        {
+          "name": "name",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "Altoona Mountain City",
+          "max_val": "Worcester Ruby Legs"
+        },
+        {
+          "name": "park",
+          "sql_type": "varchar",
+          "null_count": 34,
+          "min_val": "23rd Street Grounds",
+          "max_val": "Yankee Stadium III"
+        },
+        {
+          "name": "attendance",
+          "sql_type": "int",
+          "null_count": 309,
+          "min_val": "6088",
+          "max_val": "4483350"
+        },
+        {
+          "name": "BPF",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "60",
+          "max_val": "129"
+        },
+        {
+          "name": "PPF",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "60",
+          "max_val": "141"
+        },
+        {
+          "name": "teamIDBR",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "ALT",
+          "max_val": "WSN"
+        },
+        {
+          "name": "teamIDlahman45",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "ALT",
+          "max_val": "WSU"
+        },
+        {
+          "name": "teamIDretro",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "ALT",
+          "max_val": "WSU"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "teamsfranchises",
+      "row_count": 120,
+      "columns": [
+        {
+          "name": "franchID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "ALT",
+          "max_val": "WST"
+        },
+        {
+          "name": "franchName",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "Altoona Mountain City",
+          "max_val": "Worcester Ruby Legs"
+        },
+        {
+          "name": "active",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "N",
+          "max_val": "Y"
+        },
+        {
+          "name": "NAassoc",
+          "sql_type": "varchar",
+          "null_count": 108,
+          "min_val": "ATH",
+          "max_val": "SNA"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "teamshalf",
+      "row_count": 52,
+      "columns": [
+        {
+          "name": "yearID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1981",
+          "max_val": "1981"
+        },
+        {
+          "name": "lgID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "AL",
+          "max_val": "NL"
+        },
+        {
+          "name": "teamID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "ATL",
+          "max_val": "TOR"
+        },
+        {
+          "name": "Half",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "2"
+        },
+        {
+          "name": "divID",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "E",
+          "max_val": "W"
+        },
+        {
+          "name": "DivWin",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "N",
+          "max_val": "N"
+        },
+        {
+          "name": "Rank",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "7"
+        },
+        {
+          "name": "G",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "48",
+          "max_val": "60"
+        },
+        {
+          "name": "W",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "15",
+          "max_val": "37"
+        },
+        {
+          "name": "L",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "20",
+          "max_val": "42"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "bak": "NYCTaxi_Sample.bak",
+  "captured_at": "2026-06-27T22:06:25.982125+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.nyctaxi_sample",
+      "row_count": 1703957,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "medallion",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:61a7f6b08c44387ed68c25a1ea143056ee98b5d608b93ff3643c2575fe333a73",
+          "null_count": 0
+        },
+        {
+          "name": "hack_license",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:8aefc1cd7f8499b538df494656c32eb4fff8ba64f1d2ecf3d2f4e88dccb8d737",
+          "null_count": 0
+        },
+        {
+          "name": "vendor_id",
+          "sql_type": "char(3)",
+          "digest": "sha256:73b37e60503ea6e678ff2463dd121cd08786701cc0a423fee852dc62d4c10b35",
+          "null_count": 0
+        },
+        {
+          "name": "rate_code",
+          "sql_type": "char(3)",
+          "digest": "sha256:4d1ce9b7c2f98491360dddd52bd5db1845da414288014dc2b3ac22d39d83d956",
+          "null_count": 0
+        },
+        {
+          "name": "store_and_fwd_flag",
+          "sql_type": "char(3)",
+          "digest": "sha256:40cff4dcd4c759de5b8e14a4dff7544c1aee4fd670bacffae6938a37ed0c5a00",
+          "null_count": 0
+        },
+        {
+          "name": "pickup_datetime",
+          "sql_type": "datetime",
+          "digest": "sha256:047963f0bb4becece59b379488bac67c76322b140868c04ae6e535a86394a450",
+          "null_count": 0
+        },
+        {
+          "name": "dropoff_datetime",
+          "sql_type": "datetime",
+          "digest": "sha256:9f6b209ef86ae4685c21fe0e9fbc44108fad05ef1133c3c85d2af350177f50ea",
+          "null_count": 0
+        },
+        {
+          "name": "passenger_count",
+          "sql_type": "int",
+          "digest": "sha256:84c7ad9ecea22ba164ad9227a245691cbc4343977a175afebb6241d0a2870f53",
+          "null_count": 0
+        },
+        {
+          "name": "trip_time_in_secs",
+          "sql_type": "bigint",
+          "digest": "sha256:2c4a124ca89cc9f7a59add0f96af00590504512133d7e36847de5bc5b7f2ab27",
+          "null_count": 0
+        },
+        {
+          "name": "trip_distance",
+          "sql_type": "float",
+          "digest": "sha256:02f2a59909cc33af14871a8db4cb5fe7972bb4cf0488b20a6c6f9ade3f626503",
+          "null_count": 0
+        },
+        {
+          "name": "pickup_longitude",
+          "sql_type": "varchar(30)",
+          "digest": "sha256:e80372649cfe6c74f909319e14b0aef46bc85f8761c6c7a4c8fb9df1d1f6e42e",
+          "null_count": 0
+        },
+        {
+          "name": "pickup_latitude",
+          "sql_type": "varchar(30)",
+          "digest": "sha256:f7539c9e08a20ada3287402f1475a15104ed1a4f4e192c582190594cee849c02",
+          "null_count": 0
+        },
+        {
+          "name": "dropoff_longitude",
+          "sql_type": "varchar(30)",
+          "digest": "sha256:d61ef59440a86752e1f6afceecbc7e5eee29a1ec6021b2ba35c762f634b97732",
+          "null_count": 0
+        },
+        {
+          "name": "dropoff_latitude",
+          "sql_type": "varchar(30)",
+          "digest": "sha256:1a9adf6a6e51a65725b22bddd5547dc96142149bf8b3c60c5532e27195c4986d",
+          "null_count": 0
+        },
+        {
+          "name": "payment_type",
+          "sql_type": "char(3)",
+          "digest": "sha256:4a6518625c3ae0d1677a06694029af40e75e86117693c0f2ef0d58e1be70d46a",
+          "null_count": 0
+        },
+        {
+          "name": "fare_amount",
+          "sql_type": "float",
+          "digest": "sha256:dc4981da4db6d25de50f1fb67ea78fe7649038b6f217ab67b48600a38a4e65a6",
+          "null_count": 0
+        },
+        {
+          "name": "surcharge",
+          "sql_type": "float",
+          "digest": "sha256:b998d0cc017f0ef67268b00757e4e747022769e0b6ad6c018b869954fb76c9f0",
+          "null_count": 0
+        },
+        {
+          "name": "mta_tax",
+          "sql_type": "float",
+          "digest": "sha256:5133c6fd10a0b84377e13f2bf092bf69c78e30806490e389d1a027a02482e20e",
+          "null_count": 0
+        },
+        {
+          "name": "tolls_amount",
+          "sql_type": "float",
+          "digest": "sha256:bdd2e0f614ddba712dc3cc4765300d88b6a20b5a1f62aa6e5679d694e4a0d60a",
+          "null_count": 0
+        },
+        {
+          "name": "total_amount",
+          "sql_type": "float",
+          "digest": "sha256:61eaae9d7c8dfdd0171a59836680c6b2092da6729a15e116d51fd0794eaf278b",
+          "null_count": 0
+        },
+        {
+          "name": "tip_amount",
+          "sql_type": "float",
+          "digest": "sha256:c541fd58c0bbf5a0f5ad7ec674e2dc8b24579b22088c041abc0015d248cb0922",
+          "null_count": 0
+        },
+        {
+          "name": "tipped",
+          "sql_type": "int",
+          "digest": "sha256:aa8383b6218987e02f0b0b506d94ea30cffcb82691c0816ff2957c546ccbd909",
+          "null_count": 0
+        },
+        {
+          "name": "tip_class",
+          "sql_type": "int",
+          "digest": "sha256:491c42198154cfebf71b9ab7ab7a251728e7f386f6bfa67d5250e2b72deaba40",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true,
+      "values_capped": 100000
+    }
+  ]
+}

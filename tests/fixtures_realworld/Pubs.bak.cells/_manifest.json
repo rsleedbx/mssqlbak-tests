@@ -1,0 +1,501 @@
+{
+  "bak": "Pubs.bak",
+  "captured_at": "2026-06-27T22:06:35.122982+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.authors",
+      "row_count": 23,
+      "key_columns": [
+        "au_id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "au_id",
+          "sql_type": "id",
+          "digest": "sha256:abcee9957f33bbdd5502e3e483b83e79310ecf0c7448fc4302c00ed1821d39bf",
+          "null_count": 0
+        },
+        {
+          "name": "au_lname",
+          "sql_type": "varchar(40)",
+          "digest": "sha256:e6202c32eec5f32c625fb471191d61b1ae342f55f5da94a7c757572da4f7bd1c",
+          "null_count": 0
+        },
+        {
+          "name": "au_fname",
+          "sql_type": "varchar(20)",
+          "digest": "sha256:b962cfd3e5bf5c73f4451dc2999eabc3dfc992cd9880722538936a367e35231c",
+          "null_count": 0
+        },
+        {
+          "name": "phone",
+          "sql_type": "char(12)",
+          "digest": "sha256:48e056f3beb45c962ad0493ceeefad2918d551cfeeb795a9315ca2cf884037f9",
+          "null_count": 0
+        },
+        {
+          "name": "address",
+          "sql_type": "varchar(40)",
+          "digest": "sha256:4dc44158659d0b8450fd3340c3c84f6ce6f5d576454786d6b044ef2d361a7028",
+          "null_count": 0
+        },
+        {
+          "name": "city",
+          "sql_type": "varchar(20)",
+          "digest": "sha256:f98da511e133b873464fa5923a0930a0351bbd858cec231d247025300ec5c417",
+          "null_count": 0
+        },
+        {
+          "name": "state",
+          "sql_type": "char(2)",
+          "digest": "sha256:30064d638469b6613d4b313e9749ee52a3084d071b0130fe8d311c13edd0dcc5",
+          "null_count": 0
+        },
+        {
+          "name": "zip",
+          "sql_type": "char(5)",
+          "digest": "sha256:98eeaf97b11f928c643a28dcaea91163c91758bcd6fda9d6bd421ad7f47b591b",
+          "null_count": 0
+        },
+        {
+          "name": "contract",
+          "sql_type": "bit",
+          "digest": "sha256:281930b8632557a61d4895986ecaf009668e671b1875a955eb7e47aea04fa5b0",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.discounts",
+      "row_count": 3,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "discounttype",
+          "sql_type": "varchar(40)",
+          "digest": "sha256:3c13509fcf63504cc6dcf9c83ceb4189ae5fd8a76a28952d50f85216677aaba2",
+          "null_count": 0
+        },
+        {
+          "name": "stor_id",
+          "sql_type": "char(4)",
+          "digest": "sha256:4bea7a32d51f9fd5e1427367c6ca41cb55cbee5f1b0d0832725f9d6461e060f3",
+          "null_count": 2
+        },
+        {
+          "name": "lowqty",
+          "sql_type": "smallint",
+          "digest": "sha256:cfdab7fbb18a34913640eecb673cdb5b8c37ec069b5bf31d70d07fe00b468e4b",
+          "null_count": 2
+        },
+        {
+          "name": "highqty",
+          "sql_type": "smallint",
+          "digest": "sha256:17b338b208789ba7504267ca0d35cb21e641d25f3399232206ff9a40014d263e",
+          "null_count": 2
+        },
+        {
+          "name": "discount",
+          "sql_type": "decimal(4,2)",
+          "digest": "sha256:2e8cc582b9d1e8170acaa1872e42d83c9c40b529fba16e9d56d0c5a65a082e70",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true
+    },
+    {
+      "fqn": "dbo.employee",
+      "row_count": 43,
+      "key_columns": [
+        "emp_id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "emp_id",
+          "sql_type": "empid",
+          "digest": "sha256:e36dfb72cc44ab27632969dcb778bfb4f10b7c9b1640def763cf8a2e215e8a62",
+          "null_count": 0
+        },
+        {
+          "name": "fname",
+          "sql_type": "varchar(20)",
+          "digest": "sha256:1801c0b6f116a621ad4b6e656a6c7ba719161351b8753f78bd440996d6842162",
+          "null_count": 0
+        },
+        {
+          "name": "minit",
+          "sql_type": "char(1)",
+          "digest": "sha256:973d54455601b2ea7ba86bc7cdb037db41a4fcd41f3c28370c628c23267e6b9c",
+          "null_count": 0
+        },
+        {
+          "name": "lname",
+          "sql_type": "varchar(30)",
+          "digest": "sha256:edf4372b1b9fa95a6585a9103c30571f637bf52eab34d2fcdf09f07ee6d4d185",
+          "null_count": 0
+        },
+        {
+          "name": "job_id",
+          "sql_type": "smallint",
+          "digest": "sha256:52ba0c781a4af611781681ff4580280b7feb88f7bb6be9f64c55e6602299533f",
+          "null_count": 0
+        },
+        {
+          "name": "job_lvl",
+          "sql_type": "tinyint",
+          "digest": "sha256:823c3ddb79e1c56c65c3882b4125899e16fb9d8811b15d9073d979281e2ff39e",
+          "null_count": 0
+        },
+        {
+          "name": "pub_id",
+          "sql_type": "char(4)",
+          "digest": "sha256:7e4cb320df3065f49967fcde402dca1cb56f57ddbf65c5385e884feda8c02ea1",
+          "null_count": 0
+        },
+        {
+          "name": "hire_date",
+          "sql_type": "datetime",
+          "digest": "sha256:0c5b99405feeee19315538e65f317d8e84d436be6066f25d143b4b3416b85f43",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.jobs",
+      "row_count": 14,
+      "key_columns": [
+        "job_id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "job_id",
+          "sql_type": "smallint",
+          "digest": "sha256:7ee2ddc49b42afbace1cadbff60e1961af76614b073c834a5098cc771cd46581",
+          "null_count": 0
+        },
+        {
+          "name": "job_desc",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:17196e7dcaa9a69f5d908718cdfd3d952e725e99a16df4a7becea1c552ec0308",
+          "null_count": 0
+        },
+        {
+          "name": "min_lvl",
+          "sql_type": "tinyint",
+          "digest": "sha256:f8d7386b1a3dcef73add0435deda1b849a654d76832c76fed97b5a6795bb2c93",
+          "null_count": 0
+        },
+        {
+          "name": "max_lvl",
+          "sql_type": "tinyint",
+          "digest": "sha256:a4f199dcdd5b6b0c0774071e3c982d12e808985cbd693d43a6c717c632201079",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.pub_info",
+      "row_count": 8,
+      "key_columns": [
+        "pub_id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "pub_id",
+          "sql_type": "char(4)",
+          "digest": "sha256:30f958ae6fdfe1decdf70bc7bf35b408b465a5c85fa3098b051d155c8175e6e2",
+          "null_count": 0
+        },
+        {
+          "name": "logo",
+          "sql_type": "image",
+          "digest": "sha256:b28ec1138fd2bbcdc1ceef3299a395d9faefb9f3860cf1c65a27b7afd3453125",
+          "null_count": 0
+        },
+        {
+          "name": "pr_info",
+          "sql_type": "text",
+          "digest": "sha256:0c95fe813b5ae9ff0022ee170f8962e62de3d1e406ed65c903f60f0e4336b118",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.publishers",
+      "row_count": 8,
+      "key_columns": [
+        "pub_id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "pub_id",
+          "sql_type": "char(4)",
+          "digest": "sha256:30f958ae6fdfe1decdf70bc7bf35b408b465a5c85fa3098b051d155c8175e6e2",
+          "null_count": 0
+        },
+        {
+          "name": "pub_name",
+          "sql_type": "varchar(40)",
+          "digest": "sha256:9d117e7df3773b67b9aec1e00d682e9503ceabb38b902ea125123aaab46f8bb6",
+          "null_count": 0
+        },
+        {
+          "name": "city",
+          "sql_type": "varchar(20)",
+          "digest": "sha256:565c033fa67f6c8f7751029ef82a679411eb0d93360e1979d84c7c6fb3ec160e",
+          "null_count": 0
+        },
+        {
+          "name": "state",
+          "sql_type": "char(2)",
+          "digest": "sha256:46697faa09441c1dcf0135b9f4f3479a0bffd35e6d72ff4fddbb7f46315c25f9",
+          "null_count": 2
+        },
+        {
+          "name": "country",
+          "sql_type": "varchar(30)",
+          "digest": "sha256:6fdd7e71dd2947d9a586d765f1d3eec82ef72e4dc0f266cca05e7e9348035f21",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.roysched",
+      "row_count": 86,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "title_id",
+          "sql_type": "tid",
+          "digest": "sha256:16337b96b18f65971e38371f65200082ce9232ed78cf3c6edfe1ddfa987aa3ad",
+          "null_count": 0
+        },
+        {
+          "name": "lorange",
+          "sql_type": "int",
+          "digest": "sha256:6b16619c7212431d3c862a8e0ec655fe033323483254c1cd174cd769ac63e40d",
+          "null_count": 0
+        },
+        {
+          "name": "hirange",
+          "sql_type": "int",
+          "digest": "sha256:aa91c128215713149ab5dc450d99ac91747561d23e04ea2f31c86aa38b8a5486",
+          "null_count": 0
+        },
+        {
+          "name": "royalty",
+          "sql_type": "int",
+          "digest": "sha256:edf982117a4831ade45d86e570c6f26a6cc1c47e13bdc522e4b1f2f10e94f35a",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true
+    },
+    {
+      "fqn": "dbo.sales",
+      "row_count": 21,
+      "key_columns": [
+        "stor_id",
+        "ord_num",
+        "title_id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "stor_id",
+          "sql_type": "char(4)",
+          "digest": "sha256:d996287cd307be8a7b1dcce3271a2ceeb093e8f1d2c36606d45041a3062f661d",
+          "null_count": 0
+        },
+        {
+          "name": "ord_num",
+          "sql_type": "varchar(20)",
+          "digest": "sha256:f87a7cc31f81653f29e7aec12ee5977fa0c4cc386b0708fed8c6644aa81f4b44",
+          "null_count": 0
+        },
+        {
+          "name": "ord_date",
+          "sql_type": "datetime",
+          "digest": "sha256:b291cf131c59ceabea7b5f8a57e9eb724549fa95cd9c10e22fd09feeb3fdf88a",
+          "null_count": 0
+        },
+        {
+          "name": "qty",
+          "sql_type": "smallint",
+          "digest": "sha256:f28eeeae64854423ceadf99f2d7cfb3b533173a078031b6b103a70151604cbd3",
+          "null_count": 0
+        },
+        {
+          "name": "payterms",
+          "sql_type": "varchar(12)",
+          "digest": "sha256:9aa5c38ad3766185c039ef81f153e41b5b714929cab659d4be6a3df8aba4c5db",
+          "null_count": 0
+        },
+        {
+          "name": "title_id",
+          "sql_type": "tid",
+          "digest": "sha256:dcabd4ee155e7d0e70c8b717070787c0da9c3aa6bb0325a6d56e371ebb04e969",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.stores",
+      "row_count": 6,
+      "key_columns": [
+        "stor_id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "stor_id",
+          "sql_type": "char(4)",
+          "digest": "sha256:2fee85eb9504fa8038f5f498985124902f87c4a4c1782d98ef2cbf9c69f49d72",
+          "null_count": 0
+        },
+        {
+          "name": "stor_name",
+          "sql_type": "varchar(40)",
+          "digest": "sha256:4e17349c2aaa5b787c9f3a48f6b5ff7c0039cd12a96a6219dfa626dca3c542e6",
+          "null_count": 0
+        },
+        {
+          "name": "stor_address",
+          "sql_type": "varchar(40)",
+          "digest": "sha256:a374e6abcc1d2a2921efb3d6222543e5f32a4b66908662dd39e69542031ce929",
+          "null_count": 0
+        },
+        {
+          "name": "city",
+          "sql_type": "varchar(20)",
+          "digest": "sha256:c3c640b1e1b9b5055499d719ffbbcdc101057f2bf57cb64c9e68454c19a40bb6",
+          "null_count": 0
+        },
+        {
+          "name": "state",
+          "sql_type": "char(2)",
+          "digest": "sha256:eb2be404423b88d4b3a97a99b9c2a3a0f163d0a61d9924f9ac8b9dbe1e24c9f5",
+          "null_count": 0
+        },
+        {
+          "name": "zip",
+          "sql_type": "char(5)",
+          "digest": "sha256:074debe7faf4a23cda8be0d9080975f29f67ab27cba4d07deca2f991b7427d83",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.titleauthor",
+      "row_count": 25,
+      "key_columns": [
+        "au_id",
+        "title_id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "au_id",
+          "sql_type": "id",
+          "digest": "sha256:de2eccf12ec32d72aaee8eb371584e4f8ee2513f3223d76673dcd7fba028d2a9",
+          "null_count": 0
+        },
+        {
+          "name": "title_id",
+          "sql_type": "tid",
+          "digest": "sha256:35524fc7f6bc9d9896203226dadc2acc9df56a702a058ee2aac6f1bed32f13ce",
+          "null_count": 0
+        },
+        {
+          "name": "au_ord",
+          "sql_type": "tinyint",
+          "digest": "sha256:c30699e443ddb2ecf34629f951980f1f1efa79d73ea2aa5572b68a47d24c9358",
+          "null_count": 0
+        },
+        {
+          "name": "royaltyper",
+          "sql_type": "int",
+          "digest": "sha256:978140ef96f1d93a69c1513a199bb92042a2a08f4045e198dbc08a2b20e413a3",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.titles",
+      "row_count": 18,
+      "key_columns": [
+        "title_id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "title_id",
+          "sql_type": "tid",
+          "digest": "sha256:d8bce1b0c7c0db9409e219a569845ee166ab2358d9fe261f895d5855edc27c5c",
+          "null_count": 0
+        },
+        {
+          "name": "title",
+          "sql_type": "varchar(80)",
+          "digest": "sha256:3f39e101d0879e4b3cdfa2cbc2229050ca5a833e1573ee3fd7d612d18388c05f",
+          "null_count": 0
+        },
+        {
+          "name": "type",
+          "sql_type": "char(12)",
+          "digest": "sha256:c13959c7e519c6ca861d08acdac8e62339d15bc985f2218b0d8e49bd66fe0793",
+          "null_count": 0
+        },
+        {
+          "name": "pub_id",
+          "sql_type": "char(4)",
+          "digest": "sha256:578902bece3f74d1dd6bc382f4dbed8952d14b9069c9a8b27fb518d9d79b06fd",
+          "null_count": 0
+        },
+        {
+          "name": "price",
+          "sql_type": "money",
+          "digest": "sha256:db83061869bf15f087828e319d93fd9beb5e4fdfe94629b9571c0a3ba0957d05",
+          "null_count": 2
+        },
+        {
+          "name": "advance",
+          "sql_type": "money",
+          "digest": "sha256:9b5cbb31e541eff8dd97083d62a616fc9bf8371bebe5980f48b417d3fc8a434e",
+          "null_count": 2
+        },
+        {
+          "name": "royalty",
+          "sql_type": "int",
+          "digest": "sha256:d2a8085b7785e170aab6e4236e395d8cccd51f0093032f09378ce6ef0ebabf35",
+          "null_count": 2
+        },
+        {
+          "name": "ytd_sales",
+          "sql_type": "int",
+          "digest": "sha256:b4ce991f003f9fe7e050adc41699d51a1eb5cf61d91c721e3529389bfab2d7b0",
+          "null_count": 2
+        },
+        {
+          "name": "notes",
+          "sql_type": "varchar(200)",
+          "digest": "sha256:a99637a5ab36f505de7a7cb90120b05031cf2e5ac7cd620614a79781bba1fa7c",
+          "null_count": 1
+        },
+        {
+          "name": "pubdate",
+          "sql_type": "datetime",
+          "digest": "sha256:4f98358a5ae4e0dbd5f5cb1a30c7336ff289f16c8bc778ab921ca65631a2e79a",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}
