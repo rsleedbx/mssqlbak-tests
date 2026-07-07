@@ -1,0 +1,28 @@
+{
+  "bak": "sql_variant_extract_full.bak",
+  "captured_at": "2026-06-28T20:07:16.409293+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.sv",
+      "row_count": 10,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:9580f3b016d3581180d64a6c2ffd7883350f5d7d48a0d547e5f7ad688f05048a",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "sql_variant",
+          "digest": "sha256:dbaef3d68f427beeae2ded651b01f2871a0cfe8f83331bddc420fc21cb028ecf",
+          "null_count": 1
+        }
+      ]
+    }
+  ]
+}

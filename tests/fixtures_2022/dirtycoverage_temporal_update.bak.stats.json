@@ -1,0 +1,80 @@
+{
+  "sql_version": "Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)",
+  "bak": "dirtycoverage_temporal_update.bak",
+  "bak_size_mb": 3.301,
+  "database": "RegisterBak_dirtycoverage_temporal_update",
+  "registered_at": "2026-06-11T21:45:49.031773+00:00",
+  "sqlserver_restore_s": 2.353,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "temporal_test",
+      "row_count": 20,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "20"
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "original_1",
+          "max_val": "original_9"
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2026-06-06 13:40:14.4603825",
+          "max_val": "2026-06-06 13:40:14.4603825"
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "9999-12-31 23:59:59.9999999",
+          "max_val": "9999-12-31 23:59:59.9999999"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "temporal_test_history",
+      "row_count": 0,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        }
+      ]
+    }
+  ]
+}

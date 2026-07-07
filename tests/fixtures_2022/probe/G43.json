@@ -1,0 +1,60 @@
+{
+  "guess_id": "G43",
+  "description": "Segment blob header layout: first 34 bytes are a pre-header preamble; bpv at offset 34 (u16), nw at offset 36 (u32)",
+  "captured_from": "boundarycoverage_full.bak + sys.column_store_segments on SS2022",
+  "confirmed_offsets": {
+    "bpv_offset": 34,
+    "nw_offset": 36,
+    "preamble_bytes": "0..33"
+  },
+  "sample_segments": [
+    {
+      "col_id_raw": 2,
+      "seg_id": 1,
+      "enc_type_catalog": 1,
+      "n_rows": 1200,
+      "has_null": 0,
+      "mn": 1,
+      "magnitude": 1.0,
+      "prim_dict": -1,
+      "sec_dict": -1,
+      "observed_bpv": 12,
+      "observed_nw": 240,
+      "preamble_hex": "0100000001000000000000004c240000030000001300000040000000020000000800"
+    },
+    {
+      "col_id_raw": 3,
+      "seg_id": 1,
+      "enc_type_catalog": 3,
+      "n_rows": 1200,
+      "has_null": 1,
+      "mn": 4,
+      "magnitude": -1.0,
+      "prim_dict": -1,
+      "sec_dict": 1,
+      "observed_bpv": 3,
+      "observed_nw": 1,
+      "preamble_hex": "010000000100000000000000ffffffff030000001300000040000000030000000800"
+    },
+    {
+      "col_id_raw": 4,
+      "seg_id": 1,
+      "enc_type_catalog": 4,
+      "n_rows": 1200,
+      "has_null": 1,
+      "mn": -9223372036854775808,
+      "magnitude": 1.0,
+      "prim_dict": -1,
+      "sec_dict": -1,
+      "observed_bpv": 64,
+      "observed_nw": 1200,
+      "preamble_hex": "010000000100000000000000ffffffff030000001300000040000000040000000800"
+    }
+  ],
+  "oracle_row_counts": {
+    "tb_bigint_col1": {"row_count": 1200, "has_nulls": 0},
+    "tb_bigint_col2": {"row_count": 1200, "has_nulls": 1},
+    "tb_bigint_col3": {"row_count": 1200, "has_nulls": 1}
+  },
+  "parser_verified": "bpv and nw at offsets 34/36 successfully decode all segment blobs in boundarycoverage_full.bak"
+}

@@ -1,0 +1,61 @@
+{
+  "sql_version": "Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)",
+  "bak": "dirtycoverage_droptable.bak",
+  "bak_size_bytes": 3854336,
+  "bak_size_mb": 3.676,
+  "bak_sha256": "19275f91d51dd54e92279f40cb2c8c8d5df13854e36228c60511427fb292add5",
+  "database": "RegisterBak_dirtycoverage_droptable",
+  "registered_at": "2026-06-12T16:39:05.064792+00:00",
+  "sqlserver_restore_s": 4.109,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "drop_target",
+      "row_count": 500,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "500"
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "drop row 1",
+          "max_val": "drop row 99"
+        },
+        {
+          "name": "phase",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "pre_drop",
+          "max_val": "pre_drop"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "survivor_test",
+      "row_count": 200,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "200"
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "survivor row 1",
+          "max_val": "survivor row 99"
+        }
+      ]
+    }
+  ]
+}

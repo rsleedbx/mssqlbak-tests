@@ -1,0 +1,82 @@
+{
+  "sql_version": "Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)",
+  "bak": "alias_types_full.bak",
+  "bak_size_bytes": 3067904,
+  "bak_size_mb": 2.926,
+  "bak_sha256": "8c005f1eca311936fe122fbd3bdd907494459dfe02cc1d81a0ae8b82ebc48c2e",
+  "database": "RegisterBak_alias_types_full",
+  "registered_at": "2026-06-28T20:21:41.301830+00:00",
+  "sqlserver_restore_s": 2.283,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "alias_probe",
+      "row_count": 3,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "is_active",
+          "sql_type": "Flag",
+          "null_count": 1,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "name_style",
+          "sql_type": "NameStyle",
+          "null_count": 1,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "random_flag_123",
+          "sql_type": "RandomFlag123",
+          "null_count": 1,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "float_alias",
+          "sql_type": "FloatAlias",
+          "null_count": 1,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "money_alias",
+          "sql_type": "MoneyAlias",
+          "null_count": 1,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "display_name",
+          "sql_type": "PersonName",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "account_number",
+          "sql_type": "AccountNumber",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "external_id",
+          "sql_type": "ExternalId",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+Processed 408 pages for database 'V13HiddenProbe', file 'TemporalHidden' on file 1.
+Processed 2 pages for database 'V13HiddenProbe', file 'TemporalHidden_log' on file 1.
+RESTORE DATABASE successfully processed 410 pages in 0.016 seconds (199.951 MB/sec).
+Changed database context to 'V13HiddenProbe'.
+=== PHASE A: sys.columns for dbo.temporal_hidden ===
+column_id   name                                                                                                                             system_type_id is_hidden generated_always_type generated_always_type_desc                                   is_nullable
+----------- -------------------------------------------------------------------------------------------------------------------------------- -------------- --------- --------------------- ------------------------------------------------------------ -----------
+          1 id                                                                                                                                           56         0                     0 NOT_APPLICABLE                                                         0
+          2 value                                                                                                                                       231         0                     0 NOT_APPLICABLE                                                         1
+          3 valid_from                                                                                                                                   42         1                     1 AS_ROW_START                                                           0
+          4 valid_to                                                                                                                                     42         1                     2 AS_ROW_END                                                             0
+=== PHASE A: sys.columns for dbo.temporal_visible ===
+column_id   name                                                                                                                             system_type_id is_hidden generated_always_type generated_always_type_desc                                   is_nullable
+----------- -------------------------------------------------------------------------------------------------------------------------------- -------------- --------- --------------------- ------------------------------------------------------------ -----------
+          1 id                                                                                                                                           56         0                     0 NOT_APPLICABLE                                                         0
+          2 value                                                                                                                                       231         0                     0 NOT_APPLICABLE                                                         1
+          3 valid_from                                                                                                                                   42         0                     1 AS_ROW_START                                                           0
+          4 valid_to                                                                                                                                     42         0                     2 AS_ROW_END                                                             0
+=== PHASE A: sys.periods for dbo.temporal_hidden ===
+name                                                                                                                             period_type_desc                                             start_column_id end_column_id
+-------------------------------------------------------------------------------------------------------------------------------- ------------------------------------------------------------ --------------- -------------
+SYSTEM_TIME                                                                                                                      SYSTEM_TIME_PERIOD                                                         3             4
+=== PHASE A: sys.periods for dbo.temporal_visible ===
+name                                                                                                                             period_type_desc                                             start_column_id end_column_id
+-------------------------------------------------------------------------------------------------------------------------------- ------------------------------------------------------------ --------------- -------------
+SYSTEM_TIME                                                                                                                      SYSTEM_TIME_PERIOD                                                         3             4
+Changed database context to 'master'.
+
+
+=== PHASE B: raw syscolpars.status (PageStore, offline) ===
+bak: /Users/robert.lee/github/mssqlbak/tests/fixtures_2022/temporal_hidden_full.bak
+
+temporal_hidden  object_id = 901578250
+temporal_visible object_id = 949578421
+
+--- syscolpars rows for dbo.temporal_hidden (oid=901578250) ---
+ colid  name                    status_hex    status_dec
+     1  id                    0x00000001             1
+     2  value                 0x00000002             2
+     3  valid_from            0x10002001     268443649
+     4  valid_to              0x20002001     536879105
+
+--- syscolpars rows for dbo.temporal_visible (oid=949578421) ---
+ colid  name                    status_hex    status_dec
+     1  id                    0x00000001             1
+     2  value                 0x00000002             2
+     3  valid_from            0x10000001     268435457
+     4  valid_to              0x20000001     536870913
+
+--- XOR analysis: hidden_status XOR visible_status ---
+  valid_from:
+    temporal_hidden  status = 0x10002001  (268443649)
+    temporal_visible status = 0x10000001  (268435457)
+    XOR              result = 0x00002000  (8192)
+    differing bits: [13]  (0-indexed from LSB)
+
+  valid_to:
+    temporal_hidden  status = 0x20002001  (536879105)
+    temporal_visible status = 0x20000001  (536870913)
+    XOR              result = 0x00002000  (8192)
+    differing bits: [13]  (0-indexed from LSB)
+

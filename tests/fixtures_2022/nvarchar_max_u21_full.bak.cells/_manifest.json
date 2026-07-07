@@ -1,0 +1,28 @@
+{
+  "bak": "nvarchar_max_u21_full.bak",
+  "captured_at": "2026-06-28T22:14:56.038997+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.nvarchar_max_u21probe",
+      "row_count": 10,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:9580f3b016d3581180d64a6c2ffd7883350f5d7d48a0d547e5f7ad688f05048a",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "nvarchar(max)",
+          "digest": "sha256:314c0513333fbbbf22b2d815dd01a5c342061db64f2b21746cb2847cb6b70645",
+          "null_count": 1
+        }
+      ]
+    }
+  ]
+}

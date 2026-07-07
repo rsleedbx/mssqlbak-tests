@@ -1,0 +1,27 @@
+{
+  "bak": "dirtycoverage_heap_forward.bak",
+  "captured_at": "2026-06-26T16:45:39.840467+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.heap_forward_test",
+      "row_count": 20,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:8d949ae465f77f961c140ceed6b2bd5fb8afaf8584afbc3d731d9a22015e7051",
+          "null_count": 0
+        },
+        {
+          "name": "label",
+          "sql_type": "varchar(8000)",
+          "digest": "sha256:8e6457992c0c2a9f0deb90a2a254c870ce9660b763870bba9ba3ea82e5972dbe",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true
+    }
+  ]
+}

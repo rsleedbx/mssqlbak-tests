@@ -1,0 +1,208 @@
+{
+  "segments": {
+    "ordered_cci": {
+      "partition_1": {
+        "segment_1": [
+          {
+            "column_name": "id",
+            "column_id": 1,
+            "segment_version": 1,
+            "encoding_type": 1,
+            "row_count": 1200,
+            "has_nulls": 0,
+            "null_value": -1,
+            "min_data_id": 1,
+            "max_data_id": 1200,
+            "on_disk_size": 2136,
+            "base_id": -2,
+            "magnitude": "1.0"
+          },
+          {
+            "column_name": "val",
+            "column_id": 2,
+            "segment_version": 1,
+            "encoding_type": 1,
+            "row_count": 1200,
+            "has_nulls": 0,
+            "null_value": -1,
+            "min_data_id": 7,
+            "max_data_id": 8400,
+            "on_disk_size": 2616,
+            "base_id": 4,
+            "magnitude": "1.0"
+          },
+          {
+            "column_name": "grp",
+            "column_id": 3,
+            "segment_version": 1,
+            "encoding_type": 2,
+            "row_count": 1200,
+            "has_nulls": 0,
+            "null_value": -1,
+            "min_data_id": 1,
+            "max_data_id": 10,
+            "on_disk_size": 288,
+            "base_id": -1,
+            "magnitude": "-1.0"
+          }
+        ]
+      }
+    },
+    "regular_cci": {
+      "partition_1": {
+        "segment_1": [
+          {
+            "column_name": "id",
+            "column_id": 1,
+            "segment_version": 1,
+            "encoding_type": 1,
+            "row_count": 1200,
+            "has_nulls": 0,
+            "null_value": -1,
+            "min_data_id": 1,
+            "max_data_id": 1200,
+            "on_disk_size": 2136,
+            "base_id": -2,
+            "magnitude": "1.0"
+          },
+          {
+            "column_name": "val",
+            "column_id": 2,
+            "segment_version": 1,
+            "encoding_type": 1,
+            "row_count": 1200,
+            "has_nulls": 0,
+            "null_value": -1,
+            "min_data_id": 7,
+            "max_data_id": 8400,
+            "on_disk_size": 2616,
+            "base_id": 4,
+            "magnitude": "1.0"
+          },
+          {
+            "column_name": "grp",
+            "column_id": 3,
+            "segment_version": 1,
+            "encoding_type": 2,
+            "row_count": 1200,
+            "has_nulls": 0,
+            "null_value": -1,
+            "min_data_id": 1,
+            "max_data_id": 10,
+            "on_disk_size": 288,
+            "base_id": -1,
+            "magnitude": "-1.0"
+          }
+        ]
+      }
+    }
+  },
+  "row_groups": {
+    "ordered_cci": [
+      {
+        "partition_number": 1,
+        "row_group_id": 0,
+        "state": 4,
+        "state_description": "TOMBSTONE",
+        "total_rows": 1200,
+        "deleted_rows": null,
+        "size_in_bytes": 49152
+      },
+      {
+        "partition_number": 1,
+        "row_group_id": 1,
+        "state": 3,
+        "state_description": "COMPRESSED",
+        "total_rows": 1200,
+        "deleted_rows": 0,
+        "size_in_bytes": 5040
+      }
+    ],
+    "regular_cci": [
+      {
+        "partition_number": 1,
+        "row_group_id": 0,
+        "state": 4,
+        "state_description": "TOMBSTONE",
+        "total_rows": 1200,
+        "deleted_rows": null,
+        "size_in_bytes": 49152
+      },
+      {
+        "partition_number": 1,
+        "row_group_id": 1,
+        "state": 3,
+        "state_description": "COMPRESSED",
+        "total_rows": 1200,
+        "deleted_rows": 0,
+        "size_in_bytes": 5040
+      }
+    ]
+  },
+  "dictionaries": {
+    "ordered_cci": [
+      {
+        "column_name": "grp",
+        "column_id": 3,
+        "dictionary_id": 2,
+        "version": 1,
+        "type": 1,
+        "last_id": 12,
+        "entry_count": 10,
+        "on_disk_size": 96,
+        "dict_scope": "secondary"
+      }
+    ],
+    "regular_cci": [
+      {
+        "column_name": "grp",
+        "column_id": 3,
+        "dictionary_id": 2,
+        "version": 1,
+        "type": 1,
+        "last_id": 12,
+        "entry_count": 10,
+        "on_disk_size": 96,
+        "dict_scope": "secondary"
+      }
+    ]
+  },
+  "reconciliation": {
+    "ordered_cci": {
+      "total_rows": 2400,
+      "deleted_rows": 0,
+      "live_rows": 1200,
+      "n_row_groups": 2,
+      "state_counts": {
+        "TOMBSTONE": 1,
+        "COMPRESSED": 1
+      },
+      "tombstone_row_group_ids": [
+        0
+      ],
+      "has_tombstones": true,
+      "has_delete_bitmap": false
+    },
+    "regular_cci": {
+      "total_rows": 2400,
+      "deleted_rows": 0,
+      "live_rows": 1200,
+      "n_row_groups": 2,
+      "state_counts": {
+        "TOMBSTONE": 1,
+        "COMPRESSED": 1
+      },
+      "tombstone_row_group_ids": [
+        0
+      ],
+      "has_tombstones": true,
+      "has_delete_bitmap": false
+    }
+  },
+  "raw_segment_count": 6,
+  "raw_row_group_count": 4,
+  "raw_dictionary_count": 2,
+  "bak": "ordered_cci_full.bak",
+  "database": "RegisterBak_ordered_cci_full",
+  "fixture_dir": "/Users/robert.lee/github/mssqlbak/tests/fixtures_2022"
+}

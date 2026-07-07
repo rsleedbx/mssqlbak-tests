@@ -1,0 +1,205 @@
+Processed 400 pages for database 'V11Probe', file 'NdfCoverage' on file 1.
+Processed 32 pages for database 'V11Probe', file 'NdfCoverage_fg2' on file 1.
+Processed 2 pages for database 'V11Probe', file 'NdfCoverage_log' on file 1.
+RESTORE DATABASE successfully processed 434 pages in 0.016 seconds (211.669 MB/sec).
+Changed database context to 'V11Probe'.
+DBCC execution completed. If DBCC printed error messages, contact your system administrator.
+PRIMARY_IAM=1:353
+SECONDARY_IAM=3:16
+=== PRIMARY_TBL IAM PAGE ===
+
+PAGE: (1:353)
+
+
+
+BUFFER:
+
+
+
+BUF @0x00000005F5EB2A00
+
+
+bpage = 0x00000005BE702000          bPmmpage = 0x0000000000000000       bsort_r_nextbP = 0x00000005F5EB2950
+
+bsort_r_prevbP = 0x00000005F5EB2940 bhash = 0x0000000000000000          bpageno = (1:353)
+
+bpart = 2                           bstat = 0x9                         breferences = 15
+
+berrcode = 0                        bUse1 = 59772                       bstat2 = 0x0
+
+blog = 0x2121215a                   bsampleCount = 2                    bIoCount = 0
+
+resPoolId = 0                       bcputicks = 208                     bReadMicroSec = 202
+
+bDirtyPendingCount = 0              bDirtyContext = 0x0000000000000000  bDbPageBroker = 0x0000000000000000
+
+bdbid = 53                          bpru = 0x00000005BC6D0040           
+
+
+PAGE HEADER:
+
+
+
+Page @0x00000005BE702000
+
+
+m_pageId = (1:353)                  m_headerVersion = 1                 m_type = 10
+
+m_typeFlagBits = 0x0                m_level = 0                         m_flagBits = 0x200
+
+m_objId (AllocUnitId.idObj) = 222   m_indexId (AllocUnitId.idInd) = 256 Metadata: AllocUnitId = 72057594052476928
+
+Metadata: PartitionId = 72057594045726720                                Metadata: IndexId = 1
+
+Metadata: ObjectId = 901578250      m_prevPage = (0:0)                  m_nextPage = (0:0)
+
+pminlen = 90                        m_slotCnt = 2                       m_freeCnt = 6
+
+m_freeData = 8182                   m_reservedCnt = 0                   m_lsn = (42:352:14)
+
+m_xactReserved = 0                  m_xdesId = (0:0)                    m_ghostRecCnt = 0
+
+m_tornBits = 715341543              DB Frag ID = 1                      
+
+
+Allocation Status
+
+
+GAM (1:2) = ALLOCATED               SGAM (1:3) = ALLOCATED              PFS (1:1) = 0x70 IAM_PG MIXED_EXT ALLOCATED   0_PCT_FULL
+
+DIFF (1:6) = NOT CHANGED            ML (1:7) = NOT MIN_LOGGED           
+
+
+IAM: Header @0x0000000A125C6064 Slot 0, Offset 96
+
+
+sequenceNumber = 0                  status = 0x0                        objectId = 0
+
+indexId = 0                         page_count = 0                      start_pg = (1:0)
+
+
+
+IAM: Single Page Allocations @0x0000000A125C608E
+
+
+Slot 0 = (0:0)                      Slot 1 = (0:0)                      Slot 2 = (0:0)
+
+Slot 3 = (0:0)                      Slot 4 = (0:0)                      Slot 5 = (0:0)
+
+Slot 6 = (0:0)                      Slot 7 = (0:0)                      
+
+
+
+IAM: Extent Alloc Status Slot 1 @0x0000000A125C60C2
+
+
+(1:0)        - (1:352)      = NOT ALLOCATED                              
+
+(1:360)      -              =     ALLOCATED                              
+
+(1:368)      - (1:1016)     = NOT ALLOCATED                              
+
+
+
+DBCC execution completed. If DBCC printed error messages, contact your system administrator.
+=== SECONDARY_TBL IAM PAGE ===
+
+PAGE: (3:16)
+
+
+
+BUFFER:
+
+
+
+BUF @0x00000005F5EB2340
+
+
+bpage = 0x00000005BE70C000          bPmmpage = 0x0000000000000000       bsort_r_nextbP = 0x00000005F5EB2290
+
+bsort_r_prevbP = 0x00000005F5EB2280 bhash = 0x0000000000000000          bpageno = (3:16)
+
+bpart = 2                           bstat = 0x9                         breferences = 1
+
+berrcode = 0                        bUse1 = 59772                       bstat2 = 0x0
+
+blog = 0x2121215a                   bsampleCount = 0                    bIoCount = 0
+
+resPoolId = 0                       bcputicks = 0                       bReadMicroSec = 174
+
+bDirtyPendingCount = 0              bDirtyContext = 0x0000000000000000  bDbPageBroker = 0x0000000000000000
+
+bdbid = 53                          bpru = 0x00000005BC6D0040           
+
+
+PAGE HEADER:
+
+
+
+Page @0x00000005BE70C000
+
+
+m_pageId = (3:16)                   m_headerVersion = 1                 m_type = 10
+
+m_typeFlagBits = 0x0                m_level = 0                         m_flagBits = 0x200
+
+m_objId (AllocUnitId.idObj) = 223   m_indexId (AllocUnitId.idInd) = 256 Metadata: AllocUnitId = 72057594052542464
+
+Metadata: PartitionId = 72057594045792256                                Metadata: IndexId = 1
+
+Metadata: ObjectId = 933578364      m_prevPage = (0:0)                  m_nextPage = (0:0)
+
+pminlen = 90                        m_slotCnt = 2                       m_freeCnt = 6
+
+m_freeData = 8182                   m_reservedCnt = 0                   m_lsn = (42:400:19)
+
+m_xactReserved = 0                  m_xdesId = (0:0)                    m_ghostRecCnt = 0
+
+m_tornBits = 711831270              DB Frag ID = 1                      
+
+
+Allocation Status
+
+
+GAM (3:2) = ALLOCATED               SGAM (3:3) = ALLOCATED              PFS (3:1) = 0x70 IAM_PG MIXED_EXT ALLOCATED   0_PCT_FULL
+
+DIFF (3:6) = NOT CHANGED            ML (3:7) = NOT MIN_LOGGED           
+
+
+IAM: Header @0x0000000A125C6064 Slot 0, Offset 96
+
+
+sequenceNumber = 0                  status = 0x0                        objectId = 0
+
+indexId = 0                         page_count = 0                      start_pg = (3:0)
+
+
+
+IAM: Single Page Allocations @0x0000000A125C608E
+
+
+Slot 0 = (0:0)                      Slot 1 = (0:0)                      Slot 2 = (0:0)
+
+Slot 3 = (0:0)                      Slot 4 = (0:0)                      Slot 5 = (0:0)
+
+Slot 6 = (0:0)                      Slot 7 = (0:0)                      
+
+
+
+IAM: Extent Alloc Status Slot 1 @0x0000000A125C60C2
+
+
+(3:0)        -              = NOT ALLOCATED                              
+
+(3:8)        -              =     ALLOCATED                              
+
+(3:16)       - (3:1016)     = NOT ALLOCATED                              
+
+
+
+DBCC execution completed. If DBCC printed error messages, contact your system administrator.
+Msg 1046, Level 15, State 1, Server robert-lee-mssql-2022--native-9, Line 6
+Subqueries are not allowed in this context. Only scalar expressions are allowed.
+Msg 1046, Level 15, State 1, Server robert-lee-mssql-2022--native-9, Line 7
+Subqueries are not allowed in this context. Only scalar expressions are allowed.
+

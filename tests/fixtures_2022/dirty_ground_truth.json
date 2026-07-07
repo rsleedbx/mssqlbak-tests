@@ -1,0 +1,177 @@
+{
+  "scenario_a": {
+    "description": "Backup taken while concurrent single-row inserts were in flight",
+    "pre_backup_rows": 100,
+    "concurrent_rows_total": 200,
+    "table": "dirty_test",
+    "pre_backup_phase": "pre_backup",
+    "concurrent_phase": "concurrent",
+    "expectation": "All pre_backup rows are visible; concurrent rows may be partially visible depending on which pages the backup read before each insert committed."
+  },
+  "scenario_b": {
+    "description": "Backup taken while an uncommitted INSERT transaction was open; TX was rolled back",
+    "committed_rows": 50,
+    "uncommitted_rows": 20,
+    "table": "dirty_test",
+    "committed_phase": "pre_tx",
+    "uncommitted_phase": "in_tx",
+    "expectation": "Exactly 50 committed rows must be visible. The 20 in_tx rows may or may not appear depending on whether SQL Server had flushed their dirty pages at backup time."
+  },
+  "scenario_c": {
+    "description": "Backup taken while TRUNCATE TABLE was running in a background session. The backup may capture the pre-TRUNCATE pages (pre_trunc_rows visible) or the post-TRUNCATE state (0 rows), but never a partial count.",
+    "pre_trunc_rows": 500,
+    "table": "trunc_test",
+    "phase": "pre_trunc",
+    "expectation": "Row count is 0 or 500 \u2014 never an intermediate value. mssqlbak must not crash."
+  },
+  "scenario_d": {
+    "description": "50 rows were inserted before ALTER TABLE ADD COLUMN extra. 10 more rows were inserted after (with extra='extra_value_N'). The column addition is a metadata-only operation in SQL Server 2019+: pre-DDL rows return NULL for the new column.",
+    "pre_col_rows": 50,
+    "post_col_rows": 10,
+    "total_rows": 60,
+    "new_column": "extra",
+    "table": "addcol_test",
+    "expectation": "Exactly 60 rows. First 50 have extra=NULL; last 10 have extra='extra_value_N'."
+  },
+  "scenario_e": {
+    "description": "Backup taken while DROP TABLE was running in a background session. The backup may capture the table before or after the DROP. survivor_test (200 rows) is always present.",
+    "pre_drop_rows": 500,
+    "drop_table": "drop_target",
+    "survivor_table": "survivor_test",
+    "survivor_rows": 200,
+    "expectation": "mssqlbak must not crash. drop_target may or may not appear in the schema. If present, row count is 0 or pre_drop_rows."
+  },
+  "scenario_f": {
+    "description": "50 rows were inserted before DROP COLUMN extra. 10 more rows were inserted after (no extra column in record). The catalog will no longer list extra. mssqlbak must decode both row formats.",
+    "pre_drop_rows": 50,
+    "post_drop_rows": 10,
+    "total_rows": 60,
+    "dropped_column": "extra",
+    "table": "dropcol_test",
+    "expectation": "Exactly 60 rows. Columns: id, label, phase (no extra). mssqlbak must not crash and must not include a ghost 'extra' column."
+  },
+  "scenario_g": {
+    "description": "50 rows were inserted before ALTER TABLE ADD score INT NOT NULL DEFAULT 42. 10 more rows with explicit score values. SQL Server 2012+ uses an online default mechanism for NOT NULL defaults. Pre-DDL rows should return 42 for score.",
+    "pre_ddl_rows": 50,
+    "post_ddl_rows": 10,
+    "total_rows": 60,
+    "new_column": "score",
+    "default_value": 42,
+    "table": "addnotnull_test",
+    "expectation": "Exactly 60 rows. Pre-DDL rows have score=42 (default). Post-DDL rows have explicit score values."
+  },
+  "scenario_h": {
+    "description": "50 rows with VARCHAR(50) label, then ALTER COLUMN label VARCHAR(200) (metadata-only). The catalog reports max_length=200 but physical bytes are unchanged.",
+    "rows": 50,
+    "table": "altercol_test",
+    "expectation": "Exactly 50 rows. label values decode correctly (values fit within 50 bytes)."
+  },
+  "scenario_i": {
+    "description": "stable_test (300 rows) was present throughout. new_test was created during the backup with 10 rows. Visibility of new_test in mssqlbak is timing-dependent.",
+    "stable_rows": 300,
+    "stable_table": "stable_test",
+    "new_rows": 10,
+    "new_table": "new_test",
+    "expectation": "mssqlbak must not crash. stable_test must have 300 rows. new_test may or may not appear; if it does, row count is 0 or new_rows."
+  },
+  "scenario_j": {
+    "description": "ridx_test (300 rows) with a non-clustered index that was rebuilt during the backup. Data pages are unaffected.",
+    "rows": 300,
+    "table": "ridx_test",
+    "expectation": "Exactly 300 rows from ridx_test. mssqlbak must not crash."
+  },
+  "scenario_k": {
+    "description": "Two sub-fixtures: DirtyCreateIdx (CREATE INDEX during backup) and DirtyDropIdx (DROP INDEX during backup). Both operate on kidx_test with 300 rows and a non-clustered index.",
+    "create_rows": 300,
+    "drop_rows": 300,
+    "table": "kidx_test",
+    "expectation": "Exactly 300 rows from each backup. mssqlbak must not crash for either fixture."
+  },
+  "scenario_l": {
+    "description": "50 rows with phase='committed' were inserted. 20 rows with phase='delete_target' were inserted. A background session opened a DELETE transaction (held for 20 s) while the backup ran, then rolled it back. SQL Server marks deleted slots as ghosts immediately; the backup may capture the ghost state even if the delete is later rolled back.",
+    "committed_rows": 50,
+    "delete_target_rows": 20,
+    "total_rows": 70,
+    "table": "delete_test",
+    "expectation": "Row count is 50 (ghosts filtered, gap) or 70 (pages captured before delete). mssqlbak must not crash. No partial or corrupt rows."
+  },
+  "scenario_m": {
+    "description": "50 rows total; first 20 had label='original_N'. A background session updated those 20 rows to label='modified_N' (held for 20 s), then rolled back. SQL Server updates rows in-place (without snapshot isolation); the backup may capture the modified value even if the update is later rolled back.",
+    "total_rows": 50,
+    "modified_rows": 20,
+    "unmodified_rows": 30,
+    "table": "update_test",
+    "expectation": "Exactly 50 rows. First 20 rows have label starting with 'original_' (pre-update) or 'modified_' (phantom update captured). Unmodified rows always have label='original_N'. mssqlbak must not crash."
+  },
+  "scenario_n": {
+    "description": "50 rows inserted as NVARCHAR(200). ALTER COLUMN label to VARCHAR(200) forces a full row rewrite. 10 rows inserted after the rewrite as VARCHAR. Static backup taken after the rewrite completes.",
+    "pre_ddl_rows": 50,
+    "post_ddl_rows": 10,
+    "total_rows": 60,
+    "table": "rewrite_test",
+    "expectation": "Exactly 60 rows. Both pre- and post-rewrite rows must have correct label values. mssqlbak must use the VARCHAR decoder (not NVARCHAR) for all rows."
+  },
+  "scenario_o": {
+    "description": "alterdb_test (300 rows). ALTER DATABASE SET COMPATIBILITY_LEVEL = 130 fired during the backup. Database system pages are modified; data pages are unchanged.",
+    "rows": 300,
+    "table": "alterdb_test",
+    "expectation": "Exactly 300 rows. mssqlbak must not crash."
+  },
+  "scenario_p": {
+    "description": "50 committed rows. Background TX: inserted 20 rows, saved, inserted 10 more rows, rolled back to savepoint (after_save rows removed), held TX open for backup, then rolled back outer TX.",
+    "committed_rows": 50,
+    "before_save_rows": 20,
+    "after_save_rows": 10,
+    "total_potential_dirty": 20,
+    "table": "savepoint_test",
+    "expectation": "Committed rows: 50 always visible. before_save rows: 0\u201320 (dirty-read). after_save rows: 0 (rolled back to savepoint before backup). mssqlbak must not crash."
+  },
+  "scenario_q": {
+    "description": "50 committed rows. Background nested TX: outer BEGIN inserted 10 rows, inner BEGIN inserted 10 rows, inner COMMIT (noop \u2014 only decrements @@TRANCOUNT), outer ROLLBACK rolls back all.",
+    "committed_rows": 50,
+    "outer_rows": 10,
+    "inner_rows": 10,
+    "total_dirty": 20,
+    "table": "nested_test",
+    "expectation": "Committed rows: 50 always visible. Dirty rows: 0\u201320 (SQL Server uses same xact_id for outer+inner). mssqlbak must not crash."
+  },
+  "scenario_r": {
+    "description": "part_test: 150 rows in partitions 1\u20133. staging_test: 50 rows (id > 300). SWITCH staging_test TO part_test PARTITION 4 fired during backup.",
+    "partitioned_rows": 150,
+    "staged_rows": 50,
+    "part_table": "part_test",
+    "staging_table": "staging_test",
+    "expectation": "part_test has 150 or 200 rows (before or after SWITCH). staging_test has {staged_rows_r} or 0 rows (before or after SWITCH). mssqlbak must not crash."
+  },
+  "scenario_am": {
+    "description": "committed_delete_test: 1000 rows total; DELETE of 500 rows commits 2 s into the backup.",
+    "total_rows": 1000,
+    "deleted_rows": 500,
+    "expected_rows": 500,
+    "table": "committed_delete_test",
+    "expectation": "Exactly 500 rows with phase='keep'. No rows with phase='will_delete'. No crash."
+  },
+  "scenario_an": {
+    "description": "committed_update_test: 300000 rows; UPDATE of 150000 rows (label \u2192 'updated_N', score += 1000) commits 2 s into the backup.",
+    "total_rows": 300000,
+    "updated_rows": 150000,
+    "table": "committed_update_test",
+    "expectation": "All 300000 rows visible. Rows 1\u2013150000: label starts with 'updated_', score > 1000. Rows 150001\u2013300000: label starts with 'original_'. No crash."
+  },
+  "scenario_am_v3": {
+    "description": "all_types_test: 300 rows inserted across 10 Unicode scripts (100 deleted, 200 surviving). Covers all SQL Server scalar types: tinyint, smallint, int, bigint, bit, decimal, numeric, money, smallmoney, float, real, date, time, datetime, smalldatetime, datetime2, datetimeoffset, char, varchar, nchar, nvarchar, binary, varbinary, uniqueidentifier, xml, sql_variant, rowversion.",
+    "total_rows": 300,
+    "deleted_rows": 100,
+    "expected_rows": 200,
+    "table": "all_types_test",
+    "expectation": "Exactly 200 rows (ids 101\u2013300). All 27 column types decode without error. No crash."
+  },
+  "scenario_an_v3": {
+    "description": "all_types_test: 300 rows inserted across 10 Unicode scripts; ids 1\u2013100 updated with new values for every column type. Covers all SQL Server scalar types (same set as AM-v3).",
+    "total_rows": 300,
+    "updated_rows": 100,
+    "expected_rows": 300,
+    "table": "all_types_test",
+    "expectation": "All 300 rows visible. Ids 1\u2013100 have updated column values. All 27 column types decode without error. No crash."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "bak": "dirtycoverage_aborted_xact.bak",
+  "captured_at": "2026-06-26T16:43:03.820741+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.aborted_test",
+      "row_count": 20,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:8d949ae465f77f961c140ceed6b2bd5fb8afaf8584afbc3d731d9a22015e7051",
+          "null_count": 0
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar(200)",
+          "digest": "sha256:0eb3fa7096d34f2c182945423e406a2c00f4c577c4f8ba9c668a4d7a22d026f5",
+          "null_count": 0
+        },
+        {
+          "name": "phase",
+          "sql_type": "varchar(30)",
+          "digest": "sha256:98f30eb13b1ece407a918587ff2bef738cde2ee8f04cfdd5044fcd7b7a4e3db5",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}

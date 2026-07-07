@@ -1,0 +1,80 @@
+{
+  "bak": "dirtycoverage_committed_update_v4.bak",
+  "captured_at": "2026-06-26T16:44:41.811298+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.dirty_v4",
+      "row_count": 5000,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:66c2c44f3a4c67fc63b09c5d69e7d8da1da3aeffc9eb1c860c268c699b0c5f9c",
+          "null_count": 0
+        },
+        {
+          "name": "phase",
+          "sql_type": "varchar(10)",
+          "digest": "sha256:276230a599c4cfddc7e5b863987a9fee6632f55f3ee1035121a91b3d4b6ee6ce",
+          "null_count": 0
+        },
+        {
+          "name": "val_int",
+          "sql_type": "int",
+          "digest": "sha256:76b5e9b1b24eea2fb41c834d727bc9c11bb6067760d6ad20f2bef0b2fa7e6203",
+          "null_count": 0
+        },
+        {
+          "name": "val_str",
+          "sql_type": "varchar(100)",
+          "digest": "sha256:ee54cc952b6576c60db6cf113c6cdc36791de01a8a87fe41e7179346e1552996",
+          "null_count": 0
+        },
+        {
+          "name": "val_nstr",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:0a305af6c0a361e0ef608ee1bdf4e13f776b0a858e9197b408ed70c969e189e9",
+          "null_count": 0
+        },
+        {
+          "name": "val_float",
+          "sql_type": "float",
+          "digest": "sha256:2446af4cc372faafd9fd557b1215b2757e4ef9d699b398de4c57390ea253d28e",
+          "null_count": 0
+        },
+        {
+          "name": "val_dt",
+          "sql_type": "datetime2",
+          "digest": "sha256:b8d45e201b41179b2d9c9ab7c5c7ba35f9cde5c9d8c413bbe8a645b6aada7893",
+          "null_count": 0
+        },
+        {
+          "name": "val_guid",
+          "sql_type": "uniqueidentifier",
+          "digest": "sha256:e0884265b832dda9c5dae81d966c96ad09aaef7cd2bbac6d242eeeb2da9bb651",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.fkr__seed",
+      "row_count": 5000,
+      "key_columns": [
+        "pk"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "int",
+          "digest": "sha256:c6f0e5f47b220d6d9bfaaf1df49f196285dabc22313b9d08cb9665317b22154a",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}

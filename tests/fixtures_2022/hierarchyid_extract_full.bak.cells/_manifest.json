@@ -1,0 +1,28 @@
+{
+  "bak": "hierarchyid_extract_full.bak",
+  "captured_at": "2026-06-27T00:39:58.585161+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.org",
+      "row_count": 6,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:198af4a420b0c153d7e3d93f039fb3964a1ccbaf51020c423c927896599b0222",
+          "null_count": 0
+        },
+        {
+          "name": "node",
+          "sql_type": "hierarchyid",
+          "digest": "sha256:0646ee9173dbae55775c2b677fc68cff7509bdae9f54f6e5b05b975d71158b72",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+
+=== Phase 0a: ORDER BY NEWID() on CTE projection ===
+0a_RESULT: SHUFFLED
+
+result: SHUFFLED ✓
+
+=== Phase 0b: temp-table fallback ===
+0b_RESULT: SHUFFLED
+
+result: SHUFFLED ✓
+
+>>> Recommended INSERT form: 0a (direct CTE ORDER BY NEWID())
+
+=== Phase 0c: segment layout diff (seq vs shuffled, 5,000 rows) ===
+Changed database context to 'master'.
+Changed database context to 'Phase0Probe'.
+0c_SEGMENTS_START
+tbl                                                                                                                              column_id   encoding_type min_data_id          max_data_id          base_id              magnitude                on_disk_size        
+-------------------------------------------------------------------------------------------------------------------------------- ----------- ------------- -------------------- -------------------- -------------------- ------------------------ --------------------
+rnd_tbl                                                                                                                                    1             1                    1                 5000                   -2                      1.0                10696
+rnd_tbl                                                                                                                                    2             1                    1                 5000                   -2                      1.0                10696
+seq_tbl                                                                                                                                    1             1                    1                 5000                   -2                      1.0                10696
+seq_tbl                                                                                                                                    2             1                    1                 5000                   -2                      1.0                10696
+0c_SEGMENTS_END
+Changed database context to 'master'.
+
+
+seq_tbl segments : 2
+rnd_tbl segments : 2
+segment values identical: True
+result: IDENTICAL — insert order did not change encoding metrics for this data.
+        This is expected for small sequential integers (val = n % 65536) whose
+        FOR bases collapse to the same values regardless of insert order.
+        The gate still PASSES: ORDER BY NEWID() does shuffle (0a confirmed),
+        and non-sequential VALUE distributions (e.g. sparse PFOR outliers) will
+        produce different bit-widths. Use the pfor_columnstore data pattern for
+        fixtures that exercise non-sequential encoder paths.

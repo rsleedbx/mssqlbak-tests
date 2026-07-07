@@ -1,0 +1,140 @@
+{
+  "bak": "temporal_hidden_full.bak",
+  "captured_at": "2026-06-26T18:18:04.355760+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.temporal_hidden",
+      "row_count": 5,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:ea73e51ecad26eb8490a320f5ae148a8aa3569530627f335bfe2060c1a54b550",
+          "null_count": 0
+        },
+        {
+          "name": "value",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:3638c5a9d024374a822b784c0e691283042da71479128dc1bd8410f7af0ade74",
+          "null_count": 0
+        },
+        {
+          "name": "valid_from",
+          "sql_type": "datetime2",
+          "digest": "sha256:536ecad02f192be6321f2d7526aa540dc62d4c6cbff4ee316404fa17d72293e5",
+          "null_count": 0
+        },
+        {
+          "name": "valid_to",
+          "sql_type": "datetime2",
+          "digest": "sha256:7eabacb5b07815196e7ca6b4f7f9899d44e9109ffdad5d0e874feef208b3b07a",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.temporal_hidden_history",
+      "row_count": 2,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:64dace15d2023b649d3f3378b19327afb63d7bd23e0d4a8b971b5dddb935751d",
+          "null_count": 0
+        },
+        {
+          "name": "value",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:97de6cdf03aa773a32b71590e6be4c932791d41af97851f573f4e151dd704e86",
+          "null_count": 0
+        },
+        {
+          "name": "valid_from",
+          "sql_type": "datetime2",
+          "digest": "sha256:cecd600259ccd06a2370c846f0b53525e944f329d91c0d450c57b207d6dc27b0",
+          "null_count": 0
+        },
+        {
+          "name": "valid_to",
+          "sql_type": "datetime2",
+          "digest": "sha256:40573bf678a734323014a441a0f9d458b19d4e89817a916418bf52671de7c313",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true
+    },
+    {
+      "fqn": "dbo.temporal_visible",
+      "row_count": 5,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:ea73e51ecad26eb8490a320f5ae148a8aa3569530627f335bfe2060c1a54b550",
+          "null_count": 0
+        },
+        {
+          "name": "value",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:3638c5a9d024374a822b784c0e691283042da71479128dc1bd8410f7af0ade74",
+          "null_count": 0
+        },
+        {
+          "name": "valid_from",
+          "sql_type": "datetime2",
+          "digest": "sha256:b44d7c675e528aa7be5f7fde7d7693551572c6c643c9f19ab7b795e9b58c60e2",
+          "null_count": 0
+        },
+        {
+          "name": "valid_to",
+          "sql_type": "datetime2",
+          "digest": "sha256:7eabacb5b07815196e7ca6b4f7f9899d44e9109ffdad5d0e874feef208b3b07a",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.temporal_visible_history",
+      "row_count": 2,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:64dace15d2023b649d3f3378b19327afb63d7bd23e0d4a8b971b5dddb935751d",
+          "null_count": 0
+        },
+        {
+          "name": "value",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:97de6cdf03aa773a32b71590e6be4c932791d41af97851f573f4e151dd704e86",
+          "null_count": 0
+        },
+        {
+          "name": "valid_from",
+          "sql_type": "datetime2",
+          "digest": "sha256:a4703a333e8538b1d0ccd8c890c5036bf905bc42a1145dd16443d7f7432cba8a",
+          "null_count": 0
+        },
+        {
+          "name": "valid_to",
+          "sql_type": "datetime2",
+          "digest": "sha256:64cae07e2d17f101721d3a7dd660d5d4508304cf1745144cd936d7a07d644c90",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true
+    }
+  ]
+}

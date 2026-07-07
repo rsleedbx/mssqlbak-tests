@@ -1,0 +1,5 @@
+{
+  "guess_id": "G20",
+  "sysrowsets_cmprlevel_offset": 39,
+  "note": "Confirmed by DBCC PAGE(TypeCoverage, 1, 17, 3) WITH TABLERESULTS: 'Slot 0 Column 9 Offset 0x27 Length 1 cmprlevel 0'. Offset 0x27 = 39 in decimal. Column layout: rowsetid(8)+ownertype(1)+idmajor(4)+idminor(4)+numpart(4)+status(4)+fgidfs(2)+rcrows(8)+cmprlevel(1) = 36 bytes of fixed data starting at record byte 4."
+}

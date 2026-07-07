@@ -1,0 +1,22 @@
+{
+  "guess_id": "G16",
+  "description": "Forwarded-heap 9-byte stub layout",
+  "source": "DBCC PAGE(CompressionCoverage, 1, 480, 3) WITH TABLERESULTS on SS2022 (robert-lee-mssql-local-1779207800)",
+  "date": "2026-06-07",
+  "observation": {
+    "page": 480,
+    "slot": 0,
+    "record_type": "FORWARDING_STUB",
+    "length": 9,
+    "raw_hex": "04e10100000100 0000",
+    "forwarding_to": "file 1 page 481 slot 0"
+  },
+  "layout": {
+    "+0": {"size": 1, "type": "uint8", "field": "status_A", "value": "0x04", "notes": "record-type bits (bits 1-3) = 0b010 = FORWARDING_STUB; no null bitmap, no var cols"},
+    "+1": {"size": 4, "type": "uint32_le", "field": "page_id", "value": 481, "notes": "forward target page_id = 0x000001e1 = 481"},
+    "+5": {"size": 2, "type": "uint16_le", "field": "file_id", "value": 1, "notes": "forward target file_id = 1"},
+    "+7": {"size": 2, "type": "uint16_le", "field": "slot", "value": 0, "notes": "forward target slot = 0"}
+  },
+  "verdict": "confirmed",
+  "notes": "9 bytes exactly: [status_A=0x04][page_id u32 LE][file_id u16 LE][slot u16 LE]. status_A=0x04 encodes record-type bits 0b010 (FORWARDING_STUB). No null bitmap or variable columns are present."
+}

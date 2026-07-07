@@ -1,0 +1,11 @@
+{
+  "guess_id": "G22",
+  "formula": "rowset_id = object_id << 16 (for system heap base tables)",
+  "examples": [
+    {"object_id": 3, "partition_id": 196608, "check": "3 * 65536 = 196608"},
+    {"object_id": 5, "partition_id": 327680, "check": "5 * 65536 = 327680"},
+    {"object_id": 7, "partition_id": 458752, "check": "7 * 65536 = 458752"},
+    {"object_id": 8, "partition_id": 524288, "check": "8 * 65536 = 524288"}
+  ],
+  "note": "Confirmed by DBCC IND(typecoverage, 'sys.sysrowsets', -1) showing object_id=5, allocation_unit container_id=327680=5*65536. Also sys.allocation_units in CatalogSS2022 shows container_id values 196608, 327680, 458752, 524288 matching object_ids 3,5,7,8 (sysrscols, sysrowsets, sysallocunits, sysschobjs) shifted left 16 bits. Applies only to system heap base tables; user table partition_ids are assigned differently."
+}

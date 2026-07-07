@@ -1,0 +1,28 @@
+{
+  "bak": "typed_xml_full.bak",
+  "captured_at": "2026-06-28T20:03:06.664447+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.typed_xml_docs",
+      "row_count": 8,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:d80b029b568ac107d5f83a0a19ad93330f3e8629c9e06d418d691b4d6f33d120",
+          "null_count": 0
+        },
+        {
+          "name": "doc",
+          "sql_type": "xml",
+          "digest": "sha256:46e296e72d804786a6f3174dce5ba6501de8389db682966fdc7606cbf14582cc",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}

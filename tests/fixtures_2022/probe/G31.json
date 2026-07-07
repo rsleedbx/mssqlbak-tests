@@ -1,0 +1,50 @@
+{
+  "guess_id": "G31",
+  "description": "On-page LOB record header [+0:+12]; LARGE_ROOT links",
+  "source": "Python PageStore.from_bak scan of typecoverage_full.bak (lob_links table, LOB_DATA alloc_unit)",
+  "date": "2026-06-07",
+  "observations": [
+    {
+      "page": 912, "slot": 0, "btyp": 3, "btyp_name": "DATA",
+      "reported_length": 1774,
+      "raw_hex_first16": "0800ee06000052690000000003004242",
+      "field_map": {
+        "+0:+2": "0800 = 0x0008 (tag/flags, consistent across all DATA blobs)",
+        "+2:+4": "ee06 = 0x06ee = 1774 (length, matches reported)",
+        "+4:+6": "0000 = 0 (unknown)",
+        "+6:+8": "5269 = 0x6952 = 26962 (blob context ID, same within one LOB object)",
+        "+8:+12": "00000000 = 0 (unknown/padding)",
+        "+12:+14": "0300 = 0x0003 = 3 (btyp = DATA)"
+      }
+    },
+    {
+      "page": 913, "slot": 0, "btyp": 3, "btyp_name": "DATA",
+      "reported_length": 8054,
+      "raw_hex_first16": "0800761f000052690000000003004242",
+      "field_map": {
+        "+0:+2": "0800 = 0x0008 (same tag as page 912)",
+        "+2:+4": "761f = 0x1f76 = 8054 (length)",
+        "+6:+8": "5269 = 0x6952 (same blob context as page 912)"
+      }
+    }
+  ],
+  "code_constants": {
+    "_BLOB_LEN_OFF": 2,
+    "_BLOB_TYPE_OFF": 12,
+    "_BLOB_HDR": 14,
+    "_BLOB_DATA": 3,
+    "_BLOB_LARGE_ROOT": 2
+  },
+  "known_fields": {
+    "+2:+4": "uint16 LE record length (used by code)",
+    "+12:+14": "uint16 LE btyp: 3=DATA, 2=LARGE_ROOT (used by code)"
+  },
+  "unknown_fields": {
+    "+0:+2": "uint16 = 0x0008 consistently (tag or internal level/flags?)",
+    "+4:+6": "uint16 = 0 consistently",
+    "+6:+8": "uint16 = varies per LOB object (blob context/sequence ID?)",
+    "+8:+12": "uint32 = 0 consistently"
+  },
+  "verdict": "empirical",
+  "notes": "The code correctly reads length at +2 and btyp at +12; header bytes 0-1 and 4-11 are not decoded. 0x0008 at +0:+2 is consistent across DATA blobs. The value at +6:+8 appears to be a per-LOB-object context identifier (same across all fragments of one blob)."
+}

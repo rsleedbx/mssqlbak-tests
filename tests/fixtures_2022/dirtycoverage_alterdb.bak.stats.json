@@ -1,0 +1,33 @@
+{
+  "sql_version": "Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)",
+  "bak": "dirtycoverage_alterdb.bak",
+  "bak_size_bytes": 3788800,
+  "bak_size_mb": 3.613,
+  "bak_sha256": "c802c758c65023772e7206a297f247b90494b9958e41751c69be516334d5a1be",
+  "database": "RegisterBak_dirtycoverage_alterdb",
+  "registered_at": "2026-06-12T16:37:36.101279+00:00",
+  "sqlserver_restore_s": 2.871,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "alterdb_test",
+      "row_count": 300,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "300"
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "row 1",
+          "max_val": "row 99"
+        }
+      ]
+    }
+  ]
+}

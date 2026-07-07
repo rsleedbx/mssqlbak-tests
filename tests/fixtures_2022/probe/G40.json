@@ -1,0 +1,40 @@
+{
+  "guess_id": "G40",
+  "description": "syscscolsegments field offset mapping: offset 52 = primary_dictionary_id, offset 56 = secondary_dictionary_id",
+  "captured_from": "sys.column_store_segments on BoundaryCoverage database (SS2022, boundarycoverage_full.bak)",
+  "verdict_criteria": "For every enc=3 segment, parser sec_dict (offset 56) must equal SQL Server secondary_dictionary_id",
+  "sample_enc3_segments": [
+    {
+      "table": "tb_bigint",
+      "hobt_id": 72057594045792256,
+      "column_id_catalog": 2,
+      "segment_id": 1,
+      "encoding_type": 3,
+      "primary_dictionary_id": -1,
+      "secondary_dictionary_id": 1
+    },
+    {
+      "table": "tb_float",
+      "hobt_id": 72057594047627264,
+      "column_id_catalog": 2,
+      "segment_id": 1,
+      "encoding_type": 3,
+      "primary_dictionary_id": -1,
+      "secondary_dictionary_id": 1
+    },
+    {
+      "table": "tb_int",
+      "hobt_id": 72057594046054400,
+      "column_id_catalog": 2,
+      "segment_id": 1,
+      "encoding_type": 3,
+      "primary_dictionary_id": -1,
+      "secondary_dictionary_id": 1
+    }
+  ],
+  "confirmed_field_order": {
+    "syscscolsegments_offset_52": "primary_dictionary_id",
+    "syscscolsegments_offset_56": "secondary_dictionary_id"
+  },
+  "enc3_dict_selection": "sec_dict (offset 56 = secondary_dictionary_id) is the correct field for enc=3 string lookups"
+}

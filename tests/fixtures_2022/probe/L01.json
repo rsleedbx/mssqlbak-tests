@@ -1,0 +1,7 @@
+{
+  "layout_id": "L01",
+  "missing": [],
+  "expected_pk_tables": 52,
+  "expected_col_count_tables": 5,
+  "note": "Populate observed page bytes via DBCC PAGE when layoutcoverage_full.bak is regenerated."
+}

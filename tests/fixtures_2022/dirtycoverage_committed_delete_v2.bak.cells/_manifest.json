@@ -1,0 +1,56 @@
+{
+  "bak": "dirtycoverage_committed_delete_v2.bak",
+  "captured_at": "2026-06-26T16:43:56.791531+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.committed_delete_test",
+      "row_count": 500,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:3b734b04be1cde553357c016a8f7884a2e127bdd06e771f2bf0f0dbef3bddcba",
+          "null_count": 0
+        },
+        {
+          "name": "phase",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:d2c7c117dcdbdee537cabfa57fb1ef4302f2540c506a4085b47378c9e8cbdcad",
+          "null_count": 0
+        },
+        {
+          "name": "label",
+          "sql_type": "varchar(200)",
+          "digest": "sha256:2bfd84f4374c546607a24ba6e35dc2491ea411553f56a57070999cc4ab0fca20",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.padding_fill",
+      "row_count": 250000,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:fd2cf20647f64791825c4cf510efa8ee9bfbd4eee1b01b37a539bbd973a6ea83",
+          "null_count": 0
+        },
+        {
+          "name": "filler",
+          "sql_type": "char(200)",
+          "digest": "sha256:263df45e9f1d29aca5fb55bc6a2677f21e8780afb86b3fb891e03afd27cea233",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}

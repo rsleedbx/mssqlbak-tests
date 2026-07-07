@@ -1,0 +1,82 @@
+{
+  "sql_version": "Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)",
+  "bak": "filtered_ncci_full.bak",
+  "bak_size_bytes": 3919872,
+  "bak_size_mb": 3.738,
+  "bak_sha256": "c818aa02ab5d38a7a26b346e62b466328ebf5f201d20b3485af5dc6c197c90e0",
+  "database": "RegisterBak_filtered_ncci_full",
+  "registered_at": "2026-06-23T11:43:20.567238+00:00",
+  "sqlserver_restore_s": 2.033,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "filtered_ncci_base",
+      "row_count": 400,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "400"
+        },
+        {
+          "name": "val",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "7",
+          "max_val": "2800"
+        },
+        {
+          "name": "active",
+          "sql_type": "bit",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "filtered_ncci_heap",
+      "row_count": 400,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "400"
+        },
+        {
+          "name": "val",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "7",
+          "max_val": "2800"
+        },
+        {
+          "name": "active",
+          "sql_type": "bit",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "fkr__seed",
+      "row_count": 400,
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "399"
+        }
+      ]
+    }
+  ]
+}

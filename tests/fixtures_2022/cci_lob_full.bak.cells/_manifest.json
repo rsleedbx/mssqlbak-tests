@@ -1,0 +1,82 @@
+{
+  "bak": "cci_lob_full.bak",
+  "captured_at": "2026-06-26T02:56:31.075414+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.cci_nvarchar_max",
+      "row_count": 1200,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:df3aea8c9258d9171e5bd72daef6179b9c98b35352fd2fdc29513eb8d285c967",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "nvarchar(max)",
+          "digest": "sha256:eeb244ea35c06ef403387ce80e0f3f205c108692af5ff705f3f58dccbe2c7f86",
+          "null_count": 1197
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.cci_varbinary_max",
+      "row_count": 1200,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:df3aea8c9258d9171e5bd72daef6179b9c98b35352fd2fdc29513eb8d285c967",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "varbinary(max)",
+          "digest": "sha256:d973c07835ba23b266ec448158ac86cf41e2fa5025b2bbf280bde9781ca5dcf8",
+          "null_count": 1197
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.cci_varchar_max",
+      "row_count": 1200,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:df3aea8c9258d9171e5bd72daef6179b9c98b35352fd2fdc29513eb8d285c967",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "varchar(max)",
+          "digest": "sha256:5ae98f7dd018a8304bb24f973703da1fbe01ae8d1047f10c43382526a14575a8",
+          "null_count": 1197
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.fkr__seed",
+      "row_count": 1196,
+      "key_columns": [
+        "pk"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "int",
+          "digest": "sha256:69cf193499648a8cef7258c986602d01a85609d57c3901e346189f6621de474c",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}

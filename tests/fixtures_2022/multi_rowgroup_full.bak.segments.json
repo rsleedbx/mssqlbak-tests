@@ -1,0 +1,306 @@
+{
+  "segments": {
+    "cs_multi": {
+      "partition_1": {
+        "segment_1": [
+          {
+            "column_name": "id",
+            "column_id": 1,
+            "segment_version": 1,
+            "encoding_type": 1,
+            "row_count": 1200,
+            "has_nulls": 0,
+            "null_value": -1,
+            "min_data_id": 1,
+            "max_data_id": 1200,
+            "on_disk_size": 2136,
+            "base_id": -2,
+            "magnitude": "1.0"
+          },
+          {
+            "column_name": "batch",
+            "column_id": 2,
+            "segment_version": 1,
+            "encoding_type": 2,
+            "row_count": 1200,
+            "has_nulls": 0,
+            "null_value": -1,
+            "min_data_id": 1,
+            "max_data_id": 1,
+            "on_disk_size": 216,
+            "base_id": -1,
+            "magnitude": "-1.0"
+          },
+          {
+            "column_name": "val",
+            "column_id": 3,
+            "segment_version": 1,
+            "encoding_type": 1,
+            "row_count": 1200,
+            "has_nulls": 0,
+            "null_value": -1,
+            "min_data_id": 10,
+            "max_data_id": 12000,
+            "on_disk_size": 2136,
+            "base_id": -2,
+            "magnitude": "10.0"
+          }
+        ],
+        "segment_3": [
+          {
+            "column_name": "id",
+            "column_id": 1,
+            "segment_version": 1,
+            "encoding_type": 1,
+            "row_count": 600,
+            "has_nulls": 0,
+            "null_value": -1,
+            "min_data_id": 1201,
+            "max_data_id": 1800,
+            "on_disk_size": 944,
+            "base_id": 1198,
+            "magnitude": "1.0"
+          },
+          {
+            "column_name": "batch",
+            "column_id": 2,
+            "segment_version": 1,
+            "encoding_type": 2,
+            "row_count": 600,
+            "has_nulls": 0,
+            "null_value": -1,
+            "min_data_id": 2,
+            "max_data_id": 2,
+            "on_disk_size": 144,
+            "base_id": -1,
+            "magnitude": "-1.0"
+          },
+          {
+            "column_name": "val",
+            "column_id": 3,
+            "segment_version": 1,
+            "encoding_type": 1,
+            "row_count": 600,
+            "has_nulls": 0,
+            "null_value": -1,
+            "min_data_id": 12010,
+            "max_data_id": 18000,
+            "on_disk_size": 944,
+            "base_id": 1198,
+            "magnitude": "10.0"
+          }
+        ],
+        "segment_5": [
+          {
+            "column_name": "id",
+            "column_id": 1,
+            "segment_version": 1,
+            "encoding_type": 1,
+            "row_count": 300,
+            "has_nulls": 0,
+            "null_value": -1,
+            "min_data_id": 1801,
+            "max_data_id": 2100,
+            "on_disk_size": 448,
+            "base_id": 1798,
+            "magnitude": "1.0"
+          },
+          {
+            "column_name": "batch",
+            "column_id": 2,
+            "segment_version": 1,
+            "encoding_type": 2,
+            "row_count": 300,
+            "has_nulls": 0,
+            "null_value": -1,
+            "min_data_id": 3,
+            "max_data_id": 3,
+            "on_disk_size": 104,
+            "base_id": -1,
+            "magnitude": "-1.0"
+          },
+          {
+            "column_name": "val",
+            "column_id": 3,
+            "segment_version": 1,
+            "encoding_type": 1,
+            "row_count": 300,
+            "has_nulls": 0,
+            "null_value": -1,
+            "min_data_id": 18010,
+            "max_data_id": 21000,
+            "on_disk_size": 448,
+            "base_id": 1798,
+            "magnitude": "10.0"
+          }
+        ],
+        "segment_6": [
+          {
+            "column_name": "id",
+            "column_id": 1,
+            "segment_version": 1,
+            "encoding_type": 1,
+            "row_count": 1800,
+            "has_nulls": 0,
+            "null_value": -1,
+            "min_data_id": 1,
+            "max_data_id": 1800,
+            "on_disk_size": 3176,
+            "base_id": -2,
+            "magnitude": "1.0"
+          },
+          {
+            "column_name": "batch",
+            "column_id": 2,
+            "segment_version": 1,
+            "encoding_type": 2,
+            "row_count": 1800,
+            "has_nulls": 0,
+            "null_value": -1,
+            "min_data_id": 1,
+            "max_data_id": 2,
+            "on_disk_size": 304,
+            "base_id": -1,
+            "magnitude": "-1.0"
+          },
+          {
+            "column_name": "val",
+            "column_id": 3,
+            "segment_version": 1,
+            "encoding_type": 1,
+            "row_count": 1800,
+            "has_nulls": 0,
+            "null_value": -1,
+            "min_data_id": 10,
+            "max_data_id": 18000,
+            "on_disk_size": 3176,
+            "base_id": -2,
+            "magnitude": "10.0"
+          }
+        ]
+      }
+    }
+  },
+  "row_groups": {
+    "cs_multi": [
+      {
+        "partition_number": 1,
+        "row_group_id": 1,
+        "state": 4,
+        "state_description": "TOMBSTONE",
+        "total_rows": 1200,
+        "deleted_rows": 0,
+        "size_in_bytes": 0
+      },
+      {
+        "partition_number": 1,
+        "row_group_id": 3,
+        "state": 4,
+        "state_description": "TOMBSTONE",
+        "total_rows": 600,
+        "deleted_rows": 0,
+        "size_in_bytes": 0
+      },
+      {
+        "partition_number": 1,
+        "row_group_id": 4,
+        "state": 4,
+        "state_description": "TOMBSTONE",
+        "total_rows": 300,
+        "deleted_rows": null,
+        "size_in_bytes": 16384
+      },
+      {
+        "partition_number": 1,
+        "row_group_id": 5,
+        "state": 3,
+        "state_description": "COMPRESSED",
+        "total_rows": 300,
+        "deleted_rows": 0,
+        "size_in_bytes": 1000
+      },
+      {
+        "partition_number": 1,
+        "row_group_id": 6,
+        "state": 3,
+        "state_description": "COMPRESSED",
+        "total_rows": 1800,
+        "deleted_rows": 0,
+        "size_in_bytes": 6656
+      }
+    ]
+  },
+  "dictionaries": {
+    "cs_multi": [
+      {
+        "column_name": "batch",
+        "column_id": 2,
+        "dictionary_id": 2,
+        "version": 1,
+        "type": 1,
+        "last_id": 3,
+        "entry_count": 1,
+        "on_disk_size": 60,
+        "dict_scope": "secondary"
+      },
+      {
+        "column_name": "batch",
+        "column_id": 2,
+        "dictionary_id": 4,
+        "version": 1,
+        "type": 1,
+        "last_id": 3,
+        "entry_count": 1,
+        "on_disk_size": 60,
+        "dict_scope": "secondary"
+      },
+      {
+        "column_name": "batch",
+        "column_id": 2,
+        "dictionary_id": 6,
+        "version": 1,
+        "type": 1,
+        "last_id": 3,
+        "entry_count": 1,
+        "on_disk_size": 60,
+        "dict_scope": "secondary"
+      },
+      {
+        "column_name": "batch",
+        "column_id": 2,
+        "dictionary_id": 7,
+        "version": 1,
+        "type": 1,
+        "last_id": 4,
+        "entry_count": 2,
+        "on_disk_size": 64,
+        "dict_scope": "secondary"
+      }
+    ]
+  },
+  "reconciliation": {
+    "cs_multi": {
+      "total_rows": 4200,
+      "deleted_rows": 0,
+      "live_rows": 2100,
+      "n_row_groups": 5,
+      "state_counts": {
+        "TOMBSTONE": 3,
+        "COMPRESSED": 2
+      },
+      "tombstone_row_group_ids": [
+        1,
+        3,
+        4
+      ],
+      "has_tombstones": true,
+      "has_delete_bitmap": false
+    }
+  },
+  "raw_segment_count": 12,
+  "raw_row_group_count": 5,
+  "raw_dictionary_count": 4,
+  "bak": "multi_rowgroup_full.bak",
+  "database": "RegisterBak_multi_rowgroup_full",
+  "fixture_dir": "/Users/robert.lee/github/mssqlbak/tests/fixtures_2022"
+}

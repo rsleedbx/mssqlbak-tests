@@ -1,0 +1,19 @@
+{
+  "guess_id": "G1A",
+  "description": "Page CI type byte 0x06 / reserved=0",
+  "source": "DBCC PAGE(CompressionCoverage, 1, 392, 3) WITH TABLERESULTS on SS2022 (robert-lee-mssql-local-1779207800)",
+  "date": "2026-06-07",
+  "observation": {
+    "page": 392,
+    "table": "cmp_page (PAGE compression)",
+    "ci_raw_hex_first_8_bytes": "06000028 00a10001",
+    "full_ci_prefix": "06 00 00 28 00 a1 00 01"
+  },
+  "layout": {
+    "+0": {"size": 1, "type": "uint8", "field": "CI type", "value": "0x06", "notes": "always 0x06 for PAGE-compressed pages with CI present"},
+    "+1": {"size": 2, "type": "uint16_le", "field": "reserved", "value": 0, "notes": "= 0x0000 confirmed"},
+    "+3": {"size": 2, "type": "uint16_le", "field": "dict_offset", "value": "0x0028 = 40", "notes": "offset from CI start to dictionary section"}
+  },
+  "verdict": "confirmed",
+  "notes": "CI type byte is 0x06 and reserved uint16 is 0x0000. Observed on cmp_page table (SS2022 PAGE compression), 156-slot page. dict_offset varies by page dictionary size."
+}

@@ -1,0 +1,40 @@
+{
+  "sql_version": "Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)",
+  "bak": "high_slot_density_full.bak",
+  "bak_size_bytes": 6217728,
+  "bak_size_mb": 5.93,
+  "bak_sha256": "f99fd45e35ee7daa4d753f6d34c41c1db2f587eef94507e1331f51ab9d1ca2f6",
+  "database": "RegisterBak_high_slot_density_full",
+  "registered_at": "2026-06-23T00:58:53.102596+00:00",
+  "sqlserver_restore_s": 2.317,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "fkr__seed",
+      "row_count": 100000,
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "99999"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "tiny_row",
+      "row_count": 100000,
+      "columns": [
+        {
+          "name": "a",
+          "sql_type": "tinyint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "255"
+        }
+      ]
+    }
+  ]
+}

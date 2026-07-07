@@ -1,0 +1,8 @@
+{
+  "guess_id": "G10",
+  "probe_method": "empirical — check offset block_size for known MTF type code",
+  "tape_format_logical_block_size_offset": 84,
+  "observed_tape_format_logical_block_size": 1024,
+  "observed_physical_block_size": 4096,
+  "note": "The MTF TAPE block field format_logical_block_size (uint16 LE at offset 84) is the internal MTF logical-block size (1024 bytes), NOT the physical block size used for the MTF container framing (4096 bytes). They differ because MTF distinguishes logical blocks (the smallest data-transfer unit) from physical blocks (the actual TAPE/SSET/VOLB/... fixed-size chunk). The physical block size is confirmed only by empirical probe: checking which candidate offset {512,1024,2048,4096,...} starts with a known MTF type code. The empirical probe in reader._detect_block_size is therefore the correct and only reliable detection method. Confirmed against SS2017–SS2025 fixtures."
+}

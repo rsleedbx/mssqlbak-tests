@@ -1,0 +1,5 @@
+{
+  "guess_id": "G13",
+  "iam_bitmap_offset": 194,
+  "note": "Confirmed by DBCC PAGE(CatalogSS2022, 1, 239, 3): 'IAM: Extent Alloc Status Slot 1 @0x...0C2' — offset 0xC2 = 194 from page start. IAM page m_type=10."
+}

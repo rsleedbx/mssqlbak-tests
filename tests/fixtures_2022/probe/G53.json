@@ -1,0 +1,25 @@
+{
+  "guess_id": "G53",
+  "fixture": "AdventureWorks2016_EXT.bak",
+  "column": "CustomerPII.SSN",
+  "observed": {
+    "raw_byte_length": 81,
+    "odd_length": true,
+    "first_byte_hex": "0x01",
+    "is_ae_version_byte": true,
+    "auth_tag_hex": "175a17aa8b9a7acee5a0a9aa480bf91ee99dca87c5c27782bc48f8de3ed37af7",
+    "iv_hex": "3bcfe43550996902a2f1d9d97808ee65",
+    "ciphertext_hex": "38265e008694d3823a6b2768e48f9ab512439d7457ab28b81648b5d0157e3f85",
+    "ciphertext_blocks": 2,
+    "column_is_encrypted_flag": true,
+    "collation_id": 2056,
+    "collation_id_hex": "0x0808"
+  },
+  "oracle": {
+    "source": "MS-CEML AEAD_AES_256_CBC_HMAC_SHA_256 wire format",
+    "expected_layout": "version(1B=0x01) + auth_tag(32B) + iv(16B) + ciphertext(N*16B)",
+    "expected_total_mod_2": 1,
+    "notes": "Total = 1+32+16+N*16 = 49+N*16; for N=2 = 81 bytes (odd). collation_id=2056 (0x0808) < 0x10000 confirms BIN2 AE collation."
+  },
+  "verdict": "match"
+}

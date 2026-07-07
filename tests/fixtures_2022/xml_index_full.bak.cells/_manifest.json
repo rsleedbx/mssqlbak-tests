@@ -1,0 +1,50 @@
+{
+  "bak": "xml_index_full.bak",
+  "captured_at": "2026-06-26T18:18:48.851631+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.fkr__seed",
+      "row_count": 100,
+      "key_columns": [
+        "pk"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "int",
+          "digest": "sha256:8898958fc44ef5a938277e35cef3c31fb0676bb7f843c6b79dfc91b7fd4d6f91",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.xml_docs",
+      "row_count": 100,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:2194fcb8c27048b162f52699883cf260e3098ec6f0d75c303246f0b8f8d8a00c",
+          "null_count": 0
+        },
+        {
+          "name": "doc",
+          "sql_type": "xml",
+          "digest": "sha256:7245388f40a7cfeaeca07c614068447b247adeac0b6c76a3f97f33ee6f04ed4e",
+          "null_count": 0
+        },
+        {
+          "name": "tag",
+          "sql_type": "varchar(20)",
+          "digest": "sha256:32cf2c1ec1cb3d6ed91e2f0ebea2561981bf896629ff9a8a0f59bdce999ef9fd",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}

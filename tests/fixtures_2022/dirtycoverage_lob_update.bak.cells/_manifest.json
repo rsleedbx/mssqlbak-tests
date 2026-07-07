@@ -1,0 +1,28 @@
+{
+  "bak": "dirtycoverage_lob_update.bak",
+  "captured_at": "2026-06-26T16:45:59.455627+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.lob_update_test",
+      "row_count": 5,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:ea73e51ecad26eb8490a320f5ae148a8aa3569530627f335bfe2060c1a54b550",
+          "null_count": 0
+        },
+        {
+          "name": "content",
+          "sql_type": "varchar(max)",
+          "digest": "sha256:a49433edf031d2ee22ad2d87800baac14b4e8396dd7cf4d71e2c12fa98eb7fbf",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}

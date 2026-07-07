@@ -1,0 +1,142 @@
+{
+  "bak": "geotest.bak",
+  "captured_at": "2026-06-27T00:38:38.805482+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.Locations",
+      "row_count": 5,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:ea73e51ecad26eb8490a320f5ae148a8aa3569530627f335bfe2060c1a54b550",
+          "null_count": 0
+        },
+        {
+          "name": "name",
+          "sql_type": "nvarchar(40)",
+          "digest": "sha256:d328ba8972509b9603ff03e29ef80ff175f496a217074a68d918683bdb25952a",
+          "null_count": 0
+        },
+        {
+          "name": "pt",
+          "sql_type": "geography",
+          "digest": "sha256:ae6f9cef6a62f5179734ebe08107e669a2f1fb7a77539b882d09a8aa1f259642",
+          "null_count": 1
+        },
+        {
+          "name": "geom",
+          "sql_type": "geometry",
+          "digest": "sha256:921d1f3256e5d7b4302f0b750b57114f1a67f9a2972c7255a787c95fe9c7ee36",
+          "null_count": 1
+        },
+        {
+          "name": "hid",
+          "sql_type": "hierarchyid",
+          "digest": "sha256:a80e319c2b3813423574e6586958b4833ee6a7a1e0ac042eeac66f1b52b6fa9a",
+          "null_count": 1
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.LocationsNone",
+      "row_count": 3,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:5be6c1972032e65c8852b651ad59e6dccaff8d9d07dc0e5718a63bff0f3f90bc",
+          "null_count": 0
+        },
+        {
+          "name": "name",
+          "sql_type": "nvarchar(40)",
+          "digest": "sha256:1f87d92c9ea6b793b9af9cb2cef3f03c2378852e8ee55d5b660cf4dff6f50844",
+          "null_count": 0
+        },
+        {
+          "name": "pt",
+          "sql_type": "geography",
+          "digest": "sha256:69bfc63f9bb45b49aa07f6e670675443034199af89483a00ae8174138e245ecd",
+          "null_count": 1
+        },
+        {
+          "name": "hid",
+          "sql_type": "hierarchyid",
+          "digest": "sha256:8ae25e94ffede788b0687531420b92f9998871cc81ddc9aa84f9c9896c4f5ff1",
+          "null_count": 1
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.LocationsRow",
+      "row_count": 3,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:5be6c1972032e65c8852b651ad59e6dccaff8d9d07dc0e5718a63bff0f3f90bc",
+          "null_count": 0
+        },
+        {
+          "name": "name",
+          "sql_type": "nvarchar(40)",
+          "digest": "sha256:1f87d92c9ea6b793b9af9cb2cef3f03c2378852e8ee55d5b660cf4dff6f50844",
+          "null_count": 0
+        },
+        {
+          "name": "pt",
+          "sql_type": "geography",
+          "digest": "sha256:69bfc63f9bb45b49aa07f6e670675443034199af89483a00ae8174138e245ecd",
+          "null_count": 1
+        },
+        {
+          "name": "hid",
+          "sql_type": "hierarchyid",
+          "digest": "sha256:8ae25e94ffede788b0687531420b92f9998871cc81ddc9aa84f9c9896c4f5ff1",
+          "null_count": 1
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.spatial_lob_test",
+      "row_count": 3,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:5be6c1972032e65c8852b651ad59e6dccaff8d9d07dc0e5718a63bff0f3f90bc",
+          "null_count": 0
+        },
+        {
+          "name": "geom",
+          "sql_type": "geometry",
+          "digest": "sha256:e06bb3003f6220986a9e7743a3cedc3dd0cb7ceceff8d2e293776e637d086690",
+          "null_count": 0
+        },
+        {
+          "name": "geog",
+          "sql_type": "geography",
+          "digest": "sha256:fabe2f3797f7cedd8c919d5ca602adece15255a2cb947e9f9983c39a17a9c360",
+          "null_count": 2
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "guess_id": "G41",
+  "description": "LOB preamble: 12-byte header + 8-byte separators every 65536 bytes for dict blobs > 65536 bytes",
+  "fixture": "tests/fixtures/cs_lob_preamble.bak",
+  "status": "exercised",
+  "dict_blob_count": 2,
+  "max_blob_bytes": 587756,
+  "large_blob_count": 1,
+  "threshold_bytes": 65536,
+  "verdict": "match",
+  "note": "cs_lob_preamble.bak (SS2022, 1400 rows of nvarchar(4000) with long distinct values) produces a 587756-byte dict blob that exceeds the 65536-byte threshold and exercises the LOB preamble + deinterleave path. Confirmed separately with cs_lob_preamble2.bak (1200-row varchar fixture)."
+}

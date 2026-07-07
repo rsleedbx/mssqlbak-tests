@@ -1,0 +1,33 @@
+{
+  "sql_version": "Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)",
+  "bak": "pagecomp_long_prefix_full.bak",
+  "bak_size_bytes": 3264512,
+  "bak_size_mb": 3.113,
+  "bak_sha256": "ff41cca85209ed67b751205d50c0d6a1db620462935075842ac1ccef87e18a77",
+  "database": "RegisterBak_pagecomp_long_prefix_full",
+  "registered_at": "2026-07-06T15:15:11.011746+00:00",
+  "sqlserver_restore_s": 1.921,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "long_prefix_probe",
+      "row_count": 100,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "100"
+        },
+        {
+          "name": "descr",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Product description: digital camera compact model series X100 version 1.0",
+          "max_val": "Product description: digital camera compact model series X100 version zeta"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "bak": "cs_lob_preamble2.bak",
+  "captured_at": "2026-06-26T00:50:12.457020+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.cs_lob_preamble",
+      "row_count": 1200,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:8633dfa27880f37d9aa5bd95bcf2d3485d60464a0d9367ec330c7e7800626bf3",
+          "null_count": 0
+        },
+        {
+          "name": "long_str",
+          "sql_type": "varchar(80)",
+          "digest": "sha256:5b10f496e33055cbb749796a35d514f2b93a36458fe9e219bb250b634d31a804",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}

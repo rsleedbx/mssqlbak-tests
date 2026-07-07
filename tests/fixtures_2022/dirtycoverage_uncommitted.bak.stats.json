@@ -1,0 +1,47 @@
+{
+  "sql_version": "Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)",
+  "bak": "dirtycoverage_uncommitted.bak",
+  "bak_size_bytes": 3854336,
+  "bak_size_mb": 3.676,
+  "bak_sha256": "9091ecb0acb58abb490f3e33d10d1b7f1368562b2b8e166b2dd4b9a2b52c8d3d",
+  "database": "RegisterBak_dirtycoverage_uncommitted",
+  "registered_at": "2026-06-12T16:35:57.722635+00:00",
+  "sqlserver_restore_s": 3.276,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "dirty_test",
+      "row_count": 50,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "50"
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "committed row 1",
+          "max_val": "committed row 9"
+        },
+        {
+          "name": "phase",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "pre_tx",
+          "max_val": "pre_tx"
+        },
+        {
+          "name": "seq",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "50"
+        }
+      ]
+    }
+  ]
+}

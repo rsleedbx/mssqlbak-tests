@@ -1,0 +1,40 @@
+{
+  "sql_version": "Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)",
+  "bak": "dirtycoverage_dropidx.bak",
+  "bak_size_bytes": 3854336,
+  "bak_size_mb": 3.676,
+  "bak_sha256": "99bb34580822ad429f6b1def5db408c4fc9c38df3c35654da283f65237065a9d",
+  "database": "RegisterBak_dirtycoverage_dropidx",
+  "registered_at": "2026-06-12T16:38:52.964903+00:00",
+  "sqlserver_restore_s": 4.643,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "kidx_test",
+      "row_count": 300,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "300"
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "row 1",
+          "max_val": "row 99"
+        },
+        {
+          "name": "score",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "99"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "sql_version": "Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)",
+  "bak": "dirtycoverage_nested.bak",
+  "bak_size_mb": 3.676,
+  "database": "RegisterBak_dirtycoverage_nested",
+  "registered_at": "2026-06-11T21:44:57.999308+00:00",
+  "sqlserver_restore_s": 2.147,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "nested_test",
+      "row_count": 50,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "50"
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "committed 1",
+          "max_val": "committed 9"
+        },
+        {
+          "name": "phase",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "committed",
+          "max_val": "committed"
+        }
+      ]
+    }
+  ]
+}

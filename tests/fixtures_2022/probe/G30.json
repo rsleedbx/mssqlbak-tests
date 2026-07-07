@@ -1,0 +1,40 @@
+{
+  "guess_id": "G30",
+  "description": "In-row inline-root LOB pointer header [+2:+12]",
+  "source": "Python PageStore.from_bak scan of typecoverage_full.bak (lob_links table, in-row page 904 slot 1)",
+  "date": "2026-06-07",
+  "observation": {
+    "page": 904, "slot": 1, "var_col": 0,
+    "raw_hex_first30": "04000100010000005269000050c300009603000001000000300008000300",
+    "struct_type_at_plus0": 4,
+    "struct_type_name": "BLOB_INLINE_ROOT",
+    "header_plus2_to_plus12": "0100010000005269 0000",
+    "link_array_starts_at": "+12"
+  },
+  "layout": {
+    "+0:+2": {"field": "struct_type", "value": "0x0004 = 4", "notes": "BLOB_INLINE_ROOT; used by code to identify inline-root"},
+    "+2:+4": {"field": "unknown_a", "value": "0x0001 = 1", "notes": "possibly nlinks or a sequence number"},
+    "+4:+6": {"field": "unknown_b", "value": "0x0001 = 1", "notes": "unknown"},
+    "+6:+8": {"field": "unknown_c", "value": "0x0000 = 0", "notes": "unknown"},
+    "+8:+10": {"field": "blob_context", "value": "0x6952 = 26962", "notes": "same value as in LOB data page header +6:+8 for this LOB object"},
+    "+10:+12": {"field": "unknown_d", "value": "0x0000 = 0", "notes": "unknown"}
+  },
+  "link_array": {
+    "offset": "+12",
+    "entry_size": 12,
+    "nlinks_derivation": "(len(inline_root) - 12) // 12",
+    "entry_format": {
+      "+0": "uint32 LE cumulative_length (0x0000c350 = 50000 here)",
+      "+4": "uint32 LE page_id (0x00000396 = 918 here)",
+      "+8": "uint16 LE file_id (1)",
+      "+10": "uint16 LE slot (0)"
+    }
+  },
+  "code_constants": {
+    "_BLOB_ROOT_HDR": 12,
+    "_BLOB_LINK_SIZE": 12,
+    "_BLOB_INLINE_ROOT": 4
+  },
+  "verdict": "empirical",
+  "notes": "struct_type = 4 (BLOB_INLINE_ROOT) confirmed. The 10-byte header [+2:+12] is not decoded by the code; nlinks is derived as (len-12)//12 which matches the observed link at +12. The blob_context value at +8:+10 matches the value at +6:+8 in corresponding LOB data-page records."
+}

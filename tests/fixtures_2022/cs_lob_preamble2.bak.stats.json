@@ -1,0 +1,33 @@
+{
+  "sql_version": "Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)",
+  "bak": "cs_lob_preamble2.bak",
+  "bak_size_bytes": 634880,
+  "bak_size_mb": 0.605,
+  "bak_sha256": "c346a617388454dd4ceb1bb8f0839d1c96e9fb20f6d46a336af3d7c86a110d8a",
+  "database": "RegisterBak_cs_lob_preamble2",
+  "registered_at": "2026-06-12T16:36:43.124255+00:00",
+  "sqlserver_restore_s": 3.379,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "cs_lob_preamble",
+      "row_count": 1200,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1199"
+        },
+        {
+          "name": "long_str",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "0FRB155ow0GykRR9FFnmwqOmANRpVrp0wyU8mfRHLblYwiIQKVRTzdrEw6aUcXRdrpvgwMmCwnRvpNXX",
+          "max_val": "z8wcyucXRdrpfswK0MgzRt3XrEw6aU6vRZJ9fswK0MwnRvpNz8wcyuIHRLtH3awsAcEpR5hZ1Mwk4GXX"
+        }
+      ]
+    }
+  ]
+}

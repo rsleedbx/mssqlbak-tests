@@ -1,0 +1,33 @@
+{
+  "sql_version": "Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)",
+  "bak": "catalog_ss2022.bak",
+  "bak_size_bytes": 3067904,
+  "bak_size_mb": 2.926,
+  "bak_sha256": "efa72dff2213d8702e5e7f485d6b579c1fe7ab75bde00f7bc79ba80a88738750",
+  "database": "RegisterBak_catalog_ss2022",
+  "registered_at": "2026-06-12T16:34:31.031009+00:00",
+  "sqlserver_restore_s": 6.179,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "cat_probe",
+      "row_count": 3,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3"
+        },
+        {
+          "name": "payload",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "alpha",
+          "max_val": "gamma"
+        }
+      ]
+    }
+  ]
+}

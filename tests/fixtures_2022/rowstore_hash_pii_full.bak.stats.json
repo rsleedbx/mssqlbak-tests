@@ -1,0 +1,47 @@
+{
+  "sql_version": "Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)",
+  "bak": "rowstore_hash_pii_full.bak",
+  "bak_size_bytes": 3067904,
+  "bak_size_mb": 2.926,
+  "bak_sha256": "a4ee0a50426ee18bb10ab9f1f2cf59245bd3f1b3e9f534f1b55ecd09e958d459",
+  "database": "RegisterBak_rowstore_hash_pii_full",
+  "registered_at": "2026-06-30T00:45:05.147973+00:00",
+  "sqlserver_restore_s": 2.084,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "hash_pii_probe",
+      "row_count": 4,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "4"
+        },
+        {
+          "name": "hashed_password",
+          "sql_type": "binary",
+          "null_count": 1,
+          "min_val": "0x0000000000000000000000000000000000000000000000000000000000000000",
+          "max_val": "0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+        },
+        {
+          "name": "ssn_cipher",
+          "sql_type": "varbinary",
+          "null_count": 1,
+          "min_val": "0x00112233445566778899AABBCCDDEEFF",
+          "max_val": "0xFFEEDDCCBBAA99887766554433221100"
+        },
+        {
+          "name": "credit_card_cipher",
+          "sql_type": "varbinary",
+          "null_count": 1,
+          "min_val": "0x0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF",
+          "max_val": "0xFEDCBA9876543210FEDCBA9876543210FEDCBA9876543210FEDCBA9876543210"
+        }
+      ]
+    }
+  ]
+}

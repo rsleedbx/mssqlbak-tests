@@ -1,0 +1,13 @@
+{
+  "guess_id": "G14",
+  "boot_record_sysallocunits_ptr_offset": 516,
+  "struct": "(page_id UINT32 LE, file_id UINT16 LE)",
+  "versions_confirmed": ["SS2017", "SS2019", "SS2022", "SS2025"],
+  "fixtures_checked": [
+    "boundarycoverage_full.bak",
+    "catalog_ss2022.bak",
+    "ndfcoverage_full.bak",
+    "compressioncoverage_full.bak"
+  ],
+  "note": "Confirmed by programmatic scan of boot-page record 0 across SS2017–SS2025 fixtures: the sysallocunits first-page pointer (page_id=20, file_id=1 in every tested fixture) is always found at boot-record byte offset 516. Offset is invariant across all versions and database sizes tested."
+}
