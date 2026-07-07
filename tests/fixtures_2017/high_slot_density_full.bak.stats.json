@@ -1,0 +1,40 @@
+{
+  "sql_version": "Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64)",
+  "bak": "high_slot_density_full.bak",
+  "bak_size_bytes": 5099520,
+  "bak_size_mb": 4.863,
+  "bak_sha256": "cc2791722813637d981f1bdd76aaee24baa51ee4f6ee4f1051eb4db9ce0b5b20",
+  "database": "RegisterBak_high_slot_density_full",
+  "registered_at": "2026-06-23T02:18:48.951652+00:00",
+  "sqlserver_restore_s": 1.816,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "fkr__seed",
+      "row_count": 100000,
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "99999"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "tiny_row",
+      "row_count": 100000,
+      "columns": [
+        {
+          "name": "a",
+          "sql_type": "tinyint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "255"
+        }
+      ]
+    }
+  ]
+}

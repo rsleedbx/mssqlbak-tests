@@ -1,0 +1,1174 @@
+{
+  "sql_version": "Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64)",
+  "bak": "tabletypecoverage_full.bak",
+  "bak_size_mb": 9.109,
+  "bak_size_bytes": 9551872,
+  "bak_sha256": "f721bd913d5988c20deeaa3764ff6b47a3995945ab563cc41b2dad9db6f8ac29",
+  "database": "RegisterBak_tabletypecoverage_full",
+  "registered_at": "2026-06-11T23:50:12.981070+00:00",
+  "sqlserver_restore_s": 2.46,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "tt_cluster",
+      "row_count": 4,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "4"
+        },
+        {
+          "name": "c_tinyint",
+          "sql_type": "tinyint",
+          "null_count": 1,
+          "min_val": "0",
+          "max_val": "255"
+        },
+        {
+          "name": "c_smallint",
+          "sql_type": "smallint",
+          "null_count": 1,
+          "min_val": "-32768",
+          "max_val": "32767"
+        },
+        {
+          "name": "c_int",
+          "sql_type": "int",
+          "null_count": 1,
+          "min_val": "-2147483648",
+          "max_val": "2147483647"
+        },
+        {
+          "name": "c_bigint",
+          "sql_type": "bigint",
+          "null_count": 1,
+          "min_val": "-9223372036854775808",
+          "max_val": "9223372036854775807"
+        },
+        {
+          "name": "c_bit",
+          "sql_type": "bit",
+          "null_count": 1,
+          "min_val": "0",
+          "max_val": "1"
+        },
+        {
+          "name": "c_decimal_38_10",
+          "sql_type": "decimal",
+          "null_count": 1,
+          "min_val": "-9999999999999999999999999999.9999999999",
+          "max_val": "9999999999999999999999999999.9999999999"
+        },
+        {
+          "name": "c_numeric_18_4",
+          "sql_type": "numeric",
+          "null_count": 1,
+          "min_val": "-99999999999999.9999",
+          "max_val": "99999999999999.9999"
+        },
+        {
+          "name": "c_money",
+          "sql_type": "money",
+          "null_count": 1,
+          "min_val": "-922337203685477.5808",
+          "max_val": "922337203685477.5807"
+        },
+        {
+          "name": "c_smallmoney",
+          "sql_type": "smallmoney",
+          "null_count": 1,
+          "min_val": "-214748.3648",
+          "max_val": "214748.3647"
+        },
+        {
+          "name": "c_real",
+          "sql_type": "real",
+          "null_count": 1,
+          "min_val": "-3.4e+038",
+          "max_val": "3.4e+038"
+        },
+        {
+          "name": "c_float",
+          "sql_type": "float",
+          "null_count": 1,
+          "min_val": "-1.7e+308",
+          "max_val": "1.7e+308"
+        },
+        {
+          "name": "c_date",
+          "sql_type": "date",
+          "null_count": 1,
+          "min_val": "0001-01-01",
+          "max_val": "9999-12-31"
+        },
+        {
+          "name": "c_datetime2_7",
+          "sql_type": "datetime2",
+          "null_count": 1,
+          "min_val": "0001-01-01 00:00:00.0000000",
+          "max_val": "9999-12-31 23:59:59.9999990"
+        },
+        {
+          "name": "c_time_7",
+          "sql_type": "time",
+          "null_count": 1,
+          "min_val": "00:00:00.0000000",
+          "max_val": "23:59:59.9999990"
+        },
+        {
+          "name": "c_smalldatetime",
+          "sql_type": "smalldatetime",
+          "null_count": 1,
+          "min_val": "1900-01-01 00:00:00",
+          "max_val": "2079-06-06 23:59:00"
+        },
+        {
+          "name": "c_datetime",
+          "sql_type": "datetime",
+          "null_count": 1,
+          "min_val": "1753-01-01 00:00:00",
+          "max_val": "9999-12-31 23:59:59"
+        },
+        {
+          "name": "c_datetimeoffset_7",
+          "sql_type": "datetimeoffset",
+          "null_count": 1,
+          "min_val": "0001-01-01 00:00:00.0000000 +00:00",
+          "max_val": "9999-12-31 23:59:59.9999990 +00:00"
+        },
+        {
+          "name": "c_char_10",
+          "sql_type": "char",
+          "null_count": 1,
+          "min_val": "VjsXAdUvCw",
+          "max_val": "z"
+        },
+        {
+          "name": "c_nchar_10",
+          "sql_type": "nchar",
+          "null_count": 1,
+          "min_val": "a",
+          "max_val": "x6v6mMYy4S"
+        },
+        {
+          "name": "c_varchar_max",
+          "sql_type": "varchar",
+          "null_count": 1,
+          "min_val": "",
+          "max_val": "jVAEL81ywVSHjglw4ow6DKh4T1qSqw1AQ6RKp8G5ZWnh4UtVvFvv8itZ4UYt0QWs"
+        },
+        {
+          "name": "c_nvarchar_50",
+          "sql_type": "nvarchar",
+          "null_count": 1,
+          "min_val": "",
+          "max_val": "caf\u00e9\ud83d\ude00vEdBfjSNUvqeRoMImB30"
+        },
+        {
+          "name": "c_binary_8",
+          "sql_type": "binary",
+          "null_count": 1,
+          "min_val": "0x0000000000000000",
+          "max_val": "0xFFFFFFFFFFFFFFFF"
+        },
+        {
+          "name": "c_varbinary_max",
+          "sql_type": "varbinary",
+          "null_count": 1,
+          "min_val": "0x",
+          "max_val": "0x34A196EAC164A93487F3BF5A38E3577B0ADE16FA3D0C4CFD5CF23CD87560ADE442DAC41A1A4D9887839A761B6E9F057ECF7B672437EAF83B698F8DF449A286D7D56CFF61A550F3BD32EEC99A6A10CDF7B6388844010F948BACC6F12FB2FB80CE7708D9261E47DFDC989CA59E6556EC3D754D5119BEA18D2A0EA60B311E0690C02300CC0E92613A3BD545326F6BF2E86FB841482EE0A9695AA2EE2075C1698E6A87AAF2C7B72916B45BD74B85129516D965FB0CBFA0611C736277A39AFF1CA59127001F02D3CF078CEAFEF9118BBF12C27F1C8B408D96FA28140EC3538A0C98A840097828C33DBEA3DCC4485E4709BE6C83A1C246E77E04C114"
+        },
+        {
+          "name": "c_uniqueidentifier",
+          "sql_type": "uniqueidentifier",
+          "null_count": 1,
+          "min_val": "00000000-0000-0000-0000-000000000000",
+          "max_val": "FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"
+        },
+        {
+          "name": "c_text",
+          "sql_type": "text",
+          "null_count": 1,
+          "min_val": "",
+          "max_val": "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ"
+        },
+        {
+          "name": "c_ntext",
+          "sql_type": "ntext",
+          "null_count": 1,
+          "min_val": "",
+          "max_val": "caf\u00e9\ud83d\ude00qGoDUalyl5mJOlMbzOAe"
+        },
+        {
+          "name": "c_image",
+          "sql_type": "image",
+          "null_count": 1,
+          "min_val": "0x",
+          "max_val": "0x12DAE8518BBF675F32D65CD2A4CACF23B95C02C76F6EC8A458971EDB7969D292E17F9229E67F44F89D7651A6529FE9E6F0C0E91824F0A695B09A6CCEEFAC6F50"
+        },
+        {
+          "name": "c_xml",
+          "sql_type": "xml",
+          "null_count": 4,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "c_sql_variant",
+          "sql_type": "sql_variant",
+          "null_count": 4,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "c_rowversion",
+          "sql_type": "timestamp",
+          "null_count": 0,
+          "min_val": "0x00000000000007EB",
+          "max_val": "0x00000000000007F7"
+        },
+        {
+          "name": "c_geometry",
+          "sql_type": "geometry",
+          "null_count": 4,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "c_geography",
+          "sql_type": "geography",
+          "null_count": 4,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "c_hierarchyid",
+          "sql_type": "hierarchyid",
+          "null_count": 4,
+          "min_val": null,
+          "max_val": null
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "tt_column",
+      "row_count": 4,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "4"
+        },
+        {
+          "name": "c_tinyint",
+          "sql_type": "tinyint",
+          "null_count": 1,
+          "min_val": "0",
+          "max_val": "255"
+        },
+        {
+          "name": "c_smallint",
+          "sql_type": "smallint",
+          "null_count": 1,
+          "min_val": "-32768",
+          "max_val": "32767"
+        },
+        {
+          "name": "c_int",
+          "sql_type": "int",
+          "null_count": 1,
+          "min_val": "-2147483648",
+          "max_val": "2147483647"
+        },
+        {
+          "name": "c_bigint",
+          "sql_type": "bigint",
+          "null_count": 1,
+          "min_val": "-9223372036854775808",
+          "max_val": "9223372036854775807"
+        },
+        {
+          "name": "c_bit",
+          "sql_type": "bit",
+          "null_count": 1,
+          "min_val": "0",
+          "max_val": "1"
+        },
+        {
+          "name": "c_decimal_38_10",
+          "sql_type": "decimal",
+          "null_count": 1,
+          "min_val": "-9999999999999999999999999999.9999999999",
+          "max_val": "9999999999999999999999999999.9999999999"
+        },
+        {
+          "name": "c_numeric_18_4",
+          "sql_type": "numeric",
+          "null_count": 1,
+          "min_val": "-99999999999999.9999",
+          "max_val": "99999999999999.9999"
+        },
+        {
+          "name": "c_money",
+          "sql_type": "money",
+          "null_count": 1,
+          "min_val": "-922337203685477.5808",
+          "max_val": "922337203685477.5807"
+        },
+        {
+          "name": "c_smallmoney",
+          "sql_type": "smallmoney",
+          "null_count": 1,
+          "min_val": "-214748.3648",
+          "max_val": "214748.3647"
+        },
+        {
+          "name": "c_real",
+          "sql_type": "real",
+          "null_count": 1,
+          "min_val": "-3.4e+038",
+          "max_val": "3.4e+038"
+        },
+        {
+          "name": "c_float",
+          "sql_type": "float",
+          "null_count": 1,
+          "min_val": "-1.7e+308",
+          "max_val": "1.7e+308"
+        },
+        {
+          "name": "c_date",
+          "sql_type": "date",
+          "null_count": 1,
+          "min_val": "0001-01-01",
+          "max_val": "9999-12-31"
+        },
+        {
+          "name": "c_datetime2_7",
+          "sql_type": "datetime2",
+          "null_count": 1,
+          "min_val": "0001-01-01 00:00:00.0000000",
+          "max_val": "9999-12-31 23:59:59.9999990"
+        },
+        {
+          "name": "c_time_7",
+          "sql_type": "time",
+          "null_count": 1,
+          "min_val": "00:00:00.0000000",
+          "max_val": "23:59:59.9999990"
+        },
+        {
+          "name": "c_smalldatetime",
+          "sql_type": "smalldatetime",
+          "null_count": 1,
+          "min_val": "1900-01-01 00:00:00",
+          "max_val": "2079-06-06 23:59:00"
+        },
+        {
+          "name": "c_datetime",
+          "sql_type": "datetime",
+          "null_count": 1,
+          "min_val": "1753-01-01 00:00:00",
+          "max_val": "9999-12-31 23:59:59"
+        },
+        {
+          "name": "c_datetimeoffset_7",
+          "sql_type": "datetimeoffset",
+          "null_count": 1,
+          "min_val": "0001-01-01 00:00:00.0000000 +00:00",
+          "max_val": "9999-12-31 23:59:59.9999990 +00:00"
+        },
+        {
+          "name": "c_char_10",
+          "sql_type": "char",
+          "null_count": 1,
+          "min_val": "VjsXAdUvCw",
+          "max_val": "z"
+        },
+        {
+          "name": "c_nchar_10",
+          "sql_type": "nchar",
+          "null_count": 1,
+          "min_val": "a",
+          "max_val": "x6v6mMYy4S"
+        },
+        {
+          "name": "c_varchar_max",
+          "sql_type": "varchar",
+          "null_count": 1,
+          "min_val": "",
+          "max_val": "jVAEL81ywVSHjglw4ow6DKh4T1qSqw1AQ6RKp8G5ZWnh4UtVvFvv8itZ4UYt0QWs"
+        },
+        {
+          "name": "c_nvarchar_50",
+          "sql_type": "nvarchar",
+          "null_count": 1,
+          "min_val": "",
+          "max_val": "caf\u00e9\ud83d\ude00vEdBfjSNUvqeRoMImB30"
+        },
+        {
+          "name": "c_binary_8",
+          "sql_type": "binary",
+          "null_count": 1,
+          "min_val": "0x0000000000000000",
+          "max_val": "0xFFFFFFFFFFFFFFFF"
+        },
+        {
+          "name": "c_varbinary_max",
+          "sql_type": "varbinary",
+          "null_count": 1,
+          "min_val": "0x",
+          "max_val": "0x34A196EAC164A93487F3BF5A38E3577B0ADE16FA3D0C4CFD5CF23CD87560ADE442DAC41A1A4D9887839A761B6E9F057ECF7B672437EAF83B698F8DF449A286D7D56CFF61A550F3BD32EEC99A6A10CDF7B6388844010F948BACC6F12FB2FB80CE7708D9261E47DFDC989CA59E6556EC3D754D5119BEA18D2A0EA60B311E0690C02300CC0E92613A3BD545326F6BF2E86FB841482EE0A9695AA2EE2075C1698E6A87AAF2C7B72916B45BD74B85129516D965FB0CBFA0611C736277A39AFF1CA59127001F02D3CF078CEAFEF9118BBF12C27F1C8B408D96FA28140EC3538A0C98A840097828C33DBEA3DCC4485E4709BE6C83A1C246E77E04C114"
+        },
+        {
+          "name": "c_uniqueidentifier",
+          "sql_type": "uniqueidentifier",
+          "null_count": 1,
+          "min_val": "00000000-0000-0000-0000-000000000000",
+          "max_val": "FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "tt_heap",
+      "row_count": 4,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "4"
+        },
+        {
+          "name": "c_tinyint",
+          "sql_type": "tinyint",
+          "null_count": 1,
+          "min_val": "0",
+          "max_val": "255"
+        },
+        {
+          "name": "c_smallint",
+          "sql_type": "smallint",
+          "null_count": 1,
+          "min_val": "-32768",
+          "max_val": "32767"
+        },
+        {
+          "name": "c_int",
+          "sql_type": "int",
+          "null_count": 1,
+          "min_val": "-2147483648",
+          "max_val": "2147483647"
+        },
+        {
+          "name": "c_bigint",
+          "sql_type": "bigint",
+          "null_count": 1,
+          "min_val": "-9223372036854775808",
+          "max_val": "9223372036854775807"
+        },
+        {
+          "name": "c_bit",
+          "sql_type": "bit",
+          "null_count": 1,
+          "min_val": "0",
+          "max_val": "1"
+        },
+        {
+          "name": "c_decimal_38_10",
+          "sql_type": "decimal",
+          "null_count": 1,
+          "min_val": "-9999999999999999999999999999.9999999999",
+          "max_val": "9999999999999999999999999999.9999999999"
+        },
+        {
+          "name": "c_numeric_18_4",
+          "sql_type": "numeric",
+          "null_count": 1,
+          "min_val": "-99999999999999.9999",
+          "max_val": "99999999999999.9999"
+        },
+        {
+          "name": "c_money",
+          "sql_type": "money",
+          "null_count": 1,
+          "min_val": "-922337203685477.5808",
+          "max_val": "922337203685477.5807"
+        },
+        {
+          "name": "c_smallmoney",
+          "sql_type": "smallmoney",
+          "null_count": 1,
+          "min_val": "-214748.3648",
+          "max_val": "214748.3647"
+        },
+        {
+          "name": "c_real",
+          "sql_type": "real",
+          "null_count": 1,
+          "min_val": "-3.4e+038",
+          "max_val": "3.4e+038"
+        },
+        {
+          "name": "c_float",
+          "sql_type": "float",
+          "null_count": 1,
+          "min_val": "-1.7e+308",
+          "max_val": "1.7e+308"
+        },
+        {
+          "name": "c_date",
+          "sql_type": "date",
+          "null_count": 1,
+          "min_val": "0001-01-01",
+          "max_val": "9999-12-31"
+        },
+        {
+          "name": "c_datetime2_7",
+          "sql_type": "datetime2",
+          "null_count": 1,
+          "min_val": "0001-01-01 00:00:00.0000000",
+          "max_val": "9999-12-31 23:59:59.9999990"
+        },
+        {
+          "name": "c_time_7",
+          "sql_type": "time",
+          "null_count": 1,
+          "min_val": "00:00:00.0000000",
+          "max_val": "23:59:59.9999990"
+        },
+        {
+          "name": "c_smalldatetime",
+          "sql_type": "smalldatetime",
+          "null_count": 1,
+          "min_val": "1900-01-01 00:00:00",
+          "max_val": "2079-06-06 23:59:00"
+        },
+        {
+          "name": "c_datetime",
+          "sql_type": "datetime",
+          "null_count": 1,
+          "min_val": "1753-01-01 00:00:00",
+          "max_val": "9999-12-31 23:59:59"
+        },
+        {
+          "name": "c_datetimeoffset_7",
+          "sql_type": "datetimeoffset",
+          "null_count": 1,
+          "min_val": "0001-01-01 00:00:00.0000000 +00:00",
+          "max_val": "9999-12-31 23:59:59.9999990 +00:00"
+        },
+        {
+          "name": "c_char_10",
+          "sql_type": "char",
+          "null_count": 1,
+          "min_val": "VjsXAdUvCw",
+          "max_val": "z"
+        },
+        {
+          "name": "c_nchar_10",
+          "sql_type": "nchar",
+          "null_count": 1,
+          "min_val": "a",
+          "max_val": "x6v6mMYy4S"
+        },
+        {
+          "name": "c_varchar_max",
+          "sql_type": "varchar",
+          "null_count": 1,
+          "min_val": "",
+          "max_val": "jVAEL81ywVSHjglw4ow6DKh4T1qSqw1AQ6RKp8G5ZWnh4UtVvFvv8itZ4UYt0QWs"
+        },
+        {
+          "name": "c_nvarchar_50",
+          "sql_type": "nvarchar",
+          "null_count": 1,
+          "min_val": "",
+          "max_val": "caf\u00e9\ud83d\ude00vEdBfjSNUvqeRoMImB30"
+        },
+        {
+          "name": "c_binary_8",
+          "sql_type": "binary",
+          "null_count": 1,
+          "min_val": "0x0000000000000000",
+          "max_val": "0xFFFFFFFFFFFFFFFF"
+        },
+        {
+          "name": "c_varbinary_max",
+          "sql_type": "varbinary",
+          "null_count": 1,
+          "min_val": "0x",
+          "max_val": "0x34A196EAC164A93487F3BF5A38E3577B0ADE16FA3D0C4CFD5CF23CD87560ADE442DAC41A1A4D9887839A761B6E9F057ECF7B672437EAF83B698F8DF449A286D7D56CFF61A550F3BD32EEC99A6A10CDF7B6388844010F948BACC6F12FB2FB80CE7708D9261E47DFDC989CA59E6556EC3D754D5119BEA18D2A0EA60B311E0690C02300CC0E92613A3BD545326F6BF2E86FB841482EE0A9695AA2EE2075C1698E6A87AAF2C7B72916B45BD74B85129516D965FB0CBFA0611C736277A39AFF1CA59127001F02D3CF078CEAFEF9118BBF12C27F1C8B408D96FA28140EC3538A0C98A840097828C33DBEA3DCC4485E4709BE6C83A1C246E77E04C114"
+        },
+        {
+          "name": "c_uniqueidentifier",
+          "sql_type": "uniqueidentifier",
+          "null_count": 1,
+          "min_val": "00000000-0000-0000-0000-000000000000",
+          "max_val": "FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"
+        },
+        {
+          "name": "c_text",
+          "sql_type": "text",
+          "null_count": 1,
+          "min_val": "",
+          "max_val": "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ"
+        },
+        {
+          "name": "c_ntext",
+          "sql_type": "ntext",
+          "null_count": 1,
+          "min_val": "",
+          "max_val": "caf\u00e9\ud83d\ude00qGoDUalyl5mJOlMbzOAe"
+        },
+        {
+          "name": "c_image",
+          "sql_type": "image",
+          "null_count": 1,
+          "min_val": "0x",
+          "max_val": "0x12DAE8518BBF675F32D65CD2A4CACF23B95C02C76F6EC8A458971EDB7969D292E17F9229E67F44F89D7651A6529FE9E6F0C0E91824F0A695B09A6CCEEFAC6F50"
+        },
+        {
+          "name": "c_xml",
+          "sql_type": "xml",
+          "null_count": 4,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "c_sql_variant",
+          "sql_type": "sql_variant",
+          "null_count": 4,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "c_rowversion",
+          "sql_type": "timestamp",
+          "null_count": 0,
+          "min_val": "0x00000000000007DE",
+          "max_val": "0x00000000000007EA"
+        },
+        {
+          "name": "c_geometry",
+          "sql_type": "geometry",
+          "null_count": 4,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "c_geography",
+          "sql_type": "geography",
+          "null_count": 4,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "c_hierarchyid",
+          "sql_type": "hierarchyid",
+          "null_count": 4,
+          "min_val": null,
+          "max_val": null
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "tt_partition",
+      "row_count": 4,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "4"
+        },
+        {
+          "name": "c_tinyint",
+          "sql_type": "tinyint",
+          "null_count": 1,
+          "min_val": "0",
+          "max_val": "255"
+        },
+        {
+          "name": "c_smallint",
+          "sql_type": "smallint",
+          "null_count": 1,
+          "min_val": "-32768",
+          "max_val": "32767"
+        },
+        {
+          "name": "c_int",
+          "sql_type": "int",
+          "null_count": 1,
+          "min_val": "-2147483648",
+          "max_val": "2147483647"
+        },
+        {
+          "name": "c_bigint",
+          "sql_type": "bigint",
+          "null_count": 1,
+          "min_val": "-9223372036854775808",
+          "max_val": "9223372036854775807"
+        },
+        {
+          "name": "c_bit",
+          "sql_type": "bit",
+          "null_count": 1,
+          "min_val": "0",
+          "max_val": "1"
+        },
+        {
+          "name": "c_decimal_38_10",
+          "sql_type": "decimal",
+          "null_count": 1,
+          "min_val": "-9999999999999999999999999999.9999999999",
+          "max_val": "9999999999999999999999999999.9999999999"
+        },
+        {
+          "name": "c_numeric_18_4",
+          "sql_type": "numeric",
+          "null_count": 1,
+          "min_val": "-99999999999999.9999",
+          "max_val": "99999999999999.9999"
+        },
+        {
+          "name": "c_money",
+          "sql_type": "money",
+          "null_count": 1,
+          "min_val": "-922337203685477.5808",
+          "max_val": "922337203685477.5807"
+        },
+        {
+          "name": "c_smallmoney",
+          "sql_type": "smallmoney",
+          "null_count": 1,
+          "min_val": "-214748.3648",
+          "max_val": "214748.3647"
+        },
+        {
+          "name": "c_real",
+          "sql_type": "real",
+          "null_count": 1,
+          "min_val": "-3.4e+038",
+          "max_val": "3.4e+038"
+        },
+        {
+          "name": "c_float",
+          "sql_type": "float",
+          "null_count": 1,
+          "min_val": "-1.7e+308",
+          "max_val": "1.7e+308"
+        },
+        {
+          "name": "c_date",
+          "sql_type": "date",
+          "null_count": 1,
+          "min_val": "0001-01-01",
+          "max_val": "9999-12-31"
+        },
+        {
+          "name": "c_datetime2_7",
+          "sql_type": "datetime2",
+          "null_count": 1,
+          "min_val": "0001-01-01 00:00:00.0000000",
+          "max_val": "9999-12-31 23:59:59.9999990"
+        },
+        {
+          "name": "c_time_7",
+          "sql_type": "time",
+          "null_count": 1,
+          "min_val": "00:00:00.0000000",
+          "max_val": "23:59:59.9999990"
+        },
+        {
+          "name": "c_smalldatetime",
+          "sql_type": "smalldatetime",
+          "null_count": 1,
+          "min_val": "1900-01-01 00:00:00",
+          "max_val": "2079-06-06 23:59:00"
+        },
+        {
+          "name": "c_datetime",
+          "sql_type": "datetime",
+          "null_count": 1,
+          "min_val": "1753-01-01 00:00:00",
+          "max_val": "9999-12-31 23:59:59"
+        },
+        {
+          "name": "c_datetimeoffset_7",
+          "sql_type": "datetimeoffset",
+          "null_count": 1,
+          "min_val": "0001-01-01 00:00:00.0000000 +00:00",
+          "max_val": "9999-12-31 23:59:59.9999990 +00:00"
+        },
+        {
+          "name": "c_char_10",
+          "sql_type": "char",
+          "null_count": 1,
+          "min_val": "VjsXAdUvCw",
+          "max_val": "z"
+        },
+        {
+          "name": "c_nchar_10",
+          "sql_type": "nchar",
+          "null_count": 1,
+          "min_val": "a",
+          "max_val": "x6v6mMYy4S"
+        },
+        {
+          "name": "c_varchar_max",
+          "sql_type": "varchar",
+          "null_count": 1,
+          "min_val": "",
+          "max_val": "jVAEL81ywVSHjglw4ow6DKh4T1qSqw1AQ6RKp8G5ZWnh4UtVvFvv8itZ4UYt0QWs"
+        },
+        {
+          "name": "c_nvarchar_50",
+          "sql_type": "nvarchar",
+          "null_count": 1,
+          "min_val": "",
+          "max_val": "caf\u00e9\ud83d\ude00vEdBfjSNUvqeRoMImB30"
+        },
+        {
+          "name": "c_binary_8",
+          "sql_type": "binary",
+          "null_count": 1,
+          "min_val": "0x0000000000000000",
+          "max_val": "0xFFFFFFFFFFFFFFFF"
+        },
+        {
+          "name": "c_varbinary_max",
+          "sql_type": "varbinary",
+          "null_count": 1,
+          "min_val": "0x",
+          "max_val": "0x34A196EAC164A93487F3BF5A38E3577B0ADE16FA3D0C4CFD5CF23CD87560ADE442DAC41A1A4D9887839A761B6E9F057ECF7B672437EAF83B698F8DF449A286D7D56CFF61A550F3BD32EEC99A6A10CDF7B6388844010F948BACC6F12FB2FB80CE7708D9261E47DFDC989CA59E6556EC3D754D5119BEA18D2A0EA60B311E0690C02300CC0E92613A3BD545326F6BF2E86FB841482EE0A9695AA2EE2075C1698E6A87AAF2C7B72916B45BD74B85129516D965FB0CBFA0611C736277A39AFF1CA59127001F02D3CF078CEAFEF9118BBF12C27F1C8B408D96FA28140EC3538A0C98A840097828C33DBEA3DCC4485E4709BE6C83A1C246E77E04C114"
+        },
+        {
+          "name": "c_uniqueidentifier",
+          "sql_type": "uniqueidentifier",
+          "null_count": 1,
+          "min_val": "00000000-0000-0000-0000-000000000000",
+          "max_val": "FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"
+        },
+        {
+          "name": "c_text",
+          "sql_type": "text",
+          "null_count": 1,
+          "min_val": "",
+          "max_val": "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ"
+        },
+        {
+          "name": "c_ntext",
+          "sql_type": "ntext",
+          "null_count": 1,
+          "min_val": "",
+          "max_val": "caf\u00e9\ud83d\ude00qGoDUalyl5mJOlMbzOAe"
+        },
+        {
+          "name": "c_image",
+          "sql_type": "image",
+          "null_count": 1,
+          "min_val": "0x",
+          "max_val": "0x12DAE8518BBF675F32D65CD2A4CACF23B95C02C76F6EC8A458971EDB7969D292E17F9229E67F44F89D7651A6529FE9E6F0C0E91824F0A695B09A6CCEEFAC6F50"
+        },
+        {
+          "name": "c_xml",
+          "sql_type": "xml",
+          "null_count": 4,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "c_sql_variant",
+          "sql_type": "sql_variant",
+          "null_count": 4,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "c_rowversion",
+          "sql_type": "timestamp",
+          "null_count": 0,
+          "min_val": "0x00000000000007F8",
+          "max_val": "0x0000000000000805"
+        },
+        {
+          "name": "c_geometry",
+          "sql_type": "geometry",
+          "null_count": 4,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "c_geography",
+          "sql_type": "geography",
+          "null_count": 4,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "c_hierarchyid",
+          "sql_type": "hierarchyid",
+          "null_count": 4,
+          "min_val": null,
+          "max_val": null
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "tt_plain",
+      "row_count": 4,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "4"
+        },
+        {
+          "name": "c_tinyint",
+          "sql_type": "tinyint",
+          "null_count": 1,
+          "min_val": "0",
+          "max_val": "255"
+        },
+        {
+          "name": "c_smallint",
+          "sql_type": "smallint",
+          "null_count": 1,
+          "min_val": "-32768",
+          "max_val": "32767"
+        },
+        {
+          "name": "c_int",
+          "sql_type": "int",
+          "null_count": 1,
+          "min_val": "-2147483648",
+          "max_val": "2147483647"
+        },
+        {
+          "name": "c_bigint",
+          "sql_type": "bigint",
+          "null_count": 1,
+          "min_val": "-9223372036854775808",
+          "max_val": "9223372036854775807"
+        },
+        {
+          "name": "c_bit",
+          "sql_type": "bit",
+          "null_count": 1,
+          "min_val": "0",
+          "max_val": "1"
+        },
+        {
+          "name": "c_decimal_38_10",
+          "sql_type": "decimal",
+          "null_count": 1,
+          "min_val": "-9999999999999999999999999999.9999999999",
+          "max_val": "9999999999999999999999999999.9999999999"
+        },
+        {
+          "name": "c_numeric_18_4",
+          "sql_type": "numeric",
+          "null_count": 1,
+          "min_val": "-99999999999999.9999",
+          "max_val": "99999999999999.9999"
+        },
+        {
+          "name": "c_money",
+          "sql_type": "money",
+          "null_count": 1,
+          "min_val": "-922337203685477.5808",
+          "max_val": "922337203685477.5807"
+        },
+        {
+          "name": "c_smallmoney",
+          "sql_type": "smallmoney",
+          "null_count": 1,
+          "min_val": "-214748.3648",
+          "max_val": "214748.3647"
+        },
+        {
+          "name": "c_real",
+          "sql_type": "real",
+          "null_count": 1,
+          "min_val": "-3.4e+038",
+          "max_val": "3.4e+038"
+        },
+        {
+          "name": "c_float",
+          "sql_type": "float",
+          "null_count": 1,
+          "min_val": "-1.7e+308",
+          "max_val": "1.7e+308"
+        },
+        {
+          "name": "c_date",
+          "sql_type": "date",
+          "null_count": 1,
+          "min_val": "0001-01-01",
+          "max_val": "9999-12-31"
+        },
+        {
+          "name": "c_datetime2_7",
+          "sql_type": "datetime2",
+          "null_count": 1,
+          "min_val": "0001-01-01 00:00:00.0000000",
+          "max_val": "9999-12-31 23:59:59.9999990"
+        },
+        {
+          "name": "c_time_7",
+          "sql_type": "time",
+          "null_count": 1,
+          "min_val": "00:00:00.0000000",
+          "max_val": "23:59:59.9999990"
+        },
+        {
+          "name": "c_smalldatetime",
+          "sql_type": "smalldatetime",
+          "null_count": 1,
+          "min_val": "1900-01-01 00:00:00",
+          "max_val": "2079-06-06 23:59:00"
+        },
+        {
+          "name": "c_datetime",
+          "sql_type": "datetime",
+          "null_count": 1,
+          "min_val": "1753-01-01 00:00:00",
+          "max_val": "9999-12-31 23:59:59"
+        },
+        {
+          "name": "c_datetimeoffset_7",
+          "sql_type": "datetimeoffset",
+          "null_count": 1,
+          "min_val": "0001-01-01 00:00:00.0000000 +00:00",
+          "max_val": "9999-12-31 23:59:59.9999990 +00:00"
+        },
+        {
+          "name": "c_char_10",
+          "sql_type": "char",
+          "null_count": 1,
+          "min_val": "VjsXAdUvCw",
+          "max_val": "z"
+        },
+        {
+          "name": "c_nchar_10",
+          "sql_type": "nchar",
+          "null_count": 1,
+          "min_val": "a",
+          "max_val": "x6v6mMYy4S"
+        },
+        {
+          "name": "c_varchar_max",
+          "sql_type": "varchar",
+          "null_count": 1,
+          "min_val": "",
+          "max_val": "jVAEL81ywVSHjglw4ow6DKh4T1qSqw1AQ6RKp8G5ZWnh4UtVvFvv8itZ4UYt0QWs"
+        },
+        {
+          "name": "c_nvarchar_50",
+          "sql_type": "nvarchar",
+          "null_count": 1,
+          "min_val": "",
+          "max_val": "caf\u00e9\ud83d\ude00vEdBfjSNUvqeRoMImB30"
+        },
+        {
+          "name": "c_binary_8",
+          "sql_type": "binary",
+          "null_count": 1,
+          "min_val": "0x0000000000000000",
+          "max_val": "0xFFFFFFFFFFFFFFFF"
+        },
+        {
+          "name": "c_varbinary_max",
+          "sql_type": "varbinary",
+          "null_count": 1,
+          "min_val": "0x",
+          "max_val": "0x34A196EAC164A93487F3BF5A38E3577B0ADE16FA3D0C4CFD5CF23CD87560ADE442DAC41A1A4D9887839A761B6E9F057ECF7B672437EAF83B698F8DF449A286D7D56CFF61A550F3BD32EEC99A6A10CDF7B6388844010F948BACC6F12FB2FB80CE7708D9261E47DFDC989CA59E6556EC3D754D5119BEA18D2A0EA60B311E0690C02300CC0E92613A3BD545326F6BF2E86FB841482EE0A9695AA2EE2075C1698E6A87AAF2C7B72916B45BD74B85129516D965FB0CBFA0611C736277A39AFF1CA59127001F02D3CF078CEAFEF9118BBF12C27F1C8B408D96FA28140EC3538A0C98A840097828C33DBEA3DCC4485E4709BE6C83A1C246E77E04C114"
+        },
+        {
+          "name": "c_uniqueidentifier",
+          "sql_type": "uniqueidentifier",
+          "null_count": 1,
+          "min_val": "00000000-0000-0000-0000-000000000000",
+          "max_val": "FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"
+        },
+        {
+          "name": "c_text",
+          "sql_type": "text",
+          "null_count": 1,
+          "min_val": "",
+          "max_val": "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ"
+        },
+        {
+          "name": "c_ntext",
+          "sql_type": "ntext",
+          "null_count": 1,
+          "min_val": "",
+          "max_val": "caf\u00e9\ud83d\ude00qGoDUalyl5mJOlMbzOAe"
+        },
+        {
+          "name": "c_image",
+          "sql_type": "image",
+          "null_count": 1,
+          "min_val": "0x",
+          "max_val": "0x12DAE8518BBF675F32D65CD2A4CACF23B95C02C76F6EC8A458971EDB7969D292E17F9229E67F44F89D7651A6529FE9E6F0C0E91824F0A695B09A6CCEEFAC6F50"
+        },
+        {
+          "name": "c_xml",
+          "sql_type": "xml",
+          "null_count": 4,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "c_sql_variant",
+          "sql_type": "sql_variant",
+          "null_count": 4,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "c_rowversion",
+          "sql_type": "timestamp",
+          "null_count": 0,
+          "min_val": "0x00000000000007D1",
+          "max_val": "0x00000000000007DD"
+        },
+        {
+          "name": "c_geometry",
+          "sql_type": "geometry",
+          "null_count": 4,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "c_geography",
+          "sql_type": "geography",
+          "null_count": 4,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "c_hierarchyid",
+          "sql_type": "hierarchyid",
+          "null_count": 4,
+          "min_val": null,
+          "max_val": null
+        }
+      ]
+    }
+  ]
+}

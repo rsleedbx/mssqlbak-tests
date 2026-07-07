@@ -1,0 +1,58 @@
+{
+  "bak": "xmlheap_full.bak",
+  "captured_at": "2026-06-28T21:33:40.769494+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.xml_heap",
+      "row_count": 200,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:0eba0e15dcd708a347919ae01327ac6931a455372da6b9799cd0d12252777af5",
+          "null_count": 0
+        },
+        {
+          "name": "event_time",
+          "sql_type": "datetime2",
+          "digest": "sha256:19b4eec0d9cb9e8026ae04cd080df1cb82f891a24d517fbe7ad76e099e04265d",
+          "null_count": 0
+        },
+        {
+          "name": "event_type",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:1088b7b69f4233d6f3c57080be686fcec600910af32aec37ed76019b19c7ed39",
+          "null_count": 0
+        },
+        {
+          "name": "xml_event",
+          "sql_type": "xml",
+          "digest": "sha256:a0cfeb886846d3e48a990ae9eb46d3f86d1b1374787a0bb7a543c7edb9974a24",
+          "null_count": 0
+        },
+        {
+          "name": "xml_small",
+          "sql_type": "xml",
+          "digest": "sha256:b44e0505dfbed45c3f7ac981a20206aadb3e95d2f3f30e7488422a1c42e997f5",
+          "null_count": 0
+        },
+        {
+          "name": "text_payload",
+          "sql_type": "varchar(max)",
+          "digest": "sha256:a50fb75774306ed9142efe8462b252be8d3587d7d94bcc13878c775310cd8532",
+          "null_count": 100
+        },
+        {
+          "name": "bin_payload",
+          "sql_type": "varbinary(max)",
+          "digest": "sha256:2c19d7c62021ac24b3a01ad055adefbc7b1669078ba2b7d95b14272ffb4fb4f6",
+          "null_count": 100
+        }
+      ]
+    }
+  ]
+}

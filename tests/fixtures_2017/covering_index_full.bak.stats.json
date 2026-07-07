@@ -1,0 +1,61 @@
+{
+  "sql_version": "Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64)",
+  "bak": "covering_index_full.bak",
+  "bak_size_bytes": 2867200,
+  "bak_size_mb": 2.734,
+  "bak_sha256": "204f30b8e9ea4a911dce9b749d2edbc26cb36d6bc55d6d9130679ffa191bb25c",
+  "database": "RegisterBak_covering_index_full",
+  "registered_at": "2026-06-23T02:18:31.654684+00:00",
+  "sqlserver_restore_s": 1.673,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "covering_base",
+      "row_count": 1000,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1000"
+        },
+        {
+          "name": "code",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "99"
+        },
+        {
+          "name": "name",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "item_1",
+          "max_val": "item_999"
+        },
+        {
+          "name": "amount",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "1.25",
+          "max_val": "1250.00"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "fkr__seed",
+      "row_count": 1000,
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "999"
+        }
+      ]
+    }
+  ]
+}

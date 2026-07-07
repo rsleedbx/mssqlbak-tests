@@ -1,0 +1,40 @@
+{
+  "sql_version": "Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64)",
+  "bak": "dirtycoverage_altercol_rewrite.bak",
+  "bak_size_bytes": 2670592,
+  "bak_size_mb": 2.547,
+  "bak_sha256": "bb9fd044a671c2cd35a1f6ab33dbc238e59f7ed7404b7ad31fdbb9a7b3ac4daf",
+  "database": "RegisterBak_dirtycoverage_altercol_rewrite",
+  "registered_at": "2026-06-12T16:36:09.171211+00:00",
+  "sqlserver_restore_s": 2.173,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "rewrite_test",
+      "row_count": 60,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "60"
+        },
+        {
+          "name": "label",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "post_001",
+          "max_val": "pre_050"
+        },
+        {
+          "name": "phase",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "post_ddl",
+          "max_val": "pre_ddl"
+        }
+      ]
+    }
+  ]
+}

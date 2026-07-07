@@ -1,0 +1,86 @@
+{
+  "segments": {
+    "cs_lob_preamble": {
+      "partition_1": {
+        "segment_0": [
+          {
+            "column_name": "id",
+            "column_id": 1,
+            "segment_version": 1,
+            "encoding_type": 1,
+            "row_count": 1400,
+            "has_nulls": 0,
+            "null_value": -1,
+            "min_data_id": 0,
+            "max_data_id": 1399,
+            "on_disk_size": 2480,
+            "base_id": -3,
+            "magnitude": "1.0"
+          },
+          {
+            "column_name": "long_str",
+            "column_id": 2,
+            "segment_version": 1,
+            "encoding_type": 3,
+            "row_count": 1400,
+            "has_nulls": 0,
+            "null_value": -1,
+            "min_data_id": 4,
+            "max_data_id": 1403,
+            "on_disk_size": 2480,
+            "base_id": -1,
+            "magnitude": "-1.0"
+          }
+        ]
+      }
+    }
+  },
+  "row_groups": {
+    "cs_lob_preamble": [
+      {
+        "partition_number": 1,
+        "row_group_id": 0,
+        "state": 3,
+        "state_description": "COMPRESSED",
+        "total_rows": 1400,
+        "deleted_rows": 0,
+        "size_in_bytes": 5040
+      }
+    ]
+  },
+  "dictionaries": {
+    "cs_lob_preamble": [
+      {
+        "column_name": "long_str",
+        "column_id": 2,
+        "dictionary_id": 0,
+        "version": 1,
+        "type": 3,
+        "last_id": 1403,
+        "entry_count": 1400,
+        "on_disk_size": 29856,
+        "dict_scope": "primary"
+      }
+    ]
+  },
+  "reconciliation": {
+    "cs_lob_preamble": {
+      "total_rows": 1400,
+      "deleted_rows": 0,
+      "live_rows": 1400,
+      "n_row_groups": 1,
+      "state_counts": {
+        "COMPRESSED": 1
+      },
+      "tombstone_row_group_ids": [],
+      "has_tombstones": false,
+      "has_delete_bitmap": false
+    }
+  },
+  "raw_segment_count": 2,
+  "raw_row_group_count": 1,
+  "raw_dictionary_count": 1,
+  "bak": "cs_lob_preamble.bak",
+  "database": "RegisterBak_cs_lob_preamble",
+  "fixture_dir": "/Users/robert.lee/github/mssqlbak/tests/fixtures_2017"
+}

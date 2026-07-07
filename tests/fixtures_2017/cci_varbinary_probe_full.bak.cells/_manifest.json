@@ -1,0 +1,69 @@
+{
+  "bak": "cci_varbinary_probe_full.bak",
+  "captured_at": "2026-06-26T04:16:07.895252+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.cci_varbinary_maxwidth",
+      "row_count": 1200,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:c8e3d2dfec3be666a3a97aa720cfe1d49f388cba805a631769ec37895c8ea012",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "varbinary(16)",
+          "digest": "sha256:ab97f225837e57350c7d9a78eb5d8b890a6729e65dc395953a78cfa0b93a5df3",
+          "null_count": 1
+        }
+      ],
+      "values_sorted": true
+    },
+    {
+      "fqn": "dbo.cci_varbinary_narrowmax",
+      "row_count": 1200,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:c8e3d2dfec3be666a3a97aa720cfe1d49f388cba805a631769ec37895c8ea012",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "varbinary(4)",
+          "digest": "sha256:ab3e905e2dac5d524197f9dad3cbc11c784c6033fb1eafc298dbea8cdedab9af",
+          "null_count": 1
+        }
+      ],
+      "values_sorted": true
+    },
+    {
+      "fqn": "dbo.cci_varbinary_small_rowgroup",
+      "row_count": 128,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:289dd87752d7397cbd5fd335d3105f1e10695ce7d88134dffb1ec49c094e4466",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "varbinary(16)",
+          "digest": "sha256:ed469fe31f73441f74d9b5aa9665076ce2142b5cef8b2df8a08b7eac83c463a3",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true
+    }
+  ]
+}

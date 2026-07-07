@@ -1,0 +1,33 @@
+{
+  "sql_version": "Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64)",
+  "bak": "cs_lob_preamble.bak",
+  "bak_size_bytes": 569344,
+  "bak_size_mb": 0.543,
+  "bak_sha256": "ecf897453f2f773aa5f919ef7cb0c6956a65aa0b367ac8a11bb737e5868db356",
+  "database": "RegisterBak_cs_lob_preamble",
+  "registered_at": "2026-06-12T16:35:38.614700+00:00",
+  "sqlserver_restore_s": 2.015,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "cs_lob_preamble",
+      "row_count": 1400,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1399"
+        },
+        {
+          "name": "long_str",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "row_000000_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+          "max_val": "row_001399_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+        }
+      ]
+    }
+  ]
+}

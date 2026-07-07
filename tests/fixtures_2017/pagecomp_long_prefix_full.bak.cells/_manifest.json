@@ -1,0 +1,28 @@
+{
+  "bak": "pagecomp_long_prefix_full.bak",
+  "captured_at": "2026-07-06T18:06:30.373672+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.long_prefix_probe",
+      "row_count": 100,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:2194fcb8c27048b162f52699883cf260e3098ec6f0d75c303246f0b8f8d8a00c",
+          "null_count": 0
+        },
+        {
+          "name": "descr",
+          "sql_type": "nvarchar(400)",
+          "digest": "sha256:aedd1c6ef08052e94240de518f27b6c242190515036e9d589fcb1ed84592c913",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}

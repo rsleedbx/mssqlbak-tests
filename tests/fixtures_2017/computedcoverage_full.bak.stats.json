@@ -1,0 +1,82 @@
+{
+  "sql_version": "Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64)",
+  "bak": "computedcoverage_full.bak",
+  "bak_size_bytes": 2736128,
+  "bak_size_mb": 2.609,
+  "bak_sha256": "00f46f1afdad908acebb07b1b01acb38a01f076a040de81a930384187877d3ed",
+  "database": "RegisterBak_computedcoverage_full",
+  "registered_at": "2026-06-12T16:35:15.325797+00:00",
+  "sqlserver_restore_s": 1.987,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "comp_nonpersisted",
+      "row_count": 3,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3"
+        },
+        {
+          "name": "a",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "10",
+          "max_val": "30"
+        },
+        {
+          "name": "b",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "5",
+          "max_val": "9"
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "alpha",
+          "max_val": "gamma"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "comp_persisted",
+      "row_count": 3,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3"
+        },
+        {
+          "name": "a",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "10",
+          "max_val": "30"
+        },
+        {
+          "name": "b",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "5",
+          "max_val": "9"
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "alpha",
+          "max_val": "gamma"
+        }
+      ]
+    }
+  ]
+}

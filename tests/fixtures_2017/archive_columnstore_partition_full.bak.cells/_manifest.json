@@ -1,0 +1,110 @@
+{
+  "bak": "archive_columnstore_partition_full.bak",
+  "captured_at": "2026-06-26T02:25:50.033891+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.archive_part_all",
+      "row_count": 140000,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:d51844e42dc1759180e9d39af4f4f7a1de665574552178c6fc806b5937e7b518",
+          "null_count": 0
+        },
+        {
+          "name": "code",
+          "sql_type": "char(10)",
+          "digest": "sha256:153d5163355ecc5a49e37288d5051662f03c260e45370193610b7310f7e8480c",
+          "null_count": 280
+        },
+        {
+          "name": "zip",
+          "sql_type": "char(10)",
+          "digest": "sha256:1f322ab7f737b9511e0d0669b08492558b8b1dd363b0d9ff74c73fd35481a2c9",
+          "null_count": 140
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.archive_part_mixed",
+      "row_count": 140000,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:d51844e42dc1759180e9d39af4f4f7a1de665574552178c6fc806b5937e7b518",
+          "null_count": 0
+        },
+        {
+          "name": "code",
+          "sql_type": "char(10)",
+          "digest": "sha256:153d5163355ecc5a49e37288d5051662f03c260e45370193610b7310f7e8480c",
+          "null_count": 280
+        },
+        {
+          "name": "zip",
+          "sql_type": "char(10)",
+          "digest": "sha256:1f322ab7f737b9511e0d0669b08492558b8b1dd363b0d9ff74c73fd35481a2c9",
+          "null_count": 140
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.archive_part_roundtrip",
+      "row_count": 140000,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:d51844e42dc1759180e9d39af4f4f7a1de665574552178c6fc806b5937e7b518",
+          "null_count": 0
+        },
+        {
+          "name": "code",
+          "sql_type": "char(10)",
+          "digest": "sha256:153d5163355ecc5a49e37288d5051662f03c260e45370193610b7310f7e8480c",
+          "null_count": 280
+        },
+        {
+          "name": "zip",
+          "sql_type": "char(10)",
+          "digest": "sha256:1f322ab7f737b9511e0d0669b08492558b8b1dd363b0d9ff74c73fd35481a2c9",
+          "null_count": 140
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.archive_part_single",
+      "row_count": 140000,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:d51844e42dc1759180e9d39af4f4f7a1de665574552178c6fc806b5937e7b518",
+          "null_count": 0
+        },
+        {
+          "name": "code",
+          "sql_type": "char(10)",
+          "digest": "sha256:153d5163355ecc5a49e37288d5051662f03c260e45370193610b7310f7e8480c",
+          "null_count": 280
+        },
+        {
+          "name": "zip",
+          "sql_type": "char(10)",
+          "digest": "sha256:1f322ab7f737b9511e0d0669b08492558b8b1dd363b0d9ff74c73fd35481a2c9",
+          "null_count": 140
+        }
+      ]
+    }
+  ]
+}

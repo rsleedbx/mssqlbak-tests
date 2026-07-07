@@ -1,0 +1,33 @@
+{
+  "sql_version": "Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64)",
+  "bak": "compressed_nvarchar_full.bak",
+  "bak_size_bytes": 2670592,
+  "bak_size_mb": 2.547,
+  "bak_sha256": "30a195285a96bac4aaee0ecff99ddb6ac10dee1a17aa89eaad08cdb7ce2aa055",
+  "database": "RegisterBak_compressed_nvarchar_full",
+  "registered_at": "2026-06-28T22:42:06.047012+00:00",
+  "sqlserver_restore_s": 2.007,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "compressed_nvar",
+      "row_count": 8,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "8"
+        },
+        {
+          "name": "val",
+          "sql_type": "nvarchar",
+          "null_count": 1,
+          "min_val": "Hello",
+          "max_val": "\u6211\u8981\u6d4b\u8bd5"
+        }
+      ]
+    }
+  ]
+}

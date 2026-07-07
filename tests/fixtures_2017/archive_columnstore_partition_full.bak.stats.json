@@ -1,0 +1,124 @@
+{
+  "sql_version": "Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64)",
+  "bak": "archive_columnstore_partition_full.bak",
+  "bak_size_bytes": 12705792,
+  "bak_size_mb": 12.117,
+  "bak_sha256": "da0f5d7709cd798f2ac295f1d56821a1981ebbe5e2b616fc496ae0d70b618080",
+  "database": "RegisterBak_archive_columnstore_partition_full",
+  "registered_at": "2026-06-15T23:17:15.818119+00:00",
+  "sqlserver_restore_s": 2.14,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "archive_part_all",
+      "row_count": 140000,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "140000"
+        },
+        {
+          "name": "code",
+          "sql_type": "char",
+          "null_count": 280,
+          "min_val": "1",
+          "max_val": "99999"
+        },
+        {
+          "name": "zip",
+          "sql_type": "char",
+          "null_count": 140,
+          "min_val": "1",
+          "max_val": "99999"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "archive_part_mixed",
+      "row_count": 140000,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "140000"
+        },
+        {
+          "name": "code",
+          "sql_type": "char",
+          "null_count": 280,
+          "min_val": "1",
+          "max_val": "99999"
+        },
+        {
+          "name": "zip",
+          "sql_type": "char",
+          "null_count": 140,
+          "min_val": "1",
+          "max_val": "99999"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "archive_part_roundtrip",
+      "row_count": 140000,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "140000"
+        },
+        {
+          "name": "code",
+          "sql_type": "char",
+          "null_count": 280,
+          "min_val": "1",
+          "max_val": "99999"
+        },
+        {
+          "name": "zip",
+          "sql_type": "char",
+          "null_count": 140,
+          "min_val": "1",
+          "max_val": "99999"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "archive_part_single",
+      "row_count": 140000,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "140000"
+        },
+        {
+          "name": "code",
+          "sql_type": "char",
+          "null_count": 280,
+          "min_val": "1",
+          "max_val": "99999"
+        },
+        {
+          "name": "zip",
+          "sql_type": "char",
+          "null_count": 140,
+          "min_val": "1",
+          "max_val": "99999"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "bak": "filtered_ncci_full.bak",
+  "captured_at": "2026-06-26T02:50:10.255925+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.filtered_ncci_base",
+      "row_count": 400,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:73aa624fe379492250870f411e96e2af4148bad49be822ff0d93370a163d4588",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "int",
+          "digest": "sha256:57b988b60182f88ad764fefb16ee4ff2315fa53c77c80d5769929deaaadda1b6",
+          "null_count": 0
+        },
+        {
+          "name": "active",
+          "sql_type": "bit",
+          "digest": "sha256:0e9843cf33d795eeb05b3c44f2bd44d636581bca4065659b3e4202554d7b1266",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.filtered_ncci_heap",
+      "row_count": 400,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:73aa624fe379492250870f411e96e2af4148bad49be822ff0d93370a163d4588",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "int",
+          "digest": "sha256:57b988b60182f88ad764fefb16ee4ff2315fa53c77c80d5769929deaaadda1b6",
+          "null_count": 0
+        },
+        {
+          "name": "active",
+          "sql_type": "bit",
+          "digest": "sha256:0e9843cf33d795eeb05b3c44f2bd44d636581bca4065659b3e4202554d7b1266",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.fkr__seed",
+      "row_count": 400,
+      "key_columns": [
+        "pk"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "int",
+          "digest": "sha256:c39eebe676e4e47eb25e889982db0354b1879ddc56f4447e5b6d4145b4433360",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "sql_version": "Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64)",
+  "bak": "cci_extended_full.bak",
+  "bak_size_bytes": 5357568,
+  "bak_size_mb": 5.109,
+  "bak_sha256": "657eefa190bcd5cfc943aa59c2a965b47657581be5f2fd3c5f4a281a459429be",
+  "database": "RegisterBak_cci_extended_full",
+  "registered_at": "2026-06-18T20:47:52.660821+00:00",
+  "sqlserver_restore_s": 1.969,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "cci_binary4",
+      "row_count": 1200,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1203"
+        },
+        {
+          "name": "val",
+          "sql_type": "binary",
+          "null_count": 1,
+          "min_val": "0x00000001",
+          "max_val": "0xFFFFFFFF"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "cci_char10_varied",
+      "row_count": 1200,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1203"
+        },
+        {
+          "name": "val",
+          "sql_type": "char",
+          "null_count": 1,
+          "min_val": "0000000000",
+          "max_val": "ZZZZZZZZZZ"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "cci_int",
+      "row_count": 1200,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1203"
+        },
+        {
+          "name": "val",
+          "sql_type": "int",
+          "null_count": 1,
+          "min_val": "1",
+          "max_val": "9999999"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "cci_nvarchar50_sparse",
+      "row_count": 1200,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1203"
+        },
+        {
+          "name": "val",
+          "sql_type": "nvarchar",
+          "null_count": 1,
+          "min_val": "AAAAAAAAAA",
+          "max_val": "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "cci_varchar50",
+      "row_count": 1200,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1203"
+        },
+        {
+          "name": "val",
+          "sql_type": "varchar",
+          "null_count": 1,
+          "min_val": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+          "max_val": "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ"
+        }
+      ]
+    }
+  ]
+}

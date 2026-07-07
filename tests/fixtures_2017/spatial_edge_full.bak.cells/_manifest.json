@@ -1,0 +1,50 @@
+{
+  "bak": "spatial_edge_full.bak",
+  "captured_at": "2026-06-28T00:00:36.809458+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.geography_edge",
+      "row_count": 4,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:ff4a8c130447f52354261f27135cf2bdb7b593e8c872fda57a934632c2234483",
+          "null_count": 0
+        },
+        {
+          "name": "shape",
+          "sql_type": "geography",
+          "digest": "sha256:371708a9da9dd87de4e9f144d1cd9580b55f8e407b2abdc77716885a5c4d9f0b",
+          "null_count": 1
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.geometry_edge",
+      "row_count": 4,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:ff4a8c130447f52354261f27135cf2bdb7b593e8c872fda57a934632c2234483",
+          "null_count": 0
+        },
+        {
+          "name": "shape",
+          "sql_type": "geometry",
+          "digest": "sha256:b6bef825b09443aaa1e7cd3f37e9bea9991a234c6afe154026f5080b09cee0fa",
+          "null_count": 1
+        }
+      ]
+    }
+  ]
+}

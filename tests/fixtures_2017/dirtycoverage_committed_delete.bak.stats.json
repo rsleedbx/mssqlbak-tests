@@ -1,0 +1,40 @@
+{
+  "sql_version": "Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64)",
+  "bak": "dirtycoverage_committed_delete.bak",
+  "bak_size_bytes": 2801664,
+  "bak_size_mb": 2.672,
+  "bak_sha256": "12166e9032d1f5113f5e9a035e48aa15a00b46d8b9f06041c304b4f1d089fe66",
+  "database": "RegisterBak_dirtycoverage_committed_delete",
+  "registered_at": "2026-06-12T16:36:18.850115+00:00",
+  "sqlserver_restore_s": 1.841,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "committed_delete_test",
+      "row_count": 200,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "200"
+        },
+        {
+          "name": "phase",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "keep",
+          "max_val": "will_delete"
+        },
+        {
+          "name": "label",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+          "max_val": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+        }
+      ]
+    }
+  ]
+}

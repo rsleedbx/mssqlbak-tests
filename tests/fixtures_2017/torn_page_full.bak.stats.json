@@ -1,0 +1,40 @@
+{
+  "sql_version": "Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64)",
+  "bak": "torn_page_full.bak",
+  "bak_size_bytes": 2670592,
+  "bak_size_mb": 2.547,
+  "bak_sha256": "3d85380e4c32a01e7ce0615b245e257347af6197bcc45d5799b3e2a0c18a8b5d",
+  "database": "RegisterBak_torn_page_full",
+  "registered_at": "2026-06-29T02:30:14.784891+00:00",
+  "sqlserver_restore_s": 2.191,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "tpd_probe",
+      "row_count": 300,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "300"
+        },
+        {
+          "name": "label",
+          "sql_type": "varchar",
+          "null_count": 42,
+          "min_val": "Label-0001",
+          "max_val": "Label-0300"
+        },
+        {
+          "name": "score",
+          "sql_type": "int",
+          "null_count": 27,
+          "min_val": "1",
+          "max_val": "90000"
+        }
+      ]
+    }
+  ]
+}

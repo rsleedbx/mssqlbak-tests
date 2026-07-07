@@ -1,0 +1,1392 @@
+{
+  "segments": {
+    "ncci_bigint": {
+      "partition_1": {
+        "segment_1": [
+          {
+            "column_name": "id",
+            "column_id": 1,
+            "segment_version": 1,
+            "encoding_type": 4,
+            "row_count": 1203,
+            "has_nulls": 1,
+            "null_value": 0,
+            "min_data_id": -9223372036854775808,
+            "max_data_id": 9223372036854775807,
+            "on_disk_size": 9856,
+            "base_id": 0,
+            "magnitude": "1.0"
+          },
+          {
+            "column_name": "val",
+            "column_id": 2,
+            "segment_version": 1,
+            "encoding_type": 1,
+            "row_count": 1203,
+            "has_nulls": 0,
+            "null_value": -1,
+            "min_data_id": 1,
+            "max_data_id": 1206,
+            "on_disk_size": 2144,
+            "base_id": -2,
+            "magnitude": "1.0"
+          }
+        ]
+      }
+    },
+    "ncci_binary": {
+      "partition_1": {
+        "segment_1": [
+          {
+            "column_name": "id",
+            "column_id": 1,
+            "segment_version": 1,
+            "encoding_type": 5,
+            "row_count": 1203,
+            "has_nulls": 1,
+            "null_value": 0,
+            "min_data_id": 0,
+            "max_data_id": 0,
+            "on_disk_size": 5574,
+            "base_id": 0,
+            "magnitude": "0.0"
+          },
+          {
+            "column_name": "val",
+            "column_id": 2,
+            "segment_version": 1,
+            "encoding_type": 1,
+            "row_count": 1203,
+            "has_nulls": 0,
+            "null_value": -1,
+            "min_data_id": 1,
+            "max_data_id": 1206,
+            "on_disk_size": 2144,
+            "base_id": -2,
+            "magnitude": "1.0"
+          }
+        ]
+      }
+    },
+    "ncci_bit": {
+      "partition_1": {
+        "segment_1": [
+          {
+            "column_name": "id",
+            "column_id": 1,
+            "segment_version": 1,
+            "encoding_type": 2,
+            "row_count": 1203,
+            "has_nulls": 1,
+            "null_value": 2,
+            "min_data_id": 0,
+            "max_data_id": 1,
+            "on_disk_size": 240,
+            "base_id": -1,
+            "magnitude": "-1.0"
+          },
+          {
+            "column_name": "val",
+            "column_id": 2,
+            "segment_version": 1,
+            "encoding_type": 1,
+            "row_count": 1203,
+            "has_nulls": 0,
+            "null_value": -1,
+            "min_data_id": 1,
+            "max_data_id": 1206,
+            "on_disk_size": 2144,
+            "base_id": -2,
+            "magnitude": "1.0"
+          }
+        ]
+      }
+    },
+    "ncci_char": {
+      "partition_1": {
+        "segment_1": [
+          {
+            "column_name": "id",
+            "column_id": 1,
+            "segment_version": 1,
+            "encoding_type": 3,
+            "row_count": 1203,
+            "has_nulls": 1,
+            "null_value": 2,
+            "min_data_id": 4,
+            "max_data_id": 29,
+            "on_disk_size": 1024,
+            "base_id": -1,
+            "magnitude": "-1.0"
+          },
+          {
+            "column_name": "val",
+            "column_id": 2,
+            "segment_version": 1,
+            "encoding_type": 1,
+            "row_count": 1203,
+            "has_nulls": 0,
+            "null_value": -1,
+            "min_data_id": 1,
+            "max_data_id": 1206,
+            "on_disk_size": 2144,
+            "base_id": -2,
+            "magnitude": "1.0"
+          }
+        ]
+      }
+    },
+    "ncci_date": {
+      "partition_1": {
+        "segment_1": [
+          {
+            "column_name": "id",
+            "column_id": 1,
+            "segment_version": 1,
+            "encoding_type": 1,
+            "row_count": 1203,
+            "has_nulls": 1,
+            "null_value": 2,
+            "min_data_id": 730119,
+            "max_data_id": 766643,
+            "on_disk_size": 2624,
+            "base_id": 730116,
+            "magnitude": "1.0"
+          },
+          {
+            "column_name": "val",
+            "column_id": 2,
+            "segment_version": 1,
+            "encoding_type": 1,
+            "row_count": 1203,
+            "has_nulls": 0,
+            "null_value": -1,
+            "min_data_id": 1,
+            "max_data_id": 1206,
+            "on_disk_size": 2144,
+            "base_id": -2,
+            "magnitude": "1.0"
+          }
+        ]
+      }
+    },
+    "ncci_datetime2": {
+      "partition_1": {
+        "segment_1": [
+          {
+            "column_name": "id",
+            "column_id": 1,
+            "segment_version": 1,
+            "encoding_type": 4,
+            "row_count": 1203,
+            "has_nulls": 1,
+            "null_value": 802774330160185343,
+            "min_data_id": 802774330160185344,
+            "max_data_id": 842933756853065968,
+            "on_disk_size": 9856,
+            "base_id": 0,
+            "magnitude": "1.0"
+          },
+          {
+            "column_name": "val",
+            "column_id": 2,
+            "segment_version": 1,
+            "encoding_type": 1,
+            "row_count": 1203,
+            "has_nulls": 0,
+            "null_value": -1,
+            "min_data_id": 1,
+            "max_data_id": 1206,
+            "on_disk_size": 2144,
+            "base_id": -2,
+            "magnitude": "1.0"
+          }
+        ]
+      }
+    },
+    "ncci_datetimeoffset": {
+      "partition_1": {
+        "segment_1": [
+          {
+            "column_name": "id",
+            "column_id": 1,
+            "segment_version": 1,
+            "encoding_type": 5,
+            "row_count": 1203,
+            "has_nulls": 1,
+            "null_value": 0,
+            "min_data_id": 0,
+            "max_data_id": 0,
+            "on_disk_size": 6120,
+            "base_id": 0,
+            "magnitude": "0.0"
+          },
+          {
+            "column_name": "val",
+            "column_id": 2,
+            "segment_version": 1,
+            "encoding_type": 1,
+            "row_count": 1203,
+            "has_nulls": 0,
+            "null_value": -1,
+            "min_data_id": 1,
+            "max_data_id": 1206,
+            "on_disk_size": 2144,
+            "base_id": -2,
+            "magnitude": "1.0"
+          }
+        ]
+      }
+    },
+    "ncci_float": {
+      "partition_1": {
+        "segment_1": [
+          {
+            "column_name": "id",
+            "column_id": 1,
+            "segment_version": 1,
+            "encoding_type": 4,
+            "row_count": 1203,
+            "has_nulls": 1,
+            "null_value": -4503599627370498,
+            "min_data_id": -4503599627370497,
+            "max_data_id": 9218868437227405311,
+            "on_disk_size": 9856,
+            "base_id": 0,
+            "magnitude": "1.0"
+          },
+          {
+            "column_name": "val",
+            "column_id": 2,
+            "segment_version": 1,
+            "encoding_type": 1,
+            "row_count": 1203,
+            "has_nulls": 0,
+            "null_value": -1,
+            "min_data_id": 1,
+            "max_data_id": 1206,
+            "on_disk_size": 2144,
+            "base_id": -2,
+            "magnitude": "1.0"
+          }
+        ]
+      }
+    },
+    "ncci_money": {
+      "partition_1": {
+        "segment_1": [
+          {
+            "column_name": "id",
+            "column_id": 1,
+            "segment_version": 1,
+            "encoding_type": 4,
+            "row_count": 1203,
+            "has_nulls": 1,
+            "null_value": 0,
+            "min_data_id": -9223372036854775808,
+            "max_data_id": 9223372036854775807,
+            "on_disk_size": 9856,
+            "base_id": 0,
+            "magnitude": "1.0"
+          },
+          {
+            "column_name": "val",
+            "column_id": 2,
+            "segment_version": 1,
+            "encoding_type": 1,
+            "row_count": 1203,
+            "has_nulls": 0,
+            "null_value": -1,
+            "min_data_id": 1,
+            "max_data_id": 1206,
+            "on_disk_size": 2144,
+            "base_id": -2,
+            "magnitude": "1.0"
+          }
+        ]
+      }
+    },
+    "ncci_nchar": {
+      "partition_1": {
+        "segment_1": [
+          {
+            "column_name": "id",
+            "column_id": 1,
+            "segment_version": 1,
+            "encoding_type": 3,
+            "row_count": 1203,
+            "has_nulls": 1,
+            "null_value": 2,
+            "min_data_id": 4,
+            "max_data_id": 29,
+            "on_disk_size": 1024,
+            "base_id": -1,
+            "magnitude": "-1.0"
+          },
+          {
+            "column_name": "val",
+            "column_id": 2,
+            "segment_version": 1,
+            "encoding_type": 1,
+            "row_count": 1203,
+            "has_nulls": 0,
+            "null_value": -1,
+            "min_data_id": 1,
+            "max_data_id": 1206,
+            "on_disk_size": 2144,
+            "base_id": -2,
+            "magnitude": "1.0"
+          }
+        ]
+      }
+    },
+    "ncci_nvarchar": {
+      "partition_1": {
+        "segment_1": [
+          {
+            "column_name": "id",
+            "column_id": 1,
+            "segment_version": 1,
+            "encoding_type": 3,
+            "row_count": 1203,
+            "has_nulls": 1,
+            "null_value": 2,
+            "min_data_id": 4,
+            "max_data_id": 1205,
+            "on_disk_size": 2144,
+            "base_id": -1,
+            "magnitude": "-1.0"
+          },
+          {
+            "column_name": "val",
+            "column_id": 2,
+            "segment_version": 1,
+            "encoding_type": 1,
+            "row_count": 1203,
+            "has_nulls": 0,
+            "null_value": -1,
+            "min_data_id": 1,
+            "max_data_id": 1206,
+            "on_disk_size": 2144,
+            "base_id": -2,
+            "magnitude": "1.0"
+          }
+        ]
+      }
+    },
+    "ncci_real": {
+      "partition_1": {
+        "segment_1": [
+          {
+            "column_name": "id",
+            "column_id": 1,
+            "segment_version": 1,
+            "encoding_type": 4,
+            "row_count": 1203,
+            "has_nulls": 1,
+            "null_value": -4039728866288205825,
+            "min_data_id": -4039728866288205824,
+            "max_data_id": 5183643170566569984,
+            "on_disk_size": 9856,
+            "base_id": 0,
+            "magnitude": "1.0"
+          },
+          {
+            "column_name": "val",
+            "column_id": 2,
+            "segment_version": 1,
+            "encoding_type": 1,
+            "row_count": 1203,
+            "has_nulls": 0,
+            "null_value": -1,
+            "min_data_id": 1,
+            "max_data_id": 1206,
+            "on_disk_size": 2144,
+            "base_id": -2,
+            "magnitude": "1.0"
+          }
+        ]
+      }
+    },
+    "ncci_smallint": {
+      "partition_1": {
+        "segment_1": [
+          {
+            "column_name": "id",
+            "column_id": 1,
+            "segment_version": 1,
+            "encoding_type": 1,
+            "row_count": 1203,
+            "has_nulls": 1,
+            "null_value": 2,
+            "min_data_id": -32768,
+            "max_data_id": 32767,
+            "on_disk_size": 3424,
+            "base_id": -32771,
+            "magnitude": "1.0"
+          },
+          {
+            "column_name": "val",
+            "column_id": 2,
+            "segment_version": 1,
+            "encoding_type": 1,
+            "row_count": 1203,
+            "has_nulls": 0,
+            "null_value": -1,
+            "min_data_id": 1,
+            "max_data_id": 1206,
+            "on_disk_size": 2144,
+            "base_id": -2,
+            "magnitude": "1.0"
+          }
+        ]
+      }
+    },
+    "ncci_smallmoney": {
+      "partition_1": {
+        "segment_1": [
+          {
+            "column_name": "id",
+            "column_id": 1,
+            "segment_version": 1,
+            "encoding_type": 4,
+            "row_count": 1203,
+            "has_nulls": 1,
+            "null_value": -2147483649,
+            "min_data_id": -2147483648,
+            "max_data_id": 2147483647,
+            "on_disk_size": 9856,
+            "base_id": 0,
+            "magnitude": "1.0"
+          },
+          {
+            "column_name": "val",
+            "column_id": 2,
+            "segment_version": 1,
+            "encoding_type": 1,
+            "row_count": 1203,
+            "has_nulls": 0,
+            "null_value": -1,
+            "min_data_id": 1,
+            "max_data_id": 1206,
+            "on_disk_size": 2144,
+            "base_id": -2,
+            "magnitude": "1.0"
+          }
+        ]
+      }
+    },
+    "ncci_time": {
+      "partition_1": {
+        "segment_1": [
+          {
+            "column_name": "id",
+            "column_id": 1,
+            "segment_version": 1,
+            "encoding_type": 1,
+            "row_count": 1203,
+            "has_nulls": 1,
+            "null_value": 2,
+            "min_data_id": 0,
+            "max_data_id": 863999990000,
+            "on_disk_size": 5032,
+            "base_id": -3,
+            "magnitude": "10000.0"
+          },
+          {
+            "column_name": "val",
+            "column_id": 2,
+            "segment_version": 1,
+            "encoding_type": 1,
+            "row_count": 1203,
+            "has_nulls": 0,
+            "null_value": -1,
+            "min_data_id": 1,
+            "max_data_id": 1206,
+            "on_disk_size": 2144,
+            "base_id": -2,
+            "magnitude": "1.0"
+          }
+        ]
+      }
+    },
+    "ncci_tinyint": {
+      "partition_1": {
+        "segment_1": [
+          {
+            "column_name": "id",
+            "column_id": 1,
+            "segment_version": 1,
+            "encoding_type": 1,
+            "row_count": 1203,
+            "has_nulls": 1,
+            "null_value": 2,
+            "min_data_id": 0,
+            "max_data_id": 255,
+            "on_disk_size": 1592,
+            "base_id": -3,
+            "magnitude": "1.0"
+          },
+          {
+            "column_name": "val",
+            "column_id": 2,
+            "segment_version": 1,
+            "encoding_type": 1,
+            "row_count": 1203,
+            "has_nulls": 0,
+            "null_value": -1,
+            "min_data_id": 1,
+            "max_data_id": 1206,
+            "on_disk_size": 2144,
+            "base_id": -2,
+            "magnitude": "1.0"
+          }
+        ]
+      }
+    },
+    "ncci_uuid": {
+      "partition_1": {
+        "segment_1": [
+          {
+            "column_name": "id",
+            "column_id": 1,
+            "segment_version": 1,
+            "encoding_type": 5,
+            "row_count": 1203,
+            "has_nulls": 1,
+            "null_value": 0,
+            "min_data_id": 0,
+            "max_data_id": 0,
+            "on_disk_size": 4800,
+            "base_id": 0,
+            "magnitude": "0.0"
+          },
+          {
+            "column_name": "val",
+            "column_id": 2,
+            "segment_version": 1,
+            "encoding_type": 1,
+            "row_count": 1203,
+            "has_nulls": 0,
+            "null_value": -1,
+            "min_data_id": 1,
+            "max_data_id": 1206,
+            "on_disk_size": 2144,
+            "base_id": -2,
+            "magnitude": "1.0"
+          }
+        ]
+      }
+    },
+    "ncci_varbinary": {
+      "partition_1": {
+        "segment_1": [
+          {
+            "column_name": "id",
+            "column_id": 1,
+            "segment_version": 1,
+            "encoding_type": 5,
+            "row_count": 1203,
+            "has_nulls": 1,
+            "null_value": 0,
+            "min_data_id": 0,
+            "max_data_id": 0,
+            "on_disk_size": 4936,
+            "base_id": 0,
+            "magnitude": "0.0"
+          },
+          {
+            "column_name": "val",
+            "column_id": 2,
+            "segment_version": 1,
+            "encoding_type": 1,
+            "row_count": 1203,
+            "has_nulls": 0,
+            "null_value": -1,
+            "min_data_id": 1,
+            "max_data_id": 1206,
+            "on_disk_size": 2144,
+            "base_id": -2,
+            "magnitude": "1.0"
+          }
+        ]
+      }
+    },
+    "ncci_varchar": {
+      "partition_1": {
+        "segment_1": [
+          {
+            "column_name": "id",
+            "column_id": 1,
+            "segment_version": 1,
+            "encoding_type": 3,
+            "row_count": 1203,
+            "has_nulls": 1,
+            "null_value": 2,
+            "min_data_id": 4,
+            "max_data_id": 1205,
+            "on_disk_size": 2144,
+            "base_id": -1,
+            "magnitude": "-1.0"
+          },
+          {
+            "column_name": "val",
+            "column_id": 2,
+            "segment_version": 1,
+            "encoding_type": 1,
+            "row_count": 1203,
+            "has_nulls": 0,
+            "null_value": -1,
+            "min_data_id": 1,
+            "max_data_id": 1206,
+            "on_disk_size": 2144,
+            "base_id": -2,
+            "magnitude": "1.0"
+          }
+        ]
+      }
+    }
+  },
+  "row_groups": {
+    "ncci_bigint": [
+      {
+        "partition_number": 1,
+        "row_group_id": 0,
+        "state": 4,
+        "state_description": "TOMBSTONE",
+        "total_rows": 1203,
+        "deleted_rows": null,
+        "size_in_bytes": 40960
+      },
+      {
+        "partition_number": 1,
+        "row_group_id": 1,
+        "state": 3,
+        "state_description": "COMPRESSED",
+        "total_rows": 1203,
+        "deleted_rows": 0,
+        "size_in_bytes": 12000
+      }
+    ],
+    "ncci_binary": [
+      {
+        "partition_number": 1,
+        "row_group_id": 0,
+        "state": 4,
+        "state_description": "TOMBSTONE",
+        "total_rows": 1203,
+        "deleted_rows": null,
+        "size_in_bytes": 40960
+      },
+      {
+        "partition_number": 1,
+        "row_group_id": 1,
+        "state": 3,
+        "state_description": "COMPRESSED",
+        "total_rows": 1203,
+        "deleted_rows": 0,
+        "size_in_bytes": 7718
+      }
+    ],
+    "ncci_bit": [
+      {
+        "partition_number": 1,
+        "row_group_id": 0,
+        "state": 4,
+        "state_description": "TOMBSTONE",
+        "total_rows": 1203,
+        "deleted_rows": null,
+        "size_in_bytes": 32768
+      },
+      {
+        "partition_number": 1,
+        "row_group_id": 1,
+        "state": 3,
+        "state_description": "COMPRESSED",
+        "total_rows": 1203,
+        "deleted_rows": 0,
+        "size_in_bytes": 2384
+      }
+    ],
+    "ncci_char": [
+      {
+        "partition_number": 1,
+        "row_group_id": 0,
+        "state": 4,
+        "state_description": "TOMBSTONE",
+        "total_rows": 1203,
+        "deleted_rows": null,
+        "size_in_bytes": 40960
+      },
+      {
+        "partition_number": 1,
+        "row_group_id": 1,
+        "state": 3,
+        "state_description": "COMPRESSED",
+        "total_rows": 1203,
+        "deleted_rows": 0,
+        "size_in_bytes": 3168
+      }
+    ],
+    "ncci_date": [
+      {
+        "partition_number": 1,
+        "row_group_id": 0,
+        "state": 4,
+        "state_description": "TOMBSTONE",
+        "total_rows": 1203,
+        "deleted_rows": null,
+        "size_in_bytes": 32768
+      },
+      {
+        "partition_number": 1,
+        "row_group_id": 1,
+        "state": 3,
+        "state_description": "COMPRESSED",
+        "total_rows": 1203,
+        "deleted_rows": 0,
+        "size_in_bytes": 4768
+      }
+    ],
+    "ncci_datetime2": [
+      {
+        "partition_number": 1,
+        "row_group_id": 0,
+        "state": 4,
+        "state_description": "TOMBSTONE",
+        "total_rows": 1203,
+        "deleted_rows": null,
+        "size_in_bytes": 40960
+      },
+      {
+        "partition_number": 1,
+        "row_group_id": 1,
+        "state": 3,
+        "state_description": "COMPRESSED",
+        "total_rows": 1203,
+        "deleted_rows": 0,
+        "size_in_bytes": 12000
+      }
+    ],
+    "ncci_datetimeoffset": [
+      {
+        "partition_number": 1,
+        "row_group_id": 0,
+        "state": 4,
+        "state_description": "TOMBSTONE",
+        "total_rows": 1203,
+        "deleted_rows": null,
+        "size_in_bytes": 40960
+      },
+      {
+        "partition_number": 1,
+        "row_group_id": 1,
+        "state": 3,
+        "state_description": "COMPRESSED",
+        "total_rows": 1203,
+        "deleted_rows": 0,
+        "size_in_bytes": 8264
+      }
+    ],
+    "ncci_float": [
+      {
+        "partition_number": 1,
+        "row_group_id": 0,
+        "state": 4,
+        "state_description": "TOMBSTONE",
+        "total_rows": 1203,
+        "deleted_rows": null,
+        "size_in_bytes": 40960
+      },
+      {
+        "partition_number": 1,
+        "row_group_id": 1,
+        "state": 3,
+        "state_description": "COMPRESSED",
+        "total_rows": 1203,
+        "deleted_rows": 0,
+        "size_in_bytes": 12000
+      }
+    ],
+    "ncci_money": [
+      {
+        "partition_number": 1,
+        "row_group_id": 0,
+        "state": 4,
+        "state_description": "TOMBSTONE",
+        "total_rows": 1203,
+        "deleted_rows": null,
+        "size_in_bytes": 40960
+      },
+      {
+        "partition_number": 1,
+        "row_group_id": 1,
+        "state": 3,
+        "state_description": "COMPRESSED",
+        "total_rows": 1203,
+        "deleted_rows": 0,
+        "size_in_bytes": 12000
+      }
+    ],
+    "ncci_nchar": [
+      {
+        "partition_number": 1,
+        "row_group_id": 0,
+        "state": 4,
+        "state_description": "TOMBSTONE",
+        "total_rows": 1203,
+        "deleted_rows": null,
+        "size_in_bytes": 57344
+      },
+      {
+        "partition_number": 1,
+        "row_group_id": 1,
+        "state": 3,
+        "state_description": "COMPRESSED",
+        "total_rows": 1203,
+        "deleted_rows": 0,
+        "size_in_bytes": 3168
+      }
+    ],
+    "ncci_nvarchar": [
+      {
+        "partition_number": 1,
+        "row_group_id": 0,
+        "state": 4,
+        "state_description": "TOMBSTONE",
+        "total_rows": 1203,
+        "deleted_rows": null,
+        "size_in_bytes": 57344
+      },
+      {
+        "partition_number": 1,
+        "row_group_id": 1,
+        "state": 3,
+        "state_description": "COMPRESSED",
+        "total_rows": 1203,
+        "deleted_rows": 0,
+        "size_in_bytes": 4288
+      }
+    ],
+    "ncci_real": [
+      {
+        "partition_number": 1,
+        "row_group_id": 0,
+        "state": 4,
+        "state_description": "TOMBSTONE",
+        "total_rows": 1203,
+        "deleted_rows": null,
+        "size_in_bytes": 40960
+      },
+      {
+        "partition_number": 1,
+        "row_group_id": 1,
+        "state": 3,
+        "state_description": "COMPRESSED",
+        "total_rows": 1203,
+        "deleted_rows": 0,
+        "size_in_bytes": 12000
+      }
+    ],
+    "ncci_smallint": [
+      {
+        "partition_number": 1,
+        "row_group_id": 0,
+        "state": 4,
+        "state_description": "TOMBSTONE",
+        "total_rows": 1203,
+        "deleted_rows": null,
+        "size_in_bytes": 32768
+      },
+      {
+        "partition_number": 1,
+        "row_group_id": 1,
+        "state": 3,
+        "state_description": "COMPRESSED",
+        "total_rows": 1203,
+        "deleted_rows": 0,
+        "size_in_bytes": 5568
+      }
+    ],
+    "ncci_smallmoney": [
+      {
+        "partition_number": 1,
+        "row_group_id": 0,
+        "state": 4,
+        "state_description": "TOMBSTONE",
+        "total_rows": 1203,
+        "deleted_rows": null,
+        "size_in_bytes": 40960
+      },
+      {
+        "partition_number": 1,
+        "row_group_id": 1,
+        "state": 3,
+        "state_description": "COMPRESSED",
+        "total_rows": 1203,
+        "deleted_rows": 0,
+        "size_in_bytes": 12000
+      }
+    ],
+    "ncci_time": [
+      {
+        "partition_number": 1,
+        "row_group_id": 0,
+        "state": 4,
+        "state_description": "TOMBSTONE",
+        "total_rows": 1203,
+        "deleted_rows": null,
+        "size_in_bytes": 40960
+      },
+      {
+        "partition_number": 1,
+        "row_group_id": 1,
+        "state": 3,
+        "state_description": "COMPRESSED",
+        "total_rows": 1203,
+        "deleted_rows": 0,
+        "size_in_bytes": 7176
+      }
+    ],
+    "ncci_tinyint": [
+      {
+        "partition_number": 1,
+        "row_group_id": 0,
+        "state": 4,
+        "state_description": "TOMBSTONE",
+        "total_rows": 1203,
+        "deleted_rows": null,
+        "size_in_bytes": 32768
+      },
+      {
+        "partition_number": 1,
+        "row_group_id": 1,
+        "state": 3,
+        "state_description": "COMPRESSED",
+        "total_rows": 1203,
+        "deleted_rows": 0,
+        "size_in_bytes": 3736
+      }
+    ],
+    "ncci_uuid": [
+      {
+        "partition_number": 1,
+        "row_group_id": 0,
+        "state": 4,
+        "state_description": "TOMBSTONE",
+        "total_rows": 1203,
+        "deleted_rows": null,
+        "size_in_bytes": 49152
+      },
+      {
+        "partition_number": 1,
+        "row_group_id": 1,
+        "state": 3,
+        "state_description": "COMPRESSED",
+        "total_rows": 1203,
+        "deleted_rows": 0,
+        "size_in_bytes": 6944
+      }
+    ],
+    "ncci_varbinary": [
+      {
+        "partition_number": 1,
+        "row_group_id": 0,
+        "state": 4,
+        "state_description": "TOMBSTONE",
+        "total_rows": 1203,
+        "deleted_rows": null,
+        "size_in_bytes": 40960
+      },
+      {
+        "partition_number": 1,
+        "row_group_id": 1,
+        "state": 3,
+        "state_description": "COMPRESSED",
+        "total_rows": 1203,
+        "deleted_rows": 0,
+        "size_in_bytes": 7080
+      }
+    ],
+    "ncci_varchar": [
+      {
+        "partition_number": 1,
+        "row_group_id": 0,
+        "state": 4,
+        "state_description": "TOMBSTONE",
+        "total_rows": 1203,
+        "deleted_rows": null,
+        "size_in_bytes": 49152
+      },
+      {
+        "partition_number": 1,
+        "row_group_id": 1,
+        "state": 3,
+        "state_description": "COMPRESSED",
+        "total_rows": 1203,
+        "deleted_rows": 0,
+        "size_in_bytes": 4288
+      }
+    ]
+  },
+  "dictionaries": {
+    "ncci_bit": [
+      {
+        "column_name": "id",
+        "column_id": 1,
+        "dictionary_id": 1,
+        "version": 1,
+        "type": 1,
+        "last_id": 4,
+        "entry_count": 2,
+        "on_disk_size": 64,
+        "dict_scope": "secondary"
+      }
+    ],
+    "ncci_char": [
+      {
+        "column_name": "id",
+        "column_id": 1,
+        "dictionary_id": 1,
+        "version": 1,
+        "type": 3,
+        "last_id": 29,
+        "entry_count": 26,
+        "on_disk_size": 602,
+        "dict_scope": "secondary"
+      }
+    ],
+    "ncci_nchar": [
+      {
+        "column_name": "id",
+        "column_id": 1,
+        "dictionary_id": 1,
+        "version": 1,
+        "type": 3,
+        "last_id": 29,
+        "entry_count": 26,
+        "on_disk_size": 624,
+        "dict_scope": "secondary"
+      }
+    ],
+    "ncci_nvarchar": [
+      {
+        "column_name": "id",
+        "column_id": 1,
+        "dictionary_id": 1,
+        "version": 1,
+        "type": 3,
+        "last_id": 1205,
+        "entry_count": 1202,
+        "on_disk_size": 14478,
+        "dict_scope": "secondary"
+      }
+    ],
+    "ncci_varchar": [
+      {
+        "column_name": "id",
+        "column_id": 1,
+        "dictionary_id": 1,
+        "version": 1,
+        "type": 3,
+        "last_id": 1205,
+        "entry_count": 1202,
+        "on_disk_size": 14478,
+        "dict_scope": "secondary"
+      }
+    ]
+  },
+  "reconciliation": {
+    "ncci_bigint": {
+      "total_rows": 2406,
+      "deleted_rows": 0,
+      "live_rows": 1203,
+      "n_row_groups": 2,
+      "state_counts": {
+        "TOMBSTONE": 1,
+        "COMPRESSED": 1
+      },
+      "tombstone_row_group_ids": [
+        0
+      ],
+      "has_tombstones": true,
+      "has_delete_bitmap": false
+    },
+    "ncci_binary": {
+      "total_rows": 2406,
+      "deleted_rows": 0,
+      "live_rows": 1203,
+      "n_row_groups": 2,
+      "state_counts": {
+        "TOMBSTONE": 1,
+        "COMPRESSED": 1
+      },
+      "tombstone_row_group_ids": [
+        0
+      ],
+      "has_tombstones": true,
+      "has_delete_bitmap": false
+    },
+    "ncci_bit": {
+      "total_rows": 2406,
+      "deleted_rows": 0,
+      "live_rows": 1203,
+      "n_row_groups": 2,
+      "state_counts": {
+        "TOMBSTONE": 1,
+        "COMPRESSED": 1
+      },
+      "tombstone_row_group_ids": [
+        0
+      ],
+      "has_tombstones": true,
+      "has_delete_bitmap": false
+    },
+    "ncci_char": {
+      "total_rows": 2406,
+      "deleted_rows": 0,
+      "live_rows": 1203,
+      "n_row_groups": 2,
+      "state_counts": {
+        "TOMBSTONE": 1,
+        "COMPRESSED": 1
+      },
+      "tombstone_row_group_ids": [
+        0
+      ],
+      "has_tombstones": true,
+      "has_delete_bitmap": false
+    },
+    "ncci_date": {
+      "total_rows": 2406,
+      "deleted_rows": 0,
+      "live_rows": 1203,
+      "n_row_groups": 2,
+      "state_counts": {
+        "TOMBSTONE": 1,
+        "COMPRESSED": 1
+      },
+      "tombstone_row_group_ids": [
+        0
+      ],
+      "has_tombstones": true,
+      "has_delete_bitmap": false
+    },
+    "ncci_datetime2": {
+      "total_rows": 2406,
+      "deleted_rows": 0,
+      "live_rows": 1203,
+      "n_row_groups": 2,
+      "state_counts": {
+        "TOMBSTONE": 1,
+        "COMPRESSED": 1
+      },
+      "tombstone_row_group_ids": [
+        0
+      ],
+      "has_tombstones": true,
+      "has_delete_bitmap": false
+    },
+    "ncci_datetimeoffset": {
+      "total_rows": 2406,
+      "deleted_rows": 0,
+      "live_rows": 1203,
+      "n_row_groups": 2,
+      "state_counts": {
+        "TOMBSTONE": 1,
+        "COMPRESSED": 1
+      },
+      "tombstone_row_group_ids": [
+        0
+      ],
+      "has_tombstones": true,
+      "has_delete_bitmap": false
+    },
+    "ncci_float": {
+      "total_rows": 2406,
+      "deleted_rows": 0,
+      "live_rows": 1203,
+      "n_row_groups": 2,
+      "state_counts": {
+        "TOMBSTONE": 1,
+        "COMPRESSED": 1
+      },
+      "tombstone_row_group_ids": [
+        0
+      ],
+      "has_tombstones": true,
+      "has_delete_bitmap": false
+    },
+    "ncci_money": {
+      "total_rows": 2406,
+      "deleted_rows": 0,
+      "live_rows": 1203,
+      "n_row_groups": 2,
+      "state_counts": {
+        "TOMBSTONE": 1,
+        "COMPRESSED": 1
+      },
+      "tombstone_row_group_ids": [
+        0
+      ],
+      "has_tombstones": true,
+      "has_delete_bitmap": false
+    },
+    "ncci_nchar": {
+      "total_rows": 2406,
+      "deleted_rows": 0,
+      "live_rows": 1203,
+      "n_row_groups": 2,
+      "state_counts": {
+        "TOMBSTONE": 1,
+        "COMPRESSED": 1
+      },
+      "tombstone_row_group_ids": [
+        0
+      ],
+      "has_tombstones": true,
+      "has_delete_bitmap": false
+    },
+    "ncci_nvarchar": {
+      "total_rows": 2406,
+      "deleted_rows": 0,
+      "live_rows": 1203,
+      "n_row_groups": 2,
+      "state_counts": {
+        "TOMBSTONE": 1,
+        "COMPRESSED": 1
+      },
+      "tombstone_row_group_ids": [
+        0
+      ],
+      "has_tombstones": true,
+      "has_delete_bitmap": false
+    },
+    "ncci_real": {
+      "total_rows": 2406,
+      "deleted_rows": 0,
+      "live_rows": 1203,
+      "n_row_groups": 2,
+      "state_counts": {
+        "TOMBSTONE": 1,
+        "COMPRESSED": 1
+      },
+      "tombstone_row_group_ids": [
+        0
+      ],
+      "has_tombstones": true,
+      "has_delete_bitmap": false
+    },
+    "ncci_smallint": {
+      "total_rows": 2406,
+      "deleted_rows": 0,
+      "live_rows": 1203,
+      "n_row_groups": 2,
+      "state_counts": {
+        "TOMBSTONE": 1,
+        "COMPRESSED": 1
+      },
+      "tombstone_row_group_ids": [
+        0
+      ],
+      "has_tombstones": true,
+      "has_delete_bitmap": false
+    },
+    "ncci_smallmoney": {
+      "total_rows": 2406,
+      "deleted_rows": 0,
+      "live_rows": 1203,
+      "n_row_groups": 2,
+      "state_counts": {
+        "TOMBSTONE": 1,
+        "COMPRESSED": 1
+      },
+      "tombstone_row_group_ids": [
+        0
+      ],
+      "has_tombstones": true,
+      "has_delete_bitmap": false
+    },
+    "ncci_time": {
+      "total_rows": 2406,
+      "deleted_rows": 0,
+      "live_rows": 1203,
+      "n_row_groups": 2,
+      "state_counts": {
+        "TOMBSTONE": 1,
+        "COMPRESSED": 1
+      },
+      "tombstone_row_group_ids": [
+        0
+      ],
+      "has_tombstones": true,
+      "has_delete_bitmap": false
+    },
+    "ncci_tinyint": {
+      "total_rows": 2406,
+      "deleted_rows": 0,
+      "live_rows": 1203,
+      "n_row_groups": 2,
+      "state_counts": {
+        "TOMBSTONE": 1,
+        "COMPRESSED": 1
+      },
+      "tombstone_row_group_ids": [
+        0
+      ],
+      "has_tombstones": true,
+      "has_delete_bitmap": false
+    },
+    "ncci_uuid": {
+      "total_rows": 2406,
+      "deleted_rows": 0,
+      "live_rows": 1203,
+      "n_row_groups": 2,
+      "state_counts": {
+        "TOMBSTONE": 1,
+        "COMPRESSED": 1
+      },
+      "tombstone_row_group_ids": [
+        0
+      ],
+      "has_tombstones": true,
+      "has_delete_bitmap": false
+    },
+    "ncci_varbinary": {
+      "total_rows": 2406,
+      "deleted_rows": 0,
+      "live_rows": 1203,
+      "n_row_groups": 2,
+      "state_counts": {
+        "TOMBSTONE": 1,
+        "COMPRESSED": 1
+      },
+      "tombstone_row_group_ids": [
+        0
+      ],
+      "has_tombstones": true,
+      "has_delete_bitmap": false
+    },
+    "ncci_varchar": {
+      "total_rows": 2406,
+      "deleted_rows": 0,
+      "live_rows": 1203,
+      "n_row_groups": 2,
+      "state_counts": {
+        "TOMBSTONE": 1,
+        "COMPRESSED": 1
+      },
+      "tombstone_row_group_ids": [
+        0
+      ],
+      "has_tombstones": true,
+      "has_delete_bitmap": false
+    }
+  },
+  "raw_segment_count": 38,
+  "raw_row_group_count": 38,
+  "raw_dictionary_count": 5,
+  "bak": "ncci_types_full.bak",
+  "database": "RegisterBak_ncci_types_full",
+  "fixture_dir": "/Users/robert.lee/github/mssqlbak/tests/fixtures_2017"
+}

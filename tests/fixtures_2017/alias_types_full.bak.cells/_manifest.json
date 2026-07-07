@@ -1,0 +1,52 @@
+{
+  "bak": "alias_types_full.bak",
+  "captured_at": "2026-06-28T00:20:29.316301+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.alias_probe",
+      "row_count": 3,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:5be6c1972032e65c8852b651ad59e6dccaff8d9d07dc0e5718a63bff0f3f90bc",
+          "null_count": 0
+        },
+        {
+          "name": "is_active",
+          "sql_type": "flag",
+          "digest": "sha256:51896bba11f1d5400bf7f54460ac3c198966fe489d771b2603bf5bdec3a6af15",
+          "null_count": 1
+        },
+        {
+          "name": "name_style",
+          "sql_type": "namestyle",
+          "digest": "sha256:51896bba11f1d5400bf7f54460ac3c198966fe489d771b2603bf5bdec3a6af15",
+          "null_count": 1
+        },
+        {
+          "name": "display_name",
+          "sql_type": "personname",
+          "digest": "sha256:b1853ae0463b9b85c756c6bd0aa25ee35de49cce95dfd898f21cbd6bb2c4f2da",
+          "null_count": 0
+        },
+        {
+          "name": "account_number",
+          "sql_type": "accountnumber",
+          "digest": "sha256:19077a55eb0467fe1f8b915ab4158bd3c42586f7fb22ad55dcbb3c10388c50eb",
+          "null_count": 0
+        },
+        {
+          "name": "external_id",
+          "sql_type": "externalid",
+          "digest": "sha256:1a63164c0552f71cd7a45bb8469f9c5547f7d054446a5eeeb544900a88dcb7ac",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "bak": "dirtycoverage_committed_update_v2.bak",
+  "captured_at": "2026-06-26T18:46:55.683573+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.committed_update_test",
+      "row_count": 1000,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:d2cecc9e516895a16642edc609f915954203f5b5c0c8243e63a6a797c026bdc9",
+          "null_count": 0
+        },
+        {
+          "name": "label",
+          "sql_type": "varchar(200)",
+          "digest": "sha256:ddeee1fab477f789246618d9fef53d3f22c2e4f1e25414e7905e56437e704934",
+          "null_count": 0
+        },
+        {
+          "name": "score",
+          "sql_type": "int",
+          "digest": "sha256:d2cecc9e516895a16642edc609f915954203f5b5c0c8243e63a6a797c026bdc9",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}

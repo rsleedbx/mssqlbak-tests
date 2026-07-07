@@ -1,0 +1,33 @@
+{
+  "sql_version": "Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64)",
+  "bak": "archive_single_chunk_full.bak",
+  "bak_size_bytes": 3063808,
+  "bak_size_mb": 2.922,
+  "bak_sha256": "37135bd8b7d83d208c6fe2a9d02d175f646195c6cbd4a9d4303c30f1cc441d05",
+  "database": "RegisterBak_archive_single_chunk_full",
+  "registered_at": "2026-06-17T11:21:21.295524+00:00",
+  "sqlserver_restore_s": 1.898,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "archive_single_chunk",
+      "row_count": 5000,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "5000"
+        },
+        {
+          "name": "code",
+          "sql_type": "char",
+          "null_count": 50,
+          "min_val": "1",
+          "max_val": "999"
+        }
+      ]
+    }
+  ]
+}

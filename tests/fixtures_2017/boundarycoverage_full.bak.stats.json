@@ -1,0 +1,236 @@
+{
+  "sql_version": "Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64)",
+  "bak": "boundarycoverage_full.bak",
+  "bak_size_bytes": 5357568,
+  "bak_size_mb": 5.109,
+  "bak_sha256": "435db7cd5cb4c5f3529474eba315a7fdc5456da92be41f19d8bf0b905694ff94",
+  "database": "RegisterBak_boundarycoverage_full",
+  "registered_at": "2026-06-12T16:33:59.069207+00:00",
+  "sqlserver_restore_s": 5.268,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "tb_bigint",
+      "row_count": 1200,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1200"
+        },
+        {
+          "name": "label",
+          "sql_type": "varchar",
+          "null_count": 1194,
+          "min_val": "max",
+          "max_val": "zero"
+        },
+        {
+          "name": "v",
+          "sql_type": "bigint",
+          "null_count": 1,
+          "min_val": "-9223372036854775808",
+          "max_val": "9223372036854775807"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "tb_float",
+      "row_count": 1200,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1200"
+        },
+        {
+          "name": "label",
+          "sql_type": "varchar",
+          "null_count": 1194,
+          "min_val": "max",
+          "max_val": "zero"
+        },
+        {
+          "name": "v",
+          "sql_type": "float",
+          "null_count": 1,
+          "min_val": "-1.79769e+308",
+          "max_val": "1.79769e+308"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "tb_int",
+      "row_count": 1200,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1200"
+        },
+        {
+          "name": "label",
+          "sql_type": "varchar",
+          "null_count": 1194,
+          "min_val": "max",
+          "max_val": "zero"
+        },
+        {
+          "name": "v",
+          "sql_type": "int",
+          "null_count": 1,
+          "min_val": "-2147483648",
+          "max_val": "2147483647"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "tb_money",
+      "row_count": 1200,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1200"
+        },
+        {
+          "name": "label",
+          "sql_type": "varchar",
+          "null_count": 1194,
+          "min_val": "max",
+          "max_val": "zero"
+        },
+        {
+          "name": "v",
+          "sql_type": "money",
+          "null_count": 1,
+          "min_val": "-922337203685477.5808",
+          "max_val": "922337203685477.5807"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "tb_real",
+      "row_count": 1200,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1200"
+        },
+        {
+          "name": "label",
+          "sql_type": "varchar",
+          "null_count": 1194,
+          "min_val": "max",
+          "max_val": "zero"
+        },
+        {
+          "name": "v",
+          "sql_type": "real",
+          "null_count": 1,
+          "min_val": "-3.40282e+038",
+          "max_val": "3.40282e+038"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "tb_smallint",
+      "row_count": 1200,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1200"
+        },
+        {
+          "name": "label",
+          "sql_type": "varchar",
+          "null_count": 1194,
+          "min_val": "max",
+          "max_val": "zero"
+        },
+        {
+          "name": "v",
+          "sql_type": "smallint",
+          "null_count": 1,
+          "min_val": "-32768",
+          "max_val": "32767"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "tb_smallmoney",
+      "row_count": 1200,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1200"
+        },
+        {
+          "name": "label",
+          "sql_type": "varchar",
+          "null_count": 1194,
+          "min_val": "max",
+          "max_val": "zero"
+        },
+        {
+          "name": "v",
+          "sql_type": "smallmoney",
+          "null_count": 1,
+          "min_val": "-214748.3648",
+          "max_val": "214748.3647"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "tb_tinyint",
+      "row_count": 1200,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1200"
+        },
+        {
+          "name": "label",
+          "sql_type": "varchar",
+          "null_count": 1194,
+          "min_val": "max",
+          "max_val": "sec_min"
+        },
+        {
+          "name": "v",
+          "sql_type": "tinyint",
+          "null_count": 1,
+          "min_val": "0",
+          "max_val": "255"
+        }
+      ]
+    }
+  ]
+}

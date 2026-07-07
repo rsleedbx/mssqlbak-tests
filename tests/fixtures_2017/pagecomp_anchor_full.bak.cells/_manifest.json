@@ -1,0 +1,64 @@
+{
+  "bak": "pagecomp_anchor_full.bak",
+  "captured_at": "2026-06-27T00:39:27.630630+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.pagecomp_anchor",
+      "row_count": 5000,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:66c2c44f3a4c67fc63b09c5d69e7d8da1da3aeffc9eb1c860c268c699b0c5f9c",
+          "null_count": 0
+        },
+        {
+          "name": "editor",
+          "sql_type": "int",
+          "digest": "sha256:a1a749c3bcff3cde700b056b81647b164365644eac035b0c9cbe0600093a94fe",
+          "null_count": 0
+        },
+        {
+          "name": "ts",
+          "sql_type": "datetime2",
+          "digest": "sha256:3cd83583fe62551ec8b3a9ae713846f43b42cbf6c6805840968b2ba2da26b17b",
+          "null_count": 0
+        },
+        {
+          "name": "ts2",
+          "sql_type": "datetime2",
+          "digest": "sha256:dd40449e2427a5f46abc91c0454e0985f10b4bba75b3219e7b7f0a98aef59612",
+          "null_count": 0
+        },
+        {
+          "name": "amount",
+          "sql_type": "decimal(18,3)",
+          "digest": "sha256:07c1b4ad4114ed344a74336caa430039ea943c33072b84220c5f15dd9316ffd7",
+          "null_count": 0
+        },
+        {
+          "name": "qty",
+          "sql_type": "bigint",
+          "digest": "sha256:e276faa2823a3ecb7bef1c50d93e99d75c8433b3c324274caa335b82bcd5eec8",
+          "null_count": 0
+        },
+        {
+          "name": "label",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:062ea5faca266e0411b8ca8dabf017a8fa0b4fe3c43b4adbc543bfc8a7aa307e",
+          "null_count": 0
+        },
+        {
+          "name": "geo",
+          "sql_type": "geography",
+          "digest": "sha256:8baaac929023ef2946aacd573be3562b77637b7ac641348fab4fc69d82b8a704",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}

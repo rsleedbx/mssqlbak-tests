@@ -1,0 +1,28 @@
+{
+  "bak": "dirtycoverage_createtable.bak",
+  "captured_at": "2026-06-26T18:47:24.322028+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.stable_test",
+      "row_count": 300,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:22c4f0cc28f32c2638835d6f2d4de4c6d546765dac9b2674f0ff27291b39a1b8",
+          "null_count": 0
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar(200)",
+          "digest": "sha256:91a97aa740ea563c4043b637400cc39498c37287ee05f1c4acb066d54cc4bbab",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}

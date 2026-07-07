@@ -1,0 +1,68 @@
+{
+  "sql_version": "Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64)",
+  "bak": "cci_reorganize_full.bak",
+  "bak_size_bytes": 3522560,
+  "bak_size_mb": 3.359,
+  "bak_sha256": "5104bfb742ad1c52cca25434a12894264eeccaea1fbfcfd7cb253f7b6abd0f7f",
+  "database": "RegisterBak_cci_reorganize_full",
+  "registered_at": "2026-06-23T02:18:19.603765+00:00",
+  "sqlserver_restore_s": 1.684,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "cci_deleted_no_reorg",
+      "row_count": 1000,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1199"
+        },
+        {
+          "name": "val",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "10",
+          "max_val": "11990"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "cci_deleted_reorg",
+      "row_count": 1000,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1199"
+        },
+        {
+          "name": "val",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "10",
+          "max_val": "11990"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "fkr__seed",
+      "row_count": 1200,
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1199"
+        }
+      ]
+    }
+  ]
+}

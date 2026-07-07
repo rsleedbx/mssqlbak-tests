@@ -1,0 +1,54 @@
+{
+  "sql_version": "Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64)",
+  "bak": "xml_index_full.bak",
+  "bak_size_bytes": 3129344,
+  "bak_size_mb": 2.984,
+  "bak_sha256": "5d90bae67d270aed278e25fcdf2cd3498b57355eae848ce505a0cfb0cc2e59f9",
+  "database": "RegisterBak_xml_index_full",
+  "registered_at": "2026-06-23T04:13:34.358301+00:00",
+  "sqlserver_restore_s": 2.392,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "fkr__seed",
+      "row_count": 100,
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "99"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "xml_docs",
+      "row_count": 100,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "100"
+        },
+        {
+          "name": "doc",
+          "sql_type": "xml",
+          "null_count": 0,
+          "min_val": "<item id=\"1\"><val>7</val></item>",
+          "max_val": "<item id=\"99\"><val>693</val></item>"
+        },
+        {
+          "name": "tag",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "tag_0",
+          "max_val": "tag_4"
+        }
+      ]
+    }
+  ]
+}

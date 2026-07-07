@@ -1,0 +1,61 @@
+{
+  "sql_version": "Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64)",
+  "bak": "alias_types_full.bak",
+  "bak_size_bytes": 2670592,
+  "bak_size_mb": 2.547,
+  "bak_sha256": "96b9168f3a45caf989c8461b904c0180ce2bbf4f7c27828f1d6fb53983a4507a",
+  "database": "RegisterBak_alias_types_full",
+  "registered_at": "2026-06-28T00:00:21.983955+00:00",
+  "sqlserver_restore_s": 3.336,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "alias_probe",
+      "row_count": 3,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "is_active",
+          "sql_type": "Flag",
+          "null_count": 1,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "name_style",
+          "sql_type": "NameStyle",
+          "null_count": 1,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "display_name",
+          "sql_type": "PersonName",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "account_number",
+          "sql_type": "AccountNumber",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "external_id",
+          "sql_type": "ExternalId",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        }
+      ]
+    }
+  ]
+}

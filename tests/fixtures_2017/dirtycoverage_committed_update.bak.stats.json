@@ -1,0 +1,40 @@
+{
+  "sql_version": "Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64)",
+  "bak": "dirtycoverage_committed_update.bak",
+  "bak_size_bytes": 2801664,
+  "bak_size_mb": 2.672,
+  "bak_sha256": "7737c05e390d3ea4840798d9e2c8812a0e1f3d1eb68a1e08cd975202764b52cb",
+  "database": "RegisterBak_dirtycoverage_committed_update",
+  "registered_at": "2026-06-12T16:36:23.355712+00:00",
+  "sqlserver_restore_s": 1.87,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "committed_update_test",
+      "row_count": 200,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "200"
+        },
+        {
+          "name": "label",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "original_1",
+          "max_val": "original_99"
+        },
+        {
+          "name": "score",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "200"
+        }
+      ]
+    }
+  ]
+}

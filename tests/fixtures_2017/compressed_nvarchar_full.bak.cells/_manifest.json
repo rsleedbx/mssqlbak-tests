@@ -1,0 +1,28 @@
+{
+  "bak": "compressed_nvarchar_full.bak",
+  "captured_at": "2026-06-28T22:42:02.692583+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.compressed_nvar",
+      "row_count": 8,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:d80b029b568ac107d5f83a0a19ad93330f3e8629c9e06d418d691b4d6f33d120",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "nvarchar(200)",
+          "digest": "sha256:549315f64b6af4ed7fd297477b72a412221b0b2b980db7fec19cb9fc40cd3687",
+          "null_count": 1
+        }
+      ]
+    }
+  ]
+}

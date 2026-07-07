@@ -1,0 +1,33 @@
+{
+  "sql_version": "Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64)",
+  "bak": "dirtycoverage_snapshot_update.bak",
+  "bak_size_bytes": 2736128,
+  "bak_size_mb": 2.609,
+  "bak_sha256": "f177990984f8b2322aafd4681649ae25b17b9d687babd032b9d15a4e4a5033e2",
+  "database": "RegisterBak_dirtycoverage_snapshot_update",
+  "registered_at": "2026-06-12T16:38:02.114439+00:00",
+  "sqlserver_restore_s": 2.065,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "snapshot_update_test",
+      "row_count": 20,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "20"
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "original_1",
+          "max_val": "original_9"
+        }
+      ]
+    }
+  ]
+}

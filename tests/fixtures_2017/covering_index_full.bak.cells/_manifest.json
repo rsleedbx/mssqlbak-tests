@@ -1,0 +1,56 @@
+{
+  "bak": "covering_index_full.bak",
+  "captured_at": "2026-06-26T18:45:13.833630+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.covering_base",
+      "row_count": 1000,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:d2cecc9e516895a16642edc609f915954203f5b5c0c8243e63a6a797c026bdc9",
+          "null_count": 0
+        },
+        {
+          "name": "code",
+          "sql_type": "int",
+          "digest": "sha256:2acd664b7bb34db5a74b3ed8c474f2afc5ceece3dffca9a799c0bd4b00db0b93",
+          "null_count": 0
+        },
+        {
+          "name": "name",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:3114773fa4712a3860b205d7a4e7ccca4bf18b1aa386adc41644c4279511a12c",
+          "null_count": 0
+        },
+        {
+          "name": "amount",
+          "sql_type": "decimal(10,2)",
+          "digest": "sha256:f55efef23f74e283511416c3386ef6551062fa4718caedb95110e5cde1ae760e",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.fkr__seed",
+      "row_count": 1000,
+      "key_columns": [
+        "pk"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "int",
+          "digest": "sha256:d84906aa4a9e917bbfda577727bf97320087c774e8c9495a4e899dcba3351063",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}

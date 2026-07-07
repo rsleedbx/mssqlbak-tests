@@ -1,0 +1,40 @@
+{
+  "sql_version": "Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64)",
+  "bak": "dirtycoverage_alldirty.bak",
+  "bak_size_bytes": 2801664,
+  "bak_size_mb": 2.672,
+  "bak_sha256": "11dce96809061b67a988ebc10d66c1262a905289cedc64c09b87ed7e98c9670d",
+  "database": "RegisterBak_dirtycoverage_alldirty",
+  "registered_at": "2026-06-12T16:35:58.704517+00:00",
+  "sqlserver_restore_s": 2.268,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "alldirty_test",
+      "row_count": 0,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "phase",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        }
+      ]
+    }
+  ]
+}

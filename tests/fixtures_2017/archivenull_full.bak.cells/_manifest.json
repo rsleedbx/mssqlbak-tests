@@ -1,0 +1,33 @@
+{
+  "bak": "archivenull_full.bak",
+  "captured_at": "2026-06-29T02:51:05.545046+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.archive_null",
+      "row_count": 50000,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:64e48cb856414e0cf0ef7901e02d88ace9075050e174140f79f40d140ec64439",
+          "null_count": 0
+        },
+        {
+          "name": "code",
+          "sql_type": "char(10)",
+          "digest": "sha256:7be349ccb7786869aa23a997f44370e022f9456bbbb04da35cd6cd9185c2462c",
+          "null_count": 100
+        },
+        {
+          "name": "zip",
+          "sql_type": "char(10)",
+          "digest": "sha256:edcc098b5ebaefabde9ddc2b139ac43dfe15369acbf3e60e7b45d1d193da9e49",
+          "null_count": 50
+        }
+      ],
+      "values_sorted": true
+    }
+  ]
+}

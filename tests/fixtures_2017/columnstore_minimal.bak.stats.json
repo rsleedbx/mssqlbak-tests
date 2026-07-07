@@ -1,0 +1,467 @@
+{
+  "sql_version": "Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64)",
+  "bak": "columnstore_minimal.bak",
+  "bak_size_bytes": 5357568,
+  "bak_size_mb": 5.109,
+  "bak_sha256": "c79f05523e9f828fc78dff68ef95cdf2e21ce43167389756c2e0dc1e38770900",
+  "database": "RegisterBak_columnstore_minimal",
+  "registered_at": "2026-06-12T16:34:17.633156+00:00",
+  "sqlserver_restore_s": 3.132,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "cs_1",
+      "row_count": 1,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "code",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "name",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "val1",
+          "max_val": "val1"
+        },
+        {
+          "name": "nm",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "name1",
+          "max_val": "name1"
+        },
+        {
+          "name": "ncf",
+          "sql_type": "nchar",
+          "null_count": 0,
+          "min_val": "ncf1",
+          "max_val": "ncf1"
+        },
+        {
+          "name": "amount",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "1.0001",
+          "max_val": "1.0001"
+        },
+        {
+          "name": "qty",
+          "sql_type": "numeric",
+          "null_count": 0,
+          "min_val": "1.01",
+          "max_val": "1.01"
+        },
+        {
+          "name": "dt",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "2001-01-01 00:01:00",
+          "max_val": "2001-01-01 00:01:00"
+        },
+        {
+          "name": "dt2",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2001-01-01 00:01:00.001",
+          "max_val": "2001-01-01 00:01:00.001"
+        },
+        {
+          "name": "d",
+          "sql_type": "date",
+          "null_count": 0,
+          "min_val": "2001-01-01",
+          "max_val": "2001-01-01"
+        },
+        {
+          "name": "t",
+          "sql_type": "time",
+          "null_count": 0,
+          "min_val": "00:01:00.001",
+          "max_val": "00:01:00.001"
+        },
+        {
+          "name": "dto",
+          "sql_type": "datetimeoffset",
+          "null_count": 0,
+          "min_val": "2001-01-01 00:01:00.001 +05:30",
+          "max_val": "2001-01-01 00:01:00.001 +05:30"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "cs_10",
+      "row_count": 10,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "10"
+        },
+        {
+          "name": "code",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "10"
+        },
+        {
+          "name": "name",
+          "sql_type": "varchar",
+          "null_count": 1,
+          "min_val": "val0",
+          "max_val": "val9"
+        },
+        {
+          "name": "nm",
+          "sql_type": "nvarchar",
+          "null_count": 1,
+          "min_val": "name1",
+          "max_val": "\u041f\u0440\u0438\u0432\u0435\u0442"
+        },
+        {
+          "name": "ncf",
+          "sql_type": "nchar",
+          "null_count": 1,
+          "min_val": "ncf0",
+          "max_val": "ncf9"
+        },
+        {
+          "name": "amount",
+          "sql_type": "decimal",
+          "null_count": 1,
+          "min_val": "1.0001",
+          "max_val": "10.0010"
+        },
+        {
+          "name": "qty",
+          "sql_type": "numeric",
+          "null_count": 1,
+          "min_val": "1.01",
+          "max_val": "10.10"
+        },
+        {
+          "name": "dt",
+          "sql_type": "datetime",
+          "null_count": 1,
+          "min_val": "2001-01-01 00:01:00",
+          "max_val": "2001-01-01 00:10:00"
+        },
+        {
+          "name": "dt2",
+          "sql_type": "datetime2",
+          "null_count": 1,
+          "min_val": "2001-01-01 00:01:00.001",
+          "max_val": "2001-01-01 00:10:00.010"
+        },
+        {
+          "name": "d",
+          "sql_type": "date",
+          "null_count": 1,
+          "min_val": "2001-01-01",
+          "max_val": "2001-01-01"
+        },
+        {
+          "name": "t",
+          "sql_type": "time",
+          "null_count": 1,
+          "min_val": "00:01:00.001",
+          "max_val": "00:10:00.010"
+        },
+        {
+          "name": "dto",
+          "sql_type": "datetimeoffset",
+          "null_count": 1,
+          "min_val": "2001-01-01 00:01:00.001 +05:30",
+          "max_val": "2001-01-01 00:10:00.010 +05:30"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "cs_100",
+      "row_count": 100,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "100"
+        },
+        {
+          "name": "code",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "49"
+        },
+        {
+          "name": "name",
+          "sql_type": "varchar",
+          "null_count": 14,
+          "min_val": "val0",
+          "max_val": "val9"
+        },
+        {
+          "name": "nm",
+          "sql_type": "nvarchar",
+          "null_count": 14,
+          "min_val": "name1",
+          "max_val": "\u041f\u0440\u0438\u0432\u0435\u0442"
+        },
+        {
+          "name": "ncf",
+          "sql_type": "nchar",
+          "null_count": 14,
+          "min_val": "ncf0",
+          "max_val": "ncf9"
+        },
+        {
+          "name": "amount",
+          "sql_type": "decimal",
+          "null_count": 14,
+          "min_val": "1.0001",
+          "max_val": "100.0100"
+        },
+        {
+          "name": "qty",
+          "sql_type": "numeric",
+          "null_count": 14,
+          "min_val": "1.01",
+          "max_val": "100.00"
+        },
+        {
+          "name": "dt",
+          "sql_type": "datetime",
+          "null_count": 14,
+          "min_val": "2001-01-01 00:01:00",
+          "max_val": "2001-01-01 01:40:00"
+        },
+        {
+          "name": "dt2",
+          "sql_type": "datetime2",
+          "null_count": 14,
+          "min_val": "2001-01-01 00:01:00.001",
+          "max_val": "2001-01-01 01:40:00.100"
+        },
+        {
+          "name": "d",
+          "sql_type": "date",
+          "null_count": 14,
+          "min_val": "2001-01-01",
+          "max_val": "2001-01-01"
+        },
+        {
+          "name": "t",
+          "sql_type": "time",
+          "null_count": 14,
+          "min_val": "00:01:00.001",
+          "max_val": "01:40:00.100"
+        },
+        {
+          "name": "dto",
+          "sql_type": "datetimeoffset",
+          "null_count": 14,
+          "min_val": "2001-01-01 00:01:00.001 +05:30",
+          "max_val": "2001-01-01 01:40:00.100 +05:30"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "cs_1000",
+      "row_count": 1000,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1000"
+        },
+        {
+          "name": "code",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "49"
+        },
+        {
+          "name": "name",
+          "sql_type": "varchar",
+          "null_count": 142,
+          "min_val": "val0",
+          "max_val": "val9"
+        },
+        {
+          "name": "nm",
+          "sql_type": "nvarchar",
+          "null_count": 142,
+          "min_val": "name1",
+          "max_val": "\u041f\u0440\u0438\u0432\u0435\u0442"
+        },
+        {
+          "name": "ncf",
+          "sql_type": "nchar",
+          "null_count": 142,
+          "min_val": "ncf0",
+          "max_val": "ncf9"
+        },
+        {
+          "name": "amount",
+          "sql_type": "decimal",
+          "null_count": 142,
+          "min_val": "1.0001",
+          "max_val": "1000.1000"
+        },
+        {
+          "name": "qty",
+          "sql_type": "numeric",
+          "null_count": 142,
+          "min_val": "1.01",
+          "max_val": "1000.00"
+        },
+        {
+          "name": "dt",
+          "sql_type": "datetime",
+          "null_count": 142,
+          "min_val": "2001-01-01 00:01:00",
+          "max_val": "2001-01-01 16:40:00"
+        },
+        {
+          "name": "dt2",
+          "sql_type": "datetime2",
+          "null_count": 142,
+          "min_val": "2001-01-01 00:01:00.001",
+          "max_val": "2001-01-01 16:40:00.000"
+        },
+        {
+          "name": "d",
+          "sql_type": "date",
+          "null_count": 142,
+          "min_val": "2001-01-01",
+          "max_val": "2001-01-01"
+        },
+        {
+          "name": "t",
+          "sql_type": "time",
+          "null_count": 142,
+          "min_val": "00:01:00.001",
+          "max_val": "16:40:00.000"
+        },
+        {
+          "name": "dto",
+          "sql_type": "datetimeoffset",
+          "null_count": 142,
+          "min_val": "2001-01-01 00:01:00.001 +05:30",
+          "max_val": "2001-01-01 16:40:00.000 +05:30"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "cs_10000",
+      "row_count": 10000,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "10000"
+        },
+        {
+          "name": "code",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "49"
+        },
+        {
+          "name": "name",
+          "sql_type": "varchar",
+          "null_count": 1428,
+          "min_val": "val0",
+          "max_val": "val9"
+        },
+        {
+          "name": "nm",
+          "sql_type": "nvarchar",
+          "null_count": 1428,
+          "min_val": "name1",
+          "max_val": "\u041f\u0440\u0438\u0432\u0435\u0442"
+        },
+        {
+          "name": "ncf",
+          "sql_type": "nchar",
+          "null_count": 1428,
+          "min_val": "ncf0",
+          "max_val": "ncf9"
+        },
+        {
+          "name": "amount",
+          "sql_type": "decimal",
+          "null_count": 1428,
+          "min_val": "1.0001",
+          "max_val": "10000.0000"
+        },
+        {
+          "name": "qty",
+          "sql_type": "numeric",
+          "null_count": 1428,
+          "min_val": "1.01",
+          "max_val": "10000.00"
+        },
+        {
+          "name": "dt",
+          "sql_type": "datetime",
+          "null_count": 1428,
+          "min_val": "2001-01-01 00:01:00",
+          "max_val": "2001-01-07 22:40:00"
+        },
+        {
+          "name": "dt2",
+          "sql_type": "datetime2",
+          "null_count": 1428,
+          "min_val": "2001-01-01 00:01:00.001",
+          "max_val": "2001-01-07 22:40:00.000"
+        },
+        {
+          "name": "d",
+          "sql_type": "date",
+          "null_count": 1428,
+          "min_val": "2001-01-01",
+          "max_val": "2001-01-07"
+        },
+        {
+          "name": "t",
+          "sql_type": "time",
+          "null_count": 1428,
+          "min_val": "00:00:00.200",
+          "max_val": "23:59:00.879"
+        },
+        {
+          "name": "dto",
+          "sql_type": "datetimeoffset",
+          "null_count": 1428,
+          "min_val": "2001-01-01 00:01:00.001 +05:30",
+          "max_val": "2001-01-07 22:40:00.000 +05:30"
+        }
+      ]
+    }
+  ]
+}

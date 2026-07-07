@@ -1,0 +1,33 @@
+{
+  "sql_version": "Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64)",
+  "bak": "dirtycoverage_alterdb.bak",
+  "bak_size_bytes": 2670592,
+  "bak_size_mb": 2.547,
+  "bak_sha256": "05cb70449d731f9b3db8ba16b41f8b1c325a8c5e9cc034cd10e49dc7dc808935",
+  "database": "RegisterBak_dirtycoverage_alterdb",
+  "registered_at": "2026-06-12T16:36:14.131780+00:00",
+  "sqlserver_restore_s": 1.952,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "alterdb_test",
+      "row_count": 300,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "300"
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "row 1",
+          "max_val": "row 99"
+        }
+      ]
+    }
+  ]
+}

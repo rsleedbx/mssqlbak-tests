@@ -1,0 +1,54 @@
+{
+  "sql_version": "Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64)",
+  "bak": "multi_rowgroup_full.bak",
+  "bak_size_bytes": 3784704,
+  "bak_size_mb": 3.609,
+  "bak_sha256": "58cb8810605a026f65544a598b9f01ce74dea6887206db9b1dda4fc2a50c0089",
+  "database": "RegisterBak_multi_rowgroup_full",
+  "registered_at": "2026-06-22T23:59:55.349893+00:00",
+  "sqlserver_restore_s": 2.368,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "cs_multi",
+      "row_count": 2100,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "2100"
+        },
+        {
+          "name": "batch",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3"
+        },
+        {
+          "name": "val",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "10",
+          "max_val": "21000"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "fkr__seed",
+      "row_count": 1200,
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1199"
+        }
+      ]
+    }
+  ]
+}

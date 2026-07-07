@@ -1,0 +1,40 @@
+{
+  "sql_version": "Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64)",
+  "bak": "dirtycoverage_savepoint.bak",
+  "bak_size_bytes": 2736128,
+  "bak_size_mb": 2.609,
+  "bak_sha256": "d3c6b7fb6cb8d65e0369c939bf9d153dc73b4cc6ec6e09febf309546899c7e6e",
+  "database": "RegisterBak_dirtycoverage_savepoint",
+  "registered_at": "2026-06-12T16:37:57.027914+00:00",
+  "sqlserver_restore_s": 2.011,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "savepoint_test",
+      "row_count": 50,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "50"
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "committed 1",
+          "max_val": "committed 9"
+        },
+        {
+          "name": "phase",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "committed",
+          "max_val": "committed"
+        }
+      ]
+    }
+  ]
+}

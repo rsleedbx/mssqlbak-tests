@@ -1,0 +1,448 @@
+{
+  "bak": "unicode_codepage_coverage.bak",
+  "captured_at": "2026-06-26T18:54:18.331790+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.cp_cp1250",
+      "row_count": 1,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:d7c0db5a2a0b7eb9abf5c315453ababfd88818917d8672d8c8889558477d6102",
+          "null_count": 0
+        },
+        {
+          "name": "label",
+          "sql_type": "varchar(60)",
+          "digest": "sha256:6b43d0716ed3782fce10a5cb58ad72d1ba08f0e7acc427cc54b240c484a275df",
+          "null_count": 0
+        },
+        {
+          "name": "varchar_col",
+          "sql_type": "varchar(1000)",
+          "digest": "sha256:c5f4f5cedcadb30508522ce7d62a3a6406dc0aeea684ee1ab004605f55f87e5a",
+          "null_count": 0
+        },
+        {
+          "name": "nvarchar_col",
+          "sql_type": "nvarchar(1000)",
+          "digest": "sha256:adaf507ae8108e97e7c0d8d023c2c2ff10901862ae8bb989b34a1ccb604ad4b4",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.cp_cp1251",
+      "row_count": 2,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:64dace15d2023b649d3f3378b19327afb63d7bd23e0d4a8b971b5dddb935751d",
+          "null_count": 0
+        },
+        {
+          "name": "label",
+          "sql_type": "varchar(60)",
+          "digest": "sha256:da3e75c34951d65f2e6a5d22de4cd39bdd53dcdc779b4997dfb32319fa20b009",
+          "null_count": 0
+        },
+        {
+          "name": "varchar_col",
+          "sql_type": "varchar(1000)",
+          "digest": "sha256:9372db1fec597d3e3c009517c5fd8552cfcb9b37886847e69cf04c1692067c10",
+          "null_count": 0
+        },
+        {
+          "name": "nvarchar_col",
+          "sql_type": "nvarchar(1000)",
+          "digest": "sha256:f6e0af1ed01cb612fccbdf62f946fc0e9814427f853caaaf22778c1752c1926d",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.cp_cp1253",
+      "row_count": 1,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:d7c0db5a2a0b7eb9abf5c315453ababfd88818917d8672d8c8889558477d6102",
+          "null_count": 0
+        },
+        {
+          "name": "label",
+          "sql_type": "varchar(60)",
+          "digest": "sha256:4e36b35aa15da298aab44ab15abcbf0e9a1a831bda4e248a6da4c63fe5cb5901",
+          "null_count": 0
+        },
+        {
+          "name": "varchar_col",
+          "sql_type": "varchar(1000)",
+          "digest": "sha256:8d2fb2adf330d8c206ee4b40d2ce0bea16da7276501945a555421e4bb60f84fd",
+          "null_count": 0
+        },
+        {
+          "name": "nvarchar_col",
+          "sql_type": "nvarchar(1000)",
+          "digest": "sha256:8d2fb2adf330d8c206ee4b40d2ce0bea16da7276501945a555421e4bb60f84fd",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.cp_cp1254",
+      "row_count": 1,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:d7c0db5a2a0b7eb9abf5c315453ababfd88818917d8672d8c8889558477d6102",
+          "null_count": 0
+        },
+        {
+          "name": "label",
+          "sql_type": "varchar(60)",
+          "digest": "sha256:722ea219242195be324888ec7fe71581e1bac3870c1f112778b201c53621efcb",
+          "null_count": 0
+        },
+        {
+          "name": "varchar_col",
+          "sql_type": "varchar(1000)",
+          "digest": "sha256:a5c7d4de899c96f0db35644f5fb02ca76bb4af392fb152b1b1c7b6b539124a21",
+          "null_count": 0
+        },
+        {
+          "name": "nvarchar_col",
+          "sql_type": "nvarchar(1000)",
+          "digest": "sha256:a5c7d4de899c96f0db35644f5fb02ca76bb4af392fb152b1b1c7b6b539124a21",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.cp_cp1255",
+      "row_count": 1,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:d7c0db5a2a0b7eb9abf5c315453ababfd88818917d8672d8c8889558477d6102",
+          "null_count": 0
+        },
+        {
+          "name": "label",
+          "sql_type": "varchar(60)",
+          "digest": "sha256:33c45210d3f810c82118721a90c4d3523769fa5031be110fef5b5cf3ae52fad8",
+          "null_count": 0
+        },
+        {
+          "name": "varchar_col",
+          "sql_type": "varchar(1000)",
+          "digest": "sha256:f78fe27bda864bedb45f9f1711986e6d9fc7cde5b1a76df5ca468e54b6b00977",
+          "null_count": 0
+        },
+        {
+          "name": "nvarchar_col",
+          "sql_type": "nvarchar(1000)",
+          "digest": "sha256:f78fe27bda864bedb45f9f1711986e6d9fc7cde5b1a76df5ca468e54b6b00977",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.cp_cp1256",
+      "row_count": 1,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:d7c0db5a2a0b7eb9abf5c315453ababfd88818917d8672d8c8889558477d6102",
+          "null_count": 0
+        },
+        {
+          "name": "label",
+          "sql_type": "varchar(60)",
+          "digest": "sha256:cff05848c152f6da2c48bc2f0423514fb87e69c4f29dc8e6c08e9ea02c8d56b7",
+          "null_count": 0
+        },
+        {
+          "name": "varchar_col",
+          "sql_type": "varchar(1000)",
+          "digest": "sha256:b0b2ecc9c10b53e736ee8e97b80621475aef943cb7c64265048eead026e4b978",
+          "null_count": 0
+        },
+        {
+          "name": "nvarchar_col",
+          "sql_type": "nvarchar(1000)",
+          "digest": "sha256:b0b2ecc9c10b53e736ee8e97b80621475aef943cb7c64265048eead026e4b978",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.cp_cp1257",
+      "row_count": 1,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:d7c0db5a2a0b7eb9abf5c315453ababfd88818917d8672d8c8889558477d6102",
+          "null_count": 0
+        },
+        {
+          "name": "label",
+          "sql_type": "varchar(60)",
+          "digest": "sha256:87b3be0fbaef7c6b813c1465b645ed115354c57c3204c0d6e3988fa7bf487325",
+          "null_count": 0
+        },
+        {
+          "name": "varchar_col",
+          "sql_type": "varchar(1000)",
+          "digest": "sha256:9446d8c3d4bcde240860ed2ed70d05d52bfdc1d134da38a7b667bdff6875c862",
+          "null_count": 0
+        },
+        {
+          "name": "nvarchar_col",
+          "sql_type": "nvarchar(1000)",
+          "digest": "sha256:9446d8c3d4bcde240860ed2ed70d05d52bfdc1d134da38a7b667bdff6875c862",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.cp_cp1258",
+      "row_count": 1,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:d7c0db5a2a0b7eb9abf5c315453ababfd88818917d8672d8c8889558477d6102",
+          "null_count": 0
+        },
+        {
+          "name": "label",
+          "sql_type": "varchar(60)",
+          "digest": "sha256:652eb7080ad3768609ba1088868c287f34ed47d0a7b2536b439bcfa4228dc4be",
+          "null_count": 0
+        },
+        {
+          "name": "varchar_col",
+          "sql_type": "varchar(1000)",
+          "digest": "sha256:aab767f214588d541fa6e13f0af47dd6b499538da043cda831af7e37b884be2f",
+          "null_count": 0
+        },
+        {
+          "name": "nvarchar_col",
+          "sql_type": "nvarchar(1000)",
+          "digest": "sha256:a671a9697ff8f1e799090f64ae338605dee8bb8b37bede8fd301047459a83622",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.cp_cp874",
+      "row_count": 1,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:d7c0db5a2a0b7eb9abf5c315453ababfd88818917d8672d8c8889558477d6102",
+          "null_count": 0
+        },
+        {
+          "name": "label",
+          "sql_type": "varchar(60)",
+          "digest": "sha256:b754ef7fb69439d43a4613818228517e9895199acd944d80590c53a75e029725",
+          "null_count": 0
+        },
+        {
+          "name": "varchar_col",
+          "sql_type": "varchar(1000)",
+          "digest": "sha256:249d72f8a4e6ef4ba6aa549ffb6f65c3812378d7adf5121093660e0dd4bbbb50",
+          "null_count": 0
+        },
+        {
+          "name": "nvarchar_col",
+          "sql_type": "nvarchar(1000)",
+          "digest": "sha256:249d72f8a4e6ef4ba6aa549ffb6f65c3812378d7adf5121093660e0dd4bbbb50",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.cp_cp932",
+      "row_count": 2,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:64dace15d2023b649d3f3378b19327afb63d7bd23e0d4a8b971b5dddb935751d",
+          "null_count": 0
+        },
+        {
+          "name": "label",
+          "sql_type": "varchar(60)",
+          "digest": "sha256:69b9d90ac47cc1e137d3cfb11d80c92f994b05da8e7e15284f48bb83a345f081",
+          "null_count": 0
+        },
+        {
+          "name": "varchar_col",
+          "sql_type": "varchar(1000)",
+          "digest": "sha256:cf77e9f79494ee6fb663eab7dad1709ad2905f0a00089eda9e6b75ecea1158ad",
+          "null_count": 0
+        },
+        {
+          "name": "nvarchar_col",
+          "sql_type": "nvarchar(1000)",
+          "digest": "sha256:cf77e9f79494ee6fb663eab7dad1709ad2905f0a00089eda9e6b75ecea1158ad",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.cp_cp936",
+      "row_count": 1,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:d7c0db5a2a0b7eb9abf5c315453ababfd88818917d8672d8c8889558477d6102",
+          "null_count": 0
+        },
+        {
+          "name": "label",
+          "sql_type": "varchar(60)",
+          "digest": "sha256:c21713db5f7ddc4a435ef93852bcb204cad35fa9045234e9504c883544eaf69e",
+          "null_count": 0
+        },
+        {
+          "name": "varchar_col",
+          "sql_type": "varchar(1000)",
+          "digest": "sha256:9aa8c43038c99d2d537e6ff3e61a34b7b1a942c445317503dda7c220d9576ef8",
+          "null_count": 0
+        },
+        {
+          "name": "nvarchar_col",
+          "sql_type": "nvarchar(1000)",
+          "digest": "sha256:9aa8c43038c99d2d537e6ff3e61a34b7b1a942c445317503dda7c220d9576ef8",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.cp_cp949",
+      "row_count": 1,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:d7c0db5a2a0b7eb9abf5c315453ababfd88818917d8672d8c8889558477d6102",
+          "null_count": 0
+        },
+        {
+          "name": "label",
+          "sql_type": "varchar(60)",
+          "digest": "sha256:445145fa5b301c88fa33f144a372cfe655db0f55aefdd5c310f6a6987162edcc",
+          "null_count": 0
+        },
+        {
+          "name": "varchar_col",
+          "sql_type": "varchar(1000)",
+          "digest": "sha256:ad06ec9df6ea6c319eb3b249e53aa6253d8fb1d1425d799fffebed5f0233c3ab",
+          "null_count": 0
+        },
+        {
+          "name": "nvarchar_col",
+          "sql_type": "nvarchar(1000)",
+          "digest": "sha256:ad06ec9df6ea6c319eb3b249e53aa6253d8fb1d1425d799fffebed5f0233c3ab",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.cp_cp950",
+      "row_count": 1,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:d7c0db5a2a0b7eb9abf5c315453ababfd88818917d8672d8c8889558477d6102",
+          "null_count": 0
+        },
+        {
+          "name": "label",
+          "sql_type": "varchar(60)",
+          "digest": "sha256:36c1afa446a71863c21b324f7d70f340847ec7881eb58ce10eff3e12480da9f5",
+          "null_count": 0
+        },
+        {
+          "name": "varchar_col",
+          "sql_type": "varchar(1000)",
+          "digest": "sha256:fe710ba6c0124e70d644e1abd074885eb9f1fdbead2e50ffbcf8ed7c2e8d7c63",
+          "null_count": 0
+        },
+        {
+          "name": "nvarchar_col",
+          "sql_type": "nvarchar(1000)",
+          "digest": "sha256:fe710ba6c0124e70d644e1abd074885eb9f1fdbead2e50ffbcf8ed7c2e8d7c63",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}

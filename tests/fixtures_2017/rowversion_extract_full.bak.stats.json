@@ -1,0 +1,54 @@
+{
+  "sql_version": "Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64)",
+  "bak": "rowversion_extract_full.bak",
+  "bak_size_bytes": 2736128,
+  "bak_size_mb": 2.609,
+  "bak_sha256": "bc7b1187b7d0eb40e81985a7fcc76e95304a44c3adc2b9514b24e217fc40d06e",
+  "database": "RegisterBak_rowversion_extract_full",
+  "registered_at": "2026-06-23T02:19:00.340507+00:00",
+  "sqlserver_restore_s": 1.686,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "fkr__seed",
+      "row_count": 100,
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "99"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "rv_tbl",
+      "row_count": 100,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "100"
+        },
+        {
+          "name": "label",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "row_1",
+          "max_val": "row_99"
+        },
+        {
+          "name": "rv",
+          "sql_type": "timestamp",
+          "null_count": 0,
+          "min_val": "0x00000000000007D1",
+          "max_val": "0x0000000000000835"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "bak": "dirtycoverage_temporal_update.bak",
+  "captured_at": "2026-06-28T00:35:09.666491+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.temporal_test",
+      "row_count": 20,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:8d949ae465f77f961c140ceed6b2bd5fb8afaf8584afbc3d731d9a22015e7051",
+          "null_count": 0
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar(200)",
+          "digest": "sha256:d0b87c54c17592fd32c0091db24bb1b8f9fd3e6422b219d1cfa91db165f27af6",
+          "null_count": 0
+        },
+        {
+          "name": "ValidFrom",
+          "sql_type": "datetime2",
+          "digest": "sha256:5972721dbd93991e1bdcd5d8eb3dd2228cb42406eedfa24e0feccc9b1f8cada9",
+          "null_count": 0
+        },
+        {
+          "name": "ValidTo",
+          "sql_type": "datetime2",
+          "digest": "sha256:24089e44184af45aa44f95f19b15b1d79dd6d0c0bcef831db5d7a3ed8518ff9b",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}

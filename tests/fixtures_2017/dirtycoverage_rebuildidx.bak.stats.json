@@ -1,0 +1,40 @@
+{
+  "sql_version": "Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64)",
+  "bak": "dirtycoverage_rebuildidx.bak",
+  "bak_size_bytes": 2736128,
+  "bak_size_mb": 2.609,
+  "bak_sha256": "35033f281b6bba71a7e45311f47f1dd7de882b1cd44b84d865a848a0e174a61c",
+  "database": "RegisterBak_dirtycoverage_rebuildidx",
+  "registered_at": "2026-06-12T16:37:42.030338+00:00",
+  "sqlserver_restore_s": 2.106,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "ridx_test",
+      "row_count": 300,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "300"
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "row 1",
+          "max_val": "row 99"
+        },
+        {
+          "name": "score",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "99"
+        }
+      ]
+    }
+  ]
+}

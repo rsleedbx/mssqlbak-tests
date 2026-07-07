@@ -1,0 +1,75 @@
+{
+  "sql_version": "Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64)",
+  "bak": "cci_varbinary_probe_full.bak",
+  "bak_size_bytes": 3588096,
+  "bak_size_mb": 3.422,
+  "bak_sha256": "9b4a3b4bdeb6fcd72116ff64c7feafbe561ed8562647a96838355a75aa363228",
+  "database": "RegisterBak_cci_varbinary_probe_full",
+  "registered_at": "2026-06-19T13:32:23.102984+00:00",
+  "sqlserver_restore_s": 2.55,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "cci_varbinary_maxwidth",
+      "row_count": 1200,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1203"
+        },
+        {
+          "name": "val",
+          "sql_type": "varbinary",
+          "null_count": 1,
+          "min_val": "0x00000000000000000000000000000001",
+          "max_val": "0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "cci_varbinary_narrowmax",
+      "row_count": 1200,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1203"
+        },
+        {
+          "name": "val",
+          "sql_type": "varbinary",
+          "null_count": 1,
+          "min_val": "0x00000001",
+          "max_val": "0xFFFFFFFF"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "cci_varbinary_small_rowgroup",
+      "row_count": 128,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "128"
+        },
+        {
+          "name": "val",
+          "sql_type": "varbinary",
+          "null_count": 0,
+          "min_val": "0x0000000000000001",
+          "max_val": "0x0000000000000080"
+        }
+      ]
+    }
+  ]
+}

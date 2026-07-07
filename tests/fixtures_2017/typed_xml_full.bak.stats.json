@@ -1,0 +1,33 @@
+{
+  "sql_version": "Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64)",
+  "bak": "typed_xml_full.bak",
+  "bak_size_bytes": 2670592,
+  "bak_size_mb": 2.547,
+  "bak_sha256": "0689f7b30c7a1d4060e9e00ae4e29036bb65b27ee5ba8a01e0d640be7336c4ef",
+  "database": "RegisterBak_typed_xml_full",
+  "registered_at": "2026-06-28T00:00:47.851646+00:00",
+  "sqlserver_restore_s": 1.789,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "typed_xml_docs",
+      "row_count": 3,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3"
+        },
+        {
+          "name": "doc",
+          "sql_type": "xml",
+          "null_count": 0,
+          "min_val": "<event id=\"1\" kind=\"database\"><message>create table</message><severity>10</severity></event>",
+          "max_val": "<event id=\"3\" kind=\"store\"><message>demographics update</message><severity>30</severity></event>"
+        }
+      ]
+    }
+  ]
+}

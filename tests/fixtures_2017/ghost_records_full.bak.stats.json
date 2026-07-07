@@ -1,0 +1,33 @@
+{
+  "sql_version": "Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64)",
+  "bak": "ghost_records_full.bak",
+  "bak_size_bytes": 2736128,
+  "bak_size_mb": 2.609,
+  "bak_sha256": "fd49e168edce899fa244d425b5f1420b8fba042270d53d5d1265375fcc585a85",
+  "database": "RegisterBak_ghost_records_full",
+  "registered_at": "2026-06-18T18:35:36.580842+00:00",
+  "sqlserver_restore_s": 1.715,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "ghost_heap",
+      "row_count": 800,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "800"
+        },
+        {
+          "name": "val",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "row_1",
+          "max_val": "row_99"
+        }
+      ]
+    }
+  ]
+}

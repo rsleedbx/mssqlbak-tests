@@ -1,0 +1,425 @@
+{
+  "sql_version": "Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64)",
+  "bak": "ncci_types_full.bak",
+  "bak_size_bytes": 9555968,
+  "bak_size_mb": 9.113,
+  "bak_sha256": "0d906318923049ab0b53374c3f2ea98e7e7462650b38b54e177c091718523e70",
+  "database": "RegisterBak_ncci_types_full",
+  "registered_at": "2026-06-22T18:20:39.427811+00:00",
+  "sqlserver_restore_s": 2.176,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "fkr__seed",
+      "row_count": 1200,
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1199"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "ncci_bigint",
+      "row_count": 1203,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1206"
+        },
+        {
+          "name": "val",
+          "sql_type": "bigint",
+          "null_count": 1,
+          "min_val": "-9223372036854775808",
+          "max_val": "9223372036854775807"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "ncci_binary",
+      "row_count": 1203,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1206"
+        },
+        {
+          "name": "val",
+          "sql_type": "binary",
+          "null_count": 1,
+          "min_val": "0x0000000000000001",
+          "max_val": "0xFFFFFFFFFFFFFFFF"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "ncci_bit",
+      "row_count": 1203,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1206"
+        },
+        {
+          "name": "val",
+          "sql_type": "bit",
+          "null_count": 1,
+          "min_val": "0",
+          "max_val": "1"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "ncci_char",
+      "row_count": 1203,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1206"
+        },
+        {
+          "name": "val",
+          "sql_type": "char",
+          "null_count": 1,
+          "min_val": "AAAAAAAAAA",
+          "max_val": "ZZZZZZZZZZ"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "ncci_date",
+      "row_count": 1203,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1206"
+        },
+        {
+          "name": "val",
+          "sql_type": "date",
+          "null_count": 1,
+          "min_val": "2000-01-01",
+          "max_val": "2099-12-31"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "ncci_datetime2",
+      "row_count": 1203,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1206"
+        },
+        {
+          "name": "val",
+          "sql_type": "datetime2",
+          "null_count": 1,
+          "min_val": "2000-01-01 00:00:00.000",
+          "max_val": "2099-12-31 23:59:59.999"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "ncci_datetimeoffset",
+      "row_count": 1203,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1206"
+        },
+        {
+          "name": "val",
+          "sql_type": "datetimeoffset",
+          "null_count": 1,
+          "min_val": "2000-01-01 00:00:00.000 +00:00",
+          "max_val": "2099-12-31 23:59:59.999 +00:00"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "ncci_float",
+      "row_count": 1203,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1206"
+        },
+        {
+          "name": "val",
+          "sql_type": "float",
+          "null_count": 1,
+          "min_val": "-1.79769e+308",
+          "max_val": "1.79769e+308"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "ncci_money",
+      "row_count": 1203,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1206"
+        },
+        {
+          "name": "val",
+          "sql_type": "money",
+          "null_count": 1,
+          "min_val": "-922337203685477.5808",
+          "max_val": "922337203685477.5807"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "ncci_nchar",
+      "row_count": 1203,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1206"
+        },
+        {
+          "name": "val",
+          "sql_type": "nchar",
+          "null_count": 1,
+          "min_val": "AAAAAAAAAA",
+          "max_val": "ZZZZZZZZZZ"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "ncci_nvarchar",
+      "row_count": 1203,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1206"
+        },
+        {
+          "name": "val",
+          "sql_type": "nvarchar",
+          "null_count": 1,
+          "min_val": "row_1",
+          "max_val": "row_low"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "ncci_real",
+      "row_count": 1203,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1206"
+        },
+        {
+          "name": "val",
+          "sql_type": "real",
+          "null_count": 1,
+          "min_val": "-3.40282e+038",
+          "max_val": "3.40282e+038"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "ncci_smallint",
+      "row_count": 1203,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1206"
+        },
+        {
+          "name": "val",
+          "sql_type": "smallint",
+          "null_count": 1,
+          "min_val": "-32768",
+          "max_val": "32767"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "ncci_smallmoney",
+      "row_count": 1203,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1206"
+        },
+        {
+          "name": "val",
+          "sql_type": "smallmoney",
+          "null_count": 1,
+          "min_val": "-214748.3648",
+          "max_val": "214748.3647"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "ncci_time",
+      "row_count": 1203,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1206"
+        },
+        {
+          "name": "val",
+          "sql_type": "time",
+          "null_count": 1,
+          "min_val": "00:00:00.000",
+          "max_val": "23:59:59.999"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "ncci_tinyint",
+      "row_count": 1203,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1206"
+        },
+        {
+          "name": "val",
+          "sql_type": "tinyint",
+          "null_count": 1,
+          "min_val": "0",
+          "max_val": "255"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "ncci_uuid",
+      "row_count": 1203,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1206"
+        },
+        {
+          "name": "val",
+          "sql_type": "uniqueidentifier",
+          "null_count": 1,
+          "min_val": "00000100-0000-0000-0000-000000000000",
+          "max_val": "FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "ncci_varbinary",
+      "row_count": 1203,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1206"
+        },
+        {
+          "name": "val",
+          "sql_type": "varbinary",
+          "null_count": 1,
+          "min_val": "0x00000001",
+          "max_val": "0xFFFFFFFFFFFFFFFF"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "ncci_varchar",
+      "row_count": 1203,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1206"
+        },
+        {
+          "name": "val",
+          "sql_type": "varchar",
+          "null_count": 1,
+          "min_val": "row_1",
+          "max_val": "row_low"
+        }
+      ]
+    }
+  ]
+}

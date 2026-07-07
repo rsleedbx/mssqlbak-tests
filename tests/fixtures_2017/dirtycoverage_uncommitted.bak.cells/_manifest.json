@@ -1,0 +1,40 @@
+{
+  "bak": "dirtycoverage_uncommitted.bak",
+  "captured_at": "2026-06-26T18:49:45.503552+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.dirty_test",
+      "row_count": 50,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:093edeae7c01ee8c8134f58a053472cd1b889bac69e2fae8ca356615fc1997cf",
+          "null_count": 0
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar(200)",
+          "digest": "sha256:73a46dfe5ce7f5c1cccd17926634c786028d7b5a1d3c390a809c7eaac7639908",
+          "null_count": 0
+        },
+        {
+          "name": "phase",
+          "sql_type": "varchar(30)",
+          "digest": "sha256:95f063e4601eb3a3a3a452be69e9365137b1d14fd275ab1a10b606a85dd54fde",
+          "null_count": 0
+        },
+        {
+          "name": "seq",
+          "sql_type": "int",
+          "digest": "sha256:093edeae7c01ee8c8134f58a053472cd1b889bac69e2fae8ca356615fc1997cf",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}

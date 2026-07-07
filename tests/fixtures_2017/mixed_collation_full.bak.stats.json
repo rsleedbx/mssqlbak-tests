@@ -1,0 +1,47 @@
+{
+  "sql_version": "Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64)",
+  "bak": "mixed_collation_full.bak",
+  "bak_size_bytes": 2670592,
+  "bak_size_mb": 2.547,
+  "bak_sha256": "eae6f879408797b7e9461ff6cd96e37bbb6f060ce260481e7334d6f6763bd12b",
+  "database": "RegisterBak_mixed_collation_full",
+  "registered_at": "2026-06-22T18:46:49.868035+00:00",
+  "sqlserver_restore_s": 1.798,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "collation_mix",
+      "row_count": 3,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3"
+        },
+        {
+          "name": "lat",
+          "sql_type": "varchar",
+          "null_count": 1,
+          "min_val": "caf\u00e9",
+          "max_val": "hello"
+        },
+        {
+          "name": "grk",
+          "sql_type": "varchar",
+          "null_count": 1,
+          "min_val": "e???da",
+          "max_val": "hello"
+        },
+        {
+          "name": "heb",
+          "sql_type": "varchar",
+          "null_count": 1,
+          "min_val": "????",
+          "max_val": "hello"
+        }
+      ]
+    }
+  ]
+}

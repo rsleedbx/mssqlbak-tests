@@ -1,0 +1,33 @@
+{
+  "sql_version": "Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64)",
+  "bak": "dirtycoverage_createtable.bak",
+  "bak_size_bytes": 2670592,
+  "bak_size_mb": 2.547,
+  "bak_sha256": "aa8c679bb211767d5b6d6ba08a508fcf121d41da1d67ca6ba6e86ed16dc403c6",
+  "database": "RegisterBak_dirtycoverage_createtable",
+  "registered_at": "2026-06-12T16:36:38.780594+00:00",
+  "sqlserver_restore_s": 2.158,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "stable_test",
+      "row_count": 300,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "300"
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "stable row 1",
+          "max_val": "stable row 99"
+        }
+      ]
+    }
+  ]
+}

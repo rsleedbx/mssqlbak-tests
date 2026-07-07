@@ -1,0 +1,89 @@
+{
+  "sql_version": "Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64)",
+  "bak": "dirtycoverage_committed_delete_v4.bak",
+  "bak_size_bytes": 3522560,
+  "bak_size_mb": 3.359,
+  "bak_sha256": "1f94e6cfea42e2b561366f8f5d5d1594e2cbfbe0a62c55b494065c543b9c344d",
+  "database": "RegisterBak_dirtycoverage_committed_delete_v4",
+  "registered_at": "2026-06-24T02:49:45.839360+00:00",
+  "sqlserver_restore_s": 2.403,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "dirty_v4",
+      "row_count": 4000,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1001",
+          "max_val": "5000"
+        },
+        {
+          "name": "phase",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "keep",
+          "max_val": "keep"
+        },
+        {
+          "name": "val_int",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "3003",
+          "max_val": "15000"
+        },
+        {
+          "name": "val_str",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "original_1001",
+          "max_val": "original_5000"
+        },
+        {
+          "name": "val_nstr",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "row_1001",
+          "max_val": "row_5000"
+        },
+        {
+          "name": "val_float",
+          "sql_type": "float",
+          "null_count": 0,
+          "min_val": "143",
+          "max_val": "714.286"
+        },
+        {
+          "name": "val_dt",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2000-01-01 00:00:00.000",
+          "max_val": "2009-12-28 00:00:00.000"
+        },
+        {
+          "name": "val_guid",
+          "sql_type": "uniqueidentifier",
+          "null_count": 0,
+          "min_val": "3EB480B2-B6CC-4FD1-8300-0005122657BA",
+          "max_val": "9C59F701-814B-4FF8-BA25-FFC9597EA8C6"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "fkr__seed",
+      "row_count": 5000,
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "4999"
+        }
+      ]
+    }
+  ]
+}

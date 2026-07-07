@@ -1,0 +1,152 @@
+{
+  "sql_version": "Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64)",
+  "bak": "temporal_hidden_full.bak",
+  "bak_size_bytes": 2998272,
+  "bak_size_mb": 2.859,
+  "bak_sha256": "1b52cb16758fc09307b24a38f766c329b3326a1cd436a7bf8e16163762d5e528",
+  "database": "RegisterBak_temporal_hidden_full",
+  "registered_at": "2026-06-29T02:51:21.758935+00:00",
+  "sqlserver_restore_s": 1.904,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "temporal_hidden",
+      "row_count": 5,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "5"
+        },
+        {
+          "name": "value",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "alpha_v2",
+          "max_val": "gamma"
+        },
+        {
+          "name": "valid_from",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2026-06-29 02:47:41.3514542",
+          "max_val": "2026-06-29 02:47:41.3722322"
+        },
+        {
+          "name": "valid_to",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "9999-12-31 23:59:59.9999999",
+          "max_val": "9999-12-31 23:59:59.9999999"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "temporal_hidden_history",
+      "row_count": 2,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "2"
+        },
+        {
+          "name": "value",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "alpha",
+          "max_val": "beta"
+        },
+        {
+          "name": "valid_from",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2026-06-29 02:47:41.3514542",
+          "max_val": "2026-06-29 02:47:41.3514542"
+        },
+        {
+          "name": "valid_to",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2026-06-29 02:47:41.3679908",
+          "max_val": "2026-06-29 02:47:41.3722322"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "temporal_visible",
+      "row_count": 5,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "5"
+        },
+        {
+          "name": "value",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "alpha_v2",
+          "max_val": "gamma"
+        },
+        {
+          "name": "valid_from",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2026-06-29 02:47:41.3804350",
+          "max_val": "2026-06-29 02:47:41.3885933"
+        },
+        {
+          "name": "valid_to",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "9999-12-31 23:59:59.9999999",
+          "max_val": "9999-12-31 23:59:59.9999999"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "temporal_visible_history",
+      "row_count": 2,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "2"
+        },
+        {
+          "name": "value",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "alpha",
+          "max_val": "beta"
+        },
+        {
+          "name": "valid_from",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2026-06-29 02:47:41.3804350",
+          "max_val": "2026-06-29 02:47:41.3804350"
+        },
+        {
+          "name": "valid_to",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2026-06-29 02:47:41.3844859",
+          "max_val": "2026-06-29 02:47:41.3885933"
+        }
+      ]
+    }
+  ]
+}

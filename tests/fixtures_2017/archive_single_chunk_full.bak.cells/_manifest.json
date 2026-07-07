@@ -1,0 +1,26 @@
+{
+  "bak": "archive_single_chunk_full.bak",
+  "captured_at": "2026-06-26T02:26:14.994602+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.archive_single_chunk",
+      "row_count": 5000,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:66c2c44f3a4c67fc63b09c5d69e7d8da1da3aeffc9eb1c860c268c699b0c5f9c",
+          "null_count": 0
+        },
+        {
+          "name": "code",
+          "sql_type": "char(10)",
+          "digest": "sha256:cc49ef5134757136c1baf01f2d3ea5630ed080d66a10215a10d9b1c0efca6426",
+          "null_count": 50
+        }
+      ]
+    }
+  ]
+}

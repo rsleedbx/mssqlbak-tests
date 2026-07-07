@@ -1,0 +1,34 @@
+{
+  "bak": "float_extreme_full.bak",
+  "captured_at": "2026-06-28T21:14:52.620601+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.float_extreme",
+      "row_count": 5,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:ea73e51ecad26eb8490a320f5ae148a8aa3569530627f335bfe2060c1a54b550",
+          "null_count": 0
+        },
+        {
+          "name": "f64",
+          "sql_type": "float",
+          "digest": "sha256:fc9617cf1801767ca91fe5fdcc196ad06b80e150d669f45fe5d9f0fda0521c2e",
+          "null_count": 0
+        },
+        {
+          "name": "f32",
+          "sql_type": "real",
+          "digest": "sha256:c201cc5948a0857d7abba10f719693f75364d8c183010c1c09f7e4d1514e3035",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}

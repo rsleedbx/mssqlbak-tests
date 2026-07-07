@@ -1,0 +1,40 @@
+{
+  "sql_version": "Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64)",
+  "bak": "dirtycoverage_dropcol.bak",
+  "bak_size_bytes": 2670592,
+  "bak_size_mb": 2.547,
+  "bak_sha256": "39306977b5eeac1daf7ca0b3c14a6aaa011c80c1f47189a2a97cdaa3cb3a96ad",
+  "database": "RegisterBak_dirtycoverage_dropcol",
+  "registered_at": "2026-06-12T16:36:49.087503+00:00",
+  "sqlserver_restore_s": 2.133,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "dropcol_test",
+      "row_count": 60,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "60"
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "post-drop row 1",
+          "max_val": "pre-drop row 9"
+        },
+        {
+          "name": "phase",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "post_drop",
+          "max_val": "pre_drop"
+        }
+      ]
+    }
+  ]
+}

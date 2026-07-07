@@ -1,0 +1,40 @@
+{
+  "sql_version": "Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64)",
+  "bak": "float_extreme_full.bak",
+  "bak_size_bytes": 2670592,
+  "bak_size_mb": 2.547,
+  "bak_sha256": "0f7c81dac68a617acac6b8c017c8e7feabdb943a4e2bd10a84778f89884a67e7",
+  "database": "RegisterBak_float_extreme_full",
+  "registered_at": "2026-06-28T21:14:56.061118+00:00",
+  "sqlserver_restore_s": 1.955,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "float_extreme",
+      "row_count": 5,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "5"
+        },
+        {
+          "name": "f64",
+          "sql_type": "float",
+          "null_count": 0,
+          "min_val": "-1.79769e+308",
+          "max_val": "1.79769e+308"
+        },
+        {
+          "name": "f32",
+          "sql_type": "real",
+          "null_count": 0,
+          "min_val": "-3.40282e+038",
+          "max_val": "3.40282e+038"
+        }
+      ]
+    }
+  ]
+}

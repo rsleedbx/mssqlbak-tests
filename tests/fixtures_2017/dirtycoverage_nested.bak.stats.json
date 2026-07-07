@@ -1,0 +1,40 @@
+{
+  "sql_version": "Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64)",
+  "bak": "dirtycoverage_nested.bak",
+  "bak_size_bytes": 2670592,
+  "bak_size_mb": 2.547,
+  "bak_sha256": "d965c51fa69b1f3b00edec7721381612450a9b0efbfc1ec522a50b5e4412d315",
+  "database": "RegisterBak_dirtycoverage_nested",
+  "registered_at": "2026-06-12T16:37:31.814530+00:00",
+  "sqlserver_restore_s": 2.024,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "nested_test",
+      "row_count": 50,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "50"
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "committed 1",
+          "max_val": "committed 9"
+        },
+        {
+          "name": "phase",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "committed",
+          "max_val": "committed"
+        }
+      ]
+    }
+  ]
+}
