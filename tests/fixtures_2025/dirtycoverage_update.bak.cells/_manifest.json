@@ -1,0 +1,40 @@
+{
+  "bak": "dirtycoverage_update.bak",
+  "captured_at": "2026-06-26T18:51:38.897782+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.update_test",
+      "row_count": 50,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:093edeae7c01ee8c8134f58a053472cd1b889bac69e2fae8ca356615fc1997cf",
+          "null_count": 0
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar(200)",
+          "digest": "sha256:99348fff93f65808b5de44d4428b56a140373ab879b23e4283a14934940a95be",
+          "null_count": 0
+        },
+        {
+          "name": "score",
+          "sql_type": "int",
+          "digest": "sha256:093edeae7c01ee8c8134f58a053472cd1b889bac69e2fae8ca356615fc1997cf",
+          "null_count": 0
+        },
+        {
+          "name": "phase",
+          "sql_type": "varchar(30)",
+          "digest": "sha256:2acb3fce53fa9dbb13e93476bcc54c0f2b0d735c9beecf471d8aa74bb4d6a5a1",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}

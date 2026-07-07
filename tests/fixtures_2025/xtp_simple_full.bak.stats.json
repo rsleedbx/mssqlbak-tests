@@ -1,0 +1,61 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "bak": "xtp_simple_full.bak",
+  "bak_size_bytes": 7598080,
+  "bak_size_mb": 7.246,
+  "bak_sha256": "d32eff351e78b00b631781351415be6db57de75c61539c76a8d701f97888d969",
+  "database": "RegisterBak_xtp_simple_full",
+  "registered_at": "2026-06-29T22:39:08.671699+00:00",
+  "sqlserver_restore_s": 15.691,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "xtp_fixed",
+      "row_count": 3,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3"
+        },
+        {
+          "name": "score",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "100",
+          "max_val": "999999999999"
+        },
+        {
+          "name": "flag",
+          "sql_type": "tinyint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "255"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "xtp_var",
+      "row_count": 3,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3"
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar",
+          "null_count": 1,
+          "min_val": "Alfa",
+          "max_val": "Omega"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "bak": "cci_bitpack_probe_full.bak",
+  "bak_size_bytes": 9564160,
+  "bak_size_mb": 9.121,
+  "bak_sha256": "6385cefeec9f8aa7830cf985bcdf92d3009fd77a4808f5702558e6b91ed3265b",
+  "database": "RegisterBak_cci_bitpack_probe_full",
+  "registered_at": "2026-07-06T18:38:57.217460+00:00",
+  "sqlserver_restore_s": 2.795,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "cci_bitpack_probe",
+      "row_count": 200000,
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "199999"
+        },
+        {
+          "name": "mod4000",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "3999"
+        },
+        {
+          "name": "mod2000",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1999"
+        },
+        {
+          "name": "mod1000",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "999"
+        },
+        {
+          "name": "mod100",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "99"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "fkr__seed",
+      "row_count": 200000,
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "199999"
+        }
+      ]
+    }
+  ]
+}

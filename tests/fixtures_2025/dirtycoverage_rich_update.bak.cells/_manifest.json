@@ -1,0 +1,75 @@
+{
+  "bak": "dirtycoverage_rich_update.bak",
+  "captured_at": "2026-06-26T18:50:19.544203+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.rich_update_test",
+      "row_count": 20,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:8d949ae465f77f961c140ceed6b2bd5fb8afaf8584afbc3d731d9a22015e7051",
+          "null_count": 0
+        },
+        {
+          "name": "flag",
+          "sql_type": "bit",
+          "digest": "sha256:33d3ffd9a9ecdf209e3bd421eb62a1f799264ba018dded403f2da8dc946444aa",
+          "null_count": 0
+        },
+        {
+          "name": "small_val",
+          "sql_type": "smallint",
+          "digest": "sha256:8d949ae465f77f961c140ceed6b2bd5fb8afaf8584afbc3d731d9a22015e7051",
+          "null_count": 0
+        },
+        {
+          "name": "big_val",
+          "sql_type": "bigint",
+          "digest": "sha256:409f3cdd0539f41c37840f29197503a3c8fc6b8c0c933e30c4d69de17e724fcf",
+          "null_count": 0
+        },
+        {
+          "name": "dec_val",
+          "sql_type": "decimal(18,4)",
+          "digest": "sha256:772f1de44b70d12952bc13f4a69e5a0fce4a8c63e166882267ee2187bef21d5a",
+          "null_count": 0
+        },
+        {
+          "name": "dt2_val",
+          "sql_type": "datetime2",
+          "digest": "sha256:e5853c0be9d688bb8495d9971396992dc19f0a1c86b6dd4bc735ba07095e972a",
+          "null_count": 0
+        },
+        {
+          "name": "guid_val",
+          "sql_type": "uniqueidentifier",
+          "digest": "sha256:1ae7e0f6dd1f8adfff1e98d95fe2c352985b444ae511b87167d45e843440e10a",
+          "null_count": 0
+        },
+        {
+          "name": "bin_val",
+          "sql_type": "varbinary(500)",
+          "digest": "sha256:b5f9c12f6455133355a9d01dc6fe4443ded2585af31341a82dcaef1e13f35202",
+          "null_count": 0
+        },
+        {
+          "name": "nc_val",
+          "sql_type": "nchar(20)",
+          "digest": "sha256:f835616fbc795b94eddc29d71ea4e630696d3f386ce12e24b278f1559b08ddcb",
+          "null_count": 0
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar(200)",
+          "digest": "sha256:4369e304789a5a595a23ceb5676409e7fb455dce01a42e5d8f240125b3e505cc",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true
+    }
+  ]
+}

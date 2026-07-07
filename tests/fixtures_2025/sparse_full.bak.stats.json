@@ -1,0 +1,61 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "bak": "sparse_full.bak",
+  "bak_size_bytes": 3919872,
+  "bak_size_mb": 3.738,
+  "bak_sha256": "e4795ed2fe6558fdfb4ba1cec281f357f448d60c2d5eaa46c020811ec3a6c4a4",
+  "database": "RegisterBak_sparse_full",
+  "registered_at": "2026-06-18T16:44:54.645891+00:00",
+  "sqlserver_restore_s": 2.963,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "sparse_wide",
+      "row_count": 10000,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "10000"
+        },
+        {
+          "name": "a",
+          "sql_type": "int",
+          "null_count": 5000,
+          "min_val": "14",
+          "max_val": "70000"
+        },
+        {
+          "name": "b",
+          "sql_type": "varchar",
+          "null_count": 6667,
+          "min_val": "str_1002",
+          "max_val": "str_9999"
+        },
+        {
+          "name": "c",
+          "sql_type": "datetime2",
+          "null_count": 7500,
+          "min_val": "2020-01-01 00:00:00.000",
+          "max_val": "2020-12-30 00:00:00.000"
+        },
+        {
+          "name": "d",
+          "sql_type": "decimal",
+          "null_count": 10000,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "cs",
+          "sql_type": "xml",
+          "null_count": 3333,
+          "min_val": "<a>10010</a>",
+          "max_val": "<b>str_9</b>"
+        }
+      ]
+    }
+  ]
+}

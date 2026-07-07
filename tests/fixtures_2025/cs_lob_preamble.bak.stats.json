@@ -1,0 +1,33 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "bak": "cs_lob_preamble.bak",
+  "bak_size_mb": 0.566,
+  "bak_size_bytes": 593920,
+  "bak_sha256": "5b4722ae2d40a6fda981062c46e6217388d583e2deecfaf922763c24b1822966",
+  "database": "RegisterBak_cs_lob_preamble",
+  "registered_at": "2026-06-12T00:01:08.199565+00:00",
+  "sqlserver_restore_s": 2.666,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "cs_lob_preamble",
+      "row_count": 1400,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1399"
+        },
+        {
+          "name": "long_str",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "row_000000_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+          "max_val": "row_001399_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+        }
+      ]
+    }
+  ]
+}

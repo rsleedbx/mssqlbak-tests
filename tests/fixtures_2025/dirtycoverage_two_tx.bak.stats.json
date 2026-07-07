@@ -1,0 +1,40 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "bak": "dirtycoverage_two_tx.bak",
+  "bak_size_mb": 3.551,
+  "bak_size_bytes": 3723264,
+  "bak_sha256": "8fcbbc31c615cfa104de68c355570196d0ca400bfac6856e152b95438d2edf5a",
+  "database": "RegisterBak_dirtycoverage_two_tx",
+  "registered_at": "2026-06-12T02:35:51.900863+00:00",
+  "sqlserver_restore_s": 2.522,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "two_tx_test",
+      "row_count": 30,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "30"
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "committed_1",
+          "max_val": "committed_9"
+        },
+        {
+          "name": "phase",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "committed",
+          "max_val": "committed"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "bak": "ghost_records_full.bak",
+  "captured_at": "2026-06-26T18:52:02.939574+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.ghost_heap",
+      "row_count": 800,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:9ca29efcb780f440a55112d313627664337f59698c6b70e61ab716ef6b073847",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "varchar(100)",
+          "digest": "sha256:3e98effb5dfeca8ced8d3dc1b4ac6c585cec352f83616a6d458c72bbf395934c",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true
+    }
+  ]
+}

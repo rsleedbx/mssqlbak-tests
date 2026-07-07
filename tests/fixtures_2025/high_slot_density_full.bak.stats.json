@@ -1,0 +1,40 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "bak": "high_slot_density_full.bak",
+  "bak_size_bytes": 6873088,
+  "bak_size_mb": 6.555,
+  "bak_sha256": "85ccbdedab4c4a5641ff5624d0616347124148d37b6a0a95dfa874953b8529c6",
+  "database": "RegisterBak_high_slot_density_full",
+  "registered_at": "2026-06-23T02:23:19.566208+00:00",
+  "sqlserver_restore_s": 2.763,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "fkr__seed",
+      "row_count": 100000,
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "99999"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "tiny_row",
+      "row_count": 100000,
+      "columns": [
+        {
+          "name": "a",
+          "sql_type": "tinyint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "255"
+        }
+      ]
+    }
+  ]
+}

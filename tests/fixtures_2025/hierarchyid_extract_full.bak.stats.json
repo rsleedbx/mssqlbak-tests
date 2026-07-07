@@ -1,0 +1,33 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "bak": "hierarchyid_extract_full.bak",
+  "bak_size_bytes": 3526656,
+  "bak_size_mb": 3.363,
+  "bak_sha256": "4c5ab75aa7d89ec66d93dee7990933264b1769eb1220aa945a90670590d8744a",
+  "database": "RegisterBak_hierarchyid_extract_full",
+  "registered_at": "2026-06-23T02:23:10.447867+00:00",
+  "sqlserver_restore_s": 2.565,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "org",
+      "row_count": 6,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "6"
+        },
+        {
+          "name": "node",
+          "sql_type": "hierarchyid",
+          "null_count": 0,
+          "min_val": "/",
+          "max_val": "/2/"
+        }
+      ]
+    }
+  ]
+}

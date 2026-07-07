@@ -1,0 +1,40 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "bak": "dirtycoverage_truncate.bak",
+  "bak_size_mb": 3.863,
+  "bak_size_bytes": 4050944,
+  "bak_sha256": "819d2743cc6dac81c6e2eceb18c34cbe0ac004a268bb03f337d54b29b9baff55",
+  "database": "RegisterBak_dirtycoverage_truncate",
+  "registered_at": "2026-06-12T02:35:45.340669+00:00",
+  "sqlserver_restore_s": 2.538,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "trunc_test",
+      "row_count": 500,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "500"
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "row 1",
+          "max_val": "row 99"
+        },
+        {
+          "name": "phase",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "pre_trunc",
+          "max_val": "pre_trunc"
+        }
+      ]
+    }
+  ]
+}

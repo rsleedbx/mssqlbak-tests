@@ -1,0 +1,110 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "bak": "pfor_columnstore_random_full.bak",
+  "bak_size_bytes": 9564160,
+  "bak_size_mb": 9.121,
+  "bak_sha256": "a9c03bc7ce1d84502a68bfb5fe45ba03bc613a11f582027119525e169aed4b29",
+  "database": "RegisterBak_pfor_columnstore_random_full",
+  "registered_at": "2026-06-17T07:50:14.325467+00:00",
+  "sqlserver_restore_s": 2.771,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "pfor_archive",
+      "row_count": 200000,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "200000"
+        },
+        {
+          "name": "v_none",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "999"
+        },
+        {
+          "name": "v_sparse",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "2000000000"
+        },
+        {
+          "name": "v_deep",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "2000000000"
+        },
+        {
+          "name": "v_compulsory",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1000000000"
+        },
+        {
+          "name": "v_dense",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1000000006"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "pfor_plain",
+      "row_count": 200000,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "200000"
+        },
+        {
+          "name": "v_none",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "999"
+        },
+        {
+          "name": "v_sparse",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "2000000000"
+        },
+        {
+          "name": "v_deep",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "2000000000"
+        },
+        {
+          "name": "v_compulsory",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1000000000"
+        },
+        {
+          "name": "v_dense",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1000000006"
+        }
+      ]
+    }
+  ]
+}

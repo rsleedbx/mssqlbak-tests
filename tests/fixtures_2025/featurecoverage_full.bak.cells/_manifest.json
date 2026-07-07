@@ -1,0 +1,283 @@
+{
+  "bak": "featurecoverage_full.bak",
+  "captured_at": "2026-06-29T22:37:28.956890+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.compress_col",
+      "row_count": 20,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:8d949ae465f77f961c140ceed6b2bd5fb8afaf8584afbc3d731d9a22015e7051",
+          "null_count": 0
+        },
+        {
+          "name": "raw_text",
+          "sql_type": "nvarchar(max)",
+          "digest": "sha256:e984e07cddac21f028c6791151aff252752368d368fe209b7720daaaff24ba95",
+          "null_count": 0
+        },
+        {
+          "name": "compressed",
+          "sql_type": "varbinary(max)",
+          "digest": "sha256:7a8d46d8760a18d0ed35899f571ead02d57322a32f62cd6a7c03b1cd6d868599",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.fkr__seed",
+      "row_count": 1024,
+      "key_columns": [
+        "pk"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "int",
+          "digest": "sha256:7d9e90623a6713cdd7ebb6edf9edd8cb594f06e5e3ad362f324432a3059731f1",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.graph_follows",
+      "row_count": 2,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "since",
+          "sql_type": "date",
+          "digest": "sha256:78f47a26dbe65f9c97bb273fba2d06cfe50169a69dd2858ec62f3c7478129005",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true
+    },
+    {
+      "fqn": "dbo.graph_person",
+      "row_count": 3,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "name",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:1e6614b32c2ae2627b8fc51373864908f70f1f1de6bafeed69c81165d8e69d43",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true
+    },
+    {
+      "fqn": "dbo.ledger_account",
+      "row_count": 3,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:5be6c1972032e65c8852b651ad59e6dccaff8d9d07dc0e5718a63bff0f3f90bc",
+          "null_count": 0
+        },
+        {
+          "name": "name",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:1e6614b32c2ae2627b8fc51373864908f70f1f1de6bafeed69c81165d8e69d43",
+          "null_count": 0
+        },
+        {
+          "name": "balance",
+          "sql_type": "decimal(10,2)",
+          "digest": "sha256:435c3d79e79eb59197c53bdbb17f54c932e85cb45a48dff8c79628dc4fb532db",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.long_text",
+      "row_count": 3,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:5be6c1972032e65c8852b651ad59e6dccaff8d9d07dc0e5718a63bff0f3f90bc",
+          "null_count": 0
+        },
+        {
+          "name": "short_text",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:d440542de742328036965e4e754c90444130940ea9df0a20ac838759d965732f",
+          "null_count": 0
+        },
+        {
+          "name": "long_varchar",
+          "sql_type": "varchar(max)",
+          "digest": "sha256:06f351354be49b28c96929a5f3723e64e54a0f935c32601350c6157f3de565c3",
+          "null_count": 1
+        },
+        {
+          "name": "long_nvarchar",
+          "sql_type": "nvarchar(max)",
+          "digest": "sha256:06f351354be49b28c96929a5f3723e64e54a0f935c32601350c6157f3de565c3",
+          "null_count": 1
+        },
+        {
+          "name": "long_char",
+          "sql_type": "char(500)",
+          "digest": "sha256:06f351354be49b28c96929a5f3723e64e54a0f935c32601350c6157f3de565c3",
+          "null_count": 1
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.ncci_table",
+      "row_count": 1024,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:b3047e02ee03d68ca6c7f1c9cc58ff84592e8916c1cb49e629af300969f0ba9f",
+          "null_count": 0
+        },
+        {
+          "name": "code",
+          "sql_type": "int",
+          "digest": "sha256:1d5b347b408a1bbbe074a9d60e942cd0be223e857be26f96c7ab26404c0c1cd6",
+          "null_count": 0
+        },
+        {
+          "name": "name",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:2bbf017618f9973f4a104899152dbef950ce6b8da9f5cafc29a197568472aa35",
+          "null_count": 0
+        },
+        {
+          "name": "amount",
+          "sql_type": "decimal(10,2)",
+          "digest": "sha256:651712c663b8734749764a9720cda60d53352e0767ea7c3320278b5a65a43798",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.temporal_current",
+      "row_count": 50,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:093edeae7c01ee8c8134f58a053472cd1b889bac69e2fae8ca356615fc1997cf",
+          "null_count": 0
+        },
+        {
+          "name": "value",
+          "sql_type": "decimal(10,2)",
+          "digest": "sha256:a6b4754b8ae508d0554a9544e42ae98a7fa720a2e7c48f112869efc8931bc5f5",
+          "null_count": 0
+        },
+        {
+          "name": "valid_from",
+          "sql_type": "datetime2",
+          "digest": "sha256:89005761fbf26220d72251e70890a8dd9ef74213d5e09db8f2473b599405a3fb",
+          "null_count": 0
+        },
+        {
+          "name": "valid_to",
+          "sql_type": "datetime2",
+          "digest": "sha256:06db15cc2d58685caf37f62b2a7173a7680dc25b39270ee96e1db019acfa94c3",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.temporal_history",
+      "row_count": 10,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:4f4a43a6d2d3ff045d83b1ae3852a3cd4109560b608cc60e9cf15e049f4fc7e3",
+          "null_count": 0
+        },
+        {
+          "name": "value",
+          "sql_type": "decimal(10,2)",
+          "digest": "sha256:5b4889052a4eb0acb30dfade1e6b768f9a452b1189c24684861dea7950c6024d",
+          "null_count": 0
+        },
+        {
+          "name": "valid_from",
+          "sql_type": "datetime2",
+          "digest": "sha256:63b19f2ccfcec0362acb55a2bdf68da350b56b6a468ad8ffe80cf976d8ad7a42",
+          "null_count": 0
+        },
+        {
+          "name": "valid_to",
+          "sql_type": "datetime2",
+          "digest": "sha256:54ede98c2de59b5e448d569a09adfd279ba7da39bd9b8d4d4cfa6c8e5e324363",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true
+    },
+    {
+      "fqn": "dbo.utf8_collation",
+      "row_count": 6,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:198af4a420b0c153d7e3d93f039fb3964a1ccbaf51020c423c927896599b0222",
+          "null_count": 0
+        },
+        {
+          "name": "latin",
+          "sql_type": "varchar(100)",
+          "digest": "sha256:51323a2cd3d770deada326a4cee50b39315f5a6fae6a29d2465e19563150c016",
+          "null_count": 0
+        },
+        {
+          "name": "utf8",
+          "sql_type": "varchar(100)",
+          "digest": "sha256:51323a2cd3d770deada326a4cee50b39315f5a6fae6a29d2465e19563150c016",
+          "null_count": 0
+        },
+        {
+          "name": "wide",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:51323a2cd3d770deada326a4cee50b39315f5a6fae6a29d2465e19563150c016",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}

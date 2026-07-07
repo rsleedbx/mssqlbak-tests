@@ -1,0 +1,61 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "bak": "dirtycoverage_cci_update.bak",
+  "bak_size_bytes": 5558272,
+  "bak_size_mb": 5.301,
+  "bak_sha256": "209c588d73add038189ebaa0762a6a9cba66c471e368189cbbadfd69883f0056",
+  "database": "RegisterBak_dirtycoverage_cci_update",
+  "registered_at": "2026-06-24T03:26:15.635392+00:00",
+  "sqlserver_restore_s": 16.794,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "dirty_cci",
+      "row_count": 7000,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "7000"
+        },
+        {
+          "name": "phase",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "compressed",
+          "max_val": "update"
+        },
+        {
+          "name": "val",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "original_6001",
+          "max_val": "val_999"
+        },
+        {
+          "name": "score",
+          "sql_type": "float",
+          "null_count": 0,
+          "min_val": "0.333333",
+          "max_val": "1666.67"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "fkr__seed",
+      "row_count": 7000,
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "6999"
+        }
+      ]
+    }
+  ]
+}

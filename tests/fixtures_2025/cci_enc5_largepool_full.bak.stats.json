@@ -1,0 +1,54 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "bak": "cci_enc5_largepool_full.bak",
+  "bak_size_bytes": 11657216,
+  "bak_size_mb": 11.117,
+  "bak_sha256": "2b57a721bd8b5fbf3d67c0912cd811cc7f5a66c5f5bb2a6a07c98ffe7129646e",
+  "database": "RegisterBak_cci_enc5_largepool_full",
+  "registered_at": "2026-06-26T22:11:22.125933+00:00",
+  "sqlserver_restore_s": 3.185,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "cci_char_pool",
+      "row_count": 80000,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "80000"
+        },
+        {
+          "name": "login",
+          "sql_type": "char",
+          "null_count": 80,
+          "min_val": "00003E3B9E533",
+          "max_val": "FFFFFE98D0963"
+        },
+        {
+          "name": "code",
+          "sql_type": "char",
+          "null_count": 80,
+          "min_val": "0000FC70AD",
+          "max_val": "FFFF798345"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "fkr__seed",
+      "row_count": 80000,
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "79999"
+        }
+      ]
+    }
+  ]
+}

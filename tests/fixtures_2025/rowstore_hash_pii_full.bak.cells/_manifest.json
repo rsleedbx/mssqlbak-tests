@@ -1,0 +1,40 @@
+{
+  "bak": "rowstore_hash_pii_full.bak",
+  "captured_at": "2026-06-30T00:46:03.291432+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.hash_pii_probe",
+      "row_count": 4,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:ff4a8c130447f52354261f27135cf2bdb7b593e8c872fda57a934632c2234483",
+          "null_count": 0
+        },
+        {
+          "name": "hashed_password",
+          "sql_type": "binary(32)",
+          "digest": "sha256:b67023c944d465825121ab95415f6617e4b6f4a2c0c9c83759d50fa9c4cf0742",
+          "null_count": 1
+        },
+        {
+          "name": "ssn_cipher",
+          "sql_type": "varbinary(16)",
+          "digest": "sha256:a74f881f5aa17bf00a7a01edb7c183b9c863397a51cd51f31c8d9168e2974190",
+          "null_count": 1
+        },
+        {
+          "name": "credit_card_cipher",
+          "sql_type": "varbinary(max)",
+          "digest": "sha256:3cb3920283f4feb0add41d45449fa90c5d981134edf520d28ace2cb2001312e7",
+          "null_count": 1
+        }
+      ]
+    }
+  ]
+}

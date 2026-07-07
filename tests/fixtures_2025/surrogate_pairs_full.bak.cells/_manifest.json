@@ -1,0 +1,28 @@
+{
+  "bak": "surrogate_pairs_full.bak",
+  "captured_at": "2026-06-26T18:56:06.056062+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.sc_tbl",
+      "row_count": 5,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:ea73e51ecad26eb8490a320f5ae148a8aa3569530627f335bfe2060c1a54b550",
+          "null_count": 0
+        },
+        {
+          "name": "s",
+          "sql_type": "nvarchar(40)",
+          "digest": "sha256:038f0de29b017b0a0e08257d50599644623a72304b48732f0f6381d71141d4ab",
+          "null_count": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "bak": "compressed_nvarchar_full.bak",
+  "bak_size_bytes": 3526656,
+  "bak_size_mb": 3.363,
+  "bak_sha256": "6320f0cd0b9d3b5fbbb31d64a64f7e09d85726e209c66d8d0d96a92921b53905",
+  "database": "RegisterBak_compressed_nvarchar_full",
+  "registered_at": "2026-06-28T22:42:35.873106+00:00",
+  "sqlserver_restore_s": 2.859,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "compressed_nvar",
+      "row_count": 8,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "8"
+        },
+        {
+          "name": "val",
+          "sql_type": "nvarchar",
+          "null_count": 1,
+          "min_val": "Hello",
+          "max_val": "\u6211\u8981\u6d4b\u8bd5"
+        }
+      ]
+    }
+  ]
+}

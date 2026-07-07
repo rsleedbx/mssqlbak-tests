@@ -1,0 +1,33 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "bak": "dirtycoverage_maxrow.bak",
+  "bak_size_mb": 3.301,
+  "bak_size_bytes": 3461120,
+  "bak_sha256": "73265478fa830726d0a08b37a482add625fb8d75f1d3319f26ff48a9f07cd57f",
+  "database": "RegisterBak_dirtycoverage_maxrow",
+  "registered_at": "2026-06-12T02:34:28.680914+00:00",
+  "sqlserver_restore_s": 2.492,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "maxrow_test",
+      "row_count": 10,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "10"
+        },
+        {
+          "name": "content",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR",
+          "max_val": "RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR"
+        }
+      ]
+    }
+  ]
+}

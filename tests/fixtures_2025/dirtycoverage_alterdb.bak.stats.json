@@ -1,0 +1,33 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "bak": "dirtycoverage_alterdb.bak",
+  "bak_size_mb": 3.863,
+  "bak_size_bytes": 4050944,
+  "bak_sha256": "4f6aedf65274d82cf6be0fd0a19a7609ccf820b72527193fe0613fb7e085b9d7",
+  "database": "RegisterBak_dirtycoverage_alterdb",
+  "registered_at": "2026-06-12T02:33:01.470852+00:00",
+  "sqlserver_restore_s": 2.567,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "alterdb_test",
+      "row_count": 300,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "300"
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "row 1",
+          "max_val": "row 99"
+        }
+      ]
+    }
+  ]
+}

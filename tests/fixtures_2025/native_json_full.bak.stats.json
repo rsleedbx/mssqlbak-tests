@@ -1,0 +1,54 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "bak": "native_json_full.bak",
+  "bak_size_bytes": 3592192,
+  "bak_size_mb": 3.426,
+  "bak_sha256": "d24f46092b4ca79d2d9dbc838bbcbea2bff84780ebe3c0b5aa0fe5b55d373c20",
+  "database": "RegisterBak_native_json_full",
+  "registered_at": "2026-06-23T04:17:45.417989+00:00",
+  "sqlserver_restore_s": 17.838,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "fkr__seed",
+      "row_count": 10,
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "9"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "json_docs",
+      "row_count": 10,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "doc",
+          "sql_type": "json",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "name",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        }
+      ]
+    }
+  ]
+}

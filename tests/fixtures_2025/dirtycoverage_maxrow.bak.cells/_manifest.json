@@ -1,0 +1,28 @@
+{
+  "bak": "dirtycoverage_maxrow.bak",
+  "captured_at": "2026-06-26T18:49:27.298345+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.maxrow_test",
+      "row_count": 10,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:9580f3b016d3581180d64a6c2ffd7883350f5d7d48a0d547e5f7ad688f05048a",
+          "null_count": 0
+        },
+        {
+          "name": "content",
+          "sql_type": "char(8000)",
+          "digest": "sha256:6652b96df563b66092c97218e25882e4bc3665cf158a816c2b1072584655797e",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}

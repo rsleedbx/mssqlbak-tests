@@ -1,0 +1,50 @@
+{
+  "bak": "native_json_full.bak",
+  "captured_at": "2026-06-26T18:54:32.141250+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.fkr__seed",
+      "row_count": 10,
+      "key_columns": [
+        "pk"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "int",
+          "digest": "sha256:dbe5c160c3dcb809d2134a55a229e007a87ade3928d5c6ad4d759023b9d0f9c8",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.json_docs",
+      "row_count": 10,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:9580f3b016d3581180d64a6c2ffd7883350f5d7d48a0d547e5f7ad688f05048a",
+          "null_count": 0
+        },
+        {
+          "name": "doc",
+          "sql_type": "json",
+          "digest": "sha256:b7e9617eb2c61d04d68d6c4b62b1086824ef428f8097d1125dcdf5e4b11deb1f",
+          "null_count": 0
+        },
+        {
+          "name": "name",
+          "sql_type": "varchar(30)",
+          "digest": "sha256:3b2010b41e21c0d004d4c2daae649f5e334e8221491a9a12f344eb7ec60f84fb",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}

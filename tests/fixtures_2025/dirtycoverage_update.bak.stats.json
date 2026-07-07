@@ -1,0 +1,47 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "bak": "dirtycoverage_update.bak",
+  "bak_size_mb": 3.926,
+  "bak_size_bytes": 4116480,
+  "bak_sha256": "c54f2387650318915618d7e6f11a62e055fc093f436cf45ea6966d6789c9fc96",
+  "database": "RegisterBak_dirtycoverage_update",
+  "registered_at": "2026-06-12T02:36:05.143793+00:00",
+  "sqlserver_restore_s": 2.514,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "update_test",
+      "row_count": 50,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "50"
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "original_1",
+          "max_val": "original_9"
+        },
+        {
+          "name": "score",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "50"
+        },
+        {
+          "name": "phase",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "pre_update",
+          "max_val": "pre_update"
+        }
+      ]
+    }
+  ]
+}

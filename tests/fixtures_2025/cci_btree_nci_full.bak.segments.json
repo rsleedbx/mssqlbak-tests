@@ -1,0 +1,126 @@
+{
+  "segments": {
+    "cci_with_btree": {
+      "partition_1": {
+        "segment_1": [
+          {
+            "column_name": "id",
+            "column_id": 1,
+            "segment_version": 1,
+            "encoding_type": 1,
+            "row_count": 1200,
+            "has_nulls": 0,
+            "null_value": -1,
+            "min_data_id": 1,
+            "max_data_id": 1200,
+            "on_disk_size": 2136,
+            "base_id": -2,
+            "magnitude": "1.0"
+          },
+          {
+            "column_name": "code",
+            "column_id": 2,
+            "segment_version": 1,
+            "encoding_type": 1,
+            "row_count": 1200,
+            "has_nulls": 0,
+            "null_value": -1,
+            "min_data_id": 0,
+            "max_data_id": 99,
+            "on_disk_size": 1288,
+            "base_id": -3,
+            "magnitude": "1.0"
+          },
+          {
+            "column_name": "name",
+            "column_id": 3,
+            "segment_version": 1,
+            "encoding_type": 3,
+            "row_count": 1200,
+            "has_nulls": 0,
+            "null_value": -1,
+            "min_data_id": 4,
+            "max_data_id": 1203,
+            "on_disk_size": 2136,
+            "base_id": -1,
+            "magnitude": "-1.0"
+          },
+          {
+            "column_name": "val",
+            "column_id": 4,
+            "segment_version": 1,
+            "encoding_type": 1,
+            "row_count": 1200,
+            "has_nulls": 0,
+            "null_value": -1,
+            "min_data_id": 5,
+            "max_data_id": 6000,
+            "on_disk_size": 2616,
+            "base_id": 2,
+            "magnitude": "1.0"
+          }
+        ]
+      }
+    }
+  },
+  "row_groups": {
+    "cci_with_btree": [
+      {
+        "partition_number": 1,
+        "row_group_id": 0,
+        "state": 4,
+        "state_description": "TOMBSTONE",
+        "total_rows": 1200,
+        "deleted_rows": null,
+        "size_in_bytes": 65536
+      },
+      {
+        "partition_number": 1,
+        "row_group_id": 1,
+        "state": 3,
+        "state_description": "COMPRESSED",
+        "total_rows": 1200,
+        "deleted_rows": 0,
+        "size_in_bytes": 10312
+      }
+    ]
+  },
+  "dictionaries": {
+    "cci_with_btree": [
+      {
+        "column_name": "name",
+        "column_id": 3,
+        "dictionary_id": 2,
+        "version": 1,
+        "type": 3,
+        "last_id": 1203,
+        "entry_count": 1200,
+        "on_disk_size": 15162,
+        "dict_scope": "secondary"
+      }
+    ]
+  },
+  "reconciliation": {
+    "cci_with_btree": {
+      "total_rows": 2400,
+      "deleted_rows": 0,
+      "live_rows": 1200,
+      "n_row_groups": 2,
+      "state_counts": {
+        "TOMBSTONE": 1,
+        "COMPRESSED": 1
+      },
+      "tombstone_row_group_ids": [
+        0
+      ],
+      "has_tombstones": true,
+      "has_delete_bitmap": false
+    }
+  },
+  "raw_segment_count": 4,
+  "raw_row_group_count": 2,
+  "raw_dictionary_count": 1,
+  "bak": "cci_btree_nci_full.bak",
+  "database": "RegisterBak_cci_btree_nci_full",
+  "fixture_dir": "/Users/robert.lee/github/mssqlbak/tests/fixtures_2025"
+}

@@ -1,0 +1,54 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "bak": "spatial_edge_full.bak",
+  "bak_size_bytes": 4116480,
+  "bak_size_mb": 3.926,
+  "bak_sha256": "83745e38bb71b42778d1232aaeb0a1714e613052fb1fa4dd1a82a853c2e4582d",
+  "database": "RegisterBak_spatial_edge_full",
+  "registered_at": "2026-06-28T00:03:04.821758+00:00",
+  "sqlserver_restore_s": 2.923,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "geography_edge",
+      "row_count": 4,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "4"
+        },
+        {
+          "name": "shape",
+          "sql_type": "geography",
+          "null_count": 1,
+          "min_val": "FULLGLOBE",
+          "max_val": "POLYGON ((-122 47, -121 47, -121 48, -122 48, -122 47))"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "geometry_edge",
+      "row_count": 4,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "4"
+        },
+        {
+          "name": "shape",
+          "sql_type": "geometry",
+          "null_count": 1,
+          "min_val": "MULTIPOLYGON (((0 0, 2 0, 2 2, 0 2, 0 0)), ((5 5, 7 5, 7 7, 5 7, 5 5)))",
+          "max_val": "POLYGON ((0 0, 10 0, 10 10, 0 10, 0 0))"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "bak": "forwarded_records_full.bak",
+  "captured_at": "2026-06-26T18:51:50.876370+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.fwd_control",
+      "row_count": 1000,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:d2cecc9e516895a16642edc609f915954203f5b5c0c8243e63a6a797c026bdc9",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "varchar(8000)",
+          "digest": "sha256:43237a2821a97b5eb65c6fb87bf9d31a778ddd49630bf210ccd2e4b0a6a7a46a",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.fwd_heap",
+      "row_count": 1000,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:d2cecc9e516895a16642edc609f915954203f5b5c0c8243e63a6a797c026bdc9",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "varchar(8000)",
+          "digest": "sha256:43237a2821a97b5eb65c6fb87bf9d31a778ddd49630bf210ccd2e4b0a6a7a46a",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true
+    }
+  ]
+}

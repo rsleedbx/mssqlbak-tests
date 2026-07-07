@@ -1,0 +1,153 @@
+{
+  "bak": "archive_columnstore_types_random_full.bak",
+  "captured_at": "2026-06-26T04:18:52.923000+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.archive_binary10",
+      "row_count": 35000,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:be6c9b5b442513e89a13c7234e466e92bb4e70671c26dd5ca21aed85d7e4c394",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "binary(10)",
+          "digest": "sha256:6a74316e65a53915d090c7669c96fe588880dc4e7483bb789773be15dcda56ba",
+          "null_count": 70
+        }
+      ],
+      "values_sorted": true
+    },
+    {
+      "fqn": "dbo.archive_char10",
+      "row_count": 35000,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:be6c9b5b442513e89a13c7234e466e92bb4e70671c26dd5ca21aed85d7e4c394",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "char(10)",
+          "digest": "sha256:ce00bb37f053e458916c6f1f97ef3d482fe630a555094394f8f8a1b0bd53c01a",
+          "null_count": 70
+        }
+      ],
+      "values_sorted": true
+    },
+    {
+      "fqn": "dbo.archive_nchar10",
+      "row_count": 35000,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:be6c9b5b442513e89a13c7234e466e92bb4e70671c26dd5ca21aed85d7e4c394",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "nchar(10)",
+          "digest": "sha256:ce00bb37f053e458916c6f1f97ef3d482fe630a555094394f8f8a1b0bd53c01a",
+          "null_count": 70
+        }
+      ],
+      "values_sorted": true
+    },
+    {
+      "fqn": "dbo.archive_nvarchar20",
+      "row_count": 35000,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:be6c9b5b442513e89a13c7234e466e92bb4e70671c26dd5ca21aed85d7e4c394",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "nvarchar(20)",
+          "digest": "sha256:ce00bb37f053e458916c6f1f97ef3d482fe630a555094394f8f8a1b0bd53c01a",
+          "null_count": 70
+        }
+      ],
+      "values_sorted": true
+    },
+    {
+      "fqn": "dbo.archive_uuid",
+      "row_count": 35000,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:be6c9b5b442513e89a13c7234e466e92bb4e70671c26dd5ca21aed85d7e4c394",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "uniqueidentifier",
+          "digest": "sha256:e9de3f98e5b3fba5f4f50c0a43a8de8c2f765432f6b24cb5f476153820262280",
+          "null_count": 70
+        }
+      ],
+      "values_sorted": true
+    },
+    {
+      "fqn": "dbo.archive_varbinary20",
+      "row_count": 35000,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:be6c9b5b442513e89a13c7234e466e92bb4e70671c26dd5ca21aed85d7e4c394",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "varbinary(20)",
+          "digest": "sha256:da51a1eff642beaa84e4f43144ea314a79fca3ed8a47223395953f8b70279d84",
+          "null_count": 70
+        }
+      ],
+      "values_sorted": true
+    },
+    {
+      "fqn": "dbo.archive_varchar20",
+      "row_count": 35000,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:be6c9b5b442513e89a13c7234e466e92bb4e70671c26dd5ca21aed85d7e4c394",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "varchar(20)",
+          "digest": "sha256:ce00bb37f053e458916c6f1f97ef3d482fe630a555094394f8f8a1b0bd53c01a",
+          "null_count": 70
+        }
+      ],
+      "values_sorted": true
+    }
+  ]
+}

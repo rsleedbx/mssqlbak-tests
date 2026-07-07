@@ -1,0 +1,40 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "bak": "dirtycoverage_nested.bak",
+  "bak_size_mb": 3.926,
+  "bak_size_bytes": 4116480,
+  "bak_sha256": "8db68fa6348077265d6e85cc32cd12d54dfd548ce3870491d8a184a4344c8544",
+  "database": "RegisterBak_dirtycoverage_nested",
+  "registered_at": "2026-06-12T02:34:42.180484+00:00",
+  "sqlserver_restore_s": 2.737,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "nested_test",
+      "row_count": 50,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "50"
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "committed 1",
+          "max_val": "committed 9"
+        },
+        {
+          "name": "phase",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "committed",
+          "max_val": "committed"
+        }
+      ]
+    }
+  ]
+}

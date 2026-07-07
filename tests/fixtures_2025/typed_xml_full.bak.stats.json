@@ -1,0 +1,33 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "bak": "typed_xml_full.bak",
+  "bak_size_bytes": 3526656,
+  "bak_size_mb": 3.363,
+  "bak_sha256": "44bbdf2a82c1647f6a59037bc6047b3d7cc1e5911cd553d0854c031995c8e160",
+  "database": "RegisterBak_typed_xml_full",
+  "registered_at": "2026-06-28T00:03:15.383832+00:00",
+  "sqlserver_restore_s": 2.796,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "typed_xml_docs",
+      "row_count": 3,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3"
+        },
+        {
+          "name": "doc",
+          "sql_type": "xml",
+          "null_count": 0,
+          "min_val": "<event id=\"1\" kind=\"database\"><message>create table</message><severity>10</severity></event>",
+          "max_val": "<event id=\"3\" kind=\"store\"><message>demographics update</message><severity>30</severity></event>"
+        }
+      ]
+    }
+  ]
+}

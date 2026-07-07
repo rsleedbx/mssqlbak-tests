@@ -1,0 +1,89 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "bak": "dirtycoverage_rich_update.bak",
+  "bak_size_mb": 3.488,
+  "bak_size_bytes": 3657728,
+  "bak_sha256": "86072a1aa052b853913b9610194297dd234c05935ea90e85bcfd2c3561689fe4",
+  "database": "RegisterBak_dirtycoverage_rich_update",
+  "registered_at": "2026-06-12T02:35:08.983479+00:00",
+  "sqlserver_restore_s": 2.68,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "rich_update_test",
+      "row_count": 20,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "20"
+        },
+        {
+          "name": "flag",
+          "sql_type": "bit",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1"
+        },
+        {
+          "name": "small_val",
+          "sql_type": "smallint",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "20"
+        },
+        {
+          "name": "big_val",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "1000000",
+          "max_val": "20000000"
+        },
+        {
+          "name": "dec_val",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "1.2500",
+          "max_val": "25.0000"
+        },
+        {
+          "name": "dt2_val",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2020-01-01 00:00:17.000",
+          "max_val": "2020-01-01 00:05:40.000"
+        },
+        {
+          "name": "guid_val",
+          "sql_type": "uniqueidentifier",
+          "null_count": 0,
+          "min_val": "286CB1BC-0919-48EB-9AB9-0086F6846047",
+          "max_val": "4F70C747-79CB-4270-A143-FD34D18E1A22"
+        },
+        {
+          "name": "bin_val",
+          "sql_type": "varbinary",
+          "null_count": 0,
+          "min_val": "0x4141",
+          "max_val": "0x414141414141414141414141414141414141414141"
+        },
+        {
+          "name": "nc_val",
+          "sql_type": "nchar",
+          "null_count": 0,
+          "min_val": "XXXXXXXXXXXXXXXXXXXX",
+          "max_val": "XXXXXXXXXXXXXXXXXXXX"
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "original_label_1",
+          "max_val": "original_label_9"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "bak": "tde_full.bak",
+  "captured_at": "2026-06-26T18:56:30.773410+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.probe",
+      "row_count": 1,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:d7c0db5a2a0b7eb9abf5c315453ababfd88818917d8672d8c8889558477d6102",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "varchar(40)",
+          "digest": "sha256:963c97c1c13b5b35a92626c5c6dc96d2cda62779ed6f139f5f88a5277095ce1a",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}

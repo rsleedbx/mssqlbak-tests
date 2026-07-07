@@ -1,0 +1,61 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "bak": "cci_string_minmax_full.bak",
+  "bak_size_bytes": 4182016,
+  "bak_size_mb": 3.988,
+  "bak_sha256": "74b666a093335a0a961b6d40acf194ab1cfede9454d64f0083d658ef8e756b9d",
+  "database": "RegisterBak_cci_string_minmax_full",
+  "registered_at": "2026-06-23T04:15:33.325657+00:00",
+  "sqlserver_restore_s": 10.36,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "cci_str_minmax",
+      "row_count": 1200,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1200"
+        },
+        {
+          "name": "name",
+          "sql_type": "varchar",
+          "null_count": 120,
+          "min_val": "name_1",
+          "max_val": "name_999"
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar",
+          "null_count": 120,
+          "min_val": "lbl_1",
+          "max_val": "lbl_999"
+        },
+        {
+          "name": "score",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "3",
+          "max_val": "3600"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "fkr__seed",
+      "row_count": 1200,
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1199"
+        }
+      ]
+    }
+  ]
+}

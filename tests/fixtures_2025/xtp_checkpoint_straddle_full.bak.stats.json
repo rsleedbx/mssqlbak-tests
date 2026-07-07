@@ -1,0 +1,54 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "bak": "xtp_checkpoint_straddle_full.bak",
+  "bak_size_bytes": 2760704,
+  "bak_size_mb": 2.633,
+  "bak_sha256": "b36a32cbed4b05ac1f3a1dd5e0d43d1a94fa5b90cca8045b3eb22d709193f7be",
+  "database": "RegisterBak_xtp_checkpoint_straddle_full",
+  "registered_at": "2026-07-06T18:39:33.479913+00:00",
+  "sqlserver_restore_s": 10.29,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "fkr__seed",
+      "row_count": 100000,
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "99999"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "xtp_ckpt",
+      "row_count": 100000,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "100000"
+        },
+        {
+          "name": "width",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "400"
+        },
+        {
+          "name": "payload",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "x",
+          "max_val": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "bak": "xtp_probe_full.bak",
+  "bak_size_bytes": 7663616,
+  "bak_size_mb": 7.309,
+  "bak_sha256": "5c3c212d3fa8848e6c3ad894e71222a42f0d1c522dd132a3ed80679ffa2c9d2c",
+  "database": "RegisterBak_xtp_probe_full",
+  "registered_at": "2026-06-29T22:38:40.871434+00:00",
+  "sqlserver_restore_s": 29.477,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "probe_1i1r",
+      "row_count": 1,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "287454020",
+          "max_val": "287454020"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "probe_1i3r",
+      "row_count": 3,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "297725730",
+          "max_val": "2125266945"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "probe_2i1r",
+      "row_count": 1,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1432778632",
+          "max_val": "1432778632"
+        },
+        {
+          "name": "score",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "294156134",
+          "max_val": "294156134"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "probe_nv1r",
+      "row_count": 1,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "287454020",
+          "max_val": "287454020"
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "XtpProbe",
+          "max_val": "XtpProbe"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "probe_nv1r_null",
+      "row_count": 1,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1432778632",
+          "max_val": "1432778632"
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar",
+          "null_count": 1,
+          "min_val": null,
+          "max_val": null
+        }
+      ]
+    }
+  ]
+}

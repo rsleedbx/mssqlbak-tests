@@ -1,0 +1,40 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "bak": "float_extreme_full.bak",
+  "bak_size_bytes": 3592192,
+  "bak_size_mb": 3.426,
+  "bak_sha256": "02bf41916f6ceb2819a58488d042b2163eb358f1eaaa7a866887c7914faaf0f3",
+  "database": "RegisterBak_float_extreme_full",
+  "registered_at": "2026-06-28T21:15:16.561704+00:00",
+  "sqlserver_restore_s": 2.729,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "float_extreme",
+      "row_count": 5,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "5"
+        },
+        {
+          "name": "f64",
+          "sql_type": "float",
+          "null_count": 0,
+          "min_val": "-1.79769e+308",
+          "max_val": "1.79769e+308"
+        },
+        {
+          "name": "f32",
+          "sql_type": "real",
+          "null_count": 0,
+          "min_val": "-3.40282e+038",
+          "max_val": "3.40282e+038"
+        }
+      ]
+    }
+  ]
+}

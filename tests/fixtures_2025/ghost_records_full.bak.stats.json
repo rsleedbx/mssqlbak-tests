@@ -1,0 +1,33 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "bak": "ghost_records_full.bak",
+  "bak_size_bytes": 4116480,
+  "bak_size_mb": 3.926,
+  "bak_sha256": "8c01f1254bd1c16c806e9c28cf32c635ad2d6472512365b0a359e226589001f9",
+  "database": "RegisterBak_ghost_records_full",
+  "registered_at": "2026-06-18T18:35:54.525335+00:00",
+  "sqlserver_restore_s": 3.101,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "ghost_heap",
+      "row_count": 800,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "800"
+        },
+        {
+          "name": "val",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "row_1",
+          "max_val": "row_99"
+        }
+      ]
+    }
+  ]
+}

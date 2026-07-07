@@ -1,0 +1,54 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "bak": "spatial_index_full.bak",
+  "bak_size_bytes": 4182016,
+  "bak_size_mb": 3.988,
+  "bak_sha256": "179aab3f5032b8d1fd8b08b324b146115185b858794b0ed4b3a2b36068629c38",
+  "database": "RegisterBak_spatial_index_full",
+  "registered_at": "2026-06-23T04:16:02.633197+00:00",
+  "sqlserver_restore_s": 10.897,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "fkr__seed",
+      "row_count": 200,
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "199"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "spatial_pts",
+      "row_count": 200,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "200"
+        },
+        {
+          "name": "loc",
+          "sql_type": "geometry",
+          "null_count": 0,
+          "min_val": "POINT (10 155)",
+          "max_val": "POINT (997 956)"
+        },
+        {
+          "name": "name",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "pt_1",
+          "max_val": "pt_99"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "bak": "torn_page_full.bak",
+  "bak_size_bytes": 3526656,
+  "bak_size_mb": 3.363,
+  "bak_sha256": "35ce9b43dc273281f1bb415f08ff6716757165813dfb2f2dda640d3e73d2c2db",
+  "database": "RegisterBak_torn_page_full",
+  "registered_at": "2026-06-29T02:31:28.359127+00:00",
+  "sqlserver_restore_s": 2.813,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "tpd_probe",
+      "row_count": 300,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "300"
+        },
+        {
+          "name": "label",
+          "sql_type": "varchar",
+          "null_count": 42,
+          "min_val": "Label-0001",
+          "max_val": "Label-0300"
+        },
+        {
+          "name": "score",
+          "sql_type": "int",
+          "null_count": 27,
+          "min_val": "1",
+          "max_val": "90000"
+        }
+      ]
+    }
+  ]
+}

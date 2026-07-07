@@ -1,0 +1,397 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "bak": "featurecoverage_full.bak",
+  "bak_size_bytes": 9695232,
+  "bak_size_mb": 9.246,
+  "bak_sha256": "125400d38d10db436d0f11e4402dac5f6972900fae8aa3650897df0f637ad3f3",
+  "database": "RegisterBak_featurecoverage_full",
+  "registered_at": "2026-06-29T22:37:34.265652+00:00",
+  "sqlserver_restore_s": 9.117,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "compress_col",
+      "row_count": 20,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "20"
+        },
+        {
+          "name": "raw_text",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "compress_row_1",
+          "max_val": "compress_row_9"
+        },
+        {
+          "name": "compressed",
+          "sql_type": "varbinary",
+          "null_count": 0,
+          "min_val": "0x1F8B08000000000004004B66C867C8652860286248652806C278202B9FA11C481B022100080229C31E000000",
+          "max_val": "0x1F8B08000000000004004B66C867C8652860286248652806C278202B9FA11C489B3300006A98C2D01C000000"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "fkr__seed",
+      "row_count": 1024,
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1023"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "graph_follows",
+      "row_count": 2,
+      "columns": [
+        {
+          "name": "graph_id_FB6ED75C60CD4586BE9E53E568AC0577",
+          "sql_type": "bigint",
+          "null_count": null,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "$edge_id_EF92889720CB4FF2BC6F1B8E7A8C2A0E",
+          "sql_type": "nvarchar",
+          "null_count": null,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "from_obj_id_24F55A1E0E504E08895780A4D8E4F8FD",
+          "sql_type": "int",
+          "null_count": null,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "from_id_B4F10C52F8604AC88CEF3C050AEE4C62",
+          "sql_type": "bigint",
+          "null_count": null,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "$from_id_3322CFA8E34C431B87DC04439B0BCAFF",
+          "sql_type": "nvarchar",
+          "null_count": null,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "to_obj_id_0DC2B642EA67430A978B211A6EDF41BC",
+          "sql_type": "int",
+          "null_count": null,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "to_id_84118E40F28A49229B41814DD810D56B",
+          "sql_type": "bigint",
+          "null_count": null,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "$to_id_51B18BDD34264EB589615C13EF9CD8F2",
+          "sql_type": "nvarchar",
+          "null_count": null,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "since",
+          "sql_type": "date",
+          "null_count": null,
+          "min_val": null,
+          "max_val": null
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "graph_person",
+      "row_count": 3,
+      "columns": [
+        {
+          "name": "graph_id_111D7675B6E145B7A6305D627ECBB5CF",
+          "sql_type": "bigint",
+          "null_count": null,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "$node_id_B134B5ECDDED4581A9B1A1B5C8FF6252",
+          "sql_type": "nvarchar",
+          "null_count": null,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "name",
+          "sql_type": "nvarchar",
+          "null_count": null,
+          "min_val": null,
+          "max_val": null
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "ledger_account",
+      "row_count": 3,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3"
+        },
+        {
+          "name": "name",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Alice",
+          "max_val": "Carol"
+        },
+        {
+          "name": "balance",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "500.00",
+          "max_val": "1000.00"
+        },
+        {
+          "name": "ledger_start_transaction_id",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "1057",
+          "max_val": "1057"
+        },
+        {
+          "name": "ledger_start_sequence_number",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "2"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "long_text",
+      "row_count": 3,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3"
+        },
+        {
+          "name": "short_text",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "max",
+          "max_val": "null"
+        },
+        {
+          "name": "long_varchar",
+          "sql_type": "varchar",
+          "null_count": 1,
+          "min_val": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+          "max_val": "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ"
+        },
+        {
+          "name": "long_nvarchar",
+          "sql_type": "nvarchar",
+          "null_count": 1,
+          "min_val": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+          "max_val": "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ"
+        },
+        {
+          "name": "long_char",
+          "sql_type": "char",
+          "null_count": 1,
+          "min_val": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+          "max_val": "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "memory_oltp",
+      "row_count": 3,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3"
+        },
+        {
+          "name": "val",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "in_memory_row_1",
+          "max_val": "in_memory_row_3"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "ncci_table",
+      "row_count": 1024,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1024"
+        },
+        {
+          "name": "code",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "99"
+        },
+        {
+          "name": "name",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "row1",
+          "max_val": "row999"
+        },
+        {
+          "name": "amount",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "0.75",
+          "max_val": "768.00"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "temporal_current",
+      "row_count": 50,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "50"
+        },
+        {
+          "name": "value",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "1.50",
+          "max_val": "175.00"
+        },
+        {
+          "name": "valid_from",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2026-06-29 02:50:53.1614481",
+          "max_val": "2026-06-29 02:50:53.1738113"
+        },
+        {
+          "name": "valid_to",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "9999-12-31 23:59:59.9999999",
+          "max_val": "9999-12-31 23:59:59.9999999"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "temporal_history",
+      "row_count": 10,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "5",
+          "max_val": "50"
+        },
+        {
+          "name": "value",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "7.50",
+          "max_val": "75.00"
+        },
+        {
+          "name": "valid_from",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2026-06-29 02:50:53.1614481",
+          "max_val": "2026-06-29 02:50:53.1614481"
+        },
+        {
+          "name": "valid_to",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2026-06-29 02:50:53.1738113",
+          "max_val": "2026-06-29 02:50:53.1738113"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "utf8_collation",
+      "row_count": 6,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "6"
+        },
+        {
+          "name": "latin",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "ASCII",
+          "max_val": "world"
+        },
+        {
+          "name": "utf8",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "ASCII",
+          "max_val": "world"
+        },
+        {
+          "name": "wide",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "ASCII",
+          "max_val": "world"
+        }
+      ]
+    }
+  ]
+}

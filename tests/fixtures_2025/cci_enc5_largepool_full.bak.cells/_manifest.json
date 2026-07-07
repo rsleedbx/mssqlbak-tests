@@ -1,0 +1,49 @@
+{
+  "bak": "cci_enc5_largepool_full.bak",
+  "captured_at": "2026-06-28T00:31:18.568729+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.cci_char_pool",
+      "row_count": 80000,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:2794f8d8201e4600bfabf08101e25b0eb4918b4d31d63c0de788911dfd76ec7d",
+          "null_count": 0
+        },
+        {
+          "name": "login",
+          "sql_type": "char(13)",
+          "digest": "sha256:c752dfd8d707dc20ae0e9fe8545fcf759f089e3fecc561735834499ec1ebb09f",
+          "null_count": 80
+        },
+        {
+          "name": "code",
+          "sql_type": "char(10)",
+          "digest": "sha256:8c03a95a0b91d1edd08b6345e43863a34cc7ec8a652b79be17d8a140e35a738f",
+          "null_count": 80
+        }
+      ],
+      "values_sorted": true
+    },
+    {
+      "fqn": "dbo.fkr__seed",
+      "row_count": 80000,
+      "key_columns": [
+        "pk"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "int",
+          "digest": "sha256:164b2e6b6bcbcff91a543598ee4385b6177c31eb646d23c33c07aedcfccfa06a",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}

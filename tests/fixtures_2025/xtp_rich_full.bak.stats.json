@@ -1,0 +1,82 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "bak": "xtp_rich_full.bak",
+  "bak_size_bytes": 7598080,
+  "bak_size_mb": 7.246,
+  "bak_sha256": "4a69f25fd1646a5c99fcb96744f1538d51e9e62960c9351d4efc64d2bd9d7e28",
+  "database": "RegisterBak_xtp_rich_full",
+  "registered_at": "2026-06-30T00:46:48.987893+00:00",
+  "sqlserver_restore_s": 18.399,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "xtp_rich_fixed",
+      "row_count": 3,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3"
+        },
+        {
+          "name": "score",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "100",
+          "max_val": "999999999999"
+        },
+        {
+          "name": "flag",
+          "sql_type": "tinyint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "255"
+        },
+        {
+          "name": "amount",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "-56.7800",
+          "max_val": "12.3400"
+        },
+        {
+          "name": "row_id",
+          "sql_type": "uniqueidentifier",
+          "null_count": 0,
+          "min_val": "00000000-0000-0000-0000-000000000001",
+          "max_val": "00000000-0000-0000-0000-000000000003"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "xtp_rich_mixed",
+      "row_count": 3,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3"
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar",
+          "null_count": 1,
+          "min_val": "Alfa",
+          "max_val": "Omega"
+        },
+        {
+          "name": "note",
+          "sql_type": "nvarchar",
+          "null_count": 1,
+          "min_val": "short note",
+          "max_val": "wide memory optimized row"
+        }
+      ]
+    }
+  ]
+}

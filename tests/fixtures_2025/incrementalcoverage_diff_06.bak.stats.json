@@ -1,0 +1,47 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "bak": "incrementalcoverage_diff_06.bak",
+  "bak_size_mb": 1.863,
+  "bak_size_bytes": 1953792,
+  "bak_sha256": "c280edfe1c94b7f380d74686b54039dd08ec46a26aced820c9729e1706765285",
+  "database": "RegisterBak_incrementalcoverage_diff_06",
+  "registered_at": "2026-06-12T00:03:01.888158+00:00",
+  "sqlserver_restore_s": 8.358,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "sync_batch",
+      "row_count": 40,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "40"
+        },
+        {
+          "name": "batch",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "6"
+        },
+        {
+          "name": "action",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "insert",
+          "max_val": "update"
+        },
+        {
+          "name": "val",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "batch 1 row 1",
+          "max_val": "updated by diff 06 (was batch 0 or earlier)"
+        }
+      ]
+    }
+  ]
+}

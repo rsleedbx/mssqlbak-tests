@@ -1,0 +1,47 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "bak": "incrementalcoverage_full.bak",
+  "bak_size_mb": 3.363,
+  "bak_size_bytes": 3526656,
+  "bak_sha256": "35daae512460c883956f9a8fe3a55623f0fb7fbbbef33262e86e631791880a75",
+  "database": "RegisterBak_incrementalcoverage_full",
+  "registered_at": "2026-06-12T00:03:22.655385+00:00",
+  "sqlserver_restore_s": 3.379,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "sync_batch",
+      "row_count": 10,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "10"
+        },
+        {
+          "name": "batch",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "0"
+        },
+        {
+          "name": "action",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "insert",
+          "max_val": "insert"
+        },
+        {
+          "name": "val",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "seed row 01 \u2014 batch 0",
+          "max_val": "seed row 10 \u2014 batch 0"
+        }
+      ]
+    }
+  ]
+}

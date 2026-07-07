@@ -1,0 +1,40 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "bak": "dirtycoverage_delete.bak",
+  "bak_size_mb": 3.988,
+  "bak_size_bytes": 4182016,
+  "bak_sha256": "e6a6884bf13285d8e5e39c8bad5926c20f88996f038592220d360e713aa605f6",
+  "database": "RegisterBak_dirtycoverage_delete",
+  "registered_at": "2026-06-12T02:33:40.937670+00:00",
+  "sqlserver_restore_s": 2.571,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "delete_test",
+      "row_count": 70,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "70"
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "committed row 1",
+          "max_val": "delete target 9"
+        },
+        {
+          "name": "phase",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "committed",
+          "max_val": "delete_target"
+        }
+      ]
+    }
+  ]
+}

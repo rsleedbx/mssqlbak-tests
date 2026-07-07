@@ -1,0 +1,50 @@
+{
+  "bak": "vector_full.bak",
+  "captured_at": "2026-06-26T18:57:08.292512+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.fkr__seed",
+      "row_count": 10,
+      "key_columns": [
+        "pk"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "int",
+          "digest": "sha256:dbe5c160c3dcb809d2134a55a229e007a87ade3928d5c6ad4d759023b9d0f9c8",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.vec_tbl",
+      "row_count": 10,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:9580f3b016d3581180d64a6c2ffd7883350f5d7d48a0d547e5f7ad688f05048a",
+          "null_count": 0
+        },
+        {
+          "name": "name",
+          "sql_type": "varchar(20)",
+          "digest": "sha256:7b49747781ecedbcb3a7c6e243495ad03217cd631ee9406da15ed4f0ad595e35",
+          "null_count": 0
+        },
+        {
+          "name": "v",
+          "sql_type": "vector",
+          "digest": "sha256:351bc5b19cd2f1b341199c64d5a46623701d9b1db7ee9a2724d001cb4c568d63",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "bak": "dirtycoverage_committed_update_v2.bak",
+  "bak_size_bytes": 4378624,
+  "bak_size_mb": 4.176,
+  "bak_sha256": "b568aa88ae32efae6cb5faf8e9b2d3e30c216b963de341c702ad941913d97e4c",
+  "database": "RegisterBak_dirtycoverage_committed_update_v2",
+  "registered_at": "2026-06-24T02:48:59.795836+00:00",
+  "sqlserver_restore_s": 4.448,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "committed_update_test",
+      "row_count": 1000,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1000"
+        },
+        {
+          "name": "label",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "original_1000___________________________________________________________________________________________________________________________________________________________________________________________",
+          "max_val": "original_9______________________________________________________________________________________________________________________________________________________________________________________________"
+        },
+        {
+          "name": "score",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1000"
+        }
+      ]
+    }
+  ]
+}

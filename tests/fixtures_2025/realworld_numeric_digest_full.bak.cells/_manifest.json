@@ -1,0 +1,177 @@
+{
+  "bak": "realworld_numeric_digest_full.bak",
+  "captured_at": "2026-06-30T00:45:52.083187+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.fkr__seed",
+      "row_count": 1200,
+      "key_columns": [
+        "pk"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "int",
+          "digest": "sha256:8633dfa27880f37d9aa5bd95bcf2d3485d60464a0d9367ec330c7e7800626bf3",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.numeric_cci",
+      "row_count": 1200,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:8043b692281acdc48ace749005d499586600713513c0de2ad053a87b59c24b9d",
+          "null_count": 0
+        },
+        {
+          "name": "pickup_longitude",
+          "sql_type": "float",
+          "digest": "sha256:6e87794ab2ef5756b3b462c16cff21b1e6b545ac2b781a86a3dd243c361b545b",
+          "null_count": 0
+        },
+        {
+          "name": "pickup_latitude",
+          "sql_type": "float",
+          "digest": "sha256:5de3363ae1aa3b3ebae4e4d9e60ffb998ce5ac1ae7ceb0509de218b49de72d53",
+          "null_count": 0
+        },
+        {
+          "name": "tax_rate",
+          "sql_type": "decimal(9,4)",
+          "digest": "sha256:58c06b6c68df6c744ebea737eb524cf0fcc572f0d6831a20502521cc26e2c0c0",
+          "null_count": 0
+        },
+        {
+          "name": "resource_cost",
+          "sql_type": "money",
+          "digest": "sha256:369cc92150a7ece53b93dd7892a6247c11f29d40821b29ef16f7d58828bce9b9",
+          "null_count": 0
+        },
+        {
+          "name": "tipped",
+          "sql_type": "bit",
+          "digest": "sha256:32b9ea9d4c2377b4cc40fb07b07ab98a3c82b0cf573aee8978466ff259a4a283",
+          "null_count": 0
+        },
+        {
+          "name": "supplier_key",
+          "sql_type": "int",
+          "digest": "sha256:31ad143d31775cde0f445a0a75c526ae8dfcc53d561c0a57144b450dc41e37a8",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true
+    },
+    {
+      "fqn": "dbo.numeric_ncci",
+      "row_count": 1200,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:8043b692281acdc48ace749005d499586600713513c0de2ad053a87b59c24b9d",
+          "null_count": 0
+        },
+        {
+          "name": "pickup_longitude",
+          "sql_type": "float",
+          "digest": "sha256:6e87794ab2ef5756b3b462c16cff21b1e6b545ac2b781a86a3dd243c361b545b",
+          "null_count": 0
+        },
+        {
+          "name": "pickup_latitude",
+          "sql_type": "float",
+          "digest": "sha256:5de3363ae1aa3b3ebae4e4d9e60ffb998ce5ac1ae7ceb0509de218b49de72d53",
+          "null_count": 0
+        },
+        {
+          "name": "tax_rate",
+          "sql_type": "decimal(9,4)",
+          "digest": "sha256:58c06b6c68df6c744ebea737eb524cf0fcc572f0d6831a20502521cc26e2c0c0",
+          "null_count": 0
+        },
+        {
+          "name": "resource_cost",
+          "sql_type": "money",
+          "digest": "sha256:369cc92150a7ece53b93dd7892a6247c11f29d40821b29ef16f7d58828bce9b9",
+          "null_count": 0
+        },
+        {
+          "name": "tipped",
+          "sql_type": "bit",
+          "digest": "sha256:32b9ea9d4c2377b4cc40fb07b07ab98a3c82b0cf573aee8978466ff259a4a283",
+          "null_count": 0
+        },
+        {
+          "name": "supplier_key",
+          "sql_type": "int",
+          "digest": "sha256:31ad143d31775cde0f445a0a75c526ae8dfcc53d561c0a57144b450dc41e37a8",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.numeric_rowstore",
+      "row_count": 1200,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:8043b692281acdc48ace749005d499586600713513c0de2ad053a87b59c24b9d",
+          "null_count": 0
+        },
+        {
+          "name": "pickup_longitude",
+          "sql_type": "float",
+          "digest": "sha256:6e87794ab2ef5756b3b462c16cff21b1e6b545ac2b781a86a3dd243c361b545b",
+          "null_count": 0
+        },
+        {
+          "name": "pickup_latitude",
+          "sql_type": "float",
+          "digest": "sha256:5de3363ae1aa3b3ebae4e4d9e60ffb998ce5ac1ae7ceb0509de218b49de72d53",
+          "null_count": 0
+        },
+        {
+          "name": "tax_rate",
+          "sql_type": "decimal(9,4)",
+          "digest": "sha256:58c06b6c68df6c744ebea737eb524cf0fcc572f0d6831a20502521cc26e2c0c0",
+          "null_count": 0
+        },
+        {
+          "name": "resource_cost",
+          "sql_type": "money",
+          "digest": "sha256:369cc92150a7ece53b93dd7892a6247c11f29d40821b29ef16f7d58828bce9b9",
+          "null_count": 0
+        },
+        {
+          "name": "tipped",
+          "sql_type": "bit",
+          "digest": "sha256:32b9ea9d4c2377b4cc40fb07b07ab98a3c82b0cf573aee8978466ff259a4a283",
+          "null_count": 0
+        },
+        {
+          "name": "supplier_key",
+          "sql_type": "int",
+          "digest": "sha256:31ad143d31775cde0f445a0a75c526ae8dfcc53d561c0a57144b450dc41e37a8",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}

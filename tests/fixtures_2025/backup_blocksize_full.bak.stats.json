@@ -1,0 +1,54 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "bak": "backup_blocksize_full.bak",
+  "bak_size_bytes": 3854336,
+  "bak_size_mb": 3.676,
+  "bak_sha256": "a3c9e87fb527040f8f7dfa345448e61854a0da6c5da98217ab5d508b987d031a",
+  "database": "RegisterBak_backup_blocksize_full",
+  "registered_at": "2026-06-23T04:14:50.898658+00:00",
+  "sqlserver_restore_s": 6.896,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "blksz_tbl",
+      "row_count": 100,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "100"
+        },
+        {
+          "name": "val",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "row_1",
+          "max_val": "row_99"
+        },
+        {
+          "name": "n",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "7",
+          "max_val": "700"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "fkr__seed",
+      "row_count": 100,
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "99"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "bak": "dirtycoverage_concurrent.bak",
+  "bak_size_mb": 4.176,
+  "bak_size_bytes": 4378624,
+  "bak_sha256": "902977ab8d2e13d0fb056acfafce3c84dc96346cd8817679917c3c4cdc107611",
+  "database": "RegisterBak_dirtycoverage_concurrent",
+  "registered_at": "2026-06-12T02:33:21.219573+00:00",
+  "sqlserver_restore_s": 2.539,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "dirty_test",
+      "row_count": 114,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "114"
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "concurrent batch 1",
+          "max_val": "pre-backup row 99"
+        },
+        {
+          "name": "phase",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "concurrent",
+          "max_val": "pre_backup"
+        },
+        {
+          "name": "seq",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "100"
+        }
+      ]
+    }
+  ]
+}

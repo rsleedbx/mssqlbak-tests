@@ -1,0 +1,264 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "bak": "constraintcoverage_full.bak",
+  "bak_size_mb": 4.176,
+  "bak_size_bytes": 4378624,
+  "bak_sha256": "2abf2c7e766d3ce02dd6e464e7c6e01c2a4ac54147547d3dd20dbbf2b2bec97a",
+  "database": "RegisterBak_constraintcoverage_full",
+  "registered_at": "2026-06-12T00:00:59.400609+00:00",
+  "sqlserver_restore_s": 2.591,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "cc_check_constraint",
+      "row_count": 3,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3"
+        },
+        {
+          "name": "code",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "10",
+          "max_val": "30"
+        },
+        {
+          "name": "name",
+          "sql_type": "varchar",
+          "null_count": 1,
+          "min_val": "alpha",
+          "max_val": "beta"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "cc_default_constraint",
+      "row_count": 3,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3"
+        },
+        {
+          "name": "code",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "10",
+          "max_val": "30"
+        },
+        {
+          "name": "name",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "alpha",
+          "max_val": "dflt"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "cc_fk_child",
+      "row_count": 3,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3"
+        },
+        {
+          "name": "code",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "10",
+          "max_val": "30"
+        },
+        {
+          "name": "name",
+          "sql_type": "varchar",
+          "null_count": 1,
+          "min_val": "alpha",
+          "max_val": "beta"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "cc_fk_parent",
+      "row_count": 3,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "10",
+          "max_val": "30"
+        },
+        {
+          "name": "code",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "100",
+          "max_val": "300"
+        },
+        {
+          "name": "name",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "p10",
+          "max_val": "p30"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "cc_index_nonclustered",
+      "row_count": 3,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3"
+        },
+        {
+          "name": "code",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "10",
+          "max_val": "30"
+        },
+        {
+          "name": "name",
+          "sql_type": "varchar",
+          "null_count": 1,
+          "min_val": "alpha",
+          "max_val": "beta"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "cc_pk",
+      "row_count": 3,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3"
+        },
+        {
+          "name": "code",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "10",
+          "max_val": "30"
+        },
+        {
+          "name": "name",
+          "sql_type": "varchar",
+          "null_count": 1,
+          "min_val": "alpha",
+          "max_val": "beta"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "cc_pk_nonclustered",
+      "row_count": 3,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3"
+        },
+        {
+          "name": "code",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "10",
+          "max_val": "30"
+        },
+        {
+          "name": "name",
+          "sql_type": "varchar",
+          "null_count": 1,
+          "min_val": "alpha",
+          "max_val": "beta"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "cc_unique_constraint",
+      "row_count": 3,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3"
+        },
+        {
+          "name": "code",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "10",
+          "max_val": "30"
+        },
+        {
+          "name": "name",
+          "sql_type": "varchar",
+          "null_count": 1,
+          "min_val": "alpha",
+          "max_val": "beta"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "cc_unique_index",
+      "row_count": 3,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3"
+        },
+        {
+          "name": "code",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "10",
+          "max_val": "30"
+        },
+        {
+          "name": "name",
+          "sql_type": "varchar",
+          "null_count": 1,
+          "min_val": "alpha",
+          "max_val": "beta"
+        }
+      ]
+    }
+  ]
+}

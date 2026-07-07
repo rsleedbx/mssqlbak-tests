@@ -1,0 +1,47 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "bak": "striped_full_2.bak",
+  "bak_size_mb": 0.293,
+  "bak_size_bytes": 307200,
+  "bak_sha256": "9827668d91fd79cc928c70f1bc1cf034927e229d7290234fdde91018050b7147",
+  "database": "RegisterBak_striped_full_2",
+  "registered_at": "2026-06-12T00:04:07.171638+00:00",
+  "sqlserver_restore_s": 2.757,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "probe",
+      "row_count": 20,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "20"
+        },
+        {
+          "name": "label",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "row1",
+          "max_val": "row9"
+        },
+        {
+          "name": "score",
+          "sql_type": "float",
+          "null_count": 0,
+          "min_val": "1.1",
+          "max_val": "22"
+        },
+        {
+          "name": "flag",
+          "sql_type": "bit",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1"
+        }
+      ]
+    }
+  ]
+}

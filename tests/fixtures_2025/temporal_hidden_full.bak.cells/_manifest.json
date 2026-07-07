@@ -1,0 +1,128 @@
+{
+  "bak": "temporal_hidden_full.bak",
+  "captured_at": "2026-06-29T22:37:49.750679+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.temporal_hidden",
+      "row_count": 5,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:ea73e51ecad26eb8490a320f5ae148a8aa3569530627f335bfe2060c1a54b550",
+          "null_count": 0
+        },
+        {
+          "name": "value",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:3638c5a9d024374a822b784c0e691283042da71479128dc1bd8410f7af0ade74",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.temporal_hidden_history",
+      "row_count": 2,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:64dace15d2023b649d3f3378b19327afb63d7bd23e0d4a8b971b5dddb935751d",
+          "null_count": 0
+        },
+        {
+          "name": "value",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:97de6cdf03aa773a32b71590e6be4c932791d41af97851f573f4e151dd704e86",
+          "null_count": 0
+        },
+        {
+          "name": "valid_from",
+          "sql_type": "datetime2",
+          "digest": "sha256:d9d1af96caa028cf8ff73815f79fc0087ce3adc2fcbb7c69ccdad9df4a119f7f",
+          "null_count": 0
+        },
+        {
+          "name": "valid_to",
+          "sql_type": "datetime2",
+          "digest": "sha256:b0af812c0737dc12122832f2ca01c56ef88d5ebd3eb34015e1d240bc03fa6f51",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true
+    },
+    {
+      "fqn": "dbo.temporal_visible",
+      "row_count": 5,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:ea73e51ecad26eb8490a320f5ae148a8aa3569530627f335bfe2060c1a54b550",
+          "null_count": 0
+        },
+        {
+          "name": "value",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:3638c5a9d024374a822b784c0e691283042da71479128dc1bd8410f7af0ade74",
+          "null_count": 0
+        },
+        {
+          "name": "valid_from",
+          "sql_type": "datetime2",
+          "digest": "sha256:cde5da1705b53cdf6174001434bf36004e376bc288e3f3cd41871057e54d6ec8",
+          "null_count": 0
+        },
+        {
+          "name": "valid_to",
+          "sql_type": "datetime2",
+          "digest": "sha256:7eabacb5b07815196e7ca6b4f7f9899d44e9109ffdad5d0e874feef208b3b07a",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.temporal_visible_history",
+      "row_count": 2,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:64dace15d2023b649d3f3378b19327afb63d7bd23e0d4a8b971b5dddb935751d",
+          "null_count": 0
+        },
+        {
+          "name": "value",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:97de6cdf03aa773a32b71590e6be4c932791d41af97851f573f4e151dd704e86",
+          "null_count": 0
+        },
+        {
+          "name": "valid_from",
+          "sql_type": "datetime2",
+          "digest": "sha256:ea08b2bf8f0aa674bced833189ff48fb54c7cb7b5b7c84038519e91453b552dc",
+          "null_count": 0
+        },
+        {
+          "name": "valid_to",
+          "sql_type": "datetime2",
+          "digest": "sha256:cffb9c1d49ff08a3c2eb5845dfa3827a537a26f52f03509d996266ddbd3ff379",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true
+    }
+  ]
+}

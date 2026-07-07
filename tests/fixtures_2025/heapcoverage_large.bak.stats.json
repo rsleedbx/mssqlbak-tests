@@ -1,0 +1,68 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "bak": "heapcoverage_large.bak",
+  "bak_size_mb": 3.676,
+  "bak_size_bytes": 3854336,
+  "bak_sha256": "f93572b7b86a997948b46921c0795184c61ce5bb2d20812dede36a19bb69870f",
+  "database": "RegisterBak_heapcoverage_large",
+  "registered_at": "2026-06-12T02:36:13.882795+00:00",
+  "sqlserver_restore_s": 2.545,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "heap_clustered",
+      "row_count": 1000,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1000"
+        },
+        {
+          "name": "val",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "7919",
+          "max_val": "7919000"
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "row_1000_xxxxxxxxxxxxxxxxxxxx",
+          "max_val": "row_9_xxxxxxxxxxxxxxxxxxxx"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "heap_plain",
+      "row_count": 1000,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1000"
+        },
+        {
+          "name": "val",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "7919",
+          "max_val": "7919000"
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "row_1000_xxxxxxxxxxxxxxxxxxxx",
+          "max_val": "row_9_xxxxxxxxxxxxxxxxxxxx"
+        }
+      ]
+    }
+  ]
+}

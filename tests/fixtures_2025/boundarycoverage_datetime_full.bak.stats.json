@@ -1,0 +1,264 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "bak": "boundarycoverage_datetime_full.bak",
+  "bak_size_bytes": 7458816,
+  "bak_size_mb": 7.113,
+  "bak_sha256": "1ace2e7a0d34eef377d3124a02c7d0ecbece52661317dd3440f60a0846404327",
+  "database": "RegisterBak_boundarycoverage_datetime_full",
+  "registered_at": "2026-06-22T22:29:32.874180+00:00",
+  "sqlserver_restore_s": 12.808,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "tb_bit",
+      "row_count": 1200,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1200"
+        },
+        {
+          "name": "label",
+          "sql_type": "varchar",
+          "null_count": 1194,
+          "min_val": "null",
+          "max_val": "zero2"
+        },
+        {
+          "name": "v",
+          "sql_type": "bit",
+          "null_count": 1,
+          "min_val": "0",
+          "max_val": "1"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "tb_date",
+      "row_count": 1200,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1200"
+        },
+        {
+          "name": "label",
+          "sql_type": "varchar",
+          "null_count": 1194,
+          "min_val": "max",
+          "max_val": "sec_min"
+        },
+        {
+          "name": "v",
+          "sql_type": "date",
+          "null_count": 1,
+          "min_val": "0001-01-01",
+          "max_val": "9999-12-31"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "tb_datetime",
+      "row_count": 1200,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1200"
+        },
+        {
+          "name": "label",
+          "sql_type": "varchar",
+          "null_count": 1194,
+          "min_val": "max",
+          "max_val": "sec_min"
+        },
+        {
+          "name": "v",
+          "sql_type": "datetime",
+          "null_count": 1,
+          "min_val": "1753-01-01 00:00:00",
+          "max_val": "9999-12-31 23:59:59"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "tb_datetime2_3",
+      "row_count": 1200,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1200"
+        },
+        {
+          "name": "label",
+          "sql_type": "varchar",
+          "null_count": 1194,
+          "min_val": "max",
+          "max_val": "sec_min"
+        },
+        {
+          "name": "v",
+          "sql_type": "datetime2",
+          "null_count": 1,
+          "min_val": "0001-01-01 00:00:00.000",
+          "max_val": "9999-12-31 23:59:59.999"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "tb_datetimeoffset_3",
+      "row_count": 1200,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1200"
+        },
+        {
+          "name": "label",
+          "sql_type": "varchar",
+          "null_count": 1194,
+          "min_val": "max",
+          "max_val": "sec_min"
+        },
+        {
+          "name": "v",
+          "sql_type": "datetimeoffset",
+          "null_count": 1,
+          "min_val": "0001-01-01 00:00:00.000 +00:00",
+          "max_val": "9999-12-31 23:59:59.999 +00:00"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "tb_decimal_18_4",
+      "row_count": 1200,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1200"
+        },
+        {
+          "name": "label",
+          "sql_type": "varchar",
+          "null_count": 1194,
+          "min_val": "max",
+          "max_val": "zero"
+        },
+        {
+          "name": "v",
+          "sql_type": "decimal",
+          "null_count": 1,
+          "min_val": "-99999999999999.9999",
+          "max_val": "99999999999999.9999"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "tb_decimal_9_4",
+      "row_count": 1200,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1200"
+        },
+        {
+          "name": "label",
+          "sql_type": "varchar",
+          "null_count": 1194,
+          "min_val": "max",
+          "max_val": "zero"
+        },
+        {
+          "name": "v",
+          "sql_type": "decimal",
+          "null_count": 1,
+          "min_val": "-99999.9999",
+          "max_val": "99999.9999"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "tb_smalldatetime",
+      "row_count": 1200,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1200"
+        },
+        {
+          "name": "label",
+          "sql_type": "varchar",
+          "null_count": 1194,
+          "min_val": "max",
+          "max_val": "sec_min"
+        },
+        {
+          "name": "v",
+          "sql_type": "smalldatetime",
+          "null_count": 1,
+          "min_val": "1900-01-01 00:00:00",
+          "max_val": "2079-06-06 23:59:00"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "tb_time_3",
+      "row_count": 1200,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1200"
+        },
+        {
+          "name": "label",
+          "sql_type": "varchar",
+          "null_count": 1194,
+          "min_val": "max",
+          "max_val": "sec_min"
+        },
+        {
+          "name": "v",
+          "sql_type": "time",
+          "null_count": 1,
+          "min_val": "00:00:00.000",
+          "max_val": "23:59:59.999"
+        }
+      ]
+    }
+  ]
+}

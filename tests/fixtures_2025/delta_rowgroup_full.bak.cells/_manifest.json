@@ -1,0 +1,52 @@
+{
+  "bak": "delta_rowgroup_full.bak",
+  "captured_at": "2026-06-26T03:01:46.031598+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.cs_delta_only",
+      "row_count": 30,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:a956732a37ae31d900c28ccd9da1894db2335b6c6241dcf49c276376ceae1d84",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "int",
+          "digest": "sha256:a956732a37ae31d900c28ccd9da1894db2335b6c6241dcf49c276376ceae1d84",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.cs_mixed",
+      "row_count": 150,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:f978b362be5b3a3f99a3652b0f36c22f1c779ba7c9c4eb1cba30e89f0d6e1ea7",
+          "null_count": 0
+        },
+        {
+          "name": "kind",
+          "sql_type": "int",
+          "digest": "sha256:cdc6019384f70d3fe59a4e7057bf29a0d086e366de4ffaf76bcb5aab3dbae608",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "int",
+          "digest": "sha256:0fc88202e88a51d2c7ca00cfd1691a695d1564065bd841648a958cab83f4ef42",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}

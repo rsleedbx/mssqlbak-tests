@@ -1,0 +1,33 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "bak": "dirtycoverage_snapshot_update.bak",
+  "bak_size_mb": 3.488,
+  "bak_size_bytes": 3657728,
+  "bak_sha256": "4b8ceb2471d381a0d9840180eb96417a54574dbc19e32d1a51d4a4b38465ecbe",
+  "database": "RegisterBak_dirtycoverage_snapshot_update",
+  "registered_at": "2026-06-12T02:35:22.098776+00:00",
+  "sqlserver_restore_s": 2.562,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "snapshot_update_test",
+      "row_count": 20,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "20"
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "original_1",
+          "max_val": "original_9"
+        }
+      ]
+    }
+  ]
+}

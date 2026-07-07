@@ -1,0 +1,40 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "bak": "dirtycoverage_nchar_delete.bak",
+  "bak_size_mb": 3.488,
+  "bak_size_bytes": 3657728,
+  "bak_sha256": "3b5c8b40ecb2649e86f2e2d6ab5f40d2a3e6742ab5c525f4bce9849f8ddf2602",
+  "database": "RegisterBak_dirtycoverage_nchar_delete",
+  "registered_at": "2026-06-12T02:34:35.304522+00:00",
+  "sqlserver_restore_s": 2.47,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "nchar_delete_test",
+      "row_count": 30,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "30"
+        },
+        {
+          "name": "nc_label",
+          "sql_type": "nchar",
+          "null_count": 0,
+          "min_val": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+          "max_val": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+        },
+        {
+          "name": "nv_desc",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "description_1",
+          "max_val": "description_9"
+        }
+      ]
+    }
+  ]
+}

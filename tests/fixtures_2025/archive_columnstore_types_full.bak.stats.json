@@ -1,0 +1,159 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "bak": "archive_columnstore_types_full.bak",
+  "bak_size_bytes": 8511488,
+  "bak_size_mb": 8.117,
+  "bak_sha256": "f34974889f23ececb5e275e55f93ce05b3d2b90556ed18b83a6f107aab7bfc23",
+  "database": "RegisterBak_archive_columnstore_types_full",
+  "registered_at": "2026-06-16T02:48:22.658474+00:00",
+  "sqlserver_restore_s": 2.644,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "archive_binary10",
+      "row_count": 35000,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "35000"
+        },
+        {
+          "name": "val",
+          "sql_type": "binary",
+          "null_count": 70,
+          "min_val": "0x00000001000000000000",
+          "max_val": "0x000088B7000000000000"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "archive_char10",
+      "row_count": 35000,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "35000"
+        },
+        {
+          "name": "val",
+          "sql_type": "char",
+          "null_count": 70,
+          "min_val": "1",
+          "max_val": "9999"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "archive_nchar10",
+      "row_count": 35000,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "35000"
+        },
+        {
+          "name": "val",
+          "sql_type": "nchar",
+          "null_count": 70,
+          "min_val": "1",
+          "max_val": "9999"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "archive_nvarchar20",
+      "row_count": 35000,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "35000"
+        },
+        {
+          "name": "val",
+          "sql_type": "nvarchar",
+          "null_count": 70,
+          "min_val": "1",
+          "max_val": "9999"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "archive_uuid",
+      "row_count": 35000,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "35000"
+        },
+        {
+          "name": "val",
+          "sql_type": "uniqueidentifier",
+          "null_count": 70,
+          "min_val": "819B9BA8-1C7D-0E71-6EF5-000032E1C514",
+          "max_val": "0092B9AF-CF0F-EF79-7A53-FFFDE9C8E044"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "archive_varbinary20",
+      "row_count": 35000,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "35000"
+        },
+        {
+          "name": "val",
+          "sql_type": "varbinary",
+          "null_count": 70,
+          "min_val": "0x00000001",
+          "max_val": "0x000088B7"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "archive_varchar20",
+      "row_count": 35000,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "35000"
+        },
+        {
+          "name": "val",
+          "sql_type": "varchar",
+          "null_count": 70,
+          "min_val": "1",
+          "max_val": "9999"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "bak": "vector_full.bak",
+  "bak_size_bytes": 3854336,
+  "bak_size_mb": 3.676,
+  "bak_sha256": "435915868f590f2e23d4bc70f357f265922dfd6f7a4d912350a4de58dcbc8f74",
+  "database": "RegisterBak_vector_full",
+  "registered_at": "2026-06-23T04:18:26.712484+00:00",
+  "sqlserver_restore_s": 11.831,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "fkr__seed",
+      "row_count": 10,
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "9"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "vec_tbl",
+      "row_count": 10,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "name",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "v",
+          "sql_type": "vector",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        }
+      ]
+    }
+  ]
+}

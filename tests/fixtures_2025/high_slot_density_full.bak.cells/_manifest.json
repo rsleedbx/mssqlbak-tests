@@ -1,0 +1,38 @@
+{
+  "bak": "high_slot_density_full.bak",
+  "captured_at": "2026-06-26T18:52:43.798083+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.fkr__seed",
+      "row_count": 100000,
+      "key_columns": [
+        "pk"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "int",
+          "digest": "sha256:4a3828494a38d89dd035c99acfb3b7c63a93bd71bb788d8187f4d0601892545c",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.tiny_row",
+      "row_count": 100000,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "a",
+          "sql_type": "tinyint",
+          "digest": "sha256:711e61117c5b5f7fa8bda362a0d9379d1b9c69ea3ffb9459ec3e54adde1f54a3",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true,
+      "values_capped": 100000
+    }
+  ]
+}
