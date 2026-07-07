@@ -1,0 +1,32 @@
+{
+  "bak": "cci_binary_varbinary_compare_full.bak",
+  "captured_at": "2026-06-26T02:51:51.476752+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.cci_binary_varbinary_compare",
+      "row_count": 1200,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:c8e3d2dfec3be666a3a97aa720cfe1d49f388cba805a631769ec37895c8ea012",
+          "null_count": 0
+        },
+        {
+          "name": "bin8",
+          "sql_type": "binary(8)",
+          "digest": "sha256:1b6b98f393368e6f1be28afbae3d192a12a9d82ca6941d8ec0aff8328ffdd965",
+          "null_count": 1
+        },
+        {
+          "name": "vb8",
+          "sql_type": "varbinary(8)",
+          "digest": "sha256:1b6b98f393368e6f1be28afbae3d192a12a9d82ca6941d8ec0aff8328ffdd965",
+          "null_count": 1
+        }
+      ]
+    }
+  ]
+}

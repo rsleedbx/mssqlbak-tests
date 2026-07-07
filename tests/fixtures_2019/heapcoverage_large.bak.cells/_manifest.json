@@ -1,0 +1,61 @@
+{
+  "bak": "heapcoverage_large.bak",
+  "captured_at": "2026-06-26T18:50:20.758899+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.heap_clustered",
+      "row_count": 1000,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:d2cecc9e516895a16642edc609f915954203f5b5c0c8243e63a6a797c026bdc9",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "bigint",
+          "digest": "sha256:f74ed14ff5d4745b9a71273a8250301dbfe6bceb68ff9eb28ea5e342c21b45a7",
+          "null_count": 0
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar(60)",
+          "digest": "sha256:5b7e7487dca6f1372a44e8038ea734cceec081decac45e326697187ea706e78f",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.heap_plain",
+      "row_count": 1000,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:d2cecc9e516895a16642edc609f915954203f5b5c0c8243e63a6a797c026bdc9",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "bigint",
+          "digest": "sha256:f74ed14ff5d4745b9a71273a8250301dbfe6bceb68ff9eb28ea5e342c21b45a7",
+          "null_count": 0
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar(60)",
+          "digest": "sha256:5b7e7487dca6f1372a44e8038ea734cceec081decac45e326697187ea706e78f",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true
+    }
+  ]
+}

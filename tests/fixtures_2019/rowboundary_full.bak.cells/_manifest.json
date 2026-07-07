@@ -1,0 +1,75 @@
+{
+  "bak": "rowboundary_full.bak",
+  "captured_at": "2026-06-26T18:52:49.622157+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.rb_lob",
+      "row_count": 5,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:ea73e51ecad26eb8490a320f5ae148a8aa3569530627f335bfe2060c1a54b550",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "varbinary(max)",
+          "digest": "sha256:7a511c6bc6dabb6d2ac855cce5ee8a75ebc4237840414839007144889b0123a3",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true
+    },
+    {
+      "fqn": "dbo.rb_overflow",
+      "row_count": 9,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:97b726022c3657a182eb84604410691335595cecfd9ed820aac3989134237a40",
+          "null_count": 0
+        },
+        {
+          "name": "a",
+          "sql_type": "varchar(8000)",
+          "digest": "sha256:f890e1f1c493578e72b0a68bc4de98ef3679aa75904192ee807673f4f54a10a4",
+          "null_count": 0
+        },
+        {
+          "name": "b",
+          "sql_type": "varchar(8000)",
+          "digest": "sha256:441b3f010bd4a1d383d06ff6f8ac54e421b563a0a106f30aee31981d8f45ad45",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true
+    },
+    {
+      "fqn": "dbo.rb_page_fill",
+      "row_count": 216,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:5ff37e8144b87960d0df4aa03f40b94d46201277258a2852cd6c0ee61f36f679",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "char(100)",
+          "digest": "sha256:50078fb3b9034badf2556344b28ee7e5b3463e0277ed81e8f5f90c3d23d6d871",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true
+    }
+  ]
+}

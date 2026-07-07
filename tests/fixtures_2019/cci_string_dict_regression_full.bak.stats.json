@@ -1,0 +1,61 @@
+{
+  "sql_version": "Microsoft SQL Server 2019 (RTM-CU32-GDR) (KB5090407) - 15.0.4470.1 (X64)",
+  "bak": "cci_string_dict_regression_full.bak",
+  "bak_size_bytes": 9560064,
+  "bak_size_mb": 9.117,
+  "bak_sha256": "90f156eb5f2f3824e3092dc81e16cbce3b782d0dd33c59339dc32f474e16d7e0",
+  "database": "RegisterBak_cci_string_dict_regression_full",
+  "registered_at": "2026-06-29T22:36:32.755360+00:00",
+  "sqlserver_restore_s": 2.119,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "cci_string_dict_regression",
+      "row_count": 16384,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "16384"
+        },
+        {
+          "name": "batch",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "2"
+        },
+        {
+          "name": "i_item_desc",
+          "sql_type": "varchar",
+          "null_count": 1,
+          "min_val": "",
+          "max_val": "ITEM-DESC-016384|CLASS=88|FORM=13|EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE"
+        },
+        {
+          "name": "pr_review_content",
+          "sql_type": "varchar",
+          "null_count": 1,
+          "min_val": "",
+          "max_val": "review-016384: customer noted quality=5; shipping=4; value=4. payload[eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee] end."
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "fkr__seed",
+      "row_count": 8192,
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "8191"
+        }
+      ]
+    }
+  ]
+}

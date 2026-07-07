@@ -1,0 +1,55 @@
+{
+  "bak": "cci_string_dict_regression_full.bak",
+  "captured_at": "2026-06-29T22:36:32.365104+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.cci_string_dict_regression",
+      "row_count": 16384,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:30fc0c2eaddda272001f931782ed1ca942bc4e6e7ab01e1d48699e8f94c0aa27",
+          "null_count": 0
+        },
+        {
+          "name": "batch",
+          "sql_type": "int",
+          "digest": "sha256:1f9ef269e03a54fcb1bf169dd206a43ae0198e3244a2f3836143d1701bb9edb0",
+          "null_count": 0
+        },
+        {
+          "name": "i_item_desc",
+          "sql_type": "varchar(120)",
+          "digest": "sha256:74d17e46a9f87d7bd635bd5d108cbf9c1ad2bd459d0af978867164a1a493c9a4",
+          "null_count": 1
+        },
+        {
+          "name": "pr_review_content",
+          "sql_type": "varchar(320)",
+          "digest": "sha256:42a0573f3c739c11d133ff072a3c72344d7cc92a40e5fabe855dcd0ca4df4839",
+          "null_count": 1
+        }
+      ],
+      "values_sorted": true
+    },
+    {
+      "fqn": "dbo.fkr__seed",
+      "row_count": 8192,
+      "key_columns": [
+        "pk"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "int",
+          "digest": "sha256:57466daf4ad47610c0792b9b10e89baa1ce1777b68d19aee1414913d68ef1555",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}

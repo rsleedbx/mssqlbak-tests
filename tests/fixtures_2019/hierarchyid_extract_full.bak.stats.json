@@ -1,0 +1,33 @@
+{
+  "sql_version": "Microsoft SQL Server 2019 (RTM-CU32-GDR) (KB5090407) - 15.0.4470.1 (X64)",
+  "bak": "hierarchyid_extract_full.bak",
+  "bak_size_bytes": 2871296,
+  "bak_size_mb": 2.738,
+  "bak_sha256": "e79a43bc8da773b3b53a005b2bf660b9369cce9bc59090defbcde5046eba1173",
+  "database": "RegisterBak_hierarchyid_extract_full",
+  "registered_at": "2026-06-23T02:20:43.683894+00:00",
+  "sqlserver_restore_s": 1.696,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "org",
+      "row_count": 6,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "6"
+        },
+        {
+          "name": "node",
+          "sql_type": "hierarchyid",
+          "null_count": 0,
+          "min_val": "/",
+          "max_val": "/2/"
+        }
+      ]
+    }
+  ]
+}

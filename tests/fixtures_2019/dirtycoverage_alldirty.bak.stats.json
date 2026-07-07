@@ -1,0 +1,38 @@
+{
+  "sql_version": "Microsoft SQL Server 2019 (RTM-CU32-GDR) (KB5090407) - 15.0.4470.1 (X64)",
+  "bak": "dirtycoverage_alldirty.bak",
+  "bak_size_mb": 2.863,
+  "database": "RegisterBak_dirtycoverage_alldirty",
+  "registered_at": "2026-06-11T20:43:21.692315+00:00",
+  "sqlserver_restore_s": 1.605,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "alldirty_test",
+      "row_count": 0,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "phase",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        }
+      ]
+    }
+  ]
+}

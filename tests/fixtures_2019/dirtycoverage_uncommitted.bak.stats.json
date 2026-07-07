@@ -1,0 +1,45 @@
+{
+  "sql_version": "Microsoft SQL Server 2019 (RTM-CU32-GDR) (KB5090407) - 15.0.4470.1 (X64)",
+  "bak": "dirtycoverage_uncommitted.bak",
+  "bak_size_mb": 2.801,
+  "database": "RegisterBak_dirtycoverage_uncommitted",
+  "registered_at": "2026-06-11T20:45:36.480976+00:00",
+  "sqlserver_restore_s": 1.819,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "dirty_test",
+      "row_count": 50,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "50"
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "committed row 1",
+          "max_val": "committed row 9"
+        },
+        {
+          "name": "phase",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "pre_tx",
+          "max_val": "pre_tx"
+        },
+        {
+          "name": "seq",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "50"
+        }
+      ]
+    }
+  ]
+}

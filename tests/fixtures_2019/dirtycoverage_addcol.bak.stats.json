@@ -1,0 +1,45 @@
+{
+  "sql_version": "Microsoft SQL Server 2019 (RTM-CU32-GDR) (KB5090407) - 15.0.4470.1 (X64)",
+  "bak": "dirtycoverage_addcol.bak",
+  "bak_size_mb": 2.988,
+  "database": "RegisterBak_dirtycoverage_addcol",
+  "registered_at": "2026-06-11T20:43:14.211969+00:00",
+  "sqlserver_restore_s": 1.637,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "addcol_test",
+      "row_count": 60,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "60"
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "post-col row 1",
+          "max_val": "pre-col row 9"
+        },
+        {
+          "name": "phase",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "post_ddl",
+          "max_val": "pre_ddl"
+        },
+        {
+          "name": "extra",
+          "sql_type": "varchar",
+          "null_count": 50,
+          "min_val": "extra_value_1",
+          "max_val": "extra_value_9"
+        }
+      ]
+    }
+  ]
+}

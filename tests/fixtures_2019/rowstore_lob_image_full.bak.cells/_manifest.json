@@ -1,0 +1,46 @@
+{
+  "bak": "rowstore_lob_image_full.bak",
+  "captured_at": "2026-06-28T00:16:24.617058+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.lob_image_probe",
+      "row_count": 3,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:5be6c1972032e65c8852b651ad59e6dccaff8d9d07dc0e5718a63bff0f3f90bc",
+          "null_count": 0
+        },
+        {
+          "name": "photo_image",
+          "sql_type": "image",
+          "digest": "sha256:eaa4d041366060d49b3f3cb5a41f4268acf78523e8153ef230394e89c956c68f",
+          "null_count": 1
+        },
+        {
+          "name": "photo_varbinary",
+          "sql_type": "varbinary(max)",
+          "digest": "sha256:54377c45552788eb5ed8e164dd9e08298b60c116d3f1d57e967895d2082d0a88",
+          "null_count": 1
+        },
+        {
+          "name": "text_payload",
+          "sql_type": "varchar(max)",
+          "digest": "sha256:2ed2d2f959f2d68b9ed7050da00fd189cfa91e3842d467244c25fcf33bb534f2",
+          "null_count": 1
+        },
+        {
+          "name": "wide_payload",
+          "sql_type": "nvarchar(max)",
+          "digest": "sha256:a65f474a7eed03f0ee73bd667fd4fb3d7ebf9cbe38500b0e55c2fb6b0d848798",
+          "null_count": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "sql_version": "Microsoft SQL Server 2019 (RTM-CU32-GDR) (KB5090407) - 15.0.4470.1 (X64)",
+  "bak": "dirtycoverage_droptable.bak",
+  "bak_size_mb": 2.801,
+  "database": "RegisterBak_dirtycoverage_droptable",
+  "registered_at": "2026-06-11T20:44:16.254293+00:00",
+  "sqlserver_restore_s": 1.67,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "drop_target",
+      "row_count": 500,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "500"
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "drop row 1",
+          "max_val": "drop row 99"
+        },
+        {
+          "name": "phase",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "pre_drop",
+          "max_val": "pre_drop"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "survivor_test",
+      "row_count": 200,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "200"
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "survivor row 1",
+          "max_val": "survivor row 99"
+        }
+      ]
+    }
+  ]
+}

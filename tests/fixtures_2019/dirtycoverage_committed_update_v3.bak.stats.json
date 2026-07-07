@@ -1,0 +1,208 @@
+{
+  "sql_version": "Microsoft SQL Server 2019 (RTM-CU32-GDR) (KB5090407) - 15.0.4470.1 (X64)",
+  "bak": "dirtycoverage_committed_update_v3.bak",
+  "bak_size_bytes": 3133440,
+  "bak_size_mb": 2.988,
+  "bak_sha256": "7efbbed23c5227113557f45b7141f7a59eeb414e6c9b6f7c4a69f9e83b5fb0f5",
+  "database": "RegisterBak_dirtycoverage_committed_update_v3",
+  "registered_at": "2026-06-28T01:55:46.347224+00:00",
+  "sqlserver_restore_s": 1.987,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "all_types_test",
+      "row_count": 300,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "300"
+        },
+        {
+          "name": "col_tinyint",
+          "sql_type": "tinyint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "255"
+        },
+        {
+          "name": "col_smallint",
+          "sql_type": "smallint",
+          "null_count": 0,
+          "min_val": "7",
+          "max_val": "700"
+        },
+        {
+          "name": "col_bigint",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "-99999900",
+          "max_val": "300000000"
+        },
+        {
+          "name": "col_bit",
+          "sql_type": "bit",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1"
+        },
+        {
+          "name": "col_decimal",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "99.9999",
+          "max_val": "9999.9900"
+        },
+        {
+          "name": "col_numeric",
+          "sql_type": "numeric",
+          "null_count": 0,
+          "min_val": "2.718",
+          "max_val": "942.000"
+        },
+        {
+          "name": "col_money",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "100.0100",
+          "max_val": "10001.0000"
+        },
+        {
+          "name": "col_smallmoney",
+          "sql_type": "smallmoney",
+          "null_count": 0,
+          "min_val": "1.1100",
+          "max_val": "237.5400"
+        },
+        {
+          "name": "col_float",
+          "sql_type": "float",
+          "null_count": 0,
+          "min_val": "-141.421",
+          "max_val": "815.484"
+        },
+        {
+          "name": "col_real",
+          "sql_type": "real",
+          "null_count": 0,
+          "min_val": "6.6",
+          "max_val": "451.5"
+        },
+        {
+          "name": "col_date",
+          "sql_type": "date",
+          "null_count": 0,
+          "min_val": "2020-04-11",
+          "max_val": "2021-04-10"
+        },
+        {
+          "name": "col_time",
+          "sql_type": "time",
+          "null_count": 0,
+          "min_val": "00:01:41.000",
+          "max_val": "01:01:40.000"
+        },
+        {
+          "name": "col_datetime",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "2020-01-01 00:01:41",
+          "max_val": "2025-01-01 00:01:40"
+        },
+        {
+          "name": "col_smalldatetime",
+          "sql_type": "smalldatetime",
+          "null_count": 0,
+          "min_val": "2000-01-01 01:41:00",
+          "max_val": "2000-07-01 01:40:00"
+        },
+        {
+          "name": "col_datetime2",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2020-01-01 00:00:10.100",
+          "max_val": "2022-01-01 00:00:10.000"
+        },
+        {
+          "name": "col_datetimeoffset",
+          "sql_type": "datetimeoffset",
+          "null_count": 0,
+          "min_val": "2019-12-31 10:30:01.000 -08:00",
+          "max_val": "2020-01-01 00:05:00.000 +05:30"
+        },
+        {
+          "name": "col_char",
+          "sql_type": "char",
+          "null_count": 0,
+          "min_val": "101",
+          "max_val": "upd99"
+        },
+        {
+          "name": "col_varchar",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "updated_100yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy",
+          "max_val": "v_300xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        },
+        {
+          "name": "col_nchar",
+          "sql_type": "nchar",
+          "null_count": 0,
+          "min_val": "\u00e0 \u00e1 \u00e2 \u00e3 \u1ea3 \u1ea1 \u1eb7 \u1eaf \u1eb1 \u1eb3",
+          "max_val": "\uac00 \uac01 \uac04 \uac08 \uac10 \uac11 \uac15 \uac1c \uac70 \uac74"
+        },
+        {
+          "name": "col_nvarchar",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "101 \u0104 \u0105 \u0106 \u0107 \u010c \u010d \u010e \u010f \u011a \u011b \u0141 \u0142 \u0143 \u0144 \u0150 \u0151 \u0158 \u0159 \u015a \u015b \u0160 \u0161 \u0179 \u017a \u017b \u017c \u017d \u017e",
+          "max_val": "\u66f4\u65b0\u6e08\u307f 99"
+        },
+        {
+          "name": "col_binary",
+          "sql_type": "binary",
+          "null_count": 0,
+          "min_val": "0x006F52E9102A8D3BE2FE",
+          "max_val": "0xFE7EE8FC1959CC7214FA"
+        },
+        {
+          "name": "col_varbinary",
+          "sql_type": "varbinary",
+          "null_count": 0,
+          "min_val": "0x00328CE57BBC14B33BD6695BC8EB32CDF2FB5F3A7D89EC14A42825E15D39DF60",
+          "max_val": "0xFF3637D30B19FF6550BF9ADD3FE8AC395A3AA71A5279D3D7DAAB15A19F107387"
+        },
+        {
+          "name": "col_uniqueidentifier",
+          "sql_type": "uniqueidentifier",
+          "null_count": 0,
+          "min_val": "47036719-FE73-40C3-8C9D-01544ED9A465",
+          "max_val": "A6EC60D8-A836-4DC3-8D64-FF9232C07528"
+        },
+        {
+          "name": "col_xml",
+          "sql_type": "xml",
+          "null_count": 0,
+          "min_val": "<r n=\"101\"/>",
+          "max_val": "<upd n=\"99\"/>"
+        },
+        {
+          "name": "col_sql_variant",
+          "sql_type": "sql_variant",
+          "null_count": 0,
+          "min_val": "-100",
+          "max_val": "300"
+        },
+        {
+          "name": "col_rowversion",
+          "sql_type": "timestamp",
+          "null_count": 0,
+          "min_val": "0x00000000000007DB",
+          "max_val": "0x0000000000000962"
+        }
+      ]
+    }
+  ]
+}

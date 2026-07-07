@@ -1,0 +1,94 @@
+{
+  "bak": "pfor_columnstore_random_full.bak",
+  "captured_at": "2026-06-26T02:54:26.608855+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.pfor_archive",
+      "row_count": 200000,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:f91c1253e7f8b5e8868e5e1f771f2db8fbb39cf2bed40647a5e25cf137bf2630",
+          "null_count": 0
+        },
+        {
+          "name": "v_none",
+          "sql_type": "int",
+          "digest": "sha256:d0184b8aba3401e7972edfcad33fb129335329847cd92107ba6f02d0216aecc2",
+          "null_count": 0
+        },
+        {
+          "name": "v_sparse",
+          "sql_type": "int",
+          "digest": "sha256:d5f049d49cdb72e88e4cefd663cb08aaffe54f9b4dff40294274c88cc19aec70",
+          "null_count": 0
+        },
+        {
+          "name": "v_deep",
+          "sql_type": "int",
+          "digest": "sha256:6fba608f7038ff6ded70c9e7d467d2ed9f46c696aeda64d5c6505735e352a085",
+          "null_count": 0
+        },
+        {
+          "name": "v_compulsory",
+          "sql_type": "int",
+          "digest": "sha256:4c7d4c2587e7d3a7cf16a0ef097b95377b051cf08bd9c4dbef80d9903f8cb573",
+          "null_count": 0
+        },
+        {
+          "name": "v_dense",
+          "sql_type": "int",
+          "digest": "sha256:b9b55d195aa8120269cb8dd657483d3b5f9590462427183b40e9e27737e0c776",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.pfor_plain",
+      "row_count": 200000,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:f91c1253e7f8b5e8868e5e1f771f2db8fbb39cf2bed40647a5e25cf137bf2630",
+          "null_count": 0
+        },
+        {
+          "name": "v_none",
+          "sql_type": "int",
+          "digest": "sha256:d0184b8aba3401e7972edfcad33fb129335329847cd92107ba6f02d0216aecc2",
+          "null_count": 0
+        },
+        {
+          "name": "v_sparse",
+          "sql_type": "int",
+          "digest": "sha256:d5f049d49cdb72e88e4cefd663cb08aaffe54f9b4dff40294274c88cc19aec70",
+          "null_count": 0
+        },
+        {
+          "name": "v_deep",
+          "sql_type": "int",
+          "digest": "sha256:6fba608f7038ff6ded70c9e7d467d2ed9f46c696aeda64d5c6505735e352a085",
+          "null_count": 0
+        },
+        {
+          "name": "v_compulsory",
+          "sql_type": "int",
+          "digest": "sha256:4c7d4c2587e7d3a7cf16a0ef097b95377b051cf08bd9c4dbef80d9903f8cb573",
+          "null_count": 0
+        },
+        {
+          "name": "v_dense",
+          "sql_type": "int",
+          "digest": "sha256:b9b55d195aa8120269cb8dd657483d3b5f9590462427183b40e9e27737e0c776",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}

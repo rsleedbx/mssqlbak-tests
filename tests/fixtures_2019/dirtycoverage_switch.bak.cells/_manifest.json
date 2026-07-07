@@ -1,0 +1,62 @@
+{
+  "bak": "dirtycoverage_switch.bak",
+  "captured_at": "2026-06-26T18:49:24.559906+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.part_test",
+      "row_count": 150,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:f978b362be5b3a3f99a3652b0f36c22f1c779ba7c9c4eb1cba30e89f0d6e1ea7",
+          "null_count": 0
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar(200)",
+          "digest": "sha256:ea1769502720b2e1f677699150d5725c31dc3c71753c1451b37831f89939f35d",
+          "null_count": 0
+        },
+        {
+          "name": "phase",
+          "sql_type": "varchar(30)",
+          "digest": "sha256:521056b22c11c80fba5c4f8ff252d4611f0d2ddc4aa2ecb141525f99d3566d27",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.staging_test",
+      "row_count": 50,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:ef929f0701ec2c2741a371f6d7ce36be76d845d4c857d764f0ddc343e2515340",
+          "null_count": 0
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar(200)",
+          "digest": "sha256:3cf19151541bda38220e597b9cd3861594ac5a9e94d1f68057df6c1aa6feebbb",
+          "null_count": 0
+        },
+        {
+          "name": "phase",
+          "sql_type": "varchar(30)",
+          "digest": "sha256:18918906d9552e7d3bbfff120c991a0f8bb89426669355403774e70d341a1f02",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}

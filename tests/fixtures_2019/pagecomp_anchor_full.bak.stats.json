@@ -1,0 +1,75 @@
+{
+  "sql_version": "Microsoft SQL Server 2019 (RTM-CU32-GDR) (KB5090407) - 15.0.4470.1 (X64)",
+  "bak": "pagecomp_anchor_full.bak",
+  "bak_size_bytes": 3330048,
+  "bak_size_mb": 3.176,
+  "bak_sha256": "eecb7bad26545838abcddea9c7be24b9bc77109b86e8a88349edb8f030b45be9",
+  "database": "RegisterBak_pagecomp_anchor_full",
+  "registered_at": "2026-06-23T19:51:05.924474+00:00",
+  "sqlserver_restore_s": 2.146,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "pagecomp_anchor",
+      "row_count": 5000,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "5000"
+        },
+        {
+          "name": "editor",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "ts",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2021-06-15 12:00:00.0000000",
+          "max_val": "2021-06-15 12:00:00.0000000"
+        },
+        {
+          "name": "ts2",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2021-12-31 23:59:59.0000000",
+          "max_val": "2021-12-31 23:59:59.0000000"
+        },
+        {
+          "name": "amount",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "12.500",
+          "max_val": "12.500"
+        },
+        {
+          "name": "qty",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "7",
+          "max_val": "7"
+        },
+        {
+          "name": "label",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "COMMON_PREFIX_LABEL",
+          "max_val": "COMMON_PREFIX_LABEL"
+        },
+        {
+          "name": "geo",
+          "sql_type": "geography",
+          "null_count": 0,
+          "min_val": "POINT (-122.3321 47.6062)",
+          "max_val": "POINT (-122.3321 47.6062)"
+        }
+      ]
+    }
+  ]
+}

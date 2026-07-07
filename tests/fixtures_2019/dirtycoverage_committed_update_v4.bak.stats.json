@@ -1,0 +1,89 @@
+{
+  "sql_version": "Microsoft SQL Server 2019 (RTM-CU32-GDR) (KB5090407) - 15.0.4470.1 (X64)",
+  "bak": "dirtycoverage_committed_update_v4.bak",
+  "bak_size_bytes": 4050944,
+  "bak_size_mb": 3.863,
+  "bak_sha256": "5cb61f40e8f0c05678ad8c02e2c2d2af21fb94a017b970d02fa84d95370856d9",
+  "database": "RegisterBak_dirtycoverage_committed_update_v4",
+  "registered_at": "2026-06-24T02:50:09.719669+00:00",
+  "sqlserver_restore_s": 2.376,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "dirty_v4",
+      "row_count": 5000,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "5000"
+        },
+        {
+          "name": "phase",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "keep",
+          "max_val": "update"
+        },
+        {
+          "name": "val_int",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "3",
+          "max_val": "15000"
+        },
+        {
+          "name": "val_str",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "original_1001",
+          "max_val": "updated_999"
+        },
+        {
+          "name": "val_nstr",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "row_1",
+          "max_val": "row_999"
+        },
+        {
+          "name": "val_float",
+          "sql_type": "float",
+          "null_count": 0,
+          "min_val": "0.142857",
+          "max_val": "714.286"
+        },
+        {
+          "name": "val_dt",
+          "sql_type": "datetime2",
+          "null_count": 0,
+          "min_val": "2000-01-01 00:00:00.000",
+          "max_val": "2009-12-28 00:00:00.000"
+        },
+        {
+          "name": "val_guid",
+          "sql_type": "uniqueidentifier",
+          "null_count": 0,
+          "min_val": "53B1DD93-659A-4DA1-9BA1-0002D5EB51DC",
+          "max_val": "048DA443-E9FA-4C38-B21E-FFF9CDE24ADE"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "fkr__seed",
+      "row_count": 5000,
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "4999"
+        }
+      ]
+    }
+  ]
+}

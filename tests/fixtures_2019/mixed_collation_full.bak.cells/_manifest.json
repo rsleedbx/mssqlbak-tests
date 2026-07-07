@@ -1,0 +1,46 @@
+{
+  "bak": "mixed_collation_full.bak",
+  "captured_at": "2026-06-26T18:52:28.242267+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.collation_mix",
+      "row_count": 3,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:5be6c1972032e65c8852b651ad59e6dccaff8d9d07dc0e5718a63bff0f3f90bc",
+          "null_count": 0
+        },
+        {
+          "name": "lat",
+          "sql_type": "varchar(40)",
+          "digest": "sha256:7bd186d613511f1acd8d74de8061510401816c09b84e2f35b89c9a4645be71b1",
+          "null_count": 1
+        },
+        {
+          "name": "grk",
+          "sql_type": "varchar(40)",
+          "digest": "sha256:9bf1c0ce6526e476121848b1ebb2cf381b9972d9759dbe9e8783cd16023bd3e3",
+          "null_count": 1
+        },
+        {
+          "name": "heb",
+          "sql_type": "varchar(40)",
+          "digest": "sha256:29da5cb675a6aa540db7e69a31cc7d67a1b919951524c9b1cb52816d5ddbcf8b",
+          "null_count": 1
+        },
+        {
+          "name": "utf",
+          "sql_type": "varchar(40)",
+          "digest": "sha256:7bd186d613511f1acd8d74de8061510401816c09b84e2f35b89c9a4645be71b1",
+          "null_count": 1
+        }
+      ]
+    }
+  ]
+}

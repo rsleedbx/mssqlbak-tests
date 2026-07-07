@@ -1,0 +1,52 @@
+{
+  "bak": "sparse_full.bak",
+  "captured_at": "2026-06-26T18:53:03.407239+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.sparse_wide",
+      "row_count": 10000,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:f8254ba95fc5a5db0bbb5ef17e451dfdc5da9d37cc80b230a1add8abc8e4fb06",
+          "null_count": 0
+        },
+        {
+          "name": "a",
+          "sql_type": "int",
+          "digest": "sha256:c08315ece91fdd72ad5a396fa7aa382e2bdb992034aa9447256baf3e4eaddece",
+          "null_count": 5000
+        },
+        {
+          "name": "b",
+          "sql_type": "varchar(20)",
+          "digest": "sha256:39b76fd77d128bb739324caf7354c35185ff3da0cae3988ba324215fb32b9a55",
+          "null_count": 6667
+        },
+        {
+          "name": "c",
+          "sql_type": "datetime2",
+          "digest": "sha256:22fdf1edf3a2efe2513458e2bdec3a39be29d23b1b3b176505e20f2a67340e42",
+          "null_count": 7500
+        },
+        {
+          "name": "d",
+          "sql_type": "decimal(10,2)",
+          "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "null_count": 10000
+        },
+        {
+          "name": "cs",
+          "sql_type": "xml",
+          "digest": "sha256:08d1808450fbfe4ea42a3a084956d33a763545b01584891acc6d6502f53f773b",
+          "null_count": 3333
+        }
+      ]
+    }
+  ]
+}

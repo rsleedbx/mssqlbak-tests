@@ -1,0 +1,40 @@
+{
+  "bak": "incrementalcoverage_full.bak",
+  "captured_at": "2026-06-26T18:51:56.254287+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.sync_batch",
+      "row_count": 10,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:9580f3b016d3581180d64a6c2ffd7883350f5d7d48a0d547e5f7ad688f05048a",
+          "null_count": 0
+        },
+        {
+          "name": "batch",
+          "sql_type": "int",
+          "digest": "sha256:5cee9a62420e272419959a4f036c45beacd2680b341d2a0d72c13f336cd5ee72",
+          "null_count": 0
+        },
+        {
+          "name": "action",
+          "sql_type": "varchar(10)",
+          "digest": "sha256:56765e8de74fdbf40a6ef73158ff858c456c1197e37144e5153770296a7864fc",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "nvarchar(200)",
+          "digest": "sha256:6f89491f524944b8a8bdda212abc479b96f4bcd2486d4dd2bb51b9c54948c604",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}

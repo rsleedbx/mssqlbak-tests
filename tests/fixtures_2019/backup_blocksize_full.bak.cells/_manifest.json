@@ -1,0 +1,50 @@
+{
+  "bak": "backup_blocksize_full.bak",
+  "captured_at": "2026-06-26T18:44:09.043018+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.blksz_tbl",
+      "row_count": 100,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:2194fcb8c27048b162f52699883cf260e3098ec6f0d75c303246f0b8f8d8a00c",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "varchar(30)",
+          "digest": "sha256:d74cb1b8a0e9bb8655a75a20853f5fe5790f90857ca4f093e752b28093d4c594",
+          "null_count": 0
+        },
+        {
+          "name": "n",
+          "sql_type": "int",
+          "digest": "sha256:d871c59633de8b44d9814982ba44d042165a34bb58169bd33bc89591a3b0d668",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.fkr__seed",
+      "row_count": 100,
+      "key_columns": [
+        "pk"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "int",
+          "digest": "sha256:8898958fc44ef5a938277e35cef3c31fb0676bb7f843c6b79dfc91b7fd4d6f91",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}

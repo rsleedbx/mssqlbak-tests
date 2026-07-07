@@ -1,0 +1,40 @@
+{
+  "sql_version": "Microsoft SQL Server 2019 (RTM-CU32-GDR) (KB5090407) - 15.0.4470.1 (X64)",
+  "bak": "archivenull_full.bak",
+  "bak_size_bytes": 5365760,
+  "bak_size_mb": 5.117,
+  "bak_sha256": "cb1e9180a471bfed04e10b226c6beaf5152d5efff901c5dc754c230d531572b1",
+  "database": "RegisterBak_archivenull_full",
+  "registered_at": "2026-06-15T21:38:18.190026+00:00",
+  "sqlserver_restore_s": 1.884,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "archive_null",
+      "row_count": 50000,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "50000"
+        },
+        {
+          "name": "code",
+          "sql_type": "char",
+          "null_count": 100,
+          "min_val": "1",
+          "max_val": "9999"
+        },
+        {
+          "name": "zip",
+          "sql_type": "char",
+          "null_count": 50,
+          "min_val": "1",
+          "max_val": "9999"
+        }
+      ]
+    }
+  ]
+}

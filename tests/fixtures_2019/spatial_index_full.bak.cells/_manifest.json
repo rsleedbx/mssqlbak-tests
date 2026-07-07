@@ -1,0 +1,50 @@
+{
+  "bak": "spatial_index_full.bak",
+  "captured_at": "2026-06-27T00:39:43.269921+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.fkr__seed",
+      "row_count": 200,
+      "key_columns": [
+        "pk"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "int",
+          "digest": "sha256:a5bf92a53f3120a3dd22053256e4a026a26994628fbbde4972a3a735996e8cef",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.spatial_pts",
+      "row_count": 200,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:0eba0e15dcd708a347919ae01327ac6931a455372da6b9799cd0d12252777af5",
+          "null_count": 0
+        },
+        {
+          "name": "loc",
+          "sql_type": "geometry",
+          "digest": "sha256:5ab73d1d1bd21457564bc2165edda9dbb13d1d8ad7382cd7cf273f4caed25d28",
+          "null_count": 0
+        },
+        {
+          "name": "name",
+          "sql_type": "varchar(20)",
+          "digest": "sha256:db3a7ceb842001de0cd880830a1626bc5344b32026c80beb2dbc2f8f94bbeedd",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}

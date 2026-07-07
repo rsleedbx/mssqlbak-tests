@@ -1,0 +1,178 @@
+{
+  "bak": "dirtycoverage_committed_update_v3.bak",
+  "captured_at": "2026-06-28T01:55:42.894830+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.all_types_test",
+      "row_count": 300,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:22c4f0cc28f32c2638835d6f2d4de4c6d546765dac9b2674f0ff27291b39a1b8",
+          "null_count": 0
+        },
+        {
+          "name": "col_tinyint",
+          "sql_type": "tinyint",
+          "digest": "sha256:fd8f2a69bde6444bec3086217631873e6919bed39a4447a80b4432f9cc5094a7",
+          "null_count": 0
+        },
+        {
+          "name": "col_smallint",
+          "sql_type": "smallint",
+          "digest": "sha256:68235801ad85321d7f0f33c218031cfd27884ea29eb12922760661cff568a291",
+          "null_count": 0
+        },
+        {
+          "name": "col_bigint",
+          "sql_type": "bigint",
+          "digest": "sha256:9b645d43d02cf96bd7ca12b97d4f8a36815f63ab5e41cd3a44335f1d9b6a650f",
+          "null_count": 0
+        },
+        {
+          "name": "col_bit",
+          "sql_type": "bit",
+          "digest": "sha256:96e0d6f4a1848ad3c3a3a0b75bfdee58218d2ab3a7ec2aecfe6d91931796e0d1",
+          "null_count": 0
+        },
+        {
+          "name": "col_decimal",
+          "sql_type": "decimal(18,4)",
+          "digest": "sha256:bf601b4b0d4d02584340a9981c05c62542b92043fe8dd14a194b83f821bd1a53",
+          "null_count": 0
+        },
+        {
+          "name": "col_numeric",
+          "sql_type": "numeric(10,3)",
+          "digest": "sha256:42b5806eeae201fa2e10fd573303817b03c8007291c2ec0dde215ef4fa6feb60",
+          "null_count": 0
+        },
+        {
+          "name": "col_money",
+          "sql_type": "money",
+          "digest": "sha256:12c010c6d24c44f3c56660dc02ff6840f3d453e1fd5faef50062b7b983378de8",
+          "null_count": 0
+        },
+        {
+          "name": "col_smallmoney",
+          "sql_type": "smallmoney",
+          "digest": "sha256:776f07ad5d5da7d9eccc17fa8936bfb302f8379bf8b58461f5fe0f2a7d9f387e",
+          "null_count": 0
+        },
+        {
+          "name": "col_float",
+          "sql_type": "float",
+          "digest": "sha256:c827bfa6e4017349aa58ccecfecb73aae512bd5aa2fe4df3abf27e59f80d123b",
+          "null_count": 0
+        },
+        {
+          "name": "col_real",
+          "sql_type": "real",
+          "digest": "sha256:7a6d58fa4cd2da61ad4e7eb2d4202e2e2476ce7be3c7f7dad6d5182de410a2f0",
+          "null_count": 0
+        },
+        {
+          "name": "col_date",
+          "sql_type": "date",
+          "digest": "sha256:dfda3558c39cb76c67da831af6e2f024454e7c287d38cbece4ac688472c5c759",
+          "null_count": 0
+        },
+        {
+          "name": "col_time",
+          "sql_type": "time",
+          "digest": "sha256:1dd4387df0399b392d63c5cb1823e6d5611d9fd9882526fab03e7c4f79920e0b",
+          "null_count": 0
+        },
+        {
+          "name": "col_datetime",
+          "sql_type": "datetime",
+          "digest": "sha256:5eaf47b25765e7d619ae573ec8c9c876e73848ce7d3e7acd62c6e8f56d9149ab",
+          "null_count": 0
+        },
+        {
+          "name": "col_smalldatetime",
+          "sql_type": "smalldatetime",
+          "digest": "sha256:1ff051911895e2ea9bb5e625df0043a2db18d8c5cd35a47416b82a79222ad490",
+          "null_count": 0
+        },
+        {
+          "name": "col_datetime2",
+          "sql_type": "datetime2",
+          "digest": "sha256:6b3e1cd93f9ad3cf3ca12cbf57594a4c29b3331bc9abb54c28eb17f2aeaed1fa",
+          "null_count": 0
+        },
+        {
+          "name": "col_datetimeoffset",
+          "sql_type": "datetimeoffset",
+          "digest": "sha256:0eb55690e5aae8c4ba558dde732613b8b96a483e0daf462c27db92ef0916f1c3",
+          "null_count": 0
+        },
+        {
+          "name": "col_char",
+          "sql_type": "char(10)",
+          "digest": "sha256:48d79654a94ed082afd70e6d387da8485de45c920ff80189b38d009bf52ad1e5",
+          "null_count": 0
+        },
+        {
+          "name": "col_varchar",
+          "sql_type": "varchar(200)",
+          "digest": "sha256:d00be5b1732d9ded82c27328fb45c4b52e4a664ba13e5edd6791f907584a11c5",
+          "null_count": 0
+        },
+        {
+          "name": "col_nchar",
+          "sql_type": "nchar(20)",
+          "digest": "sha256:03a2e30226fd37c2ec39e3747c605f64866f2c3203cc00c3ac3214f0472d984c",
+          "null_count": 0
+        },
+        {
+          "name": "col_nvarchar",
+          "sql_type": "nvarchar(200)",
+          "digest": "sha256:3e548ae042f0cc52c40c5227bc208633836ef69c00eb8119d4505b4b4ebcc8b4",
+          "null_count": 0
+        },
+        {
+          "name": "col_binary",
+          "sql_type": "binary(10)",
+          "digest": "sha256:5a8222bf298f5f0fd83594f984f02a919248552096f1dc8c30239cf9e7f5227f",
+          "null_count": 0
+        },
+        {
+          "name": "col_varbinary",
+          "sql_type": "varbinary(200)",
+          "digest": "sha256:3f3c633a60ae825f767c6a2fff7a4bd5526fbaddd103751b88cc53ef2204cd56",
+          "null_count": 0
+        },
+        {
+          "name": "col_uniqueidentifier",
+          "sql_type": "uniqueidentifier",
+          "digest": "sha256:d498833cb821ed2d8fe39a6d92bf9159735d280bb52cb2fb59cd8a73222ce44d",
+          "null_count": 0
+        },
+        {
+          "name": "col_xml",
+          "sql_type": "xml",
+          "digest": "sha256:24c606fc30476c2173ab48e7a3b7958b0d777914aff1fe512c20e721cc6601d0",
+          "null_count": 0
+        },
+        {
+          "name": "col_sql_variant",
+          "sql_type": "sql_variant",
+          "digest": "sha256:c87bda8946edad36fab03b32bee42309a89772cde15a0549e9cd20532c4e45ea",
+          "null_count": 0
+        },
+        {
+          "name": "col_rowversion",
+          "sql_type": "timestamp",
+          "digest": "sha256:05204b4a39ee5e16b398037cb7b86bde40d24b525bb08b90903462a6d0a6ad36",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}

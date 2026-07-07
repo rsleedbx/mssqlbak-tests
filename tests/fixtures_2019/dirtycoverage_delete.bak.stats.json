@@ -1,0 +1,38 @@
+{
+  "sql_version": "Microsoft SQL Server 2019 (RTM-CU32-GDR) (KB5090407) - 15.0.4470.1 (X64)",
+  "bak": "dirtycoverage_delete.bak",
+  "bak_size_mb": 2.801,
+  "database": "RegisterBak_dirtycoverage_delete",
+  "registered_at": "2026-06-11T20:44:00.659784+00:00",
+  "sqlserver_restore_s": 1.904,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "delete_test",
+      "row_count": 70,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "70"
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "committed row 1",
+          "max_val": "delete target 9"
+        },
+        {
+          "name": "phase",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "committed",
+          "max_val": "delete_target"
+        }
+      ]
+    }
+  ]
+}

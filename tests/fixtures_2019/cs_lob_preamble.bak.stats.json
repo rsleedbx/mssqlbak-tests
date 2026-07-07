@@ -1,0 +1,31 @@
+{
+  "sql_version": "Microsoft SQL Server 2019 (RTM-CU32-GDR) (KB5090407) - 15.0.4470.1 (X64)",
+  "bak": "cs_lob_preamble.bak",
+  "bak_size_mb": 0.574,
+  "database": "RegisterBak_cs_lob_preamble",
+  "registered_at": "2026-06-11T20:35:36.907546+00:00",
+  "sqlserver_restore_s": 2.019,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "cs_lob_preamble",
+      "row_count": 1400,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1399"
+        },
+        {
+          "name": "long_str",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "row_000000_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+          "max_val": "row_001399_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+        }
+      ]
+    }
+  ]
+}

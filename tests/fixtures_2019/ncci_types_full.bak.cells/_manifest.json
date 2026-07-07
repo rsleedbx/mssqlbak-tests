@@ -1,0 +1,440 @@
+{
+  "bak": "ncci_types_full.bak",
+  "captured_at": "2026-06-26T02:54:07.945345+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.fkr__seed",
+      "row_count": 1200,
+      "key_columns": [
+        "pk"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "int",
+          "digest": "sha256:8633dfa27880f37d9aa5bd95bcf2d3485d60464a0d9367ec330c7e7800626bf3",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.ncci_bigint",
+      "row_count": 1203,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:58c922a36c292c43237652d85110fe6e5a11c72acb55df3a00b23efdcaa36253",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "bigint",
+          "digest": "sha256:b69bea5158449aca341fff9a10c01b3cfa1d5c16cebfd6bd210af6660df54b05",
+          "null_count": 1
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.ncci_binary",
+      "row_count": 1203,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:58c922a36c292c43237652d85110fe6e5a11c72acb55df3a00b23efdcaa36253",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "binary(8)",
+          "digest": "sha256:3a10f83b6c280fe8e70fe382e8e7359100e7826b4f0060369b21cab5698db44e",
+          "null_count": 1
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.ncci_bit",
+      "row_count": 1203,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:58c922a36c292c43237652d85110fe6e5a11c72acb55df3a00b23efdcaa36253",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "bit",
+          "digest": "sha256:920fa1878b83479fb19c21bfe5ccedb83425b38965e2ffa6610b7c84699ca520",
+          "null_count": 1
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.ncci_char",
+      "row_count": 1203,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:58c922a36c292c43237652d85110fe6e5a11c72acb55df3a00b23efdcaa36253",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "char(10)",
+          "digest": "sha256:18c3fdce12adb90eebad80e6346eb8d458d4dc6dbaa086114b577483cf9762b3",
+          "null_count": 1
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.ncci_date",
+      "row_count": 1203,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:58c922a36c292c43237652d85110fe6e5a11c72acb55df3a00b23efdcaa36253",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "date",
+          "digest": "sha256:1c8713267429290e0187aae14662fa8618eebb1479f303a547fc5597cc691c1a",
+          "null_count": 1
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.ncci_datetime2",
+      "row_count": 1203,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:58c922a36c292c43237652d85110fe6e5a11c72acb55df3a00b23efdcaa36253",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "datetime2",
+          "digest": "sha256:a43c47df7a07c83ecc2c7cbc7d2ffcde5b2a02a4955824a4f5e90ad3ccdabe55",
+          "null_count": 1
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.ncci_datetimeoffset",
+      "row_count": 1203,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:58c922a36c292c43237652d85110fe6e5a11c72acb55df3a00b23efdcaa36253",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "datetimeoffset",
+          "digest": "sha256:2709baf3fa1b4e26841dd6c2efbd5404942a0ac7c64709d28e457cc790e3e716",
+          "null_count": 1
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.ncci_float",
+      "row_count": 1203,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:58c922a36c292c43237652d85110fe6e5a11c72acb55df3a00b23efdcaa36253",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "float",
+          "digest": "sha256:eb1e31dd32635e33567e9b80e4ccc699b8f365ee312e24d8ca912a57ad27de69",
+          "null_count": 1
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.ncci_money",
+      "row_count": 1203,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:58c922a36c292c43237652d85110fe6e5a11c72acb55df3a00b23efdcaa36253",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "money",
+          "digest": "sha256:987d2b442b547eebe28fe0e9c4ff444624672416cd2b37dc5010465109dde392",
+          "null_count": 1
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.ncci_nchar",
+      "row_count": 1203,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:58c922a36c292c43237652d85110fe6e5a11c72acb55df3a00b23efdcaa36253",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "nchar(10)",
+          "digest": "sha256:18c3fdce12adb90eebad80e6346eb8d458d4dc6dbaa086114b577483cf9762b3",
+          "null_count": 1
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.ncci_nvarchar",
+      "row_count": 1203,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:58c922a36c292c43237652d85110fe6e5a11c72acb55df3a00b23efdcaa36253",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "nvarchar(50)",
+          "digest": "sha256:8399dc57c5056c6ec10bd1b858914dccfa0130a538e8c7328887338ffc986529",
+          "null_count": 1
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.ncci_real",
+      "row_count": 1203,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:58c922a36c292c43237652d85110fe6e5a11c72acb55df3a00b23efdcaa36253",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "real",
+          "digest": "sha256:0e3c825a58622400cdc685268dc88b385e210210b59b9101e8f091cc1cb2932e",
+          "null_count": 1
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.ncci_smallint",
+      "row_count": 1203,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:58c922a36c292c43237652d85110fe6e5a11c72acb55df3a00b23efdcaa36253",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "smallint",
+          "digest": "sha256:b6b782ca67d75c91d437b9934e2e597e556f2f78944c75c3ab888bdc6d9b32a5",
+          "null_count": 1
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.ncci_smallmoney",
+      "row_count": 1203,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:58c922a36c292c43237652d85110fe6e5a11c72acb55df3a00b23efdcaa36253",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "smallmoney",
+          "digest": "sha256:4520fce0cc2522bca225090c4cc53edda5ff4528135d40ca79a009abd4162fd8",
+          "null_count": 1
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.ncci_time",
+      "row_count": 1203,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:58c922a36c292c43237652d85110fe6e5a11c72acb55df3a00b23efdcaa36253",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "time",
+          "digest": "sha256:274b9feeed91c45205c8891c4fa2aaadb3ecf56f0faad252f940f11c01e89d29",
+          "null_count": 1
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.ncci_tinyint",
+      "row_count": 1203,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:58c922a36c292c43237652d85110fe6e5a11c72acb55df3a00b23efdcaa36253",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "tinyint",
+          "digest": "sha256:54bcb99965b42cd0ac73950fa5e8f1c11ff5b639b7d0c7b575392bef4e117901",
+          "null_count": 1
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.ncci_uuid",
+      "row_count": 1203,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:58c922a36c292c43237652d85110fe6e5a11c72acb55df3a00b23efdcaa36253",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "uniqueidentifier",
+          "digest": "sha256:81e170f23fe14c7fa50653a2745e10277c6665091b4004686bba5011a4511f49",
+          "null_count": 1
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.ncci_varbinary",
+      "row_count": 1203,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:58c922a36c292c43237652d85110fe6e5a11c72acb55df3a00b23efdcaa36253",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "varbinary(8)",
+          "digest": "sha256:150226d84f0be58d2ebec13e8dd8b6568f475a9975b9db3b0dae2f74b906b3be",
+          "null_count": 1
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.ncci_varchar",
+      "row_count": 1203,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:58c922a36c292c43237652d85110fe6e5a11c72acb55df3a00b23efdcaa36253",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "varchar(50)",
+          "digest": "sha256:8399dc57c5056c6ec10bd1b858914dccfa0130a538e8c7328887338ffc986529",
+          "null_count": 1
+        }
+      ]
+    }
+  ]
+}

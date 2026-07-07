@@ -1,0 +1,48 @@
+{
+  "bak": "cci_switch_full.bak",
+  "captured_at": "2026-06-26T02:52:41.103369+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.cci_switch_dst",
+      "row_count": 1200,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:8043b692281acdc48ace749005d499586600713513c0de2ad053a87b59c24b9d",
+          "null_count": 0
+        },
+        {
+          "name": "batch",
+          "sql_type": "int",
+          "digest": "sha256:0cab7465c9312385ccd4d33c5ccc017a5a5fcdc65d5209415e3fe17c505df592",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "int",
+          "digest": "sha256:adcf782e998afc1ce535bb70bd587558a27bc957d96ed244ac17a52cb4e32f5f",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.fkr__seed",
+      "row_count": 1200,
+      "key_columns": [
+        "pk"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "int",
+          "digest": "sha256:8633dfa27880f37d9aa5bd95bcf2d3485d60464a0d9367ec330c7e7800626bf3",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}

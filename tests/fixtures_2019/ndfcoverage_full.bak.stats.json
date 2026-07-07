@@ -1,0 +1,54 @@
+{
+  "sql_version": "Microsoft SQL Server 2019 (RTM-CU32-GDR) (KB5090407) - 15.0.4470.1 (X64)",
+  "bak": "ndfcoverage_full.bak",
+  "bak_size_bytes": 4317184,
+  "bak_size_mb": 4.117,
+  "bak_sha256": "a373634358256e47e8ba975ebbbdb053a9cd3fa771fa0527e5d88d39466d418e",
+  "database": "RegisterBak_ndfcoverage_full",
+  "registered_at": "2026-06-17T12:03:19.749054+00:00",
+  "sqlserver_restore_s": 2.003,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "primary_tbl",
+      "row_count": 10,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "10"
+        },
+        {
+          "name": "val",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "primary_row_1",
+          "max_val": "primary_row_9"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "secondary_tbl",
+      "row_count": 10,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "10"
+        },
+        {
+          "name": "val",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "secondary_row_1",
+          "max_val": "secondary_row_9"
+        }
+      ]
+    }
+  ]
+}

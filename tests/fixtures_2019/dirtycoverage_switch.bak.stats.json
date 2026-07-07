@@ -1,0 +1,66 @@
+{
+  "sql_version": "Microsoft SQL Server 2019 (RTM-CU32-GDR) (KB5090407) - 15.0.4470.1 (X64)",
+  "bak": "dirtycoverage_switch.bak",
+  "bak_size_mb": 3.176,
+  "database": "RegisterBak_dirtycoverage_switch",
+  "registered_at": "2026-06-11T20:45:16.175598+00:00",
+  "sqlserver_restore_s": 1.761,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "part_test",
+      "row_count": 150,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "150"
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "part row 1",
+          "max_val": "part row 99"
+        },
+        {
+          "name": "phase",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "partitioned",
+          "max_val": "partitioned"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "staging_test",
+      "row_count": 50,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "301",
+          "max_val": "350"
+        },
+        {
+          "name": "label",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "staged row 301",
+          "max_val": "staged row 350"
+        },
+        {
+          "name": "phase",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "staged",
+          "max_val": "staged"
+        }
+      ]
+    }
+  ]
+}

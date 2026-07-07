@@ -1,0 +1,55 @@
+{
+  "bak": "dirtycoverage_cci_delete.bak",
+  "captured_at": "2026-06-26T04:16:22.789458+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.dirty_cci",
+      "row_count": 6000,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:797726a44a11e42cc63e14277d29c224daf3470d6ec20493f09b99522cc73212",
+          "null_count": 0
+        },
+        {
+          "name": "phase",
+          "sql_type": "varchar(10)",
+          "digest": "sha256:98270a2781d08f62fb5ebfd63114b92e4de4baa1fb47cf739e8628cc5ee7bcf2",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "varchar(100)",
+          "digest": "sha256:6af29333bc0a5c537cc9e22418c54590dfc56349a01476e3beca3a54744513fd",
+          "null_count": 0
+        },
+        {
+          "name": "score",
+          "sql_type": "float",
+          "digest": "sha256:40b58b907888510e9879f03ecc6a36843a0590040b70b97c51fb388d527b0cfc",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true
+    },
+    {
+      "fqn": "dbo.fkr__seed",
+      "row_count": 7000,
+      "key_columns": [
+        "pk"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "int",
+          "digest": "sha256:62963d41ba2ba4c7d81dfc58288c58caa386aaef82b91bee2efd1d1e9aee54fa",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}

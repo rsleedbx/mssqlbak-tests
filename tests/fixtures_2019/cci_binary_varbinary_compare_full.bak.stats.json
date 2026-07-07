@@ -1,0 +1,40 @@
+{
+  "sql_version": "Microsoft SQL Server 2019 (RTM-CU32-GDR) (KB5090407) - 15.0.4470.1 (X64)",
+  "bak": "cci_binary_varbinary_compare_full.bak",
+  "bak_size_bytes": 3264512,
+  "bak_size_mb": 3.113,
+  "bak_sha256": "14545554b5059a3124379311433e8caa28f63067ec4674f4279923d2cca786b6",
+  "database": "RegisterBak_cci_binary_varbinary_compare_full",
+  "registered_at": "2026-06-19T13:32:29.820865+00:00",
+  "sqlserver_restore_s": 2.786,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "cci_binary_varbinary_compare",
+      "row_count": 1200,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1203"
+        },
+        {
+          "name": "bin8",
+          "sql_type": "binary",
+          "null_count": 1,
+          "min_val": "0x0000000000000001",
+          "max_val": "0xFFFFFFFFFFFFFFFF"
+        },
+        {
+          "name": "vb8",
+          "sql_type": "varbinary",
+          "null_count": 1,
+          "min_val": "0x0000000000000001",
+          "max_val": "0xFFFFFFFFFFFFFFFF"
+        }
+      ]
+    }
+  ]
+}
