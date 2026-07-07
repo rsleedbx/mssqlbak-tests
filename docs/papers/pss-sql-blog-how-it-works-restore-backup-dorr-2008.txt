@@ -1,0 +1,697 @@
+How It Works: What is Restore/Backup Doing? | Microsoft Learn
+			
+			
+			
+
+			
+			 
+
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			 
+			
+			 
+			
+
+			
+
+			
+			
+
+			
+			
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	 
+
+			
+				(function () {
+			try {
+				var state = JSON.parse(localStorage.getItem('atlas-layout-preferences') || '{}');
+				var view = state["docs-layout-persistence"] || {};
+				var excludesKey = "";
+				var blocked = {};
+				if (excludesKey) {
+					var exclusions = JSON.parse(localStorage.getItem('atlas-layout-exclusions') || '{}');
+					if (Object.prototype.hasOwnProperty.call(exclusions, excludesKey)) {
+						var scoped = exclusions[excludesKey];
+						if (scoped) {
+							if (typeof scoped === 'object') blocked = scoped;
+						}
+					}
+				}
+				var html = document.documentElement;
+				for (var c in view) {
+					if (Object.prototype.hasOwnProperty.call(blocked, c)) continue;
+					if (view[c]) html.classList.add(c);
+					else html.classList.remove(c);
+				}
+			} catch (e) {}
+		})();;
+			
+
+			
+			
+			
+			
+			
+			
+			
+
+			
+			
+		var msDocs = {
+  "environment": {
+    "accessLevel": "online",
+    "azurePortalHostname": "portal.azure.com",
+    "reviewFeatures": false,
+    "supportLevel": "production",
+    "systemContent": true,
+    "siteName": "learn",
+    "legacyHosting": false
+  },
+  "data": {
+    "contentLocale": "en-us",
+    "contentDir": "ltr",
+    "userLocale": "en-us",
+    "userDir": "ltr",
+    "pageTemplate": "Conceptual",
+    "layoutStateStorageKey": "docs-layout-persistence",
+    "brand": "",
+    "context": {},
+    "standardFeedback": false,
+    "showFeedbackReport": false,
+    "feedbackHelpLinkType": "",
+    "feedbackHelpLinkUrl": "",
+    "feedbackSystem": "None",
+    "feedbackGitHubRepo": "",
+    "feedbackProductUrl": "",
+    "extendBreadcrumb": false,
+    "isEditDisplayable": false,
+    "isPrivateUnauthorized": false,
+    "hideViewSource": false,
+    "isPermissioned": false,
+    "hasRecommendations": false,
+    "contributors": []
+  },
+  "functions": {}
+};;
+	
+
+			
+			
+			
+
+			
+			
+		
+	
+			
+				
+		
+			
+		
+			Skip to main content
+		
+	
+		
+			Skip to Ask Learn chat experience
+		
+	
+
+			
+			
+			
+				
+					This browser is no longer supported.
+					
+						Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support.
+					
+					
+						
+							Download Microsoft Edge
+						
+						
+							More info about Internet Explorer and Microsoft Edge
+						
+					
+				
+			
+			
+			
+				
+				
+				
+			
+			
+		
+		
+			
+			
+		
+		
+	
+		
+	
+				 
+					
+		
+			
+				
+					
+						
+							
+								
+								
+							
+						
+						
+					
+				
+			
+		
+	
+			  
+
+				
+					
+			
+		
+			
+				
+				 Table of contents 
+			
+			
+				
+				Exit editor mode
+			
+		
+	
+			
+				
+					
+		
+			
+				
+		
+			
+				
+					
+				
+			
+			
+		
+
+		
+	 
+		
+			
+		
+			
+				
+			
+		
+		
+			
+				
+			
+			Ask Learn
+		
+		
+			
+				
+			
+			Ask Learn
+		
+	 
+
+			
+				
+					
+						
+					
+				
+				
+					
+		
+			
+				
+			
+			Reading mode
+		
+	 
+		
+			
+			Table of contents
+		
+	 
+		
+			
+				
+			
+			Read in English
+		
+	
+					
+		
+			
+				
+			
+			Add
+		
+	 
+		
+			
+				
+			
+			Add to plan
+		
+	 
+					  
+		
+		
+				
+					
+						
+						
+						
+					
+					Copy Markdown
+				
+		   
+				
+					
+						
+					
+					Print
+				
+		  
+	
+				
+			
+		
+	
+			
+		
+	  
+		
+		
+			
+			
+				
+					
+						
+						Note
+					
+					
+						Access to this page requires authorization. You can try signing in or changing directories.
+					
+					
+						Access to this page requires authorization. You can try changing directories.
+					
+				
+			
+		
+	
+					How It Works: What is Restore/Backup Doing?
+					
+		
+			 
+				
+					
+		
+			
+				
+			
+			Feedback
+		
+	
+				
+		  
+		
+	 
+		
+			
+				
+					
+				
+				
+					
+						Summarize this article for me
+					
+				
+			
+			
+			
+		
+	 
+		
+			
+				In this article
+			
+		
+	
+					The Senior Escalation Engineers do various training and mentoring activities. As I do this I thought I would try to propagate some of this information on the blog.
+
+A customer asked: "Why does it take me 7 hours to backup my database but 21 hours to restore?"
+
+The answer could be many things.   For example, if you have a 1TB database with only 100GB of data the backup would only have to take 100GB but the restore has to build the 1TB database could take longer. Another scenario would be if you are not using instant file initialization, zeroing of the files results in many more writes.
+The following is the error log output for a restore.   This is generally enough to determine what phase of backup/restore is taking the time.
+
+2008-01-23 08:38:40.42 spid52 Starting up database 'dbPerf_MAIN'.
+2008-01-23 08:38:40.52 spid52 The database 'dbPerf_MAIN' is marked RESTORING and is in a state that does not allow recovery to be run.
+2008-01-23 08:38:43.71 spid52 Starting up database 'dbPerf_MAIN'.
+2008-01-23 08:38:46.82 Backup Restore is complete on database 'dbPerf_MAIN'. The database is now available.
+2008-01-23 08:38:46.82 Backup Database was restored: Database: dbPerf_MAIN, creation date(time): 2008/01/16(14:04:58), first LSN: 647:4889:66, last LSN: 647:4918:1, number of dump devices: 1, device information: (FILE=1, TYPE=DISK: {'c:\temp\dbperf_main.bak'}). Informational message. No user action required.
+
+As mentioned (https://forums.microsoft.com/MSDN/ShowPost.aspx?PostID=930079&SiteID=1) SQL Server does have a trace flag that provides more details about a backup or restore activity.  
+
+WARNING: This trace flags should be used under the guidance of Microsoft SQL Server support. They are used in this post for discussion purposes only and may not be supported in future versions.
+
+The following is SQL Server error log output using trace flag 3004 to collect extended information.   Trace flag 3605 is also required to force the output into the error log.
+I highlighted the normal messages to help show the phase breakdowns better.   Looking at the detailed messages you can see what is doing on.   For example halting the full text crawls happens before you see the starting up database message.  Using the timings and the associated message here you can take a standard restore sequence and determine the areas of performance to focus on.
+
+dbcc traceon(3004, 3605, -1)
+
+restore database dbPerf_MAIN from disk = 'c:\perf.bak' with replace, stats=1 
+
+2008-01-23 08:59:56.26 spid52 RestoreDatabase: Database dbPerf_MAIN
+2008-01-23 08:59:56.26 spid52 Opening backup set
+2008-01-23 08:59:56.31 spid52 Restore: Configuration section loaded
+2008-01-23 08:59:56.31 spid52 Restore: Backup set is open
+2008-01-23 08:59:56.31 spid52 Restore: Planning begins
+2008-01-23 08:59:56.32 spid52 Halting FullText crawls on database dbPerf_MAIN
+2008-01-23 08:59:56.32 spid52 Dismounting FullText catalogs
+2008-01-23 08:59:56.32 spid52 X-locking database: dbPerf_MAIN
+2008-01-23 08:59:56.32 spid52 Restore: Planning complete
+2008-01-23 08:59:56.32 spid52 Restore: BeginRestore (offline) on dbPerf_MAIN
+2008-01-23 08:59:56.40 spid52 Restore: PreparingContainers
+2008-01-23 08:59:56.43 spid52 Restore: Containers are ready
+2008-01-23 08:59:56.43 spid52 Zeroing C:\Program Files\Microsoft SQL Server\MSSQL10.SQL2008\MSSQL\DATA\dbPerf_MAIN_log.LDF from page 1 to 17312 (0x2000 to 0x8740000)
+2008-01-23 08:59:56.43 spid52 Restore: Restoring backup set
+2008-01-23 08:59:56.43 spid52 Restore: Transferring data to dbPerf_MAIN
+2008-01-23 08:59:58.55 spid52 Restore: Waiting for log zero on dbPerf_MAIN
+2008-01-23 09:00:00.64 spid52 Zeroing completed on C:\Program Files\Microsoft SQL Server\MSSQL10.SQL2008\MSSQL\DATA\dbPerf_MAIN_log.LDF
+2008-01-23 09:00:00.70 spid52 Restore: LogZero complete
+2008-01-23 09:00:00.97 spid52 FileHandleCache: 0 files opened. CacheSize: 12
+2008-01-23 09:00:00.97 spid52 Restore: Data transfer complete on dbPerf_MAIN
+2008-01-23 09:00:00.97 spid52 Restore: Backup set restored
+2008-01-23 09:00:01.11 spid52 Starting up database 'dbPerf_MAIN'.
+2008-01-23 09:00:01.15 spid52 The database 'dbPerf_MAIN' is marked RESTORING and is in a state that does not allow recovery to be run.
+2008-01-23 09:00:01.15 spid52 Restore-Redo begins on database dbPerf_MAIN
+2008-01-23 09:00:04.06 spid52 Rollforward complete on database dbPerf_MAIN
+2008-01-23 09:00:04.09 spid52 Restore: Done with fixups
+2008-01-23 09:00:04.09 spid52 Restore: Transitioning database to ONLINE
+2008-01-23 09:00:04.09 spid52 Restore: Restarting database for ONLINE
+2008-01-23 09:00:04.31 spid52 Starting up database 'dbPerf_MAIN'.
+2008-01-23 09:00:05.32 spid52 FixupLogTail(progress) zeroing C:\Program Files\Microsoft SQL Server\MSSQL10.SQL2008\MSSQL\DATA\dbPerf_MAIN_log.LDF from 0x6cf6c00 to 0x6cf8000.
+2008-01-23 09:00:05.32 spid52 Zeroing C:\Program Files\Microsoft SQL Server\MSSQL10.SQL2008\MSSQL\DATA\dbPerf_MAIN_log.LDF from page 13948 to 13960 (0x6cf8000 to 0x6d10000)
+2008-01-23 09:00:05.32 spid52 Zeroing completed on C:\Program Files\Microsoft SQL Server\MSSQL10.SQL2008\MSSQL\DATA\dbPerf_MAIN_log.LDF
+2008-01-23 09:00:05.38 spid52 PostRestoreContainerFixups: running fixups on dbPerf_MAIN
+2008-01-23 09:00:05.38 spid52 PostRestoreContainerFixups: fixups complete
+2008-01-23 09:00:05.41 spid52 PostRestoreReplicationFixup for dbPerf_MAIN starts
+2008-01-23 09:00:06.04 spid52 PostRestoreReplicationFixup for dbPerf_MAIN complete
+2008-01-23 09:00:06.08 spid52 Restore: Database is restarted
+2008-01-23 09:00:06.08 Backup Restore is complete on database 'dbPerf_MAIN'. The database is now available.
+2008-01-23 09:00:06.08 spid52 Resuming any halted fulltext crawls
+2008-01-23 09:00:06.08 spid52 Restore: Writing history records
+2008-01-23 09:00:06.08 Backup Database was restored: Database: dbPerf_MAIN, creation date(time): 2008/01/16(14:04:58), first LSN: 647:4889:66, last LSN: 647:4918:1, number of dump devices: 1, device information: (FILE=1, TYPE=DISK: {'c:\temp\dbperf_main.bak'}). Informational message. No user action required.
+2008-01-23 09:00:06.10 spid52 Writing backup history records
+2008-01-23 09:00:06.18 spid52 Restore: Done with MSDB maintenance
+2008-01-23 09:00:06.18 spid52 RestoreDatabase: Finished
+
+ 
+Bob Dorr
+SQL Server Senior Escalation Engineer
+Comments
+
+Anonymous
+January 28, 2008
+The Senior Escalation Engineers do various training and mentoring activities.&#160; As I do this I thought
+
+Anonymous
+January 28, 2008
+The Senior Escalation Engineers do various training and mentoring activities.&#160; As I do this I thought
+
+Anonymous
+May 16, 2013
+This is very nice ...simply loved it..
+
+Anonymous
+July 08, 2014
+Very useful info
+
+Anonymous
+May 04, 2015
+Best
+
+					
+		
+	 
+		
+		
+	
+					
+				
+				
+		
+			
+			
+				Additional resources
+			
+			 
+		
+	 
+		
+	
+		
+	 
+		
+			
+			
+				
+			
+				Last updated on 
+		2008-01-23
+	
+			
+		
+			
+		
+	
+			
+			
+		
+	
+		
+				
+				
+					
+		
+			
+				
+		
+			In this article
+		
+	
+				
+				
+			
+		
+	
+			   
+					 
+			   
+		
+			
+				
+		en-us
+	 
+		
+		
+		
+			
+			
+			
+			
+		
+	
+			Your Privacy Choices
+	
+	
+				
+		
+			
+				
+				Theme
+				
+					
+				
+			
+			
+				
+					
+						
+							
+								
+									
+										
+										
+										
+										
+										
+										
+										
+										
+									
+								
+							
+							 Light 
+						
+					
+					
+						
+							
+								
+									
+										
+										
+										
+										
+										
+										
+										
+										
+									
+								
+							
+							 Dark 
+						
+					
+					
+						
+							
+								
+									
+										
+										
+										
+										
+										
+										
+										
+										
+									
+								
+							
+							 High contrast 
+						
+					
+				
+			
+		
+	
+			
+			
+				
+				
+		
+		AI Disclaimer
+	
+	
+		
+		Previous Versions
+	
+	 
+		
+		Blog
+	
+	 
+		
+		Contribute
+	
+	
+		
+		Privacy
+	
+	
+		
+		Consumer Health Privacy
+	
+	
+		
+		Terms of Use
+	
+	
+		
+		Trademarks
+	
+	
+				© Microsoft 2026

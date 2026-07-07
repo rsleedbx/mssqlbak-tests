@@ -1,0 +1,45 @@
+OK              760,810r  71t   67.0s  AdventureWorks2012.bak
+OK              760,811r  71t   64.0s  AdventureWorks2014.bak
+OK              760,838r  71t   67.2s  AdventureWorks2016.bak
+OK                  152r  92t  126.0s  AdventureWorks2016_EXT.bak
+OK              760,837r  71t   68.0s  AdventureWorks2017.bak
+OK              760,837r  71t   21.6s  AdventureWorks2019.bak
+OK              760,837r  71t   21.5s  AdventureWorks2022.bak
+OK              760,167r  71t   66.7s  AdventureWorks2025.bak
+OK            1,060,804r  31t   54.8s  AdventureWorksDW2012.bak
+OK            1,060,805r  31t   53.6s  AdventureWorksDW2014.bak
+OK            1,060,820r  31t   53.9s  AdventureWorksDW2016.bak
+SKIP(1)       1,060,805r  32t  806.9s  AdventureWorksDW2016_EXT.bak
+             skip: FactResellerSalesXL_PageCompressed — compressed: PAGE data compression with type(s) not yet decodable from their compressed form: UnitPriceDiscountPct (type_id=62), DiscountAmount (type_id=62)
+OK            1,060,820r  31t   53.6s  AdventureWorksDW2017.bak
+OK            1,060,820r  31t   33.0s  AdventureWorksDW2019.bak
+OK            1,060,820r  31t   34.8s  AdventureWorksDW2022.bak
+OK            1,047,563r  31t   55.3s  AdventureWorksDW2025.bak
+OK                4,276r  12t    0.2s  AdventureWorksLT2012.bak
+OK                4,276r  12t    0.2s  AdventureWorksLT2014.bak
+OK                4,277r  12t    0.2s  AdventureWorksLT2016.bak
+OK                4,277r  12t    0.2s  AdventureWorksLT2017.bak
+OK                4,277r  12t    0.2s  AdventureWorksLT2019.bak
+OK                4,277r  12t    0.2s  AdventureWorksLT2022.bak
+OK                4,277r  12t    1.9s  AdventureWorksLT2025.bak
+OK                    0r   2t    0.3s  NYCTaxi_Sample.bak
+OK                  453r   1t    0.6s  TutorialDB.bak
+SKIP(2)       4,411,023r  46t  371.2s  WideWorldImporters-Full.bak
+             skip: Countries_Archive — error: error: unpack_from requires a buffer of at least 1130 bytes for unpacking 8 bytes at offset 1122 (actual buffer size is 1122)
+             skip: StateProvinces_Archive — error: error: unpack_from requires a buffer of at least 2258 bytes for unpacking 8 bytes at offset 2250 (actual buffer size is 2254)
+SKIP(2)       4,411,023r  46t  372.0s  WideWorldImporters-Full_old.bak
+             skip: Countries_Archive — error: error: unpack_from requires a buffer of at least 1130 bytes for unpacking 8 bytes at offset 1122 (actual buffer size is 1122)
+             skip: StateProvinces_Archive — error: error: unpack_from requires a buffer of at least 2258 bytes for unpacking 8 bytes at offset 2250 (actual buffer size is 2254)
+OK            4,713,833r  48t  260.4s  WideWorldImporters-Standard.bak
+OK            4,713,832r  48t  263.0s  WideWorldImporters-Standard_old.bak
+OK              119,120r  29t   59.1s  WideWorldImportersDW-Full.bak
+OK              923,643r  29t   80.6s  WideWorldImportersDW-Standard.bak
+SKIP(24)         94,036r   6t  202.4s  tpcxbb_1gb.bak
+             skip: customer — error: IndexError: page_id 244176 out of range for file 1 (page_count=40441)
+             skip: customer_address — error: IndexError: page_id 244176 out of range for file 1 (page_count=40441)
+             skip: customer_demographics — error: IndexError: page_id 244176 out of range for file 1 (page_count=40441)
+             skip: date_dim — error: IndexError: page_id 244176 out of range for file 1 (page_count=40441)
+             skip: household_demographics — error: IndexError: page_id 244176 out of range for file 1 (page_count=40441)
+             ... and 19 more
+
+Done: 28 fully OK, 4 with skips, 0 errors

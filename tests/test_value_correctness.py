@@ -1,0 +1,553 @@
+"""Offline row-level value correctness tests.
+
+Two layers:
+
+1. ``quick`` — a fully self-contained round-trip that builds a synthetic
+   ``.cells/`` sidecar and exercises ``tools.cell_canon`` + ``tools.value_verify``
+   end to end (no live SQL, no fixtures). This is what proves the diff engine works.
+2. ``full`` — discovery over real fixtures that already have a ``<bak>.cells/``
+   sidecar; decodes each ``.bak`` and asserts ``cells_ok == cells_total`` and all
+   digests match (xfail mirrors ``tools.known_gaps``). Skips cleanly until the
+   ground-truth capture step (``tools/cells_capture.py``, needs a live container)
+   has produced any ``.cells/`` directories.
+"""
+
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+import pyarrow as pa
+import pyarrow.parquet as pq
+import pytest
+
+from tests.fixture_companions import is_redundant_stripe, resolve_bak_input
+from tools.cell_canon import canon, column_digest
+from tools.known_gaps import expected_skipped_tables, gap_reason, version_from_fixture_dir
+from tools.value_verify import MANIFEST_NAME, load_manifest, verify_bak, verify_table
+
+REPO_ROOT = Path(__file__).resolve().parent.parent
+
+
+# --------------------------------------------------------------------------- #
+# canon() unit checks (the SSOT)
+# --------------------------------------------------------------------------- #
+@pytest.mark.quick
+@pytest.mark.parametrize(
+    "value,sql_type,expected",
+    [
+        (None, "int", None),
+        (True, "bit", "1"),
+        (False, "bit", "0"),
+        ("True", "flag", "1"),
+        ("False", "flag", "0"),
+        ("0", "namestyle", "0"),
+        ("ab  ", "char(4)", "ab"),
+        ("cd ", "nchar(3)", "cd"),
+        (b"\xab\x12", "varbinary(8)", "ab12"),
+        (b"\xde\xad\xbe\xef", "sql_variant", "0xdeadbeef"),
+        (1.0, "float", "1"),
+        (0.1, "real", "0.1"),
+        (123, "int", "123"),
+    ],
+)
+def test_canon_rules(value: object, sql_type: str, expected: str | None) -> None:
+    assert canon(value, sql_type) == expected
+
+
+@pytest.mark.quick
+def test_canon_float_quantizes_beyond_precision() -> None:
+    # Two doubles differing only past 15 significant digits canonicalize equal.
+    assert canon(0.1 + 0.2, "float") == canon(0.3, "float")
+
+
+@pytest.mark.quick
+def test_canon_float_text_does_not_overflow_max_finite_value() -> None:
+    assert canon("1.79769313486232E+308", "float") == "1.79769313486232e+308"
+    assert canon("-1.79769313486232E+308", "float") == "-1.79769313486232e+308"
+
+
+@pytest.mark.quick
+def test_canon_xml_normalizes_sql_server_text_forms() -> None:
+    decoded = "<root><empty></empty><lines>\r\nx</lines><n>21000.0</n><d>3.1400</d></root>"
+    captured = "<root><empty/><lines>&#x0D;\nx</lines><n>21000</n><d>3.14</d></root>"
+    assert canon(decoded, "xml") == canon(captured, "xml")
+
+
+@pytest.mark.quick
+def test_canon_spatial_normalizes_float_text_precision() -> None:
+    decoded = "POINT (-122.408489591016 37.7605893030868)"
+    captured = "POINT (-122.40848959101599 37.7605893030868)"
+    assert canon(decoded, "geography") == canon(captured, "geography")
+
+
+@pytest.mark.quick
+def test_column_digest_is_order_independent() -> None:
+    a = column_digest(["x", "y", None, "z"])
+    b = column_digest([None, "z", "x", "y"])
+    assert a == b and a.startswith("sha256:")
+
+
+# --------------------------------------------------------------------------- #
+# Synthetic .cells/ round-trip — exercises verify_table fully offline
+# --------------------------------------------------------------------------- #
+def _write_synthetic_cells(cells_dir: Path) -> dict[str, str]:
+    """Build a one-table ground-truth sidecar; return {column: sql_type}.
+
+    Mirrors what tools/cells_capture.py writes: the parquet holds the CANONICAL
+    string of each cell (not typed values), and the manifest digest is over those
+    same canonical strings.
+    """
+    cells_dir.mkdir(parents=True, exist_ok=True)
+    sql_types = {"id": "int", "code": "char(4)", "ratio": "float"}
+    raw: dict[str, list[object]] = {
+        "id": [1, 2, 3, 4],
+        "code": ["ab  ", "cd  ", "ef  ", "gh  "],  # space-padded source
+        "ratio": [0.1, 0.2, 0.3, 0.4],
+    }
+    canon_cols = {c: [canon(v, sql_types[c]) for v in raw[c]] for c in sql_types}
+    gt = pa.table({c: pa.array(canon_cols[c], pa.string()) for c in sql_types})
+    pq.write_table(gt, cells_dir / "dbo.t.parquet")
+
+    def digest(col: str) -> str:
+        return column_digest(canon_cols[col])
+
+    manifest = {
+        "bak": "synthetic.bak",
+        "tables": [
+            {
+                "fqn": "dbo.t",
+                "row_count": 4,
+                "key_columns": ["id"],
+                "mode": "full",
+                "columns": [
+                    {"name": c, "sql_type": t, "digest": digest(c), "null_count": 0}
+                    for c, t in sql_types.items()
+                ],
+            }
+        ],
+    }
+    (cells_dir / "_manifest.json").write_text(json.dumps(manifest))
+    return sql_types
+
+
+def _decoded_ok() -> pa.Table:
+    # char(4) decoded without trailing pad (CHAR semantics) — canon makes it equal.
+    return pa.table(
+        {
+            "id": pa.array([1, 2, 3, 4], pa.int64()),
+            "code": pa.array(["ab", "cd", "ef", "gh"]),
+            "ratio": pa.array([0.1, 0.2, 0.3, 0.4], pa.float64()),
+        }
+    )
+
+
+@pytest.mark.quick
+def test_verify_table_passes_on_matching_cells(tmp_path: Path) -> None:
+    cells = tmp_path / "synthetic.bak.cells"
+    _write_synthetic_cells(cells)
+    entry = load_manifest(cells)["tables"][0]
+    res = verify_table(_decoded_ok(), cells, entry)
+    assert res.ok, (res.col_mismatches, res.digest_mismatches, res.samples)
+    assert res.cells_total == 8 and res.cells_ok == 8  # 4 rows x (code, ratio)
+
+
+@pytest.mark.quick
+def test_verify_table_catches_wrong_cell(tmp_path: Path) -> None:
+    cells = tmp_path / "synthetic.bak.cells"
+    _write_synthetic_cells(cells)
+    entry = load_manifest(cells)["tables"][0]
+    bad = pa.table(
+        {
+            "id": pa.array([1, 2, 3, 4], pa.int64()),
+            "code": pa.array(["ab", "cd", "ef", "gh"]),
+            "ratio": pa.array([0.1, 0.2, 9.99, 0.4], pa.float64()),  # row id=3 wrong
+        }
+    )
+    res = verify_table(bad, cells, entry)
+    assert not res.ok
+    assert res.col_mismatches == {"ratio": 1}
+    assert res.cells_ok == 7 and res.cells_total == 8
+    assert any(col == "ratio" for _key, col, _got, _want in res.samples)
+
+
+@pytest.mark.quick
+def test_verify_table_catches_digest_mismatch(tmp_path: Path) -> None:
+    cells = tmp_path / "synthetic.bak.cells"
+    _write_synthetic_cells(cells)
+    manifest = load_manifest(cells)
+    manifest["tables"][0]["columns"][1]["digest"] = "sha256:deadbeef"  # tamper "code"
+    (cells / "_manifest.json").write_text(json.dumps(manifest))
+    res = verify_table(_decoded_ok(), cells, manifest["tables"][0])
+    assert "code" in res.digest_mismatches and not res.ok
+
+
+@pytest.mark.quick
+def test_verify_table_catches_missing_row(tmp_path: Path) -> None:
+    cells = tmp_path / "synthetic.bak.cells"
+    _write_synthetic_cells(cells)
+    entry = load_manifest(cells)["tables"][0]
+    short = _decoded_ok().slice(0, 3)  # drop row id=4
+    res = verify_table(short, cells, entry)
+    assert res.missing_keys == 1 and not res.ok
+
+
+def _write_digest_only_cells(cells_dir: Path) -> None:
+    """Build a keyless (digest-only) sidecar with per-column sorted value sets."""
+    cells_dir.mkdir(parents=True, exist_ok=True)
+    canon_vals = ["2001-01-01T00:00:00+00:00", "2001-01-02T00:00:00+00:00",
+                  "2001-01-03T00:00:00+00:00"]
+    gt = pa.table({"val": pa.array(sorted(canon_vals), pa.string())})
+    pq.write_table(gt, cells_dir / "dbo.k.parquet")
+    manifest = {
+        "bak": "synthetic.bak",
+        "tables": [
+            {
+                "fqn": "dbo.k",
+                "row_count": 3,
+                "key_columns": [],
+                "mode": "digest-only",
+                "values_sorted": True,
+                "columns": [
+                    {"name": "val", "sql_type": "datetimeoffset",
+                     "digest": column_digest(canon_vals), "null_count": 0}
+                ],
+            }
+        ],
+    }
+    (cells_dir / "_manifest.json").write_text(json.dumps(manifest))
+
+
+def _write_sample_cells(cells_dir: Path) -> None:
+    """Build a sampled sidecar whose manifest digest covers the full column."""
+    cells_dir.mkdir(parents=True, exist_ok=True)
+    sql_types = {"id": "int", "val": "int"}
+    full_vals = [10, 20, 30]
+    sample = pa.table(
+        {
+            "id": pa.array(["1", "2"], pa.string()),
+            "val": pa.array(["10", "20"], pa.string()),
+        }
+    )
+    pq.write_table(sample, cells_dir / "dbo.sampled.parquet")
+    manifest = {
+        "bak": "synthetic.bak",
+        "tables": [
+            {
+                "fqn": "dbo.sampled",
+                "row_count": 3,
+                "key_columns": ["id"],
+                "mode": "sample",
+                "sample_n": 2,
+                "columns": [
+                    {
+                        "name": c,
+                        "sql_type": t,
+                        "digest": column_digest(
+                            [canon(v, t) for v in ([1, 2, 3] if c == "id" else full_vals)]
+                        ),
+                        "null_count": 0,
+                    }
+                    for c, t in sql_types.items()
+                ],
+            }
+        ],
+    }
+    (cells_dir / "_manifest.json").write_text(json.dumps(manifest))
+
+
+def _write_capped_digest_cells(cells_dir: Path) -> None:
+    """Build a capped digest-only sidecar whose manifest covers the full column."""
+    cells_dir.mkdir(parents=True, exist_ok=True)
+    pq.write_table(
+        pa.table({"val": pa.array(["1", "2"], pa.string())}),
+        cells_dir / "dbo.capped.parquet",
+    )
+    manifest = {
+        "bak": "synthetic.bak",
+        "tables": [
+            {
+                "fqn": "dbo.capped",
+                "row_count": 4,
+                "key_columns": [],
+                "mode": "digest-only",
+                "values_sorted": True,
+                "values_capped": 2,
+                "columns": [
+                    {
+                        "name": "val",
+                        "sql_type": "int",
+                        "digest": column_digest(["1", "2", "3", "4"]),
+                        "null_count": 0,
+                    }
+                ],
+            }
+        ],
+    }
+    (cells_dir / "_manifest.json").write_text(json.dumps(manifest))
+
+
+def _write_raw_full_sidecar_cells(cells_dir: Path) -> None:
+    """Build an older full sidecar that stores raw bit strings."""
+    cells_dir.mkdir(parents=True, exist_ok=True)
+    pq.write_table(
+        pa.table(
+            {
+                "id": pa.array(["1", "2"], pa.string()),
+                "flag": pa.array(["True", "False"], pa.string()),
+            }
+        ),
+        cells_dir / "dbo.raw_bits.parquet",
+    )
+    manifest = {
+        "bak": "synthetic.bak",
+        "tables": [
+            {
+                "fqn": "dbo.raw_bits",
+                "row_count": 2,
+                "key_columns": ["id"],
+                "mode": "full",
+                "columns": [
+                    {
+                        "name": "id",
+                        "sql_type": "int",
+                        "digest": column_digest(["1", "2"]),
+                        "null_count": 0,
+                    },
+                    {
+                        "name": "flag",
+                        "sql_type": "bit",
+                        "digest": column_digest(["True", "False"]),
+                        "null_count": 0,
+                    },
+                ],
+            }
+        ],
+    }
+    (cells_dir / "_manifest.json").write_text(json.dumps(manifest))
+
+
+def _write_unknown_alias_base_type_cells(cells_dir: Path) -> None:
+    """Build a full sidecar for an unknown alias over bit."""
+    cells_dir.mkdir(parents=True, exist_ok=True)
+    pq.write_table(
+        pa.table(
+            {
+                "id": pa.array(["1", "2"], pa.string()),
+                "random_flag_123": pa.array(["1", "0"], pa.string()),
+            }
+        ),
+        cells_dir / "dbo.alias_base.parquet",
+    )
+    manifest = {
+        "bak": "synthetic.bak",
+        "tables": [
+            {
+                "fqn": "dbo.alias_base",
+                "row_count": 2,
+                "key_columns": ["id"],
+                "mode": "full",
+                "columns": [
+                    {
+                        "name": "id",
+                        "sql_type": "int",
+                        "digest": column_digest(["1", "2"]),
+                        "null_count": 0,
+                    },
+                    {
+                        "name": "random_flag_123",
+                        "sql_type": "RandomFlag123",
+                        "base_sql_type": "bit",
+                        "digest": column_digest(["1", "0"]),
+                        "null_count": 0,
+                    },
+                ],
+            }
+        ],
+    }
+    (cells_dir / "_manifest.json").write_text(json.dumps(manifest))
+
+
+@pytest.mark.quick
+def test_digest_only_diagnosis_surfaces_value_setdiff(tmp_path: Path) -> None:
+    cells = tmp_path / "synthetic.bak.cells"
+    _write_digest_only_cells(cells)
+    entry = load_manifest(cells)["tables"][0]
+    # Decoder got the third value wrong (a real decode-side divergence).
+    bad = pa.table({"val": pa.array([
+        "2001-01-01T00:00:00+00:00",
+        "2001-01-02T00:00:00+00:00",
+        "2001-01-03T06:00:00+00:00",  # wrong instant
+    ])})
+    res = verify_table(bad, cells, entry)
+    assert res.mode == "digest-only"
+    assert "val" in res.digest_mismatches and not res.ok
+    got_only = [s for s in res.samples if s[1] == "got-only"]
+    want_only = [s for s in res.samples if s[1] == "want-only"]
+    assert any("06:00:00" in (s[2] or "") for s in got_only)
+    assert any("2001-01-03T00:00:00" in (s[3] or "") for s in want_only)
+
+
+@pytest.mark.quick
+def test_digest_only_clean_has_no_samples(tmp_path: Path) -> None:
+    cells = tmp_path / "synthetic.bak.cells"
+    _write_digest_only_cells(cells)
+    entry = load_manifest(cells)["tables"][0]
+    good = pa.table({"val": pa.array([
+        "2001-01-01T00:00:00+00:00",
+        "2001-01-02T00:00:00+00:00",
+        "2001-01-03T00:00:00+00:00",
+    ])})
+    res = verify_table(good, cells, entry)
+    assert res.ok and not res.digest_mismatches and not res.samples
+
+
+@pytest.mark.quick
+def test_sample_sidecar_uses_manifest_full_column_digest(tmp_path: Path) -> None:
+    cells = tmp_path / "synthetic.bak.cells"
+    _write_sample_cells(cells)
+    entry = load_manifest(cells)["tables"][0]
+    extracted = pa.table(
+        {
+            "id": pa.array([1, 2, 3], pa.int64()),
+            "val": pa.array([10, 20, 30], pa.int64()),
+        }
+    )
+    res = verify_table(extracted, cells, entry)
+    assert res.ok, (res.col_mismatches, res.digest_mismatches, res.samples)
+    assert res.cells_total == 2 and res.cells_ok == 2
+
+
+@pytest.mark.quick
+def test_capped_digest_only_uses_manifest_full_column_digest(tmp_path: Path) -> None:
+    cells = tmp_path / "synthetic.bak.cells"
+    _write_capped_digest_cells(cells)
+    entry = load_manifest(cells)["tables"][0]
+    extracted = pa.table({"val": pa.array([1, 2, 3, 4], pa.int64())})
+
+    res = verify_table(extracted, cells, entry)
+
+    assert res.ok, (res.digest_mismatches, res.samples)
+
+
+@pytest.mark.quick
+def test_raw_full_sidecar_normalizes_before_cell_compare(tmp_path: Path) -> None:
+    cells = tmp_path / "synthetic.bak.cells"
+    _write_raw_full_sidecar_cells(cells)
+    entry = load_manifest(cells)["tables"][0]
+    extracted = pa.table(
+        {
+            "id": pa.array([1, 2], pa.int64()),
+            "flag": pa.array([True, False], pa.bool_()),
+        }
+    )
+
+    res = verify_table(extracted, cells, entry)
+
+    assert res.ok, (res.col_mismatches, res.digest_mismatches, res.samples)
+    assert res.cells_total == 2 and res.cells_ok == 2
+
+
+@pytest.mark.quick
+def test_manifest_base_sql_type_canonicalizes_unknown_alias(tmp_path: Path) -> None:
+    cells = tmp_path / "synthetic.bak.cells"
+    _write_unknown_alias_base_type_cells(cells)
+    entry = load_manifest(cells)["tables"][0]
+    extracted = pa.table(
+        {
+            "id": pa.array([1, 2], pa.int64()),
+            "random_flag_123": pa.array([True, False], pa.bool_()),
+        }
+    )
+
+    res = verify_table(extracted, cells, entry)
+
+    assert res.ok, (res.col_mismatches, res.digest_mismatches, res.samples)
+    assert res.cells_total == 2 and res.cells_ok == 2
+
+
+@pytest.mark.quick
+def test_verify_bak_handles_absent_table(tmp_path: Path) -> None:
+    cells = tmp_path / "synthetic.bak.cells"
+    _write_synthetic_cells(cells)
+    results = verify_bak({}, cells)  # decode produced no tables
+    assert results["dbo.t"].error is not None and not results["dbo.t"].ok
+
+
+# --------------------------------------------------------------------------- #
+# Real-fixture discovery (activates once .cells/ sidecars are captured)
+# --------------------------------------------------------------------------- #
+def _fixtures_with_cells() -> list[Path]:
+    out: list[Path] = []
+    for d in sorted(REPO_ROOT.glob("tests/fixtures_*")):
+        for cells in sorted(d.glob("*.bak.cells")):
+            bak = cells.parent / cells.name.removesuffix(".cells")
+            # Striped companions share identical data — only the lowest stripe
+            # is exercised (it resolves to the full merged set at extract time).
+            if is_redundant_stripe(bak):
+                continue
+            out.append(cells)
+    return out
+
+
+_CELLS_DIRS = _fixtures_with_cells()
+
+
+@pytest.mark.full
+@pytest.mark.skipif(not _CELLS_DIRS, reason="no .cells/ sidecars yet (run cells capture)")
+@pytest.mark.parametrize("cells_dir", _CELLS_DIRS, ids=lambda p: p.name)
+def test_fixture_cells_match_ground_truth(cells_dir: Path) -> None:
+    from mssqlbak.extract import extract_bak_to_delta  # local: heavy import
+    import deltalake  # type: ignore[import]
+    import tempfile
+
+    bak = cells_dir.parent / cells_dir.name.removesuffix(".cells")
+    if not (cells_dir / MANIFEST_NAME).is_file():
+        pytest.skip(
+            f"{cells_dir.name}: no {MANIFEST_NAME} (pre-manifest capture; recapture "
+            "with tools.cells_capture to enable cell verification)"
+        )
+    manifest = load_manifest(cells_dir)
+    version = version_from_fixture_dir(cells_dir.parent)
+    reason = gap_reason(bak.stem, version)
+    # Striped / differential backups need their companion files merged in.
+    bak_input = resolve_bak_input(bak)
+    extract_arg = (
+        [str(p) for p in bak_input] if isinstance(bak_input, list) else str(bak_input)
+    )
+    with tempfile.TemporaryDirectory() as tmp:
+        try:
+            extract_bak_to_delta(extract_arg, tmp)
+        except Exception as exc:  # noqa: BLE001
+            # A known gap whose extraction raises by design (e.g. TDE) xfails;
+            # otherwise the failure is real and must surface.
+            if reason is not None:
+                pytest.xfail(f"{reason}: extract raised {type(exc).__name__}: {exc}")
+            raise
+        extracted: dict[str, pa.Table] = {}
+        for schema_dir in Path(tmp).iterdir():
+            if not schema_dir.is_dir():
+                continue
+            for tbl_dir in schema_dir.iterdir():
+                if tbl_dir.is_dir():
+                    extracted[f"{schema_dir.name}.{tbl_dir.name}"] = deltalake.DeltaTable(
+                        str(tbl_dir)
+                    ).to_pyarrow_table()
+        skipped = expected_skipped_tables(bak.stem)
+        failures: list[str] = []
+        for entry in manifest.get("tables", []):
+            ext = extracted.get(entry["fqn"])
+            if ext is None:
+                if entry["fqn"] in skipped:
+                    # Intentionally unsupported for this backup (e.g. XTP tables
+                    # whose real CFP checkpoint layout is not yet recognised —
+                    # see tools/known_gaps.py KNOWN_SKIPPED_TABLES).
+                    continue
+                failures.append(f"{entry['fqn']}: absent from decode")
+                continue
+            res = verify_table(ext, cells_dir, entry)
+            if not res.ok:
+                failures.append(f"{entry['fqn']}: {res.col_mismatches or res.digest_mismatches or res.error}")
+    if failures and reason is not None:
+        pytest.xfail(f"{reason}: {failures}")
+    assert not failures, "; ".join(failures)

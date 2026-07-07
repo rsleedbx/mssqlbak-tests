@@ -1,0 +1,30 @@
+[project]
+name = "mssqlbak-tests"
+version = "0.1.0"
+requires-python = ">=3.11"
+# Install mssqlbak from PyPI, or override locally with: pip install -e ../mssqlbak
+dependencies = ["mssqlbak>=0.1.0"]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "ruff",
+    "pyright",
+    "pyarrow>=16",
+    "deltalake>=1.0",
+    "mssql_python",
+    "zstandard>=0.22",
+]
+verify = ["kaitaistruct", "xpress9", "xpress8", "apsw", "numpy", "pandas"]
+
+[tool.pytest.ini_options]
+# "." puts tools/ on sys.path so "from tools.X import Y" works in tests.
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+
+[tool.ruff]
+line-length = 100

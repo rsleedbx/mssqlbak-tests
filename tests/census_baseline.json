@@ -1,0 +1,116 @@
+{
+  "fixtures_2022/archive_columnstore_types_full.bak": {
+    "archive_binary10": [
+      "align:archive",
+      "enc5:archive"
+    ],
+    "archive_char10": [
+      "align:archive",
+      "enc5:archive"
+    ],
+    "archive_nchar10": [
+      "align:archive",
+      "enc5:archive"
+    ],
+    "archive_nvarchar20": [
+      "align:archive"
+    ],
+    "archive_uuid": [
+      "align:archive",
+      "enc5:archive"
+    ],
+    "archive_varbinary20": [
+      "align:archive",
+      "enc5:archive"
+    ],
+    "archive_varchar20": [
+      "align:archive",
+      "enc5:archive"
+    ]
+  },
+  "fixtures_2022/cci_extended_full.bak": {
+    "cci_binary4": [
+      "align:bpv-nonzero",
+      "enc5:formatC"
+    ],
+    "cci_char10_varied": [
+      "align:bpv-nonzero"
+    ],
+    "cci_int": [
+      "align:bpv-nonzero"
+    ],
+    "cci_nvarchar50_sparse": [
+      "align:bpv-nonzero",
+      "v4split:fallback"
+    ],
+    "cci_varchar50": [
+      "align:bpv-nonzero",
+      "v4split:varchar-short"
+    ]
+  },
+  "fixtures_2022/cci_string_minmax_full.bak": {
+    "cci_str_minmax": [
+      "align:bpv-nonzero",
+      "v4split:fallback",
+      "v4split:varchar-short"
+    ]
+  },
+  "fixtures_2022/cci_lob_full.bak": {
+    "cci_nvarchar_max": [
+      "align:bpv-nonzero"
+    ],
+    "cci_varbinary_max": [
+      "align:bpv-nonzero"
+    ],
+    "cci_varchar_max": [
+      "align:bpv-nonzero"
+    ]
+  },
+  "fixtures_2022/columnstore_minimal.bak": {
+    "cs_1": [
+      "align:bpv-nonzero",
+      "enc5:formatA"
+    ],
+    "cs_10": [
+      "align:bpv-nonzero",
+      "enc5:formatB"
+    ],
+    "cs_100": [
+      "align:bpv-nonzero",
+      "enc5:formatC"
+    ],
+    "cs_1000": [
+      "align:bpv-nonzero",
+      "enc5:formatD",
+      "v4split:fallback"
+    ],
+    "cs_10000": [
+      "align:bpv-nonzero",
+      "enc5:formatD",
+      "v4split:fallback"
+    ]
+  },
+  "fixtures_2022/cs_lob_preamble.bak": {
+    "cs_lob_preamble": [
+      "align:bpv-nonzero",
+      "v4split:fallback"
+    ]
+  },
+  "fixtures_2022/cs_lob_preamble2.bak": {
+    "cs_lob_preamble": [
+      "align:bpv-nonzero",
+      "v4split:varchar-short"
+    ]
+  },
+  "fixtures_2022/nvarchar_max_u21_full.bak": {
+    "nvarchar_max_u21probe": [
+      "u21:keep-even"
+    ]
+  },
+  "fixtures_2022/tabletypecoverage_full.bak": {
+    "tt_column": [
+      "align:bpv-nonzero",
+      "enc5:formatB"
+    ]
+  }
+}

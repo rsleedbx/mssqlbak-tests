@@ -1,0 +1,52 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+.pytest_cache/
+.ruff_cache/
+build/
+dist/
+
+# Columnstore matrix per-cell results store (regenerable by tools/columnstore_matrix.py)
+tests/fixtures/columnstore_matrix.db
+
+# Generated per-cell verifier outputs.
+#*.parquet
+
+# Large external sample databases downloaded for regression testing.
+# Fetch with: python -m tools.fetch_sample_baks
+tests/fixtures/samples/
+
+# Fixture .bak and .bacpac files are intentionally tracked in this repo.
+
+.tmp/
+.tmp_extract*/
+
+# Oversized fixtures exceed GitHub normal git file limit; keep local only.
+tests/fixtures_2022/dirtycoverage_committed_update_v2.bak
+tests/fixtures_corrupt/AdventureWorks2014_Corrupt.bak
+tests/fixtures_corrupt/AdventureWorks2014_Corrupt2.bak
+tests/fixtures_corrupt/CorruptDemoDataPurity.bak
+tests/fixtures_corrupt/CorruptDemoNCIndex.bak
+tests/fixtures_realworld/AdventureWorks2008R2.bak
+tests/fixtures_realworld/AdventureWorks2016_EXT.bak
+tests/fixtures_realworld/AdventureWorks2019.bak
+tests/fixtures_realworld/AdventureWorks2022.bak
+tests/fixtures_realworld/AdventureWorksDW2016_EXT.bak
+tests/fixtures_realworld/BaseballData.bak
+tests/fixtures_realworld/ContosoRetailDW.bak
+tests/fixtures_realworld/GeneralHospital.bak
+tests/fixtures_realworld/SalesDBOriginal.bak
+tests/fixtures_realworld/StackOverflowMini.bak
+tests/fixtures_realworld/WideWorldImporters-Full.bak
+tests/fixtures_realworld/WideWorldImporters-Full_old.bak
+tests/fixtures_realworld/WideWorldImporters-Standard.bak
+tests/fixtures_realworld/WideWorldImporters-Standard_old.bak
+tests/fixtures_realworld/dba.stackexchange.com.bak
+tests/fixtures_realworld/tpcxbb_1gb.bak
+
+# Fixture payload binaries are local-only in this repo.
+*.bak
+*.bacpac
+*.bak.zst
+*.parquet

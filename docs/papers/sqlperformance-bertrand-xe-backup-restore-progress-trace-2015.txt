@@ -1,0 +1,550 @@
+T-SQL Tuesday #67 : New Backup/Restore Extended Events
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"https://sqlperformance.com/2015/06/extended-events/t-sql-tuesday-67-backup-restore#article","isPartOf":{"@id":"https://sqlperformance.com/2015/06/extended-events/t-sql-tuesday-67-backup-restore"},"author":{"name":"Aaron Bertrand","@id":"https://sqlperformance.com/#/schema/person/fbf7bf560e774b70692c3d5f13872ba9"},"headline":"T-SQL Tuesday #67 : New Backup and Restore Extended Events","datePublished":"2015-06-09T08:00:32+00:00","dateModified":"2020-10-24T14:42:48+00:00","mainEntityOfPage":{"@id":"https://sqlperformance.com/2015/06/extended-events/t-sql-tuesday-67-backup-restore"},"wordCount":788,"publisher":{"@id":"https://sqlperformance.com/#organization"},"keywords":["backup","restore","SQL Server 2016","T-SQL Tuesday"],"articleSection":["Extended Events","Monitoring"],"inLanguage":"en-US"},{"@type":"WebPage","@id":"https://sqlperformance.com/2015/06/extended-events/t-sql-tuesday-67-backup-restore","url":"https://sqlperformance.com/2015/06/extended-events/t-sql-tuesday-67-backup-restore","name":"T-SQL Tuesday #67 : New Backup/Restore Extended Events","isPartOf":{"@id":"https://sqlperformance.com/#website"},"datePublished":"2015-06-09T08:00:32+00:00","dateModified":"2020-10-24T14:42:48+00:00","description":"For T-SQL Tuesday #67, Aaron Bertrand (@AaronBertrand) describes a new way to track backup and restore operations using Extended Events in SQL Server 2016.","breadcrumb":{"@id":"https://sqlperformance.com/2015/06/extended-events/t-sql-tuesday-67-backup-restore#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://sqlperformance.com/2015/06/extended-events/t-sql-tuesday-67-backup-restore"]}]},{"@type":"BreadcrumbList","@id":"https://sqlperformance.com/2015/06/extended-events/t-sql-tuesday-67-backup-restore#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://sqlperformance.com/"},{"@type":"ListItem","position":2,"name":"T-SQL Tuesday #67 : New Backup and Restore Extended Events"}]},{"@type":"WebSite","@id":"https://sqlperformance.com/#website","url":"https://sqlperformance.com/","name":"SQLPerformance.com","description":"SQL Server performance articles curated by SentryOne","publisher":{"@id":"https://sqlperformance.com/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://sqlperformance.com/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https://sqlperformance.com/#organization","name":"SQLPerformance","url":"https://sqlperformance.com/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://sqlperformance.com/#/schema/logo/image/","url":"https://sqlperformance.com/wp-content/uploads/2020/06/SQLPerf-logo.png","contentUrl":"https://sqlperformance.com/wp-content/uploads/2020/06/SQLPerf-logo.png","width":920,"height":269,"caption":"SQLPerformance"},"image":{"@id":"https://sqlperformance.com/#/schema/logo/image/"}},{"@type":"Person","@id":"https://sqlperformance.com/#/schema/person/fbf7bf560e774b70692c3d5f13872ba9","name":"Aaron Bertrand","description":"Aaron is a Staff Database Reliability Engineer at Stack Overflow. We don't want to say he's old, but his experience dates back to a time when SQL Server 6.5 was considered \"modern.\" He writes here at sqlperformance.com, over at sqlblog.org, and at MSSQLTips.","url":"https://sqlperformance.com/author/abertrand"}]}
+	
+
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}.has-text-align-center{text-align:center}.has-text-align-left{text-align:left}.has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-wrap:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style*=border-top-color]){border-top-style:solid}html :where([style*=border-right-color]){border-right-style:solid}html :where([style*=border-bottom-color]){border-bottom-style:solid}html :where([style*=border-left-color]){border-left-style:solid}html :where([style*=border-width]){border-style:solid}html :where([style*=border-top-width]){border-top-style:solid}html :where([style*=border-right-width]){border-right-style:solid}html :where([style*=border-bottom-width]){border-bottom-style:solid}html :where([style*=border-left-width]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+/*wp_block_styles_on_demand_placeholder:6a345b5b49a22*/
+/*# sourceURL=wp-block-library-inline-css */
+
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+
+/*! Flickity v2.0.2
+http://flickity.metafizzy.co
+---------------------------------------------- */.flickity-enabled{position:relative}.flickity-enabled:focus{outline:0}.flickity-viewport{overflow:hidden;position:relative;height:100%}.flickity-slider{position:absolute;width:100%;height:100%}.flickity-enabled.is-draggable{-webkit-tap-highlight-color:transparent;tap-highlight-color:transparent;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.flickity-enabled.is-draggable .flickity-viewport{cursor:move;cursor:-webkit-grab;cursor:grab}.flickity-enabled.is-draggable .flickity-viewport.is-pointer-down{cursor:-webkit-grabbing;cursor:grabbing}.flickity-prev-next-button{position:absolute;top:50%;width:44px;height:44px;border:none;border-radius:50%;background:#fff;background:hsla(0,0%,100%,.75);cursor:pointer;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.flickity-prev-next-button:hover{background:#fff}.flickity-prev-next-button:focus{outline:0;box-shadow:0 0 0 5px #09f}.flickity-prev-next-button:active{opacity:.6}.flickity-prev-next-button.previous{left:10px}.flickity-prev-next-button.next{right:10px}.flickity-rtl .flickity-prev-next-button.previous{left:auto;right:10px}.flickity-rtl .flickity-prev-next-button.next{right:auto;left:10px}.flickity-prev-next-button:disabled{opacity:.3;cursor:auto}.flickity-prev-next-button svg{position:absolute;left:20%;top:20%;width:60%;height:60%}.flickity-prev-next-button .arrow{fill:#333}.flickity-page-dots{position:absolute;width:100%;bottom:-25px;padding:0;margin:0;list-style:none;text-align:center;line-height:1}.flickity-rtl .flickity-page-dots{direction:rtl}.flickity-page-dots .dot{display:inline-block;width:10px;height:10px;margin:0 8px;background:#333;border-radius:50%;opacity:.25;cursor:pointer}.flickity-page-dots .dot.is-selected{opacity:1}
+
+.ios7.web-app-mode.has-fixed header{ background-color: rgba(17,17,17,.88);}		
+			@import  "https://fonts.googleapis.com/css?family=Open+Sans";
+@import  "https://fonts.googleapis.com/css?family=Montserrat";
+@import  "https://fonts.googleapis.com/css?family=Source+Code+Pro";
+@import  "https://fonts.googleapis.com/css?family=Noto+Sans";		
+		    
+    
+    body {
+        min-height: 100vh;
+    }
+    
+    
+    
+
+    
+        
+            
+                            
+        
+        
+            
+                            
+        
+    
+    
+        
+            
+                Home
+                Archives
+                Authors
+                Categories
+                Latest Builds
+                About
+                
+                    
+                    Search
+                                          
+            
+
+        
+        
+        function checkForm(arg) {
+            if (document.searchForm.s.value.trim() != '') {
+                if (arg == 'f') {
+                    return true;
+                }
+                if (arg == 'c') {
+                    location.href = '/?s=' + document.searchForm.s.value;
+                }
+            }
+            return false;
+        }
+
+        function ssshow(e) {
+            document.getElementById(e).style.display = '';
+        }
+
+        function sshide(e) {
+            document.getElementById(e).style.display = 'none';
+        }
+
+        function ssflip(e) {
+            document.getElementById(e).style.display = (document.getElementById(e).style.display == 'none') ? '' :
+                'none';
+        }
+        
+    
+
+    
+                    
+  
+    
+    
+      T-SQL Tuesday #67 : New Backup and Restore Extended Events
+      
+      
+        June 9, 2015 by Aaron Bertrand in Extended Events, Monitoring        | No Comments
+        
+      
+    
+  
+        
+    
+      
+For last month's T-SQL Tuesday, I wrote about some undocumented trace flags that help you babysit long-running backup and restore operations. This month, Jes Borland's topic is Extended Events, and I thought I would show new capabilities in SQL Server 2016 that largely make these trace flags obsolete.
+If you're playing with CTP2 (you can download it here), you may notice a new category backup_restore and new event backup_restore_progress_trace:
+Discovering a new event in CTP2's New Session dialog
+Here's a quick and dirty XE session for capturing the data for this event (I've added comments for filtering to only backup or only restore operations; by default, both are included):
+CREATE EVENT SESSION [Backup progress] ON SERVER 
+ADD EVENT sqlserver.backup_restore_progress_trace
+(
+    ACTION(package0.event_sequence)
+
+    -- to only capture backup operations:
+    --WHERE [operation_type] = 0
+
+    -- to only capture restore operations:
+    --WHERE [operation_type] = 1 
+)
+ADD TARGET package0.event_file 
+(
+  SET filename = N'C:\temp\BackupProgress.xel'
+); -- default options are probably ok
+GO
+
+ALTER EVENT SESSION [Backup progress] ON SERVER STATE = START;
+GO
+Now, let's say I run the following operations – create a database, put a bit of data back it up, drop it, and restore it:
+USE [master];
+GO
+CREATE DATABASE floob;
+GO
+SELECT s1.* INTO floob.dbo.what 
+  FROM sys.all_objects AS s1 
+  CROSS JOIN sys.all_objects;
+GO
+BACKUP DATABASE floob TO DISK = 'c:\temp\floob.bak' 
+  WITH INIT, COMPRESSION, STATS = 30;
+GO
+DROP DATABASE floob;
+GO
+RESTORE DATABASE floob FROM DISK = 'c:\temp\floob.bak' 
+  WITH REPLACE, RECOVERY;
+Now, we can query the data from the event target file:
+;WITH x AS 
+(
+  SELECT ts,op,db,msg,es
+  FROM 
+  (
+   SELECT 
+    ts  = x.value(N'(event/@timestamp)[1]', N'datetime2'),
+    op  = x.value(N'(event/data[@name="operation_type"]/text)[1]', N'nvarchar(32)'),
+    db  = x.value(N'(event/data[@name="database_name"])[1]', N'nvarchar(128)'),
+    msg = x.value(N'(event/data[@name="trace_message"])[1]', N'nvarchar(max)'),
+    es  = x.value(N'(event/action[@name="event_sequence"])[1]', N'int')
+   FROM 
+   (
+    SELECT x = CONVERT(XML, event_data) 
+     FROM sys.fn_xe_file_target_read_file
+          (N'c:\temp\Backup--Progress*.xel', NULL, NULL, NULL)
+   ) AS y
+  ) AS x 
+  WHERE op = N'Backup' -- N'Restore'
+  AND db = N'floob'
+  AND ts > CONVERT(DATE, SYSUTCDATETIME())
+)
+SELECT /* x.db, x.op, x.ts, */ 
+  [Message] = x.msg, 
+  Duration = COALESCE(DATEDIFF(MILLISECOND, x.ts, 
+             LEAD(x.ts, 1) OVER(ORDER BY es)),0)
+FROM x
+ORDER BY es;
+For a backup, trace flag 3226 does not suppress any of the output captured by Extended Events. I've left out output columns, due to the filters, for brevity:
+
+Message
+Duration(Milliseconds)
+
+BACKUP DATABASE started 
+0
+
+Opening the database with S lock 
+0
+
+Acquiring bulk-op lock on the database 
+0
+
+Synchronizing with other operations on the database is complete 
+19
+
+Opening the backup media set 
+7
+
+The backup media set is open 
+0
+
+Preparing the media set for writing 
+0
+
+The media set is ready for backup 
+0
+
+Effective options: Checksum=0, Compression=1, Encryption=0, BufferCount=7, MaxTransferSize=1024 KB 
+0
+
+Clearing differential bitmaps 
+4
+
+Differential bitmaps are cleared 
+0
+
+Writing a checkpoint 
+6
+
+Checkpoint is complete (elapsed = 6 ms) 
+0
+
+Start LSN: 101:111920:43, SERepl LSN: 0:0:0 
+0
+
+Scanning allocation bitmaps 
+4
+
+Scanning allocation bitmaps is complete 
+0
+
+Calculating expected size of total data 
+0
+
+FID=1, ExpectedExtents=10047, IsDifferentialMapAccurate=0 
+0
+
+TotalSize=658440192 bytes 
+0
+
+Estimated total size = 658460672 bytes (data size = 658440192 bytes, log size = 20480 bytes) 
+0
+
+Work estimation is complete 
+0
+
+Last LSN: 101:111960:1 
+0
+
+Writing the leading metadata 
+0
+
+BackupStream(0): Writing leading metadata to the device c:\temp\floob.bak 
+1
+
+Calculating expected size of total data 
+0
+
+FID=1, ExpectedExtents=10047, IsDifferentialMapAccurate=0 
+0
+
+TotalSize=658440192 bytes 
+1
+
+Copying data files 
+2
+
+Number of data file readers = 1 
+0
+
+Reading the data file D:\SQL Server\MSSQL13.SQL16\DATA\floob.mdf 
+0
+
+BackupStream(0): Writing MSDA of size 10048 extents 
+391
+
+30 percent (198180864/658460672 bytes) processed 
+554
+
+60 percent (395313152/658460672 bytes) processed 
+576
+
+90 percent (593494016/658460672 bytes) processed 
+184
+
+Completed reading the data file D:\SQL Server\MSSQL13.SQL16\DATA\floob.mdf 
+2
+
+BackupStream(0): Padding MSDA with 65536 bytes 
+0
+
+BackupStream(0): Total MSDA size = 10048 extents 
+0
+
+InitialExpectedSize=658440192 bytes, FinalSize=658440192 bytes, ExcessMode=0 
+0
+
+Last LSN: 101:111960:1 
+0
+
+Copying data files is complete 
+0
+
+Copying transaction log 
+0
+
+MediaFamily(0): FID=2, VLFID=101, DataStreamSize=65536 bytes 
+4
+
+Copying transaction log is complete 
+0
+
+Writing the trailing metadata 
+0
+
+BackupStream(0): Writing trailing metadata to the device c:\temp\floob.bak 
+0
+
+Writing the end of backup set 
+30
+
+Writing history records 
+12
+
+Writing history records is complete (elapsed = 11 ms) 
+0
+
+BACKUP DATABASE finished 
+0
+
+Event data for a backup operation
+For a restore, you will see these rows:
+
+Message
+Duration(Milliseconds)
+
+RESTORE DATABASE started 
+0
+
+Opening the backup set 
+3
+
+Processing the leading metadata 
+0
+
+Planning begins 
+23
+
+Effective options: Checksum=0, Compression=1, Encryption=0, BufferCount=6, MaxTransferSize=1024 KB 
+0
+
+Planning is complete 
+0
+
+Beginning OFFLINE restore 
+0
+
+Attached database as DB_ID=5 
+1
+
+Preparing containers 
+534
+
+Containers are ready 
+1097
+
+Restoring the backup set 
+0
+
+Estimated total size to transfer = 658460672 bytes 
+0
+
+Transferring data 
+1
+
+BackupStream(0): Processing MSDA of size 10048 extents 
+3282
+
+BackupStream(0): Completed MSDA 
+0
+
+Waiting for log zeroing to complete 
+3
+
+Log zeroing is complete 
+0
+
+BackupStream(0): Processing MSTL (FID=2, VLFID=101, size=65536 bytes) 
+1024
+
+Data transfer is complete 
+14
+
+Backup set is restored 
+45
+
+Offline roll-forward begins 
+1
+
+Processing 68 VLF headers 
+69
+
+Processing VLF headers is complete 
+11
+
+First LSN: 101:111920:43, Last LSN: 101:111960:1 
+0
+
+Stop LSN: 101:111960:1 
+4
+
+Offline roll-forward is complete 
+17
+
+Database fixup is complete 
+2
+
+Transitioning database to ONLINE 
+2
+
+Restarting database for ONLINE 
+87
+
+PostRestoreContainerFixups begins 
+5
+
+PostRestoreContainerFixups is complete 
+2
+
+PostRestoreReplicationFixup begins 
+107
+
+PostRestoreReplicationFixup is complete 
+2
+
+Database is restarted 
+9
+
+Resuming any halted Fulltext crawls 
+6
+
+Writing history records 
+13
+
+Writing history records is complete (elapsed = 13 ms) 
+2
+
+MSDB maintenance is complete 
+2
+
+RESTORE DATABASE finished 
+0
+
+Event data for a restore operation
+If you're troubleshooting a slow backup or restore operation, you could easily filter on the duration, so that you only see events that took longer than n milliseconds, for example. The only thing I don't see in this output is any way to tell if instant file initialization was in effect during the restore – you still may need trace flag 3004, as described in my post for last month's T-SQL Tuesday.
+Don't forget to stop the session (but feel free to keep the session definition on the server, so you can use it again):
+ALTER EVENT SESSION [Backup progress] ON SERVER STATE = STOP;
+I did not perform any performance tests or impact analysis, but in general, I would say that – like the trace flags – this isn't something you'd want running all the time, but only when troubleshooting a specific operation. It's a bit easier to set up this session and query the data, IMHO, than to turn on the trace flags and parse all of the output from SQL Server's error log.
+    
+                    
+        Back to Top
+    
+
+    
+        SentryOne eBooksIn these books, you will find useful, hand-picked articles that will help give insight into some of your most vexing performance problems. These articles were written by several of the SQL Server industry’s leading experts, including Paul White, Paul Randal, Jonathan Kehayias, Erin Stellato, Glenn Berry, Aaron Bertrand, and Joe Sack.Free Download →Featured AuthorPaul Randal, CEO of SQLskills, writes about knee-jerk performance tuning, DBCC, and SQL Server internals.Paul’s Posts →
+    
+
+    
+        
+                    
+    
+
+    
+        
+Design and content © 2026 SQL Sentry, LLC.  All rights reserved.  User contributions are licensed under cc-sa with attribution required.
+
+    
+
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/worldwide/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://sqlperformance.com/wp-includes/js/wp-emoji-release.min.js?ver=6.9.4"}}
+
+/* e===a[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e{s[e]=t(o,e,n,a)}),s}function r(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}a.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf(){i(n=e.data),r.terminate(),t(n)})}catch(e){}i(n=f(s,u,c,p))}t(n)}).then(e=>{for(const n in e)a.supports[n]=e[n],a.supports.everything=a.supports.everything&&a.supports[n],"flag"!==n&&(a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&a.supports[n]);var t;a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&!a.supports.flag,a.supports.everything||((t=a.source||{}).concatemoji?r(t.concatemoji):t.wpemoji&&t.twemoji&&(r(t.twemoji),r(t.wpemoji)))});
+//# sourceURL=https://sqlperformance.com/wp-includes/js/wp-emoji-loader.min.js
+/* ]]> */
+
+(function(i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function() {
+        (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+ga('create', 'UA-403212-3', 'auto');
+ga('send', 'pageview');
+
+window.dataLayer = window.dataLayer || [];
+
+function gtag() {
+    dataLayer.push(arguments);
+}
+gtag('js', new Date());
+
+gtag('config', 'AW-1071461149');
+
+_linkedin_partner_id = "1027362";
+window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+
+(function() {
+    var s = document.getElementsByTagName("script")[0];
+    var b = document.createElement("script");
+    b.type = "text/javascript";
+    b.async = true;
+    b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+    s.parentNode.insertBefore(b, s);
+})();
+
+_satellite.pageBottom();
+
+    
+
+(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0dd329208c45397',t:'MTc4MTgxNjE1Mw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();
