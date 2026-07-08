@@ -3,11 +3,11 @@
 Per-backup comparison of mssqlbak extraction against SQL Server ground truth.
 Ground truth is recorded in `tests/fixtures/<name>.bak.stats.json` by
 `python -m tools.fixture_run register-bak <name>.bak` on a live SQL Server instance.
-**Generated** by `python -m tools.correctness_coverage --fixture-dir tests/fixtures_2022`.
+**Generated** by `python -m tools.correctness_coverage --fixture-dir tests/fixtures_2017`.
 
-**146 fixtures · 145 pass · 0 xfail (known gap) · 1 fail**
+**132 fixtures · 132 pass · 0 xfail (known gap) · 0 fail**
 
-**Tables:** 463/463 pass · **Columns:** 4204/4204 pass
+**Tables:** 387/387 pass · **Columns:** 3963/3963 pass
 
 **Row count:** ✓ · **Null count:** ✓ · **Min/max:** ✓ · **Col count:** ✓ · **Cells:** ✓
 
@@ -30,7 +30,7 @@ Memory-optimized (In-Memory OLTP / XTP) tables store their data in XTP checkpoin
 
 | Backup | Source rows | Source cols | Row count | Null count | Min/max | Col count | Cells | Status |
 |--------|------------:|------------:|:---------:|:----------:|:-------:|:---------:|:-----:|--------|
-| `alias_types_full.bak` | 3 | 9 | **1/1** | **9/9** | — | **1/1** | **24/24** | ✓ |
+| `alias_types_full.bak` | 3 | 6 | **1/1** | **6/6** | — | **1/1** | **15/15** | ✓ |
 | `archive_columnstore_partition_full.bak` | 560,000 | 12 | **4/4** | **12/12** | **24/24** | **4/4** | digest | ✓ |
 | `archive_columnstore_types_full.bak` | 245,000 | 14 | **7/7** | **14/14** | **26/26** | **7/7** | digest | ✓ |
 | `archive_columnstore_types_random_full.bak` | 245,000 | 14 | **7/7** | **14/14** | **26/26** | **7/7** | digest | ✓ |
@@ -40,11 +40,10 @@ Memory-optimized (In-Memory OLTP / XTP) tables store their data in XTP checkpoin
 | `backup_blocksize_full.bak` | 200 | 4 | **2/2** | **4/4** | **8/8** | **2/2** | **200/200** | ✓ |
 | `boundarycoverage_datetime_full.bak` | 10,800 | 27 | **9/9** | **27/27** | **54/54** | **9/9** | **21600/21600** | ✓ |
 | `boundarycoverage_full.bak` | 9,600 | 24 | **8/8** | **24/24** | **48/48** | **8/8** | **19200/19200** | ✓ |
-| `catalog_ss2022.bak` | 3 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | **3/3** | ✓ |
 | `cci_binary_varbinary_compare_full.bak` | 1,200 | 3 | **1/1** | **3/3** | **6/6** | **1/1** | digest | ✓ |
-| `cci_bitpack_probe_bigint_full.bak` | 4,400,000 | 3 | **2/2** | **3/3** | **6/6** | **2/2** | digest | ✓ |
-| `cci_bitpack_probe_full.bak` | 400,000 | 6 | **2/2** | **6/6** | **12/12** | **2/2** | digest | ✓ |
-| `cci_bitpack_probe_highbase_full.bak` | 400,000 | 3 | **2/2** | **3/3** | **6/6** | **2/2** | digest | ✓ |
+| `cci_bitpack_probe_bigint_full.bak` | — | — | — | — | — | — | confidence pass · constraints: 12 total · 12 pass · 0 fail | ✓ |
+| `cci_bitpack_probe_full.bak` | — | — | — | — | — | — | confidence pass · constraints: 12 total · 12 pass · 0 fail | ✓ |
+| `cci_bitpack_probe_highbase_full.bak` | — | — | — | — | — | — | confidence pass · constraints: 12 total · 12 pass · 0 fail | ✓ |
 | `cci_btree_nci_full.bak` | 2,400 | 5 | **2/2** | **5/5** | **10/10** | **2/2** | digest | ✓ |
 | `cci_computed_full.bak` | 2,400 | 4 | **2/2** | **4/4** | **8/8** | **2/2** | digest | ✓ |
 | `cci_enc5_largepool_full.bak` | 160,000 | 4 | **2/2** | **4/4** | **8/8** | **2/2** | digest | ✓ |
@@ -63,10 +62,8 @@ Memory-optimized (In-Memory OLTP / XTP) tables store their data in XTP checkpoin
 | `compressioncoverage_full.bak` | 1,994 | 239 | **19/19** | **239/239** | **464/464** | **19/19** | **17902/17902** | ✓ |
 | `computedcoverage_full.bak` | 6 | 8 | **2/2** | **8/8** | **16/16** | **2/2** | **18/18** | ✓ |
 | `constraintcoverage_full.bak` | 27 | 27 | **9/9** | **27/27** | **54/54** | **9/9** | **54/54** | ✓ |
-| `corrupt_metadata_confidence_full.bak` | — | — | — | — | — | — | confidence fail (catalog_consistency: schema recovery failed: 'corrupt_metadata_confidence_full.bak' is too small to contain an MDF page image.) · constraints: 3 total · 2 pass · 1 fail  [catalog_consistency: 1F] | ✗ |
 | `covering_index_full.bak` | 2,000 | 5 | **2/2** | **5/5** | **10/10** | **2/2** | **3000/3000** | ✓ |
-| `cs_lob_preamble.bak` | 5,000 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | **5000/5000** | ✓ |
-| `cs_lob_preamble2.bak` | 1,200 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | **1200/1200** | ✓ |
+| `cs_lob_preamble.bak` | 1,400 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | **1400/1400** | ✓ |
 | `delta_rowgroup_full.bak` | 180 | 5 | **2/2** | **5/5** | **10/10** | **2/2** | digest | ✓ |
 | `dirtycoverage_aborted_xact.bak` | 20 | 3 | **1/1** | **3/3** | **6/6** | **1/1** | **40/40** | ✓ |
 | `dirtycoverage_addcol.bak` | 60 | 4 | **1/1** | **4/4** | **8/8** | **1/1** | **180/180** | ✓ |
@@ -75,18 +72,17 @@ Memory-optimized (In-Memory OLTP / XTP) tables store their data in XTP checkpoin
 | `dirtycoverage_altercol.bak` | 50 | 3 | **1/1** | **3/3** | **6/6** | **1/1** | **100/100** | ✓ |
 | `dirtycoverage_altercol_rewrite.bak` | 60 | 3 | **1/1** | **3/3** | **6/6** | **1/1** | **120/120** | ✓ |
 | `dirtycoverage_alterdb.bak` | 300 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | **300/300** | ✓ |
-| `dirtycoverage_cci_delete.bak` | 13,000 | 5 | **2/2** | **5/5** | **10/10** | **2/2** | digest | ✓ |
+| `dirtycoverage_cci_delete.bak` | 14,000 | 5 | **2/2** | **5/5** | **10/10** | **2/2** | digest | ✓ |
 | `dirtycoverage_cci_update.bak` | 14,000 | 5 | **2/2** | **5/5** | **10/10** | **2/2** | digest | ✓ |
 | `dirtycoverage_committed_delete.bak` | 200 | 3 | **1/1** | **3/3** | **6/6** | **1/1** | **400/400** | ✓ |
-| `dirtycoverage_committed_delete_v2.bak` | 250,500 | 5 | **2/2** | **5/5** | **10/10** | **2/2** | **251000/251000** | ✓ |
+| `dirtycoverage_committed_delete_v2.bak` | 1,000 | 3 | **1/1** | **3/3** | **6/6** | **1/1** | **2000/2000** | ✓ |
 | `dirtycoverage_committed_delete_v3.bak` | 200 | 27 | **1/1** | **27/27** | **50/50** | **1/1** | **5200/5200** | ✓ |
 | `dirtycoverage_committed_delete_v4.bak` | 9,000 | 9 | **2/2** | **9/9** | **16/16** | **2/2** | **28000/28000** | ✓ |
 | `dirtycoverage_committed_update.bak` | 200 | 3 | **1/1** | **3/3** | **6/6** | **1/1** | **400/400** | ✓ |
-| `dirtycoverage_committed_update_v2.bak` | 300,000 | 3 | **1/1** | **3/3** | **6/6** | **1/1** | **600000/600000** | ✓ |
+| `dirtycoverage_committed_update_v2.bak` | 1,000 | 3 | **1/1** | **3/3** | **6/6** | **1/1** | **2000/2000** | ✓ |
 | `dirtycoverage_committed_update_v3.bak` | 300 | 27 | **1/1** | **27/27** | **50/50** | **1/1** | **7800/7800** | ✓ |
 | `dirtycoverage_committed_update_v4.bak` | 10,000 | 9 | **2/2** | **9/9** | **16/16** | **2/2** | **35000/35000** | ✓ |
-| `dirtycoverage_compress_update.bak` | 50 | 4 | **1/1** | **4/4** | **8/8** | **1/1** | **150/150** | ✓ |
-| `dirtycoverage_concurrent.bak` | 114 | 4 | **1/1** | **4/4** | **8/8** | **1/1** | **342/342** | ✓ |
+| `dirtycoverage_concurrent.bak` | 113 | 4 | **1/1** | **4/4** | **8/8** | **1/1** | **339/339** | ✓ |
 | `dirtycoverage_createidx.bak` | 300 | 3 | **1/1** | **3/3** | **6/6** | **1/1** | **600/600** | ✓ |
 | `dirtycoverage_createtable.bak` | 300 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | **300/300** | ✓ |
 | `dirtycoverage_delete.bak` | 70 | 3 | **1/1** | **3/3** | **6/6** | **1/1** | **140/140** | ✓ |
@@ -94,11 +90,9 @@ Memory-optimized (In-Memory OLTP / XTP) tables store their data in XTP checkpoin
 | `dirtycoverage_dropidx.bak` | 300 | 3 | **1/1** | **3/3** | **6/6** | **1/1** | **600/600** | ✓ |
 | `dirtycoverage_droptable.bak` | 700 | 5 | **2/2** | **5/5** | **10/10** | **2/2** | **1200/1200** | ✓ |
 | `dirtycoverage_heap_forward.bak` | 20 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | digest | ✓ |
-| `dirtycoverage_insert_update.bak` | 50 | 4 | **1/1** | **4/4** | **8/8** | **1/1** | **150/150** | ✓ |
 | `dirtycoverage_large_dirty.bak` | 50 | 3 | **1/1** | **3/3** | **6/6** | **1/1** | **100/100** | ✓ |
 | `dirtycoverage_lob_update.bak` | 5 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | **5/5** | ✓ |
 | `dirtycoverage_maxrow.bak` | 10 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | **10/10** | ✓ |
-| `dirtycoverage_multi_update.bak` | 50 | 4 | **1/1** | **4/4** | **8/8** | **1/1** | **150/150** | ✓ |
 | `dirtycoverage_nchar_delete.bak` | 30 | 3 | **1/1** | **3/3** | **6/6** | **1/1** | **60/60** | ✓ |
 | `dirtycoverage_nested.bak` | 50 | 3 | **1/1** | **3/3** | **6/6** | **1/1** | **100/100** | ✓ |
 | `dirtycoverage_null_update.bak` | 20 | 3 | **1/1** | **3/3** | **6/6** | **1/1** | **40/40** | ✓ |
@@ -113,13 +107,9 @@ Memory-optimized (In-Memory OLTP / XTP) tables store their data in XTP checkpoin
 | `dirtycoverage_two_tx.bak` | 30 | 3 | **1/1** | **3/3** | **6/6** | **1/1** | **60/60** | ✓ |
 | `dirtycoverage_uncommitted.bak` | 50 | 4 | **1/1** | **4/4** | **8/8** | **1/1** | **150/150** | ✓ |
 | `dirtycoverage_update.bak` | 50 | 4 | **1/1** | **4/4** | **8/8** | **1/1** | **150/150** | ✓ |
-| `dirtycoverage_wide.bak` | 5 | 3 | **1/1** | **3/3** | **6/6** | **1/1** | **10/10** | ✓ |
-| `featurecoverage_full.bak` | 1,124 | 43 | **10/10** | **31/31** | **62/62** | **10/10** | **3298/3298** | ✓ |
 | `filtered_ncci_full.bak` | 1,200 | 7 | **3/3** | **7/7** | **14/14** | **3/3** | **800/800** | ✓ |
 | `float_extreme_full.bak` | 5 | 3 | **1/1** | **3/3** | **6/6** | **1/1** | **10/10** | ✓ |
 | `forwarded_records_full.bak` | 2,000 | 4 | **2/2** | **4/4** | **8/8** | **2/2** | **1000/1000** | ✓ |
-| `geocoverage_full.bak` | 27 | 25 | **7/7** | **25/25** | **50/50** | **7/7** | **73/73** | ✓ |
-| `geotest.bak` | 14 | 16 | **4/4** | **16/16** | **32/32** | **4/4** | **44/44** | ✓ |
 | `ghost_records_full.bak` | 800 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | digest | ✓ |
 | `heapcoverage_large.bak` | 2,000 | 6 | **2/2** | **6/6** | **12/12** | **2/2** | **2000/2000** | ✓ |
 | `heapcoverage_large_50000.bak` | 100,000 | 6 | **2/2** | **6/6** | **12/12** | **2/2** | **100000/100000** | ✓ |
@@ -132,16 +122,14 @@ Memory-optimized (In-Memory OLTP / XTP) tables store their data in XTP checkpoin
 | `incrementalcoverage_diff_05.bak` | 35 | 4 | **1/1** | **4/4** | **8/8** | **1/1** | **105/105** | ✓ |
 | `incrementalcoverage_diff_06.bak` | 40 | 4 | **1/1** | **4/4** | **8/8** | **1/1** | **120/120** | ✓ |
 | `incrementalcoverage_full.bak` | 10 | 4 | **1/1** | **4/4** | **8/8** | **1/1** | **30/30** | ✓ |
-| `layoutcoverage_full.bak` | 171 | 2,421 | **57/57** | **2421/2421** | **740/740** | **57/57** | **7092/7092** | ✓ |
-| `legacytext.bak` | 3 | 4 | **1/1** | **4/4** | **8/8** | **1/1** | **9/9** | ✓ |
+| `layoutcoverage_full.bak` | 171 | 2,421 | **57/57** | **1398/1398** | **740/740** | **57/57** | **7092/7092** | ✓ |
 | `max_row_width_full.bak` | 5 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | **5/5** | ✓ |
-| `mixed_collation_full.bak` | 3 | 5 | **1/1** | **5/5** | **10/10** | **1/1** | **12/12** | ✓ |
+| `mixed_collation_full.bak` | 3 | 4 | **1/1** | **4/4** | **8/8** | **1/1** | **9/9** | ✓ |
 | `multi_rowgroup_full.bak` | 3,300 | 4 | **2/2** | **4/4** | **8/8** | **2/2** | digest | ✓ |
 | `ncci_heap_full.bak` | 800 | 4 | **2/2** | **4/4** | **8/8** | **2/2** | digest | ✓ |
 | `ncci_types_full.bak` | 24,057 | 39 | **20/20** | **39/39** | **76/76** | **20/20** | **22857/22857** | ✓ |
 | `ndfcoverage_full.bak` | 20 | 4 | **2/2** | **4/4** | **8/8** | **2/2** | **20/20** | ✓ |
 | `nvarchar_max_u21_full.bak` | 10 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | **10/10** | ✓ |
-| `ordered_cci_full.bak` | 3,600 | 7 | **3/3** | **7/7** | **14/14** | **3/3** | digest | ✓ |
 | `pagecomp_anchor_full.bak` | 5,000 | 8 | **1/1** | **8/8** | **16/16** | **1/1** | **35000/35000** | ✓ |
 | `pagecomp_long_prefix_full.bak` | 100 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | **100/100** | ✓ |
 | `pfor_columnstore_full.bak` | 400,000 | 12 | **2/2** | **12/12** | **24/24** | **2/2** | digest | ✓ |
@@ -153,43 +141,41 @@ Memory-optimized (In-Memory OLTP / XTP) tables store their data in XTP checkpoin
 | `rowstore_lob_markup_full.bak` | 5 | 4 | **1/1** | **4/4** | **8/8** | **1/1** | **15/15** | ✓ |
 | `rowversion_extract_full.bak` | 200 | 4 | **2/2** | **4/4** | **8/8** | **2/2** | **200/200** | ✓ |
 | `sparse_full.bak` | 10,000 | 6 | **1/1** | **6/6** | **10/10** | **1/1** | **50000/50000** | ✓ |
-| `spatial_edge_full.bak` | 14 | 4 | **2/2** | **4/4** | **8/8** | **2/2** | **14/14** | ✓ |
+| `spatial_edge_full.bak` | 8 | 4 | **2/2** | **4/4** | **8/8** | **2/2** | **8/8** | ✓ |
 | `spatial_index_full.bak` | 400 | 4 | **2/2** | **4/4** | **8/8** | **2/2** | **400/400** | ✓ |
-| `sql_variant_extract_full.bak` | 10 | 2 | **1/1** | **2/2** | **2/2** | **1/1** | **10/10** | ✓ |
+| `sql_variant_extract_full.bak` | 6 | 2 | **1/1** | **2/2** | **2/2** | **1/1** | **6/6** | ✓ |
 | `striped_full_1.bak` | 20 | 4 | **1/1** | **4/4** | **8/8** | **1/1** | **60/60** | ✓ |
 | `striped_single.bak` | 20 | 4 | **1/1** | **4/4** | **8/8** | **1/1** | **60/60** | ✓ |
 | `surrogate_pairs_full.bak` | 5 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | **5/5** | ✓ |
 | `tabletype_cci_large_full.bak` | 1,200 | 25 | **1/1** | **25/25** | **48/48** | **1/1** | digest | ✓ |
 | `tabletypecoverage_diff.bak` | 30 | 161 | **5/5** | **161/161** | **272/272** | **5/5** | **198/198** | ✓ |
 | `tabletypecoverage_full.bak` | 20 | 161 | **5/5** | **161/161** | **272/272** | **5/5** | **132/132** | ✓ |
-| `temporal_hidden_full.bak` | 14 | 16 | **4/4** | **16/16** | **32/32** | **4/4** | **30/30** | ✓ |
+| `temporal_hidden_full.bak` | 14 | 16 | **4/4** | **16/16** | **32/32** | **4/4** | **20/20** | ✓ |
 | `torn_page_full.bak` | 300 | 3 | **1/1** | **3/3** | **6/6** | **1/1** | **600/600** | ✓ |
 | `typecoverage_full.bak` | 162 | 101 | **34/34** | **101/101** | **198/198** | **34/34** | **321/321** | ✓ |
-| `typecoverage_full_compressed.bak` | 162 | 101 | **34/34** | **101/101** | **198/198** | **34/34** | **321/321** | ✓ |
-| `typed_xml_full.bak` | 8 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | **8/8** | ✓ |
+| `typed_xml_full.bak` | 3 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | **3/3** | ✓ |
 | `unicode_codepage_coverage.bak` | 15 | 52 | **13/13** | **52/52** | **104/104** | **13/13** | **45/45** | ✓ |
-| `utf8_collation_full.bak` | 14 | 4 | **2/2** | **4/4** | **8/8** | **2/2** | **14/14** | ✓ |
 | `xml_index_full.bak` | 200 | 4 | **2/2** | **4/4** | **8/8** | **2/2** | **200/200** | ✓ |
-| `xmlcoverage_full.bak` | 13 | 3 | **1/1** | **3/3** | **6/6** | **1/1** | **26/26** | ✓ |
+| `xmlcoverage_full.bak` | 12 | 3 | **1/1** | **3/3** | **6/6** | **1/1** | **24/24** | ✓ |
 | `xmlheap_full.bak` | 200 | 7 | **1/1** | **7/7** | **14/14** | **1/1** | **1200/1200** | ✓ |
-| `xtp_checkpoint_straddle_full.bak` | 200,000 | 4 | **2/2** | **4/4** | **8/8** | **2/2** | digest | ✓ |
+| `xtp_checkpoint_straddle_full.bak` | — | — | — | — | — | — | confidence pass · constraints: 11 total · 11 pass · 0 fail | ✓ |
 | `xtp_probe_full.bak` | 7 | 8 | **5/5** | **8/8** | **14/14** | **5/5** | — | ✓ |
 | `xtp_rich_full.bak` | 6 | 8 | **2/2** | **8/8** | **14/14** | **2/2** | — | ✓ |
 | `xtp_simple_full.bak` | 6 | 5 | **2/2** | **5/5** | **10/10** | **2/2** | — | ✓ |
 
 ## Per-fixture detail
 
-### `alias_types_full.bak` — 2022 — ✓ pass
+### `alias_types_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 2.926 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.547 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
-| `dbo.alias_probe` | rowstore | 3 | ✓ | **9/9** | — | ✓ | cells **24/24** ✓ |
+| `dbo.alias_probe` | rowstore | 3 | ✓ | **6/6** | — | ✓ | cells **15/15** ✓ |
 
-### `archive_columnstore_partition_full.bak` — 2022 — ✓ pass
+### `archive_columnstore_partition_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 13.121 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 12.117 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
@@ -198,23 +184,9 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `dbo.archive_part_roundtrip` | columnstore | 140,000 | ✓ | **3/3** | **6/6** | ✓ | cells digest ✓ |
 | `dbo.archive_part_single` | columnstore | 140,000 | ✓ | **3/3** | **6/6** | ✓ | cells digest ✓ |
 
-### `archive_columnstore_types_full.bak` — 2022 — ✓ pass
+### `archive_columnstore_types_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 8.117 MB_
-
-| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
-|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
-| `dbo.archive_binary10` | columnstore | 35,000 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
-| `dbo.archive_char10` | columnstore | 35,000 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
-| `dbo.archive_nchar10` | columnstore | 35,000 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
-| `dbo.archive_nvarchar20` | columnstore | 35,000 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
-| `dbo.archive_uuid` | columnstore | 35,000 | ✓ | **2/2** | **2/2** | ✓ | cells digest ✓ |
-| `dbo.archive_varbinary20` | columnstore | 35,000 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
-| `dbo.archive_varchar20` | columnstore | 35,000 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
-
-### `archive_columnstore_types_random_full.bak` — 2022 — ✓ pass
-
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 9.117 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 6.113 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
@@ -226,42 +198,56 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `dbo.archive_varbinary20` | columnstore | 35,000 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
 | `dbo.archive_varchar20` | columnstore | 35,000 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
 
-### `archive_single_chunk_full.bak` — 2022 — ✓ pass
+### `archive_columnstore_types_random_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.863 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 6.113 MB_
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.archive_binary10` | columnstore | 35,000 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
+| `dbo.archive_char10` | columnstore | 35,000 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
+| `dbo.archive_nchar10` | columnstore | 35,000 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
+| `dbo.archive_nvarchar20` | columnstore | 35,000 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
+| `dbo.archive_uuid` | columnstore | 35,000 | ✓ | **2/2** | **2/2** | ✓ | cells digest ✓ |
+| `dbo.archive_varbinary20` | columnstore | 35,000 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
+| `dbo.archive_varchar20` | columnstore | 35,000 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
+
+### `archive_single_chunk_full.bak` — 2017 — ✓ pass
+
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.922 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.archive_single_chunk` | columnstore | 5,000 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
 
-### `archive_single_chunk_random_full.bak` — 2022 — ✓ pass
+### `archive_single_chunk_random_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.863 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.922 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.archive_single_chunk` | columnstore | 5,000 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
 
-### `archivenull_full.bak` — 2022 — ✓ pass
+### `archivenull_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 6.117 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 4.113 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.archive_null` | columnstore | 50,000 | ✓ | **3/3** | **6/6** | ✓ | cells digest ✓ |
 
-### `backup_blocksize_full.bak` — 2022 — ✓ pass
+### `backup_blocksize_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.176 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.609 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.blksz_tbl` | rowstore | 100 | ✓ | **3/3** | **6/6** | ✓ | cells **200/200** ✓ |
 | `dbo.fkr__seed` | rowstore | 100 | ✓ | **1/1** | **2/2** | ✓ | cells digest ✓ |
 
-### `boundarycoverage_datetime_full.bak` — 2022 — ✓ pass
+### `boundarycoverage_datetime_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 7.113 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 6.109 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
@@ -275,9 +261,9 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `dbo.tb_smalldatetime` | columnstore | 1,200 | ✓ | **3/3** | **6/6** | ✓ | cells **2400/2400** ✓ |
 | `dbo.tb_time_3` | columnstore | 1,200 | ✓ | **3/3** | **6/6** | ✓ | cells **2400/2400** ✓ |
 
-### `boundarycoverage_full.bak` — 2022 — ✓ pass
+### `boundarycoverage_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 7.113 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 5.109 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
@@ -290,79 +276,62 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `dbo.tb_smallmoney` | columnstore | 1,200 | ✓ | **3/3** | **6/6** | ✓ | cells **2400/2400** ✓ |
 | `dbo.tb_tinyint` | columnstore | 1,200 | ✓ | **3/3** | **6/6** | ✓ | cells **2400/2400** ✓ |
 
-### `catalog_ss2022.bak` — 2022 — ✓ pass
+### `cci_binary_varbinary_compare_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 2.926 MB_
-
-| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
-|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
-| `dbo.cat_probe` | rowstore | 3 | ✓ | **2/2** | **4/4** | ✓ | cells **3/3** ✓ |
-
-### `cci_binary_varbinary_compare_full.bak` — 2022 — ✓ pass
-
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.426 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.984 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.cci_binary_varbinary_compare` | columnstore | 1,200 | ✓ | **3/3** | **6/6** | ✓ | cells digest ✓ |
 
-### `cci_bitpack_probe_bigint_full.bak` — 2022 — ✓ pass
+### `cci_bitpack_probe_bigint_full.bak` — confidence pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 43.148 MB_
+_SQL Server  · 41.145 MB_
 
-| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
-|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
-| `dbo.cci_bitpack_probe_bigint` | columnstore | 2,200,000 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
-| `dbo.fkr__seed` | rowstore | 2,200,000 | ✓ | **1/1** | **2/2** | ✓ | cells digest ✓ |
+_confidence pass._
 
-### `cci_bitpack_probe_full.bak` — 2022 — ✓ pass
+### `cci_bitpack_probe_full.bak` — confidence pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 9.121 MB_
+_SQL Server  · 7.117 MB_
 
-| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
-|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
-| `dbo.cci_bitpack_probe` | columnstore | 200,000 | ✓ | **5/5** | **10/10** | ✓ | cells digest ✓ |
-| `dbo.fkr__seed` | rowstore | 200,000 | ✓ | **1/1** | **2/2** | ✓ | cells digest ✓ |
+_confidence pass._
 
-### `cci_bitpack_probe_highbase_full.bak` — 2022 — ✓ pass
+### `cci_bitpack_probe_highbase_full.bak` — confidence pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 9.121 MB_
+_SQL Server  · 7.117 MB_
 
-| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
-|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
-| `dbo.cci_bitpack_probe_highbase` | columnstore | 200,000 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
-| `dbo.fkr__seed` | rowstore | 200,000 | ✓ | **1/1** | **2/2** | ✓ | cells digest ✓ |
+_confidence pass._
 
-### `cci_btree_nci_full.bak` — 2022 — ✓ pass
+### `cci_btree_nci_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 4.176 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 3.734 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.cci_with_btree` | columnstore | 1,200 | ✓ | **4/4** | **8/8** | ✓ | cells digest ✓ |
 | `dbo.fkr__seed` | rowstore | 1,200 | ✓ | **1/1** | **2/2** | ✓ | cells digest ✓ |
 
-### `cci_computed_full.bak` — 2022 — ✓ pass
+### `cci_computed_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.613 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 3.234 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.cci_computed` | columnstore | 1,200 | ✓ | **3/3** | **6/6** | ✓ | cells digest ✓ |
 | `dbo.fkr__seed` | rowstore | 1,200 | ✓ | **1/1** | **2/2** | ✓ | cells digest ✓ |
 
-### `cci_enc5_largepool_full.bak` — 2022 — ✓ pass
+### `cci_enc5_largepool_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 11.117 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 9.113 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.cci_char_pool` | columnstore | 80,000 | ✓ | **3/3** | **6/6** | ✓ | cells digest ✓ |
 | `dbo.fkr__seed` | rowstore | 80,000 | ✓ | **1/1** | **2/2** | ✓ | cells digest ✓ |
 
-### `cci_enc5_largepool_matrix_full.bak` — 2022 — ✓ pass
+### `cci_enc5_largepool_matrix_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 25.117 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 23.113 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
@@ -375,9 +344,9 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `dbo.fkr__seed` | rowstore | 80,000 | ✓ | **1/1** | **2/2** | ✓ | cells digest ✓ |
 | `dbo.varchar_80000_distinct_var` | columnstore | 80,000 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
 
-### `cci_extended_full.bak` — 2022 — ✓ pass
+### `cci_extended_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 7.113 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 5.109 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
@@ -387,9 +356,9 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `dbo.cci_nvarchar50_sparse` | columnstore | 1,200 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
 | `dbo.cci_varchar50` | columnstore | 1,200 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
 
-### `cci_lob_full.bak` — 2022 — ✓ pass
+### `cci_lob_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 6.113 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 4.109 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
@@ -398,9 +367,9 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `dbo.cci_varchar_max` | columnstore | 1,200 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
 | `dbo.fkr__seed` | rowstore | 1,196 | ✓ | **1/1** | **2/2** | ✓ | cells digest ✓ |
 
-### `cci_reorganize_full.bak` — 2022 — ✓ pass
+### `cci_reorganize_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.801 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 3.359 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
@@ -408,27 +377,27 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `dbo.cci_deleted_reorg` | columnstore | 1,000 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
 | `dbo.fkr__seed` | rowstore | 1,200 | ✓ | **1/1** | **2/2** | ✓ | cells digest ✓ |
 
-### `cci_string_dict_regression_full.bak` — 2022 — ✓ pass
+### `cci_string_dict_regression_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 10.117 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 8.113 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.cci_string_dict_regression` | columnstore | 16,384 | ✓ | **4/4** | **8/8** | ✓ | cells digest ✓ |
 | `dbo.fkr__seed` | rowstore | 8,192 | ✓ | **1/1** | **2/2** | ✓ | cells digest ✓ |
 
-### `cci_string_minmax_full.bak` — 2022 — ✓ pass
+### `cci_string_minmax_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.738 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 3.359 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.cci_str_minmax` | columnstore | 1,200 | ✓ | **4/4** | **8/8** | ✓ | cells digest ✓ |
 | `dbo.fkr__seed` | rowstore | 1,200 | ✓ | **1/1** | **2/2** | ✓ | cells digest ✓ |
 
-### `cci_switch_full.bak` — 2022 — ✓ pass
+### `cci_switch_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.738 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 3.297 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
@@ -436,9 +405,9 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `dbo.cci_switch_src` | columnstore | 0 | — | — | — | — |  |
 | `dbo.fkr__seed` | rowstore | 1,200 | ✓ | **1/1** | **2/2** | ✓ | cells digest ✓ |
 
-### `cci_types_large_full.bak` — 2022 — ✓ pass
+### `cci_types_large_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 6.113 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 4.047 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
@@ -448,9 +417,9 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `dbo.cci_uuid` | columnstore | 1,200 | ✓ | **2/2** | **2/2** | ✓ | cells digest ✓ |
 | `dbo.cci_varbinary` | columnstore | 1,200 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
 
-### `cci_varbinary_micro_full.bak` — 2022 — ✓ pass
+### `cci_varbinary_micro_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.988 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 3.547 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
@@ -458,9 +427,9 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `dbo.cci_varbinary_micro_1byte` | columnstore | 20 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
 | `dbo.cci_varbinary_micro_nullonly` | columnstore | 21 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
 
-### `cci_varbinary_probe_full.bak` — 2022 — ✓ pass
+### `cci_varbinary_probe_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.863 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 3.422 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
@@ -468,9 +437,9 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `dbo.cci_varbinary_narrowmax` | columnstore | 1,200 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
 | `dbo.cci_varbinary_small_rowgroup` | columnstore | 128 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
 
-### `columnstore_minimal.bak` — 2022 — ✓ pass
+### `columnstore_minimal.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 6.113 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 5.109 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
@@ -480,17 +449,17 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `dbo.cs_1000` | columnstore | 1,000 | ✓ | **12/12** | **24/24** | ✓ | cells digest ✓ |
 | `dbo.cs_10000` | columnstore | 10,000 | ✓ | **12/12** | **24/24** | ✓ | cells digest ✓ |
 
-### `compressed_nvarchar_full.bak` — 2022 — ✓ pass
+### `compressed_nvarchar_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.113 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.547 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.compressed_nvar` | rowstore | 8 | ✓ | **2/2** | **4/4** | ✓ | cells **8/8** ✓ |
 
-### `compressioncoverage_full.bak` — 2022 — ✓ pass
+### `compressioncoverage_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 7.113 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 5.109 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
@@ -514,18 +483,18 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `dbo.uniquifier_none` | rowstore | 200 | ✓ | **3/3** | **6/6** | ✓ | cells digest ✓ |
 | `dbo.uniquifier_row` | rowstore | 200 | ✓ | **3/3** | **6/6** | ✓ | cells digest ✓ |
 
-### `computedcoverage_full.bak` — 2022 — ✓ pass
+### `computedcoverage_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.176 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.609 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.comp_nonpersisted` | rowstore | 3 | ✓ | **4/4** | **8/8** | ✓ | cells **9/9** ✓ |
 | `dbo.comp_persisted` | rowstore | 3 | ✓ | **4/4** | **8/8** | ✓ | cells **9/9** ✓ |
 
-### `constraintcoverage_full.bak` — 2022 — ✓ pass
+### `constraintcoverage_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 4.051 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 3.484 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
@@ -539,442 +508,378 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `dbo.cc_unique_constraint` | rowstore | 3 | ✓ | **3/3** | **6/6** | ✓ | cells **6/6** ✓ |
 | `dbo.cc_unique_index` | rowstore | 3 | ✓ | **3/3** | **6/6** | ✓ | cells **6/6** ✓ |
 
-### `corrupt_metadata_confidence_full.bak` — confidence fail
+### `covering_index_full.bak` — 2017 — ✓ pass
 
-_SQL Server  · 0.002 MB_
-
-_confidence fail (catalog_consistency: schema recovery failed: 'corrupt_metadata_confidence_full.bak' is too small to contain an MDF page image.)._
-
-### `covering_index_full.bak` — 2022 — ✓ pass
-
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.238 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.734 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.covering_base` | rowstore | 1,000 | ✓ | **4/4** | **8/8** | ✓ | cells **3000/3000** ✓ |
 | `dbo.fkr__seed` | rowstore | 1,000 | ✓ | **1/1** | **2/2** | ✓ | cells digest ✓ |
 
-### `cs_lob_preamble.bak` — 2022 — ✓ pass
+### `cs_lob_preamble.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 1.195 MB_
-
-| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
-|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
-| `dbo.cs_lob_preamble` | columnstore | 5,000 | ✓ | **2/2** | **4/4** | ✓ | cells **5000/5000** ✓ |
-
-### `cs_lob_preamble2.bak` — 2022 — ✓ pass
-
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 0.605 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 0.543 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
-| `dbo.cs_lob_preamble` | columnstore | 1,200 | ✓ | **2/2** | **4/4** | ✓ | cells **1200/1200** ✓ |
+| `dbo.cs_lob_preamble` | columnstore | 1,400 | ✓ | **2/2** | **4/4** | ✓ | cells **1400/1400** ✓ |
 
-### `delta_rowgroup_full.bak` — 2022 — ✓ pass
+### `delta_rowgroup_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.801 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 3.359 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.cs_delta_only` | columnstore | 30 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
 | `dbo.cs_mixed` | columnstore | 150 | ✓ | **3/3** | **6/6** | ✓ | cells digest ✓ |
 
-### `dirtycoverage_aborted_xact.bak` — 2022 — ✓ pass
+### `dirtycoverage_aborted_xact.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.176 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.547 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.aborted_test` | rowstore | 20 | ✓ | **3/3** | **6/6** | ✓ | cells **40/40** ✓ |
 
-### `dirtycoverage_addcol.bak` — 2022 — ✓ pass
+### `dirtycoverage_addcol.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.613 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.547 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.addcol_test` | rowstore | 60 | ✓ | **4/4** | **8/8** | ✓ | cells **180/180** ✓ |
 
-### `dirtycoverage_addnotnull.bak` — 2022 — ✓ pass
+### `dirtycoverage_addnotnull.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.676 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.609 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.addnotnull_test` | rowstore | 60 | ✓ | **4/4** | **8/8** | ✓ | cells **180/180** ✓ |
 
-### `dirtycoverage_alldirty.bak` — 2022 — ✓ pass
+### `dirtycoverage_alldirty.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.051 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.672 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.alldirty_test` | rowstore | 0 | — | — | — | — |  |
 
-### `dirtycoverage_altercol.bak` — 2022 — ✓ pass
+### `dirtycoverage_altercol.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.613 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.547 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.altercol_test` | rowstore | 50 | ✓ | **3/3** | **6/6** | ✓ | cells **100/100** ✓ |
 
-### `dirtycoverage_altercol_rewrite.bak` — 2022 — ✓ pass
+### `dirtycoverage_altercol_rewrite.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.613 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.547 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.rewrite_test` | rowstore | 60 | ✓ | **3/3** | **6/6** | ✓ | cells **120/120** ✓ |
 
-### `dirtycoverage_alterdb.bak` — 2022 — ✓ pass
+### `dirtycoverage_alterdb.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.613 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.547 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.alterdb_test` | rowstore | 300 | ✓ | **2/2** | **4/4** | ✓ | cells **300/300** ✓ |
 
-### `dirtycoverage_cci_delete.bak` — 2022 — ✓ pass
+### `dirtycoverage_cci_delete.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 6.238 MB_
-
-| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
-|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
-| `dbo.dirty_cci` | columnstore | 6,000 | ✓ | **4/4** | **8/8** | ✓ | cells digest ✓ |
-| `dbo.fkr__seed` | rowstore | 7,000 | ✓ | **1/1** | **2/2** | ✓ | cells digest ✓ |
-
-### `dirtycoverage_cci_update.bak` — 2022 — ✓ pass
-
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 5.301 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 4.109 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.dirty_cci` | columnstore | 7,000 | ✓ | **4/4** | **8/8** | ✓ | cells digest ✓ |
 | `dbo.fkr__seed` | rowstore | 7,000 | ✓ | **1/1** | **2/2** | ✓ | cells digest ✓ |
 
-### `dirtycoverage_committed_delete.bak` — 2022 — ✓ pass
+### `dirtycoverage_cci_update.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.176 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 4.047 MB_
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.dirty_cci` | columnstore | 7,000 | ✓ | **4/4** | **8/8** | ✓ | cells digest ✓ |
+| `dbo.fkr__seed` | rowstore | 7,000 | ✓ | **1/1** | **2/2** | ✓ | cells digest ✓ |
+
+### `dirtycoverage_committed_delete.bak` — 2017 — ✓ pass
+
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.672 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.committed_delete_test` | rowstore | 200 | ✓ | **3/3** | **6/6** | ✓ | cells **400/400** ✓ |
 
-### `dirtycoverage_committed_delete_v2.bak` — 2022 — ✓ pass
+### `dirtycoverage_committed_delete_v2.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 56.434 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.859 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
-| `dbo.committed_delete_test` | rowstore | 500 | ✓ | **3/3** | **6/6** | ✓ | cells **1000/1000** ✓ |
-| `dbo.padding_fill` | rowstore | 250,000 | ✓ | **2/2** | **4/4** | ✓ | cells **250000/250000** ✓ |
+| `dbo.committed_delete_test` | rowstore | 1,000 | ✓ | **3/3** | **6/6** | ✓ | cells **2000/2000** ✓ |
 
-### `dirtycoverage_committed_delete_v3.bak` — 2022 — ✓ pass
+### `dirtycoverage_committed_delete_v3.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.363 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.797 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.all_types_test` | rowstore | 200 | ✓ | **27/27** | **50/50** | ✓ | cells **5200/5200** ✓ |
 
-### `dirtycoverage_committed_delete_v4.bak` — 2022 — ✓ pass
+### `dirtycoverage_committed_delete_v4.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 4.301 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 3.359 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.dirty_v4` | rowstore | 4,000 | ✓ | **8/8** | **14/14** | ✓ | cells **28000/28000** ✓ |
 | `dbo.fkr__seed` | rowstore | 5,000 | ✓ | **1/1** | **2/2** | ✓ | cells digest ✓ |
 
-### `dirtycoverage_committed_update.bak` — 2022 — ✓ pass
+### `dirtycoverage_committed_update.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.176 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.672 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.committed_update_test` | rowstore | 200 | ✓ | **3/3** | **6/6** | ✓ | cells **400/400** ✓ |
 
-### `dirtycoverage_committed_update_v2.bak` — 2022 — ✓ pass
+### `dirtycoverage_committed_update_v2.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 115.879 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.859 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
-| `dbo.committed_update_test` | rowstore | 300,000 | ✓ | **3/3** | **6/6** | ✓ | cells **600000/600000** ✓ |
+| `dbo.committed_update_test` | rowstore | 1,000 | ✓ | **3/3** | **6/6** | ✓ | cells **2000/2000** ✓ |
 
-### `dirtycoverage_committed_update_v3.bak` — 2022 — ✓ pass
+### `dirtycoverage_committed_update_v3.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.363 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.797 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.all_types_test` | rowstore | 300 | ✓ | **27/27** | **50/50** | ✓ | cells **7800/7800** ✓ |
 
-### `dirtycoverage_committed_update_v4.bak` — 2022 — ✓ pass
+### `dirtycoverage_committed_update_v4.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 4.113 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 3.359 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.dirty_v4` | rowstore | 5,000 | ✓ | **8/8** | **14/14** | ✓ | cells **35000/35000** ✓ |
 | `dbo.fkr__seed` | rowstore | 5,000 | ✓ | **1/1** | **2/2** | ✓ | cells digest ✓ |
 
-### `dirtycoverage_compress_update.bak` — 2022 — ✓ pass
+### `dirtycoverage_concurrent.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.676 MB_
-
-| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
-|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
-| `dbo.compress_update_test` | rowstore | 50 | ✓ | **4/4** | **8/8** | ✓ | cells **150/150** ✓ |
-
-### `dirtycoverage_concurrent.bak` — 2022 — ✓ pass
-
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.613 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.547 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
-| `dbo.dirty_test` | rowstore | 114 | ✓ | **4/4** | **8/8** | ✓ | cells **342/342** ✓ |
+| `dbo.dirty_test` | rowstore | 113 | ✓ | **4/4** | **8/8** | ✓ | cells **339/339** ✓ |
 
-### `dirtycoverage_createidx.bak` — 2022 — ✓ pass
+### `dirtycoverage_createidx.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.613 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.547 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.kidx_test` | rowstore | 300 | ✓ | **3/3** | **6/6** | ✓ | cells **600/600** ✓ |
 
-### `dirtycoverage_createtable.bak` — 2022 — ✓ pass
+### `dirtycoverage_createtable.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.613 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.547 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.stable_test` | rowstore | 300 | ✓ | **2/2** | **4/4** | ✓ | cells **300/300** ✓ |
 
-### `dirtycoverage_delete.bak` — 2022 — ✓ pass
+### `dirtycoverage_delete.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.676 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.547 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.delete_test` | rowstore | 70 | ✓ | **3/3** | **6/6** | ✓ | cells **140/140** ✓ |
 
-### `dirtycoverage_dropcol.bak` — 2022 — ✓ pass
+### `dirtycoverage_dropcol.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.613 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.547 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.dropcol_test` | rowstore | 60 | ✓ | **3/3** | **6/6** | ✓ | cells **120/120** ✓ |
 
-### `dirtycoverage_dropidx.bak` — 2022 — ✓ pass
+### `dirtycoverage_dropidx.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.676 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.609 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.kidx_test` | rowstore | 300 | ✓ | **3/3** | **6/6** | ✓ | cells **600/600** ✓ |
 
-### `dirtycoverage_droptable.bak` — 2022 — ✓ pass
+### `dirtycoverage_droptable.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.676 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.609 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.drop_target` | rowstore | 500 | ✓ | **3/3** | **6/6** | ✓ | cells **1000/1000** ✓ |
 | `dbo.survivor_test` | rowstore | 200 | ✓ | **2/2** | **4/4** | ✓ | cells **200/200** ✓ |
 
-### `dirtycoverage_heap_forward.bak` — 2022 — ✓ pass
+### `dirtycoverage_heap_forward.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.238 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.609 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.heap_forward_test` | rowstore | 20 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
 
-### `dirtycoverage_insert_update.bak` — 2022 — ✓ pass
+### `dirtycoverage_large_dirty.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.676 MB_
-
-| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
-|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
-| `dbo.iu_test` | rowstore | 50 | ✓ | **4/4** | **8/8** | ✓ | cells **150/150** ✓ |
-
-### `dirtycoverage_large_dirty.bak` — 2022 — ✓ pass
-
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 4.176 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 3.547 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.large_dirty_test` | rowstore | 50 | ✓ | **3/3** | **6/6** | ✓ | cells **100/100** ✓ |
 
-### `dirtycoverage_lob_update.bak` — 2022 — ✓ pass
+### `dirtycoverage_lob_update.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.363 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.734 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.lob_update_test` | rowstore | 5 | ✓ | **2/2** | **4/4** | ✓ | cells **5/5** ✓ |
 
-### `dirtycoverage_maxrow.bak` — 2022 — ✓ pass
+### `dirtycoverage_maxrow.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.238 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.672 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.maxrow_test` | rowstore | 10 | ✓ | **2/2** | **4/4** | ✓ | cells **10/10** ✓ |
 
-### `dirtycoverage_multi_update.bak` — 2022 — ✓ pass
+### `dirtycoverage_nchar_delete.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.676 MB_
-
-| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
-|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
-| `dbo.multi_update_test` | rowstore | 50 | ✓ | **4/4** | **8/8** | ✓ | cells **150/150** ✓ |
-
-### `dirtycoverage_nchar_delete.bak` — 2022 — ✓ pass
-
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.238 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.609 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.nchar_delete_test` | rowstore | 30 | ✓ | **3/3** | **6/6** | ✓ | cells **60/60** ✓ |
 
-### `dirtycoverage_nested.bak` — 2022 — ✓ pass
+### `dirtycoverage_nested.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.676 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.547 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.nested_test` | rowstore | 50 | ✓ | **3/3** | **6/6** | ✓ | cells **100/100** ✓ |
 
-### `dirtycoverage_null_update.bak` — 2022 — ✓ pass
+### `dirtycoverage_null_update.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.238 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.609 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.null_update_test` | rowstore | 20 | ✓ | **3/3** | **6/6** | ✓ | cells **40/40** ✓ |
 
-### `dirtycoverage_rebuildidx.bak` — 2022 — ✓ pass
+### `dirtycoverage_rebuildidx.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.676 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.609 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.ridx_test` | rowstore | 300 | ✓ | **3/3** | **6/6** | ✓ | cells **600/600** ✓ |
 
-### `dirtycoverage_rich_insert.bak` — 2022 — ✓ pass
+### `dirtycoverage_rich_insert.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.238 MB_
-
-| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
-|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
-| `dbo.rich_update_test` | rowstore | 20 | ✓ | **10/10** | **18/18** | ✓ | cells digest ✓ |
-
-### `dirtycoverage_rich_update.bak` — 2022 — ✓ pass
-
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.238 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.609 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.rich_update_test` | rowstore | 20 | ✓ | **10/10** | **18/18** | ✓ | cells digest ✓ |
 
-### `dirtycoverage_savepoint.bak` — 2022 — ✓ pass
+### `dirtycoverage_rich_update.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.676 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.609 MB_
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.rich_update_test` | rowstore | 20 | ✓ | **10/10** | **18/18** | ✓ | cells digest ✓ |
+
+### `dirtycoverage_savepoint.bak` — 2017 — ✓ pass
+
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.609 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.savepoint_test` | rowstore | 50 | ✓ | **3/3** | **6/6** | ✓ | cells **100/100** ✓ |
 
-### `dirtycoverage_snapshot_update.bak` — 2022 — ✓ pass
+### `dirtycoverage_snapshot_update.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.238 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.609 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.snapshot_update_test` | rowstore | 20 | ✓ | **2/2** | **4/4** | ✓ | cells **20/20** ✓ |
 
-### `dirtycoverage_switch.bak` — 2022 — ✓ pass
+### `dirtycoverage_switch.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.926 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.984 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.part_test` | rowstore | 150 | ✓ | **3/3** | **6/6** | ✓ | cells **300/300** ✓ |
 | `dbo.staging_test` | rowstore | 50 | ✓ | **3/3** | **6/6** | ✓ | cells **100/100** ✓ |
 
-### `dirtycoverage_temporal_update.bak` — 2022 — ✓ pass
+### `dirtycoverage_temporal_update.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.301 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.797 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.temporal_test` | rowstore | 20 | ✓ | **4/4** | **8/8** | ✓ | cells **60/60** ✓ |
 | `dbo.temporal_test_history` | rowstore | 0 | — | — | — | — |  |
 
-### `dirtycoverage_truncate.bak` — 2022 — ✓ pass
+### `dirtycoverage_truncate.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.613 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.547 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.trunc_test` | rowstore | 500 | ✓ | **3/3** | **6/6** | ✓ | cells **1000/1000** ✓ |
 
-### `dirtycoverage_two_tx.bak` — 2022 — ✓ pass
+### `dirtycoverage_two_tx.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.238 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.672 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.two_tx_test` | rowstore | 30 | ✓ | **3/3** | **6/6** | ✓ | cells **60/60** ✓ |
 
-### `dirtycoverage_uncommitted.bak` — 2022 — ✓ pass
+### `dirtycoverage_uncommitted.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.676 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.547 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.dirty_test` | rowstore | 50 | ✓ | **4/4** | **8/8** | ✓ | cells **150/150** ✓ |
 
-### `dirtycoverage_update.bak` — 2022 — ✓ pass
+### `dirtycoverage_update.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.676 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.609 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.update_test` | rowstore | 50 | ✓ | **4/4** | **8/8** | ✓ | cells **150/150** ✓ |
 
-### `dirtycoverage_wide.bak` — 2022 — ✓ pass
+### `filtered_ncci_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.176 MB_
-
-| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
-|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
-| `dbo.wide2_test` | rowstore | 5 | ✓ | **3/3** | **6/6** | ✓ | cells **10/10** ✓ |
-
-### `featurecoverage_full.bak` — 2022 — ✓ pass
-
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 8.246 MB_
-
-| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
-|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
-| `dbo.compress_col` | rowstore | 20 | ✓ | **3/3** | **6/6** | ✓ | cells **40/40** ✓ |
-| `dbo.graph_follows` | rowstore | 2 | ✓ | — | — | ✓ | cells digest ✓ |
-| `dbo.graph_person` | rowstore | 3 | ✓ | — | — | ✓ | cells digest ✓ |
-| `dbo.ledger_account` | rowstore | 3 | ✓ | **5/5** | **10/10** | ✓ | cells **6/6** ✓ |
-| `dbo.long_text` | rowstore | 3 | ✓ | **5/5** | **10/10** | ✓ | cells **12/12** ✓ |
-| `dbo.memory_oltp` | memory-optimized | 3 | ✓ | **2/2** | **4/4** | ✓ |  |
-| `dbo.ncci_table` | rowstore | 1,024 | ✓ | **4/4** | **8/8** | ✓ | cells **3072/3072** ✓ |
-| `dbo.temporal_current` | rowstore | 50 | ✓ | **4/4** | **8/8** | ✓ | cells **150/150** ✓ |
-| `dbo.temporal_history` | rowstore | 10 | ✓ | **4/4** | **8/8** | ✓ | cells digest ✓ |
-| `dbo.utf8_collation` | rowstore | 6 | ✓ | **4/4** | **8/8** | ✓ | cells **18/18** ✓ |
-
-### `filtered_ncci_full.bak` — 2022 — ✓ pass
-
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.738 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 3.297 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
@@ -982,155 +887,130 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `dbo.filtered_ncci_heap` | rowstore | 400 | ✓ | **3/3** | **6/6** | ✓ | cells digest ✓ |
 | `dbo.fkr__seed` | rowstore | 400 | ✓ | **1/1** | **2/2** | ✓ | cells digest ✓ |
 
-### `float_extreme_full.bak` — 2022 — ✓ pass
+### `float_extreme_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 2.926 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.547 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.float_extreme` | rowstore | 5 | ✓ | **3/3** | **6/6** | ✓ | cells **10/10** ✓ |
 
-### `forwarded_records_full.bak` — 2022 — ✓ pass
+### `forwarded_records_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 16.117 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 14.113 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.fwd_control` | rowstore | 1,000 | ✓ | **2/2** | **4/4** | ✓ | cells **1000/1000** ✓ |
 | `dbo.fwd_heap` | rowstore | 1,000 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
 
-### `geocoverage_full.bak` — 2022 — ✓ pass
+### `ghost_records_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.988 MB_
-
-| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
-|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
-| `dbo.Locations` | rowstore | 5 | ✓ | **5/5** | **10/10** | ✓ | cells **20/20** ✓ |
-| `dbo.LocationsNone` | rowstore | 3 | ✓ | **4/4** | **8/8** | ✓ | cells **9/9** ✓ |
-| `dbo.LocationsRow` | rowstore | 3 | ✓ | **4/4** | **8/8** | ✓ | cells **9/9** ✓ |
-| `dbo.spatial_lob_test` | rowstore | 4 | ✓ | **3/3** | **6/6** | ✓ | cells **8/8** ✓ |
-| `dbo.SpatialCurves` | rowstore | 5 | ✓ | **4/4** | **8/8** | ✓ | cells **15/15** ✓ |
-| `dbo.SpatialLob` | rowstore | 2 | ✓ | **2/2** | **4/4** | ✓ | cells **2/2** ✓ |
-| `dbo.SpatialZM` | rowstore | 5 | ✓ | **3/3** | **6/6** | ✓ | cells **10/10** ✓ |
-
-### `geotest.bak` — 2022 — ✓ pass
-
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.613 MB_
-
-| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
-|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
-| `dbo.Locations` | rowstore | 5 | ✓ | **5/5** | **10/10** | ✓ | cells **20/20** ✓ |
-| `dbo.LocationsNone` | rowstore | 3 | ✓ | **4/4** | **8/8** | ✓ | cells **9/9** ✓ |
-| `dbo.LocationsRow` | rowstore | 3 | ✓ | **4/4** | **8/8** | ✓ | cells **9/9** ✓ |
-| `dbo.spatial_lob_test` | rowstore | 3 | ✓ | **3/3** | **6/6** | ✓ | cells **6/6** ✓ |
-
-### `ghost_records_full.bak` — 2022 — ✓ pass
-
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.113 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.609 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.ghost_heap` | rowstore | 800 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
 
-### `heapcoverage_large.bak` — 2022 — ✓ pass
+### `heapcoverage_large.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.426 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.922 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.heap_clustered` | rowstore | 1,000 | ✓ | **3/3** | **6/6** | ✓ | cells **2000/2000** ✓ |
 | `dbo.heap_plain` | rowstore | 1,000 | ✓ | **3/3** | **6/6** | ✓ | cells digest ✓ |
 
-### `heapcoverage_large_50000.bak` — 2022 — ✓ pass
+### `heapcoverage_large_50000.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 13.117 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 11.113 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.heap_clustered` | rowstore | 50,000 | ✓ | **3/3** | **6/6** | ✓ | cells **100000/100000** ✓ |
 | `dbo.heap_plain` | rowstore | 50,000 | ✓ | **3/3** | **6/6** | ✓ | cells digest ✓ |
 
-### `hierarchyid_extract_full.bak` — 2022 — ✓ pass
+### `hierarchyid_extract_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.113 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.547 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.org` | rowstore | 6 | ✓ | **2/2** | **4/4** | ✓ | cells **6/6** ✓ |
 
-### `high_slot_density_full.bak` — 2022 — ✓ pass
+### `high_slot_density_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 5.93 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 4.863 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.fkr__seed` | rowstore | 100,000 | ✓ | **1/1** | **2/2** | ✓ | cells digest ✓ |
 | `dbo.tiny_row` | rowstore | 100,000 | ✓ | **1/1** | **2/2** | ✓ | cells digest ✓ |
 
-### `incrementalcoverage_diff_01.bak` — 2022 — ✓ pass
+### `incrementalcoverage_diff_01.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 1.176 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 0.797 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.sync_batch` | rowstore | 15 | ✓ | **4/4** | **8/8** | ✓ | cells **45/45** ✓ |
 
-### `incrementalcoverage_diff_02.bak` — 2022 — ✓ pass
+### `incrementalcoverage_diff_02.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 1.238 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 0.797 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.sync_batch` | rowstore | 20 | ✓ | **4/4** | **8/8** | ✓ | cells **60/60** ✓ |
 
-### `incrementalcoverage_diff_03.bak` — 2022 — ✓ pass
+### `incrementalcoverage_diff_03.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 1.238 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 0.797 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.sync_batch` | rowstore | 25 | ✓ | **4/4** | **8/8** | ✓ | cells **75/75** ✓ |
 
-### `incrementalcoverage_diff_04.bak` — 2022 — ✓ pass
+### `incrementalcoverage_diff_04.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 1.238 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 0.797 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.sync_batch` | rowstore | 30 | ✓ | **4/4** | **8/8** | ✓ | cells **90/90** ✓ |
 
-### `incrementalcoverage_diff_05.bak` — 2022 — ✓ pass
+### `incrementalcoverage_diff_05.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 1.238 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 0.797 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.sync_batch` | rowstore | 35 | ✓ | **4/4** | **8/8** | ✓ | cells **105/105** ✓ |
 
-### `incrementalcoverage_diff_06.bak` — 2022 — ✓ pass
+### `incrementalcoverage_diff_06.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 1.738 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 0.797 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.sync_batch` | rowstore | 40 | ✓ | **4/4** | **8/8** | ✓ | cells **120/120** ✓ |
 
-### `incrementalcoverage_full.bak` — 2022 — ✓ pass
+### `incrementalcoverage_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 2.926 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.547 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.sync_batch` | rowstore | 10 | ✓ | **4/4** | **8/8** | ✓ | cells **30/30** ✓ |
 
-### `layoutcoverage_full.bak` — 2022 — ✓ pass
+### `layoutcoverage_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 8.051 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 7.734 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.layout_cols_1` | rowstore | 3 | ✓ | **1/1** | **2/2** | ✓ | cells digest ✓ |
-| `dbo.layout_cols_1023` | rowstore | 3 | ✓ | **1023/1023** | — | ✓ | cells **3066/3066** ✓ |
+| `dbo.layout_cols_1023` | rowstore | 3 | ✓ | — | — | ✓ | cells **3066/3066** ✓ |
 | `dbo.layout_cols_1024` | rowstore | 3 | ✓ | **1024/1024** | — | ✓ | cells **3069/3069** ✓ |
 | `dbo.layout_cols_30` | rowstore | 3 | ✓ | **30/30** | **60/60** | ✓ | cells **87/87** ✓ |
 | `dbo.layout_cols_31` | rowstore | 3 | ✓ | **31/31** | **62/62** | ✓ | cells **90/90** ✓ |
@@ -1187,51 +1067,43 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `dbo.layout_pk_varchar100_penult` | rowstore | 3 | ✓ | **6/6** | **12/12** | ✓ | cells **15/15** ✓ |
 | `dbo.layout_pk_varchar100_second` | rowstore | 3 | ✓ | **6/6** | **12/12** | ✓ | cells **15/15** ✓ |
 
-### `legacytext.bak` — 2022 — ✓ pass
+### `max_row_width_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 0.484 MB_
-
-| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
-|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
-| `dbo.legacy_lob` | rowstore | 3 | ✓ | **4/4** | **8/8** | ✓ | cells **9/9** ✓ |
-
-### `max_row_width_full.bak` — 2022 — ✓ pass
-
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.113 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.547 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.wide_row` | rowstore | 5 | ✓ | **2/2** | **4/4** | ✓ | cells **5/5** ✓ |
 
-### `mixed_collation_full.bak` — 2022 — ✓ pass
+### `mixed_collation_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.113 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.547 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
-| `dbo.collation_mix` | rowstore | 3 | ✓ | **5/5** | **10/10** | ✓ | cells **12/12** ✓ |
+| `dbo.collation_mix` | rowstore | 3 | ✓ | **4/4** | **8/8** | ✓ | cells **9/9** ✓ |
 
-### `multi_rowgroup_full.bak` — 2022 — ✓ pass
+### `multi_rowgroup_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 4.051 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 3.609 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.cs_multi` | columnstore | 2,100 | ✓ | **3/3** | **6/6** | ✓ | cells digest ✓ |
 | `dbo.fkr__seed` | rowstore | 1,200 | ✓ | **1/1** | **2/2** | ✓ | cells digest ✓ |
 
-### `ncci_heap_full.bak` — 2022 — ✓ pass
+### `ncci_heap_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.488 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 3.109 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.fkr__seed` | rowstore | 400 | ✓ | **1/1** | **2/2** | ✓ | cells digest ✓ |
 | `dbo.ncci_heap` | rowstore | 400 | ✓ | **3/3** | **6/6** | ✓ | cells digest ✓ |
 
-### `ncci_types_full.bak` — 2022 — ✓ pass
+### `ncci_types_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 11.117 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 9.113 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
@@ -1256,70 +1128,60 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `dbo.ncci_varbinary` | rowstore | 1,203 | ✓ | **2/2** | **4/4** | ✓ | cells **1203/1203** ✓ |
 | `dbo.ncci_varchar` | rowstore | 1,203 | ✓ | **2/2** | **4/4** | ✓ | cells **1203/1203** ✓ |
 
-### `ndfcoverage_full.bak` — 2022 — ✓ pass
+### `ndfcoverage_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 5.117 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 3.113 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.primary_tbl` | rowstore | 10 | ✓ | **2/2** | **4/4** | ✓ | cells **10/10** ✓ |
 | `dbo.secondary_tbl` | rowstore | 10 | ✓ | **2/2** | **4/4** | ✓ | cells **10/10** ✓ |
 
-### `nvarchar_max_u21_full.bak` — 2022 — ✓ pass
+### `nvarchar_max_u21_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 2.926 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.547 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.nvarchar_max_u21probe` | rowstore | 10 | ✓ | **2/2** | **4/4** | ✓ | cells **10/10** ✓ |
 
-### `ordered_cci_full.bak` — 2022 — ✓ pass
+### `pagecomp_anchor_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.926 MB_
-
-| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
-|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
-| `dbo.fkr__seed` | rowstore | 1,200 | ✓ | **1/1** | **2/2** | ✓ | cells digest ✓ |
-| `dbo.ordered_cci` | columnstore | 1,200 | ✓ | **3/3** | **6/6** | ✓ | cells digest ✓ |
-| `dbo.regular_cci` | columnstore | 1,200 | ✓ | **3/3** | **6/6** | ✓ | cells digest ✓ |
-
-### `pagecomp_anchor_full.bak` — 2022 — ✓ pass
-
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.988 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.984 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.pagecomp_anchor` | rowstore | 5,000 | ✓ | **8/8** | **16/16** | ✓ | cells **35000/35000** ✓ |
 
-### `pagecomp_long_prefix_full.bak` — 2022 — ✓ pass
+### `pagecomp_long_prefix_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.113 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.547 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.long_prefix_probe` | rowstore | 100 | ✓ | **2/2** | **4/4** | ✓ | cells **100/100** ✓ |
 
-### `pfor_columnstore_full.bak` — 2022 — ✓ pass
+### `pfor_columnstore_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 8.121 MB_
-
-| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
-|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
-| `dbo.pfor_archive` | columnstore | 200,000 | ✓ | **6/6** | **12/12** | ✓ | cells digest ✓ |
-| `dbo.pfor_plain` | columnstore | 200,000 | ✓ | **6/6** | **12/12** | ✓ | cells digest ✓ |
-
-### `pfor_columnstore_random_full.bak` — 2022 — ✓ pass
-
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 8.121 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 6.117 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.pfor_archive` | columnstore | 200,000 | ✓ | **6/6** | **12/12** | ✓ | cells digest ✓ |
 | `dbo.pfor_plain` | columnstore | 200,000 | ✓ | **6/6** | **12/12** | ✓ | cells digest ✓ |
 
-### `realworld_numeric_digest_full.bak` — 2022 — ✓ pass
+### `pfor_columnstore_random_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 6.113 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 6.117 MB_
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.pfor_archive` | columnstore | 200,000 | ✓ | **6/6** | **12/12** | ✓ | cells digest ✓ |
+| `dbo.pfor_plain` | columnstore | 200,000 | ✓ | **6/6** | **12/12** | ✓ | cells digest ✓ |
+
+### `realworld_numeric_digest_full.bak` — 2017 — ✓ pass
+
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 4.109 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
@@ -1328,9 +1190,9 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `dbo.numeric_ncci` | rowstore | 1,200 | ✓ | **7/7** | **14/14** | ✓ | cells **7200/7200** ✓ |
 | `dbo.numeric_rowstore` | rowstore | 1,200 | ✓ | **7/7** | **14/14** | ✓ | cells **7200/7200** ✓ |
 
-### `rowboundary_full.bak` — 2022 — ✓ pass
+### `rowboundary_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.363 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.859 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
@@ -1338,108 +1200,108 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `dbo.rb_overflow` | rowstore | 9 | ✓ | **3/3** | **6/6** | ✓ | cells digest ✓ |
 | `dbo.rb_page_fill` | rowstore | 216 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
 
-### `rowstore_hash_pii_full.bak` — 2022 — ✓ pass
+### `rowstore_hash_pii_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 2.926 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.547 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.hash_pii_probe` | rowstore | 4 | ✓ | **4/4** | **8/8** | ✓ | cells **12/12** ✓ |
 
-### `rowstore_lob_image_full.bak` — 2022 — ✓ pass
+### `rowstore_lob_image_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.051 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.609 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.lob_image_probe` | rowstore | 3 | ✓ | **5/5** | **10/10** | ✓ | cells **12/12** ✓ |
 
-### `rowstore_lob_markup_full.bak` — 2022 — ✓ pass
+### `rowstore_lob_markup_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.176 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.609 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.lob_markup_probe` | rowstore | 5 | ✓ | **4/4** | **8/8** | ✓ | cells **15/15** ✓ |
 
-### `rowversion_extract_full.bak` — 2022 — ✓ pass
+### `rowversion_extract_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.176 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.609 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.fkr__seed` | rowstore | 100 | ✓ | **1/1** | **2/2** | ✓ | cells digest ✓ |
 | `dbo.rv_tbl` | rowstore | 100 | ✓ | **3/3** | **6/6** | ✓ | cells **200/200** ✓ |
 
-### `sparse_full.bak` — 2022 — ✓ pass
+### `sparse_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.488 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.984 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.sparse_wide` | rowstore | 10,000 | ✓ | **6/6** | **10/10** | ✓ | cells **50000/50000** ✓ |
 
-### `spatial_edge_full.bak` — 2022 — ✓ pass
+### `spatial_edge_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.676 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.672 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
-| `dbo.geography_edge` | rowstore | 5 | ✓ | **2/2** | **4/4** | ✓ | cells **5/5** ✓ |
-| `dbo.geometry_edge` | rowstore | 9 | ✓ | **2/2** | **4/4** | ✓ | cells **9/9** ✓ |
+| `dbo.geography_edge` | rowstore | 4 | ✓ | **2/2** | **4/4** | ✓ | cells **4/4** ✓ |
+| `dbo.geometry_edge` | rowstore | 4 | ✓ | **2/2** | **4/4** | ✓ | cells **4/4** ✓ |
 
-### `spatial_index_full.bak` — 2022 — ✓ pass
+### `spatial_index_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.738 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.797 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.fkr__seed` | rowstore | 200 | ✓ | **1/1** | **2/2** | ✓ | cells digest ✓ |
 | `dbo.spatial_pts` | rowstore | 200 | ✓ | **3/3** | **6/6** | ✓ | cells **400/400** ✓ |
 
-### `sql_variant_extract_full.bak` — 2022 — ✓ pass
+### `sql_variant_extract_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.113 MB_
-
-| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
-|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
-| `dbo.sv` | rowstore | 10 | ✓ | **2/2** | **2/2** | ✓ | cells **10/10** ✓ |
-
-### `striped_full_1.bak` — 2022 — ✓ pass
-
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 0.266 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.547 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
-| `dbo.probe` | rowstore | 20 | ✓ | **4/4** | **8/8** | ✓ | cells **60/60** ✓ |
+| `dbo.sv` | rowstore | 6 | ✓ | **2/2** | **2/2** | ✓ | cells **6/6** ✓ |
 
-### `striped_single.bak` — 2022 — ✓ pass
+### `striped_full_1.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 0.484 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 0.18 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.probe` | rowstore | 20 | ✓ | **4/4** | **8/8** | ✓ | cells **60/60** ✓ |
 
-### `surrogate_pairs_full.bak` — 2022 — ✓ pass
+### `striped_single.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 2.926 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 0.41 MB_
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.probe` | rowstore | 20 | ✓ | **4/4** | **8/8** | ✓ | cells **60/60** ✓ |
+
+### `surrogate_pairs_full.bak` — 2017 — ✓ pass
+
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.547 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.sc_tbl` | rowstore | 5 | ✓ | **2/2** | **4/4** | ✓ | cells **5/5** ✓ |
 
-### `tabletype_cci_large_full.bak` — 2022 — ✓ pass
+### `tabletype_cci_large_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 6.113 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 5.109 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.tt_column` | columnstore | 1,200 | ✓ | **25/25** | **48/48** | ✓ | cells digest ✓ |
 
-### `tabletypecoverage_diff.bak` — 2022 — ✓ pass
+### `tabletypecoverage_diff.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.113 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.109 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
@@ -1449,9 +1311,9 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `dbo.tt_partition` | rowstore | 6 | ✓ | **34/34** | **56/56** | ✓ | cells digest ✓ |
 | `dbo.tt_plain` | rowstore | 6 | ✓ | **34/34** | **56/56** | ✓ | cells **198/198** ✓ |
 
-### `tabletypecoverage_full.bak` — 2022 — ✓ pass
+### `tabletypecoverage_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 11.113 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 9.109 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
@@ -1461,69 +1323,28 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `dbo.tt_partition` | rowstore | 4 | ✓ | **34/34** | **56/56** | ✓ | cells digest ✓ |
 | `dbo.tt_plain` | rowstore | 4 | ✓ | **34/34** | **56/56** | ✓ | cells **132/132** ✓ |
 
-### `temporal_hidden_full.bak` — 2022 — ✓ pass
+### `temporal_hidden_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.301 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.859 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
-| `dbo.temporal_hidden` | rowstore | 5 | ✓ | **4/4** | **8/8** | ✓ | cells **15/15** ✓ |
+| `dbo.temporal_hidden` | rowstore | 5 | ✓ | **4/4** | **8/8** | ✓ | cells **5/5** ✓ |
 | `dbo.temporal_hidden_history` | rowstore | 2 | ✓ | **4/4** | **8/8** | ✓ | cells digest ✓ |
 | `dbo.temporal_visible` | rowstore | 5 | ✓ | **4/4** | **8/8** | ✓ | cells **15/15** ✓ |
 | `dbo.temporal_visible_history` | rowstore | 2 | ✓ | **4/4** | **8/8** | ✓ | cells digest ✓ |
 
-### `torn_page_full.bak` — 2022 — ✓ pass
+### `torn_page_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 2.738 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.547 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.tpd_probe` | rowstore | 300 | ✓ | **3/3** | **6/6** | ✓ | cells **600/600** ✓ |
 
-### `typecoverage_full.bak` — 2022 — ✓ pass
+### `typecoverage_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 7.551 MB_
-
-| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
-|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
-| `dbo.lob_links` | rowstore | 3 | ✓ | **2/2** | **4/4** | ✓ | cells **3/3** ✓ |
-| `dbo.t_bigint` | rowstore | 4 | ✓ | **3/3** | **6/6** | ✓ | cells **8/8** ✓ |
-| `dbo.t_binary_8` | rowstore | 4 | ✓ | **3/3** | **6/6** | ✓ | cells **8/8** ✓ |
-| `dbo.t_bit` | rowstore | 4 | ✓ | **3/3** | **6/6** | ✓ | cells **8/8** ✓ |
-| `dbo.t_char_10` | rowstore | 4 | ✓ | **3/3** | **6/6** | ✓ | cells **8/8** ✓ |
-| `dbo.t_date` | rowstore | 4 | ✓ | **3/3** | **6/6** | ✓ | cells **8/8** ✓ |
-| `dbo.t_datetime` | rowstore | 4 | ✓ | **3/3** | **6/6** | ✓ | cells **8/8** ✓ |
-| `dbo.t_datetime2_7` | rowstore | 4 | ✓ | **3/3** | **6/6** | ✓ | cells **8/8** ✓ |
-| `dbo.t_datetimeoffset_7` | rowstore | 4 | ✓ | **3/3** | **6/6** | ✓ | cells **8/8** ✓ |
-| `dbo.t_decimal_38_10` | rowstore | 4 | ✓ | **3/3** | **6/6** | ✓ | cells **8/8** ✓ |
-| `dbo.t_float` | rowstore | 4 | ✓ | **3/3** | **6/6** | ✓ | cells **8/8** ✓ |
-| `dbo.t_geography` | rowstore | 5 | ✓ | **3/3** | **6/6** | ✓ | cells **10/10** ✓ |
-| `dbo.t_geometry` | rowstore | 10 | ✓ | **3/3** | **6/6** | ✓ | cells **20/20** ✓ |
-| `dbo.t_hierarchyid` | rowstore | 7 | ✓ | **3/3** | **6/6** | ✓ | cells **14/14** ✓ |
-| `dbo.t_image` | rowstore | 4 | ✓ | **3/3** | **6/6** | ✓ | cells **8/8** ✓ |
-| `dbo.t_int` | rowstore | 4 | ✓ | **3/3** | **6/6** | ✓ | cells **8/8** ✓ |
-| `dbo.t_money` | rowstore | 4 | ✓ | **3/3** | **6/6** | ✓ | cells **8/8** ✓ |
-| `dbo.t_nchar_10` | rowstore | 4 | ✓ | **3/3** | **6/6** | ✓ | cells **8/8** ✓ |
-| `dbo.t_ntext` | rowstore | 4 | ✓ | **3/3** | **6/6** | ✓ | cells **8/8** ✓ |
-| `dbo.t_numeric_18_4` | rowstore | 4 | ✓ | **3/3** | **6/6** | ✓ | cells **8/8** ✓ |
-| `dbo.t_nvarchar_50` | rowstore | 4 | ✓ | **3/3** | **6/6** | ✓ | cells **8/8** ✓ |
-| `dbo.t_real` | rowstore | 4 | ✓ | **3/3** | **6/6** | ✓ | cells **8/8** ✓ |
-| `dbo.t_rowversion` | rowstore | 3 | ✓ | **3/3** | **6/6** | ✓ | cells **6/6** ✓ |
-| `dbo.t_smalldatetime` | rowstore | 4 | ✓ | **3/3** | **6/6** | ✓ | cells **8/8** ✓ |
-| `dbo.t_smallint` | rowstore | 4 | ✓ | **3/3** | **6/6** | ✓ | cells **8/8** ✓ |
-| `dbo.t_smallmoney` | rowstore | 4 | ✓ | **3/3** | **6/6** | ✓ | cells **8/8** ✓ |
-| `dbo.t_sql_variant` | rowstore | 16 | ✓ | **3/3** | **4/4** | ✓ | cells **32/32** ✓ |
-| `dbo.t_text` | rowstore | 4 | ✓ | **3/3** | **6/6** | ✓ | cells **8/8** ✓ |
-| `dbo.t_time_7` | rowstore | 4 | ✓ | **3/3** | **6/6** | ✓ | cells **8/8** ✓ |
-| `dbo.t_tinyint` | rowstore | 4 | ✓ | **3/3** | **6/6** | ✓ | cells **8/8** ✓ |
-| `dbo.t_uniqueidentifier` | rowstore | 4 | ✓ | **3/3** | **4/4** | ✓ | cells **8/8** ✓ |
-| `dbo.t_varbinary_max` | rowstore | 4 | ✓ | **3/3** | **6/6** | ✓ | cells **8/8** ✓ |
-| `dbo.t_varchar_max` | rowstore | 4 | ✓ | **3/3** | **6/6** | ✓ | cells **8/8** ✓ |
-| `dbo.t_xml` | rowstore | 10 | ✓ | **3/3** | **6/6** | ✓ | cells **20/20** ✓ |
-
-### `typecoverage_full_compressed.bak` — 2022 — ✓ pass
-
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 1.535 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 6.547 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
@@ -1562,17 +1383,17 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `dbo.t_varchar_max` | rowstore | 4 | ✓ | **3/3** | **6/6** | ✓ | cells **8/8** ✓ |
 | `dbo.t_xml` | rowstore | 10 | ✓ | **3/3** | **6/6** | ✓ | cells **20/20** ✓ |
 
-### `typed_xml_full.bak` — 2022 — ✓ pass
+### `typed_xml_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 2.926 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.547 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
-| `dbo.typed_xml_docs` | rowstore | 8 | ✓ | **2/2** | **4/4** | ✓ | cells **8/8** ✓ |
+| `dbo.typed_xml_docs` | rowstore | 3 | ✓ | **2/2** | **4/4** | ✓ | cells **3/3** ✓ |
 
-### `unicode_codepage_coverage.bak` — 2022 — ✓ pass
+### `unicode_codepage_coverage.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 4.551 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 4.234 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
@@ -1590,52 +1411,40 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `dbo.cp_cp949` | rowstore | 1 | ✓ | **4/4** | **8/8** | ✓ | cells **3/3** ✓ |
 | `dbo.cp_cp950` | rowstore | 1 | ✓ | **4/4** | **8/8** | ✓ | cells **3/3** ✓ |
 
-### `utf8_collation_full.bak` — 2022 — ✓ pass
+### `xml_index_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.176 MB_
-
-| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
-|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
-| `dbo.nvar_tbl` | rowstore | 7 | ✓ | **2/2** | **4/4** | ✓ | cells **7/7** ✓ |
-| `dbo.utf8_tbl` | rowstore | 7 | ✓ | **2/2** | **4/4** | ✓ | cells **7/7** ✓ |
-
-### `xml_index_full.bak` — 2022 — ✓ pass
-
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.488 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.984 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.fkr__seed` | rowstore | 100 | ✓ | **1/1** | **2/2** | ✓ | cells digest ✓ |
 | `dbo.xml_docs` | rowstore | 100 | ✓ | **3/3** | **6/6** | ✓ | cells **200/200** ✓ |
 
-### `xmlcoverage_full.bak` — 2022 — ✓ pass
+### `xmlcoverage_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 3.488 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.547 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
-| `dbo.xmlcov` | rowstore | 13 | ✓ | **3/3** | **6/6** | ✓ | cells **26/26** ✓ |
+| `dbo.xmlcov` | rowstore | 12 | ✓ | **3/3** | **6/6** | ✓ | cells **24/24** ✓ |
 
-### `xmlheap_full.bak` — 2022 — ✓ pass
+### `xmlheap_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 7.176 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 6.672 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.xml_heap` | rowstore | 200 | ✓ | **7/7** | **14/14** | ✓ | cells **1200/1200** ✓ |
 
-### `xtp_checkpoint_straddle_full.bak` — 2022 — ✓ pass
+### `xtp_checkpoint_straddle_full.bak` — confidence pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 2.711 MB_
+_SQL Server  · 2.52 MB_
 
-| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
-|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
-| `dbo.fkr__seed` | rowstore | 100,000 | ✓ | **1/1** | **2/2** | ✓ | cells digest ✓ |
-| `dbo.xtp_ckpt` | memory-optimized | 100,000 | ✓ | **3/3** | **6/6** | ✓ |  |
+_confidence pass._
 
-### `xtp_probe_full.bak` — 2022 — ✓ pass
+### `xtp_probe_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 6.246 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 5.242 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
@@ -1645,18 +1454,18 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `dbo.probe_nv1r` | memory-optimized | 1 | ✓ | **2/2** | **4/4** | ✓ |  |
 | `dbo.probe_nv1r_null` | memory-optimized | 1 | ✓ | **2/2** | **2/2** | ✓ |  |
 
-### `xtp_rich_full.bak` — 2022 — ✓ pass
+### `xtp_rich_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 7.246 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 5.18 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.xtp_rich_fixed` | memory-optimized | 3 | ✓ | **5/5** | **8/8** | ✓ |  |
 | `dbo.xtp_rich_mixed` | memory-optimized | 3 | ✓ | **3/3** | **6/6** | ✓ |  |
 
-### `xtp_simple_full.bak` — 2022 — ✓ pass
+### `xtp_simple_full.bak` — 2017 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 6.246 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 5.18 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
@@ -1668,153 +1477,139 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 
 | Backup | Wall time |
 |--------|-------------|
-| `alias_types_full.bak` | 0.07s |
-| `archive_columnstore_partition_full.bak` | 2.395s |
-| `archive_columnstore_types_full.bak` | 1.302s |
-| `archive_columnstore_types_random_full.bak` | 1.286s |
-| `archive_single_chunk_full.bak` | 0.09s |
-| `archive_single_chunk_random_full.bak` | 0.094s |
-| `archivenull_full.bak` | 0.284s |
-| `backup_blocksize_full.bak` | 0.074s |
-| `boundarycoverage_datetime_full.bak` | 0.408s |
-| `boundarycoverage_full.bak` | 0.208s |
-| `catalog_ss2022.bak` | 0.063s |
-| `cci_binary_varbinary_compare_full.bak` | 0.082s |
-| `cci_bitpack_probe_bigint_full.bak` | 8.637s |
-| `cci_bitpack_probe_full.bak` | 1.752s |
-| `cci_bitpack_probe_highbase_full.bak` | 1.258s |
-| `cci_btree_nci_full.bak` | 0.092s |
-| `cci_computed_full.bak` | 0.084s |
-| `cci_enc5_largepool_full.bak` | 1.142s |
-| `cci_enc5_largepool_matrix_full.bak` | 9.503s |
-| `cci_extended_full.bak` | 0.125s |
-| `cci_lob_full.bak` | 0.107s |
-| `cci_reorganize_full.bak` | 0.09s |
-| `cci_string_dict_regression_full.bak` | 0.498s |
-| `cci_string_minmax_full.bak` | 0.092s |
-| `cci_switch_full.bak` | 0.087s |
-| `cci_types_large_full.bak` | 0.123s |
-| `cci_varbinary_micro_full.bak` | 0.081s |
-| `cci_varbinary_probe_full.bak` | 0.097s |
-| `columnstore_minimal.bak` | 1.009s |
-| `compressed_nvarchar_full.bak` | 0.067s |
-| `compressioncoverage_full.bak` | 0.315s |
-| `computedcoverage_full.bak` | 0.068s |
-| `constraintcoverage_full.bak` | 0.079s |
-| `corrupt_metadata_confidence_full.bak` | 0.001s |
-| `covering_index_full.bak` | 0.09s |
-| `cs_lob_preamble.bak` | 0.242s |
-| `cs_lob_preamble2.bak` | 0.143s |
-| `delta_rowgroup_full.bak` | 0.077s |
-| `dirtycoverage_aborted_xact.bak` | 0.094s |
-| `dirtycoverage_addcol.bak` | 0.075s |
-| `dirtycoverage_addnotnull.bak` | 0.069s |
-| `dirtycoverage_alldirty.bak` | 0.09s |
-| `dirtycoverage_altercol.bak` | 0.07s |
-| `dirtycoverage_altercol_rewrite.bak` | 0.072s |
-| `dirtycoverage_alterdb.bak` | 0.077s |
-| `dirtycoverage_cci_delete.bak` | 0.216s |
-| `dirtycoverage_cci_update.bak` | 0.331s |
-| `dirtycoverage_committed_delete.bak` | 0.067s |
-| `dirtycoverage_committed_delete_v2.bak` | 2.885s |
-| `dirtycoverage_committed_delete_v3.bak` | 0.127s |
-| `dirtycoverage_committed_delete_v4.bak` | 0.335s |
-| `dirtycoverage_committed_update.bak` | 0.068s |
-| `dirtycoverage_committed_update_v2.bak` | 12.873s |
-| `dirtycoverage_committed_update_v3.bak` | 0.151s |
-| `dirtycoverage_committed_update_v4.bak` | 0.307s |
-| `dirtycoverage_compress_update.bak` | 0.103s |
-| `dirtycoverage_concurrent.bak` | 0.072s |
-| `dirtycoverage_createidx.bak` | 0.072s |
-| `dirtycoverage_createtable.bak` | 0.074s |
-| `dirtycoverage_delete.bak` | 0.103s |
-| `dirtycoverage_dropcol.bak` | 0.07s |
-| `dirtycoverage_dropidx.bak` | 0.076s |
-| `dirtycoverage_droptable.bak` | 0.084s |
-| `dirtycoverage_heap_forward.bak` | 0.087s |
-| `dirtycoverage_insert_update.bak` | 0.099s |
-| `dirtycoverage_large_dirty.bak` | 0.378s |
-| `dirtycoverage_lob_update.bak` | 0.112s |
-| `dirtycoverage_maxrow.bak` | 0.064s |
-| `dirtycoverage_multi_update.bak` | 0.102s |
-| `dirtycoverage_nchar_delete.bak` | 0.093s |
-| `dirtycoverage_nested.bak` | 0.106s |
-| `dirtycoverage_null_update.bak` | 0.095s |
-| `dirtycoverage_rebuildidx.bak` | 0.073s |
-| `dirtycoverage_rich_insert.bak` | 0.097s |
-| `dirtycoverage_rich_update.bak` | 0.099s |
-| `dirtycoverage_savepoint.bak` | 0.106s |
-| `dirtycoverage_snapshot_update.bak` | 0.092s |
-| `dirtycoverage_switch.bak` | 0.073s |
-| `dirtycoverage_temporal_update.bak` | 0.091s |
-| `dirtycoverage_truncate.bak` | 0.076s |
-| `dirtycoverage_two_tx.bak` | 0.091s |
-| `dirtycoverage_uncommitted.bak` | 0.102s |
+| `alias_types_full.bak` | 0.099s |
+| `archive_columnstore_partition_full.bak` | 2.668s |
+| `archive_columnstore_types_full.bak` | 1.526s |
+| `archive_columnstore_types_random_full.bak` | 1.388s |
+| `archive_single_chunk_full.bak` | 0.113s |
+| `archive_single_chunk_random_full.bak` | 0.109s |
+| `archivenull_full.bak` | 0.459s |
+| `backup_blocksize_full.bak` | 0.097s |
+| `boundarycoverage_datetime_full.bak` | 0.454s |
+| `boundarycoverage_full.bak` | 0.282s |
+| `cci_binary_varbinary_compare_full.bak` | 0.108s |
+| `cci_bitpack_probe_bigint_full.bak` | 7.228s |
+| `cci_bitpack_probe_full.bak` | 0.863s |
+| `cci_bitpack_probe_highbase_full.bak` | 0.727s |
+| `cci_btree_nci_full.bak` | 0.123s |
+| `cci_computed_full.bak` | 0.125s |
+| `cci_enc5_largepool_full.bak` | 1.293s |
+| `cci_enc5_largepool_matrix_full.bak` | 10.327s |
+| `cci_extended_full.bak` | 0.189s |
+| `cci_lob_full.bak` | 0.182s |
+| `cci_reorganize_full.bak` | 0.161s |
+| `cci_string_dict_regression_full.bak` | 0.583s |
+| `cci_string_minmax_full.bak` | 0.118s |
+| `cci_switch_full.bak` | 0.131s |
+| `cci_types_large_full.bak` | 0.191s |
+| `cci_varbinary_micro_full.bak` | 0.122s |
+| `cci_varbinary_probe_full.bak` | 0.19s |
+| `columnstore_minimal.bak` | 1.124s |
+| `compressed_nvarchar_full.bak` | 0.087s |
+| `compressioncoverage_full.bak` | 0.399s |
+| `computedcoverage_full.bak` | 0.09s |
+| `constraintcoverage_full.bak` | 0.115s |
+| `covering_index_full.bak` | 0.142s |
+| `cs_lob_preamble.bak` | 0.259s |
+| `delta_rowgroup_full.bak` | 0.097s |
+| `dirtycoverage_aborted_xact.bak` | 0.113s |
+| `dirtycoverage_addcol.bak` | 0.109s |
+| `dirtycoverage_addnotnull.bak` | 0.112s |
+| `dirtycoverage_alldirty.bak` | 0.11s |
+| `dirtycoverage_altercol.bak` | 0.08s |
+| `dirtycoverage_altercol_rewrite.bak` | 0.119s |
+| `dirtycoverage_alterdb.bak` | 0.117s |
+| `dirtycoverage_cci_delete.bak` | 0.263s |
+| `dirtycoverage_cci_update.bak` | 0.286s |
+| `dirtycoverage_committed_delete.bak` | 0.086s |
+| `dirtycoverage_committed_delete_v2.bak` | 0.101s |
+| `dirtycoverage_committed_delete_v3.bak` | 0.198s |
+| `dirtycoverage_committed_delete_v4.bak` | 0.431s |
+| `dirtycoverage_committed_update.bak` | 0.094s |
+| `dirtycoverage_committed_update_v2.bak` | 0.097s |
+| `dirtycoverage_committed_update_v3.bak` | 0.255s |
+| `dirtycoverage_committed_update_v4.bak` | 0.416s |
+| `dirtycoverage_concurrent.bak` | 0.111s |
+| `dirtycoverage_createidx.bak` | 0.105s |
+| `dirtycoverage_createtable.bak` | 0.109s |
+| `dirtycoverage_delete.bak` | 0.109s |
+| `dirtycoverage_dropcol.bak` | 0.11s |
+| `dirtycoverage_dropidx.bak` | 0.158s |
+| `dirtycoverage_droptable.bak` | 0.213s |
+| `dirtycoverage_heap_forward.bak` | 0.123s |
+| `dirtycoverage_large_dirty.bak` | 0.431s |
+| `dirtycoverage_lob_update.bak` | 0.138s |
+| `dirtycoverage_maxrow.bak` | 0.091s |
+| `dirtycoverage_nchar_delete.bak` | 0.102s |
+| `dirtycoverage_nested.bak` | 0.134s |
+| `dirtycoverage_null_update.bak` | 0.1s |
+| `dirtycoverage_rebuildidx.bak` | 0.105s |
+| `dirtycoverage_rich_insert.bak` | 0.114s |
+| `dirtycoverage_rich_update.bak` | 0.198s |
+| `dirtycoverage_savepoint.bak` | 0.104s |
+| `dirtycoverage_snapshot_update.bak` | 0.1s |
+| `dirtycoverage_switch.bak` | 0.113s |
+| `dirtycoverage_temporal_update.bak` | 0.11s |
+| `dirtycoverage_truncate.bak` | 0.119s |
+| `dirtycoverage_two_tx.bak` | 0.112s |
+| `dirtycoverage_uncommitted.bak` | 0.113s |
 | `dirtycoverage_update.bak` | 0.108s |
-| `dirtycoverage_wide.bak` | 0.098s |
-| `featurecoverage_full.bak` | 0.166s |
-| `filtered_ncci_full.bak` | 0.077s |
-| `float_extreme_full.bak` | 0.067s |
-| `forwarded_records_full.bak` | 0.174s |
-| `geocoverage_full.bak` | 0.087s |
-| `geotest.bak` | 0.073s |
-| `ghost_records_full.bak` | 0.068s |
-| `heapcoverage_large.bak` | 0.083s |
-| `heapcoverage_large_50000.bak` | 0.966s |
-| `hierarchyid_extract_full.bak` | 0.064s |
-| `high_slot_density_full.bak` | 0.562s |
-| `incrementalcoverage_diff_01.bak` | 0.047s |
-| `incrementalcoverage_diff_02.bak` | 0.05s |
-| `incrementalcoverage_diff_03.bak` | 0.05s |
-| `incrementalcoverage_diff_04.bak` | 0.049s |
-| `incrementalcoverage_diff_05.bak` | 0.054s |
-| `incrementalcoverage_diff_06.bak` | 0.052s |
-| `incrementalcoverage_full.bak` | 0.063s |
-| `layoutcoverage_full.bak` | 0.327s |
-| `legacytext.bak` | 0.107s |
-| `max_row_width_full.bak` | 0.064s |
-| `mixed_collation_full.bak` | 0.065s |
-| `multi_rowgroup_full.bak` | 0.084s |
-| `ncci_heap_full.bak` | 0.068s |
-| `ncci_types_full.bak` | 0.49s |
-| `ndfcoverage_full.bak` | 0.073s |
-| `nvarchar_max_u21_full.bak` | 0.063s |
-| `ordered_cci_full.bak` | 0.088s |
-| `pagecomp_anchor_full.bak` | 0.364s |
-| `pagecomp_long_prefix_full.bak` | 0.066s |
-| `pfor_columnstore_full.bak` | 2.265s |
-| `pfor_columnstore_random_full.bak` | 2.287s |
-| `realworld_numeric_digest_full.bak` | 0.194s |
-| `rowboundary_full.bak` | 0.074s |
-| `rowstore_hash_pii_full.bak` | 0.063s |
-| `rowstore_lob_image_full.bak` | 0.064s |
-| `rowstore_lob_markup_full.bak` | 0.064s |
-| `rowversion_extract_full.bak` | 0.069s |
-| `sparse_full.bak` | 0.291s |
-| `spatial_edge_full.bak` | 0.071s |
-| `spatial_index_full.bak` | 0.084s |
-| `sql_variant_extract_full.bak` | 0.069s |
-| `striped_full_1.bak` | 0.061s |
-| `striped_single.bak` | 0.094s |
-| `surrogate_pairs_full.bak` | 0.062s |
-| `tabletype_cci_large_full.bak` | 0.104s |
-| `tabletypecoverage_diff.bak` | 0.166s |
-| `tabletypecoverage_full.bak` | 0.162s |
-| `temporal_hidden_full.bak` | 0.08s |
-| `torn_page_full.bak` | 0.06s |
-| `typecoverage_full.bak` | 0.129s |
-| `typecoverage_full_compressed.bak` | 0.206s |
-| `typed_xml_full.bak` | 0.068s |
-| `unicode_codepage_coverage.bak` | 0.092s |
-| `utf8_collation_full.bak` | 0.068s |
-| `xml_index_full.bak` | 0.074s |
-| `xmlcoverage_full.bak` | 0.069s |
-| `xmlheap_full.bak` | 0.113s |
-| `xtp_checkpoint_straddle_full.bak` | 2.93s |
-| `xtp_probe_full.bak` | 0.129s |
-| `xtp_rich_full.bak` | 0.118s |
-| `xtp_simple_full.bak` | 0.118s |
+| `filtered_ncci_full.bak` | 0.125s |
+| `float_extreme_full.bak` | 0.089s |
+| `forwarded_records_full.bak` | 0.288s |
+| `ghost_records_full.bak` | 0.088s |
+| `heapcoverage_large.bak` | 0.105s |
+| `heapcoverage_large_50000.bak` | 1.078s |
+| `hierarchyid_extract_full.bak` | 0.085s |
+| `high_slot_density_full.bak` | 0.588s |
+| `incrementalcoverage_diff_01.bak` | 0.104s |
+| `incrementalcoverage_diff_02.bak` | 0.1s |
+| `incrementalcoverage_diff_03.bak` | 0.101s |
+| `incrementalcoverage_diff_04.bak` | 0.112s |
+| `incrementalcoverage_diff_05.bak` | 0.11s |
+| `incrementalcoverage_diff_06.bak` | 0.119s |
+| `incrementalcoverage_full.bak` | 0.079s |
+| `layoutcoverage_full.bak` | 0.486s |
+| `max_row_width_full.bak` | 0.081s |
+| `mixed_collation_full.bak` | 0.08s |
+| `multi_rowgroup_full.bak` | 0.202s |
+| `ncci_heap_full.bak` | 0.11s |
+| `ncci_types_full.bak` | 0.487s |
+| `ndfcoverage_full.bak` | 0.083s |
+| `nvarchar_max_u21_full.bak` | 0.089s |
+| `pagecomp_anchor_full.bak` | 0.439s |
+| `pagecomp_long_prefix_full.bak` | 0.084s |
+| `pfor_columnstore_full.bak` | 2.467s |
+| `pfor_columnstore_random_full.bak` | 2.532s |
+| `realworld_numeric_digest_full.bak` | 0.279s |
+| `rowboundary_full.bak` | 0.109s |
+| `rowstore_hash_pii_full.bak` | 0.097s |
+| `rowstore_lob_image_full.bak` | 0.093s |
+| `rowstore_lob_markup_full.bak` | 0.088s |
+| `rowversion_extract_full.bak` | 0.097s |
+| `sparse_full.bak` | 0.371s |
+| `spatial_edge_full.bak` | 0.085s |
+| `spatial_index_full.bak` | 0.114s |
+| `sql_variant_extract_full.bak` | 0.094s |
+| `striped_full_1.bak` | 0.11s |
+| `striped_single.bak` | 0.185s |
+| `surrogate_pairs_full.bak` | 0.089s |
+| `tabletype_cci_large_full.bak` | 0.166s |
+| `tabletypecoverage_diff.bak` | 0.25s |
+| `tabletypecoverage_full.bak` | 0.311s |
+| `temporal_hidden_full.bak` | 0.108s |
+| `torn_page_full.bak` | 0.096s |
+| `typecoverage_full.bak` | 0.207s |
+| `typed_xml_full.bak` | 0.079s |
+| `unicode_codepage_coverage.bak` | 0.172s |
+| `xml_index_full.bak` | 0.208s |
+| `xmlcoverage_full.bak` | 0.085s |
+| `xmlheap_full.bak` | 0.181s |
+| `xtp_checkpoint_straddle_full.bak` | 0.455s |
+| `xtp_probe_full.bak` | 0.145s |
+| `xtp_rich_full.bak` | 0.138s |
+| `xtp_simple_full.bak` | 0.127s |
 
 ---
 
-_Generated 2026-07-08 · 146 fixtures · 145 pass · 0 xfail · 1 fail_
+_Generated 2026-07-08 · 132 fixtures · 132 pass · 0 xfail · 0 fail_

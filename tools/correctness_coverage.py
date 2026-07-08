@@ -20,13 +20,18 @@ from __future__ import annotations
 
 import argparse
 from concurrent.futures import ProcessPoolExecutor, as_completed
+from contextlib import contextmanager
+import functools
+import http.server
 import json
 import os
 import re
+import socketserver
 import sys
+import threading
 import time
 from pathlib import Path
-from typing import Any
+from typing import Any, Generator
 
 import pyarrow.compute as pc
 
@@ -66,6 +71,30 @@ def _catalog_table_types(bak_path: Path) -> dict[str, str]:
 REPO_ROOT = Path(__file__).resolve().parent.parent
 FIXTURES = Path(os.environ.get("FIXTURE_DIR", str(REPO_ROOT / "tests" / "fixtures_2022")))
 OUT_PATH = REPO_ROOT / "docs" / "correctness_coverage.md"
+
+
+@contextmanager
+def _local_http_server(directory: Path) -> Generator[int, None, None]:
+    """Spin up a local HTTP server rooted at *directory* and yield its port.
+
+    Uses an ephemeral port (OS chooses) so multiple concurrent runs never
+    conflict.  The server runs in a daemon thread and is shut down cleanly
+    when the context exits.
+    """
+    handler = functools.partial(
+        http.server.SimpleHTTPRequestHandler,
+        directory=str(directory),
+    )
+    # silence the default request log lines that would pollute stderr
+    handler.log_message = lambda *_: None  # type: ignore[method-assign]
+    with socketserver.TCPServer(("127.0.0.1", 0), handler) as httpd:
+        port = httpd.server_address[1]
+        t = threading.Thread(target=httpd.serve_forever, daemon=True)
+        t.start()
+        try:
+            yield port
+        finally:
+            httpd.shutdown()
 
 # Types skipped for min/max comparison (collation, truncation, or format issues).
 # Must stay in sync with _MINMAX_SKIP_TYPES in tests/test_stats.py.
@@ -221,11 +250,27 @@ def _minmax_from_col(col: Any) -> tuple[Any, Any]:
 def _run_one(
     bak_path: Path,
     stats_path: Path,
+    bak_url: str | None = None,
 ) -> dict[str, Any]:
     """Extract and compare one .bak; return a structured result dict."""
     ground_truth: dict[str, Any] = json.loads(stats_path.read_text())
     expected_skips = expected_skipped_tables(bak_path.stem)
-    bak_input = _resolve_bak_input(bak_path)
+    # Resolve siblings / diff-base paths locally first so the chain is always
+    # complete, then optionally remap each path to its HTTP URL.
+    _local_input = _resolve_bak_input(bak_path)
+    if bak_url is not None:
+        # Map each resolved local path to an HTTP URL served by the local
+        # server.  The server root is the fixture directory, so the URL is
+        # always http://host:port/<filename>.bak.
+        _base_url = bak_url.rsplit("/", 1)[0]  # strip the bak filename
+        if isinstance(_local_input, list):
+            bak_input: str | Path | list[str] = [
+                f"{_base_url}/{p.name}" for p in _local_input
+            ]
+        else:
+            bak_input = bak_url  # single file — the URL already passed in
+    else:
+        bak_input = _local_input
     # Row-level cell verification runs only when a <bak>.cells/ sidecar exists
     # (produced by the ground-truth capture step). Inert otherwise.
     cells_dir = value_verify.cells_dir_for(bak_path)
@@ -423,40 +468,58 @@ def _run_confidence_only(bak_path: Path) -> dict[str, Any]:
     }
 
 
-def _run_case(bak_path: Path, stats_path: Path | None) -> dict[str, Any]:
+def _run_case(
+    bak_path: Path,
+    stats_path: Path | None,
+    bak_url: str | None = None,
+) -> dict[str, Any]:
     """Run one correctness/confidence case and record full wall time."""
     t0 = time.perf_counter()
     result = (
         _run_confidence_only(bak_path)
         if stats_path is None
-        else _run_one(bak_path, stats_path)
+        else _run_one(bak_path, stats_path, bak_url)
     )
     result["wall_s"] = round(time.perf_counter() - t0, 3)
     return result
 
 
-def _run_logged_case(bak_path: Path, stats_path: Path | None) -> dict[str, Any]:
+def _run_logged_case(
+    bak_path: Path,
+    stats_path: Path | None,
+    bak_url: str | None = None,
+) -> dict[str, Any]:
     """Worker entrypoint that logs when the case actually starts."""
-    print(f"  processing {bak_path.name} …", file=sys.stderr, flush=True)
-    return _run_case(bak_path, stats_path)
+    label = bak_url if bak_url is not None else bak_path.name
+    print(f"  processing {label} …", file=sys.stderr, flush=True)
+    return _run_case(bak_path, stats_path, bak_url)
 
 
 def _run_cases(
     cases: list[tuple[Path, Path | None]],
     *,
     threads: int,
+    http_port: int | None = None,
 ) -> list[dict[str, Any]]:
-    """Run selected cases, preserving input order even when threaded."""
+    """Run selected cases, preserving input order even when threaded.
+
+    When *http_port* is set each ``.bak`` is rewritten to
+    ``http://127.0.0.1:{http_port}/{bak_path.name}`` and that URL is passed
+    to extraction so the full remote-reader / LazyPageStore path is exercised.
+    """
     if threads < 1:
         raise ValueError("--threads must be >= 1")
     if not cases:
         return []
 
+    def _url(bak_path: Path) -> str | None:
+        return f"http://127.0.0.1:{http_port}/{bak_path.name}" if http_port else None
+
     if threads == 1:
         serial_results: list[dict[str, Any]] = []
         for bak_path, stats_path in cases:
             try:
-                serial_results.append(_run_logged_case(bak_path, stats_path))
+                serial_results.append(_run_logged_case(bak_path, stats_path, _url(bak_path)))
             except Exception as exc:
                 print(f"  ERROR: {exc}", file=sys.stderr)
         return serial_results
@@ -465,7 +528,7 @@ def _run_cases(
     results: list[dict[str, Any] | None] = [None] * len(cases)
     with ProcessPoolExecutor(max_workers=max_workers) as executor:
         futures = {
-            executor.submit(_run_logged_case, bak_path, stats_path): (idx, bak_path)
+            executor.submit(_run_logged_case, bak_path, stats_path, _url(bak_path)): (idx, bak_path)
             for idx, (bak_path, stats_path) in enumerate(cases)
         }
         for future in as_completed(futures):
@@ -999,6 +1062,16 @@ def main(argv: list[str] | None = None) -> int:
             "(default: 4; use 1 for serial; higher values increase CPU and temp-file I/O)"
         ),
     )
+    parser.add_argument(
+        "--http",
+        action="store_true",
+        help=(
+            "serve the fixture directory over a local HTTP server and pass each "
+            ".bak as an http:// URL to extraction, exercising the remote-reader / "
+            "LazyPageStore path.  Output doc gets an '_http' suffix to avoid "
+            "overwriting the local-file run."
+        ),
+    )
     args = parser.parse_args(argv)
 
     bak_paths: list[Path] = [path.resolve() for path in args.baks]
@@ -1019,6 +1092,11 @@ def main(argv: list[str] | None = None) -> int:
     else:
         out_path = REPO_ROOT / "docs" / f"correctness_coverage_{fixture_dir.name}.md"
 
+    # --http: append _http before the .md extension so the HTTP run does not
+    # overwrite the local-file run's document.
+    if args.http and args.output is None:
+        out_path = out_path.with_name(out_path.stem + "_http" + out_path.suffix)
+
     try:
         cases = _select_cases(fixture_dir, bak_paths or None)
     except (FileNotFoundError, ValueError) as exc:
@@ -1034,11 +1112,15 @@ def main(argv: list[str] | None = None) -> int:
 
     print(
         f"==> {len(cases)} fixtures to process in {fixture_dir} "
-        f"(threads={args.threads})",
+        f"(threads={args.threads}{', http' if args.http else ''})",
         file=sys.stderr,
     )
 
-    results = _run_cases(cases, threads=args.threads)
+    if args.http:
+        with _local_http_server(fixture_dir) as http_port:
+            results = _run_cases(cases, threads=args.threads, http_port=http_port)
+    else:
+        results = _run_cases(cases, threads=args.threads)
 
     doc = _render(
         results,
