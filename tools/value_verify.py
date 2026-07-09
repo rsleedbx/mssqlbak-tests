@@ -176,6 +176,20 @@ def verify_table(
         and not manifest_entry.get("values_capped")
     )
 
+    # Memoized accessor: each extracted column is converted to a Python list and
+    # canonicalized at most once, then reused by both the digest loop below and
+    # the ext_canon comprehension for keyed comparison.  For large fact tables
+    # (e.g. ContosoRetailDW FactOnlineSales: 12.6M rows × 21 cols) this avoids
+    # doubling the ~0.5-1.1 µs/cell canon cost.
+    _ext_cache: dict[str, list[str | None]] = {}
+
+    def _ext_canon(name: str) -> list[str | None]:
+        c = _ext_cache.get(name)
+        if c is None:
+            c = _canon_col(_safe_to_pylist(extracted.column(name)), sql_types.get(name, ""))
+            _ext_cache[name] = c
+        return c
+
     # Per-column digest over the full decoded column.  Old full sidecars may
     # contain pre-normalized strings (for example "True"/"False" for alias BIT
     # types), so compare decoded values against the current canonical form of the
@@ -186,7 +200,7 @@ def verify_table(
         name, want_digest = col["name"], col.get("digest")
         if not want_digest or name not in ext_names:
             continue
-        got = column_digest(_canon_col(_safe_to_pylist(extracted.column(name)), sql_types[name]))
+        got = column_digest(_ext_canon(name))
         expected_digests = {want_digest}
         if full_sidecar_digest and gt is not None and name in gt_names:
             gt_values = _safe_to_pylist(gt.column(name))
@@ -217,7 +231,7 @@ def verify_table(
     # idempotent for canonical strings and also normalizes older sidecars whose
     # stored text predates newer comparison rules.
     cmp_cols = [n for n in gt.schema.names if n in ext_names and n not in key_cols]
-    ext_canon = {n: _canon_col(_safe_to_pylist(extracted.column(n)), sql_types.get(n, "")) for n in ext_names}
+    ext_canon = {n: _ext_canon(n) for n in ext_names}
     gt_canon = {n: _canon_col(_safe_to_pylist(gt.column(n)), sql_types.get(n, "")) for n in gt.schema.names}
 
     # Map canonical key tuple -> decoded row index (first occurrence).
