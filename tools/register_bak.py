@@ -226,6 +226,139 @@ def _bak_header_info(
     return is_diff, db_version
 
 
+# RESTORE HEADERONLY column indices (0-indexed, pipe-separated output).
+# Matches SQL Server documentation and empirical verification against SS2017–2025.
+_HDR_COL_BACKUP_NAME = 0
+_HDR_COL_BACKUP_TYPE = 2
+_HDR_COL_DB_VERSION = 10
+_HDR_COL_FIRST_LSN = 13
+_HDR_COL_LAST_LSN = 14
+_HDR_COL_CHECKPOINT_LSN = 15
+_HDR_COL_DB_BACKUP_LSN = 16
+_HDR_COL_BACKUP_START = 17
+_HDR_COL_BACKUP_FINISH = 18
+
+_BACKUP_TYPE_NAMES = {
+    "1": "Database",
+    "2": "TransactionLog",
+    "4": "File",
+    "5": "Differential",
+    "6": "FileDifferential",
+    "7": "Partial",
+    "8": "PartialDifferential",
+}
+
+
+def _collect_headeronly_info(
+    container: str, password: str, container_bak: str
+) -> list[dict[str, Any]]:
+    """Run ``RESTORE HEADERONLY`` and return one dict per backup set.
+
+    Each dict contains:
+    - ``BackupName``, ``BackupType`` (label), ``BackupTypeCode`` (int string)
+    - ``FirstLSN``, ``LastLSN``, ``CheckpointLSN``, ``DatabaseBackupLSN``
+      as ``numeric(25,0)`` decimal strings exactly as SQL Server reports them
+    - ``BackupStartDate``, ``BackupFinishDate`` as ISO-8601 strings
+    - ``DatabaseVersion`` as an integer
+
+    Tolerates SQL Server versions that do not return all columns (e.g. pre-2012
+    backups with fewer columns) — missing fields are omitted from the dict.
+    """
+    sql = f"RESTORE HEADERONLY FROM DISK = N'{container_bak}';"
+    out = _run_sql_query(container, password, sql, sep="|")
+    sets: list[dict[str, Any]] = []
+    for line in out.splitlines():
+        parts = line.split("|")
+        if len(parts) < 3:
+            continue
+        backup_type_raw = parts[_HDR_COL_BACKUP_TYPE].strip() if len(parts) > _HDR_COL_BACKUP_TYPE else ""
+        if not backup_type_raw or backup_type_raw.startswith("-"):
+            continue
+        try:
+            int(backup_type_raw)
+        except ValueError:
+            continue  # header row or noise
+
+        entry: dict[str, Any] = {
+            "BackupName": parts[_HDR_COL_BACKUP_NAME].strip() if len(parts) > _HDR_COL_BACKUP_NAME else "",
+            "BackupType": _BACKUP_TYPE_NAMES.get(backup_type_raw, backup_type_raw),
+            "BackupTypeCode": backup_type_raw,
+        }
+
+        for key, col in [
+            ("FirstLSN", _HDR_COL_FIRST_LSN),
+            ("LastLSN", _HDR_COL_LAST_LSN),
+            ("CheckpointLSN", _HDR_COL_CHECKPOINT_LSN),
+            ("DatabaseBackupLSN", _HDR_COL_DB_BACKUP_LSN),
+            ("BackupStartDate", _HDR_COL_BACKUP_START),
+            ("BackupFinishDate", _HDR_COL_BACKUP_FINISH),
+        ]:
+            if col < len(parts):
+                val = parts[col].strip()
+                if val:
+                    entry[key] = val
+
+        if _HDR_COL_DB_VERSION < len(parts):
+            db_ver = parts[_HDR_COL_DB_VERSION].strip()
+            try:
+                entry["DatabaseVersion"] = int(db_ver)
+            except ValueError:
+                pass
+
+        sets.append(entry)
+    return sets
+
+
+def _collect_dbinfo_lsns(container: str, password: str, db_name: str) -> dict[str, Any] | None:
+    """Run ``DBCC DBINFO`` on *db_name* and capture key LSN fields.
+
+    Returns a dict with ``dbi_checkptLSN``, ``dbi_differentialBaseLSN``, and
+    ``dbi_dbbackupLSN`` as decimal strings — the same format as HEADERONLY —
+    or ``None`` on failure.  This is used as an independent cross-check against
+    the HEADERONLY values.
+    """
+    sql = f"""
+USE [master];
+SET NOCOUNT ON;
+DBCC DBINFO([{db_name}]) WITH TABLERESULTS, NO_INFOMSGS;
+"""
+    try:
+        out = _run_sql_query(container, password, sql, sep="|")
+    except Exception:
+        return None
+
+    result: dict[str, Any] = {}
+    for line in out.splitlines():
+        parts = line.split("|")
+        if len(parts) < 3:
+            continue
+        field_name = parts[1].strip() if len(parts) > 1 else ""
+        field_val = parts[2].strip() if len(parts) > 2 else ""
+        if field_name in ("dbi_checkptLSN", "dbi_differentialBaseLSN", "dbi_dbbackupLSN"):
+            result[field_name] = field_val
+
+    return result if result else None
+
+
+def _write_headeronly_sidecar(
+    bak_path: Path,
+    headeronly_sets: list[dict[str, Any]],
+    dbinfo_lsns: dict[str, Any] | None,
+    out_path: Path | None = None,
+) -> Path:
+    """Write ``<bak>.bak.headeronly.json`` and return the output path."""
+    out = out_path or bak_path.with_suffix(bak_path.suffix + ".headeronly.json")
+    payload: dict[str, Any] = {
+        "bak": bak_path.name,
+        "backup_sets": headeronly_sets,
+    }
+    if dbinfo_lsns:
+        payload["dbinfo_lsns"] = dbinfo_lsns
+    out.write_text(json.dumps(payload, indent=2))
+    print(f"==> wrote {out}", file=sys.stderr)
+    return out
+
+
 def _server_db_version(container: str, password: str) -> int:
     """Return the SQL Server engine's native DatabaseVersion (e.g. 958 for 2022)."""
     sql = "SELECT DATABASEPROPERTYEX('master', 'Version');"
@@ -924,6 +1057,17 @@ def main(argv: list[str] | None = None) -> int:
             "fields during a cells backfill)"
         ),
     )
+    parser.add_argument(
+        "--no-headeronly", action="store_true",
+        help="skip writing the <bak>.bak.headeronly.json LSN sidecar",
+    )
+    parser.add_argument(
+        "--headeronly-only", action="store_true",
+        help=(
+            "capture only the <bak>.bak.headeronly.json LSN sidecar without "
+            "restoring the database or collecting stats (reads HEADERONLY without RESTORE)"
+        ),
+    )
     args = parser.parse_args(argv)
 
     if args.cells_only and (args.no_cells or args.verify_only):
@@ -954,22 +1098,47 @@ def main(argv: list[str] | None = None) -> int:
     bak_size_bytes = bak_stat.st_size
     bak_size_mb = round(bak_size_bytes / 1_048_576, 3)
 
+    headeronly_only: bool = getattr(args, "headeronly_only", False)
+    no_headeronly: bool = getattr(args, "no_headeronly", False)
+
     if args.cells_only:
         bak_sha256 = ""
     else:
         print("==> hashing bak …", file=sys.stderr)
         bak_sha256 = _sha256(bak_path)
 
+    # --headeronly-only: capture RESTORE HEADERONLY sidecar without restoring.
+    # Copy the .bak into the container just long enough to run HEADERONLY.
+    if headeronly_only:
+        print("==> copying .bak for HEADERONLY (no restore) …", file=sys.stderr)
+        container_bak = _copy_bak(container, bak_path)
+        try:
+            headeronly_sets = _collect_headeronly_info(container, password, container_bak)
+        finally:
+            _run(["podman", "exec", container, "rm", "-f", container_bak])
+        _write_headeronly_sidecar(bak_path, headeronly_sets, dbinfo_lsns=None)
+        return 0
+
     tables: list[dict[str, Any]] = []
+    _restore_s: float = 0.0
+    _headeronly_sets: list[dict[str, Any]] = []
+    _dbinfo_lsns: dict[str, Any] | None = None
     try:
         t0 = time.perf_counter()
         _restore_bak(container, password, bak_path, db_name)
-        restore_s = round(time.perf_counter() - t0, 3)
-        print(f"==> restore took {restore_s:.1f}s", file=sys.stderr)
+        _restore_s = round(time.perf_counter() - t0, 3)
+        print(f"==> restore took {_restore_s:.1f}s", file=sys.stderr)
 
         if not args.cells_only:
             print("==> collecting statistics …", file=sys.stderr)
             tables = _collect_stats(container, password, db_name)
+
+        # HEADERONLY LSN sidecar — always captured (unless --no-headeronly).
+        if not no_headeronly and not args.verify_only:
+            print("==> capturing RESTORE HEADERONLY LSN sidecar …", file=sys.stderr)
+            container_bak = f"/tmp/{bak_path.name}"
+            _headeronly_sets = _collect_headeronly_info(container, password, container_bak)
+            _dbinfo_lsns = _collect_dbinfo_lsns(container, password, db_name)
 
         # Per-cell ground truth (the row-level verifier SSOT). Captured while the
         # DB is still restored; skipped in --verify-only / --no-cells.
@@ -991,11 +1160,15 @@ def main(argv: list[str] | None = None) -> int:
         print("==> cells-only: stats.json left untouched", file=sys.stderr)
         return 0
 
+    # Write HEADERONLY sidecar (outside the try/finally so the DB is already dropped).
+    if _headeronly_sets and not no_headeronly and not args.verify_only:
+        _write_headeronly_sidecar(bak_path, _headeronly_sets, _dbinfo_lsns)
+
     total_rows = sum(t["row_count"] for t in tables)
-    restore_mb_s = round(bak_size_mb / restore_s, 1) if restore_s > 0 else 0
+    restore_mb_s = round(bak_size_mb / _restore_s, 1) if _restore_s > 0 else 0
     print(
         f"==> {len(tables)} tables, {total_rows} rows  |  "
-        f"restore: {restore_s:.1f}s ({restore_mb_s} MB/s on {bak_size_mb} MB bak)",
+        f"restore: {_restore_s:.1f}s ({restore_mb_s} MB/s on {bak_size_mb} MB bak)",
         file=sys.stderr,
     )
 
@@ -1011,7 +1184,7 @@ def main(argv: list[str] | None = None) -> int:
         "database": db_name,
         "registered_at": datetime.datetime.now(datetime.timezone.utc).isoformat(),
         # SQL Server restore timing — baseline to compare mssqlbak extraction against.
-        "sqlserver_restore_s": restore_s,
+        "sqlserver_restore_s": _restore_s,
         "tables": tables,
     }
     _stable_write_stats(out_path, stats)
@@ -1071,6 +1244,56 @@ def register_all(
             argv.append("--cells-only")
         try:
             rc = main(argv)
+            if rc != 0:
+                errors.append((bak, f"exited {rc}"))
+        except Exception as exc:
+            errors.append((bak, str(exc)))
+            print(f"  ERROR: {exc}", file=sys.stderr)
+
+    print(f"\n==> done: {len(todo) - len(errors)} ok, {len(errors)} failed", file=sys.stderr)
+    for bak, msg in errors:
+        print(f"  FAILED {bak.name}: {msg}", file=sys.stderr)
+    return len(errors)
+
+
+def register_headeronly_all(
+    fixture_dir: Path,
+    *,
+    skip_existing: bool = True,
+) -> int:
+    """Capture ``<bak>.bak.headeronly.json`` sidecars for every .bak in fixture_dir.
+
+    Uses ``--headeronly-only`` mode (no full restore / stats collection) so it
+    only needs the container to run ``RESTORE HEADERONLY FROM DISK``.
+
+    Skips fixtures that already have a ``.headeronly.json`` sidecar when
+    *skip_existing* is ``True`` (default).
+
+    Returns the number of fixtures that failed (0 = all ok or nothing to do).
+    """
+    baks = sorted(fixture_dir.glob("*.bak"))
+    todo = []
+    for bak in baks:
+        if bak.name in _UNREGISTERABLE_BAKS:
+            print(f"  skip (unregisterable by design): {bak.name}", file=sys.stderr)
+            continue
+        sidecar = bak.with_suffix(bak.suffix + ".headeronly.json")
+        if skip_existing and sidecar.exists():
+            print(f"  skip (headeronly sidecar already exists): {bak.name}", file=sys.stderr)
+            continue
+        todo.append(bak)
+
+    if not todo:
+        print("==> all fixtures already have .headeronly.json sidecars", file=sys.stderr)
+        return 0
+
+    print(f"==> capturing HEADERONLY for {len(todo)} fixture(s) …", file=sys.stderr)
+    errors: list[tuple[Path, str]] = []
+    for bak in todo:
+        print(f"\n{'='*60}", file=sys.stderr)
+        print(f"==> {bak.name}", file=sys.stderr)
+        try:
+            rc = main([str(bak), "--headeronly-only"])
             if rc != 0:
                 errors.append((bak, f"exited {rc}"))
         except Exception as exc:

@@ -87,3 +87,32 @@ def test_tables_have_in_row_alloc_unit(fixture_bak) -> None:
     in_row = next(au for au in t.alloc_units if au.unit_type == ALLOC_IN_ROW)
     assert in_row.first_page[1] == 1  # file id 1
     assert in_row.first_page[0] > 0
+
+
+# ── Boot-page DBINFO LSN cross-check ─────────────────────────────────────────
+
+
+def test_dbinfo_lsns_returns_none_for_empty_store() -> None:
+    """read_dbinfo_lsns must return None gracefully when boot page is absent."""
+    from mssqlbak.catalog import read_dbinfo_lsns
+    from mssqlbak.pages import PageStore
+
+    # Build a minimal PageStore with no pages.
+    store = PageStore.__new__(PageStore)
+    store._pages = {}  # type: ignore[attr-defined]
+    result = read_dbinfo_lsns(store)
+    assert result is None
+
+
+@pytest.mark.fixture
+def test_dbinfo_lsns_on_real_fixture(fixture_bak) -> None:
+    """read_dbinfo_lsns must not raise and must return non-None on real fixtures."""
+    from mssqlbak.catalog import read_dbinfo_lsns
+
+    store = PageStore.from_bak(fixture_bak)
+    result = read_dbinfo_lsns(store)
+    # Most real fixtures should have a valid boot page.
+    # Fail-soft allows None for edge-case layouts.
+    assert result is not None, "Expected DbInfoLsns from a real fixture"
+    # At least checkpoint_lsn should be present for any backed-up DB.
+    assert result.checkpoint_lsn is not None

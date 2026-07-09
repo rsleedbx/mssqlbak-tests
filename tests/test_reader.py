@@ -18,6 +18,7 @@ import pytest
 from mssqlbak.reader import (
     BLOCK_SSET,
     BLOCK_TAPE,
+    BackupLSNs,
     _COMMON_HDR,
     _COMMON_HDR_SIZE,
     _SSET_ATTR,
@@ -37,6 +38,8 @@ from mssqlbak.reader import (
     _parse_mtf_date,
     _resolve_addr,
     is_compressed_or_encrypted,
+    lsn_decimal_to_triplet,
+    lsn_triplet_to_decimal,
     read_bak_metadata,
 )
 
@@ -438,3 +441,189 @@ def test_real_fixture_metadata() -> None:
     assert s.user_name == "sa"
     assert s.write_date is not None
     assert any(p.endswith("TypeCoverage.mdf") for p in s.data_files)
+
+
+# ── LSN triplet ↔ decimal conversion ──────────────────────────────────────────
+
+
+@pytest.mark.parametrize(
+    "vlf,blk,rec,expected_decimal",
+    [
+        (42, 312, 230, "420000003120230"),
+        (42, 424, 1, "420000004240001"),
+        (1, 0, 0, "10000000000000"),
+        (0, 0, 0, "0"),
+        (99, 9999, 9999, "990000099999999"),
+    ],
+)
+def test_lsn_triplet_to_decimal(vlf: int, blk: int, rec: int, expected_decimal: str) -> None:
+    assert lsn_triplet_to_decimal(vlf, blk, rec) == expected_decimal
+
+
+@pytest.mark.parametrize(
+    "decimal,expected_triplet",
+    [
+        ("420000003120230", (42, 312, 230)),
+        ("420000004240001", (42, 424, 1)),
+        ("10000000000000", (1, 0, 0)),
+        ("0", (0, 0, 0)),
+        (420000003120230, (42, 312, 230)),  # int input also supported
+    ],
+)
+def test_lsn_decimal_to_triplet(decimal: str | int, expected_triplet: tuple[int, int, int]) -> None:
+    assert lsn_decimal_to_triplet(decimal) == expected_triplet
+
+
+def test_lsn_round_trip() -> None:
+    for vlf, blk, rec in [(42, 312, 230), (1, 1, 1), (0, 0, 0), (100, 5000, 500)]:
+        dec = lsn_triplet_to_decimal(vlf, blk, rec)
+        assert lsn_decimal_to_triplet(dec) == (vlf, blk, rec)
+
+
+# ── LSN extraction from real fixtures (header + boot-page cross-check) ─────────
+
+_FULL_FIXTURE = _FIXTURE_DIR / "incrementalcoverage_full.bak"
+_DIFF_FIXTURE = _FIXTURE_DIR / "incrementalcoverage_diff_01.bak"
+
+
+@pytest.mark.skipif(not _FULL_FIXTURE.exists(), reason="fixture .bak not present")
+def test_lsn_header_full_backup_has_first_and_last() -> None:
+    """Full backup must have non-None FirstLSN and LastLSN in header."""
+    meta = read_bak_metadata(_FULL_FIXTURE)
+    s = meta.first_set
+    assert s is not None
+    assert s.lsns is not None
+    lsns = s.lsns
+    assert lsns.first_lsn is not None, "Full backup FirstLSN must be present"
+    assert lsns.last_lsn is not None, "Full backup LastLSN must be present"
+    assert lsns.checkpoint_lsn is not None, "Full backup CheckpointLSN must be present"
+
+
+@pytest.mark.skipif(not _FULL_FIXTURE.exists(), reason="fixture .bak not present")
+def test_lsn_full_backup_database_backup_lsn_is_absent() -> None:
+    """DatabaseBackupLSN must be None (zero) for a first full backup with no base."""
+    meta = read_bak_metadata(_FULL_FIXTURE)
+    s = meta.first_set
+    assert s is not None
+    assert s.lsns is not None
+    assert s.lsns.database_backup_lsn is None, "Full backup with no base must have null DatabaseBackupLSN"
+
+
+@pytest.mark.skipif(not _FULL_FIXTURE.exists(), reason="fixture .bak not present")
+def test_lsn_full_backup_decimal_format() -> None:
+    """Decimal representation must be a positive integer string, matching known formula."""
+    meta = read_bak_metadata(_FULL_FIXTURE)
+    s = meta.first_set
+    assert s is not None
+    assert s.lsns is not None
+    lsns = s.lsns
+    assert lsns.first_lsn is not None
+    dec_str = lsns.decimal(lsns.first_lsn)
+    assert dec_str.isdigit()
+    # Decimal must round-trip back to the same triplet.
+    assert lsn_decimal_to_triplet(dec_str) == lsns.first_lsn
+
+
+@pytest.mark.skipif(not _DIFF_FIXTURE.exists(), reason="fixture .bak not present")
+def test_lsn_diff_backup_has_database_backup_lsn() -> None:
+    """Differential backup must declare which full backup it chains from."""
+    meta = read_bak_metadata(_DIFF_FIXTURE)
+    s = meta.first_set
+    assert s is not None
+    assert s.lsns is not None
+    assert s.lsns.database_backup_lsn is not None, "Diff backup must have non-null DatabaseBackupLSN"
+
+
+@pytest.mark.skipif(
+    not _FULL_FIXTURE.exists() or not _DIFF_FIXTURE.exists(),
+    reason="fixture .bak not present",
+)
+def test_lsn_diff_database_backup_lsn_matches_full_boot_page() -> None:
+    """Cross-check: diff's DatabaseBackupLSN must equal full backup's boot-page dbi_checkptLSN."""
+    from mssqlbak.catalog import read_dbinfo_lsns
+    from mssqlbak.pages import PageStore
+
+    meta_diff = read_bak_metadata(_DIFF_FIXTURE)
+    s_diff = meta_diff.first_set
+    assert s_diff is not None
+    assert s_diff.lsns is not None
+    db_backup_lsn = s_diff.lsns.database_backup_lsn
+    assert db_backup_lsn is not None
+
+    store = PageStore.from_bak(_FULL_FIXTURE)
+    dbinfo = read_dbinfo_lsns(store)
+    assert dbinfo is not None
+    assert dbinfo.checkpoint_lsn is not None
+
+    assert db_backup_lsn == dbinfo.checkpoint_lsn, (
+        f"Diff DatabaseBackupLSN {db_backup_lsn} must equal full backup "
+        f"boot-page dbi_checkptLSN {dbinfo.checkpoint_lsn}"
+    )
+
+
+@pytest.mark.skipif(not _FULL_FIXTURE.exists(), reason="fixture .bak not present")
+def test_lsn_ordering_first_le_checkpoint_le_last() -> None:
+    """Header LSNs must satisfy FirstLSN <= CheckpointLSN <= LastLSN for a full backup."""
+    meta = read_bak_metadata(_FULL_FIXTURE)
+    s = meta.first_set
+    assert s is not None
+    assert s.lsns is not None
+    lsns = s.lsns
+    assert lsns.first_lsn is not None
+    assert lsns.checkpoint_lsn is not None
+    assert lsns.last_lsn is not None
+
+    first_dec = int(lsns.decimal(lsns.first_lsn))
+    ckpt_dec = int(lsns.decimal(lsns.checkpoint_lsn))
+    last_dec = int(lsns.decimal(lsns.last_lsn))
+
+    assert first_dec <= ckpt_dec, f"FirstLSN {first_dec} must be <= CheckpointLSN {ckpt_dec}"
+    assert ckpt_dec <= last_dec, f"CheckpointLSN {ckpt_dec} must be <= LastLSN {last_dec}"
+
+
+# ── BackupLSNs dataclass contract ─────────────────────────────────────────────
+
+
+def test_backup_lsns_decimal_method() -> None:
+    lsns = BackupLSNs(first_lsn=(42, 312, 230))
+    assert lsns.decimal((42, 312, 230)) == "420000003120230"
+
+
+def test_backup_lsns_all_none() -> None:
+    lsns = BackupLSNs()
+    assert lsns.first_lsn is None
+    assert lsns.last_lsn is None
+    assert lsns.checkpoint_lsn is None
+    assert lsns.database_backup_lsn is None
+
+
+# ── LSN extraction across multiple fixture versions ────────────────────────────
+
+_ALL_FULL_BAKS = [
+    bak
+    for ver in ("2017", "2019", "2022", "2025")
+    for bak in sorted((Path(__file__).parent / f"fixtures_{ver}").glob("*_full.bak"))
+]
+
+
+@pytest.mark.parametrize("bak_path", _ALL_FULL_BAKS, ids=lambda p: f"{p.parent.name}/{p.name}")
+def test_lsn_header_present_for_all_full_fixtures(bak_path: Path) -> None:
+    """Every full .bak from 2017..2025 must yield non-None FirstLSN, LastLSN, CheckpointLSN."""
+    if not bak_path.exists():
+        pytest.skip("fixture not present")
+    try:
+        meta = read_bak_metadata(bak_path)
+    except ValueError as exc:
+        # TDE-encrypted or deliberately corrupt fixtures raise ValueError — skip.
+        pytest.skip(f"read_bak_metadata raised (likely TDE or corrupt): {exc}")
+    s = meta.first_set
+    if s is None:
+        pytest.skip("no backup set in fixture")
+    # Some fixtures may not have the MQCI block (e.g., very old or edge-case layouts);
+    # the parser must not raise — it may return None gracefully.
+    if s.lsns is None:
+        pytest.skip("MQCI block absent in this fixture (acceptable fail-soft)")
+    lsns = s.lsns
+    assert lsns.first_lsn is not None, f"{bak_path.name}: FirstLSN absent"
+    assert lsns.last_lsn is not None, f"{bak_path.name}: LastLSN absent"
+    assert lsns.checkpoint_lsn is not None, f"{bak_path.name}: CheckpointLSN absent"

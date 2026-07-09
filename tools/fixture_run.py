@@ -2297,6 +2297,25 @@ def main(argv: list[str] | None = None) -> int:
         ),
     )
 
+    ho_p = sub.add_parser(
+        "register-headeronly-all",
+        help=(
+            "capture <bak>.bak.headeronly.json LSN sidecars for every .bak that "
+            "does not have one yet (uses RESTORE HEADERONLY only, no full restore)"
+        ),
+    )
+    ho_p.add_argument(
+        "--fixture-dir",
+        dest="ho_fixture_dir",
+        default=None,
+        help="directory to scan (overrides global --fixture-dir)",
+    )
+    ho_p.add_argument(
+        "--force",
+        action="store_true",
+        help="re-capture even if .headeronly.json already exists",
+    )
+
     layout_p = sub.add_parser("layout", help="layoutcoverage_full.bak")
     layout_p.add_argument("--compressed", action="store_true")
 
@@ -2603,6 +2622,17 @@ def main(argv: list[str] | None = None) -> int:
             args.force,
             args.keep,
             cells_only=getattr(args, "cells_only", False),
+        )
+    if args.command == "register-headeronly-all":
+        from tools.register_bak import register_headeronly_all
+        fixture_dir = (
+            os.environ.get("FIXTURE_DIR")
+            or getattr(args, "ho_fixture_dir", None)
+            or "tests/fixtures_2022"
+        )
+        return register_headeronly_all(
+            Path(fixture_dir),
+            skip_existing=not args.force,
         )
 
     if args.command == "v11-probe":

@@ -3,7 +3,6 @@ import pyarrow as pa
 from mssqlbak.catalog import Column, Table
 from mssqlbak.extract import (
     _build_rs_col_info,
-    _build_rs_col_info_compressed,
     _is_rust_bytes_redecode,
     _redecode_mixed_cols,
 )
@@ -34,7 +33,7 @@ def test_rust_fast_path_requests_raw_bytes_for_encrypted_nvarchar() -> None:
 
     assert _is_rust_bytes_redecode(col)
     col_info = _build_rs_col_info(table)
-    compressed_col_info = _build_rs_col_info_compressed(table)
+    compressed_col_info = _build_rs_col_info(table, compressed=True)
     assert col_info is not None
     assert compressed_col_info is not None
     assert col_info[0][0] == VARBINARY
@@ -47,7 +46,7 @@ def test_rust_fast_path_keeps_plain_nvarchar_on_text_path() -> None:
 
     assert not _is_rust_bytes_redecode(col)
     col_info = _build_rs_col_info(table)
-    compressed_col_info = _build_rs_col_info_compressed(table)
+    compressed_col_info = _build_rs_col_info(table, compressed=True)
     assert col_info is not None
     assert compressed_col_info is not None
     assert col_info[0][0] == NVARCHAR
