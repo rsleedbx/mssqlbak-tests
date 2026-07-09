@@ -60,6 +60,32 @@ def load_manifest(cells_dir: Path) -> dict[str, Any]:
     return json.loads((cells_dir / MANIFEST_NAME).read_text())
 
 
+def _safe_to_pylist(col: "pa.ChunkedArray | pa.Array") -> list[Any]:
+    """Convert an Arrow column to Python values, replacing overflow scalars with None.
+
+    PyArrow timestamps stored as int64 nanoseconds may represent dates outside
+    Python's datetime range (year < 1 or > 9999) when the underlying page data
+    is corrupted.  Arrow raises ``OverflowError`` from ``as_py()`` in that case.
+
+    Strategy: try the fast batch ``to_pylist()`` first; if it raises, fall back
+    to per-element conversion so only the overflowing scalars become ``None``.
+    """
+    try:
+        return col.to_pylist()  # type: ignore[union-attr]
+    except (OverflowError, ValueError):
+        pass
+    # Slow path: convert element-by-element, substituting None for bad scalars.
+    result: list[Any] = []
+    chunks = col.chunks if hasattr(col, "chunks") else [col]  # type: ignore[union-attr]
+    for chunk in chunks:
+        for i in range(len(chunk)):
+            try:
+                result.append(chunk[i].as_py())
+            except (OverflowError, ValueError):
+                result.append(None)
+    return result
+
+
 def _canon_col(values: list[Any], sql_type: str) -> list[str | None]:
     return [canon(v, sql_type) for v in values]
 
@@ -99,11 +125,11 @@ def _diagnose_digest_only(
             continue
         want = sorted(
             v
-            for v in _canon_col(gt.column(name).to_pylist(), sql_types.get(name, ""))
+            for v in _canon_col(_safe_to_pylist(gt.column(name)), sql_types.get(name, ""))
             if v is not None
         )
         got = sorted(
-            v for v in _canon_col(extracted.column(name).to_pylist(), sql_types.get(name, ""))
+            v for v in _canon_col(_safe_to_pylist(extracted.column(name)), sql_types.get(name, ""))
             if v is not None
         )
         want_set, got_set = set(want), set(got)
@@ -160,10 +186,10 @@ def verify_table(
         name, want_digest = col["name"], col.get("digest")
         if not want_digest or name not in ext_names:
             continue
-        got = column_digest(_canon_col(extracted.column(name).to_pylist(), sql_types[name]))
+        got = column_digest(_canon_col(_safe_to_pylist(extracted.column(name)), sql_types[name]))
         expected_digests = {want_digest}
         if full_sidecar_digest and gt is not None and name in gt_names:
-            gt_values = gt.column(name).to_pylist()
+            gt_values = _safe_to_pylist(gt.column(name))
             raw_gt_digest = column_digest(gt_values)
             canon_gt_digest = column_digest(_canon_col(gt_values, sql_types.get(name, "")))
             if want_digest not in {raw_gt_digest, canon_gt_digest}:
@@ -191,8 +217,8 @@ def verify_table(
     # idempotent for canonical strings and also normalizes older sidecars whose
     # stored text predates newer comparison rules.
     cmp_cols = [n for n in gt.schema.names if n in ext_names and n not in key_cols]
-    ext_canon = {n: _canon_col(extracted.column(n).to_pylist(), sql_types.get(n, "")) for n in ext_names}
-    gt_canon = {n: _canon_col(gt.column(n).to_pylist(), sql_types.get(n, "")) for n in gt.schema.names}
+    ext_canon = {n: _canon_col(_safe_to_pylist(extracted.column(n)), sql_types.get(n, "")) for n in ext_names}
+    gt_canon = {n: _canon_col(_safe_to_pylist(gt.column(n)), sql_types.get(n, "")) for n in gt.schema.names}
 
     # Map canonical key tuple -> decoded row index (first occurrence).
     ext_rows = extracted.num_rows

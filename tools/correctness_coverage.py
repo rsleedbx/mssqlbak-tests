@@ -22,6 +22,7 @@ import argparse
 from concurrent.futures import ProcessPoolExecutor, as_completed
 from contextlib import contextmanager
 import functools
+import faulthandler
 import http.server
 import json
 import os
@@ -32,6 +33,10 @@ import threading
 import time
 from pathlib import Path
 from typing import Any, Generator
+
+# Full Rust backtraces so Rust panics (PanicException) print the call chain to
+# stderr rather than just the panic message.
+os.environ.setdefault("RUST_BACKTRACE", "1")
 
 import pyarrow.compute as pc
 
@@ -473,7 +478,27 @@ def _run_case(
     stats_path: Path | None,
     bak_url: str | None = None,
 ) -> dict[str, Any]:
-    """Run one correctness/confidence case and record full wall time."""
+    """Run one correctness/confidence case and record full wall time.
+
+    Set MSSQLBAK_FAULTHANDLER=1 in the environment to enable periodic stack
+    dumps every 60 s (via :mod:`faulthandler`). Useful for locating hangs:
+    the traceback identifies which function is spinning.
+
+    Set MSSQLBAK_LOG_LEVEL=INFO (or DEBUG) to get per-table extraction logs
+    from :mod:`mssqlbak.extract`; the last logged table before a hang is the
+    culprit.
+    """
+    if os.environ.get("MSSQLBAK_FAULTHANDLER"):
+        faulthandler.dump_traceback_later(60, repeat=True, file=sys.stderr)
+
+    if os.environ.get("MSSQLBAK_LOG_LEVEL"):
+        import logging
+        logging.basicConfig(
+            level=os.environ["MSSQLBAK_LOG_LEVEL"].upper(),
+            format="%(name)s %(levelname)s %(message)s",
+            stream=sys.stderr,
+        )
+
     t0 = time.perf_counter()
     result = (
         _run_confidence_only(bak_path)
@@ -481,6 +506,10 @@ def _run_case(
         else _run_one(bak_path, stats_path, bak_url)
     )
     result["wall_s"] = round(time.perf_counter() - t0, 3)
+
+    if os.environ.get("MSSQLBAK_FAULTHANDLER"):
+        faulthandler.cancel_dump_traceback_later()
+
     return result
 
 
