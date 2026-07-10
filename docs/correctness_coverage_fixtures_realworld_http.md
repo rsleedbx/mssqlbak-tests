@@ -1853,57 +1853,59 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (
 
 ## Extraction timings
 
-| Backup | Wall time |
-|--------|-------------|
-| `AdventureWorks2008R2.bak` | 41.791s |
-| `AdventureWorks2012.bak` | 48.497s |
-| `AdventureWorks2014.bak` | 47.527s |
-| `AdventureWorks2016.bak` | 44.309s |
-| `AdventureWorks2016_EXT.bak` | 156.782s |
-| `AdventureWorks2017.bak` | 47.782s |
-| `AdventureWorks2019.bak` | 43.121s |
-| `AdventureWorks2022.bak` | 44.739s |
-| `AdventureWorks2025.bak` | 45.119s |
-| `AdventureWorksDW2008R2.bak` | 17.034s |
-| `AdventureWorksDW2012.bak` | 45.819s |
-| `AdventureWorksDW2014.bak` | 47.928s |
-| `AdventureWorksDW2016.bak` | 47.881s |
-| `AdventureWorksDW2016_EXT.bak` | 404.307s |
-| `AdventureWorksDW2017.bak` | 46.253s |
-| `AdventureWorksDW2019.bak` | 40.774s |
-| `AdventureWorksDW2022.bak` | 40.389s |
-| `AdventureWorksDW2025.bak` | 47.855s |
-| `AdventureWorksLT2012.bak` | 0.346s |
-| `AdventureWorksLT2014.bak` | 0.344s |
-| `AdventureWorksLT2016.bak` | 0.335s |
-| `AdventureWorksLT2017.bak` | 0.331s |
-| `AdventureWorksLT2019.bak` | 0.341s |
-| `AdventureWorksLT2022.bak` | 0.353s |
-| `AdventureWorksLT2025.bak` | 0.453s |
-| `BaseballData.bak` | 38.514s |
-| `Chinook-id-pk.bak` | 0.402s |
-| `Chinook.bak` | 0.402s |
-| `ContosoRetailDW.bak` | 1306.713s |
-| `CreditBackup100.bak` | 48.386s |
-| `data.gov.bak` | 4.671s |
-| `dba.stackexchange.com.bak` | 93.393s |
-| `EmployeeCaseStudySampleDB2012.bak` | 11.152s |
-| `GeneralHospital.bak` | 65.488s |
-| `IndexInternals2008.bak` | 6.08s |
-| `NYCTaxi_Sample.bak` | 64.751s |
-| `Pubs.bak` | 0.179s |
-| `SalesDB2014.bak` | 58.657s |
-| `SalesDBOriginal.bak` | 57.389s |
-| `StackOverflowMini.bak` | 215.419s |
-| `tpcxbb_1gb.bak` | 308.6s |
-| `TutorialDB.bak` | 0.118s |
-| `WideWorldImporters-Full.bak` | 120.613s |
-| `WideWorldImporters-Full_old.bak` | 124.047s |
-| `WideWorldImporters-Standard.bak` | 113.541s |
-| `WideWorldImporters-Standard_old.bak` | 114.707s |
-| `WideWorldImportersDW-Full.bak` | 79.05s |
-| `WideWorldImportersDW-Standard.bak` | 72.184s |
+| Backup | Extract | Verify | Wall time |
+|--------|---------|--------|-----------|
+| `AdventureWorks2008R2.bak` | 8.168s | 24.443s | 32.611s |
+| `AdventureWorks2012.bak` | 11.09s | 27.709s | 38.799s |
+| `AdventureWorks2014.bak` | 9.646s | 25.473s | 35.119s |
+| `AdventureWorks2016.bak` | 9.695s | 28.247s | 37.942s |
+| `AdventureWorks2016_EXT.bak` | 24.612s | 49.225s | 73.837s |
+| `AdventureWorks2017.bak` | 9.686s | 27.339s | 37.025s |
+| `AdventureWorks2019.bak` | 8.842s | 24.516s | 33.358s |
+| `AdventureWorks2022.bak` | 8.423s | 24.861s | 33.284s |
+| `AdventureWorks2025.bak` | 9.685s | 25.379s | 35.064s |
+| `AdventureWorksDW2008R2.bak` | 0.665s | 12.883s | 13.548s |
+| `AdventureWorksDW2012.bak` | 1.557s | 30.71s | 32.267s |
+| `AdventureWorksDW2014.bak` | 1.555s | 30.682s | 32.237s |
+| `AdventureWorksDW2016.bak` | 1.603s | 30.928s | 32.531s |
+| `AdventureWorksDW2016_EXT.bak` | 119.363s | 58.359s | 177.722s |
+| `AdventureWorksDW2017.bak` | 1.578s | 30.7s | 32.278s |
+| `AdventureWorksDW2019.bak` | 0.916s | 30.324s | 31.24s |
+| `AdventureWorksDW2022.bak` | 0.993s | 30.786s | 31.779s |
+| `AdventureWorksDW2025.bak` | 1.65s | 30.63s | 32.28s |
+| `AdventureWorksLT2012.bak` | 0.13s | 0.176s | 0.306s |
+| `AdventureWorksLT2014.bak` | 0.124s | 0.195s | 0.319s |
+| `AdventureWorksLT2016.bak` | 0.114s | 0.178s | 0.292s |
+| `AdventureWorksLT2017.bak` | 0.112s | 0.181s | 0.293s |
+| `AdventureWorksLT2019.bak` | 0.112s | 0.18s | 0.292s |
+| `AdventureWorksLT2022.bak` | 0.115s | 0.185s | 0.3s |
+| `AdventureWorksLT2025.bak` | 0.177s | 0.229s | 0.406s |
+| `BaseballData.bak` | 6.842s | 24.986s | 31.828s |
+| `Chinook-id-pk.bak` | 0.086s | 0.262s | 0.348s |
+| `Chinook.bak` | 0.064s | 0.268s | 0.332s |
+| `ContosoRetailDW.bak` | 69.199s | 743.726s | 812.925s |
+| `CreditBackup100.bak` | 14.121s | 20.108s | 34.229s |
+| `data.gov.bak` | 1.596s | 2.873s | 4.469s |
+| `dba.stackexchange.com.bak` | 54.769s | 40.048s | 94.817s |
+| `EmployeeCaseStudySampleDB2012.bak` | 2.585s | 6.494s | 9.079s |
+| `GeneralHospital.bak` | 23.771s | 38.429s | 62.2s |
+| `IndexInternals2008.bak` | 1.59s | 3.374s | 4.964s |
+| `NYCTaxi_Sample.bak` | 13.821s | 48.166s | 61.987s |
+| `Pubs.bak` | 0.101s | 0.073s | 0.174s |
+| `SalesDB2014.bak` | 2.271s | 35.476s | 37.747s |
+| `SalesDBOriginal.bak` | 1.024s | 31.652s | 32.676s |
+| `StackOverflowMini.bak` | 65.85s | 112.165s | 178.015s |
+| `tpcxbb_1gb.bak` | 55.376s | 221.34s | 276.716s |
+| `TutorialDB.bak` | 0.062s | 0.056s | 0.118s |
+| `WideWorldImporters-Full.bak` | 23.698s | 85.974s | 109.672s |
+| `WideWorldImporters-Full_old.bak` | 26.045s | 80.255s | 106.3s |
+| `WideWorldImporters-Standard.bak` | 19.248s | 79.986s | 99.234s |
+| `WideWorldImporters-Standard_old.bak` | 19.105s | 80.56s | 99.665s |
+| `WideWorldImportersDW-Full.bak` | 7.481s | 53.107s | 60.588s |
+| `WideWorldImportersDW-Standard.bak` | 6.269s | 53.623s | 59.892s |
+
+_Verify = wall − extract (Arrow conversion, ground-truth compare, cell verification, and confidence analysis; cell verification dominates for large fixtures)._
 
 ---
 
-_Generated 2026-07-09 · 48 fixtures · 48 pass · 0 xfail · 0 fail_
+_Generated 2026-07-10 · 48 fixtures · 48 pass · 0 xfail · 0 fail_

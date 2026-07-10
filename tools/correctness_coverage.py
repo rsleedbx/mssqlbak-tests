@@ -936,10 +936,18 @@ def _render(
     )
     if timing_rows:
         lines.append("\n## Extraction timings\n")
-        lines.append("| Backup | Wall time |")
-        lines.append("|--------|-------------|")
+        lines.append("| Backup | Extract | Verify | Wall time |")
+        lines.append("|--------|---------|--------|-----------|")
         for r in timing_rows:
-            lines.append(f"| `{r['bak']}` | {r['wall_s']}s |")
+            wall = r["wall_s"]
+            extract = r.get("extract_s", 0) or 0
+            verify = round(max(0.0, wall - extract), 3)
+            lines.append(f"| `{r['bak']}` | {extract}s | {verify}s | {wall}s |")
+        lines.append(
+            "\n_Verify = wall − extract (Arrow conversion, ground-truth compare, "
+            "cell verification, and confidence analysis; cell verification dominates "
+            "for large fixtures)._"
+        )
 
     ts = datetime.date.today().isoformat()
     lines.append("\n---\n")
@@ -976,7 +984,12 @@ def _parse_prior_timings(out_path: Path) -> dict[str, float]:
             if line.startswith("#"):
                 break
             # Match table rows like: | `Foo.bak` | 123.45s |
-            m = re.match(r"^\|\s*`([^`]+\.bak)`\s*\|\s*([\d.]+)s\s*\|", line)
+            # Match 3-column rows (Extract | Verify | Wall) capturing Wall,
+            # and fall back to legacy 1-column rows (Wall only).
+            m = re.match(
+                r"^\|\s*`([^`]+\.bak)`\s*\|(?:\s*[\d.]+s\s*\|){0,2}\s*([\d.]+)s\s*\|",
+                line,
+            )
             if m:
                 timings[m.group(1)] = float(m.group(2))
     return timings
