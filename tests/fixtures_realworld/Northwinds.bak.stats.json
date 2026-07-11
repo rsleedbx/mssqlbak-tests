@@ -1,0 +1,677 @@
+{
+  "sql_version": "Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)",
+  "bak": "Northwinds.bak",
+  "bak_size_bytes": 856064,
+  "bak_size_mb": 0.816,
+  "bak_sha256": "35af9f883930b47466809de35513320c8beff8078ae6c81ffc7736906e6a288f",
+  "database": "RegisterBak_Northwinds",
+  "registered_at": "2026-07-11T21:08:37.810132+00:00",
+  "sqlserver_restore_s": 2.582,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "Categories",
+      "row_count": 8,
+      "columns": [
+        {
+          "name": "CategoryID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "8"
+        },
+        {
+          "name": "CategoryName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Beverages",
+          "max_val": "Seafood"
+        },
+        {
+          "name": "Description",
+          "sql_type": "ntext",
+          "null_count": 0,
+          "min_val": "Breads, crackers, pasta, and cereal",
+          "max_val": "Sweet and savory sauces, relishes, spreads, and seasonings"
+        },
+        {
+          "name": "Picture",
+          "sql_type": "image",
+          "null_count": 0,
+          "min_val": "0x151C2F00020000000D000E0014002100FFFFFFFF4269746D617020496D616765005061696E742E5069637475726500010500000200000007000000504272757368000000000000000000A0290000424D98290000000000005600000028000000AC00000078000000010004000000000000000000880B0000880B00000800000008000000FFFFFF0000FFFF00FF00FF000000FF00FFFF000000FF0000FF000000000000000000100000000010000000010010000000000000010101000100001001000000010100010000001001000001000000101010001000001000100000000000000000000010000000010000000000000010000000000000",
+          "max_val": "0x151C2F00020000000D000E0014002100FFFFFFFF4269746D617020496D616765005061696E742E5069637475726500010500000200000007000000504272757368000000000000000000A0290000424D98290000000000005600000028000000AC00000078000000010004000000000000000000880B0000880B00000800000008000000FFFFFF0000FFFF00FF00FF000000FF00FFFF000000FF0000FF000000000000007777777777777757737757377737737777775777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777771734347161743617357073534365717173772357"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "CustomerCustomerDemo",
+      "row_count": 0,
+      "columns": [
+        {
+          "name": "CustomerID",
+          "sql_type": "nchar",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "CustomerTypeID",
+          "sql_type": "nchar",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "CustomerDemographics",
+      "row_count": 0,
+      "columns": [
+        {
+          "name": "CustomerTypeID",
+          "sql_type": "nchar",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        },
+        {
+          "name": "CustomerDesc",
+          "sql_type": "ntext",
+          "null_count": 0,
+          "min_val": null,
+          "max_val": null
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "Customers",
+      "row_count": 91,
+      "columns": [
+        {
+          "name": "CustomerID",
+          "sql_type": "nchar",
+          "null_count": 0,
+          "min_val": "ALFKI",
+          "max_val": "WOLZA"
+        },
+        {
+          "name": "CompanyName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Alfreds Futterkiste",
+          "max_val": "Wolski  Zajazd"
+        },
+        {
+          "name": "ContactName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Alejandra Camino",
+          "max_val": "Zbyszek Piestrzeniewicz"
+        },
+        {
+          "name": "ContactTitle",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Accounting Manager",
+          "max_val": "Sales Representative"
+        },
+        {
+          "name": "Address",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "1 rue Alsace-Lorraine",
+          "max_val": "\u00c5kergatan 24"
+        },
+        {
+          "name": "City",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Aachen",
+          "max_val": "\u00c5rhus"
+        },
+        {
+          "name": "Region",
+          "sql_type": "nvarchar",
+          "null_count": 60,
+          "min_val": "AK",
+          "max_val": "WY"
+        },
+        {
+          "name": "PostalCode",
+          "sql_type": "nvarchar",
+          "null_count": 1,
+          "min_val": "01-012",
+          "max_val": "WX3 6FW"
+        },
+        {
+          "name": "Country",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Argentina",
+          "max_val": "Venezuela"
+        },
+        {
+          "name": "Phone",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "(02) 201 24 67",
+          "max_val": "981-443655"
+        },
+        {
+          "name": "Fax",
+          "sql_type": "nvarchar",
+          "null_count": 22,
+          "min_val": "(02) 201 24 68",
+          "max_val": "981-443655"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "Employees",
+      "row_count": 9,
+      "columns": [
+        {
+          "name": "EmployeeID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "9"
+        },
+        {
+          "name": "LastName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Buchanan",
+          "max_val": "Suyama"
+        },
+        {
+          "name": "FirstName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Andrew",
+          "max_val": "Steven"
+        },
+        {
+          "name": "Title",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Inside Sales Coordinator",
+          "max_val": "Vice President, Sales"
+        },
+        {
+          "name": "TitleOfCourtesy",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Dr.",
+          "max_val": "Ms."
+        },
+        {
+          "name": "BirthDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "1937-09-19 00:00:00",
+          "max_val": "1966-01-27 00:00:00"
+        },
+        {
+          "name": "HireDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "1992-04-01 00:00:00",
+          "max_val": "1994-11-15 00:00:00"
+        },
+        {
+          "name": "Address",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "14 Garrett Hill",
+          "max_val": "Edgeham Hollow"
+        },
+        {
+          "name": "City",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Kirkland",
+          "max_val": "Tacoma"
+        },
+        {
+          "name": "Region",
+          "sql_type": "nvarchar",
+          "null_count": 4,
+          "min_val": "WA",
+          "max_val": "WA"
+        },
+        {
+          "name": "PostalCode",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "98033",
+          "max_val": "WG2 7LT"
+        },
+        {
+          "name": "Country",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "UK",
+          "max_val": "USA"
+        },
+        {
+          "name": "HomePhone",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "(206) 555-1189",
+          "max_val": "(71) 555-7773"
+        },
+        {
+          "name": "Extension",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "2344",
+          "max_val": "5467"
+        },
+        {
+          "name": "Photo",
+          "sql_type": "image",
+          "null_count": 0,
+          "min_val": "0x151C2F00020000000D000E0014002100FFFFFFFF4269746D617020496D616765005061696E742E506963747572650001050000020000000700000050427275736800000000000000000020540000424D16540000000000007600000028000000C0000000DF0000000100040000000000A0530000CE0E0000D80E0000000000000000000000000000000080000080000000808000800000008000800080800000C0C0C000808080000000FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00D999D999999D9D999DB99DD9F9D9D9D99D99D9F9D999BD9FD9D9D9D9D9DFD9F9F9DBDBD9DBD9DB9FD9FDFFFFFFFFFFFFFFFFFFF9D9F9",
+          "max_val": "0x151C2F00020000000D000E0014002100FFFFFFFF4269746D617020496D616765005061696E742E506963747572650001050000020000000700000050427275736800000000000000000080540000424D80540000000000007600000028000000C0000000E0000000010004000000000000540000CE0E0000D80E0000000000000000000000000000000080000080000000808000800000008000800080800000C0C0C000808080000000FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+        },
+        {
+          "name": "Notes",
+          "sql_type": "ntext",
+          "null_count": 0,
+          "min_val": "Andrew received his BTS commercial in 1974 and a Ph.D. in international marketing from the University of Dallas in 1981.  He is fluent in French and Italian and reads German.  He joined the company as a sales representative, was promoted to sales manager in January 1992 and to vice president of sales in March 1993.  Andrew is a member of the Sales Management Roundtable, the Seattle Chamber of Commerce, and the Pacific Rim Importers Association.",
+          "max_val": "Steven Buchanan graduated from St. Andrews University, Scotland, with a BSC degree in 1976.  Upon joining the company as a sales representative in 1992, he spent 6 months in an orientation program at the Seattle office and then returned to his permanent post in London.  He was promoted to sales manager in March 1993.  Mr. Buchanan has completed the courses \"Successful Telemarketing\" and \"International Sales Management.\"  He is fluent in French."
+        },
+        {
+          "name": "ReportsTo",
+          "sql_type": "int",
+          "null_count": 1,
+          "min_val": "2",
+          "max_val": "5"
+        },
+        {
+          "name": "PhotoPath",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "http://accweb/emmployees/buchanan.bmp",
+          "max_val": "http://accweb/emmployees/peacock.bmp"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "EmployeeTerritories",
+      "row_count": 49,
+      "columns": [
+        {
+          "name": "EmployeeID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "9"
+        },
+        {
+          "name": "TerritoryID",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "01581",
+          "max_val": "98104"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "Orders",
+      "row_count": 830,
+      "columns": [
+        {
+          "name": "OrderID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "10248",
+          "max_val": "11077"
+        },
+        {
+          "name": "CustomerID",
+          "sql_type": "nchar",
+          "null_count": 0,
+          "min_val": "ALFKI",
+          "max_val": "WOLZA"
+        },
+        {
+          "name": "EmployeeID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "9"
+        },
+        {
+          "name": "OrderDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "1996-07-04 00:00:00",
+          "max_val": "1998-05-06 00:00:00"
+        },
+        {
+          "name": "RequiredDate",
+          "sql_type": "datetime",
+          "null_count": 0,
+          "min_val": "1996-07-24 00:00:00",
+          "max_val": "1998-06-11 00:00:00"
+        },
+        {
+          "name": "ShippedDate",
+          "sql_type": "datetime",
+          "null_count": 21,
+          "min_val": "1996-07-10 00:00:00",
+          "max_val": "1998-05-06 00:00:00"
+        },
+        {
+          "name": "ShipVia",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3"
+        },
+        {
+          "name": "Freight",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "0.0200",
+          "max_val": "1007.6400"
+        },
+        {
+          "name": "ShipName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Alfred's Futterkiste",
+          "max_val": "Wolski Zajazd"
+        },
+        {
+          "name": "ShipAddress",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "1 rue Alsace-Lorraine",
+          "max_val": "\u00c5kergatan 24"
+        },
+        {
+          "name": "ShipCity",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Aachen",
+          "max_val": "\u00c5rhus"
+        },
+        {
+          "name": "ShipRegion",
+          "sql_type": "nvarchar",
+          "null_count": 507,
+          "min_val": "AK",
+          "max_val": "WY"
+        },
+        {
+          "name": "ShipPostalCode",
+          "sql_type": "nvarchar",
+          "null_count": 19,
+          "min_val": "01-012",
+          "max_val": "WX3 6FW"
+        },
+        {
+          "name": "ShipCountry",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Argentina",
+          "max_val": "Venezuela"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "Products",
+      "row_count": 77,
+      "columns": [
+        {
+          "name": "ProductID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "77"
+        },
+        {
+          "name": "ProductName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Alice Mutton",
+          "max_val": "Zaanse koeken"
+        },
+        {
+          "name": "SupplierID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "29"
+        },
+        {
+          "name": "CategoryID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "8"
+        },
+        {
+          "name": "QuantityPerUnit",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "1 kg pkg.",
+          "max_val": "750 cc per bottle"
+        },
+        {
+          "name": "UnitPrice",
+          "sql_type": "money",
+          "null_count": 0,
+          "min_val": "2.5000",
+          "max_val": "263.5000"
+        },
+        {
+          "name": "UnitsInStock",
+          "sql_type": "smallint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "125"
+        },
+        {
+          "name": "UnitsOnOrder",
+          "sql_type": "smallint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "100"
+        },
+        {
+          "name": "ReorderLevel",
+          "sql_type": "smallint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "30"
+        },
+        {
+          "name": "Discontinued",
+          "sql_type": "bit",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "1"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "Region",
+      "row_count": 4,
+      "columns": [
+        {
+          "name": "RegionID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "4"
+        },
+        {
+          "name": "RegionDescription",
+          "sql_type": "nchar",
+          "null_count": 0,
+          "min_val": "Eastern",
+          "max_val": "Western"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "Shippers",
+      "row_count": 3,
+      "columns": [
+        {
+          "name": "ShipperID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3"
+        },
+        {
+          "name": "CompanyName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Federal Shipping",
+          "max_val": "United Package"
+        },
+        {
+          "name": "Phone",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "(503) 555-3199",
+          "max_val": "(503) 555-9931"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "Suppliers",
+      "row_count": 29,
+      "columns": [
+        {
+          "name": "SupplierID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "29"
+        },
+        {
+          "name": "CompanyName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Aux joyeux eccl\u00e9siastiques",
+          "max_val": "Zaanse Snoepfabriek"
+        },
+        {
+          "name": "ContactName",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Anne Heikkonen",
+          "max_val": "Yoshi Nagase"
+        },
+        {
+          "name": "ContactTitle",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Accounting Manager",
+          "max_val": "Wholesale Account Agent"
+        },
+        {
+          "name": "Address",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "148 rue Chasseur",
+          "max_val": "Viale Dante, 75"
+        },
+        {
+          "name": "City",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Ann Arbor",
+          "max_val": "Zaandam"
+        },
+        {
+          "name": "Region",
+          "sql_type": "nvarchar",
+          "null_count": 20,
+          "min_val": "Asturias",
+          "max_val": "Victoria"
+        },
+        {
+          "name": "PostalCode",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "02134",
+          "max_val": "S-345 67"
+        },
+        {
+          "name": "Country",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "Australia",
+          "max_val": "USA"
+        },
+        {
+          "name": "Phone",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "(0)2-953010",
+          "max_val": "85.57.00.07"
+        },
+        {
+          "name": "Fax",
+          "sql_type": "nvarchar",
+          "null_count": 16,
+          "min_val": "(02) 555-4873",
+          "max_val": "43844115"
+        },
+        {
+          "name": "HomePage",
+          "sql_type": "ntext",
+          "null_count": 24,
+          "min_val": "#CAJUN.HTM#",
+          "max_val": "Plutzer (on the World Wide Web)#http://www.microsoft.com/accessdev/sampleapps/plutzer.htm#"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "Territories",
+      "row_count": 53,
+      "columns": [
+        {
+          "name": "TerritoryID",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "01581",
+          "max_val": "98104"
+        },
+        {
+          "name": "TerritoryDescription",
+          "sql_type": "nchar",
+          "null_count": 0,
+          "min_val": "Atlanta",
+          "max_val": "Wilton"
+        },
+        {
+          "name": "RegionID",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "4"
+        }
+      ]
+    }
+  ]
+}

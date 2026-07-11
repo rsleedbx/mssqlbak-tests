@@ -1,0 +1,20 @@
+Metadata-Version: 2.4
+Name: mssqlbak-tests
+Version: 0.1.0
+Requires-Python: >=3.11
+Requires-Dist: mssqlbak>=0.1.0
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: ruff; extra == "dev"
+Requires-Dist: pyright; extra == "dev"
+Requires-Dist: pyarrow>=16; extra == "dev"
+Requires-Dist: deltalake>=1.0; extra == "dev"
+Requires-Dist: mssql_python; extra == "dev"
+Requires-Dist: zstandard>=0.22; extra == "dev"
+Provides-Extra: verify
+Requires-Dist: kaitaistruct; extra == "verify"
+Requires-Dist: xpress9; extra == "verify"
+Requires-Dist: xpress8; extra == "verify"
+Requires-Dist: apsw; extra == "verify"
+Requires-Dist: numpy; extra == "verify"
+Requires-Dist: pandas; extra == "verify"
