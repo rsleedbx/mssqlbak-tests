@@ -96,13 +96,114 @@ types/
 
 ---
 
+### `mssqlbak/pages/` (was `pages.py`, ~1317 lines)
+
+```
+pages/
+  __init__.py     re-export shim (full symbol surface)
+  header.py       PAGE_SIZE, HEADER_SIZE, _SLOT_SIZE, _H_* offset constants,
+                  _FLAG_TORN_PAGE_DETECTION, _U16/_U32/_PAGE_POINTER/_LSN_UNPACK structs,
+                  _ImageBuf alias, _slot_struct, page_lsn_tuple, restore_torn_page,
+                  PageHeader, _LAZY_THRESHOLD, _ZERO_PAGE
+  page.py         Page class (slot array access, record extraction)
+  store.py        AnyPageStore protocol, eager PageStore with from_bak/from_diff_bak/
+                  from_stripe/from_mirror/from_pages factories, io_stats property
+  lazy.py         _LRUChunkCache (with hits/misses counters), LazyPageStore
+                  (with prefetch_runs/coalesced_chunks/prefetch_bytes counters),
+                  io_stats property, warm_file prefetch hit-rate logging
+```
+
+**Layering:** `lazy` → `store` → `page` → `header`
+
+**External consumers:** `rows.py`, `extract/`, `columnstore/`, `confidence.py`,
+`inspect.py`; `test_pages.py` imports `AnyPageStore, HEADER_SIZE, PAGE_SIZE, Page,
+PageHeader, PageStore, restore_torn_page`
+
+---
+
+### `mssqlbak/extract/` (was `extract.py`, ~1432 lines)
+
+```
+extract/
+  __init__.py         re-export shim (full public + private symbol surface)
+  report.py           TableResult (strategy, pages_touched), ExtractReport (io_stats)
+  classify.py         RsColInfo NamedTuple, _MixedCol alias, _FORCE_PYTHON_TYPES,
+                      _MIXED_TYPES, _PYTHON_ONLY_TYPES, _CMPRS_MIXED_TYPES, _GRAPH_COMPUTED,
+                      _IN_ROW_LIMIT, _HAS_RUST_LOB_IMAGES, BATCH,
+                      _is_native_vector, _is_rust_bytes_redecode, _is_encrypted_string,
+                      _rust_type_id, _row_overflow_possible, _build_rs_col_info,
+                      _codepage_recode_cols
+  rust_path.py        _buf_to_array, _run_rust_page_loop, _try_extract_table_rust,
+                      _try_extract_table_rust_compressed
+  columnstore_path.py _try_extract_table_columnstore
+  xtp_path.py         _extract_xtp_table
+  python_path.py      _identity, _col_coerce_fn, _redecode_mixed_cols,
+                      _recode_codepage_cols, _extract_table
+  driver.py           BakInput, extract_bak, extract_bak_to_delta, _extract_bak_inner,
+                      _extract_table_threaded, _sink_wants_ddl, _finish_sink
+```
+
+**Layering:** `driver` → `rust_path`/`columnstore_path`/`xtp_path`/`python_path` →
+`classify` → `report`
+
+**External consumers:** `bacpac.py` (`ExtractReport`, `TableResult`), `_cli.py`
+(`extract_bak`, `extract_bak_to_delta`, `BakInput`); test files import
+`_build_rs_col_info`, `_is_rust_bytes_redecode`, `_redecode_mixed_cols`
+
+---
+
 ## Deferred (out of scope for this pass)
 
 | Module | Lines | Reason deferred |
 |---|---|---|
 | `rows.py` | ~860 | Core hot path — splitting risks performance regression without profiling |
-| `extract.py` | ~500 | Thin orchestration layer; acceptable as a single file |
-| `pages.py` | ~300 | Stable, rarely changed; splitting adds indirection without clear gain |
+
+---
+
+## Deep-pass conventions
+
+These conventions were applied during the `pages/` and `extract/` splits and apply
+to all future splits.
+
+### Logging house style
+
+- Use `from mssqlbak._log import logger` (configured `NullHandler` by default — silent
+  unless the caller calls `enable_logging()`).
+- **INFO** — real phase boundaries: store/reader creation, table extraction completion,
+  end-of-run summary lines (IOStats, prefetch metrics).
+- **DEBUG** — per-call detail: strategy selection per table, prefetch fetch/decode
+  failures, best-effort probe failures (LSN, log tail, XTP scan).
+- Never add per-page or per-row logging on the hot path.
+
+### `RsColInfo` type
+
+`classify.RsColInfo` is a `NamedTuple` (subclass of `tuple`) that carries the Rust
+page-decoder column descriptor. It replaces the untyped `list[tuple]` return of
+`_build_rs_col_info`. Rust FFI receives it as a plain tuple with no adaptation.
+Fields: `type_id, scale, leaf_offset, size, is_variable, var_index, null_index,
+collation_utf8, bit_shift, nullable`.
+
+### Error-handling policy
+
+- **Narrow** to the specific exception type(s) actually thrown (`struct.error`,
+  `ValueError`, `OSError`, etc.) where the raised type is known and documented.
+- **Keep broad** (`except Exception`) for deliberate resilience boundaries (per-table
+  safety net in `driver.py`, best-effort probes for LSN/log-tail/XTP scan, prefetch
+  fetch/decode silencing in `lazy.py`). Every broad catch must have:
+  1. A comment beginning with `# Deliberate:` explaining why it is broad.
+  2. A `logger.debug` or `logger.warning` call logging the exception and context.
+- No new public exception types are needed; reuse existing `errors.py` / `CatalogError`
+  where they are already raised.
+
+### Diagnostic surfaces (new in this pass)
+
+| Surface | Where | What it measures |
+|---|---|---|
+| `IOStats` | `readers/_iostats.py`, `readers/http.py` | HTTP requests, bytes read, retries, cumulative wait seconds |
+| `ExtractReport.io_stats` | `extract/report.py` | `IOStats` for the run (None for local/mmap) |
+| `LazyPageStore` prefetch metrics | `pages/lazy.py` | LRU hit/miss rate, prefetch runs, coalesced chunks, bytes fetched |
+| `TableResult.strategy` | `extract/report.py` | Which decode path won: `rust`, `rust_compressed`, `columnstore`, `xtp`, `python` |
+| `TableResult.pages_touched` | `extract/report.py` | 8 KB pages touched (populated by callers; defaults to 0) |
 
 ---
 
