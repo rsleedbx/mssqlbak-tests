@@ -212,6 +212,10 @@ FIXTURE_BAK_FILTERED_NCCI = (
 FIXTURE_BAK_NCCI_HEAP = (
     _FIXTURE_DIR / "ncci_heap_full.bak"
 )
+# identity-coverage: all 6 SQL Server IDENTITY-capable types decoded correctly.
+FIXTURE_BAK_IDENTITY_COVERAGE = (
+    _FIXTURE_DIR / "identity_coverage_full.bak"
+)
 # Gap D-3: rowversion/timestamp — 8-byte big-endian bytes, monotonically increasing.
 FIXTURE_BAK_ROWVERSION_EXTRACT = (
     _FIXTURE_DIR / "rowversion_extract_full.bak"
@@ -1118,6 +1122,16 @@ def fixture_bak_ncci_heap() -> Path:
             "(run: python -m tools.fixture_run all-versions --suite ncci-heap)"
         )
     return FIXTURE_BAK_NCCI_HEAP
+
+
+@pytest.fixture
+def fixture_bak_identity_coverage() -> Path:
+    if not FIXTURE_BAK_IDENTITY_COVERAGE.exists():
+        pytest.skip(
+            f"identity-coverage fixture missing: {FIXTURE_BAK_IDENTITY_COVERAGE} "
+            "(run: python -m tools.fixture_run all-versions --suite identity-coverage)"
+        )
+    return FIXTURE_BAK_IDENTITY_COVERAGE
 
 
 @pytest.fixture

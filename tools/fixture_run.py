@@ -629,6 +629,13 @@ def _run_ncci_heap(*, force: bool = False) -> int:
     return main()
 
 
+def _run_identity_coverage(*, force: bool = False) -> int:
+    from tools.make_identity_coverage_fixture import main
+
+    sys.argv = ["make_identity_coverage_fixture", *(["--force"] if force else [])]
+    return main()
+
+
 def _run_rowversion_extract(*, force: bool = False) -> int:
     from tools.make_rowversion_extract_fixture import main
 
@@ -1066,6 +1073,8 @@ _COMMANDS = {
     "filtered-ncci": _run_filtered_ncci,
     # Gap C-5: NCCI on heap — RID-locator column must not corrupt data column extraction
     "ncci-heap": _run_ncci_heap,
+    # identity-coverage: all 6 SQL Server IDENTITY-capable types (tinyint→bigint, decimal, numeric)
+    "identity-coverage": _run_identity_coverage,
     # Gap D-3: rowversion column extraction — 8-byte big-endian bytes, monotonically increasing
     "rowversion-extract": _run_rowversion_extract,
     # Gap D-4: hierarchyid column extraction — raw varbinary bytes, correct length
@@ -1237,6 +1246,7 @@ _ALL_VERSIONS_SUITE = [
     "archive-single-chunk-random",  # Part II: random-order variant of TODO-F1
     "filtered-ncci",  # Gap C-4: filtered NCCI (WHERE clause) — all base rows must be returned
     "ncci-heap",  # Gap C-5: NCCI on heap — RID-locator column isolation
+    "identity-coverage",  # all 6 IDENTITY-capable types: tinyint, smallint, int, bigint, decimal, numeric
     "rowversion-extract",  # Gap D-3: rowversion/timestamp — 8-byte big-endian bytes
     "hierarchyid-extract",  # Gap D-4: hierarchyid — raw bytes, correct length
     "cci-computed",  # Gap C-11: non-persisted computed columns in CCI — absent from segments
@@ -1689,6 +1699,15 @@ def main(argv: list[str] | None = None) -> int:
         ),
     )
     nhp_p.add_argument("--force", action="store_true", help="overwrite existing .bak")
+    ic_p = sub.add_parser(
+        "identity-coverage",
+        help=(
+            "identity_coverage_full.bak — 6 tables covering all SQL Server IDENTITY-capable types "
+            "(tinyint, smallint, int, bigint, decimal(9,0), numeric(9,0)); "
+            "seed and increment must decode correctly for every xtype"
+        ),
+    )
+    ic_p.add_argument("--force", action="store_true", help="overwrite existing .bak")
     rv_p = sub.add_parser(
         "rowversion-extract",
         help=(
@@ -2497,6 +2516,8 @@ def main(argv: list[str] | None = None) -> int:
         return _run_filtered_ncci(force=getattr(args, "force", False))
     if args.command == "ncci-heap":
         return _run_ncci_heap(force=getattr(args, "force", False))
+    if args.command == "identity-coverage":
+        return _run_identity_coverage(force=getattr(args, "force", False))
     if args.command == "rowversion-extract":
         return _run_rowversion_extract(force=getattr(args, "force", False))
     if args.command == "hierarchyid-extract":

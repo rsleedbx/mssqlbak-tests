@@ -1,0 +1,45 @@
+{
+  "bak": "cci_bitpack_probe_bigint_full.bak",
+  "captured_at": "2026-07-11T17:40:27.941601+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.cci_bitpack_probe_bigint",
+      "row_count": 2200000,
+      "key_columns": [],
+      "mode": "digest-only",
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "bigint",
+          "digest": "sha256:b97c7bc741f9282973fd8cf41175eef874044050557fcc2d0a8f4ad7c3e1b779",
+          "null_count": 0
+        },
+        {
+          "name": "dt",
+          "sql_type": "bigint",
+          "digest": "sha256:33d0f53f7f2253ed5be897e1cca807a503005e51b51249607607ab89f919d7e5",
+          "null_count": 0
+        }
+      ],
+      "values_sorted": true,
+      "values_capped": 100000
+    },
+    {
+      "fqn": "dbo.fkr__seed",
+      "row_count": 2200000,
+      "key_columns": [
+        "pk"
+      ],
+      "mode": "sample",
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "int",
+          "digest": "sha256:b97c7bc741f9282973fd8cf41175eef874044050557fcc2d0a8f4ad7c3e1b779",
+          "null_count": 0
+        }
+      ],
+      "sample_n": 200000
+    }
+  ]
+}

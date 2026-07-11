@@ -1,0 +1,152 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "bak": "identity_coverage_full.bak",
+  "bak_size_bytes": 3919872,
+  "bak_size_mb": 3.738,
+  "bak_sha256": "e79c3d206e4cd10d0b4b61dbb650e906d2ea4623feb27ecec08e3300e31492ac",
+  "database": "RegisterBak_identity_coverage_full",
+  "registered_at": "2026-07-11T17:41:57.747193+00:00",
+  "sqlserver_restore_s": 3.213,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "bigint_identity",
+      "row_count": 5,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "5"
+        },
+        {
+          "name": "val",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "row_1",
+          "max_val": "row_5"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "decimal_identity",
+      "row_count": 5,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "decimal",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "5"
+        },
+        {
+          "name": "val",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "row_1",
+          "max_val": "row_5"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "fkr__seed",
+      "row_count": 5,
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "4"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "int_identity",
+      "row_count": 5,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "5"
+        },
+        {
+          "name": "val",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "row_1",
+          "max_val": "row_5"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "numeric_identity",
+      "row_count": 5,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "numeric",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "5"
+        },
+        {
+          "name": "val",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "row_1",
+          "max_val": "row_5"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "smallint_identity",
+      "row_count": 5,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "smallint",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "5"
+        },
+        {
+          "name": "val",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "row_1",
+          "max_val": "row_5"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "tinyint_identity",
+      "row_count": 5,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "tinyint",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "5"
+        },
+        {
+          "name": "val",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "row_1",
+          "max_val": "row_5"
+        }
+      ]
+    }
+  ]
+}

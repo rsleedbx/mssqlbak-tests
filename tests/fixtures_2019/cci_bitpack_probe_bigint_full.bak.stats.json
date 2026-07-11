@@ -1,0 +1,47 @@
+{
+  "sql_version": "Microsoft SQL Server 2019 (RTM-CU32-GDR) (KB5090407) - 15.0.4470.1 (X64)",
+  "bak": "cci_bitpack_probe_bigint_full.bak",
+  "bak_size_bytes": 43147264,
+  "bak_size_mb": 41.148,
+  "bak_sha256": "a73ed8084fe4f02a8a3b7540bdd85bf02f96e03abf4b2696a5399299fec3a4f4",
+  "database": "RegisterBak_cci_bitpack_probe_bigint_full",
+  "registered_at": "2026-07-11T17:40:28.568384+00:00",
+  "sqlserver_restore_s": 3.586,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "cci_bitpack_probe_bigint",
+      "row_count": 2200000,
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "2199999"
+        },
+        {
+          "name": "dt",
+          "sql_type": "bigint",
+          "null_count": 0,
+          "min_val": "36890",
+          "max_val": "40889"
+        }
+      ]
+    },
+    {
+      "schema": "dbo",
+      "name": "fkr__seed",
+      "row_count": 2200000,
+      "columns": [
+        {
+          "name": "pk",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "0",
+          "max_val": "2199999"
+        }
+      ]
+    }
+  ]
+}
