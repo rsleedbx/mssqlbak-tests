@@ -3,7 +3,7 @@ name = "mssqlbak-tests"
 version = "0.1.0"
 requires-python = ">=3.11"
 # Install mssqlbak from PyPI, or override locally with: pip install -e ../mssqlbak
-dependencies = ["mssqlbak>=0.1.0"]
+dependencies = ["mssqlbak>=0.1.0", "ruff", "pyright", "pytest"]
 
 [project.optional-dependencies]
 dev = [

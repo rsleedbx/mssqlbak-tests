@@ -24,7 +24,15 @@ import pytest
 from tests.fixture_companions import is_redundant_stripe, resolve_bak_input
 from tools.cell_canon import canon, column_digest
 from tools.known_gaps import expected_skipped_tables, gap_reason, version_from_fixture_dir
-from tools.value_verify import MANIFEST_NAME, load_manifest, verify_bak, verify_table
+from tools.value_verify import (
+    MANIFEST_NAME,
+    _arrow_column_digest,
+    _canon_col,
+    _canon_to_arrow,
+    load_manifest,
+    verify_bak,
+    verify_table,
+)
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
@@ -172,14 +180,41 @@ def test_verify_table_catches_wrong_cell(tmp_path: Path) -> None:
 
 
 @pytest.mark.quick
-def test_verify_table_catches_digest_mismatch(tmp_path: Path) -> None:
+def test_verify_table_full_mode_skips_digest(tmp_path: Path) -> None:
+    """Full-mode tables skip the manifest digest check — the keyed compare covers all rows.
+
+    A tampered manifest digest does NOT cause a failure for a full-mode table
+    whose cells are all correct.  Digest is the authority only for sample/
+    digest-only tables where the per-cell compare doesn't cover the full column.
+    """
     cells = tmp_path / "synthetic.bak.cells"
     _write_synthetic_cells(cells)
     manifest = load_manifest(cells)
     manifest["tables"][0]["columns"][1]["digest"] = "sha256:deadbeef"  # tamper "code"
     (cells / "_manifest.json").write_text(json.dumps(manifest))
     res = verify_table(_decoded_ok(), cells, manifest["tables"][0])
-    assert "code" in res.digest_mismatches and not res.ok
+    # All cells match; tampered manifest digest is silently ignored in full mode.
+    assert res.ok, (res.col_mismatches, res.digest_mismatches, res.samples)
+
+
+@pytest.mark.quick
+def test_verify_table_sample_mode_catches_digest_mismatch(tmp_path: Path) -> None:
+    """Sample mode catches a tampered manifest digest because the digest is the
+    authority for the full column (sample compare only covers ~200 K rows)."""
+    cells = tmp_path / "synthetic.bak.cells"
+    _write_sample_cells(cells)
+    manifest = load_manifest(cells)
+    manifest["tables"][0]["columns"][0]["digest"] = "sha256:deadbeef"  # tamper "id"
+    (cells / "_manifest.json").write_text(json.dumps(manifest))
+    entry = manifest["tables"][0]
+    extracted = pa.table(
+        {
+            "id": pa.array([1, 2, 3], pa.int64()),
+            "val": pa.array([10, 20, 30], pa.int64()),
+        }
+    )
+    res = verify_table(extracted, cells, entry)
+    assert "id" in res.digest_mismatches and not res.ok
 
 
 @pytest.mark.quick
@@ -551,3 +586,125 @@ def test_fixture_cells_match_ground_truth(cells_dir: Path) -> None:
     if failures and reason is not None:
         pytest.xfail(f"{reason}: {failures}")
     assert not failures, "; ".join(failures)
+
+
+# --------------------------------------------------------------------------- #
+# _arrow_column_digest unit tests — must match cell_canon.column_digest exactly
+# --------------------------------------------------------------------------- #
+
+@pytest.mark.quick
+@pytest.mark.parametrize(
+    "values,label",
+    [
+        ([], "empty"),
+        ([None, None, None], "all_nulls"),
+        (["a", "b", "c"], "simple_ascii"),
+        (["z", "a", "m", None], "with_null"),
+        (["über", "café", "日本語", "😀"], "unicode"),
+        # Adjacent-length values: "aa" vs "a", "aaa" sort next to each other.
+        # The length prefix ensures same-content-prefix values hash correctly.
+        (["a", "aa", "aaa", "b", "ba"], "adjacent_length"),
+        (["1", "10", "2", "9", "100"], "numeric_strings"),
+        (["x"] * 1000, "many_duplicates"),
+        (["", "a", " "], "empty_string_in_mix"),
+    ],
+)
+def test_arrow_column_digest_matches_column_digest(
+    values: list[str | None], label: str
+) -> None:
+    arr = pa.array(values, pa.string())
+    ref = column_digest(values)
+    got = _arrow_column_digest(arr)
+    assert got == ref, f"{label}: arrow={got!r} ref={ref!r}"
+
+
+@pytest.mark.quick
+def test_arrow_column_digest_large_string_matches_string() -> None:
+    """large_string (int64 offsets) must produce the same digest as string."""
+    values = ["hello", None, "world", "über", ""]
+    arr_str = pa.array(values, pa.string())
+    arr_large = pa.array(values, pa.large_string())
+    assert _arrow_column_digest(arr_str) == _arrow_column_digest(arr_large)
+    assert _arrow_column_digest(arr_large) == column_digest(values)
+
+
+@pytest.mark.quick
+def test_arrow_column_digest_starts_with_sha256() -> None:
+    arr = pa.array(["x"])
+    assert _arrow_column_digest(arr).startswith("sha256:")
+
+
+# --------------------------------------------------------------------------- #
+# _canon_to_arrow unit tests — must match _canon_col per vectorized type
+# --------------------------------------------------------------------------- #
+
+@pytest.mark.quick
+@pytest.mark.parametrize(
+    "values,arrow_type,sql_type",
+    [
+        # Integer family — all integer Arrow types map to pc.cast(…, pa.string())
+        ([-5, 0, 42, None], pa.int8(), "tinyint"),
+        ([-100, 0, 32767, None], pa.int16(), "smallint"),
+        ([-2**31, 0, 2**31 - 1, None], pa.int32(), "int"),
+        ([-2**63 + 1, 0, 2**63 - 1, None], pa.int64(), "bigint"),
+        ([0, 127, 255, None], pa.uint8(), "tinyint"),
+        ([0, 65535, None], pa.uint16(), "smallint"),
+        # String passthrough family
+        (["hello", "world", None], pa.string(), "varchar"),
+        (["α", "β", None], pa.string(), "nvarchar"),
+        (["x", None], pa.large_string(), "text"),
+        (["a", "b"], pa.string(), "hierarchyid"),
+        # char/nchar: trailing-space trim
+        (["abc   ", "hi", None, "  "], pa.string(), "char"),
+        (["xy  ", "z", None], pa.string(), "nchar"),
+        # uniqueidentifier: lowercase
+        (["A1B2C3D4-E5F6-7890-ABCD-EF0000000000", None], pa.string(), "uniqueidentifier"),
+        # bit: bool → "1"/"0"
+        ([True, False, None], pa.bool_(), "bit"),
+    ],
+)
+def test_canon_to_arrow_matches_canon_col_vectorized(
+    values: list, arrow_type: pa.DataType, sql_type: str
+) -> None:
+    col = pa.array(values, arrow_type)
+    py_list = col.to_pylist()
+    expected = _canon_col(py_list, sql_type)
+    got = _canon_to_arrow(col, sql_type).to_pylist()
+    assert got == expected, f"sql_type={sql_type!r}: got={got} expected={expected}"
+
+
+@pytest.mark.quick
+@pytest.mark.parametrize(
+    "sql_type",
+    ["float", "real", "datetime", "binary", "varbinary", "xml"],
+)
+def test_canon_to_arrow_python_fallback_matches_canon_col(sql_type: str) -> None:
+    """For types that need Python canon(), _canon_to_arrow falls back and matches."""
+    # Use string inputs that are already in canonical form — ensures the fallback
+    # path round-trips cleanly regardless of live SQL Server data.
+    values = ["1.0", "2.0", None]
+    col = pa.array(values, pa.string())
+    expected = _canon_col(values, sql_type)
+    got = _canon_to_arrow(col, sql_type).to_pylist()
+    assert got == expected, f"sql_type={sql_type!r}: got={got} expected={expected}"
+
+
+@pytest.mark.quick
+def test_canon_to_arrow_chunked_array() -> None:
+    """ChunkedArray input is handled (combine_chunks internally)."""
+    chunks = [pa.array([1, 2], pa.int32()), pa.array([3, None], pa.int32())]
+    chunked = pa.chunked_array(chunks)
+    got = _canon_to_arrow(chunked, "int").to_pylist()
+    assert got == ["1", "2", "3", None]
+
+
+@pytest.mark.quick
+def test_canon_to_arrow_uniqueidentifier_mixed_case() -> None:
+    guids = [
+        "A1B2C3D4-E5F6-7890-ABCD-EF1234567890",
+        "a1b2c3d4-e5f6-7890-abcd-ef1234567890",  # already lower
+        None,
+    ]
+    col = pa.array(guids, pa.string())
+    got = _canon_to_arrow(col, "uniqueidentifier").to_pylist()
+    assert got == [g.lower() if g else None for g in guids]
