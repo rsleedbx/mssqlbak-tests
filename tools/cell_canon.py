@@ -14,6 +14,7 @@ decimal fixed scale, hex for binary, ISO-8601 (UTC) for temporal.
 
 from __future__ import annotations
 
+import functools
 import hashlib
 import re
 from datetime import datetime, timezone
@@ -58,6 +59,7 @@ _XML_DECIMAL_TEXT_RE = re.compile(r">(-?\d+\.\d+)<")
 _WKT_NUMBER_RE = re.compile(r"(?<![A-Za-z_])[-+]?(?:\d+\.\d*|\.\d+|\d+)(?:[Ee][-+]?\d+)?")
 
 
+@functools.lru_cache(maxsize=None)
 def _base_type(sql_type: str) -> str:
     """Return the lowercase base type name, stripping any ``(...)`` parameters."""
     t = sql_type.strip().lower()
@@ -216,6 +218,7 @@ def _canon_xml_text(value: Any) -> str:
 
 def _canon_wkt_text(value: Any) -> str:
     """Normalize WKT floating-point spellings without changing the shape text."""
+
     def repl(match: re.Match[str]) -> str:
         text = match.group(0)
         try:
@@ -313,6 +316,5 @@ def column_digest(canon_values: Iterable[str | None]) -> str:
     encoded = sorted(v.encode("utf-8") for v in canon_values if v is not None)
     h = hashlib.sha256()
     for b in encoded:
-        h.update(len(b).to_bytes(4, "little"))
-        h.update(b)
+        h.update(len(b).to_bytes(4, "little") + b)
     return "sha256:" + h.hexdigest()

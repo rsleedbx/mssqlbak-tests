@@ -3,11 +3,11 @@
 Per-backup comparison of mssqlbak extraction against SQL Server ground truth.
 Ground truth is recorded in `tests/fixtures/<name>.bak.stats.json` by
 `python -m tools.fixture_run register-bak <name>.bak` on a live SQL Server instance.
-**Generated** by `python -m tools.correctness_coverage --fixture-dir tests/fixtures_realworld tests/fixtures_realworld/NYCTaxi_Sample.bak`.
+**Generated** by `python -m tools.correctness_coverage --fixture-dir tests/fixtures_realworld tests/fixtures_realworld/Pubs.bak`.
 
 **1 fixtures · 1 pass · 0 xfail (known gap) · 0 fail**
 
-**Tables:** 2/2 pass · **Columns:** 25/25 pass
+**Tables:** 11/11 pass · **Columns:** 64/64 pass
 
 **Row count:** ✓ · **Null count:** ✓ · **Min/max:** ✓ · **Col count:** ✓ · **Cells:** ✓
 
@@ -30,25 +30,34 @@ Memory-optimized (In-Memory OLTP / XTP) tables store their data in XTP checkpoin
 
 | Backup | Source rows | Source cols | Row count | Null count | Min/max | Col count | Cells | Status |
 |--------|------------:|------------:|:---------:|:----------:|:-------:|:---------:|:-----:|--------|
-| `NYCTaxi_Sample.bak` | 1,703,957 | 25 | **2/2** | **23/23** | **46/46** | **2/2** | digest | ✓ |
+| `Pubs.bak` | 255 | 64 | **11/11** | **64/64** | **126/126** | **11/11** | **880/880** | ✓ |
 
 ## Per-fixture detail
 
-### `NYCTaxi_Sample.bak` — 2022 — ✓ pass
+### `Pubs.bak` — 2022 — ✓ pass
 
-_SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (X64) · 97.117 MB_
+_SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (X64) · 0.5 MB_
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
-| `dbo.nyc_taxi_models` | rowstore | 0 | — | — | — | — |  |
-| `dbo.nyctaxi_sample` | columnstore | 1,703,957 | ✓ | **23/23** | **46/46** | ✓ | cells digest ✓ |
+| `dbo.authors` | rowstore | 23 | ✓ | **9/9** | **18/18** | ✓ | cells **184/184** ✓ |
+| `dbo.discounts` | rowstore | 3 | ✓ | **5/5** | **10/10** | ✓ | cells digest ✓ |
+| `dbo.employee` | rowstore | 43 | ✓ | **8/8** | **16/16** | ✓ | cells **301/301** ✓ |
+| `dbo.jobs` | rowstore | 14 | ✓ | **4/4** | **8/8** | ✓ | cells **42/42** ✓ |
+| `dbo.pub_info` | rowstore | 8 | ✓ | **3/3** | **4/4** | ✓ | cells **16/16** ✓ |
+| `dbo.publishers` | rowstore | 8 | ✓ | **5/5** | **10/10** | ✓ | cells **32/32** ✓ |
+| `dbo.roysched` | rowstore | 86 | ✓ | **4/4** | **8/8** | ✓ | cells digest ✓ |
+| `dbo.sales` | rowstore | 21 | ✓ | **6/6** | **12/12** | ✓ | cells **63/63** ✓ |
+| `dbo.stores` | rowstore | 6 | ✓ | **6/6** | **12/12** | ✓ | cells **30/30** ✓ |
+| `dbo.titleauthor` | rowstore | 25 | ✓ | **4/4** | **8/8** | ✓ | cells **50/50** ✓ |
+| `dbo.titles` | rowstore | 18 | ✓ | **10/10** | **20/20** | ✓ | cells **162/162** ✓ |
 
 
 ## Extraction timings
 
 | Backup | Extract | Verify | Wall time |
 |--------|---------|--------|-----------|
-| `NYCTaxi_Sample.bak` | 12.728s | 46.344s | 59.072s |
+| `Pubs.bak` | 0.131s | 0.116s | 0.247s |
 
 _Verify = wall − extract (Arrow conversion, ground-truth compare, cell verification, and confidence analysis; cell verification dominates for large fixtures)._
 

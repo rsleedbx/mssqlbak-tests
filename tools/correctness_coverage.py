@@ -27,7 +27,6 @@ import http.server
 import json
 import os
 import re
-import socketserver
 import sys
 import threading
 import time
@@ -78,6 +77,93 @@ FIXTURES = Path(os.environ.get("FIXTURE_DIR", str(REPO_ROOT / "tests" / "fixture
 OUT_PATH = REPO_ROOT / "docs" / "correctness_coverage.md"
 
 
+_CDN_PREFIX = "/_cdn"
+_RANGE_RE = re.compile(r"^bytes=(\d+)-(\d*)$")
+
+
+class _RangeCDNHandler(http.server.SimpleHTTPRequestHandler):
+    """HTTP handler that simulates GitHub release -> CDN download flow.
+
+    Two-stage design mirrors real GitHub HTTPS behaviour:
+
+    * ``GET /<name>.bak`` (no leading ``/_cdn``) → ``302 Location: /_cdn/<name>.bak``
+      (mirrors ``github.com/.../releases/download/...`` → ``objects.githubusercontent.com``).
+
+    * ``GET /_cdn/<name>.bak`` → serves the file with ``206 Partial Content`` and
+      ``Content-Range`` when the request carries a ``Range: bytes=…`` header.
+      Falls back to ``200`` full-body when there is no ``Range`` header, preserving
+      the existing spool path as a safety net.
+
+    This causes :class:`~mssqlbak.readers.http.HTTPBakReader` to:
+    1. Follow the redirect during ``_probe`` (``_request_range_following_redirects``).
+    2. Receive a ``206`` response and parse ``Content-Range`` for the file size.
+    3. Set ``_is_range_reader = True`` and issue per-chunk ``Range`` GETs for all
+       subsequent ``read_at`` calls → exercises ``LazyPageStore`` + ``warm_file``.
+    """
+
+    def log_message(self, *_: object) -> None:  # silence request logs
+        pass
+
+    def do_GET(self) -> None:  # noqa: N802
+        # ── redirect leg: /<name>.bak → /_cdn/<name>.bak ───────────────────
+        if not self.path.startswith(_CDN_PREFIX + "/"):
+            self.send_response(302)
+            self.send_header("Location", _CDN_PREFIX + self.path)
+            self.send_header("Content-Length", "0")
+            self.end_headers()
+            return
+
+        # ── CDN leg: serve the file, honouring Range if present ─────────────
+        # Translate /_cdn/<name> back to <root>/<name> via the parent method.
+        # Temporarily strip the prefix so translate_path resolves correctly.
+        orig_path = self.path
+        self.path = self.path[len(_CDN_PREFIX):]
+        fs_path = self.translate_path(self.path)
+        self.path = orig_path  # restore (not strictly needed, but tidy)
+
+        try:
+            file_size = os.path.getsize(fs_path)
+        except OSError:
+            self.send_error(404)
+            return
+
+        range_header = self.headers.get("Range", "")
+        m = _RANGE_RE.match(range_header.strip())
+        if m:
+            start = int(m.group(1))
+            end = int(m.group(2)) if m.group(2) else file_size - 1
+            end = min(end, file_size - 1)
+            length = end - start + 1
+            if start > end or start >= file_size:
+                self.send_error(416, "Range Not Satisfiable")
+                return
+            self.send_response(206)
+            self.send_header("Content-Type", "application/octet-stream")
+            self.send_header("Content-Range", f"bytes {start}-{end}/{file_size}")
+            self.send_header("Content-Length", str(length))
+            self.send_header("Accept-Ranges", "bytes")
+            self.end_headers()
+            with open(fs_path, "rb") as f:
+                f.seek(start)
+                remaining = length
+                while remaining > 0:
+                    chunk = f.read(min(65536, remaining))
+                    if not chunk:
+                        break
+                    self.wfile.write(chunk)
+                    remaining -= len(chunk)
+        else:
+            # No Range header → full 200 response (fallback / spool path).
+            self.send_response(200)
+            self.send_header("Content-Type", "application/octet-stream")
+            self.send_header("Content-Length", str(file_size))
+            self.send_header("Accept-Ranges", "bytes")
+            self.end_headers()
+            with open(fs_path, "rb") as f:
+                while chunk := f.read(65536):
+                    self.wfile.write(chunk)
+
+
 @contextmanager
 def _local_http_server(directory: Path) -> Generator[int, None, None]:
     """Spin up a local HTTP server rooted at *directory* and yield its port.
@@ -85,14 +171,18 @@ def _local_http_server(directory: Path) -> Generator[int, None, None]:
     Uses an ephemeral port (OS chooses) so multiple concurrent runs never
     conflict.  The server runs in a daemon thread and is shut down cleanly
     when the context exits.
+
+    The server uses :class:`_RangeCDNHandler` which simulates GitHub HTTPS:
+    a ``302`` redirect hop followed by ``206`` Range responses.  This causes
+    :class:`~mssqlbak.readers.http.HTTPBakReader` to set
+    ``_is_range_reader = True`` and exercise the ``LazyPageStore`` +
+    ``warm_file`` path instead of spooling the whole file.
+
+    Uses :class:`~http.server.ThreadingHTTPServer` (thread-per-connection) so
+    concurrent worker processes and many per-chunk Range GETs never serialise.
     """
-    handler = functools.partial(
-        http.server.SimpleHTTPRequestHandler,
-        directory=str(directory),
-    )
-    # silence the default request log lines that would pollute stderr
-    handler.log_message = lambda *_: None  # type: ignore[method-assign]
-    with socketserver.TCPServer(("127.0.0.1", 0), handler) as httpd:
+    handler = functools.partial(_RangeCDNHandler, directory=str(directory))
+    with http.server.ThreadingHTTPServer(("127.0.0.1", 0), handler) as httpd:
         port = httpd.server_address[1]
         t = threading.Thread(target=httpd.serve_forever, daemon=True)
         t.start()

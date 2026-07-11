@@ -48,7 +48,7 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (
 
 | Backup | Extract | Verify | Wall time |
 |--------|---------|--------|-----------|
-| `NYCTaxi_Sample.bak` | 12.728s | 46.344s | 59.072s |
+| `NYCTaxi_Sample.bak` | 16.495s | 46.503s | 62.998s |
 
 _Verify = wall − extract (Arrow conversion, ground-truth compare, cell verification, and confidence analysis; cell verification dominates for large fixtures)._
 

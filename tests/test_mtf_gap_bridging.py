@@ -102,7 +102,7 @@ class TestWalkImagePagesGapBridging:
     """Direct unit tests for the gap-bridging path in _walk_image_pages."""
 
     def _pids(self, buf: bytes) -> list[int]:
-        return [pid for _fid, pid, _page in _walk_image_pages(buf, 0)]
+        return [pid for _fid, pid, _page, _off in _walk_image_pages(buf, 0)]
 
     def test_clean_stream_all_pages_yielded(self) -> None:
         """Baseline: no gaps → all pages come out in order."""
@@ -246,7 +246,7 @@ class TestWalkImagePagesGapBridging:
             + secondary_page
         )
         results = list(_walk_image_pages(buf, 0))
-        fid_pid = [(fid, pid) for fid, pid, _ in results]
+        fid_pid = [(fid, pid) for fid, pid, _, _ in results]
         assert (2, 0) in fid_pid
         assert (2, 1) in fid_pid
 

@@ -49,7 +49,7 @@ def test_walk_skips_blanks_and_stops_at_framing() -> None:
     assert start == 0
     # blank locator (index 2) skipped, framing (file_id 7, not a known file) ends it
     walked = list(mtf._walk_image_pages(buf, start))
-    assert [(fid, pid) for fid, pid, _ in walked] == [(1, 0), (1, 1), (1, 3), (1, 4)]
+    assert [(fid, pid) for fid, pid, _, _ in walked] == [(1, 0), (1, 1), (1, 3), (1, 4)]
 
 
 def test_walk_spans_secondary_file() -> None:
@@ -63,7 +63,7 @@ def test_walk_spans_secondary_file() -> None:
         + _page(999, file_id=9, header_version=83, m_type=77)
     )
     start = mtf._find_image_start(buf)
-    walked = [(fid, pid) for fid, pid, _ in mtf._walk_image_pages(buf, start)]
+    walked = [(fid, pid) for fid, pid, _, _ in mtf._walk_image_pages(buf, start)]
     assert walked == [(1, 0), (1, 1), (3, 0), (3, 7)]
 
 
@@ -73,7 +73,7 @@ def test_walk_places_pages_by_id_across_gaps() -> None:
     # gap (pages 2..4) is zero-filled and page 5 is addressable at its own id.
     buf = _page(0, m_type=15) + _page(1) + _page(5) + _page(99, file_id=7)
     start = mtf._find_image_start(buf)
-    file1 = {pid: page for fid, pid, page in mtf._walk_image_pages(buf, start) if fid == 1}
+    file1 = {pid: page for fid, pid, page, _ in mtf._walk_image_pages(buf, start) if fid == 1}
     image = mtf.assemble_image(file1)
     store = PageStore.from_pages(image)
     assert store.page_count == 6  # pages 0..5
