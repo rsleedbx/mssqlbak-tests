@@ -802,6 +802,7 @@ catalog or header field that deterministically selects the branch (e.g.
 
 ## See Also
 
+- [docs/design/README.md](../design/README.md) — implementation design: third-party vs hand-rolled dependencies, decode pipeline architecture, and quality-attribute tradeoffs.
 - [docs/COVERAGE.md](COVERAGE.md) — consolidated feature coverage: supported types, backup types, storage features, real-world corpus results, and unsupported areas.
 - [docs/CORROBORATION_SOURCES.md](CORROBORATION_SOURCES.md) — SSOT for `[CORROBORATED]` source rows and remaining internal-only sections.
 - [docs/BAK_SPEC_FIXTURES.md](BAK_SPEC_FIXTURES.md) — fixture and verifier plan for resolving Guess IDs.
