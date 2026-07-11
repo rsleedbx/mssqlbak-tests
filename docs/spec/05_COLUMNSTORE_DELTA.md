@@ -6,10 +6,10 @@ _Part of the [mssqlbak spec suite](00_MASTER.md). See [01_COMMON files](01_PAGE.
 
 ## 1. Routing trigger
 
-**StoragePath:** `COLUMNSTORE_DELTA`
-**Set by:** `read_table_rows` (`mssqlbak/rows.py:860`) when `_read_columnstore_delta_rows` fabricates a synthetic `__cs_delta_{rs_id}` table and re-enters `read_table_rows`
+**StoragePath:** `COLUMNSTORE_DELTA` (spec abstraction, not a code symbol)
+**Set by:** `_read_columnstore_delta_rows` (`columnstore/assembly/delta.py`) fabricates a synthetic `__cs_delta_{rs_id}` table and re-enters `read_table_rows` (`rows.py:1132`)
 **Catalog signal:** detected via `sys.column_store_row_groups` with OPEN/CLOSED state; underlying rowset has `cmprlevel == 0`
-**Decode entry point:** `columnstore.py:2309` → fabricates `__cs_delta_*` table → `rows.py:860` (re-entry)
+**Decode entry point:** `columnstore/assembly/delta.py: _read_columnstore_delta_rows` → fabricates `__cs_delta_*` table → `rows.py:1132` (re-entry)
 
 ---
 
@@ -28,16 +28,17 @@ The record layout is identical to `03_ROWSTORE_BTREE.md` §3. Do not duplicate i
 
 ## Architectural note: decoder re-entry
 
-`_read_columnstore_delta_rows` (`mssqlbak/columnstore.py:2309`) fabricates a synthetic
+`_read_columnstore_delta_rows` (`mssqlbak/columnstore/assembly/delta.py`) fabricates a synthetic
 `__cs_delta_{rs_id}` table and re-enters `read_table_rows`. This single code-reuse decision
 is the structural source of Class 3 contextual interpretation bugs (see architecture plan):
 every heuristic in `read_table_rows` was originally only exercised on columnstore-originated
 data, so assumptions like "all inline MAX values have a 0x21 prefix" went undetected until
 a real rowstore table with a conflicting value was tested.
 
-The `StoragePath.COLUMNSTORE_DELTA` enum value makes this re-entry explicit: when the
-routing sets `COLUMNSTORE_DELTA`, every decode rule that branches on context can branch on
-the enum instead of inferring it from `table.name.startswith("__cs_delta_")`.
+The `COLUMNSTORE_DELTA` routing path (a spec abstraction) makes this re-entry explicit:
+when the routing selects `COLUMNSTORE_DELTA`, every decode rule that branches on context
+can branch on that path label instead of inferring it from
+`table.name.startswith("__cs_delta_")`.
 
 ## 4. Value decode rules
 
@@ -48,7 +49,7 @@ and `varbinary(max)` values in **columnstore delta-store rows**. Regular rowstor
 store the raw bytes without any prefix. The decoder must strip the prefix here but NOT
 in regular rowstore paths.
 
-**Current rule** (`mssqlbak/rows.py:1081`, guard at `rows.py:1095`):
+**Current rule** (`mssqlbak/rows.py`, guard near line 1395–1415):
 
 ```python
 _do_strip = True
@@ -96,3 +97,25 @@ fields require upgrading to `record_event` (see architecture plan Goal #2)._
 |---|---|---|
 | H1 | Strip `0x21` for `varbinary(max)` (type_id 165) **and** `varchar(max)` (type_id 167) only when `table.name.startswith("__cs_delta_")` | Empirically correct (fix `826ba67`) — DBCC PAGE confirmation still needed |
 | H2 | Strip `0x21` for `nvarchar(max)` only when `len(cell) % 2 != 0` (odd = prefix, even = data) | `[EMPIRICAL]` — parity is the correct discriminant (SCSU always odd) |
+
+---
+
+## 7. Delta tombstone suppression `[EMPIRICAL]`
+
+Source: `columnstore/assembly/delta.py: _read_columnstore_delta_rows`, lines ~65–93.
+
+A columnstore delta-store rowset is **tombstoned** (should not be emitted as rows)
+when all its rows have already been compressed into segment row groups.  Tombstoned
+deltas share the same row count (`rcrows`) as one of the compressed row groups.
+
+Detection algorithm:
+
+1. Collect the `rcrows` of all rowsets for the same table with `cmprlevel == 3`
+   (regular CCI).  Also collect `n_rows` from each `syscscolsegments` entry for
+   those compressed rowsets (handles multi-rowgroup tables after `REORGANIZE`).
+2. For each delta-store rowset (`cmprlevel == 0`) with a non-zero `rcrows`:
+   - If `rcrows` is in the compressed-rcrows set → **tombstoned**; skip this delta.
+   - Otherwise → active; read and emit its rows.
+
+This two-pass approach avoids emitting duplicate rows that would already appear
+in the compressed segments.

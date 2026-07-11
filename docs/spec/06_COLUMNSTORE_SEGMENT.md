@@ -6,10 +6,11 @@ _Part of the [mssqlbak spec suite](00_MASTER.md). See [01_COMMON files](01_PAGE.
 
 ## 1. Routing trigger
 
-**StoragePath:** `COLUMNSTORE_SEGMENT`
-**Set by:** `read_table_rows` (`mssqlbak/rows.py:860`) when `table.compression in (3,)` (cmprlevel=3, CCI regular) and enc in (1,2,3,4)
+**StoragePath:** `COLUMNSTORE_SEGMENT` (spec abstraction, not a code symbol)
+**Set by:** `read_table_rows` (`mssqlbak/rows.py:1132`) when `table.compression == 3` (cmprlevel=3, CCI regular) and enc in (1,2,3,4).
+Routing is driven by `table.compression` (`rows.py:1194`) and `table.is_memory_optimized` (`extract.py:494`).
 **Catalog signal:** `sysrowsets.cmprlevel == 3`, `syscscolsegments` present
-**Decode entry point:** `columnstore.py` → `read_columnstore_rows()` → `assembly/reader.py`
+**Decode entry point:** `columnstore/assembly/reader.py: read_columnstore_rows()`
 
 ---
 
@@ -23,7 +24,7 @@ Each column is stored independently as a segment blob. Segment metadata loaded f
 
 ### 7.1 Segment metadata (`syscscolsegments`, obj 62) `[CORROBORATED]`
 
-Offsets read directly by `columnstore.py` (constants `_SEG_*`):
+Offsets read directly by `columnstore/storage/segment_meta.py` (constants `_SEG_*`):
 
 | Offset | Field | Type read | Source constant |
 |--------|-------|-----------|-----------------|
@@ -41,14 +42,14 @@ Offsets read directly by `columnstore.py` (constants `_SEG_*`):
 | 94 | `blob_id` | **u16** | `_SEG_BLOB_ID` (LOB blob holding the bit-packed segment) |
 
 Dict-id fields at offsets **52** (`_SEG_PRIM_DICT`) and **56** (`_SEG_SEC_DICT`):
-enc=3 lookup reads offset 56.  Constant names and comments in `columnstore.py`
+enc=3 lookup reads offset 56.  Constant names and comments in `columnstore/storage/segment_meta.py`
 are swapped relative to SQL Server DMV naming — unresolved.
 
 **G40 `[CONFIRMED]`**: Verified against `sys.column_store_segments` on SS2022 (`boundarycoverage_full.bak`).  Offset 52 = `primary_dictionary_id`; offset 56 = `secondary_dictionary_id`.  For enc=3 string columns, `secondary_dictionary_id` is always set (value 1) and `primary_dictionary_id` is -1.  The parser's `sec_dict` (offset 56) correctly selects the enc=3 string dictionary.  `spec_probe columnstore-dict-order` emits `verdict: match` against verifier output `G40.json`.
 
 ### 7.2 Dictionary metadata (`syscsdictionaries`, obj 63) `[CORROBORATED]`
 
-Constants `_DICT_*` in `columnstore.py`:
+Constants `_DICT_*` in `columnstore/storage/segment_meta.py`:
 
 | Offset | Field | Type read |
 |--------|-------|-----------|
@@ -77,11 +78,13 @@ or the raw blob for cmprlevel=3):
 [+40..+43]  uint32 LE  (observed: 3)
 [+44..+47]  uint32 LE  (observed: 0)
 
-[+48 .. +48+n_frags*8)   FOR frame table  (n_frags × 8 bytes each):
-    [+0..+3]  uint32 LE  for_base   Frame-of-Reference base for this block of
-                                    512 values.  Raw bitpack value + for_base =
-                                    full stored value for _decode_enc1.
-                                    0 for all blocks when data is sequential.
+[+48 .. +48+n_frags*8)   Fragment table  (n_frags × 8 bytes each):
+    [+0..+3]  uint32 LE  block_type    Block-type indicator:
+                                        0 = null-zone block (all rows in this block are NULL)
+                                        2 = compact-null-prefix data block
+                          NOT a Frame-of-Reference base.  `_bitpack_values` ignores
+                          this field entirely; biased values are stored directly in
+                          the bitpack without per-block FOR correction.
     [+4..+7]  uint32 LE  n_rows     Global row count (constant across all entries).
                                     NOTE: entry[0][+4] is at blob offset 52 = _BP_N_ROWS.
 
@@ -111,19 +114,20 @@ the bitpack holds only non-null rows — see §7.4.
 For enc=3 (dictionary), `stored = 0` or `1` are NULL/empty sentinels;
 `stored >= 2` is a 0-based dictionary index `stored - 2`.
 
-**G43 `[EMPIRICAL]`**: Segment blob layout confirmed against `boundarycoverage_full.bak`
+**G43 `[EMPIRICAL — CORRECTED]`**: Segment blob layout confirmed against `boundarycoverage_full.bak`
 (SS2022) and further decoded via `tools/diag_enc1_pfor.py` against ARCHIVE fixtures
-(2026-06-16).  FOR frame table format confirmed: n_frags = ceil(n_rows/512) entries at
-offset 48; for_base = u32[0] of each entry; n_rows repeated at u32[1] = blob offset 52
-(`_BP_N_ROWS`).  For sequential integer ids all for_base values are 0; non-sequential
-columns may have non-zero per-block bases requiring the FOR correction in
-`_bitpack_values`.  See `docs/260616-2-fixture-dbcc-page-verifier.md` §14–15 for the
-PFOR research basis.
+(2026-06-16).  Fragment table: n_frags entries at offset 48; u32[0] per entry is a
+**block-type indicator** (0=null-zone, 2=compact-null-prefix), NOT a FOR correction base;
+n_rows repeated at u32[1] = blob offset 52 (`_BP_N_ROWS`).  `_bitpack_values` does NOT
+add a FOR correction to stored values — the bitpack stores full biased values directly.
+`_bp_for_base()` is used only by enc=2 numeric dictionary index code paths.
+See `columnstore/decode/bitpack.py: _bitpack_values` docstring for the authoritative
+correction of the earlier "FOR frame table" interpretation.
 
 ### 7.5 Columnstore LOB blob preamble `[CORROBORATED]`
 
 LOB blobs for columnstore dictionaries and segments have an observed structure
-(`columnstore.py: _COLUMN_LOB_PREAMBLE = 12`, `_COLUMN_LOB_CHUNK = 65536`,
+(`columnstore/storage/lob.py: _COLUMN_LOB_PREAMBLE = 12`, `_COLUMN_LOB_CHUNK = 65536`,
 `_deinterleave`):
 ```
 [+0:+12]   12-byte preamble  [EMPIRICAL — first 4 bytes observed: 01 00 00 00;
@@ -188,7 +192,7 @@ blob registered in `syscsdictionaries`.
                     UTF-16 LE content, repeated `entry_count` times
 ```
 
-Decoded by `_parse_dict_strings` in `columnstore.py`.
+Decoded by `_parse_dict_strings` in `columnstore/decode/dict_string.py`.
 
 **nchar/nvarchar sort-key encoding `[EMPIRICAL]`:** For `nchar`/`nvarchar`
 columns, SQL Server may store sort keys rather than literal UTF-16LE strings in
@@ -240,7 +244,7 @@ Sorted pool (raw blob, observed id 23844) — the data-id → string mapping:
 ```
 
 **Bookmark-based partial decoder (fallback).** `_parse_v7_sorted_pool()` in
-`columnstore.py` reads the 194 bookmark entries, reconstructs each bookmark's
+`columnstore/decode/dict_xvelocity.py` reads the 194 bookmark entries, reconstructs each bookmark's
 data-id via the step-minus-1 accumulation, and returns a partial dictionary list of
 1200 slots where 194 known positions hold the correct string and the remaining 1006
 return `None`.  Used as a fallback when `xmhuffman` is unavailable.
@@ -248,7 +252,7 @@ return `None`.  Used as a fallback when `xmhuffman` is unavailable.
 **Full Huffman decode via xmhuffman (implemented).** The post-hash-table region of
 blob 2001 is a canonical-Huffman bitstream with a 128-byte `encode_array` at deint
 offset 9700 and the compressed buffer at raw offset 9844.  `_decode_v4_huff_dict()`
-in `columnstore.py` calls `xmhuffman.decode_page` with the **raw** (non-deinterleaved)
+in `columnstore/decode/dict_xvelocity.py` calls `xmhuffman.decode_page` with the **raw** (non-deinterleaved)
 CBUF so that the 8-byte LOB separator at the 65536-byte chunk boundary is preserved
 for xmhuffman's internal page-boundary handler.  Each decoded `bytes` result carries
 a +2 symbol offset; stripping that offset and the leading 5-bit overhead byte recovers
@@ -340,7 +344,7 @@ full 1200-string decode against `G44.json`.  Fixture: `cs_lob_preamble2.bak`
 
 enc=5 stores fixed-size raw bytes per value.  The segment blob (after
 `_unwrap_archive_blob` for cmprlevel=4) is dispatched to one of four formats
-by `_decode_enc5` (`columnstore.py`).  Constants:
+by `_decode_enc5` (`columnstore/decode/enc5_raw.py`).  Constants:
 `_ENC5_SENTINEL = b"\xfe\xff"`, `_ENC5_HDR_ITEM_SZ = 92`,
 `_ENC5_HDR_N_NONNULL = 94`, `_ENC5_DATA_OFFSET = 98`.
 
@@ -391,7 +395,7 @@ n_null          = n_rows - n_before_null - n_after_null
 
 Two internal structures track the logical state of compressed rowgroups — which
 rowgroups are still live and which individual rows within a live rowgroup have
-been deleted.  Both are decoded by `columnstore.py` before row data is yielded.
+been deleted.  Both are decoded by `columnstore/assembly/reader.py` before row data is yielded.
 
 #### 7.8.1 Tombstone rowgroup filter
 

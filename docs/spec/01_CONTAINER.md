@@ -132,14 +132,34 @@ sec = b[4] & 0x3F
 #### 1.1.5 SQL Server proprietary config stream (after SSET) `[HEURISTIC]`
 
 SQL Server appends a proprietary configuration stream immediately after the
-standard SSET descriptor bytes.  Sub-block tags seen: `MSCI`, `SFGI`, `SFIN`.
-The parser decodes only the fields below.
+standard SSET descriptor bytes.  Sub-block tags observed: `MQCI`, `SFGI`.
+The parser decodes the fields below.
+
+**MQCI sub-block — backup-set LSNs `[EMPIRICAL]`**
+
+The `MQCI` tag (`reader.py: _MQCI_TAG = b"MQCI"`) marks a sub-block that
+carries the four backup-set LSN triplets.  These are located by scanning the
+raw SSET block bytes for the tag, then reading at fixed offsets from the tag
+start (`reader.py: _parse_lsns_from_sset_block`, `reader.py:562-601`):
+
+| Offset from tag | Size | Field |
+|-----------------|------|-------|
+| +54 | 10 | `first_lsn` |
+| +64 | 10 | `last_lsn` |
+| +74 | `checkpoint_lsn` | 10 |
+| +84 | 10 | `database_backup_lsn` |
+
+Each LSN is a 10-byte little-endian triplet:
+`struct("<IIH")` = `(vlf_seq u32, blk_offset u32, rec_pos u16)`.
+An all-zero triplet means "absent".  The decimal LSN string is
+`"%d:%d:%d" % (vlf_seq, blk_offset, rec_pos)`.
 
 **What we can locate reliably:**
 - Physical data/log file paths ending in `.mdf`, `.ndf`, or `.ldf` — found by
   decoding the whole block as UTF-16LE and matching path-shaped substrings.
 - Database name — sometimes present as the `dataset_name` MTF field; otherwise
   derived from the primary `.mdf` file stem.
+- Backup-set LSNs — via the MQCI sub-block above.
 
 **What we can locate with best-effort heuristic:**
 - Server name framing — **G11 `[HEURISTIC]`** — best-effort: the UTF-16LE run
@@ -151,8 +171,6 @@ The parser decodes only the fields below.
 - Database name — **G12 `[HEURISTIC]`** — `dataset_name` MTF field when
   present; otherwise the primary `.mdf` file-stem.  Works on all tested backups;
   failure scenario (e.g. dataset_name set to something unexpected) not observed.
-
-Any field beyond `SFGI` — not parsed.
 
 ---
 
@@ -240,6 +258,31 @@ the `SFMB` is a soft filemark boundary marker inserted by SQL Server between the
 media descriptor and the backup set and must be tolerated.  In compressed
 backups the same TAPE + SSET descriptor ordering is preserved as the first two
 decompressed chunks.
+
+#### 1.2.5 Version 2 chunk-stream overlap `[EMPIRICAL]`
+
+**Critical implementation detail**: for v2 containers the XPRESS bitstream of
+a chunk extends **4 bytes past the nominal end** of the record.
+
+For a v2 record with header at `H`:
+- `next_H = H + 28 + (tag >> 16)` (the next record's header start)
+- The XPRESS stream for the *current* chunk starts at `H + 32` (the Huffman
+  table) and **ends at `next_H + 4`**, i.e. 4 bytes into the next record.
+
+Expressed using the layout constants (`compressed.py: _V2`):
+```
+stream_end = next_h + huffman_off - next_base
+           = next_h + 32 - 28
+           = next_h + 4
+```
+
+Omitting this 4-byte overlap (feeding only bytes `[H+32 : next_H]` to the
+XPRESS decoder) produces a corrupted final page — specifically the last two
+bytes of the last page in an extent are wrong.  The overlap is consumed
+during the bitstream decode and must be included in the input slice.
+
+Source: `compressed.py: _decode_chunk` (line 293), `_iter_chunks_with_pages`
+(lines 618-621).
 
 ---
 

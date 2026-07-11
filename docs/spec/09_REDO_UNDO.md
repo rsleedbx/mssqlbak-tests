@@ -15,14 +15,21 @@ All offsets in this section are confirmed against SQL Server 2022 using
 
 ```
 rfind("MSLS")              → msls_pos
-rfind("APAD", 0, msls_pos) → apad_pos
-log_start = (apad_pos + 4096) & ~4095   # first 4096-aligned block after APAD
-log_end   = msls_pos
+# Walk ALL APAD segments before msls_pos — the log region may span multiple
+# APAD-terminated chunks; use the earliest APAD to capture the full log tail.
+find_log_range(data)       → (log_start, log_end)
 ```
 
 `APAD` and `MSLS` are 4-byte ASCII markers embedded in the MTF stream.
 `MSLS` is followed by `MQCI` and `SCIN` markers within the same block.
 The log tail is absent for clean (offline) backups; `find("MSLS") == -1` in that case.
+
+**Multi-segment APAD**: `find_log_range` (`logtail.py:237`) walks all APAD
+segments before `MSLS`, not just the last one.  Each APAD segment may contain
+one or more 4096-byte log blocks.  The function returns the earliest valid
+opening-block start as `log_start` and `msls_pos` as `log_end`.
+
+Source: `logtail.py: find_log_range`, `_APAD = b"APAD"`, `_MSLS = b"MSLS"`.
 
 #### 9.1.2 Block structure
 
@@ -30,20 +37,30 @@ The log tail is divided into 4 096-byte blocks:
 
 ```
 byte[0]        block status:
-               0x50 = opening block (record area starts at byte 0x48)
-               0x40 = continuation block (no header; records continue from previous block)
+               0x50 = opening block (pre-SS2022)
+               0x40 = continuation block (pre-SS2022)
+               0x90 = opening block (SS2022+ hardened-log / FUA)
+               0x80 = continuation block (SS2022+ hardened-log / FUA)
 byte[0x0C–0x0F]  VLF sequence number  (uint32 LE)   — opening blocks only
 byte[0x10–0x13]  block offset in 512-byte sectors (uint32 LE) — opening blocks only
 byte[0x48–…]   record area (opening blocks)
 byte[1–…]      record continuation (continuation blocks; byte[0] is the status byte, not payload)
 ```
 
+Source: `logtail.py: _BLOCK_STATUS_OPEN=0x50`, `_BLOCK_STATUS_CONT=0x40`,
+`_BLOCK_STATUS_OPEN_V2=0x90`, `_BLOCK_STATUS_CONT_V2=0x80`,
+`_LOG_BLOCK_TYPES = frozenset({0x40, 0x50, 0x80, 0x90})`.
+
 At each 512-byte sub-sector boundary within a block (positions 512, 1024, …,
 3584 inside the 4 096-byte block), the original data byte is overwritten by
-the sector-status value `0x40`.  For NVARCHAR/UTF-16-LE data this position
-corresponds to a padding zero and is safely substituted with `0x00`.  For
-VARCHAR/binary data the original byte is unrecoverable; `0x00` is used as a
-best-effort approximation (one byte per 512-byte window).
+the sector-status framing byte.  **The displaced byte is NOT permanently lost** —
+it is recovered from the block trailer via `_log_block_sector_byte`
+(`logtail.py:1375`).  The block trailer records the displaced byte for each
+of the 7 internal sector boundaries (not the boundary at byte 0, which is the
+block-status byte itself).  Recovery is attempted first; `0x00` is used only
+as a last-resort fallback when the trailer lookup fails.
+
+Source: `logtail.py: _log_block_sector_byte`.
 
 Records are **8-byte aligned** within a block.  The scanner advances in
 8-byte steps from position `0x48` in opening blocks and from position `0` in
@@ -81,10 +98,19 @@ lsn = (vlf_seq, blk_offset, pos − 0x48)
 | 0x04 | 0x02 | LOP_INSERT_ROWS — INSERT (committed or uncommitted) | INSERT |
 | 0x04 | 0x03 | LOP_DELETE_ROWS — DELETE / ghost (committed or uncommitted) | DELETE |
 | 0x04 | 0x04 | LOP_MODIFY_ROW (LOB blob slot, TEXT_MIX page) | MODIFY_LOB |
+| 0x04 | 0x06 | LOP_MODIFY_ROW (temporal period-column UPDATE, SS2019+) | MODIFY_TEMPORAL |
 | 0x00 | 0x80 | LOP_BEGIN_XACT — transaction begin | BEGIN |
 | 0x00 | 0x81 | LOP_COMMIT_XACT — transaction commit | COMMIT |
 | 0x00 | 0x82 | LOP_ABORT_XACT — transaction abort/rollback | ABORT |
 | 0x00 | 0x04 | LOP_MODIFY_ROW (regular data-page slot) | MODIFY |
+| 0x00 | 0x06 | LOP_MODIFY_ROW (temporal period-column, SS2017 legacy) | MODIFY_TEMPORAL_LEGACY |
+
+Source: `logtail.py: _DISCRIM_TEMPORAL = 0x06`.
+
+`MODIFY_TEMPORAL` (`SUBTYPE=0x04, discrim=0x06`) records an in-place update of
+the `ValidFrom`/`ValidTo` system-time period columns on the current-table row.
+The legacy form (`SUBTYPE=0x00, discrim=0x06`) was used in SQL Server 2017 for
+the same operation.  Both use the same MODIFY payload layout as regular MODIFY.
 
 `MODIFY_LOB` and `MODIFY` have identical payload layouts; both are accepted.
 
@@ -129,9 +155,16 @@ byte[0x42–0x43]  redo_size   uint16 LE  length of after-image bytes
 byte[0x44–0x45]  fixed_end   uint16 LE  fallback for row_start (coincides when update
                                           starts at the first variable-length field)
 byte[0x46–0x4B]  (internal, not used)
-byte[0x4C : 0x4C+undo_size]               UNDO data (before-image at row[row_start:])
-byte[0x4C+undo_size : 0x4C+undo_size+redo_size]  REDO data (after-image)
+byte[0x4C : 0x4C+undo_size]                          UNDO data (before-image at row[row_start:])
+byte[0x4C+round4(undo_size) : 0x4C+round4(undo_size)+redo_size]  REDO data (after-image)
+  where round4(n) = (n + 3) & ~3  (next multiple of 4 ≥ n)
 ```
+
+The UNDO and REDO sections are **separated by 0–3 alignment padding bytes**
+to bring `redo_data` to a 4-byte boundary.  The padding bytes are zeros and
+must be skipped when computing the redo offset.
+
+Source: `logtail.py:1268-1270`, `logtail.py:2204-2207`, `logtail.py:2253`.
 
 Row reconstruction:
 ```
@@ -139,8 +172,15 @@ Row reconstruction:
 before_row = row[:row_start] + undo_data + row[row_start+redo_size : last_var_end(row)]
 
 # REDO (committed UPDATE — apply after-image):
-after_row  = row[:row_start] + redo_data + row[row_start+undo_size : last_var_end(row)]
+redo_off = 0x4C + round4(undo_size)
+after_row = row[:row_start] + redo_data + row[row_start+undo_size : last_var_end(row)]
 ```
+
+**REDO LSN gating**: a REDO patch is applied only when the page LSN
+(`page_lsn_tuple(page.header.lsn)`) is strictly less than the record LSN
+(i.e. the page was last written *before* the UPDATE committed).  Pages already
+ahead of the record LSN have already absorbed the change and must not be
+patched again.
 
 #### 9.1.8 Block-boundary record handling
 

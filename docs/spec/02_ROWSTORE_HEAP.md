@@ -6,10 +6,11 @@ _Part of the [mssqlbak spec suite](00_MASTER.md). See [01_COMMON files](01_PAGE.
 
 ## 1. Routing trigger
 
-**StoragePath:** `ROWSTORE_HEAP`
-**Set by:** `read_table_rows` (`mssqlbak/rows.py:860`) when `table.index_id == 0` (heap, no clustered index) and `cmprlevel == 0`
+**StoragePath:** `ROWSTORE_HEAP` (spec abstraction, not a code symbol)
+**Set by:** `read_table_rows` (`mssqlbak/rows.py:1132`) when `table.compression == 0` and `table.index_id == 0` (heap).
+Routing is driven by `table.compression` (`rows.py:1194`) and `table.is_memory_optimized` (`extract.py:494`).
 **Catalog signal:** `sysrowsets.cmprlevel == 0`, `sys.indexes.type == 0` (heap)
-**Decode entry point:** `rows.py:860` → `decode_record()` → FixedVar path
+**Decode entry point:** `rows.py:1132` → `decode_record()` (`records.py:69`) → FixedVar path
 
 ---
 
@@ -61,28 +62,28 @@ NOT NULL column with a DEFAULT without rewriting existing rows.  Pre-DDL rows
 have a shorter `fixed_end` (fixed columns) or fewer variable entries (variable
 columns).  The parser returns `default_bytes` for absent columns.
 
-**Inline MAX-type value marker (`0x21`) `[EMPIRICAL]` — G56**: When a
-`varchar(max)`, `nvarchar(max)`, or `varbinary(max)` column stores its value
-**inline** (the full value fits in the row, below the off-row threshold of roughly
-8 000 bytes), SQL Server prepends a single `0x21` (33) type-marker byte to the
-variable-column payload in a FixedVar or CD record.  The actual value begins at
-offset 1.
+**Inline MAX-type value marker (`0x21`) `[EMPIRICAL]` — G56**: For some
+`max`-length column types, SQL Server prepends a single `0x21` (33) type-marker
+byte to the variable-column payload in a FixedVar or CD record.  The actual
+value begins at offset 1.
 
 ```
 [var_col bytes]  0x21  <actual_payload>
 ```
 
-Decision rules (`rows.py: read_table_rows`, col.max_length == -1 check):
+Decision rules (`rows.py: read_table_rows`, `col.max_length == -1` check,
+source lines ~1395–1415):
 
-- If `cell[0] != 0x21` or `max_length != -1`: no stripping; value is the raw bytes.
-- If `col.type_id == 231` (nvarchar(max)) **and** `len(cell) % 2 == 0`: **do NOT strip**.
+- If `cell[0] != 0x21` or `max_length != -1`: no stripping; value is raw bytes.
+- `nvarchar(max)` (`type_id == 231`): strip `0x21` prefix, **unless** `len(cell) % 2 == 0`.
   An even total length means `0x21` is the first byte of a two-byte UTF-16LE character
-  (e.g. U+0421 Cyrillic С, U+7121 CJK 無) — stripping would leave an odd-length
-  buffer that decodes as `None`.  A genuine `0x21` prefix always yields an odd total
-  length (1 prefix + even-length UTF-16LE payload).
-- Otherwise: strip the leading `0x21` byte.
+  (e.g. U+0421 Cyrillic С) — stripping would leave an odd-length buffer.
+  A genuine `0x21` prefix always yields an odd total length (1 prefix + even UTF-16LE).
+- `varchar(max)` (`type_id == 167`) and `varbinary(max)` (`type_id == 165`): **only strip**
+  when the table name starts with `__cs_delta_` (columnstore delta-store staging tables).
+  In regular rowstore tables a leading `0x21` is genuine data (e.g. a comment starting
+  with `!` in varchar(max)) and must NOT be stripped.
 
-Applies to all three MAX types (varchar/nvarchar/varbinary).
 Census tag: `u21:strip-all` when stripped; `u21:keep-even` when the nvarchar
 even-length guard fires.
 Fixture: `tests/fixtures_2022/nvarchar_max_u21_full.bak`; test:
@@ -117,4 +118,47 @@ record (found at the destination slot) and skips the stub.
 There is no `status_B` byte in the forwarding stub; the RID occupies bytes 1–8
 immediately following `status_A`.  The back-pointer in the forwarded record
 (trailing after column data) is ignored by the current parser.
+
+---
+
+## 4. Heap / IAM enumeration `[EMPIRICAL]`
+
+Source: `rows.py: _iter_heap_pages`, lines ~542–616.
+
+A heap table's pages are enumerated via its IAM chain:
+
+1. Get the `pgfirstiam` pointer from `sysallocunits` (the `AllocUnit.first_iam` field).
+2. Walk the IAM page chain (following `next_page` in each IAM page header).
+   For each IAM page:
+   a. Read 8 SPA slots at offset 140 (`_IAM_SPA_OFFSET`), each `(file_id u16, page_id u32)`.
+      Non-zero slots are individual pages from mixed extents; yield each.
+   b. Read the extent bitmap at offset 194 (`_IAM_BITMAP_OFFSET`):
+      each set bit at position `k` → pages `[k×8 .. k×8+7]` in the file.
+   c. For each page: verify `m_type == 1` (DATA) and `obj_id == expected_obj_id`.
+      Skip pages that do not match.
+3. Collect all primary records from each page (see §2.8 in `01_PAGE.md`).
+
+---
+
+## 5. FixedVar record decoding rules `[CONFIRMED]`
+
+Source: `records.py: decode_record` (line 69), `_record_columns` (`rows.py:80`).
+
+**NOT-NULL trailing omission**: sysrscols `status & 0x80` marks a column as NOT NULL.
+If a NOT NULL fixed column's bytes lie beyond `fixed_end` (the row is shorter
+than `leaf_offset + col_size`), the column is still decoded — SQL Server pads
+with zeroes for pre-DDL rows before a NOT NULL default column was added.
+
+**Trailing column omission** (variable columns): if the variable-column count
+`nvar` in the record is less than the number of variable columns in the schema,
+the trailing variable columns are absent from the record.  The parser returns
+`None` (NULL) for absent trailing variable columns.
+
+**Dropped fixed columns**: if `sysrscols` has no entry for a column that
+`syscolpars` declares as fixed-length, the column's bytes remain in the row
+at their original offset (SQL Server does not reclaim fixed bytes on `ALTER TABLE
+DROP COLUMN`).  The `_infer_dropped_col_offsets` fallback (§4.6 in `01_CATALOG.md`)
+maps the gap to the dropped column so callers can skip it.
+
+Source: `records.py:119-140`, `catalog.py: _infer_dropped_col_offsets`.
 

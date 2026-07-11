@@ -46,8 +46,12 @@ without inflating an entire logical table.
    values by column segment instead of by row. The segment reader handles
    dictionary/value encoding, biased integer encoding, RLE, bit-packing, and
    row-group ordering effects that improve compression for repeated values. The
-   implementation is in `columnstore.py` and the `mssqlbak/columnstore/`
-   decoders.
+   implementation lives in the `mssqlbak/columnstore/` package:
+   `storage/segment_meta.py` (metadata offsets), `decode/bitpack.py`
+   (bit-packing), `decode/value_for.py` (enc=1/2/4 value arithmetic),
+   `decode/dict_numeric.py` / `decode/dict_string.py` /
+   `decode/dict_xvelocity.py` (dictionary formats), and
+   `assembly/reader.py` (row assembly).
 
 3. **Columnstore ARCHIVE XPRESS** (`COLUMNSTORE_ARCHIVE`,
    [07_COLUMNSTORE_ARCHIVE.md](07_COLUMNSTORE_ARCHIVE.md)). ARCHIVE compression
@@ -57,7 +61,8 @@ without inflating an entire logical table.
    path to a general-purpose byte-stream compressor, but it is applied after the
    columnar stream has already been normalized. The codec is documented in
    [01_XPRESS.md](01_XPRESS.md) and implemented by `xpress.py` plus
-   `rust/src/xpress_lz77_*.rs`.
+   `rust/src/xpress_lz77_*.rs`. The enc=5 raw formats (A/B/C/D) and the archive
+   wrapper are in `mssqlbak/columnstore/decode/enc5_raw.py`.
 
 4. **XTP / In-Memory OLTP checkpoint storage** (`XTP_CHECKPOINT`,
    [08_XTP_CHECKPOINT.md](08_XTP_CHECKPOINT.md)). XTP is not page compression and
@@ -132,25 +137,36 @@ the offsets it documents):
 
 | Spec section | Source module(s) | Key symbols |
 |--------------|------------------|-------------|
-| §1.1 MTF container | `reader.py` | `_COMMON_HDR`, `_TAPE_*`, `_SSET_*`, `_parse_mtf_date` |
-| §1.2 MSSQLBAK container | `compressed.py`, `xpress.py` | `_V1`, `_V2`, `_Layout`, `_kraft_complete` |
+| §1.1 MTF descriptors | `reader.py` | `_COMMON_HDR`, `_TAPE_*`, `_SSET_*`, `_parse_mtf_date`, `_MQCI_TAG`, `_MQCI_*_LSN_OFF` |
+| §1.1 MTF page-image | `mtf.py` | `build_mtf_page_index`, `_scan_image_start`, `_walk_image_pages`, `_ReaderView` |
+| §1.2 MSSQLBAK container | `compressed.py`, `xpress.py` | `_V1`, `_V2`, `_Layout`, `_kraft_complete`, `_decode_chunk` |
 | §2 MDF page header / slots | `pages.py` | `_H_*`, `PageHeader.parse`, `Page` |
-| §2.5 IAM bitmap | `rows.py` | `_IAM_BITMAP_OFFSET = 194` |
-| §2.6 boot page | `catalog.py` | `_find_sysallocunits_first_page`, `_BOOT_PAGE_ID = 9` |
+| §2.5 IAM bitmap | `rows.py` | `_IAM_BITMAP_OFFSET = 194`, `_IAM_SPA_OFFSET = 140`, `_IAM_SPA_SLOTS = 8` |
+| §2.6 boot page | `catalog.py` | `_find_sysallocunits_first_page`, `_SYSALLOCUNITS_PTR_OFF = 516`, `_DBI_COLLATION_OFF = 392` |
 | §3.1 FixedVar record | `records.py` | `decode_record`, `_HAS_VARCOLS`, `_COMPLEX_COL` |
-| §3.4 CD record | `rowcompress.py` | `_parse_cd`, `_CD_*`, `_CLUSTER = 30` |
-| §3.5 Always Encrypted (AE) | `types.py`, `catalog.py` | `_decode_nchar`, `Column.is_encrypted`, `_is_ae_column` |
-| §3.6 Page CI | `rowcompress.py` | `parse_page_ci`, `_CI_HAS_ANCHOR = 0x02`, `_CI_HAS_DICT = 0x04` |
-| §4 system catalog | `catalog.py` | `_SYS*_COLS` (built by `_layout`), `_PARTITION_SHIFT` |
-| §5 type layouts | `types.py` | `_DECODERS`, `_DT2_TIME_LEN` |
-| §5.1 sql_variant | `types.py` | `_decode_sql_variant`, `_VARIANT_*` |
-| §6 LOB / off-row | `rows.py`, `catalog.py` | `_BLOB_*`, `_RID`, `_stitch_lob`, `_read_lob_node_c` |
-| §7 columnstore | `columnstore.py` | `_SEG_*`, `_DICT_*`, `_BP_BPV`, `_COLUMN_LOB_*`, `_ENC5_*` |
-| §8 XPRESS | `xpress.py`, `rust/src/xpress_lz77_*.rs` | `decompress`, `MAX_CODEWORD_LEN` |
-| §9 log tail | `logtail.py` | `LOP_*`, `APAD`/`MSLS` scan |
-| §10 XTP checkpoint | `xtp.py`, `compressed.py` | `scan_cfp_log_records`, `_seq_complete_rows`, `_CKPT_PREAMBLE_SIG`, `_decode_chunk` |
+| §3.4 CD record | `rowcompress.py` | `_parse_cd`, `_CD_*`, `_CLUSTER = 30`, `physical_columns`, `decode_compressed_value` |
+| §3.5 Always Encrypted (AE) | `types.py`, `catalog.py` | `_decode_nchar`, `Column.is_encrypted`, `_is_ae_column`, `_AE_COLLATION_MAX = 0x4000` |
+| §3.6 Page CI | `rowcompress.py` | `parse_page_ci`, `_CI_HAS_ANCHOR = 0x02`, `_CI_HAS_DICT = 0x04`, `_expand_prefix` |
+| §4 system catalog | `catalog.py` | `_SYS*_COLS` (built by `_layout`), `_PARTITION_SHIFT`, `_record_columns` |
+| §5 type layouts | `types.py` | `_DECODERS`, `_DT2_TIME_LEN`, `SUPPORTED_TYPE_IDS`, `SUPPORTED_UDT_TYPE_IDS` |
+| §5.1 sql_variant | `types.py` | `_decode_sql_variant`, `_VARIANT_*`, `_VARIANT_BASE_TYPES` |
+| §5.x json/vector | `types.py` | `decode_native_json`, `decode_vector`, `NATIVE_JSON = 244`, `NATIVE_VECTOR = 255` |
+| §6 LOB / off-row | `rows.py`, `catalog.py` | `_BLOB_*`, `_RID`, `_stitch_lob`, `_read_lob_node`, `_read_lob_node_c` |
+| §7 columnstore segment metadata | `columnstore/storage/segment_meta.py` | `_SEG_*`, `_DICT_*` |
+| §7 columnstore LOB / preamble | `columnstore/storage/lob.py` | `_COLUMN_LOB_PREAMBLE`, `_COLUMN_LOB_CHUNK`, `_COLUMN_LOB_SEP`, `_deinterleave_column_lob`, `_unwrap_archive_blob` |
+| §7 columnstore bitpack | `columnstore/decode/bitpack.py` | `_BP_BPV`, `_bitpack_values`, `_true_bp_start`, `_bp_for_base` |
+| §7 columnstore value decode | `columnstore/decode/value_for.py` | `_decode_enc1`, `_apply_mag`, `_int_to_python`, `_enc4_null_sentinel` |
+| §7 columnstore numeric dict | `columnstore/decode/dict_numeric.py` | `_parse_numeric_dict_int`, `_parse_numeric_dict_float`, `_decode_enc2_int_dict`, `_decode_enc2_float_dict` |
+| §7 columnstore string dict | `columnstore/decode/dict_string.py` | `_parse_dict_strings`, `_parse_max_dict_entries`, `_combine_enc3_dicts`, `_decode_enc3` |
+| §7 columnstore xVelocity dict | `columnstore/decode/dict_xvelocity.py` | `_V4_*`, `_V7_*`, `_decode_v4_huff_dict`, `_split_v4_record`, `_build_huff_table`, `_huff_decode_page_py` |
+| §7 columnstore archive enc=5 | `columnstore/decode/enc5_raw.py` | `_ENC5_*`, `_decode_enc5`, `_multichunk_xpress_header`, `_ARCHIVE_*` |
+| §7 columnstore assembly | `columnstore/assembly/reader.py` | `read_columnstore_rows`, `read_columnstore_batches`, `_load_one_string_dict`, `_active_columnstore_group_keys` |
+| §7 columnstore delta | `columnstore/assembly/delta.py` | `_read_columnstore_delta_rows` |
+| §8 XPRESS | `xpress.py`, `rust/src/xpress_lz77_*.rs` | `decompress`, `_BitStream`, `_build_decode_table`, `_decompress_python` |
+| §9 log tail | `logtail.py` | `LOP_*`, `find_log_range`, `iter_log_records`, `collect_redo_patches`, `_log_block_sector_byte` |
+| §10 XTP checkpoint | `xtp.py`, `compressed.py` | `scan_cfp_log_records`, `decode_cfp_log_records`, `_seq_complete_rows`, `_CKPT_PREAMBLE_SIG`, `_decode_chunk` |
 | §11 Layout register | `catalog.py`, `rows.py` | `_record_columns`, `leaf_offset`, `null_bit` |
-| §12 Version evolution | `compressed.py`, `columnstore.py`, `rows.py`, `catalog.py` | version-boundary handling per `Vnn` ID |
+| §12 Version evolution | `compressed.py`, `columnstore/` package, `rows.py`, `catalog.py` | version-boundary handling per `Vnn` ID |
 
 ### Coverage model
 
@@ -306,7 +322,7 @@ documented in §9.1 (G50–G52 fully resolved):
 | G51 | Block types: 0x50=opening (records at +0x48), 0x40=continuation (records at +0x00); `_read_log_payload` skips status byte 0x00 sub; record-header straddle detection at positions 4072/4080/4088 using 64-byte stitched buffer | `dirtycoverage_wide.bak` MODIFY record spanning block boundary; all before-image column values restored | `test_dirty_backup.py` |
 | G52 | All six LOP codes with SUBTYPE+discriminant: INSERT(0x04,0x02), DELETE(0x04,0x03), MODIFY_LOB(0x04,0x04), BEGIN(0x00,0x80), COMMIT(0x00,0x81), ABORT(0x00,0x82); INSERT/DELETE/MODIFY payload layouts fully documented | `dirtycoverage_aborted_xact.bak`; `sys.fn_dump_dblog` confirms all field offsets | `test_spec_probe.py`, `test_dirty_backup.py` |
 | G21 | System catalog base-table object IDs stable across SQL Server versions | 50 real-world samples from SQL Server 2006–2025 all decode with the same object IDs; no version-specific variation observed | — |
-| G53 | Always Encrypted (AE) nvarchar/nchar columns store AEAD ciphertext (version byte `0x01`, 32B auth-tag, 16B IV, N×16B ciphertext; always odd total length).  BIN2 collation (`collation_id` in `[1, 0x10000)`) detected at catalog level; odd byte-length at decode level.  Parser returns `None` for all AE column values. | `AdventureWorks2016_EXT.bak` `CustomerPII.SSN` (81B, odd, first byte `0x01`); 18 966 rows extracted with `SSN=None` | — |
+| G53 | Always Encrypted (AE) nvarchar/nchar columns store AEAD ciphertext (version byte `0x01`, 32B auth-tag, 16B IV, N×16B ciphertext; always odd total length).  BIN2 collation (`collation_id` in `[1, 0x4000)` — `_AE_COLLATION_MAX = 0x4000`, `catalog.py:96`) detected at catalog level; odd byte-length at decode level.  Parser returns `None` for all AE column values. | `AdventureWorks2016_EXT.bak` `CustomerPII.SSN` (81B, odd, first byte `0x01`); 18 966 rows extracted with `SSN=None` | — |
 | G54 | cp1252 defines only 251 of 256 byte values; bytes 0x81/0x8D/0x8F/0x90/0x9D are undefined.  Some databases store data in a non-cp1252 code page (cp1251 Cyrillic, cp932 Japanese, raw UTF-8) in a varchar column collated as cp1252.  Observed: `dba.stackexchange.com.bak` `PostHistory.Text`, byte 0x8F at position 1191.  Parser retries decode with `errors='replace'`, substituting U+FFFD for each undecodable byte; row is extracted rather than skipped. | `dba.stackexchange.com.bak` `PostHistory` — `UnicodeDecodeError: 'charmap' codec can't decode byte 0x8f` before fix; table extracted after fix | — |
 | G55 | `syscolpars.collationid` SORTID bit layout.  **Closed.**  Bits 0–7 are the SQL Server Sort Order ID (SORTID); bits 8–15 are sensitivity flags (`0xD0` = CI+AS); bits 16–31 are extra flags (non-zero only on the database-default collation row, e.g. `0x3400` on Latin1_General_CI_AS).  SORTID maps directly to a Windows code page: 0x01→cp1256, 0x03→cp950, 0x07→cp1253, 0x08→cp1252, 0x0C→cp1255, 0x10→cp932, 0x11→cp949, 0x13→cp1250, 0x15→cp1251, 0x19→cp874, 0x1A→cp1254, 0x1F→cp1257, 0x20→cp1258, 0x24→cp936.  All 13 non-cp1252 code pages verified via `unicode_codepage_coverage.bak`. | `unicode_codepage_coverage.bak` probe output + `TestCodecForCollation` (53 tests pass) | `tests/test_unicode_decode.py::TestCodecForCollation` |
 | G57 | Boot-page `DBINFO.dbi_collation`: the database-default collation id is a uint32 LE at byte offset 392 of boot-page 9 record 0 (same bit layout as G55).  String columns whose own `syscolpars.collationid` is 0 inherit it (`catalog.recover_schema`); `confidence.py` reports it. | Live-engine verifier: SS2017/2019/2022/2025 default `SQL_Latin1_General_CP1_CI_AS` → `0x3400D008` at offset 392, equal to `COLLATIONPROPERTY(SERVERPROPERTY('Collation'),'CollationID')`; a `COLLATE Greek_CI_AS` database → `0x0000D007` (field tracks the DB collation, not a constant) | `tests/test_dbi_collation.py` (incl. `@pytest.mark.engine` verifier) |
@@ -397,9 +413,9 @@ overlap.
 | V02 | System catalog page format | Pre-2008 catalog layout | 2008+ catalog layout | 2006 → 2008 | 2008+ only | `[UNKNOWN]` | M | `SalesDBOriginal.bak` |
 | V03 | Heap + XML LOB inline pointer | Pre-2016 LOB ptr layout in heap records with `xml NOT NULL` | Post-2016 layout | 2014 → 2016 | All versions pass as of 2026-06 | `[INVALIDATED]` | — | Hypothesis falsified — see §12.2 V03 |
 | V04 | In-Memory OLTP (Hekaton/XTP) table storage | Not applicable (feature introduced 2014) | XTP checkpoint files; not B-tree pages | — / 2014+ | XTP log/checkpoint records decoded from the decompressed non-page stream when completeness is provable | `[EMPIRICAL]` | M | `AdventureWorks2016_EXT.bak`, `xtp_checkpoint_straddle_full.bak` |
-| V05 | Columnstore enc type: biased integer encoding | `enc=2` (pre-2017 biased RLE/bitpack) | `enc=1` (post-2016 biased RLE/bitpack; different null sentinel) | 2016 → 2017 | Both paths in `columnstore.py` | `[EMPIRICAL]` | S | `NYCTaxi_Sample.bak` (enc=2), `boundarycoverage.bak` (enc=1) |
+| V05 | Columnstore enc type: biased integer encoding | `enc=2` (pre-2017 biased RLE/bitpack) | `enc=1` (post-2016 biased RLE/bitpack; different null sentinel) | 2016 → 2017 | Both paths in `columnstore/assembly/reader.py` and `columnstore/decode/value_for.py` | `[EMPIRICAL]` | S | `NYCTaxi_Sample.bak` (enc=2), `boundarycoverage.bak` (enc=1) |
 | V06 | Columnstore enc=2 integer numeric secondary dictionary | Integer columns may carry a numeric `sec_dict` blob | Same | ≤2016 (observed) | Handled since commit `ec7ebd2` | `[EMPIRICAL]` | S | `NYCTaxi_Sample.bak` (`passenger_count`, `trip_time_in_secs`) |
-| V07 | Columnstore ARCHIVE compression wrapper (enc=5) | Not applicable (feature introduced 2014) | 12-byte frame + optional XPRESS payload per segment/dict blob | — / 2014+ | Handled (`columnstore.py _ENC5_*`) | `[EMPIRICAL]` | E | `cs_lob_preamble.bak` |
+| V07 | Columnstore ARCHIVE compression wrapper (enc=5) | Not applicable (feature introduced 2014) | 12-byte frame + optional XPRESS payload per segment/dict blob | — / 2014+ | Handled (`columnstore/decode/enc5_raw.py _ENC5_*`, `columnstore/storage/lob.py _unwrap_archive_blob`) | `[EMPIRICAL]` | E | `cs_lob_preamble.bak` |
 | V08 | Always Encrypted column metadata | Not applicable (feature introduced 2016) | `crypt_type` + `crypt_property` in `syscolpars`; encrypted values are opaque | — / 2016+ | Pass-through (opaque bytes returned) | `[EMPIRICAL]` | S | `AdventureWorks2016_EXT.bak` |
 | V09 | Temporal types (`date`, `time`, `datetime2`, `datetimeoffset`) | Not applicable (introduced 2008) | Variable-length fixed-field encoding (§5) | — / 2008+ | Handled (`types.py _DT2_TIME_LEN`) | `[CONFIRMED]` | — | `typecoverage_full.bak` |
 | V10 | Row / Page CD compression format | Not applicable (introduced 2008) | CD record format (§3.4) | — / 2008+ | Handled (`rowcompress.py`) | `[EMPIRICAL]` | E | `compressioncoverage_full.bak` |
@@ -699,7 +715,7 @@ not all are demonstrably present in the committed fixture corpus.
 | VC02 | LOB on-page record `btyp` | §6.2 | 3 (DATA / `DATA`), 2 (LARGE_ROOT / `INTERNAL`), 5 (ROOT / `LARGE_ROOT_YUKON`) | 2 ✅ G31, 5 ✅ G31; 3 implicitly traversed in every LOB chain | btyp=3 has no independent verifier sidecar | S | **partial** | `DBCC PAGE (<db>, 1, <DATA-leaf-page>, 3)` on `cs_lob_preamble2.bak`; commit result as `G31b.json`.  All three btyp values are corroborated by Kazamiya forensicist blog + Korotkevitch aboutsqlserver.com |
 | VC03 | LOB btyp=2 `max_links` at `+14` | §6.2 | `0x0002` (2-slot INTERNAL node), `0x0004` (4-slot INTERNAL node) | `0x0002` in `cs_lob_preamble2.bak` (likely); `0x0004` status unknown | `max_links=4` node — no committed fixture confirmed | S | **open** | Research: btyp=2 nodes with `max_links=4` appear when the LOB tree fan-out uses 4-child internal nodes. Probe `cs_lob_preamble2.bak` INTERNAL pages with DBCC PAGE to check `MaxLinks` value; if only 2-slot nodes seen, generate a LOB value large enough to require 4+ level-1 children.  **Note:** previous name "flags / format_version" was incorrect — external sources confirm this is `MaxLinks` (node link capacity), not a format version. |
 | VC04 | MSSQLBAK `version word 2` [12:16] | §1.2.1, G04 | 0, 1, 2 (all three observed) | Not tracked per fixture | All three values — fixture association uncatalogued | L | **not catalogued** | `python -c "import sys; d=open(sys.argv[1],'rb').read(); print(int.from_bytes(d[12:16],'little'))" <fixture>.bak` on each compressed fixture; record value per SS version in G04 detail note |
-| VC05 | Columnstore segment blob `block_size` at `+24` | §7.3 | "always 512" (one value ever observed) | 512 only | Non-512 (theoretical) | S | **assumed-constant** | Add assertion `assert block_size == 512` in `columnstore.py` so any deviation surfaces as a loud error rather than silent wrong data |
+| VC05 | Columnstore segment blob `block_size` at `+24` | §7.3 | "always 512" (one value ever observed) | 512 only | Non-512 (theoretical) | S | **assumed-constant** | Add assertion `assert block_size == 512` in `columnstore/storage/segment_meta.py` so any deviation surfaces as a loud error rather than silent wrong data |
 | VC06 | Columnstore ARCHIVE blob `flags` at `+0` | §7.4 | "observed: 0" | 0 only | Non-zero (theoretical) | M | **assumed-constant** | Add assertion in `_unwrap_archive_blob`; document assumption in §7.4 |
 | VC07 | MTF `string_type` (common block header `+48`) | §1.1.1 | `0x00` none, `0x01` ANSI, `0x02` UTF-16LE | `0x02` only | `0x00`, `0x01` | L | **not actionable for SS2017+** | `0x02` is invariant for all supported SQL Server versions; `0x01` is a pre-SQL Server 7 artifact.  Close if the SS2017+ target is confirmed as the floor. |
 | ~~VC08~~ | Columnstore `enc_type` | §7.1 | 1, 2, 3, 4, 5 | 1 ✅, 2 ✅ (NYCTaxi_Sample), 3 ✅, 4 ✅, 5 ✅ | — | S | **CLOSED** | — |
@@ -746,7 +762,7 @@ fixtures built from different SS versions.  Record the value in the G04 detail
 note (§10).
 
 **VC05 / VC06 (assumed-constant fields)** do not need new fixtures.  The closing
-action is adding an explicit `assert` or `raise ValueError` in `columnstore.py`
+action is adding an explicit `assert` or `raise ValueError` in `columnstore/storage/segment_meta.py`
 so that any future backup with a non-512 block_size or non-zero archive flags
 produces a clear error rather than silent wrong data.
 

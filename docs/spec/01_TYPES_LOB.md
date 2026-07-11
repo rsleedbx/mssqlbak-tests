@@ -21,7 +21,7 @@ All layouts are little-endian unless noted.  Confirmed against
 | `datetime` | 61 | `uint32` 1/300-s ticks since midnight + `int32` days from 1900-01-01 |
 | `datetime2(n)` | 42 | `_DT2_TIME_LEN[n]` bytes LE time + 3-byte date |
 | `datetimeoffset(n)` | 43 | datetime2 + `int16` offset minutes |
-| `char(n)` | 175 | `n` bytes, cp1252 (or UTF-8 if collation bit 0x100 set); bytes undefined in cp1252 (0x81/0x8D/0x8F/0x90/0x9D) or non-matching code page → U+FFFD (see §3.6) |
+| `char(n)` | 175 | `n` bytes, code page from collation (§5.3); undefined bytes → `?` (U+003F) — decoded with `errors='replace'`, then U+FFFD replaced with `?` |
 | `varchar(n)` | 167 | variable, same encoding and same fallback |
 | `nchar(n)` | 239 | `2n` bytes UTF-16LE; **AE**: odd-length AEAD ciphertext → NULL (§3.5) |
 | `nvarchar(n)` | 231 | variable, UTF-16LE; **AE**: odd-length AEAD ciphertext → NULL (§3.5) |
@@ -34,9 +34,9 @@ All layouts are little-endian unless noted.  Confirmed against
 | `rowversion`/`timestamp` | 189 | 8 opaque bytes (engine-assigned) |
 | `sql_variant` | 98 | `[base_type][version=1][type metadata][value]` (§5.1) |
 | `xml` | 241 | Binary XML blob (MS-BINXML) — see §5.2 |
-| CLR UDT | 240 | CLR serialization bytes; subtypes dispatched on `user_type_id` |
-| `json` (SS2025+) | 244 | Proprietary binary blob; mssqlbak returns raw `bytes`.  `NATIVE_JSON` in `types.py`.  Mapped to `pa.binary()` in the Arrow path. |
-| `vector(N)` (SS2025+) | 165 (`varbinary`) | Stored as `varbinary` on-disk.  8-byte header followed by N × float32-LE values: `[format_id u16-LE (0x01A9)][dims u16-LE][flags u32-LE (0)][float32 × N]`.  mssqlbak returns raw `bytes`; callers decode with `struct.unpack_from(f"<{N}f", raw, 8)`. |
+| CLR UDT | 240 | CLR serialization bytes; subtypes dispatched on `user_type_id` — see §5.4 |
+| `json` (SS2025+) | 244 (`NATIVE_JSON`) | Proprietary binary blob (`MSJSONB` format, §5.5); mssqlbak decodes it to a Python `str` (UTF-8 text). Arrow mapping: `pa.string()`. |
+| `vector(N)` (SS2025+) | 165 (`varbinary` on-disk; `NATIVE_VECTOR = 255` by `user_type_id`) | On-disk: `[0xA9][0x01][dims u16-LE][reserved u32-LE = 0][float32 × N]`.  mssqlbak decodes to a JSON-array string e.g. `"[1.0000000e+000,…]"`. Arrow mapping: `pa.string()`. |
 
 `_DT2_TIME_LEN[scale]`:
 
@@ -65,17 +65,113 @@ All layouts are little-endian unless noted.  Confirmed against
 
 ### 5.2 Binary XML (MS-BINXML) `[CORROBORATED]`
 
-Tokenized XML format.  Version byte at offset 0: `0x01` (v1) or `0x02` (v2).
-Details in `xmlbin.py`.  Not reproduced here (subject to change).
+Tokenized XML format.  Signature: `0xDF 0xFF` at bytes 0–1; **version byte
+at offset 2**: `0x01` (v1) or `0x02` (v2).  Details in `xmlbin.py`.  Not
+reproduced here (subject to change).
+
+### 5.3 Collation → code-page mapping `[CONFIRMED]`
+
+Source: `types.py: _SORTID_TO_CODEC`, `_codec_for_collation`.
+
+The SORTID (bits 7–0 of `syscolpars.collationid`) selects the Python codec.
+Bit 8 (`0x100`) overrides to UTF-8 regardless of SORTID.
+
+| SORTID | Python codec | SQL Server collation family |
+|--------|-------------|----------------------------|
+| `0x01` | `cp1256` | Arabic |
+| `0x03` | `cp950` | Chinese_Taiwan_Stroke (Traditional Chinese / Big5) |
+| `0x07` | `cp1253` | Greek |
+| `0x08` | `cp1252` | Latin1_General (also the unknown-SORTID fallback) |
+| `0x0C` | `cp1255` | Hebrew |
+| `0x10` | `cp932` | Japanese (Shift-JIS) |
+| `0x11` | `cp949` | Korean_Wansung |
+| `0x13` | `cp1250` | Polish / Central European |
+| `0x15` | `cp1251` | Cyrillic_General (Russian) |
+| `0x19` | `cp874` | Thai |
+| `0x1A` | `cp1254` | Turkish |
+| `0x1F` | `cp1257` | Lithuanian / Baltic |
+| `0x20` | `cp1258` | Vietnamese |
+| `0x24` | `cp936` | Chinese_PRC (Simplified Chinese / GBK) |
+
+Unknown SORTIDs fall back to `cp1252`.  The `collationid` value `0` (absent)
+inherits the database-default collation read from `DBINFO.dbi_collation` at
+boot-page offset 392 (`catalog.py: _DBI_COLLATION_OFF`).
+
+### 5.4 CLR UDT subtypes `[CONFIRMED]`
+
+Source: `types.py: UT_HIERARCHYID`, `UT_GEOMETRY`, `UT_GEOGRAPHY`,
+`SUPPORTED_UDT_TYPE_IDS`.
+
+| `user_type_id` | Name | Python return |
+|----------------|------|---------------|
+| 128 (`UT_HIERARCHYID`) | `hierarchyid` | opaque `bytes` (ORDPATH encoded) |
+| 129 (`UT_GEOMETRY`) | `geometry` | opaque `bytes` (WKB or native binary) |
+| 130 (`UT_GEOGRAPHY`) | `geography` | opaque `bytes` (WKB-like, lat/lon swapped) |
+
+Other CLR UDT `user_type_id` values are passed through as raw `bytes`.
+
+### 5.5 MSJSONB decoder (SS2025 native json) `[EMPIRICAL]`
+
+Source: `types.py: decode_native_json`.
+
+The binary JSON format begins with a 2-byte header `0x10 0x00` followed by a
+4-byte sentinel `0x62 0xB4 0xF0 0xDF` and a varint-encoded entry count.
+Object key names and values are encoded with 1-byte type tags followed by
+varint lengths for strings and nested containers.  The decoder produces a
+Python `str` (via `json.dumps`) rather than raw bytes.
+
+Value-entry tags (selected):
+- `0x00`: integer (varint)
+- `0x01`: string (varint length + UTF-8 bytes)
+- `0x02`: float64 LE
+- `0x03`: `true`
+- `0x04`: `false`
+- `0x05`: `null`
+- `0x40xx`: nested object (varint entry count)
+- `0x80xx`: nested array (varint entry count)
+- `0xC0xx`: literal (`0x00`=false, `0x01`=true, `0x02`=null, `0x04`={}, `0x06`=[])
 
 ---
 
 ## 6. LOB / Off-Row Structures
 
-There are **two distinct structures** in the LOB path.  Source:
+There are **three distinct off-row pointer structures** in the LOB path.
+Source:
 `rows.py: _stitch_lob`, `_read_lob_node`,
 `_BLOB_ROOT_HDR = 12`, `_BLOB_LINK_SIZE = 12`, `_BLOB_HDR = 14`, `_RID`;
 parallel reader in `catalog.py: _follow_lob` / `_read_lob_node_c`.
+
+> **Implementation note (`nlinks` field)**: `rows.py: _read_lob_node` derives
+> `nlinks` from the record length: `nlinks = (len(inline) - 12) // 12` (no
+> stored count).  `catalog.py: _read_lob_node_c` reads `nlinks` as a `uint32`
+> at byte 16 of the inline-root.  When both paths walk the same LOB the counts
+> agree for all tested fixtures, but the derivation method differs.  G31 leaves
+> this open pending a DBCC verifier that explicitly prints the inline-root link
+> count.
+
+### 6.0 ROW_OVERFLOW pointer (struct_type = 2) `[EMPIRICAL]`
+
+Source: `rows.py: _ROW_OVERFLOW_TYPE = 2`, `_ROW_OVERFLOW_PTR_SIZE = 24`.
+
+When a fixed-width or narrow variable-width column is pushed off-row by SQL
+Server's row overflow mechanism (columns that push the row past 8060 bytes), a
+24-byte inline pointer replaces the value bytes in the variable column slot:
+
+```
+[+0:2]  u16 LE  struct_type = 2   (distinguishes ROW_OVERFLOW from _BLOB_INLINE_ROOT=4)
+[+2:4]  u16 LE  level = 0
+[+4:6]  u16 LE  file_id            database file containing the overflow page
+[+6:8]  u16 LE  slot               slot index on the overflow page
+[+8:12] u32     internal tracking  (not used for decode)
+[+12:16] u32 LE data_len           byte length of the column value on the overflow page
+[+16:20] u32 LE page_id            page number within file_id
+[+20:24] u32    reserved
+```
+
+The overflow page is a `LOB_DATA` page (m_type 3 or 4); slot `slot` on page
+`(file_id, page_id)` holds the column bytes directly.  The parser reads the
+inline 24-byte block at `struct_type == 2` before checking for `struct_type == 4`
+(the normal LOB inline-root path).
 
 ### 6.1 In-row inline root (the LOB pointer inside the data row) `[CORROBORATED]`
 
@@ -189,8 +285,31 @@ Legacy large-value columns store a 16-byte text pointer in the FixedVar record:
 [+14]  uint16 LE  slot_id     ┘
 ```
 
-Text-tree node types (`rows.py`): `0`=`_TEXT_SMALL_ROOT`, `3`=`_TEXT_DATA`,
-`5`=LARGE_ROOT (same btyp=5 layout as §6.2).
+Text-tree node types (`rows.py`): `0`=`_TEXT_SMALL_ROOT`, `2`=`_TEXT_INTERNODE`,
+`3`=`_TEXT_DATA`, `5`=`_TEXT_LARGE_ROOT` (same btyp=5 layout as §6.2).
+
+**btyp = 0 (SMALL_ROOT)** — entire value fits in the page slot.
+```
+body[0:2]  u16 LE  data_len     length of inline data
+body[2:6]          unknown      (4 bytes; skipped by parser)
+body[6:]           data bytes   data_len bytes of raw content
+```
+Source: `rows.py: _TEXT_SMALL_ROOT`, `_TEXT_SMALL_DATA_OFF = 6`.
+
+**btyp = 2 (INTERNODE)** — B-tree interior node for very large objects.
+Each interior node holds 16-byte links to child nodes (which may be DATA,
+LARGE_ROOT, or further INTERNODE nodes).
+```
+body[0:2]  u16 LE  unknown
+body[2:4]  u16 LE  nlinks       number of child links
+body[4:6]          unknown
+body[6 ..]         nlinks × 16-byte links:
+    [+0]  u64 LE  cumulative_end_offset  (exclusive byte end of this child's span)
+    [+8]  u32 LE  child_page_id
+    [+12] u16 LE  child_file_id
+    [+14] u16 LE  child_slot_id
+```
+Source: `rows.py: _TEXT_INTERNODE = 2`, `_TEXT_ILINK`, `_TEXT_ILINK_OFF = 6`.
 
 **G32 `[EMPIRICAL]`**: Confirmed against `legacytext.bak` (SS2022).  The data
 page for the `legacy_lob` heap table was found with DBCC IND; DBCC PAGE

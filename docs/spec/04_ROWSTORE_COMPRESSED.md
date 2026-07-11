@@ -6,10 +6,11 @@ _Part of the [mssqlbak spec suite](00_MASTER.md). See [01_COMMON files](01_PAGE.
 
 ## 1. Routing trigger
 
-**StoragePath:** `ROWSTORE_COMPRESSED`
-**Set by:** `read_table_rows` (`mssqlbak/rows.py:860`) when `cmprlevel == 1` (ROW) or `cmprlevel == 2` (PAGE)
+**StoragePath:** `ROWSTORE_COMPRESSED` (spec abstraction, not a code symbol)
+**Set by:** `read_table_rows` (`mssqlbak/rows.py:1132`) when `table.compression in (1, 2)`.
+Routing is driven by `table.compression` (`rows.py:1194`) and `table.is_memory_optimized` (`extract.py:494`).
 **Catalog signal:** `sysrowsets.cmprlevel in (1, 2)`
-**Decode entry point:** `rows.py:860` → `decode_record()` → CD record path → `rowcompress.decode_compressed_value()`
+**Decode entry point:** `rows.py:1132` → `rowcompress.physical_columns()` + `rowcompress.decode_compressed_value()` (not `decode_record()`)
 
 ---
 
@@ -56,9 +57,14 @@ OrcaMDF.
 [+1]  uint16 LE  count   number of long entries
 [+3]  uint16 LE[count]   cumulative end offsets
                           top bit 0x8000 = complex/off-row LOB
-[+3+2*count]  (count-1)//30 + 1 cluster-count bytes  [HEURISTIC — semantics unclear]
+[+3+2*count]  (ncol-1)//30 cluster-count bytes  (num_leading length bytes, one per
+               non-last cluster; present even when `count == 0`)
 [+above]  long entry payloads, contiguous
 ```
+
+Note: the cluster-count skip is `(ncol - 1) // 30` — based on the **total column
+count** `ncol`, not the long-entry count.  Source: `rowcompress.py: _long_region`,
+line ~349: `ptr += (ncol - 1) // _CLUSTER`.
 
 **G17/G18 `[EMPIRICAL]`**: 40-column wide tables (`cmp_row_wide`, `cmp_page_wide`) with ROW and PAGE compression decode all 50 rows and all 40 data columns correctly via `compressioncoverage_full.bak` (SS2022).  The parser navigates the long-data region transparently.  Flag byte and cluster-count semantics remain unconfirmed by DBCC PAGE verifier; marked empirical (no observed counter-example).
 
@@ -204,6 +210,84 @@ temporal history tables (e.g. WideWorldImporters `*_Archive`); failing to
 recognise it caused anchored columns (`_CD_ZERO`) to decode as `0` /
 `0001-01-01` / NULL.  ROW-compressed pages (`cmprlevel = 1`) have no CI structure
 and byte 96 is part of the first data record.
+
+---
+
+## 4. CD decode chain `[EMPIRICAL]`
+
+Source: `rowcompress.py: physical_columns`, `physical_columns_page`,
+`decode_compressed_value`.
+
+The compressed record decode chain is distinct from FixedVar (`decode_record`):
+
+1. `physical_columns(raw)` — parse the CD nibble array and short/long regions
+   into a list of per-column raw bytes (or `None` for NULL/zero).
+   For PAGE-compressed pages, use `physical_columns_page(raw, ci)` which applies
+   the CI anchor prefix to `_CD_ZERO`-nibble columns and dictionary lookup to
+   `_CD_DICT`-nibble columns first.
+2. `decode_compressed_value(col, data)` — dispatch per type:
+   - Fixed-width integers: excess-encoded big-endian (see §3.4).
+   - Temporal types: trailing-zero stripped LE bytes, right-padded to width.
+   - `float`/`smalldatetime`: leading-zero stripped LE bytes, left-padded.
+   - `decimal`/`numeric`: vardecimal format (§4.1).
+   - `nchar`/`nvarchar`: SCSU-encoded (length determines encoding; see §4.2).
+
+---
+
+### 4.1 PAGE anchor-prefix expansion `[EMPIRICAL]`
+
+Source: `rowcompress.py: _expand_prefix`.
+
+For PAGE-compressed records with nibble `_CD_ZERO`, the column value is
+reconstructed from the anchor record's value for that column position plus a
+suffix from the current row.  The expansion:
+
+```
+prefix_len = entry[0]          # normally 1-byte prefix length
+suffix_start = 1
+if prefix_len == 0x80:         # extended form for prefixes >= 128 bytes
+    prefix_len = entry[1]
+    suffix_start = 2
+result = anchor_val[:prefix_len] + entry[suffix_start:]
+```
+
+For dictionary-lookup (`_CD_DICT`): the 1-byte index in the short-data region
+selects a dictionary entry (stored as `[prefix_len byte][suffix bytes]`), and
+the same `_expand_prefix` expansion is applied using the anchor as base.
+
+---
+
+### 4.2 nchar/nvarchar under compression `[EMPIRICAL]`
+
+Source: `rowcompress.py: _decode_unicode`, lines ~671–698.
+
+Compressed `nchar`/`nvarchar` values are NOT always SCSU.  The encoding is
+selected by **byte-length parity**:
+- **Even length**: store as raw UTF-16LE (no SCSU).
+- **Odd length**: store as SCSU.
+
+This is the same discriminator used by SQL Server's SCSU-vs-UTF16 selection;
+an odd-length buffer is guaranteed to be SCSU (UTF-16LE always even).
+
+---
+
+### 4.3 Vardecimal compressed decoder `[EMPIRICAL]`
+
+Source: `rowcompress.py: _decode_vardecimal`, lines ~599–638.
+
+Under ROW/PAGE compression, `decimal`/`numeric` values are stored in a
+bit-packed format (separate from the legacy standalone vardecimal feature):
+
+```
+byte 0:  bit 7   = sign (1=positive, 0=negative)
+         bits 6-0 = exponent, biased by 64
+bytes 1+: big-endian bit stream, read in 10-bit chunks MSB-first;
+          each chunk is one base-1000 digit group (0–999);
+          trailing zero bits are truncated.
+```
+
+The mantissa `M` has `D` decimal digits; the value is
+`sign × M × 10^(exponent - D + 1)`, then quantized to the column's scale.
 
 ---
 

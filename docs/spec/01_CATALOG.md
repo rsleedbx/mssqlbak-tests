@@ -6,28 +6,64 @@ rows to decode user-table records.
 
 ### 4.1 Bootstrap order `[CORROBORATED]`
 
-1. Scan page 9 (`m_type 13`) for the `sysallocunits` root page pointer.
-2. Walk `sysallocunits` (object 7) to find all page chains.
-3. Walk `sysrscols` (object 3) to get column leaf offsets.
-4. Walk `sysrowsets` (object 5) to map rowsets to objects.
-5. Walk `sysschobjs` (object 34) for object names/types.
-6. Walk `syscolpars` (object 41) for column metadata.
+The bootstrap follows a strict dependency order (`catalog.py: _bootstrap`,
+`recover_schema`):
+
+1. **Boot page 9** (`m_type 13`, page 9 of file 1).  The primary path reads
+   the `sysallocunits` first-page pointer at **fixed byte offset 516** of
+   boot-page record 0 (`_SYSALLOCUNITS_PTR_OFF = 516`, G14 `[CONFIRMED]`);
+   a full-scan fallback handles unknown layouts.  Additional fields also read
+   at this step:
+   - `DBINFO.dbi_collation` (database-default collation id) at byte **392**
+     (`_DBI_COLLATION_OFF`, G57 `[CONFIRMED]`).
+   - Three LSN fields: `dbi_checkptLSN` @348, `dbi_differentialBaseLSN` @360,
+     `dbi_dbbackupLSN` @372, each `struct("<IIH")` (10 bytes).
+2. **`sysallocunits` (object 7)** — heap, rowset id = `7 << 16`.  Builds the
+   `owner_to_allocs` map: `{rowset_id: [AllocUnit(first_page, root_page, ...)]}`
+   for every allocation unit in the database.  All further page lookups go
+   through this map.
+3. **`sysrowsets` (object 5)** — heap, rowset id = `5 << 16`.  Builds
+   `obj_to_rowsets`: `{object_id: [(index_id, rowset_id), ...]}` and records
+   `cmprlevel` and `rcrows` per rowset.  Also detects XTP (In-Memory OLTP)
+   object ids by the sysrowsets `status` bit `0x100`.
+   **Must precede sysrscols** (the leaf-page locator for sysrscols uses the
+   rowset map built in this step).
+4. **`sysrscols` (object 3)** — heap.  Provides `leaf_offset`, `null_bit`,
+   `bit_shift`, and `status` (NOT NULL flag bit `0x80`) for every physical
+   column slot in every rowset.  Indexed by `rscolid` (primary) with a
+   `hbcolid` fallback for legacy partition-key rscolids
+   (`_LEGACY_RSCOLID_THRESHOLD = 4096`).
+5. **`sysschobjs` (object 34)** — clustered B-tree.  Provides user-table
+   object names (`type = 'U '`).  Located via `sysrowsets` → B-tree root,
+   descended to leftmost leaf via `_leftmost_leaf_from_root`.
+6. **`syscolpars` (object 41)** — clustered B-tree.  Provides column type
+   metadata (`xtype`, `length`, `collationid`, `status`, `scale`, `prec`,
+   `utype`).
+7. **`sysclsobjs` (object 64)** — clustered B-tree.  Schema-name lookup:
+   `class=0x32` rows map `schema_id → schema_name`.
+8. Optional auxiliary tables: `sysidxstats` (54), `sysiscols` (55),
+   `syssingleobjrefs` (74) for FK/unique-key metadata; `sysobjvalues` (60)
+   for DEFAULT definitions; `sysowners` (27) and `sysprivs` (29) for
+   principals and permissions.
 
 ### 4.2 Object IDs `[CORROBORATED]`
 
-| Object | `obj_id` | Description |
-|--------|----------|-------------|
-| `sysrscols` | 3 | Column storage layout (leaf offsets) |
-| `sysrowsets` | 5 | Rowset → object/index, compression level |
-| `sysallocunits` | 7 | Page chains (`pgfirst`, `pgroot`, `pgfirstiam`) |
-| `sysschobjs` | 34 | Object catalog (name, type) |
-| `syscolpars` | 41 | Column metadata (xtype, length, sparse, etc.) |
-| `sysidxstats` | 54 | Index / constraint metadata |
-| `sysiscols` | 55 | Index key columns |
-| `sysobjvalues` | 60 | DEFAULT / CHECK definition text |
-| `syscscolsegments` | 62 | Columnstore segment metadata |
-| `syscsdictionaries` | 63 | Columnstore dictionary metadata |
-| `syssingleobjrefs` | 74 | FK column mappings |
+| Object | `obj_id` | Decoded by | Description |
+|--------|----------|-----------|-------------|
+| `sysrscols` | 3 | `catalog.py` (`_OBJID_SYSRSCOLS`) | Column storage layout (leaf offsets, null-bitmap positions) |
+| `sysrowsets` | 5 | `catalog.py` (`_OBJID_SYSROWSETS`) | Rowset → object/index, compression level, row count |
+| `sysallocunits` | 7 | `catalog.py` (`_OBJID_SYSALLOCUNITS`) | Page chains (`pgfirst`, `pgroot`, `pgfirstiam`) |
+| `sysowners` | 27 | `catalog.py` (`_OBJID_SYSOWNERS`) | Database principals |
+| `sysprivs` | 29 | `catalog.py` (`_OBJID_SYSPRIVS`) | Object-level permissions |
+| `sysschobjs` | 34 | `catalog.py` (`_OBJID_SYSSCHOBJS`) | Object catalog (name, type `'U '` = user table) |
+| `syscolpars` | 41 | `catalog.py` (`_OBJID_SYSCOLPARS`) | Column metadata (xtype, length, sparse, etc.) |
+| `sysidxstats` | 54 | `catalog.py` (`_OBJID_SYSIDXSTATS`) | Index / constraint metadata |
+| `sysiscols` | 55 | `catalog.py` (`_OBJID_SYSISCOLS`) | Index key columns |
+| `sysobjvalues` | 60 | `catalog.py` (`_OBJID_SYSOBJVALUES`) | DEFAULT / CHECK definition text |
+| `syscscolsegments` | 62 | `columnstore/storage/segment_meta.py` | Columnstore segment metadata (not in catalog.py) |
+| `syscsdictionaries` | 63 | `columnstore/storage/segment_meta.py` | Columnstore dictionary metadata (not in catalog.py) |
+| `sysclsobjs` | 64 | `catalog.py` (`_OBJID_SYSCLSOBJS`) | Schema name → id mappings (`class=0x32` rows) |
+| `syssingleobjrefs` | 74 | `catalog.py` (`_OBJID_SYSSINGLEOBJREFS`) | FK column mappings |
 
 **G21 resolved** — see Guess Register §10.  The object IDs are stable across SQL Server 2006–2025 based on the 50-sample real-world corpus.
 
@@ -126,7 +162,95 @@ from which the catalog bootstrap locates each base table's pages.
 > `container_id = 327680 = 5 × 65536` for `sys.sysrowsets` (object_id 5),
 > `196608 = 3 × 65536` for `sys.sysrscols` (object_id 3),
 > `458752 = 7 × 65536` for `sys.sysallocunits` (object_id 7).
-> Confirmed on SQL Server 2022.  Sidecar: `tests/fixtures/probe/G22.json`.
+> Confirmed on SQL Server 2022.  Sidecar: `tests/fixtures_2022/probe/G22.json`.
+
+---
+
+### 4.5 Catalog page-walking algorithms `[EMPIRICAL]`
+
+Source: `catalog.py: _catalog_iam_pages`, `_walk_leaf`, `_primary_records_from_page`.
+
+**IAM walk** (`_catalog_iam_pages`):
+
+1. Find the `pgfirstiam` pointer for the allocation unit from `sysallocunits`.
+2. Read SPA slots at offset 140 (`_IAM_SPA_OFFSET`, 8 × 6-byte `(file_id u16, page_id u32)`) to collect mixed-extent pages.
+3. Read the extent bitmap at offset 194 (`_IAM_BITMAP_OFFSET`): each set bit → pages `[b×8 .. b×8+7]`.
+4. Follow the IAM `next_page` chain in the page header.
+
+**Primary-record filter** (`_primary_records_from_page`):
+
+- Skip slots where `slot_offset >= free_data` (ghost/version rows above the free-space marker).
+- Skip records where `raw[0] & 0x07 != 0` (not `PRIMARY_RECORD` type).
+
+**B-tree descent for clustered base tables** (`_Bootstrap._leftmost_leaf_from_root`):
+
+Given the root page from the `pgroot` allocation-unit pointer:
+- While `page.header.m_type == 2` (INDEX): read the 6-byte child pointer from the **last 6 bytes** of slot-0's record: `page_id = struct.unpack_from("<I", rec, len(rec)-6)[0]`, `file_id = struct.unpack_from("<H", rec, len(rec)-2)[0]`.
+- Stop when `m_type != 2` (leaf data page).
+
+---
+
+### 4.6 Legacy and dropped-column recovery `[EMPIRICAL]`
+
+Source: `catalog.py: _reconstruct_legacy_rscols`, `_infer_dropped_col_offsets`.
+
+**Legacy sysrscols reconstruction** (SQL Server 2000 → 2005+ upgrades):
+
+When `sysrscols` is empty for a table (`rscolid`-lookup misses), the parser
+synthesizes storage metadata from `syscolpars` alone via
+`_reconstruct_legacy_rscols`:
+
+1. Sort columns by `colid`.
+2. BIT columns are packed 8-per-byte immediately after all other fixed columns.
+3. Fixed-length non-BIT columns are packed from byte 4 (after the 4-byte row
+   header) in colid order; size = `max(1, abs(length))`.
+4. Variable-length columns get negative `leaf_offset` values (−1, −2, …).
+5. All columns are treated as nullable (cannot recover NOT NULL without sysrscols).
+
+**Dropped-column offset inference** (`_infer_dropped_col_offsets`):
+
+When a fixed-length column is dropped from a SQL Server table, the `sysrscols`
+row is removed but the bytes remain in existing rows.  The gap detection:
+1. Collect the `leaf_offset` values present in `sysrscols` for a rowset.
+2. Compute expected fixed-column boundaries based on `syscolpars` column sizes.
+3. Where a gap exists in the offset sequence, match it to a `syscolpars` column
+   by size and colid order — that column is dropped but its bytes are still
+   physically present in old rows.
+
+---
+
+### 4.7 rscolid / hbcolid dual lookup `[EMPIRICAL]`
+
+Source: `catalog.py: _LEGACY_RSCOLID_THRESHOLD = 4096`, `recover_schema`.
+
+`sysrscols` has two column-id fields:
+- `rscolid` — physical slot index in the partition's storage (sequential, starts near 1).
+- `hbcolid` — logical column id matching `syscolpars.colid`.
+
+In modern tables the two are the same or very close.  In tables with legacy
+partition-key rowsets (from SQL Server 2000-era schemas migrated to 2005+),
+`rscolid` is a large partition-key-derived value (`>> 4096`).
+
+The lookup strategy: try `rscolid` first; if no match and `rscolid > 4096`,
+fall back to looking up by `hbcolid`.  The threshold prevents the hbcolid
+fallback from firing on computed/dropped columns where `hbcolid` coincidentally
+equals a modern `rscolid`.
+
+---
+
+### 4.8 XTP (memory-optimized) table detection `[EMPIRICAL]`
+
+Source: `catalog.py: _bootstrap`, line ~1504; `catalog.py: recover_schema`, line ~2200.
+
+A user table is memory-optimized (XTP) when:
+1. `sysrowsets.status & 0x100` is set for any of the table's rowsets.
+2. **All** allocation-unit first/root/IAM page pointers for those rowsets are
+   null (`(0,0)`).  XTP tables have no B-tree pages — their data lives in
+   checkpoint files, not the page stream.
+
+The resulting `Table.is_memory_optimized = True` flag causes the extractor to
+skip the normal page-walk and route to the XTP checkpoint scanner instead
+(`xtp.py: decode_cfp_log_records`).
 
 ---
 

@@ -6,10 +6,11 @@ _Part of the [mssqlbak spec suite](00_MASTER.md). See [01_COMMON files](01_PAGE.
 
 ## 1. Routing trigger
 
-**StoragePath:** `COLUMNSTORE_ARCHIVE`
-**Set by:** `read_table_rows` (`mssqlbak/rows.py:860`) when `table.compression == 4` (cmprlevel=4, ARCHIVE) or `enc == 5` with XPRESS
+**StoragePath:** `COLUMNSTORE_ARCHIVE` (spec abstraction, not a code symbol)
+**Set by:** `read_table_rows` (`mssqlbak/rows.py:1132`) when `table.compression == 4` (cmprlevel=4, ARCHIVE) or `enc == 5` with XPRESS.
+Routing is driven by `table.compression` (`rows.py:1194`).
 **Catalog signal:** `sysrowsets.cmprlevel == 4`
-**Decode entry point:** `columnstore.py` → `read_columnstore_rows()` → `enc5_raw.py`
+**Decode entry point:** `columnstore/assembly/reader.py: read_columnstore_rows()` → `columnstore/decode/enc5_raw.py`
 
 ---
 
