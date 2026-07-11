@@ -11,6 +11,7 @@ what the bytes mean.
 | [`dependencies.md`](dependencies.md) | Runtime dependencies and what was deliberately hand-rolled instead |
 | [`architecture.md`](architecture.md) | Decode pipeline, module map, and Rust / Python split |
 | [`quality-attributes.md`](quality-attributes.md) | Performance, simplicity, readability, scalability, availability, observability, and idempotency tradeoffs |
+| [`module-boundaries.md`](module-boundaries.md) | Package split map — which flat files were split into sub-packages and why |
 
 ## Reading order
 
@@ -24,9 +25,9 @@ what the bytes mean.
 ## Scope
 
 Coverage is limited to the **read/decode path**
-(`reader.py`, `compressed.py`, `mtf.py`, `pages.py`, `catalog.py`, `rows.py`,
-`records.py`, `rowcompress.py`, `types.py`, `columnstore/`, `xtp.py`,
-`logtail.py`, `extract.py`).
+(`reader.py`, `compressed.py`, `mtf.py`, `pages.py`, `catalog/`, `rows.py`,
+`records.py`, `rowcompress.py`, `types/`, `columnstore/`, `xtp.py`,
+`logtail/`, `extract.py`).
 
 Write targets (`sinks/`, `writers/`, `spark_sink.py`, `bacpac.py`) and the
 optional restore path (`mssql_python`) are out of scope here.

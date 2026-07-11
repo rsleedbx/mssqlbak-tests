@@ -28,7 +28,7 @@ flowchart TD
   end
 
   subgraph meta [Metadata]
-    catalog["catalog.py\nsystem-table bootstrap"]
+    catalog["catalog/ package\nsystem-table bootstrap"]
   end
 
   subgraph routing [Table routing — extract.py]
@@ -40,11 +40,11 @@ flowchart TD
     rowcompress["rowcompress.py\nROW / PAGE compressed"]
     cs["columnstore/ package\nCCI delta + segments + archive"]
     xtp["xtp.py\nXTP CFP blocks"]
-    logtail["logtail.py\nlog-tail REDO/UNDO patches"]
+    logtail["logtail/ package\nlog-tail REDO/UNDO patches"]
   end
 
   subgraph types_layer [Type decode]
-    types["types.py\nSQL type → Python value"]
+    types["types/ package\nSQL type → Python value"]
     xmlbin["xmlbin.py"]
     spatial["spatial.py"]
     hier["hierarchyid.py"]
