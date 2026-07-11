@@ -9,7 +9,7 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
-import mssqlbak.rows as R
+import mssqlbak.rows.patch as _patch_mod
 from mssqlbak import logtail as L
 from mssqlbak import types as T
 from mssqlbak.catalog import recover_schema
@@ -80,10 +80,10 @@ def _wrap_splice(name: str, fn):  # type: ignore[no-untyped-def]
     return inner
 
 
-R._apply_redo_patch = _wrap_splice("redo", R._apply_redo_patch)  # type: ignore
-R._apply_redo_patch_cd = _wrap_splice("redo_cd", R._apply_redo_patch_cd)  # type: ignore
-R._apply_before_image = _wrap_splice("before", R._apply_before_image)  # type: ignore
-R._apply_before_image_cd = _wrap_splice("before_cd", R._apply_before_image_cd)  # type: ignore
+_patch_mod._apply_redo_patch = _wrap_splice("redo", _patch_mod._apply_redo_patch)  # type: ignore
+_patch_mod._apply_redo_patch_cd = _wrap_splice("redo_cd", _patch_mod._apply_redo_patch_cd)  # type: ignore
+_patch_mod._apply_before_image = _wrap_splice("before", _patch_mod._apply_before_image)  # type: ignore
+_patch_mod._apply_before_image_cd = _wrap_splice("before_cd", _patch_mod._apply_before_image_cd)  # type: ignore
 
 
 def _wrap_char(raw: bytes, *a, **k):  # type: ignore[no-untyped-def]

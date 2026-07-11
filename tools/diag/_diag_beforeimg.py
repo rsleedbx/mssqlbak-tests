@@ -11,12 +11,12 @@ from pathlib import Path
 
 import deltalake
 
-import mssqlbak.rows as R
+import mssqlbak.rows.patch as _patch_mod
 from mssqlbak.extract import extract_bak_to_delta
 from mssqlbak.logtail import logtail_from_bak
 
 _calls: list[str] = []
-_orig = R._apply_before_image
+_orig = _patch_mod._apply_before_image
 
 
 def _wrap(after_row, patch):  # type: ignore[no-untyped-def]
@@ -27,7 +27,7 @@ def _wrap(after_row, patch):  # type: ignore[no-untyped-def]
     return out
 
 
-R._apply_before_image = _wrap  # type: ignore
+_patch_mod._apply_before_image = _wrap  # type: ignore
 
 
 def main() -> int:

@@ -152,11 +152,190 @@ extract/
 
 ---
 
-## Deferred (out of scope for this pass)
+### `mssqlbak/rows/` (was `rows.py`, ~1993 lines)
 
-| Module | Lines | Reason deferred |
-|---|---|---|
-| `rows.py` | ~860 | Core hot path — splitting risks performance regression without profiling |
+```
+rows/
+  __init__.py   re-export shim (full public + private symbol surface)
+  synth.py      _record_columns, _decode_sparse_vector, _synth_column_set,
+                _GraphColsResolved, _resolve_graph_cols, _apply_graph_ids,
+                _synth_graph_ids
+  pagewalk.py   _cd_index_pointer, _leftmost_leaf, IAM constants
+                (_IAM_BITMAP_OFFSET, _IAM_SPA_OFFSET, _IAM_SPA_SLOTS,
+                _IAM_SPA_STRUCT, _PAGE_POINTER, _DATA_PAGE, _EXTENT_PAGES,
+                _CD_INDEX_TYPE, _CD_NIBBLE_BYTES),
+                _heap_pages_for_unit*, _heap_data_pages, _data_pages_with_page,
+                _data_pages_raw, _data_pages
+  patch.py      _last_var_end, _recover_clobbered*, _apply_before_image(_cd),
+                _apply_temporal_history_patch, _afterimage_present,
+                _apply_redo_patch(_cd)
+  lob.py        blob/text constants, _lob_page, _apply_before_image_lob,
+                _stitch_lob, _read_lob_node, _stitch_text_pointer, _read_text_node
+  reader.py     read_table_rows (public), _read_compressed, _page_ci;
+                imports patch as _patch_mod for monkeypatch compatibility
+```
+
+**Layering:** `reader` → `{synth, pagewalk, patch, lob}`; `lob` → `patch`
+
+**External consumers:** `extract/`, `inspect.py`, `confidence.py`, `columnstore/`
+(lazy import); `tools/diag/_diag_nul.py` + `_diag_beforeimg.py` monkeypatch
+`mssqlbak.rows.patch` directly (updated in this split).
+
+**Deep pass:** phase-boundary INFO logging in `read_table_rows`/`_read_compressed`;
+DEBUG for B-tree descent and LOB stitch fallbacks; monkeypatch caveat resolved via
+`reader.py` calling patched functions through `_patch_mod` module object.
+
+---
+
+### `mssqlbak/columnstore/decode/enc5/` (was `enc5_raw.py`, ~1984 lines)
+
+```
+columnstore/decode/
+  enc5_raw.py         re-export shim (full symbol surface via enc5/ package)
+  enc5/
+    __init__.py       dispatcher: _decode_enc5, _enc5_archive_to_python;
+                      re-exports full private surface from all sub-modules
+    _const.py         shared constants (_ENC5_SENTINEL, _ENC5_DATA_OFFSET,
+                      _ENC5_HDR_ITEM_SZ, _ENC5_HDR_N_NONNULL, _DT2_TIME_LEN_MAP,
+                      _ARCHIVE_SUBBLOCK_OUT, _ARCHIVE_NULL_SENTINEL,
+                      _MULTICHUNK_XPRESS_FULL_SZ, _ARCHIVE_COMPRESSED_MARKER_LO),
+                      _find_enc5_xpress_marker, _enc5_item_size, _enc5_item_to_python
+    archive.py        _decode_enc5_archive*, _enc5_archive_has_compressed_subblocks,
+                      _looks_numeric_suffix_join, _variable_text_pool_map (~620 lines)
+    multichunk.py     _multichunk_xpress_header, _enc5_solve_chunk_pool_sz,
+                      _decode_enc5_multichunk_xpress
+    formats.py        _enc5_formatc_varlen, _decode_enc5_small_varbinary_xpress,
+                      _decode_enc5_compressed, _find_enc5_vld_pages,
+                      _find_enc5_vld_rle, _decode_enc5_formatd_vld,
+                      _decode_enc5_formatb_fixed
+```
+
+**Layering:** `__init__` → `{archive, multichunk, formats}` → `_const`
+
+**External consumers:** `decode/dict_string.py` (`_enc5_item_size`,
+`_enc5_item_to_python`); `columnstore/__init__.py` (14 names via `enc5_raw` shim);
+all remain importable unchanged.
+
+---
+
+### `mssqlbak/xtp/` (was `xtp.py`, ~1471 lines)
+
+```
+xtp/
+  __init__.py   re-export shim (full public + private symbol surface)
+  _const.py     all numeric/bytes constants: block type magics, struct objects
+                (_U32/_U16/_U64), date epoch, type-id frozensets, log/ckpt
+                framing constants (_LOG_HEADER_SIZE, _CKPT_PREAMBLE_SIG, …)
+  blocks.py     _find_block_sig, _next_run_candidate, _is_compact_data_block,
+                scan_compact_blocks, _is_wal_data_block, decode_wal_block,
+                scan_wal_blocks
+  payload.py    _decode_xtp_date_col, _xtp_is_variable/_fixed_width/_fixed_cols/
+                _fixed_align/_var_cols/_null_bitmap_bytes/_var_array_offset,
+                _decode_xtp_numeric_col, _nullable_cols_in_order,
+                _row_honors_not_null, _apply_null_bitmap, _decode_payload,
+                decode_compact_block
+  logscan.py    _record_payload, _validate_log_header, _detect_block_size,
+                _read_ckpt_payload, _read_ckpt_record,
+                _singleton_has_trusted_successor, scan_cfp_log_records
+  landing.py    _identity_column, _dense_identity_rows, _xtp_fully_decodable,
+                _xtp_fixed_record_consistent, _xtp_var_record_consistent,
+                _seq_complete_rows, decode_cfp_log_records
+  entry.py      read_xtp_rows (public entry point)
+```
+
+**Layering:** `entry` → `{blocks, logscan, landing}`; `logscan` → `blocks`;
+`blocks` → `payload`; `landing` → `{payload, logscan}`; all → `_const`
+
+**Cleanup:** removed dead `_read_log_header` function (lines 808–822 of original).
+
+**External consumers:** `extract/driver.py` (lazy import of `read_xtp_rows` only).
+
+---
+
+### `mssqlbak/compressed/` (was `compressed.py`, ~951 lines)
+
+```
+compressed/
+  __init__.py   re-export shim (full public + private symbol surface)
+  _detect.py    layout detection (_Layout, _V1, _V2, _layout_for, is_mssqlbak),
+                header-walking (_kraft_complete, _is_record_header, _next_header),
+                chunk decode (_decode_chunk), iterator (iter_decompressed_chunks),
+                constants (PAGE_SIZE, EXTENT_PAGES, MSSQLBAK_MAGIC, _HUFFMAN_TABLE_BYTES, …)
+  stream.py     catalog/page iteration (_CATALOG_EXIT_RUNS, _iter_pages, _CATALOG_MAX_PAGE_ID),
+                MDF reconstruction (extract_mdf_files_compressed, extract_mdf_pages_compressed),
+                MTF block iteration (_MTF_BLOCK_TYPES, _METADATA_PREFIX_BYTES,
+                _iter_chunks_with_pages), random-access (decompress_chunk_bytes,
+                fetch_chunk_pages, build_chunk_index), reader buffer (_ReaderBuffer),
+                MTF descriptor scan (iter_mtf_descriptor_blocks)
+```
+
+**Layering:** `stream` → `_detect`
+
+**External consumers:** `pages/lazy.py`, `pages/store.py`, `reader.py`, `mtf.py`,
+`extract/driver.py`; `decoderlab/*` (where applicable).
+
+---
+
+### `mssqlbak/rowcompress/` (was `rowcompress.py`, ~794 lines)
+
+```
+rowcompress/
+  __init__.py   re-export shim (full public + private symbol surface)
+  _layout.py    CD constants (_CD_NULL/_ZERO/_LONG/_TRUE_BIT/_DICT, _CD_SHORT_LEN,
+                _HDR_*, _CLUSTER, _EXCESS_INT_WIDTH, _LEADING_ZERO_WIDTH,
+                _ROWVERSION_WIDTH, _NORMALIZE_TYPES), RowCompressionError,
+                row_type_supported, _CDLayout, _parse_cd, _precompute_geometry,
+                _short_value, _OffRowLob, _long_value, physical_columns,
+                _short_region_pointers, _long_region, _SPECIAL_DECODERS dict
+  page.py       _CI_HAS_ANCHOR, _CI_HAS_DICT, PageCompressionInfo, parse_page_ci,
+                _expand_prefix, physical_columns_page
+  decode.py     _excess_be, normalize_row_value, _temporal_width, _decode_vardecimal,
+                _excess_be_int, _decode_compressed_datetime, _is_utf16le_not_scsu,
+                _decode_compressed_nvarchar/_nchar/_clr_udt/_sql_variant/_lob_passthrough,
+                _SPECIAL_DECODERS.update(…), decode_compressed_value
+```
+
+**Layering:** `decode` → `_layout`; `page` → `_layout`
+
+**External consumers:** `rows/reader.py`, `inspect.py`, `logtail/patches.py`,
+`columnstore/storage/segment_meta.py` (`_OffRowLob`, `physical_columns_page`).
+
+---
+
+### `mssqlbak/reader/` (was `reader.py`, ~976 lines)
+
+```
+reader/
+  __init__.py   re-export shim (full public + private symbol surface)
+  _const.py     MTF block type identifiers (BLOCK_TAPE/SSET/…) and parsing
+                constants (_MQCI_*, _LSN_STRUCT, _STR_*, _SSET_* flags)
+  fields.py     _backup_type_label, common-header checksum+struct constants
+                (_COMMON_HDR, _TAPE_NAME_ADDR, _SSET_ATTR, _DB_FILE_RE, …),
+                _common_header_checksum_ok, _parse_mtf_date, _resolve_addr,
+                _extract_db_files, _extract_server_name
+  lsn.py        BackupLSNs (dataclass), lsn_triplet_to_decimal,
+                lsn_decimal_to_triplet
+  models.py     MediaInfo, BackupSetInfo, BakMetadata (dataclasses)
+  framing.py    is_compressed_or_encrypted, _CANDIDATE_BLOCK_SIZES,
+                _detect_block_size, _iter_blocks
+  parse.py      _parse_tape, _parse_lsns_from_sset_block, _parse_sset,
+                _read_metadata_blocks
+  metadata.py   read_bak_metadata, _read_bak_metadata_from_reader,
+                print_bak_info
+  restore.py    _mssql_connect, build_restore_sql, restore_from_bak
+```
+
+**Layering:** `restore` → `metadata`; `metadata` → `{parse, framing}`;
+`parse` → `{fields, lsn, models}`; `framing` → `{_const, fields}`;
+`models` → `lsn`; `lsn`/`fields` → `_const`
+
+**External consumers:** `mssqlbak/__init__.py` (public API), `confidence.py`,
+`_cli.py`, `extract/driver.py`, `extract/report.py`, `bak_io.py`;
+test files import `BackupLSNs`, `BakMetadata`, `read_bak_metadata`, etc.
+
+---
+
+## Deferred (pending future passes)
 
 ---
 

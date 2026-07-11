@@ -5,9 +5,9 @@ Ground truth is recorded in `tests/fixtures/<name>.bak.stats.json` by
 `python -m tools.fixture_run register-bak <name>.bak` on a live SQL Server instance.
 **Generated** by `python -m tools.correctness_coverage --fixture-dir tests/fixtures_realworld`.
 
-**48 fixtures · 48 pass · 0 xfail (known gap) · 0 fail**
+**49 fixtures · 49 pass · 0 xfail (known gap) · 0 fail**
 
-**Tables:** 1433/1433 pass · **Columns:** 12536/12536 pass
+**Tables:** 1445/1445 pass · **Columns:** 12619/12619 pass
 
 **Row count:** ✓ · **Null count:** ✓ · **Min/max:** ✓ · **Col count:** ✓ · **Cells:** ✓
 
@@ -65,6 +65,7 @@ Memory-optimized (In-Memory OLTP / XTP) tables store their data in XTP checkpoin
 | `EmployeeCaseStudySampleDB2012.bak` | 160,000 | 24 | **2/2** | **24/24** | **48/48** | **2/2** | **1760000/1760000** | ✓ |
 | `GeneralHospital.bak` | 2,175,940 | 67 | **13/13** | **67/67** | **128/128** | **13/13** | digest | ✓ |
 | `IndexInternals2008.bak` | 160,000 | 12 | **2/2** | **12/12** | **24/24** | **2/2** | **800000/800000** | ✓ |
+| `Northwinds.bak` | 1,153 | 83 | **12/12** | **79/79** | **158/158** | **12/12** | **13005/13005** | ✓ |
 | `NYCTaxi_Sample.bak` | 1,703,957 | 25 | **2/2** | **23/23** | **46/46** | **2/2** | digest | ✓ |
 | `Pubs.bak` | 255 | 64 | **11/11** | **64/64** | **126/126** | **11/11** | **880/880** | ✓ |
 | `SalesDB2014.bak` | 6,735,507 | 16 | **4/4** | **16/16** | **32/32** | **4/4** | **850382/850382** | ✓ |
@@ -1457,6 +1458,25 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (
 | `dbo.Employee` | rowstore | 80,000 | ✓ | **6/6** | **12/12** | ✓ | cells **400000/400000** ✓ |
 | `dbo.EmployeeHeap` | rowstore | 80,000 | ✓ | **6/6** | **12/12** | ✓ | cells **400000/400000** ✓ |
 
+### `Northwinds.bak` — 2022 — ✓ pass
+
+_SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64) · 0.816 MB_
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.Categories` | rowstore | 8 | ✓ | **4/4** | **8/8** | ✓ | cells **24/24** ✓ |
+| `dbo.CustomerCustomerDemo` | rowstore | 0 | — | — | — | — |  |
+| `dbo.CustomerDemographics` | rowstore | 0 | — | — | — | — |  |
+| `dbo.Customers` | rowstore | 91 | ✓ | **11/11** | **22/22** | ✓ | cells **910/910** ✓ |
+| `dbo.Employees` | rowstore | 9 | ✓ | **18/18** | **36/36** | ✓ | cells **153/153** ✓ |
+| `dbo.EmployeeTerritories` | rowstore | 49 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
+| `dbo.Orders` | rowstore | 830 | ✓ | **14/14** | **28/28** | ✓ | cells **10790/10790** ✓ |
+| `dbo.Products` | rowstore | 77 | ✓ | **10/10** | **20/20** | ✓ | cells **693/693** ✓ |
+| `dbo.Region` | rowstore | 4 | ✓ | **2/2** | **4/4** | ✓ | cells **4/4** ✓ |
+| `dbo.Shippers` | rowstore | 3 | ✓ | **3/3** | **6/6** | ✓ | cells **6/6** ✓ |
+| `dbo.Suppliers` | rowstore | 29 | ✓ | **12/12** | **24/24** | ✓ | cells **319/319** ✓ |
+| `dbo.Territories` | rowstore | 53 | ✓ | **3/3** | **6/6** | ✓ | cells **106/106** ✓ |
+
 ### `NYCTaxi_Sample.bak` — 2022 — ✓ pass
 
 _SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (X64) · 97.117 MB_
@@ -1855,57 +1875,58 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (
 
 | Backup | Extract | Verify | Wall time |
 |--------|---------|--------|-----------|
-| `AdventureWorks2008R2.bak` | 13.548s | 10.056s | 23.604s |
-| `AdventureWorks2012.bak` | 15.908s | 11.063s | 26.971s |
-| `AdventureWorks2014.bak` | 14.614s | 10.118s | 24.732s |
-| `AdventureWorks2016.bak` | 13.982s | 9.903s | 23.885s |
-| `AdventureWorks2016_EXT.bak` | 34.522s | 18.065s | 52.587s |
-| `AdventureWorks2017.bak` | 16.195s | 10.984s | 27.179s |
-| `AdventureWorks2019.bak` | 13.128s | 9.229s | 22.357s |
-| `AdventureWorks2022.bak` | 13.245s | 9.278s | 22.523s |
-| `AdventureWorks2025.bak` | 15.9s | 10.719s | 26.619s |
-| `AdventureWorksDW2008R2.bak` | 2.11s | 2.981s | 5.091s |
-| `AdventureWorksDW2012.bak` | 3.717s | 9.788s | 13.505s |
-| `AdventureWorksDW2014.bak` | 4.024s | 9.687s | 13.711s |
-| `AdventureWorksDW2016.bak` | 3.723s | 9.964s | 13.687s |
-| `AdventureWorksDW2016_EXT.bak` | 94.754s | 30.767s | 125.521s |
-| `AdventureWorksDW2017.bak` | 4.082s | 9.91s | 13.992s |
-| `AdventureWorksDW2019.bak` | 5.624s | 9.593s | 15.217s |
-| `AdventureWorksDW2022.bak` | 3.576s | 9.573s | 13.149s |
-| `AdventureWorksDW2025.bak` | 4.179s | 9.894s | 14.073s |
-| `AdventureWorksLT2012.bak` | 0.144s | 0.101s | 0.245s |
-| `AdventureWorksLT2014.bak` | 0.153s | 0.097s | 0.25s |
-| `AdventureWorksLT2016.bak` | 0.141s | 0.093s | 0.234s |
-| `AdventureWorksLT2017.bak` | 0.145s | 0.1s | 0.245s |
-| `AdventureWorksLT2019.bak` | 0.155s | 0.095s | 0.25s |
-| `AdventureWorksLT2022.bak` | 0.165s | 0.103s | 0.268s |
-| `AdventureWorksLT2025.bak` | 0.198s | 0.13s | 0.328s |
-| `BaseballData.bak` | 10.293s | 4.397s | 14.69s |
-| `Chinook-id-pk.bak` | 0.099s | 0.106s | 0.205s |
-| `Chinook.bak` | 0.083s | 0.125s | 0.208s |
-| `ContosoRetailDW.bak` | 74.246s | 362.731s | 436.977s |
-| `CreditBackup100.bak` | 14.139s | 18.394s | 32.533s |
-| `data.gov.bak` | 2.194s | 1.497s | 3.691s |
-| `dba.stackexchange.com.bak` | 93.958s | 27.038s | 120.996s |
-| `EmployeeCaseStudySampleDB2012.bak` | 5.631s | 0.774s | 6.405s |
-| `GeneralHospital.bak` | 33.395s | 18.433s | 51.828s |
-| `IndexInternals2008.bak` | 4.478s | 0.826s | 5.304s |
-| `NYCTaxi_Sample.bak` | 15.685s | 36.04s | 51.725s |
-| `Pubs.bak` | 0.102s | 0.068s | 0.17s |
-| `SalesDB2014.bak` | 7.091s | 20.93s | 28.021s |
-| `SalesDBOriginal.bak` | 6.316s | 21.804s | 28.12s |
-| `StackOverflowMini.bak` | 74.773s | 66.667s | 141.44s |
-| `tpcxbb_1gb.bak` | 56.419s | 77.316s | 133.735s |
-| `TutorialDB.bak` | 0.063s | 0.053s | 0.116s |
-| `WideWorldImporters-Full.bak` | 30.536s | 39.808s | 70.344s |
-| `WideWorldImporters-Full_old.bak` | 32.092s | 38.666s | 70.758s |
-| `WideWorldImporters-Standard.bak` | 34.075s | 37.854s | 71.929s |
-| `WideWorldImporters-Standard_old.bak` | 33.458s | 38.72s | 72.178s |
-| `WideWorldImportersDW-Full.bak` | 6.979s | 14.438s | 21.417s |
-| `WideWorldImportersDW-Standard.bak` | 5.828s | 13.31s | 19.138s |
+| `AdventureWorks2008R2.bak` | 12.856s | 9.061s | 21.917s |
+| `AdventureWorks2012.bak` | 14.278s | 9.827s | 24.105s |
+| `AdventureWorks2014.bak` | 14.409s | 9.871s | 24.28s |
+| `AdventureWorks2016.bak` | 13.855s | 9.774s | 23.629s |
+| `AdventureWorks2016_EXT.bak` | 33.116s | 16.905s | 50.021s |
+| `AdventureWorks2017.bak` | 13.857s | 9.919s | 23.776s |
+| `AdventureWorks2019.bak` | 13.003s | 9.13s | 22.133s |
+| `AdventureWorks2022.bak` | 13.117s | 9.123s | 22.24s |
+| `AdventureWorks2025.bak` | 14.1s | 9.596s | 23.696s |
+| `AdventureWorksDW2008R2.bak` | 2.002s | 2.893s | 4.895s |
+| `AdventureWorksDW2012.bak` | 3.506s | 9.17s | 12.676s |
+| `AdventureWorksDW2014.bak` | 3.657s | 9.177s | 12.834s |
+| `AdventureWorksDW2016.bak` | 3.334s | 9.224s | 12.558s |
+| `AdventureWorksDW2016_EXT.bak` | 98.751s | 30.421s | 129.172s |
+| `AdventureWorksDW2017.bak` | 3.971s | 9.367s | 13.338s |
+| `AdventureWorksDW2019.bak` | 5.09s | 9.123s | 14.213s |
+| `AdventureWorksDW2022.bak` | 3.308s | 8.857s | 12.165s |
+| `AdventureWorksDW2025.bak` | 3.383s | 9.34s | 12.723s |
+| `AdventureWorksLT2012.bak` | 0.143s | 0.089s | 0.232s |
+| `AdventureWorksLT2014.bak` | 0.146s | 0.091s | 0.237s |
+| `AdventureWorksLT2016.bak` | 0.134s | 0.121s | 0.255s |
+| `AdventureWorksLT2017.bak` | 0.135s | 0.093s | 0.228s |
+| `AdventureWorksLT2019.bak` | 0.154s | 0.094s | 0.248s |
+| `AdventureWorksLT2022.bak` | 0.176s | 0.109s | 0.285s |
+| `AdventureWorksLT2025.bak` | 0.204s | 0.123s | 0.327s |
+| `BaseballData.bak` | 9.454s | 4.163s | 13.617s |
+| `Chinook-id-pk.bak` | 0.094s | 0.118s | 0.212s |
+| `Chinook.bak` | 0.084s | 0.107s | 0.191s |
+| `ContosoRetailDW.bak` | 77.782s | 351.367s | 429.149s |
+| `CreditBackup100.bak` | 14.137s | 17.419s | 31.556s |
+| `data.gov.bak` | 2.171s | 1.483s | 3.654s |
+| `dba.stackexchange.com.bak` | 92.7s | 27.662s | 120.362s |
+| `EmployeeCaseStudySampleDB2012.bak` | 5.185s | 0.76s | 5.945s |
+| `GeneralHospital.bak` | 32.329s | 17.437s | 49.766s |
+| `IndexInternals2008.bak` | 4.361s | 0.538s | 4.899s |
+| `Northwinds.bak` | 0.145s | 0.102s | 0.247s |
+| `NYCTaxi_Sample.bak` | 15.159s | 33.98s | 49.139s |
+| `Pubs.bak` | 0.1s | 0.063s | 0.163s |
+| `SalesDB2014.bak` | 6.448s | 19.956s | 26.404s |
+| `SalesDBOriginal.bak` | 5.946s | 19.778s | 25.724s |
+| `StackOverflowMini.bak` | 78.607s | 67.336s | 145.943s |
+| `tpcxbb_1gb.bak` | 55.462s | 83.457s | 138.919s |
+| `TutorialDB.bak` | 0.059s | 0.049s | 0.108s |
+| `WideWorldImporters-Full.bak` | 29.569s | 37.311s | 66.88s |
+| `WideWorldImporters-Full_old.bak` | 29.184s | 37.728s | 66.912s |
+| `WideWorldImporters-Standard.bak` | 34.008s | 38.358s | 72.366s |
+| `WideWorldImporters-Standard_old.bak` | 34.344s | 38.53s | 72.874s |
+| `WideWorldImportersDW-Full.bak` | 6.304s | 13.121s | 19.425s |
+| `WideWorldImportersDW-Standard.bak` | 5.305s | 12.181s | 17.486s |
 
 _Verify = wall − extract (Arrow conversion, ground-truth compare, cell verification, and confidence analysis; cell verification dominates for large fixtures)._
 
 ---
 
-_Generated 2026-07-11 · 48 fixtures · 48 pass · 0 xfail · 0 fail_
+_Generated 2026-07-11 · 49 fixtures · 49 pass · 0 xfail · 0 fail_
