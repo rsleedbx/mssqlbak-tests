@@ -20,6 +20,7 @@ _Reorganized from the monolithic `docs/BAK_FORMAT_SPEC.md`. Each StoragePath has
 | All paths | page anatomy | [01_PAGE.md](01_PAGE.md) |
 | All paths | system catalog | [01_CATALOG.md](01_CATALOG.md) |
 | All paths | type layouts + LOB | [01_TYPES_LOB.md](01_TYPES_LOB.md) |
+| All paths | per-type binary layouts, Arrow output, all 41 SQL Server types | [data_types/00_INDEX.md](data_types/00_INDEX.md) |
 | Log tail / dirty backup | fuzzy backup flag | [09_REDO_UNDO.md](09_REDO_UNDO.md) |
 
 ---
