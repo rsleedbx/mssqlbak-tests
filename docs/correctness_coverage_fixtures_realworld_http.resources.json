@@ -1,0 +1,1968 @@
+{
+  "run_id": "20260714T135115_http",
+  "source_mode": "http",
+  "mem_budget_gb": 8.0,
+  "threads": 4,
+  "fixtures": [
+    {
+      "bak": "ContosoRetailDW.bak",
+      "bak_size_mb": 629.956,
+      "total_src_rows": 34326475,
+      "wall_s": 2092.431,
+      "pid": 8648,
+      "peak_rss_mb": 4278.5,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 12.928,
+          "rss_mb": 2943.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 976.039,
+          "rss_mb": 1665.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 1357.315,
+          "rss_mb": 2136.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 2092.417,
+          "rss_mb": 4278.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 2092.431,
+          "rss_mb": 4278.5,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorksDW2016_EXT.bak",
+      "bak_size_mb": 883.324,
+      "total_src_rows": 24400096,
+      "wall_s": 1127.0,
+      "pid": 8649,
+      "peak_rss_mb": 6969.9,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 16.788,
+          "rss_mb": 3428.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 686.551,
+          "rss_mb": 5881.2,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 697.405,
+          "rss_mb": 6969.9,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 1126.987,
+          "rss_mb": 3200.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 1127.0,
+          "rss_mb": 3201.5,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "tpcxbb_1gb.bak",
+      "bak_size_mb": 233.98,
+      "total_src_rows": 34001580,
+      "wall_s": 418.183,
+      "pid": 8650,
+      "peak_rss_mb": 1909.8,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 3.329,
+          "rss_mb": 749.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 207.476,
+          "rss_mb": 880.2,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 208.231,
+          "rss_mb": 964.4,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 418.175,
+          "rss_mb": 1909.6,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 418.183,
+          "rss_mb": 1909.8,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "dba.stackexchange.com.bak",
+      "bak_size_mb": 489.32,
+      "total_src_rows": 2968576,
+      "wall_s": 271.47,
+      "pid": 20849,
+      "peak_rss_mb": 3006.2,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 12.336,
+          "rss_mb": 3006.2,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 145.796,
+          "rss_mb": 1950.2,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 162.825,
+          "rss_mb": 2481.4,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 271.461,
+          "rss_mb": 1468.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 271.469,
+          "rss_mb": 1468.9,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "StackOverflowMini.bak",
+      "bak_size_mb": 758.564,
+      "total_src_rows": 8097337,
+      "wall_s": 257.438,
+      "pid": 20850,
+      "peak_rss_mb": 3850.3,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 17.927,
+          "rss_mb": 3850.3,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 204.227,
+          "rss_mb": 3129.3,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 252.627,
+          "rss_mb": 2084.3,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 257.426,
+          "rss_mb": 2550.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 257.438,
+          "rss_mb": 2550.5,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "WideWorldImporters-Full_old.bak",
+      "bak_size_mb": 121.171,
+      "total_src_rows": 4713832,
+      "wall_s": 197.911,
+      "pid": 28684,
+      "peak_rss_mb": 1523.8,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 3.167,
+          "rss_mb": 1009.2,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 102.752,
+          "rss_mb": 1359.3,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 138.354,
+          "rss_mb": 1096.4,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 197.896,
+          "rss_mb": 1523.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 197.911,
+          "rss_mb": 1523.8,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "WideWorldImporters-Standard.bak",
+      "bak_size_mb": 121.07,
+      "total_src_rows": 4713833,
+      "wall_s": 202.054,
+      "pid": 40486,
+      "peak_rss_mb": 1533.2,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 3.358,
+          "rss_mb": 1385.9,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 107.24,
+          "rss_mb": 1299.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 142.954,
+          "rss_mb": 601.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 202.041,
+          "rss_mb": 1533.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 202.054,
+          "rss_mb": 1533.2,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "WideWorldImporters-Full.bak",
+      "bak_size_mb": 121.223,
+      "total_src_rows": 4713833,
+      "wall_s": 198.37,
+      "pid": 47021,
+      "peak_rss_mb": 1639.2,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 3.136,
+          "rss_mb": 1010.4,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 103.61,
+          "rss_mb": 1572.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 139.433,
+          "rss_mb": 1218.6,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 198.354,
+          "rss_mb": 1639.1,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 198.37,
+          "rss_mb": 1639.2,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "WideWorldImporters-Standard_old.bak",
+      "bak_size_mb": 121.058,
+      "total_src_rows": 4713832,
+      "wall_s": 202.426,
+      "pid": 47152,
+      "peak_rss_mb": 1930.0,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 3.426,
+          "rss_mb": 1385.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 108.217,
+          "rss_mb": 975.9,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 143.382,
+          "rss_mb": 1495.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 202.411,
+          "rss_mb": 1930.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 202.426,
+          "rss_mb": 1930.0,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "NYCTaxi_Sample.bak",
+      "bak_size_mb": 97.117,
+      "total_src_rows": 1703957,
+      "wall_s": 105.465,
+      "pid": 48635,
+      "peak_rss_mb": 1646.4,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.266,
+          "rss_mb": 285.6,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 48.646,
+          "rss_mb": 1646.4,
+          "arrow_mb": 373.1
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 48.652,
+          "rss_mb": 1646.4,
+          "arrow_mb": 373.1
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 105.448,
+          "rss_mb": 1233.0,
+          "arrow_mb": 373.1
+        },
+        {
+          "label": "done",
+          "elapsed_s": 105.464,
+          "rss_mb": 1233.0,
+          "arrow_mb": 373.1
+        }
+      ]
+    },
+    {
+      "bak": "GeneralHospital.bak",
+      "bak_size_mb": 316.084,
+      "total_src_rows": 2175940,
+      "wall_s": 130.508,
+      "pid": 51465,
+      "peak_rss_mb": 1886.5,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.822,
+          "rss_mb": 772.3,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 81.717,
+          "rss_mb": 1726.3,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 88.648,
+          "rss_mb": 1787.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 130.498,
+          "rss_mb": 1886.4,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 130.507,
+          "rss_mb": 1886.5,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "SalesDBOriginal.bak",
+      "bak_size_mb": 192.081,
+      "total_src_rows": 6735508,
+      "wall_s": 102.889,
+      "pid": 52483,
+      "peak_rss_mb": 2388.5,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.493,
+          "rss_mb": 528.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 50.36,
+          "rss_mb": 1912.4,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 68.871,
+          "rss_mb": 2250.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 102.883,
+          "rss_mb": 2388.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 102.889,
+          "rss_mb": 2388.5,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorks2016_EXT.bak",
+      "bak_size_mb": 125.034,
+      "total_src_rows": 1378717,
+      "wall_s": 99.774,
+      "pid": 52742,
+      "peak_rss_mb": 2320.5,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 3.694,
+          "rss_mb": 941.6,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 62.361,
+          "rss_mb": 2197.9,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 76.66,
+          "rss_mb": 2026.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 99.755,
+          "rss_mb": 2320.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 99.774,
+          "rss_mb": 2320.5,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "SalesDB2014.bak",
+      "bak_size_mb": 28.068,
+      "total_src_rows": 6735507,
+      "wall_s": 104.209,
+      "pid": 55137,
+      "peak_rss_mb": 1920.2,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.977,
+          "rss_mb": 529.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 51.015,
+          "rss_mb": 1885.1,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 69.738,
+          "rss_mb": 1920.2,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 104.201,
+          "rss_mb": 1740.3,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 104.209,
+          "rss_mb": 1740.4,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "CreditBackup100.bak",
+      "bak_size_mb": 52.739,
+      "total_src_rows": 1656574,
+      "wall_s": 83.103,
+      "pid": 55399,
+      "peak_rss_mb": 1592.0,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 1.447,
+          "rss_mb": 438.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 43.543,
+          "rss_mb": 1399.2,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 59.684,
+          "rss_mb": 1592.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 83.097,
+          "rss_mb": 1165.1,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 83.103,
+          "rss_mb": 1165.2,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorks2016.bak",
+      "bak_size_mb": 46.491,
+      "total_src_rows": 760838,
+      "wall_s": 52.235,
+      "pid": 55456,
+      "peak_rss_mb": 1358.0,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 1.287,
+          "rss_mb": 537.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 29.971,
+          "rss_mb": 1111.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 39.027,
+          "rss_mb": 1240.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 52.221,
+          "rss_mb": 1358.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 52.234,
+          "rss_mb": 1358.0,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorks2017.bak",
+      "bak_size_mb": 47.957,
+      "total_src_rows": 760837,
+      "wall_s": 52.418,
+      "pid": 56910,
+      "peak_rss_mb": 978.0,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 1.316,
+          "rss_mb": 542.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 30.239,
+          "rss_mb": 793.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 39.259,
+          "rss_mb": 852.1,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 52.404,
+          "rss_mb": 978.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 52.418,
+          "rss_mb": 978.0,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorks2012.bak",
+      "bak_size_mb": 44.897,
+      "total_src_rows": 760837,
+      "wall_s": 52.266,
+      "pid": 57671,
+      "peak_rss_mb": 803.7,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 1.197,
+          "rss_mb": 516.9,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 29.832,
+          "rss_mb": 615.1,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 38.874,
+          "rss_mb": 795.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 52.251,
+          "rss_mb": 803.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 52.266,
+          "rss_mb": 803.7,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "WideWorldImportersDW-Full.bak",
+      "bak_size_mb": 47.726,
+      "total_src_rows": 922709,
+      "wall_s": 41.496,
+      "pid": 58133,
+      "peak_rss_mb": 1541.1,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 1.278,
+          "rss_mb": 568.1,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 20.985,
+          "rss_mb": 1289.1,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 21.117,
+          "rss_mb": 1318.6,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 41.49,
+          "rss_mb": 1541.1,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 41.496,
+          "rss_mb": 1541.1,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "WideWorldImportersDW-Standard.bak",
+      "bak_size_mb": 51.37,
+      "total_src_rows": 922709,
+      "wall_s": 48.991,
+      "pid": 58439,
+      "peak_rss_mb": 1116.3,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 1.518,
+          "rss_mb": 673.3,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 29.882,
+          "rss_mb": 962.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 30.157,
+          "rss_mb": 978.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 48.985,
+          "rss_mb": 1116.3,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 48.991,
+          "rss_mb": 1116.3,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorks2025.bak",
+      "bak_size_mb": 47.902,
+      "total_src_rows": 760167,
+      "wall_s": 51.322,
+      "pid": 59340,
+      "peak_rss_mb": 1019.0,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 1.253,
+          "rss_mb": 542.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 29.529,
+          "rss_mb": 1019.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 38.396,
+          "rss_mb": 811.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 51.306,
+          "rss_mb": 862.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 51.321,
+          "rss_mb": 862.5,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorks2008R2.bak",
+      "bak_size_mb": 181.109,
+      "total_src_rows": 760838,
+      "wall_s": 51.058,
+      "pid": 59519,
+      "peak_rss_mb": 877.8,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.541,
+          "rss_mb": 499.6,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 28.593,
+          "rss_mb": 726.3,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 37.711,
+          "rss_mb": 817.4,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 51.043,
+          "rss_mb": 877.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 51.057,
+          "rss_mb": 877.8,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorks2022.bak",
+      "bak_size_mb": 200.117,
+      "total_src_rows": 760837,
+      "wall_s": 51.406,
+      "pid": 59985,
+      "peak_rss_mb": 922.5,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.552,
+          "rss_mb": 545.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 29.004,
+          "rss_mb": 579.6,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 38.122,
+          "rss_mb": 780.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 51.391,
+          "rss_mb": 922.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 51.405,
+          "rss_mb": 922.5,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorks2014.bak",
+      "bak_size_mb": 44.594,
+      "total_src_rows": 760838,
+      "wall_s": 52.348,
+      "pid": 61000,
+      "peak_rss_mb": 1042.5,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 1.222,
+          "rss_mb": 515.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 29.967,
+          "rss_mb": 971.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 39.007,
+          "rss_mb": 1042.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 52.333,
+          "rss_mb": 942.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 52.347,
+          "rss_mb": 942.8,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorksDW2012.bak",
+      "bak_size_mb": 21.766,
+      "total_src_rows": 1060820,
+      "wall_s": 44.882,
+      "pid": 61073,
+      "peak_rss_mb": 1262.4,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.586,
+          "rss_mb": 310.1,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 21.068,
+          "rss_mb": 1079.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 30.103,
+          "rss_mb": 1262.4,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 44.871,
+          "rss_mb": 939.2,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 44.881,
+          "rss_mb": 939.3,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorks2019.bak",
+      "bak_size_mb": 199.117,
+      "total_src_rows": 760837,
+      "wall_s": 51.039,
+      "pid": 61709,
+      "peak_rss_mb": 918.5,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.51,
+          "rss_mb": 545.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 28.856,
+          "rss_mb": 566.3,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 37.861,
+          "rss_mb": 768.1,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 51.026,
+          "rss_mb": 918.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 51.038,
+          "rss_mb": 918.5,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorksDW2017.bak",
+      "bak_size_mb": 22.351,
+      "total_src_rows": 1060820,
+      "wall_s": 44.945,
+      "pid": 62465,
+      "peak_rss_mb": 1191.5,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.617,
+          "rss_mb": 316.9,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 21.107,
+          "rss_mb": 1085.3,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 30.028,
+          "rss_mb": 1191.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 44.935,
+          "rss_mb": 889.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 44.945,
+          "rss_mb": 889.0,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorksDW2014.bak",
+      "bak_size_mb": 21.41,
+      "total_src_rows": 1060820,
+      "wall_s": 45.013,
+      "pid": 62592,
+      "peak_rss_mb": 1078.7,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.569,
+          "rss_mb": 307.9,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 21.053,
+          "rss_mb": 1078.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 30.041,
+          "rss_mb": 960.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 45.003,
+          "rss_mb": 1037.6,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 45.013,
+          "rss_mb": 1037.7,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorksDW2019.bak",
+      "bak_size_mb": 97.117,
+      "total_src_rows": 1060820,
+      "wall_s": 46.196,
+      "pid": 63187,
+      "peak_rss_mb": 1151.3,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.254,
+          "rss_mb": 295.1,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 22.549,
+          "rss_mb": 834.1,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 31.527,
+          "rss_mb": 1036.3,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 46.188,
+          "rss_mb": 1151.3,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 46.196,
+          "rss_mb": 1151.3,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorksDW2016.bak",
+      "bak_size_mb": 21.443,
+      "total_src_rows": 1060820,
+      "wall_s": 44.298,
+      "pid": 63721,
+      "peak_rss_mb": 1360.8,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.605,
+          "rss_mb": 308.4,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 20.84,
+          "rss_mb": 1089.9,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 29.73,
+          "rss_mb": 1279.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 44.289,
+          "rss_mb": 1360.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 44.298,
+          "rss_mb": 1360.8,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorksDW2022.bak",
+      "bak_size_mb": 97.117,
+      "total_src_rows": 1060820,
+      "wall_s": 44.158,
+      "pid": 63749,
+      "peak_rss_mb": 1263.3,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.273,
+          "rss_mb": 296.2,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 20.652,
+          "rss_mb": 1093.6,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 29.54,
+          "rss_mb": 1263.3,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 44.148,
+          "rss_mb": 1224.9,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 44.157,
+          "rss_mb": 1224.9,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorksDW2025.bak",
+      "bak_size_mb": 24.133,
+      "total_src_rows": 1047563,
+      "wall_s": 44.338,
+      "pid": 64354,
+      "peak_rss_mb": 1389.5,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.612,
+          "rss_mb": 315.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 20.871,
+          "rss_mb": 1113.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 29.809,
+          "rss_mb": 1272.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 44.328,
+          "rss_mb": 1389.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 44.338,
+          "rss_mb": 1389.5,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "BaseballData.bak",
+      "bak_size_mb": 114.171,
+      "total_src_rows": 493104,
+      "wall_s": 32.296,
+      "pid": 64847,
+      "peak_rss_mb": 739.8,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.182,
+          "rss_mb": 206.1,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 19.739,
+          "rss_mb": 656.2,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 24.086,
+          "rss_mb": 736.3,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 32.288,
+          "rss_mb": 739.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 32.296,
+          "rss_mb": 739.8,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorksDW2008R2.bak",
+      "bak_size_mb": 74.109,
+      "total_src_rows": 282030,
+      "wall_s": 16.811,
+      "pid": 64870,
+      "peak_rss_mb": 898.9,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.196,
+          "rss_mb": 247.1,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 8.389,
+          "rss_mb": 661.3,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 11.419,
+          "rss_mb": 755.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 16.802,
+          "rss_mb": 898.9,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 16.811,
+          "rss_mb": 898.9,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "EmployeeCaseStudySampleDB2012.bak",
+      "bak_size_mb": 13.293,
+      "total_src_rows": 160000,
+      "wall_s": 9.842,
+      "pid": 65402,
+      "peak_rss_mb": 879.8,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.441,
+          "rss_mb": 255.9,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 7.801,
+          "rss_mb": 675.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 8.193,
+          "rss_mb": 785.1,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 9.836,
+          "rss_mb": 879.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 9.841,
+          "rss_mb": 879.8,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "data.gov.bak",
+      "bak_size_mb": 12.047,
+      "total_src_rows": 150482,
+      "wall_s": 8.784,
+      "pid": 65584,
+      "peak_rss_mb": 735.0,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.361,
+          "rss_mb": 195.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 5.771,
+          "rss_mb": 552.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 6.131,
+          "rss_mb": 602.9,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 8.777,
+          "rss_mb": 735.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 8.784,
+          "rss_mb": 735.0,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "IndexInternals2008.bak",
+      "bak_size_mb": 6.427,
+      "total_src_rows": 160000,
+      "wall_s": 7.153,
+      "pid": 65696,
+      "peak_rss_mb": 677.2,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.303,
+          "rss_mb": 243.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 5.896,
+          "rss_mb": 565.6,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 6.191,
+          "rss_mb": 621.4,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 7.147,
+          "rss_mb": 677.2,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 7.153,
+          "rss_mb": 677.2,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorksLT2012.bak",
+      "bak_size_mb": 13.426,
+      "total_src_rows": 4277,
+      "wall_s": 0.654,
+      "pid": 65722,
+      "peak_rss_mb": 206.8,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.046,
+          "rss_mb": 90.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 0.376,
+          "rss_mb": 180.4,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 0.496,
+          "rss_mb": 201.3,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 0.647,
+          "rss_mb": 206.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 0.654,
+          "rss_mb": 206.8,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorksLT2025.bak",
+      "bak_size_mb": 1.684,
+      "total_src_rows": 4277,
+      "wall_s": 0.765,
+      "pid": 65724,
+      "peak_rss_mb": 204.2,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.094,
+          "rss_mb": 98.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 0.472,
+          "rss_mb": 168.1,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 0.598,
+          "rss_mb": 187.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 0.759,
+          "rss_mb": 204.2,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 0.765,
+          "rss_mb": 204.2,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorksLT2014.bak",
+      "bak_size_mb": 13.336,
+      "total_src_rows": 4277,
+      "wall_s": 0.683,
+      "pid": 65743,
+      "peak_rss_mb": 211.8,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.061,
+          "rss_mb": 91.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 0.395,
+          "rss_mb": 180.6,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 0.517,
+          "rss_mb": 200.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 0.677,
+          "rss_mb": 211.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 0.683,
+          "rss_mb": 211.8,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "Chinook-id-pk.bak",
+      "bak_size_mb": 12.257,
+      "total_src_rows": 16075,
+      "wall_s": 0.651,
+      "pid": 65770,
+      "peak_rss_mb": 180.1,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.059,
+          "rss_mb": 91.6,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 0.37,
+          "rss_mb": 161.4,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 0.5,
+          "rss_mb": 172.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 0.645,
+          "rss_mb": 180.1,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 0.651,
+          "rss_mb": 180.1,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorksLT2022.bak",
+      "bak_size_mb": 8.117,
+      "total_src_rows": 4277,
+      "wall_s": 0.716,
+      "pid": 65821,
+      "peak_rss_mb": 217.8,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.065,
+          "rss_mb": 94.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 0.415,
+          "rss_mb": 182.2,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 0.543,
+          "rss_mb": 202.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 0.71,
+          "rss_mb": 217.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 0.716,
+          "rss_mb": 217.8,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorksLT2016.bak",
+      "bak_size_mb": 7.113,
+      "total_src_rows": 4277,
+      "wall_s": 0.689,
+      "pid": 65865,
+      "peak_rss_mb": 203.1,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.057,
+          "rss_mb": 92.2,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 0.382,
+          "rss_mb": 175.9,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 0.511,
+          "rss_mb": 196.3,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 0.683,
+          "rss_mb": 203.1,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 0.689,
+          "rss_mb": 203.1,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorksLT2019.bak",
+      "bak_size_mb": 8.117,
+      "total_src_rows": 4277,
+      "wall_s": 0.712,
+      "pid": 65866,
+      "peak_rss_mb": 208.0,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.061,
+          "rss_mb": 91.9,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 0.409,
+          "rss_mb": 179.6,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 0.541,
+          "rss_mb": 198.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 0.706,
+          "rss_mb": 208.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 0.712,
+          "rss_mb": 208.0,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorksLT2017.bak",
+      "bak_size_mb": 7.113,
+      "total_src_rows": 4277,
+      "wall_s": 0.695,
+      "pid": 65880,
+      "peak_rss_mb": 203.0,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.058,
+          "rss_mb": 92.1,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 0.39,
+          "rss_mb": 175.6,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 0.517,
+          "rss_mb": 193.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 0.688,
+          "rss_mb": 203.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 0.694,
+          "rss_mb": 203.0,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "Chinook.bak",
+      "bak_size_mb": 6.098,
+      "total_src_rows": 16075,
+      "wall_s": 0.638,
+      "pid": 65881,
+      "peak_rss_mb": 173.2,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.054,
+          "rss_mb": 91.2,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 0.345,
+          "rss_mb": 154.2,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 0.478,
+          "rss_mb": 164.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 0.631,
+          "rss_mb": 173.2,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 0.638,
+          "rss_mb": 173.2,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "Northwinds.bak",
+      "bak_size_mb": 0.816,
+      "total_src_rows": 1153,
+      "wall_s": 0.637,
+      "pid": 65883,
+      "peak_rss_mb": 164.5,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.082,
+          "rss_mb": 88.9,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 0.381,
+          "rss_mb": 145.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 0.506,
+          "rss_mb": 158.3,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 0.629,
+          "rss_mb": 164.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 0.637,
+          "rss_mb": 164.5,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "Pubs.bak",
+      "bak_size_mb": 0.5,
+      "total_src_rows": 255,
+      "wall_s": 0.411,
+      "pid": 65884,
+      "peak_rss_mb": 139.1,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.07,
+          "rss_mb": 85.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 0.27,
+          "rss_mb": 130.4,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 0.349,
+          "rss_mb": 137.6,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 0.406,
+          "rss_mb": 139.1,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 0.411,
+          "rss_mb": 139.1,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "TutorialDB.bak",
+      "bak_size_mb": 0.411,
+      "total_src_rows": 453,
+      "wall_s": 0.212,
+      "pid": 65886,
+      "peak_rss_mb": 124.4,
+      "snapshots": [
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.049,
+          "rss_mb": 84.2,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 0.173,
+          "rss_mb": 119.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 0.193,
+          "rss_mb": 124.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 0.207,
+          "rss_mb": 124.4,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 0.212,
+          "rss_mb": 124.4,
+          "arrow_mb": 0.0
+        }
+      ]
+    }
+  ]
+}
