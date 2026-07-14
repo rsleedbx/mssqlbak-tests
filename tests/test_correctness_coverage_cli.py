@@ -113,7 +113,7 @@ def test_run_cases_preserves_input_order_with_threads(
         (fast, tmp_path / "Fast.bak.stats.json"),
     ]
 
-    def fake_run_case(bak_path: Path, stats_path: Path | None) -> dict[str, Any]:
+    def fake_run_case(bak_path: Path, stats_path: Path | None, bak_url: str | None = None) -> dict[str, Any]:
         if bak_path == slow:
             time.sleep(0.05)
         return {"bak": bak_path.name, "stats": stats_path.name if stats_path else None}
@@ -138,7 +138,7 @@ def test_run_cases_uses_parallel_workers(
     active = 0
     max_active = 0
 
-    def fake_run_case(bak_path: Path, stats_path: Path | None) -> dict[str, Any]:
+    def fake_run_case(bak_path: Path, stats_path: Path | None, bak_url: str | None = None) -> dict[str, Any]:
         nonlocal active, max_active
         with lock:
             active += 1
@@ -173,9 +173,9 @@ def test_render_timing_table_uses_wall_time() -> None:
         show_fixture_dir=False,
     )
 
-    assert "| Backup | Wall time |" in md
-    assert "| `Sample.bak` | 1.234s |" in md
-    assert "9.876s" not in md
+    assert "| Backup | Extract | Verify | Wall time |" in md
+    assert "9.876s" in md   # extract_s
+    assert "1.234s" in md   # wall_s
 
 
 def test_render_shows_table_and_column_pass_totals() -> None:
@@ -287,7 +287,7 @@ def test_run_cases_logs_backups_when_processing(
         (tmp_path / "B.bak", tmp_path / "B.bak.stats.json"),
     ]
 
-    def fake_run_case(bak_path: Path, stats_path: Path | None) -> dict[str, Any]:
+    def fake_run_case(bak_path: Path, stats_path: Path | None, bak_url: str | None = None) -> dict[str, Any]:
         return {"bak": bak_path.name}
 
     monkeypatch.setattr(correctness_coverage, "ProcessPoolExecutor", ThreadPoolExecutor, raising=False)
@@ -315,7 +315,7 @@ def test_run_cases_does_not_log_queued_backups_as_processing(
     two_started = threading.Event()
     release = threading.Event()
 
-    def fake_run_case(bak_path: Path, stats_path: Path | None) -> dict[str, Any]:
+    def fake_run_case(bak_path: Path, stats_path: Path | None, bak_url: str | None = None) -> dict[str, Any]:
         nonlocal started
         with lock:
             started += 1
@@ -360,7 +360,7 @@ def test_run_cases_uses_process_pool_for_parallel_workers(
             seen["max_workers"] = max_workers
             super().__init__(max_workers=max_workers)
 
-    def fake_run_case(bak_path: Path, stats_path: Path | None) -> dict[str, Any]:
+    def fake_run_case(bak_path: Path, stats_path: Path | None, bak_url: str | None = None) -> dict[str, Any]:
         return {"bak": bak_path.name}
 
     monkeypatch.setattr(correctness_coverage, "ProcessPoolExecutor", SpyProcessPool, raising=False)

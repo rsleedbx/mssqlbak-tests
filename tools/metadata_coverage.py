@@ -130,13 +130,15 @@ FIELDS: list[Meta] = [
          "data-set name or primary .mdf stem", lambda m: _fs(m, "database_name")),
     Meta("SQL config", "data/log file paths", EXPOSED, "BackupSetInfo.data_files",
          ".mdf/.ndf/.ldf paths in the SSET block", lambda m: _fs(m, "data_files")),
-    Meta("SQL config", "server name",     EXPOSED, "BackupSetInfo.server_name",
-         "best-effort: UTF-16 run before the SFGI marker, database-name prefix "
-         "stripped; empty (never wrong) if the layout differs",
-         lambda m: _fs(m, "server_name")),
-    Meta("SQL config", "machine name",    GAP, "—",
-         "present (NetBIOS-truncated to 15 chars) but lacks a length prefix or "
-         "stable anchor, so it is not portably parseable"),
+    Meta("SQL config", "server instance",  EXPOSED, "BackupSetInfo.server_instance",
+         "MACHINE or MACHINE\\INSTANCE extracted from the MQCI sub-block (same "
+         "as RESTORE HEADERONLY ServerName); empty when not parseable",
+         lambda m: _fs(m, "server_instance")),
+    Meta("SQL config", "machine name",    EXPOSED, "BackupSetInfo.machine_name",
+         "machine component of server_instance (before the first backslash); "
+         "empty when server_instance is absent",
+         lambda m: _fs(m, "machine_name"),
+         optional=True),
     Meta("SQL config", "backup LSNs (first/last/checkpoint)", GAP, "—",
          "header LSNs are not stored verbatim in the SSET descriptor; the "
          "LSN-shaped triples there are internal fork/differential markers, not "

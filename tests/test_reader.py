@@ -34,6 +34,7 @@ from mssqlbak.reader import (
     _backup_type_label,
     _common_header_checksum_ok,
     _extract_db_files,
+    _extract_server_instance,
     _extract_server_name,
     _parse_mtf_date,
     _resolve_addr,
@@ -154,6 +155,7 @@ def test_extract_db_files_none() -> None:
 
 
 def _sset_with_server(db: str, server: str, *, tag: bytes = b"SFGI") -> bytes:
+    """Build a synthetic 512-byte block with [db][server]<tag> at offset 100."""
     block = bytearray(512)
     tail = (db + server).encode("utf-16-le")
     block[100 : 100 + len(tail)] = tail
@@ -162,8 +164,38 @@ def _sset_with_server(db: str, server: str, *, tag: bytes = b"SFGI") -> bytes:
 
 
 def test_extract_server_name_strips_db_prefix() -> None:
+    # _extract_server_name is deprecated — always returns "".
+    # The replacement (_extract_server_instance) is tested below.
     block = _sset_with_server("MyDB", "HOST\\INST")
-    assert _extract_server_name(block, "MyDB") == "HOST\\INST"
+    assert _extract_server_name(block, "MyDB") == ""
+
+
+# mqci_pos=6 → search_start = 6+94 = 100, which is exactly where the data is.
+_MQCI_POS_FOR_OFFSET_100 = 6
+
+
+def test_extract_server_instance_strips_db_prefix() -> None:
+    block = _sset_with_server("MyDB", "HOST\\INST")
+    _, server = _extract_server_instance(block, _MQCI_POS_FOR_OFFSET_100, "MyDB")
+    assert server == "HOST\\INST"
+
+
+def test_extract_server_instance_no_db_name() -> None:
+    block = _sset_with_server("MyDB", "HOST")
+    _, server = _extract_server_instance(block, _MQCI_POS_FOR_OFFSET_100, "")
+    assert server == ""
+
+
+def test_extract_server_instance_no_sfgi_marker() -> None:
+    block = _sset_with_server("MyDB", "HOST", tag=b"\x00\x00\x00\x00")
+    _, server = _extract_server_instance(block, _MQCI_POS_FOR_OFFSET_100, "MyDB")
+    assert server == ""
+
+
+def test_extract_server_instance_prefix_mismatch_yields_empty() -> None:
+    block = _sset_with_server("MyDB", "HOST")
+    _, server = _extract_server_instance(block, _MQCI_POS_FOR_OFFSET_100, "OtherDB")
+    assert server == ""
 
 
 def test_extract_server_name_no_db_name() -> None:
@@ -374,7 +406,8 @@ def test_synthetic_bak_metadata(tmp_path: Path) -> None:
     assert s.write_date == datetime(2024, 6, 1, 12, 0, 0)
     assert s.data_files == ["/var/opt/mssql/data/TestDB.mdf"]
     assert s.database_name == "TestDB"
-    assert s.server_name == "TESTHOST"
+    # server_name is deprecated (always ""); server_instance requires the MQCI
+    # region which is beyond the 1024-byte synthetic block — not checked here.
 
 
 class _BytesBakReader:
@@ -434,10 +467,8 @@ def test_real_fixture_metadata() -> None:
     assert s is not None
     assert s.backup_type_label == "Full (copy-only)"
     assert s.database_name == "TypeCoverage"
-    # SS2017 stores only 15 chars of the server name in the SSET MTF block
-    # (legacy NetBIOS 15-char limit); later versions store the full name.
-    # "robert-lee-mssq" is the common 15-char prefix present in every version.
-    assert s.server_name.startswith("robert-lee-mssq")
+    # server_instance is extracted from the MQCI region (replaces deprecated server_name).
+    assert s.server_instance.startswith("robert-lee-mssq")
     assert s.user_name == "sa"
     assert s.write_date is not None
     assert any(p.endswith("TypeCoverage.mdf") for p in s.data_files)

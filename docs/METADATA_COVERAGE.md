@@ -8,7 +8,7 @@ EXPOSED field stops resolving on the fixture.
 
 This is the **metadata** slice of the byte-complete [BYTE_MAP.md](BYTE_MAP.md) (the master coverage doc); the data slice is [TYPE_COVERAGE.md](TYPE_COVERAGE.md). Which backup *types* can be restored is tracked in [BACKUP_COVERAGE.md](BACKUP_COVERAGE.md).
 
-**Coverage:** 14/16 meaningful fields exposed (88%); 2 gap(s). Format-internal fields (reserved/checksum/positioning) are SKIPPED and excluded from the denominator.
+**Coverage:** 15/16 meaningful fields exposed (94%); 1 gap(s). Format-internal fields (reserved/checksum/positioning) are SKIPPED and excluded from the denominator.
 
 The metadata path (`read_bak_metadata`, used by the CLI `info` command and
 `restore`) is independent of the data-decode path (`extract_mdf_pages`, used by
@@ -57,8 +57,8 @@ The metadata path (`read_bak_metadata`, used by the CLI `info` command and
 | SSET | media catalog version | SKIPPED | — | MBC version |
 | SQL config | database name | EXPOSED | BackupSetInfo.database_name | data-set name or primary .mdf stem |
 | SQL config | data/log file paths | EXPOSED | BackupSetInfo.data_files | .mdf/.ndf/.ldf paths in the SSET block |
-| SQL config | server name | EXPOSED | BackupSetInfo.server_name | best-effort: UTF-16 run before the SFGI marker, database-name prefix stripped; empty (never wrong) if the layout differs |
-| SQL config | machine name | GAP | — | present (NetBIOS-truncated to 15 chars) but lacks a length prefix or stable anchor, so it is not portably parseable |
+| SQL config | server instance | EXPOSED | BackupSetInfo.server_instance | MACHINE or MACHINE\INSTANCE extracted from the MQCI sub-block (same as RESTORE HEADERONLY ServerName); empty when not parseable |
+| SQL config | machine name | EXPOSED | BackupSetInfo.machine_name | machine component of server_instance (before the first backslash); empty when server_instance is absent |
 | SQL config | backup LSNs (first/last/checkpoint) | GAP | — | header LSNs are not stored verbatim in the SSET descriptor; the LSN-shaped triples there are internal fork/differential markers, not RESTORE HEADERONLY's First/Last/Checkpoint. Available via the engine for future reverse-engineering |
 | SQL config | compression / TDE detection | EXPOSED | reader.is_compressed_or_encrypted() | compressed/encrypted backups use an MSSQLBAK container; compressed ones are decoded by mssqlbak.compressed (XPRESS) for extraction, TDE-encrypted ones are unsupported; the MTF info reader needs the uncompressed form |
 
@@ -74,7 +74,6 @@ The metadata path (`read_bak_metadata`, used by the CLI `info` command and
 
 To reach 100% coverage, decode these from SQL Server's proprietary config stream:
 
-- `machine name` — present (NetBIOS-truncated to 15 chars) but lacks a length prefix or stable anchor, so it is not portably parseable
 - `backup LSNs (first/last/checkpoint)` — header LSNs are not stored verbatim in the SSET descriptor; the LSN-shaped triples there are internal fork/differential markers, not RESTORE HEADERONLY's First/Last/Checkpoint. Available via the engine for future reverse-engineering
 
 See [README](../README.md) and [DESIGN](../DESIGN.md) for parser limitations.

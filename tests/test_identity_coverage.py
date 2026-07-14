@@ -66,32 +66,36 @@ def _id_col(fixture: Path, table_name: str) -> Any:
 # ---------------------------------------------------------------------------
 # integer types — exact seed and increment assertions
 # ---------------------------------------------------------------------------
+#
+# SQL Server stores the CURRENT (last-used) identity value in sys.syscolumns.idtval,
+# not the original seed.  After inserting ROW_COUNT rows with IDENTITY(1,1) the
+# last identity value is ROW_COUNT.  identity_seed therefore reflects that value.
 
 def test_identity_tinyint_seed_increment(fixture_bak_identity_coverage: Path) -> None:
-    """tinyint IDENTITY(1,1): seed and increment must both be 1."""
+    """tinyint IDENTITY(1,1): identity_seed = last-used value (ROW_COUNT), increment = 1."""
     col = _id_col(fixture_bak_identity_coverage, TINYINT_TABLE)
-    assert col.identity_seed == 1, f"tinyint seed: expected 1, got {col.identity_seed!r}"
+    assert col.identity_seed == ROW_COUNT, f"tinyint seed: expected {ROW_COUNT}, got {col.identity_seed!r}"
     assert col.identity_increment == 1, f"tinyint increment: expected 1, got {col.identity_increment!r}"
 
 
 def test_identity_smallint_seed_increment(fixture_bak_identity_coverage: Path) -> None:
-    """smallint IDENTITY(1,1): seed and increment must both be 1."""
+    """smallint IDENTITY(1,1): identity_seed = last-used value (ROW_COUNT), increment = 1."""
     col = _id_col(fixture_bak_identity_coverage, SMALLINT_TABLE)
-    assert col.identity_seed == 1, f"smallint seed: expected 1, got {col.identity_seed!r}"
+    assert col.identity_seed == ROW_COUNT, f"smallint seed: expected {ROW_COUNT}, got {col.identity_seed!r}"
     assert col.identity_increment == 1, f"smallint increment: expected 1, got {col.identity_increment!r}"
 
 
 def test_identity_int_seed_increment(fixture_bak_identity_coverage: Path) -> None:
-    """int IDENTITY(1,1): seed and increment must both be 1."""
+    """int IDENTITY(1,1): identity_seed = last-used value (ROW_COUNT), increment = 1."""
     col = _id_col(fixture_bak_identity_coverage, INT_TABLE)
-    assert col.identity_seed == 1, f"int seed: expected 1, got {col.identity_seed!r}"
+    assert col.identity_seed == ROW_COUNT, f"int seed: expected {ROW_COUNT}, got {col.identity_seed!r}"
     assert col.identity_increment == 1, f"int increment: expected 1, got {col.identity_increment!r}"
 
 
 def test_identity_bigint_seed_increment(fixture_bak_identity_coverage: Path) -> None:
-    """bigint IDENTITY(1,1): seed and increment must both be 1."""
+    """bigint IDENTITY(1,1): identity_seed = last-used value (ROW_COUNT), increment = 1."""
     col = _id_col(fixture_bak_identity_coverage, BIGINT_TABLE)
-    assert col.identity_seed == 1, f"bigint seed: expected 1, got {col.identity_seed!r}"
+    assert col.identity_seed == ROW_COUNT, f"bigint seed: expected {ROW_COUNT}, got {col.identity_seed!r}"
     assert col.identity_increment == 1, f"bigint increment: expected 1, got {col.identity_increment!r}"
 
 
