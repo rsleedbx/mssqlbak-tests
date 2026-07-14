@@ -216,6 +216,10 @@ FIXTURE_BAK_NCCI_HEAP = (
 FIXTURE_BAK_IDENTITY_COVERAGE = (
     _FIXTURE_DIR / "identity_coverage_full.bak"
 )
+# extended-properties: MS_Description + arbitrary named extended properties at schema/table/column.
+FIXTURE_BAK_EXTENDED_PROPERTIES = (
+    _FIXTURE_DIR / "extended_properties_full.bak"
+)
 # Gap D-3: rowversion/timestamp — 8-byte big-endian bytes, monotonically increasing.
 FIXTURE_BAK_ROWVERSION_EXTRACT = (
     _FIXTURE_DIR / "rowversion_extract_full.bak"
@@ -1135,6 +1139,16 @@ def fixture_bak_identity_coverage() -> Path:
 
 
 @pytest.fixture
+def fixture_bak_extended_properties() -> Path:
+    if not FIXTURE_BAK_EXTENDED_PROPERTIES.exists():
+        pytest.skip(
+            f"extended-properties fixture missing: {FIXTURE_BAK_EXTENDED_PROPERTIES} "
+            "(run: python -m tools.fixture_run all-versions --suite extended-properties)"
+        )
+    return FIXTURE_BAK_EXTENDED_PROPERTIES
+
+
+@pytest.fixture
 def fixture_bak_rowversion_extract() -> Path:
     if not FIXTURE_BAK_ROWVERSION_EXTRACT.exists():
         pytest.skip(
@@ -1700,3 +1714,24 @@ def fixture_bak_native_json() -> Path:
             "(run: python -m tools.fixture_run all-versions --suite native-json --version 2025)"
         )
     return FIXTURE_BAK_NATIVE_JSON
+
+
+FIXTURE_BAK_EXTENDED_PROPERTIES = (
+    _FIXTURE_DIR / "extended_properties_full.bak"
+)
+
+
+@pytest.fixture
+def fixture_bak_extended_properties() -> Path:
+    """Path to the extended-properties fixture.
+
+    Generate with::
+
+        python -m tools.fixture_run all-versions --suite extended-properties
+    """
+    if not FIXTURE_BAK_EXTENDED_PROPERTIES.exists():
+        pytest.skip(
+            f"extended-properties fixture missing: {FIXTURE_BAK_EXTENDED_PROPERTIES} "
+            "(run: python -m tools.fixture_run all-versions --suite extended-properties)"
+        )
+    return FIXTURE_BAK_EXTENDED_PROPERTIES

@@ -1875,58 +1875,58 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (
 
 | Backup | Extract | Verify | Wall time |
 |--------|---------|--------|-----------|
-| `AdventureWorks2008R2.bak` | 8.078s | 8.971s | 17.049s |
-| `AdventureWorks2012.bak` | 8.746s | 9.819s | 18.565s |
-| `AdventureWorks2014.bak` | 8.905s | 9.837s | 18.742s |
-| `AdventureWorks2016.bak` | 8.842s | 9.996s | 18.838s |
-| `AdventureWorks2016_EXT.bak` | 22.226s | 17.44s | 39.666s |
-| `AdventureWorks2017.bak` | 9.014s | 9.837s | 18.851s |
-| `AdventureWorks2019.bak` | 8.235s | 9.179s | 17.414s |
-| `AdventureWorks2022.bak` | 8.13s | 9.221s | 17.351s |
-| `AdventureWorks2025.bak` | 8.872s | 9.604s | 18.476s |
-| `AdventureWorksDW2008R2.bak` | 0.66s | 3.03s | 3.69s |
-| `AdventureWorksDW2012.bak` | 1.149s | 9.406s | 10.555s |
-| `AdventureWorksDW2014.bak` | 1.161s | 9.596s | 10.757s |
-| `AdventureWorksDW2016.bak` | 1.177s | 9.41s | 10.587s |
-| `AdventureWorksDW2016_EXT.bak` | 58.072s | 29.212s | 87.284s |
-| `AdventureWorksDW2017.bak` | 1.174s | 9.416s | 10.59s |
-| `AdventureWorksDW2019.bak` | 0.784s | 9.242s | 10.026s |
-| `AdventureWorksDW2022.bak` | 0.811s | 9.051s | 9.862s |
-| `AdventureWorksDW2025.bak` | 1.174s | 9.527s | 10.701s |
-| `AdventureWorksLT2012.bak` | 0.101s | 0.087s | 0.188s |
-| `AdventureWorksLT2014.bak` | 0.106s | 0.089s | 0.195s |
-| `AdventureWorksLT2016.bak` | 0.088s | 0.094s | 0.182s |
-| `AdventureWorksLT2017.bak` | 0.092s | 0.093s | 0.185s |
-| `AdventureWorksLT2019.bak` | 0.095s | 0.098s | 0.193s |
-| `AdventureWorksLT2022.bak` | 0.096s | 0.095s | 0.191s |
-| `AdventureWorksLT2025.bak` | 0.14s | 0.135s | 0.275s |
-| `BaseballData.bak` | 6.676s | 4.495s | 11.171s |
-| `Chinook-id-pk.bak` | 0.068s | 0.108s | 0.176s |
-| `Chinook.bak` | 0.054s | 0.108s | 0.162s |
-| `ContosoRetailDW.bak` | 39.898s | 352.623s | 392.521s |
-| `CreditBackup100.bak` | 12.3s | 17.475s | 29.775s |
-| `data.gov.bak` | 1.344s | 1.469s | 2.813s |
-| `dba.stackexchange.com.bak` | 30.852s | 27.386s | 58.238s |
-| `EmployeeCaseStudySampleDB2012.bak` | 2.231s | 0.779s | 3.01s |
-| `GeneralHospital.bak` | 23.247s | 17.88s | 41.127s |
-| `IndexInternals2008.bak` | 1.288s | 0.584s | 1.872s |
-| `Northwinds.bak` | 0.107s | 0.126s | 0.233s |
-| `NYCTaxi_Sample.bak` | 13.127s | 34.712s | 47.839s |
-| `Pubs.bak` | 0.068s | 0.073s | 0.141s |
-| `SalesDB2014.bak` | 1.352s | 20.671s | 22.023s |
-| `SalesDBOriginal.bak` | 1.006s | 19.374s | 20.38s |
-| `StackOverflowMini.bak` | 29.439s | 65.747s | 95.186s |
-| `tpcxbb_1gb.bak` | 47.593s | 79.343s | 126.936s |
-| `TutorialDB.bak` | 0.052s | 0.053s | 0.105s |
-| `WideWorldImporters-Full.bak` | 19.398s | 37.568s | 56.966s |
-| `WideWorldImporters-Full_old.bak` | 19.302s | 38.327s | 57.629s |
-| `WideWorldImporters-Standard.bak` | 15.405s | 39.743s | 55.148s |
-| `WideWorldImporters-Standard_old.bak` | 15.462s | 39.347s | 54.809s |
-| `WideWorldImportersDW-Full.bak` | 6.44s | 13.461s | 19.901s |
-| `WideWorldImportersDW-Standard.bak` | 4.817s | 12.693s | 17.51s |
+| `AdventureWorks2008R2.bak` | 7.98s | 8.991s | 16.971s |
+| `AdventureWorks2012.bak` | 8.685s | 9.666s | 18.351s |
+| `AdventureWorks2014.bak` | 8.69s | 9.673s | 18.363s |
+| `AdventureWorks2016.bak` | 8.822s | 10.038s | 18.86s |
+| `AdventureWorks2016_EXT.bak` | 21.572s | 16.736s | 38.308s |
+| `AdventureWorks2017.bak` | 9.037s | 9.765s | 18.802s |
+| `AdventureWorks2019.bak` | 8.025s | 9.164s | 17.189s |
+| `AdventureWorks2022.bak` | 7.975s | 9.031s | 17.006s |
+| `AdventureWorks2025.bak` | 8.72s | 9.526s | 18.246s |
+| `AdventureWorksDW2008R2.bak` | 0.578s | 2.984s | 3.562s |
+| `AdventureWorksDW2012.bak` | 1.148s | 9.348s | 10.496s |
+| `AdventureWorksDW2014.bak` | 1.11s | 9.346s | 10.456s |
+| `AdventureWorksDW2016.bak` | 1.172s | 9.34s | 10.512s |
+| `AdventureWorksDW2016_EXT.bak` | 57.444s | 28.984s | 86.428s |
+| `AdventureWorksDW2017.bak` | 1.176s | 9.3s | 10.476s |
+| `AdventureWorksDW2019.bak` | 0.818s | 9.034s | 9.852s |
+| `AdventureWorksDW2022.bak` | 0.803s | 8.966s | 9.769s |
+| `AdventureWorksDW2025.bak` | 1.122s | 9.423s | 10.545s |
+| `AdventureWorksLT2012.bak` | 0.1s | 0.087s | 0.187s |
+| `AdventureWorksLT2014.bak` | 0.101s | 0.096s | 0.197s |
+| `AdventureWorksLT2016.bak` | 0.084s | 0.091s | 0.175s |
+| `AdventureWorksLT2017.bak` | 0.101s | 0.098s | 0.199s |
+| `AdventureWorksLT2019.bak` | 0.101s | 0.101s | 0.202s |
+| `AdventureWorksLT2022.bak` | 0.089s | 0.099s | 0.188s |
+| `AdventureWorksLT2025.bak` | 0.127s | 0.13s | 0.257s |
+| `BaseballData.bak` | 6.656s | 4.353s | 11.009s |
+| `Chinook-id-pk.bak` | 0.067s | 0.103s | 0.17s |
+| `Chinook.bak` | 0.05s | 0.104s | 0.154s |
+| `ContosoRetailDW.bak` | 39.57s | 351.785s | 391.355s |
+| `CreditBackup100.bak` | 11.851s | 17.62s | 29.471s |
+| `data.gov.bak` | 1.335s | 1.46s | 2.795s |
+| `dba.stackexchange.com.bak` | 30.449s | 26.714s | 57.163s |
+| `EmployeeCaseStudySampleDB2012.bak` | 2.126s | 0.8s | 2.926s |
+| `GeneralHospital.bak` | 22.7s | 17.355s | 40.055s |
+| `IndexInternals2008.bak` | 1.276s | 0.558s | 1.834s |
+| `Northwinds.bak` | 0.098s | 0.11s | 0.208s |
+| `NYCTaxi_Sample.bak` | 12.752s | 34.168s | 46.92s |
+| `Pubs.bak` | 0.062s | 0.067s | 0.129s |
+| `SalesDB2014.bak` | 1.287s | 19.841s | 21.128s |
+| `SalesDBOriginal.bak` | 0.988s | 19.373s | 20.361s |
+| `StackOverflowMini.bak` | 30.725s | 64.159s | 94.884s |
+| `tpcxbb_1gb.bak` | 48.503s | 76.742s | 125.245s |
+| `TutorialDB.bak` | 0.044s | 0.048s | 0.092s |
+| `WideWorldImporters-Full.bak` | 19.355s | 37.505s | 56.86s |
+| `WideWorldImporters-Full_old.bak` | 19.091s | 38.108s | 57.199s |
+| `WideWorldImporters-Standard.bak` | 15.397s | 38.286s | 53.683s |
+| `WideWorldImporters-Standard_old.bak` | 15.277s | 37.792s | 53.069s |
+| `WideWorldImportersDW-Full.bak` | 6.578s | 13.265s | 19.843s |
+| `WideWorldImportersDW-Standard.bak` | 4.738s | 12.276s | 17.014s |
 
 _Verify = wall − extract (Arrow conversion, ground-truth compare, cell verification, and confidence analysis; cell verification dominates for large fixtures)._
 
 ---
 
-_Generated 2026-07-13 · 49 fixtures · 49 pass · 0 xfail · 0 fail_
+_Generated 2026-07-14 · 49 fixtures · 49 pass · 0 xfail · 0 fail_

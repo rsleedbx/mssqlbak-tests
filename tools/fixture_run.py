@@ -636,6 +636,13 @@ def _run_identity_coverage(*, force: bool = False) -> int:
     return main()
 
 
+def _run_extended_properties(*, force: bool = False) -> int:
+    from tools.make_extended_properties_fixture import main
+
+    sys.argv = ["make_extended_properties_fixture", *(["--force"] if force else [])]
+    return main()
+
+
 def _run_rowversion_extract(*, force: bool = False) -> int:
     from tools.make_rowversion_extract_fixture import main
 
@@ -1075,6 +1082,8 @@ _COMMANDS = {
     "ncci-heap": _run_ncci_heap,
     # identity-coverage: all 6 SQL Server IDENTITY-capable types (tinyint→bigint, decimal, numeric)
     "identity-coverage": _run_identity_coverage,
+    # extended-properties: MS_Description + arbitrary named props at schema/table/column level
+    "extended-properties": _run_extended_properties,
     # Gap D-3: rowversion column extraction — 8-byte big-endian bytes, monotonically increasing
     "rowversion-extract": _run_rowversion_extract,
     # Gap D-4: hierarchyid column extraction — raw varbinary bytes, correct length
@@ -1247,6 +1256,7 @@ _ALL_VERSIONS_SUITE = [
     "filtered-ncci",  # Gap C-4: filtered NCCI (WHERE clause) — all base rows must be returned
     "ncci-heap",  # Gap C-5: NCCI on heap — RID-locator column isolation
     "identity-coverage",  # all 6 IDENTITY-capable types: tinyint, smallint, int, bigint, decimal, numeric
+    "extended-properties",  # MS_Description + arbitrary named extended properties at schema/table/column level
     "rowversion-extract",  # Gap D-3: rowversion/timestamp — 8-byte big-endian bytes
     "hierarchyid-extract",  # Gap D-4: hierarchyid — raw bytes, correct length
     "cci-computed",  # Gap C-11: non-persisted computed columns in CCI — absent from segments
@@ -1708,6 +1718,15 @@ def main(argv: list[str] | None = None) -> int:
         ),
     )
     ic_p.add_argument("--force", action="store_true", help="overwrite existing .bak")
+    ep_p = sub.add_parser(
+        "extended-properties",
+        help=(
+            "extended_properties_full.bak — MS_Description and arbitrary-named extended "
+            "properties at schema, table, and column levels; tests recover_extended_properties "
+            "and rendering in DDL / pg / delta sinks"
+        ),
+    )
+    ep_p.add_argument("--force", action="store_true", help="overwrite existing .bak")
     rv_p = sub.add_parser(
         "rowversion-extract",
         help=(
@@ -2518,6 +2537,8 @@ def main(argv: list[str] | None = None) -> int:
         return _run_ncci_heap(force=getattr(args, "force", False))
     if args.command == "identity-coverage":
         return _run_identity_coverage(force=getattr(args, "force", False))
+    if args.command == "extended-properties":
+        return _run_extended_properties(force=getattr(args, "force", False))
     if args.command == "rowversion-extract":
         return _run_rowversion_extract(force=getattr(args, "force", False))
     if args.command == "hierarchyid-extract":
