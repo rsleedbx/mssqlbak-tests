@@ -436,8 +436,57 @@ def _render(
             lines.append(f"| `{r['bak']}` | {extract}s | {verify}s | {wall}s |")
         lines.append(
             "\n_Verify = wall − extract (Arrow conversion, ground-truth compare, "
-            "cell verification, and confidence analysis; cell verification dominates "
-            "for large fixtures)._"
+            "cell verification, and confidence analysis). "
+            "See **Sink read breakdown** below for the per-phase split._"
+        )
+
+    # Extract phase breakdown — per-phase timers from _extract_bak_inner.
+    phase_rows = [r for r in timing_rows if r.get("phases")]
+    if phase_rows:
+        lines.append("\n## Extract phase breakdown\n")
+        lines.append(
+            "| Backup | pagestore | schema | catalog | constraints | logtail | xtp"
+            " | data decode (net) | sink write | arrow verify | sink finish |"
+        )
+        lines.append(
+            "|--------|----------:|-------:|--------:|------------:|--------:|---:"
+            "|------------------:|-----------:|-------------:|------------:|"
+        )
+        for r in phase_rows:
+            ph: dict = r.get("phases") or {}
+            ws: dict = r.get("write_s") or {}
+            vs: dict = r.get("verify_s") or {}
+
+            def _fs(key: str) -> str:
+                v = ph.get(key)
+                return f"{v}s" if v is not None else "—"
+
+            sink_write_total = round(sum(ws.values()), 3)
+            arrow_verify = vs.get("mssql_arrow")
+            ddn = r.get("data_decode_net_s")
+            lines.append(
+                f"| `{r['bak']}` "
+                f"| {_fs('pagestore_build_s')} "
+                f"| {_fs('schema_recover_s')} "
+                f"| {_fs('catalog_recover_s')} "
+                f"| {_fs('constraints_s')} "
+                f"| {_fs('logtail_s')} "
+                f"| {_fs('xtp_s')} "
+                f"| {f'{ddn}s' if ddn is not None else '—'} "
+                f"| {f'{sink_write_total}s' if ws else '—'} "
+                f"| {f'{arrow_verify}s' if arrow_verify is not None else '—'} "
+                f"| {_fs('sink_finish_s')} |"
+            )
+        lines.append(
+            "\n_data decode (net) = data\\_decode\\_s (raw loop wall; sink writes and arrow verify "
+            "overlap decode on a background writer thread and are drained in sink finish). "
+            "catalog = recover\\_catalog\\_objects (indexes/FKs/constraints, pg\\_dir only). "
+            "arrow verify = cell verification run inside extraction (_StreamingStatsSink). "
+            "verify=digest: per-column SHA-256 aggregate hash — fast, no GT parquet read, catches "
+            "multiset-level corruption; also runs key-ordered digest (catches row transposition) when "
+            "ordered\\_digest is present in the manifest (populated by backfill\\_ordered\\_digest). "
+            "Mismatches show as digest:col (multiset) or order:col (transposition). "
+            "verify=full: exhaustive keyed row compare — also catches value-preserving row misalignment._"
         )
 
     # Sink write timings — only when sinks were active
@@ -460,6 +509,43 @@ def _render(
             lines.append(f"| `{r['bak']}` | {' | '.join(cols)} |")
         lines.append(
             "\n_Write and read times are wall-clock estimates (coarse, not exact per-sink isolation)._"
+        )
+
+    # Sink read breakdown — read / stats / verify sub-timers per sink,
+    # plus the mssql→arrow (extraction-phase) verify time.
+    breakdown_rows = [
+        r for r in timing_rows
+        if r.get("read_s") or r.get("stats_s") or r.get("verify_s")
+    ]
+    if breakdown_rows and active_sinks:
+        lines.append("\n## Sink read breakdown\n")
+        # Build column headers: mssql→arrow verify, then per-sink read/stats/verify.
+        hdr_parts = ["arrow verify"]
+        sep_parts = ["-------:"]
+        for s in active_sinks:
+            hdr_parts += [f"{s} read", f"{s} stats", f"{s} verify"]
+            sep_parts += ["-------:", "-------:", "-------:"]
+        lines.append(f"| Backup | {' | '.join(hdr_parts)} |")
+        lines.append(f"|--------| {' | '.join(sep_parts)}|")
+        for r in breakdown_rows:
+            rs: dict = r.get("read_s") or {}
+            ss: dict = r.get("stats_s") or {}
+            vs: dict = r.get("verify_s") or {}
+            arrow_v = vs.get("mssql_arrow")
+            cols = [f"{arrow_v}s" if arrow_v is not None else "—"]
+            for s in active_sinks:
+                rd = rs.get(s)
+                st = ss.get(s)
+                vv = vs.get(s)
+                cols.append(f"{rd}s" if rd is not None else "—")
+                cols.append(f"{st}s" if st is not None else "—")
+                cols.append(f"{vv}s" if vv is not None else "—")
+            lines.append(f"| `{r['bak']}` | {' | '.join(cols)} |")
+        lines.append(
+            "\n_arrow verify = cell verification folded into extract_s. "
+            "Sink read = pure I/O + decode. Stats = min/max/null compute. "
+            "Sink verify = cell verification on the round-tripped data. "
+            "Remainder of readback_s is GC / other._"
         )
 
     ts = datetime.date.today().isoformat()

@@ -362,3 +362,116 @@ class TestReadDirArchive:
         sink.finish()
         archive = read_dir_archive(tmp_path)
         assert archive.db_name == "mydb"
+
+
+# ---------------------------------------------------------------------------
+# C++ stringify codec parity (float, naive timestamp, all-null, escapes)
+# ---------------------------------------------------------------------------
+
+class TestCppCodecParity:
+    """Validate that the all-C++ _encode_batch_copy_text / _copy_text_to_table
+    pipeline round-trips values correctly for the types affected by the new
+    C++ stringify path."""
+
+    def _rt(self, schema: pa.Schema, batch: pa.RecordBatch, tmp_path: Path) -> pa.Table:
+        """Write one batch and read it back."""
+        sink = DirSink(tmp_path, dir_codec="zstd")
+        sink.open_table("public.t", schema)
+        sink.write_batch(batch)
+        sink.close()
+        sink.finish()
+        return read_dir_tables(tmp_path)["public.t"]
+
+    def test_float_values_round_trip(self, tmp_path: Path) -> None:
+        """float64 columns: C++ cast emits different text but same value."""
+        import datetime as dt
+        schema = pa.schema([("f", pa.float64())])
+        vals = [0.0, 100.0, -3.14, 1e20, 1e-7, 1.23456789]
+        batch = pa.RecordBatch.from_arrays(
+            [pa.array(vals, type=pa.float64())], schema=schema
+        )
+        result = self._rt(schema, batch, tmp_path)
+        got = result.column("f").to_pylist()
+        assert got == vals
+
+    def test_float_nulls_round_trip(self, tmp_path: Path) -> None:
+        schema = pa.schema([("f", pa.float64())])
+        vals = [1.5, None, 2.5]
+        batch = pa.RecordBatch.from_arrays(
+            [pa.array(vals, type=pa.float64())], schema=schema
+        )
+        result = self._rt(schema, batch, tmp_path)
+        assert result.column("f").to_pylist() == vals
+
+    def test_naive_timestamp_round_trip(self, tmp_path: Path) -> None:
+        """Naive timestamp[us] now stringified and parsed in C++."""
+        import datetime as dt
+        schema = pa.schema([("ts", pa.timestamp("us"))])
+        vals = [
+            dt.datetime(2020, 1, 2, 3, 4, 5, 123456),
+            dt.datetime(2020, 1, 2, 3, 4, 5, 0),       # zero microseconds
+            dt.datetime(1999, 12, 31, 23, 59, 59, 1),
+            None,
+        ]
+        batch = pa.RecordBatch.from_arrays(
+            [pa.array(vals, type=pa.timestamp("us"))], schema=schema
+        )
+        result = self._rt(schema, batch, tmp_path)
+        assert result.column("ts").to_pylist() == vals
+
+    def test_all_null_column_round_trip(self, tmp_path: Path) -> None:
+        """A column with every value null must survive the COPY round-trip."""
+        schema = pa.schema([("id", pa.int32()), ("x", pa.float64())])
+        batch = pa.RecordBatch.from_arrays(
+            [
+                pa.array([1, 2, 3], type=pa.int32()),
+                pa.array([None, None, None], type=pa.float64()),
+            ],
+            schema=schema,
+        )
+        result = self._rt(schema, batch, tmp_path)
+        assert result.column("id").to_pylist() == [1, 2, 3]
+        assert result.column("x").to_pylist() == [None, None, None]
+
+    def test_string_with_embedded_tab_newline_backslash(self, tmp_path: Path) -> None:
+        """Strings containing tab, newline, CR, and backslash are escaped on
+        write and unescaped on read to identical values."""
+        schema = pa.schema([("s", pa.large_utf8())])
+        vals = [
+            "hello\tworld",     # embedded tab
+            "line1\nline2",     # embedded newline
+            "cr\r end",         # embedded CR
+            "back\\slash",      # embedded backslash
+            "mixed\t\n\\",      # all three
+            None,
+        ]
+        batch = pa.RecordBatch.from_arrays(
+            [pa.array(vals, type=pa.large_utf8())], schema=schema
+        )
+        result = self._rt(schema, batch, tmp_path)
+        assert result.column("s").to_pylist() == vals
+
+    def test_bool_and_int8_round_trip(self, tmp_path: Path) -> None:
+        """bool and int8 (SQL Server bit) encode as t/f and decode back."""
+        schema = pa.schema([("b", pa.bool_()), ("i8", pa.int8())])
+        batch = pa.RecordBatch.from_arrays(
+            [
+                pa.array([True, False, None], type=pa.bool_()),
+                pa.array([1, 0, None], type=pa.int8()),
+            ],
+            schema=schema,
+        )
+        result = self._rt(schema, batch, tmp_path)
+        assert result.column("b").to_pylist() == [True, False, None]
+        assert result.column("i8").to_pylist() == [1, 0, None]
+
+    def test_decimal_round_trip(self, tmp_path: Path) -> None:
+        """decimal128 values survive C++ cast → read_csv round-trip."""
+        import decimal
+        schema = pa.schema([("d", pa.decimal128(19, 4))])
+        vals = [decimal.Decimal("12345.6789"), decimal.Decimal("0.0001"), None]
+        batch = pa.RecordBatch.from_arrays(
+            [pa.array(vals, type=pa.decimal128(19, 4))], schema=schema
+        )
+        result = self._rt(schema, batch, tmp_path)
+        assert result.column("d").to_pylist() == vals

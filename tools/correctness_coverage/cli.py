@@ -107,6 +107,26 @@ def main(argv: list[str] | None = None) -> int:
         ),
     )
     parser.add_argument(
+        "--verify",
+        default="digest",
+        choices=["full", "digest", "none"],
+        help=(
+            "verification depth for each edge (arrow, delta, pg_dir). "
+            "'digest' (default): per-column SHA-256 aggregate hash — fast, catches "
+            "any multiset-level value corruption; no GT parquet read, no per-row "
+            "alignment. "
+            "'full': exhaustive keyed row-level compare — also catches value-preserving "
+            "row misalignment; ~3–10x slower. "
+            "'none': skip cell verification entirely (row/null/min-max aggregates still "
+            "run). Use to profile read/write hot paths."
+        ),
+    )
+    parser.add_argument(
+        "--no-cell-verify",
+        action="store_true",
+        help="back-compat alias for --verify none",
+    )
+    parser.add_argument(
         "--outdir",
         type=Path,
         default=_DEFAULT_OUTDIR,
@@ -207,11 +227,14 @@ def main(argv: list[str] | None = None) -> int:
 
     mem_budget_mb: float = args.mem_budget_gb * 1024
 
+    verify_level = "none" if args.no_cell_verify else args.verify
+
     print(
         f"==> {len(cases)} fixtures to process in {fixture_dir} "
         f"(threads={args.threads}, mem_budget={args.mem_budget_gb:.1f}GB"
         f"{', http' if args.http else ''}"
-        f"{f', sinks={sink_names}' if sink_names else ''})",
+        f"{f', sinks={sink_names}' if sink_names else ''}"
+        f", verify={verify_level})",
         file=sys.stderr,
     )
 
@@ -221,6 +244,7 @@ def main(argv: list[str] | None = None) -> int:
         reports_dir=reports_dir if sink_names else None,
         run_id=run_id,
         source_mode=source_mode,
+        verify_level=verify_level,
     )
 
     if args.http:
@@ -265,6 +289,15 @@ def main(argv: list[str] | None = None) -> int:
                     "bak_size_mb": r.get("bak_size_mb"),
                     "total_src_rows": r.get("total_src_rows"),
                     "wall_s": r.get("wall_s"),
+                    "extract_s": r.get("extract_s"),
+                    "catalog_s": r.get("catalog_s"),
+                    "data_decode_net_s": r.get("data_decode_net_s"),
+                    "phases": r.get("phases"),
+                    "write_s": r.get("write_s"),
+                    "readback_s": r.get("readback_s"),
+                    "read_s": r.get("read_s"),
+                    "stats_s": r.get("stats_s"),
+                    "verify_s": r.get("verify_s"),
                     **r["resources"],
                 }
                 for r in results

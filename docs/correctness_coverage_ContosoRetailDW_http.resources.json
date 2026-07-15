@@ -1,0 +1,96 @@
+{
+  "run_id": "20260715T104700_http",
+  "source_mode": "http",
+  "mem_budget_gb": 8.0,
+  "threads": 4,
+  "fixtures": [
+    {
+      "bak": "ContosoRetailDW.bak",
+      "bak_size_mb": 629.956,
+      "total_src_rows": 34326475,
+      "wall_s": 1939.079,
+      "extract_s": 695.952,
+      "catalog_s": 0.113,
+      "data_decode_net_s": 642.876,
+      "phases": {
+        "pagestore_build_s": 15.426,
+        "schema_recover_s": 0.104,
+        "lsn_s": 0.009,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 1.724,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 642.876,
+        "sink_finish_s": 35.805
+      },
+      "write_s": {
+        "delta": 16.741,
+        "pg_dir": 25.062
+      },
+      "readback_s": {
+        "delta": 605.385,
+        "pg_dir": 637.603
+      },
+      "read_s": {
+        "delta": 0.892,
+        "pg_dir": 22.57
+      },
+      "stats_s": {
+        "delta": 1.772,
+        "pg_dir": 2.856
+      },
+      "verify_s": {
+        "mssql_arrow": 610.775,
+        "delta": 602.169,
+        "pg_dir": 611.763
+      },
+      "pid": 47359,
+      "peak_rss_mb": 4301.7,
+      "hwm_rss_mb": 8241.9,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 76.2,
+          "peak_rss_mb": 76.4,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.103,
+          "rss_mb": 76.6,
+          "peak_rss_mb": 76.6,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 696.056,
+          "rss_mb": 3908.6,
+          "peak_rss_mb": 6316.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 1301.457,
+          "rss_mb": 4301.7,
+          "peak_rss_mb": 6316.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 1939.062,
+          "rss_mb": 4033.4,
+          "peak_rss_mb": 8241.9,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 1939.078,
+          "rss_mb": 4033.8,
+          "peak_rss_mb": 8241.9,
+          "arrow_mb": 0.0
+        }
+      ]
+    }
+  ]
+}

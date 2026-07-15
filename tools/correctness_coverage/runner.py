@@ -17,10 +17,8 @@ from typing import Any
 
 import pyarrow as pa
 
-from mssqlbak.catalog import recover_schema
 from mssqlbak.confidence import ConfidenceCheck, ConfidenceReport, analyze_bak
 from mssqlbak.extract import extract_bak
-from mssqlbak.pages import PageStore
 from mssqlbak.sink import MultiSink
 from tools import value_verify
 from tools.known_gaps import expected_skipped_tables
@@ -31,7 +29,7 @@ from .compare import (
     _node_stats_from_arrow_table,
     _node_stats_from_ground_truth,
 )
-from .config import NodeStats, _COMP_COLUMNSTORE
+from .config import NodeStats
 from .reports import _write_edge_json
 from .resources import ResourceMonitor
 from .sinks import SINKS, SinkSpec, _TimingSink
@@ -68,10 +66,12 @@ class _StreamingStatsSink:
         cells_dir: Path | None,
         want_cells: bool,
         manifest_by_fqn: dict[str, Any],
+        verify_level: str = "digest",
     ) -> None:
         self._cells_dir = cells_dir
         self._want_cells = want_cells
         self._manifest_by_fqn = manifest_by_fqn
+        self._verify_level = verify_level
         # Current fqn being accumulated (persists across close() calls for the
         # same table so consecutive rowgroup cycles accumulate correctly).
         self._current_fqn: str | None = None
@@ -79,6 +79,7 @@ class _StreamingStatsSink:
         self._schemas_by_fqn: dict[str, pa.Schema] = {}
         self.arrow_node: NodeStats = {}
         self.verify_results: dict[str, Any] = {}  # fqn -> TableVerifyResult
+        self.verify_s: float = 0.0  # cumulative time inside verify_table calls
 
     def open_table(
         self, qualified_name: str, schema: pa.Schema, *, constraints: Any = None
@@ -114,13 +115,18 @@ class _StreamingStatsSink:
             if self._want_cells and self._cells_dir is not None:
                 entry = self._manifest_by_fqn.get(fqn)
                 if entry is not None:
+                    t_v = time.perf_counter()
                     try:
-                        vr = value_verify.verify_table(tbl, self._cells_dir, entry)
+                        vr = value_verify.verify_table(
+                            tbl, self._cells_dir, entry, level=self._verify_level
+                        )
                         self.verify_results[fqn] = vr
                     except Exception as exc:
                         vr2 = value_verify.TableVerifyResult(fqn=fqn, mode="full")
                         vr2.error = str(exc)
                         self.verify_results[fqn] = vr2
+                    finally:
+                        self.verify_s += time.perf_counter() - t_v
         del tbl
 
 
@@ -180,24 +186,6 @@ def _estimate_peak_mb(bak_path: Path, stats_path: Path | None) -> float:
 # ---------------------------------------------------------------------------
 
 
-def _catalog_table_types(bak_path: Path) -> dict[str, str]:
-    """Return {fqn: 'rowstore'|'columnstore'|'memory-optimized'} via catalog read."""
-    try:
-        store = PageStore.from_bak(str(bak_path))
-        schema = recover_schema(store)
-    except Exception:
-        return {}
-    result: dict[str, str] = {}
-    for t in schema.tables:
-        if t.is_memory_optimized:
-            ttype = "memory-optimized"
-        elif t.compression in _COMP_COLUMNSTORE:
-            ttype = "columnstore"
-        else:
-            ttype = "rowstore"
-        result[f"{t.schema}.{t.name}"] = ttype
-    return result
-
 
 def _resolve_bak_input(bak_path: Path) -> Path | list[Path]:
     stem = bak_path.stem
@@ -233,6 +221,7 @@ def _run_one(
     reports_dir: Path | None = None,
     run_id: str = "",
     source_mode: str = "local",
+    verify_level: str = "digest",
 ) -> dict[str, Any]:
     """Extract one .bak, fan out to sinks, read each back, compute all edges.
 
@@ -261,11 +250,7 @@ def _run_one(
         bak_input = _local_input
 
     cells_dir = value_verify.cells_dir_for(bak_path)
-    want_cells = cells_dir.exists()
-    # Catalog recovery reads all pages in the bak to extract table types; for
-    # large bak files this can be a significant fraction of peak RSS.
-    table_types = _catalog_table_types(bak_path)
-    mon.snapshot("after_catalog")  # isolates catalog-recovery memory cost
+    want_cells = cells_dir.exists() and verify_level != "none"
     stem = bak_path.stem
 
     gt_node, total_src_rows, total_src_cols = _node_stats_from_ground_truth(ground_truth)
@@ -290,6 +275,7 @@ def _run_one(
         cells_dir if want_cells else None,
         want_cells,
         manifest_by_fqn,
+        verify_level=verify_level,
     )
     all_sinks: list[Any] = [streaming_sink]
 
@@ -304,18 +290,38 @@ def _run_one(
             timing_sinks.append(tsink)
             all_sinks.append(tsink)
 
+    # extract_bak automatically wraps non-ResumableSinks in AsyncWriterSink on
+    # the serial decode path so sink writes overlap Rust/xpress_lz77 decode.
     combined_sink: Any = MultiSink(*all_sinks) if len(all_sinks) > 1 else streaming_sink
 
     # --- Extract once; streaming_sink processes each table in close() ---
     mon.snapshot("before_extract")
     t0 = time.perf_counter()
-    extract_bak(bak_input, combined_sink)
+    extract_report = extract_bak(bak_input, combined_sink)
     extract_s = round(time.perf_counter() - t0, 3)
     mon.snapshot("after_extract")
+
+    # Table-type labels come from the extract pass; no separate catalog read needed.
+    table_types = extract_report.table_types
 
     write_s: dict[str, float] = {
         spec.name: tsink.elapsed_s for spec, tsink in zip(active_specs, timing_sinks)
     }
+    _phases = dict(extract_report.phase_timings)
+    _catalog_s = round(
+        _phases.get("schema_recover_s", 0.0)
+        + _phases.get("lsn_s", 0.0)
+        + _phases.get("catalog_recover_s", 0.0)
+        + _phases.get("constraints_s", 0.0),
+        3,
+    )
+    # With the async writer, sink writes run on a background thread that overlaps
+    # the decode loop, so data_decode_s no longer includes sink write or arrow
+    # verify time (they are drained in sink_finish_s instead).  Report the raw
+    # data_decode_s as the net decode figure.
+    _arrow_verify_s = round(streaming_sink.verify_s, 3)
+    _sink_write_total = sum(write_s.values())
+    data_decode_net_s = round(_phases.get("data_decode_s", 0.0), 3)
 
     # streaming_sink has per-table stats; all raw batches already freed.
     arrow_node = streaming_sink.arrow_node
@@ -340,7 +346,11 @@ def _run_one(
     }
 
     # --- Read each sink back one table at a time and compute its edges ---
+    # Record the verify time that ran during extraction (hidden inside extract_s).
+    verify_s: dict[str, float] = {"mssql_arrow": round(streaming_sink.verify_s, 3)}
     readback_s: dict[str, float] = {}
+    read_s: dict[str, float] = {}    # time spent inside iter_tables (pure I/O + decode)
+    stats_s: dict[str, float] = {}   # time spent in _node_stats_from_arrow_table
     for spec, tsink in zip(active_specs, timing_sinks):
         if base is None:
             continue
@@ -348,23 +358,45 @@ def _run_one(
         sink_node: NodeStats = {}
         sink_verify_results: dict[str, Any] = {}
 
+        _read = _stats = _verify = 0.0
         t_rb = time.perf_counter()
-        for fqn, sink_tbl in spec.iter_tables(sink_root, fqn_list):
+        _it = spec.iter_tables(sink_root, fqn_list)
+        while True:
+            t_r = time.perf_counter()
+            try:
+                fqn, sink_tbl = next(_it)
+            except StopIteration:
+                break
+            _read += time.perf_counter() - t_r
+
             if len(sink_tbl) > 0:
+                t_s = time.perf_counter()
                 sink_node[fqn] = _node_stats_from_arrow_table(fqn, sink_tbl)
+                _stats += time.perf_counter() - t_s
+
                 if want_cells and manifest_by_fqn:
                     entry = manifest_by_fqn.get(fqn)
                     if entry is not None:
+                        t_v = time.perf_counter()
                         try:
-                            vr = value_verify.verify_table(sink_tbl, cells_dir, entry)
+                            vr = value_verify.verify_table(
+                                sink_tbl, cells_dir, entry, level=verify_level
+                            )
                             sink_verify_results[fqn] = vr
                         except Exception as exc:
                             vr2 = value_verify.TableVerifyResult(fqn=fqn, mode="full")
                             vr2.error = str(exc)
                             sink_verify_results[fqn] = vr2
+                        finally:
+                            _verify += time.perf_counter() - t_v
+
             del sink_tbl
             _release_arrow_memory()
+
         readback_s[spec.name] = round(time.perf_counter() - t_rb, 3)
+        read_s[spec.name] = round(_read, 3)
+        stats_s[spec.name] = round(_stats, 3)
+        verify_s[spec.name] = round(_verify, 3)
         mon.snapshot(f"after_readback_{spec.name}")
 
         # arrow → sink (write fidelity)
@@ -427,6 +459,12 @@ def _run_one(
         "extract_s": extract_s,
         "write_s": write_s,
         "readback_s": readback_s,
+        "read_s": read_s,
+        "stats_s": stats_s,
+        "verify_s": verify_s,
+        "phases": _phases,
+        "catalog_s": _catalog_s,
+        "data_decode_net_s": data_decode_net_s,
         "run_id": run_id,
         "source_mode": source_mode,
         "tables": mssql_arrow_tables,
@@ -488,6 +526,7 @@ def _run_case(
     reports_dir: Path | None = None,
     run_id: str = "",
     source_mode: str = "local",
+    verify_level: str = "digest",
 ) -> dict[str, Any]:
     """Run one correctness/confidence case and record full wall time.
 
@@ -522,6 +561,7 @@ def _run_case(
             reports_dir=reports_dir,
             run_id=run_id,
             source_mode=source_mode,
+            verify_level=verify_level,
         )
     )
     result["wall_s"] = round(time.perf_counter() - t0, 3)
@@ -542,6 +582,7 @@ def _run_logged_case(
     reports_dir: Path | None = None,
     run_id: str = "",
     source_mode: str = "local",
+    verify_level: str = "digest",
 ) -> dict[str, Any]:
     """Worker entrypoint that logs when the case actually starts."""
     label = bak_url if bak_url is not None else bak_path.name
@@ -555,6 +596,7 @@ def _run_logged_case(
         reports_dir=reports_dir,
         run_id=run_id,
         source_mode=source_mode,
+        verify_level=verify_level,
     )
 
 
@@ -574,6 +616,7 @@ def _run_cases(
     reports_dir: Path | None = None,
     run_id: str = "",
     source_mode: str = "local",
+    verify_level: str = "digest",
 ) -> list[dict[str, Any]]:
     """Run selected cases, preserving input order even when threaded.
 
@@ -603,6 +646,7 @@ def _run_cases(
         reports_dir=reports_dir,
         run_id=run_id,
         source_mode=source_mode,
+        verify_level=verify_level,
     )
 
     if threads == 1:

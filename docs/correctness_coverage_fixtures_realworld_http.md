@@ -5,11 +5,11 @@ Ground truth is recorded in `tests/fixtures/<name>.bak.stats.json` by
 `python -m tools.fixture_run register-bak <name>.bak` on a live SQL Server instance.
 **Generated** by `python -m tools.correctness_coverage --fixture-dir tests/fixtures_realworld`.
 
-**49 fixtures · 45 pass · 0 xfail (known gap) · 4 fail**
+**49 fixtures · 49 pass · 0 xfail (known gap) · 0 fail**
 
-**Tables:** 1415/1445 pass · **Columns:** 12216/12619 pass
+**Tables:** 1445/1445 pass · **Columns:** 12619/12619 pass
 
-**Row count:** 30 fail · **Null count:** ✓ · **Min/max:** ✓ · **Col count:** 30 fail · **Cells:** ✓
+**Row count:** ✓ · **Null count:** ✓ · **Min/max:** ✓ · **Col count:** ✓ · **Cells:** ✓
 
 Column key:
 
@@ -96,10 +96,10 @@ Memory-optimized (In-Memory OLTP / XTP) tables store their data in XTP checkpoin
 | `AdventureWorksDW2016.bak` | delta→arrow | 1,060,820 | 359 | **31/31** | **359/359** | **706/706** | **31/31** | **7890819/7890819** | ✓ |
 | `AdventureWorksDW2016.bak` | arrow→pg_dir | 1,060,820 | 359 | **31/31** | **359/359** | **708/708** | **31/31** | — | ✓ |
 | `AdventureWorksDW2016.bak` | pg_dir→arrow | 1,060,820 | 359 | **31/31** | **359/359** | **706/706** | **31/31** | **7890819/7890819** | ✓ |
-| `AdventureWorksDW2016_EXT.bak` | mssql→arrow | 24,400,096 | 413 | 32/33 ⚠ ⚠ (`dbo.FactResellerSalesXL_CCI`) | **386/386** | **760/760** | 32/33 ⚠ | **7823359/7823359** | ✗ |
-| `AdventureWorksDW2016_EXT.bak` | arrow→delta | 24,400,096 | 413 | **32/32** | **386/386** | **762/762** | **32/32** | — | ✓ |
-| `AdventureWorksDW2016_EXT.bak` | delta→arrow | 24,400,096 | 413 | 32/33 ⚠ ⚠ (`dbo.FactResellerSalesXL_CCI`) | **386/386** | **760/760** | 32/33 ⚠ | **7823359/7823359** | ✗ |
-| `AdventureWorksDW2016_EXT.bak` | arrow→pg_dir | 24,400,096 | 413 | **32/32** | **386/386** | **762/762** | **32/32** | — | ✓ |
+| `AdventureWorksDW2016_EXT.bak` | mssql→arrow | 24,400,096 | 413 | **33/33** | **413/413** | **814/814** | **33/33** | **7823359/7823359** | ✓ |
+| `AdventureWorksDW2016_EXT.bak` | arrow→delta | 24,400,096 | 413 | **33/33** | **414/414** | **816/816** | **33/33** | — | ✓ |
+| `AdventureWorksDW2016_EXT.bak` | delta→arrow | 24,400,096 | 413 | **33/33** | **413/413** | **814/814** | **33/33** | **7823359/7823359** | ✓ |
+| `AdventureWorksDW2016_EXT.bak` | arrow→pg_dir | 24,400,096 | 413 | **33/33** | **414/414** | **816/816** | **33/33** | — | ✓ |
 | `AdventureWorksDW2016_EXT.bak` | pg_dir→arrow | 24,400,096 | 413 | **33/33** | **413/413** | **814/814** | **33/33** | **7823359/7823359** | ✓ |
 | `AdventureWorksDW2017.bak` | mssql→arrow | 1,060,820 | 359 | **31/31** | **359/359** | **706/706** | **31/31** | **7890819/7890819** | ✓ |
 | `AdventureWorksDW2017.bak` | arrow→delta | 1,060,820 | 359 | **31/31** | **359/359** | **708/708** | **31/31** | — | ✓ |
@@ -211,10 +211,10 @@ Memory-optimized (In-Memory OLTP / XTP) tables store their data in XTP checkpoin
 | `Northwinds.bak` | delta→arrow | 1,153 | 83 | **12/12** | **79/79** | **158/158** | **12/12** | **13005/13005** | ✓ |
 | `Northwinds.bak` | arrow→pg_dir | 1,153 | 83 | **11/11** | **84/84** | **168/168** | **11/11** | — | ✓ |
 | `Northwinds.bak` | pg_dir→arrow | 1,153 | 83 | **12/12** | **79/79** | **158/158** | **12/12** | **13005/13005** | ✓ |
-| `NYCTaxi_Sample.bak` | mssql→arrow | 1,703,957 | 25 | 1/2 ⚠ ⚠ (`dbo.nyctaxi_sample`) | — | — | 1/2 ⚠ | — | ✗ |
-| `NYCTaxi_Sample.bak` | arrow→delta | 1,703,957 | 25 | — | — | — | — | — | ✓ |
-| `NYCTaxi_Sample.bak` | delta→arrow | 1,703,957 | 25 | 1/2 ⚠ ⚠ (`dbo.nyctaxi_sample`) | — | — | 1/2 ⚠ | — | ✗ |
-| `NYCTaxi_Sample.bak` | arrow→pg_dir | 1,703,957 | 25 | — | — | — | — | — | ✓ |
+| `NYCTaxi_Sample.bak` | mssql→arrow | 1,703,957 | 25 | **2/2** | **23/23** | **46/46** | **2/2** | digest | ✓ |
+| `NYCTaxi_Sample.bak` | arrow→delta | 1,703,957 | 25 | **1/1** | **23/23** | **46/46** | **1/1** | — | ✓ |
+| `NYCTaxi_Sample.bak` | delta→arrow | 1,703,957 | 25 | **2/2** | **23/23** | **46/46** | **2/2** | digest | ✓ |
+| `NYCTaxi_Sample.bak` | arrow→pg_dir | 1,703,957 | 25 | **1/1** | **23/23** | **46/46** | **1/1** | — | ✓ |
 | `NYCTaxi_Sample.bak` | pg_dir→arrow | 1,703,957 | 25 | **2/2** | **23/23** | **46/46** | **2/2** | digest | ✓ |
 | `Pubs.bak` | mssql→arrow | 255 | 64 | **11/11** | **64/64** | **126/126** | **11/11** | **880/880** | ✓ |
 | `Pubs.bak` | arrow→delta | 255 | 64 | **11/11** | **64/64** | **128/128** | **11/11** | — | ✓ |
@@ -236,10 +236,10 @@ Memory-optimized (In-Memory OLTP / XTP) tables store their data in XTP checkpoin
 | `StackOverflowMini.bak` | delta→arrow | 8,097,337 | 61 | **9/9** | **56/56** | **106/106** | **9/9** | **8290987/8290987** | ✓ |
 | `StackOverflowMini.bak` | arrow→pg_dir | 8,097,337 | 61 | 1/8 ⚠ ⚠ (`dbo.Comments`, `dbo.LinkTypes`, `dbo.PostTypes`, `dbo.Posts`, `dbo.Users`, `dbo.VoteTypes`, `dbo.Votes`) | **4/4** | **8/8** | 1/8 ⚠ | — | ✗ |
 | `StackOverflowMini.bak` | pg_dir→arrow | 8,097,337 | 61 | 2/9 ⚠ ⚠ (`dbo.Comments`, `dbo.LinkTypes`, `dbo.Posts`, `dbo.PostTypes`, `dbo.Users`, `dbo.Votes`, `dbo.VoteTypes`) | **4/4** | **8/8** | 2/9 ⚠ | **1332219/1332219** | ✗ |
-| `tpcxbb_1gb.bak` | mssql→arrow | 34,001,580 | 394 | 7/30 ⚠ ⚠ (`dbo.customer`, `dbo.customer_address`, `dbo.customer_demographics`, `dbo.date_dim`, `dbo.household_demographics`, `dbo.income_band`, `dbo.inventory`, `dbo.item`, `dbo.item_marketprices`, `dbo.product_reviews`, `dbo.promotion`, `dbo.reason`, `dbo.ship_mode`, `dbo.store`, `dbo.store_returns`, `dbo.store_sales`, `dbo.time_dim`, `dbo.warehouse`, `dbo.web_clickstreams`, `dbo.web_page`, `dbo.web_returns`, `dbo.web_sales`, `dbo.web_site`) | **50/50** | **94/94** | 7/30 ⚠ | **156/156** | ✗ |
-| `tpcxbb_1gb.bak` | arrow→delta | 34,001,580 | 394 | **7/7** | **50/50** | **96/96** | **7/7** | — | ✓ |
-| `tpcxbb_1gb.bak` | delta→arrow | 34,001,580 | 394 | 7/30 ⚠ ⚠ (`dbo.customer`, `dbo.customer_address`, `dbo.customer_demographics`, `dbo.date_dim`, `dbo.household_demographics`, `dbo.income_band`, `dbo.inventory`, `dbo.item`, `dbo.item_marketprices`, `dbo.product_reviews`, `dbo.promotion`, `dbo.reason`, `dbo.ship_mode`, `dbo.store`, `dbo.store_returns`, `dbo.store_sales`, `dbo.time_dim`, `dbo.warehouse`, `dbo.web_clickstreams`, `dbo.web_page`, `dbo.web_returns`, `dbo.web_sales`, `dbo.web_site`) | **50/50** | **94/94** | 7/30 ⚠ | **156/156** | ✗ |
-| `tpcxbb_1gb.bak` | arrow→pg_dir | 34,001,580 | 394 | **7/7** | **50/50** | **96/96** | **7/7** | — | ✓ |
+| `tpcxbb_1gb.bak` | mssql→arrow | 34,001,580 | 394 | **30/30** | **394/394** | **774/774** | **30/30** | **156/156** | ✓ |
+| `tpcxbb_1gb.bak` | arrow→delta | 34,001,580 | 394 | **30/30** | **394/394** | **776/776** | **30/30** | — | ✓ |
+| `tpcxbb_1gb.bak` | delta→arrow | 34,001,580 | 394 | **30/30** | **394/394** | **774/774** | **30/30** | **156/156** | ✓ |
+| `tpcxbb_1gb.bak` | arrow→pg_dir | 34,001,580 | 394 | **30/30** | **394/394** | **776/776** | **30/30** | — | ✓ |
 | `tpcxbb_1gb.bak` | pg_dir→arrow | 34,001,580 | 394 | **30/30** | **394/394** | **774/774** | **30/30** | **156/156** | ✓ |
 | `TutorialDB.bak` | mssql→arrow | 453 | 10 | **1/1** | **10/10** | **20/20** | **1/1** | digest | ✓ |
 | `TutorialDB.bak` | arrow→delta | 453 | 10 | **1/1** | **10/10** | **20/20** | **1/1** | — | ✓ |
@@ -266,10 +266,10 @@ Memory-optimized (In-Memory OLTP / XTP) tables store their data in XTP checkpoin
 | `WideWorldImporters-Standard_old.bak` | delta→arrow | 4,713,832 | 549 | **48/48** | **539/539** | **1030/1030** | **48/48** | **12398661/12398661** | ✓ |
 | `WideWorldImporters-Standard_old.bak` | arrow→pg_dir | 4,713,832 | 549 | **46/46** | **542/542** | **1038/1038** | **46/46** | — | ✓ |
 | `WideWorldImporters-Standard_old.bak` | pg_dir→arrow | 4,713,832 | 549 | **48/48** | **539/539** | **1030/1030** | **48/48** | **12398661/12398661** | ✓ |
-| `WideWorldImportersDW-Full.bak` | mssql→arrow | 922,709 | 50 | 19/24 ⚠ ⚠ (`Fact.Movement`, `Fact.Order`, `Fact.Purchase`, `Fact.Sale`, `Fact.Transaction`) | **15/15** | **28/28** | 19/24 ⚠ | **1536907/1536907** | ✗ |
-| `WideWorldImportersDW-Full.bak` | arrow→delta | 922,709 | 50 | **10/10** | **99/99** | **194/194** | **10/10** | — | ✓ |
-| `WideWorldImportersDW-Full.bak` | delta→arrow | 922,709 | 50 | 19/24 ⚠ ⚠ (`Fact.Movement`, `Fact.Order`, `Fact.Purchase`, `Fact.Sale`, `Fact.Transaction`) | **15/15** | **28/28** | 19/24 ⚠ | ERROR (5 tables) | ✗ |
-| `WideWorldImportersDW-Full.bak` | arrow→pg_dir | 922,709 | 50 | **10/10** | **99/99** | **194/194** | **10/10** | — | ✓ |
+| `WideWorldImportersDW-Full.bak` | mssql→arrow | 922,709 | 50 | **24/24** | **24/24** | **46/46** | **24/24** | **13606612/13606612** | ✓ |
+| `WideWorldImportersDW-Full.bak` | arrow→delta | 922,709 | 50 | **16/16** | **194/194** | **372/372** | **16/16** | — | ✓ |
+| `WideWorldImportersDW-Full.bak` | delta→arrow | 922,709 | 50 | **24/24** | **24/24** | **46/46** | **24/24** | ERROR (10 tables) | ✗ |
+| `WideWorldImportersDW-Full.bak` | arrow→pg_dir | 922,709 | 50 | **16/16** | **194/194** | **372/372** | **16/16** | — | ✓ |
 | `WideWorldImportersDW-Full.bak` | pg_dir→arrow | 922,709 | 50 | **24/24** | **24/24** | **46/46** | **24/24** | **13606612/13606612** | ✓ |
 | `WideWorldImportersDW-Standard.bak` | mssql→arrow | 922,709 | 50 | **24/24** | **24/24** | **46/46** | **24/24** | **14410908/14410908** | ✓ |
 | `WideWorldImportersDW-Standard.bak` | arrow→delta | 922,709 | 50 | **16/16** | **188/188** | **372/372** | **16/16** | — | ✓ |
@@ -4539,7 +4539,7 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (
 | `dbo.ProspectiveBuyer` | rowstore | 2,059 | ✓ | **24/24** | **48/48** | ✓ | cells **47357/47357** ✓ |
 | `dbo.sysdiagrams` | rowstore | 9 | ✓ | **5/5** | **10/10** | ✓ | cells **36/36** ✓ |
 
-### `AdventureWorksDW2016_EXT.bak` — 2022 — ✗ fail
+### `AdventureWorksDW2016_EXT.bak` — 2022 — ✓ pass
 
 _SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (X64) · 883.324 MB_
 
@@ -4573,7 +4573,7 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (
 | `dbo.FactInternetSalesReason` | rowstore | 64,515 | ✓ | **3/3** | **6/6** | ✓ | cells digest ✓ |
 | `dbo.FactProductInventory` | rowstore | 776,286 | ✓ | **7/7** | **14/14** | ✓ | cells **3881430/3881430** ✓ |
 | `dbo.FactResellerSales` | rowstore | 60,855 | ✓ | **27/27** | **54/54** | ✓ | cells **1521375/1521375** ✓ |
-| `dbo.FactResellerSalesXL_CCI` | columnstore | 11,669,638 | ✗ | — | — | ✗ | missing from output |
+| `dbo.FactResellerSalesXL_CCI` | columnstore | 11,669,638 | ✓ | **27/27** | **54/54** | ✓ |  |
 | `dbo.FactResellerSalesXL_PageCompressed` | rowstore | 11,669,638 | ✓ | **27/27** | **54/54** | ✓ |  |
 | `dbo.FactSalesQuota` | rowstore | 163 | ✓ | **7/7** | **14/14** | ✓ |  |
 | `dbo.FactSurveyResponse` | rowstore | 2,727 | ✓ | **8/8** | **16/16** | ✓ |  |
@@ -4611,6 +4611,7 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (
 | `dbo.FactInternetSalesReason` | rowstore | 64,515 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `dbo.FactProductInventory` | rowstore | 776,286 | ✓ | **7/7** | **14/14** | ✓ |  |
 | `dbo.FactResellerSales` | rowstore | 60,855 | ✓ | **27/27** | **54/54** | ✓ |  |
+| `dbo.FactResellerSalesXL_CCI` | columnstore | 11,669,638 | ✓ | **28/28** | **54/54** | ✓ |  |
 | `dbo.FactResellerSalesXL_PageCompressed` | rowstore | 11,669,638 | ✓ | **27/27** | **54/54** | ✓ |  |
 | `dbo.FactSalesQuota` | rowstore | 163 | ✓ | **7/7** | **14/14** | ✓ |  |
 | `dbo.FactSurveyResponse` | rowstore | 2,727 | ✓ | **8/8** | **16/16** | ✓ |  |
@@ -4648,7 +4649,7 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (
 | `dbo.FactInternetSalesReason` | rowstore | 64,515 | ✓ | **3/3** | **6/6** | ✓ | cells digest ✓ |
 | `dbo.FactProductInventory` | rowstore | 776,286 | ✓ | **7/7** | **14/14** | ✓ | cells **3881430/3881430** ✓ |
 | `dbo.FactResellerSales` | rowstore | 60,855 | ✓ | **27/27** | **54/54** | ✓ | cells **1521375/1521375** ✓ |
-| `dbo.FactResellerSalesXL_CCI` | columnstore | 11,669,638 | ✗ | — | — | ✗ | missing from output |
+| `dbo.FactResellerSalesXL_CCI` | columnstore | 11,669,638 | ✓ | **27/27** | **54/54** | ✓ |  |
 | `dbo.FactResellerSalesXL_PageCompressed` | rowstore | 11,669,638 | ✓ | **27/27** | **54/54** | ✓ |  |
 | `dbo.FactSalesQuota` | rowstore | 163 | ✓ | **7/7** | **14/14** | ✓ |  |
 | `dbo.FactSurveyResponse` | rowstore | 2,727 | ✓ | **8/8** | **16/16** | ✓ |  |
@@ -4686,6 +4687,7 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (
 | `dbo.FactInternetSalesReason` | rowstore | 64,515 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `dbo.FactProductInventory` | rowstore | 776,286 | ✓ | **7/7** | **14/14** | ✓ |  |
 | `dbo.FactResellerSales` | rowstore | 60,855 | ✓ | **27/27** | **54/54** | ✓ |  |
+| `dbo.FactResellerSalesXL_CCI` | columnstore | 11,669,638 | ✓ | **28/28** | **54/54** | ✓ |  |
 | `dbo.FactResellerSalesXL_PageCompressed` | rowstore | 11,669,638 | ✓ | **27/27** | **54/54** | ✓ |  |
 | `dbo.FactSalesQuota` | rowstore | 163 | ✓ | **7/7** | **14/14** | ✓ |  |
 | `dbo.FactSurveyResponse` | rowstore | 2,727 | ✓ | **8/8** | **16/16** | ✓ |  |
@@ -6996,7 +6998,7 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `dbo.Suppliers` | rowstore | 29 | ✓ | **12/12** | **24/24** | ✓ | cells **319/319** ✓ |
 | `dbo.Territories` | rowstore | 53 | ✓ | **3/3** | **6/6** | ✓ | cells **106/106** ✓ |
 
-### `NYCTaxi_Sample.bak` — 2022 — ✗ fail
+### `NYCTaxi_Sample.bak` — 2022 — ✓ pass
 
 _SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (X64) · 97.117 MB_
 
@@ -7005,24 +7007,26 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.nyc_taxi_models` | rowstore | 0 | — | — | — | — |  |
-| `dbo.nyctaxi_sample` | columnstore | 1,703,957 | ✗ | — | — | ✗ | missing from output |
+| `dbo.nyctaxi_sample` | columnstore | 1,703,957 | ✓ | **23/23** | **46/46** | ✓ | cells digest ✓ |
 
 #### Stage: arrow→delta
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.nyctaxi_sample` | columnstore | 1,703,957 | ✓ | **23/23** | **46/46** | ✓ |  |
 
 #### Stage: delta→arrow
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.nyc_taxi_models` | rowstore | 0 | — | — | — | — |  |
-| `dbo.nyctaxi_sample` | columnstore | 1,703,957 | ✗ | — | — | ✗ | missing from output |
+| `dbo.nyctaxi_sample` | columnstore | 1,703,957 | ✓ | **23/23** | **46/46** | ✓ | cells digest ✓ |
 
 #### Stage: arrow→pg_dir
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.nyctaxi_sample` | columnstore | 1,703,957 | ✓ | **23/23** | **46/46** | ✓ |  |
 
 #### Stage: pg_dir→arrow
 
@@ -7290,7 +7294,7 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (
 | `dbo.Votes` | rowstore | 4,614,189 | ✗ | — | — | ✗ | missing from output |
 | `dbo.VoteTypes` | rowstore | 15 | ✗ | — | — | ✗ | missing from output |
 
-### `tpcxbb_1gb.bak` — 2022 — ✗ fail
+### `tpcxbb_1gb.bak` — 2022 — ✓ pass
 
 _SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (X64) · 233.98 MB_
 
@@ -7298,32 +7302,32 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
-| `dbo.customer` | columnstore | 99,000 | ✗ | — | — | ✗ | missing from output |
-| `dbo.customer_address` | columnstore | 49,500 | ✗ | — | — | ✗ | missing from output |
+| `dbo.customer` | columnstore | 99,000 | ✓ | **18/18** | **36/36** | ✓ | cells digest ✓ |
+| `dbo.customer_address` | columnstore | 49,500 | ✓ | **13/13** | **26/26** | ✓ | cells digest ✓ |
 | `dbo.customer_book_clusters` | rowstore | 4,820 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
 | `dbo.customer_clusters` | rowstore | 51,874 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
-| `dbo.customer_demographics` | columnstore | 1,920,800 | ✗ | — | — | ✗ | missing from output |
+| `dbo.customer_demographics` | columnstore | 1,920,800 | ✓ | **9/9** | **18/18** | ✓ | cells digest ✓ |
 | `dbo.customer_return_clusters` | rowstore | 37,336 | ✓ | **6/6** | **12/12** | ✓ | cells digest ✓ |
-| `dbo.date_dim` | columnstore | 109,573 | ✗ | — | — | ✗ | missing from output |
-| `dbo.household_demographics` | columnstore | 7,200 | ✗ | — | — | ✗ | missing from output |
-| `dbo.income_band` | columnstore | 20 | ✗ | — | — | ✗ | missing from output |
-| `dbo.inventory` | columnstore | 23,255,100 | ✗ | — | — | ✗ | missing from output |
-| `dbo.item` | columnstore | 17,820 | ✗ | — | — | ✗ | missing from output |
-| `dbo.item_marketprices` | columnstore | 89,100 | ✗ | — | — | ✗ | missing from output |
-| `dbo.product_reviews` | columnstore | 89,991 | ✗ | — | — | ✗ | missing from output |
-| `dbo.promotion` | columnstore | 300 | ✗ | — | — | ✗ | missing from output |
-| `dbo.reason` | columnstore | 35 | ✗ | — | — | ✗ | missing from output |
-| `dbo.ship_mode` | columnstore | 20 | ✗ | — | — | ✗ | missing from output |
-| `dbo.store` | columnstore | 12 | ✗ | — | — | ✗ | missing from output |
-| `dbo.store_returns` | columnstore | 37,902 | ✗ | — | — | ✗ | missing from output |
-| `dbo.store_sales` | columnstore | 667,579 | ✗ | — | — | ✗ | missing from output |
-| `dbo.time_dim` | columnstore | 86,400 | ✗ | — | — | ✗ | missing from output |
-| `dbo.warehouse` | columnstore | 5 | ✗ | — | — | ✗ | missing from output |
-| `dbo.web_clickstreams` | columnstore | 6,770,550 | ✗ | — | — | ✗ | missing from output |
-| `dbo.web_page` | columnstore | 60 | ✗ | — | — | ✗ | missing from output |
-| `dbo.web_returns` | columnstore | 38,487 | ✗ | — | — | ✗ | missing from output |
-| `dbo.web_sales` | columnstore | 668,052 | ✗ | — | — | ✗ | missing from output |
-| `dbo.web_site` | columnstore | 30 | ✗ | — | — | ✗ | missing from output |
+| `dbo.date_dim` | columnstore | 109,573 | ✓ | **28/28** | **56/56** | ✓ | cells digest ✓ |
+| `dbo.household_demographics` | columnstore | 7,200 | ✓ | **5/5** | **10/10** | ✓ | cells digest ✓ |
+| `dbo.income_band` | columnstore | 20 | ✓ | **3/3** | **6/6** | ✓ | cells digest ✓ |
+| `dbo.inventory` | columnstore | 23,255,100 | ✓ | **4/4** | **8/8** | ✓ | cells digest ✓ |
+| `dbo.item` | columnstore | 17,820 | ✓ | **22/22** | **42/42** | ✓ | cells digest ✓ |
+| `dbo.item_marketprices` | columnstore | 89,100 | ✓ | **6/6** | **12/12** | ✓ | cells digest ✓ |
+| `dbo.product_reviews` | columnstore | 89,991 | ✓ | **8/8** | **16/16** | ✓ | cells digest ✓ |
+| `dbo.promotion` | columnstore | 300 | ✓ | **19/19** | **38/38** | ✓ | cells digest ✓ |
+| `dbo.reason` | columnstore | 35 | ✓ | **3/3** | **6/6** | ✓ | cells digest ✓ |
+| `dbo.ship_mode` | columnstore | 20 | ✓ | **6/6** | **12/12** | ✓ | cells digest ✓ |
+| `dbo.store` | columnstore | 12 | ✓ | **29/29** | **56/56** | ✓ | cells digest ✓ |
+| `dbo.store_returns` | columnstore | 37,902 | ✓ | **20/20** | **40/40** | ✓ | cells digest ✓ |
+| `dbo.store_sales` | columnstore | 667,579 | ✓ | **23/23** | **46/46** | ✓ | cells digest ✓ |
+| `dbo.time_dim` | columnstore | 86,400 | ✓ | **10/10** | **20/20** | ✓ | cells digest ✓ |
+| `dbo.warehouse` | columnstore | 5 | ✓ | **14/14** | **28/28** | ✓ | cells digest ✓ |
+| `dbo.web_clickstreams` | columnstore | 6,770,550 | ✓ | **6/6** | **12/12** | ✓ | cells digest ✓ |
+| `dbo.web_page` | columnstore | 60 | ✓ | **14/14** | **26/26** | ✓ | cells digest ✓ |
+| `dbo.web_returns` | columnstore | 38,487 | ✓ | **24/24** | **48/48** | ✓ | cells digest ✓ |
+| `dbo.web_sales` | columnstore | 668,052 | ✓ | **34/34** | **68/68** | ✓ | cells digest ✓ |
+| `dbo.web_site` | columnstore | 30 | ✓ | **26/26** | **50/50** | ✓ | cells digest ✓ |
 | `sqlr.model_scoring_history` | rowstore | 1 | ✓ | **9/9** | **16/16** | ✓ | cells **8/8** ✓ |
 | `sqlr.model_training_history` | rowstore | 8 | ✓ | **14/14** | **26/26** | ✓ | cells **104/104** ✓ |
 | `sqlr.models` | rowstore | 4 | ✓ | **11/11** | **22/22** | ✓ | cells **40/40** ✓ |
@@ -7333,44 +7337,67 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.customer` | columnstore | 99,000 | ✓ | **18/18** | **36/36** | ✓ |  |
+| `dbo.customer_address` | columnstore | 49,500 | ✓ | **13/13** | **26/26** | ✓ |  |
 | `dbo.customer_book_clusters` | rowstore | 4,820 | ✓ | **2/2** | **4/4** | ✓ |  |
 | `dbo.customer_clusters` | rowstore | 51,874 | ✓ | **2/2** | **4/4** | ✓ |  |
+| `dbo.customer_demographics` | columnstore | 1,920,800 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `dbo.customer_return_clusters` | rowstore | 37,336 | ✓ | **6/6** | **12/12** | ✓ |  |
+| `dbo.date_dim` | columnstore | 109,573 | ✓ | **28/28** | **56/56** | ✓ |  |
+| `dbo.household_demographics` | columnstore | 7,200 | ✓ | **5/5** | **10/10** | ✓ |  |
+| `dbo.income_band` | columnstore | 20 | ✓ | **3/3** | **6/6** | ✓ |  |
+| `dbo.inventory` | columnstore | 23,255,100 | ✓ | **4/4** | **8/8** | ✓ |  |
+| `dbo.item` | columnstore | 17,820 | ✓ | **22/22** | **42/42** | ✓ |  |
+| `dbo.item_marketprices` | columnstore | 89,100 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `sqlr.model_scoring_history` | rowstore | 1 | ✓ | **9/9** | **16/16** | ✓ |  |
 | `sqlr.model_training_history` | rowstore | 8 | ✓ | **14/14** | **26/26** | ✓ |  |
 | `sqlr.models` | rowstore | 4 | ✓ | **11/11** | **22/22** | ✓ |  |
+| `dbo.product_reviews` | columnstore | 89,991 | ✓ | **8/8** | **16/16** | ✓ |  |
+| `dbo.promotion` | columnstore | 300 | ✓ | **19/19** | **38/38** | ✓ |  |
+| `dbo.reason` | columnstore | 35 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `sqlr.scripts` | rowstore | 1 | ✓ | **6/6** | **12/12** | ✓ |  |
+| `dbo.ship_mode` | columnstore | 20 | ✓ | **6/6** | **12/12** | ✓ |  |
+| `dbo.store` | columnstore | 12 | ✓ | **29/29** | **56/56** | ✓ |  |
+| `dbo.store_returns` | columnstore | 37,902 | ✓ | **20/20** | **40/40** | ✓ |  |
+| `dbo.store_sales` | columnstore | 667,579 | ✓ | **23/23** | **46/46** | ✓ |  |
+| `dbo.time_dim` | columnstore | 86,400 | ✓ | **10/10** | **20/20** | ✓ |  |
+| `dbo.warehouse` | columnstore | 5 | ✓ | **14/14** | **28/28** | ✓ |  |
+| `dbo.web_clickstreams` | columnstore | 6,770,550 | ✓ | **6/6** | **12/12** | ✓ |  |
+| `dbo.web_page` | columnstore | 60 | ✓ | **14/14** | **26/26** | ✓ |  |
+| `dbo.web_returns` | columnstore | 38,487 | ✓ | **24/24** | **48/48** | ✓ |  |
+| `dbo.web_sales` | columnstore | 668,052 | ✓ | **34/34** | **68/68** | ✓ |  |
+| `dbo.web_site` | columnstore | 30 | ✓ | **26/26** | **50/50** | ✓ |  |
 
 #### Stage: delta→arrow
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
-| `dbo.customer` | columnstore | 99,000 | ✗ | — | — | ✗ | missing from output |
-| `dbo.customer_address` | columnstore | 49,500 | ✗ | — | — | ✗ | missing from output |
+| `dbo.customer` | columnstore | 99,000 | ✓ | **18/18** | **36/36** | ✓ | cells digest ✓ |
+| `dbo.customer_address` | columnstore | 49,500 | ✓ | **13/13** | **26/26** | ✓ | cells digest ✓ |
 | `dbo.customer_book_clusters` | rowstore | 4,820 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
 | `dbo.customer_clusters` | rowstore | 51,874 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
-| `dbo.customer_demographics` | columnstore | 1,920,800 | ✗ | — | — | ✗ | missing from output |
+| `dbo.customer_demographics` | columnstore | 1,920,800 | ✓ | **9/9** | **18/18** | ✓ | cells digest ✓ |
 | `dbo.customer_return_clusters` | rowstore | 37,336 | ✓ | **6/6** | **12/12** | ✓ | cells digest ✓ |
-| `dbo.date_dim` | columnstore | 109,573 | ✗ | — | — | ✗ | missing from output |
-| `dbo.household_demographics` | columnstore | 7,200 | ✗ | — | — | ✗ | missing from output |
-| `dbo.income_band` | columnstore | 20 | ✗ | — | — | ✗ | missing from output |
-| `dbo.inventory` | columnstore | 23,255,100 | ✗ | — | — | ✗ | missing from output |
-| `dbo.item` | columnstore | 17,820 | ✗ | — | — | ✗ | missing from output |
-| `dbo.item_marketprices` | columnstore | 89,100 | ✗ | — | — | ✗ | missing from output |
-| `dbo.product_reviews` | columnstore | 89,991 | ✗ | — | — | ✗ | missing from output |
-| `dbo.promotion` | columnstore | 300 | ✗ | — | — | ✗ | missing from output |
-| `dbo.reason` | columnstore | 35 | ✗ | — | — | ✗ | missing from output |
-| `dbo.ship_mode` | columnstore | 20 | ✗ | — | — | ✗ | missing from output |
-| `dbo.store` | columnstore | 12 | ✗ | — | — | ✗ | missing from output |
-| `dbo.store_returns` | columnstore | 37,902 | ✗ | — | — | ✗ | missing from output |
-| `dbo.store_sales` | columnstore | 667,579 | ✗ | — | — | ✗ | missing from output |
-| `dbo.time_dim` | columnstore | 86,400 | ✗ | — | — | ✗ | missing from output |
-| `dbo.warehouse` | columnstore | 5 | ✗ | — | — | ✗ | missing from output |
-| `dbo.web_clickstreams` | columnstore | 6,770,550 | ✗ | — | — | ✗ | missing from output |
-| `dbo.web_page` | columnstore | 60 | ✗ | — | — | ✗ | missing from output |
-| `dbo.web_returns` | columnstore | 38,487 | ✗ | — | — | ✗ | missing from output |
-| `dbo.web_sales` | columnstore | 668,052 | ✗ | — | — | ✗ | missing from output |
-| `dbo.web_site` | columnstore | 30 | ✗ | — | — | ✗ | missing from output |
+| `dbo.date_dim` | columnstore | 109,573 | ✓ | **28/28** | **56/56** | ✓ | cells digest ✓ |
+| `dbo.household_demographics` | columnstore | 7,200 | ✓ | **5/5** | **10/10** | ✓ | cells digest ✓ |
+| `dbo.income_band` | columnstore | 20 | ✓ | **3/3** | **6/6** | ✓ | cells digest ✓ |
+| `dbo.inventory` | columnstore | 23,255,100 | ✓ | **4/4** | **8/8** | ✓ | cells digest ✓ |
+| `dbo.item` | columnstore | 17,820 | ✓ | **22/22** | **42/42** | ✓ | cells digest ✓ |
+| `dbo.item_marketprices` | columnstore | 89,100 | ✓ | **6/6** | **12/12** | ✓ | cells digest ✓ |
+| `dbo.product_reviews` | columnstore | 89,991 | ✓ | **8/8** | **16/16** | ✓ | cells digest ✓ |
+| `dbo.promotion` | columnstore | 300 | ✓ | **19/19** | **38/38** | ✓ | cells digest ✓ |
+| `dbo.reason` | columnstore | 35 | ✓ | **3/3** | **6/6** | ✓ | cells digest ✓ |
+| `dbo.ship_mode` | columnstore | 20 | ✓ | **6/6** | **12/12** | ✓ | cells digest ✓ |
+| `dbo.store` | columnstore | 12 | ✓ | **29/29** | **56/56** | ✓ | cells digest ✓ |
+| `dbo.store_returns` | columnstore | 37,902 | ✓ | **20/20** | **40/40** | ✓ | cells digest ✓ |
+| `dbo.store_sales` | columnstore | 667,579 | ✓ | **23/23** | **46/46** | ✓ | cells digest ✓ |
+| `dbo.time_dim` | columnstore | 86,400 | ✓ | **10/10** | **20/20** | ✓ | cells digest ✓ |
+| `dbo.warehouse` | columnstore | 5 | ✓ | **14/14** | **28/28** | ✓ | cells digest ✓ |
+| `dbo.web_clickstreams` | columnstore | 6,770,550 | ✓ | **6/6** | **12/12** | ✓ | cells digest ✓ |
+| `dbo.web_page` | columnstore | 60 | ✓ | **14/14** | **26/26** | ✓ | cells digest ✓ |
+| `dbo.web_returns` | columnstore | 38,487 | ✓ | **24/24** | **48/48** | ✓ | cells digest ✓ |
+| `dbo.web_sales` | columnstore | 668,052 | ✓ | **34/34** | **68/68** | ✓ | cells digest ✓ |
+| `dbo.web_site` | columnstore | 30 | ✓ | **26/26** | **50/50** | ✓ | cells digest ✓ |
 | `sqlr.model_scoring_history` | rowstore | 1 | ✓ | **9/9** | **16/16** | ✓ | cells **8/8** ✓ |
 | `sqlr.model_training_history` | rowstore | 8 | ✓ | **14/14** | **26/26** | ✓ | cells **104/104** ✓ |
 | `sqlr.models` | rowstore | 4 | ✓ | **11/11** | **22/22** | ✓ | cells **40/40** ✓ |
@@ -7380,13 +7407,36 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.customer` | columnstore | 99,000 | ✓ | **18/18** | **36/36** | ✓ |  |
+| `dbo.customer_address` | columnstore | 49,500 | ✓ | **13/13** | **26/26** | ✓ |  |
 | `dbo.customer_book_clusters` | rowstore | 4,820 | ✓ | **2/2** | **4/4** | ✓ |  |
 | `dbo.customer_clusters` | rowstore | 51,874 | ✓ | **2/2** | **4/4** | ✓ |  |
+| `dbo.customer_demographics` | columnstore | 1,920,800 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `dbo.customer_return_clusters` | rowstore | 37,336 | ✓ | **6/6** | **12/12** | ✓ |  |
+| `dbo.date_dim` | columnstore | 109,573 | ✓ | **28/28** | **56/56** | ✓ |  |
+| `dbo.household_demographics` | columnstore | 7,200 | ✓ | **5/5** | **10/10** | ✓ |  |
+| `dbo.income_band` | columnstore | 20 | ✓ | **3/3** | **6/6** | ✓ |  |
+| `dbo.inventory` | columnstore | 23,255,100 | ✓ | **4/4** | **8/8** | ✓ |  |
+| `dbo.item` | columnstore | 17,820 | ✓ | **22/22** | **42/42** | ✓ |  |
+| `dbo.item_marketprices` | columnstore | 89,100 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `sqlr.model_scoring_history` | rowstore | 1 | ✓ | **9/9** | **16/16** | ✓ |  |
 | `sqlr.model_training_history` | rowstore | 8 | ✓ | **14/14** | **26/26** | ✓ |  |
 | `sqlr.models` | rowstore | 4 | ✓ | **11/11** | **22/22** | ✓ |  |
+| `dbo.product_reviews` | columnstore | 89,991 | ✓ | **8/8** | **16/16** | ✓ |  |
+| `dbo.promotion` | columnstore | 300 | ✓ | **19/19** | **38/38** | ✓ |  |
+| `dbo.reason` | columnstore | 35 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `sqlr.scripts` | rowstore | 1 | ✓ | **6/6** | **12/12** | ✓ |  |
+| `dbo.ship_mode` | columnstore | 20 | ✓ | **6/6** | **12/12** | ✓ |  |
+| `dbo.store` | columnstore | 12 | ✓ | **29/29** | **56/56** | ✓ |  |
+| `dbo.store_returns` | columnstore | 37,902 | ✓ | **20/20** | **40/40** | ✓ |  |
+| `dbo.store_sales` | columnstore | 667,579 | ✓ | **23/23** | **46/46** | ✓ |  |
+| `dbo.time_dim` | columnstore | 86,400 | ✓ | **10/10** | **20/20** | ✓ |  |
+| `dbo.warehouse` | columnstore | 5 | ✓ | **14/14** | **28/28** | ✓ |  |
+| `dbo.web_clickstreams` | columnstore | 6,770,550 | ✓ | **6/6** | **12/12** | ✓ |  |
+| `dbo.web_page` | columnstore | 60 | ✓ | **14/14** | **26/26** | ✓ |  |
+| `dbo.web_returns` | columnstore | 38,487 | ✓ | **24/24** | **48/48** | ✓ |  |
+| `dbo.web_sales` | columnstore | 668,052 | ✓ | **34/34** | **68/68** | ✓ |  |
+| `dbo.web_site` | columnstore | 30 | ✓ | **26/26** | **50/50** | ✓ |  |
 
 #### Stage: pg_dir→arrow
 
@@ -8517,7 +8567,7 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (
 | `Warehouse.StockItemTransactions` | rowstore | 236,667 | ✓ | **11/11** | **22/22** | ✓ | cells **2366670/2366670** ✓ |
 | `Warehouse.VehicleTemperatures` | rowstore | 65,998 | ✓ | **8/8** | **14/14** | ✓ | cells **461986/461986** ✓ |
 
-### `WideWorldImportersDW-Full.bak` — 2022 — ✗ fail
+### `WideWorldImportersDW-Full.bak` — 2022 — ✓ pass
 
 _SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (X64) · 47.726 MB_
 
@@ -8530,11 +8580,11 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (
 | `Dimension.Date` | rowstore | 1,461 | ✓ | **3/3** | **6/6** | ✓ | cells **18993/18993** ✓ |
 | `Dimension.Employee` | rowstore | 213 | ✓ | **2/2** | **2/2** | ✓ | cells **1704/1704** ✓ |
 | `Dimension.Supplier` | rowstore | 28 | ✓ | **2/2** | **4/4** | ✓ | cells **280/280** ✓ |
-| `Fact.Movement` | columnstore | 236,667 | ✗ | — | — | ✗ | missing from output |
-| `Fact.Order` | columnstore | 231,412 | ✗ | — | — | ✗ | missing from output |
-| `Fact.Purchase` | columnstore | 8,367 | ✗ | — | — | ✗ | missing from output |
-| `Fact.Sale` | columnstore | 228,265 | ✗ | — | — | ✗ | missing from output |
-| `Fact.Transaction` | columnstore | 99,585 | ✗ | — | — | ✗ | missing from output |
+| `Fact.Movement` | columnstore | 236,667 | ✓ | **1/1** | **2/2** | ✓ | cells **2130003/2130003** ✓ |
+| `Fact.Order` | columnstore | 231,412 | ✓ | **3/3** | **6/6** | ✓ | cells **3934004/3934004** ✓ |
+| `Fact.Purchase` | columnstore | 8,367 | ✓ | **1/1** | **2/2** | ✓ | cells **75303/75303** ✓ |
+| `Fact.Sale` | columnstore | 228,265 | ✓ | **4/4** | **8/8** | ✓ | cells **4337035/4337035** ✓ |
+| `Fact.Transaction` | columnstore | 99,585 | ✓ | — | — | ✓ | cells **1593360/1593360** ✓ |
 | `Integration.City_Staging` | rowstore | 0 | — | — | — | — |  |
 | `Integration.Customer_Staging` | memory-optimized | 0 | — | — | — | — |  |
 | `Integration.Employee_Staging` | memory-optimized | 0 | — | — | — | — |  |
@@ -8560,9 +8610,15 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (
 | `Integration.ETL Cutoff` | rowstore | 14 | ✓ | **2/2** | **4/4** | ✓ |  |
 | `Dimension.Employee` | rowstore | 213 | ✓ | **9/9** | **16/16** | ✓ |  |
 | `Integration.Lineage` | rowstore | 13 | ✓ | **6/6** | **12/12** | ✓ |  |
+| `Fact.Movement` | columnstore | 236,667 | ✓ | **12/12** | **22/22** | ✓ |  |
+| `Fact.Order` | columnstore | 231,412 | ✓ | **20/20** | **38/38** | ✓ |  |
 | `Dimension.Payment Method` | rowstore | 6 | ✓ | **6/6** | **12/12** | ✓ |  |
+| `Fact.Purchase` | columnstore | 8,367 | ✓ | **12/12** | **22/22** | ✓ |  |
+| `Fact.Sale` | columnstore | 228,265 | ✓ | **22/22** | **42/42** | ✓ |  |
+| `Fact.Stock Holding` | columnstore | 227 | ✓ | **10/10** | **18/18** | ✓ |  |
 | `Dimension.Stock Item` | rowstore | 672 | ✓ | **20/20** | **38/38** | ✓ |  |
 | `Dimension.Supplier` | rowstore | 28 | ✓ | **11/11** | **22/22** | ✓ |  |
+| `Fact.Transaction` | columnstore | 99,585 | ✓ | **19/19** | **36/36** | ✓ |  |
 | `Dimension.Transaction Type` | rowstore | 15 | ✓ | **6/6** | **12/12** | ✓ |  |
 
 #### Stage: delta→arrow
@@ -8574,11 +8630,11 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (
 | `Dimension.Date` | rowstore | 1,461 | ✓ | **3/3** | **6/6** | ✓ | cells **2922/2922** ✓ |
 | `Dimension.Employee` | rowstore | 213 | ✓ | **2/2** | **2/2** | ✓ | cells: ERROR (key columns ['Employee Key'] not in decoded table) |
 | `Dimension.Supplier` | rowstore | 28 | ✓ | **2/2** | **4/4** | ✓ | cells: ERROR (key columns ['Supplier Key'] not in decoded table) |
-| `Fact.Movement` | columnstore | 236,667 | ✗ | — | — | ✗ | missing from output |
-| `Fact.Order` | columnstore | 231,412 | ✗ | — | — | ✗ | missing from output |
-| `Fact.Purchase` | columnstore | 8,367 | ✗ | — | — | ✗ | missing from output |
-| `Fact.Sale` | columnstore | 228,265 | ✗ | — | — | ✗ | missing from output |
-| `Fact.Transaction` | columnstore | 99,585 | ✗ | — | — | ✗ | missing from output |
+| `Fact.Movement` | columnstore | 236,667 | ✓ | **1/1** | **2/2** | ✓ | cells: ERROR (key columns ['Movement Key', 'Date Key'] not in decoded table) |
+| `Fact.Order` | columnstore | 231,412 | ✓ | **3/3** | **6/6** | ✓ | cells: ERROR (key columns ['Order Key', 'Order Date Key'] not in decoded table) |
+| `Fact.Purchase` | columnstore | 8,367 | ✓ | **1/1** | **2/2** | ✓ | cells: ERROR (key columns ['Purchase Key', 'Date Key'] not in decoded table) |
+| `Fact.Sale` | columnstore | 228,265 | ✓ | **4/4** | **8/8** | ✓ | cells: ERROR (key columns ['Sale Key', 'Invoice Date Key'] not in decoded table) |
+| `Fact.Transaction` | columnstore | 99,585 | ✓ | — | — | ✓ | cells: ERROR (key columns ['Transaction Key', 'Date Key'] not in decoded table) |
 | `Integration.City_Staging` | rowstore | 0 | — | — | — | — |  |
 | `Integration.Customer_Staging` | memory-optimized | 0 | — | — | — | — |  |
 | `Integration.Employee_Staging` | memory-optimized | 0 | — | — | — | — |  |
@@ -8604,9 +8660,15 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (
 | `Integration.ETL Cutoff` | rowstore | 14 | ✓ | **2/2** | **4/4** | ✓ |  |
 | `Dimension.Employee` | rowstore | 213 | ✓ | **9/9** | **16/16** | ✓ |  |
 | `Integration.Lineage` | rowstore | 13 | ✓ | **6/6** | **12/12** | ✓ |  |
+| `Fact.Movement` | columnstore | 236,667 | ✓ | **12/12** | **22/22** | ✓ |  |
+| `Fact.Order` | columnstore | 231,412 | ✓ | **20/20** | **38/38** | ✓ |  |
 | `Dimension.Payment Method` | rowstore | 6 | ✓ | **6/6** | **12/12** | ✓ |  |
+| `Fact.Purchase` | columnstore | 8,367 | ✓ | **12/12** | **22/22** | ✓ |  |
+| `Fact.Sale` | columnstore | 228,265 | ✓ | **22/22** | **42/42** | ✓ |  |
+| `Fact.Stock Holding` | columnstore | 227 | ✓ | **10/10** | **18/18** | ✓ |  |
 | `Dimension.Stock Item` | rowstore | 672 | ✓ | **20/20** | **38/38** | ✓ |  |
 | `Dimension.Supplier` | rowstore | 28 | ✓ | **11/11** | **22/22** | ✓ |  |
+| `Fact.Transaction` | columnstore | 99,585 | ✓ | **19/19** | **36/36** | ✓ |  |
 | `Dimension.Transaction Type` | rowstore | 15 | ✓ | **6/6** | **12/12** | ✓ |  |
 
 #### Stage: pg_dir→arrow
@@ -8776,55 +8838,55 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (
 
 | Backup | Extract | Verify | Wall time |
 |--------|---------|--------|-----------|
-| `AdventureWorks2008R2.bak` | 28.052s | 23.006s | 51.058s |
-| `AdventureWorks2012.bak` | 28.634s | 23.632s | 52.266s |
-| `AdventureWorks2014.bak` | 28.745s | 23.603s | 52.348s |
-| `AdventureWorks2016.bak` | 28.683s | 23.552s | 52.235s |
-| `AdventureWorks2016_EXT.bak` | 58.666s | 41.108s | 99.774s |
-| `AdventureWorks2017.bak` | 28.922s | 23.496s | 52.418s |
-| `AdventureWorks2019.bak` | 28.346s | 22.693s | 51.039s |
-| `AdventureWorks2022.bak` | 28.452s | 22.954s | 51.406s |
-| `AdventureWorks2025.bak` | 28.276s | 23.046s | 51.322s |
-| `AdventureWorksDW2008R2.bak` | 8.193s | 8.618s | 16.811s |
-| `AdventureWorksDW2012.bak` | 20.483s | 24.399s | 44.882s |
-| `AdventureWorksDW2014.bak` | 20.484s | 24.529s | 45.013s |
-| `AdventureWorksDW2016.bak` | 20.236s | 24.062s | 44.298s |
-| `AdventureWorksDW2016_EXT.bak` | 669.763s | 457.237s | 1127.0s |
-| `AdventureWorksDW2017.bak` | 20.49s | 24.455s | 44.945s |
-| `AdventureWorksDW2019.bak` | 22.294s | 23.902s | 46.196s |
-| `AdventureWorksDW2022.bak` | 20.379s | 23.779s | 44.158s |
-| `AdventureWorksDW2025.bak` | 20.258s | 24.08s | 44.338s |
-| `AdventureWorksLT2012.bak` | 0.329s | 0.325s | 0.654s |
-| `AdventureWorksLT2014.bak` | 0.334s | 0.349s | 0.683s |
-| `AdventureWorksLT2016.bak` | 0.325s | 0.364s | 0.689s |
-| `AdventureWorksLT2017.bak` | 0.332s | 0.363s | 0.695s |
-| `AdventureWorksLT2019.bak` | 0.347s | 0.365s | 0.712s |
-| `AdventureWorksLT2022.bak` | 0.35s | 0.366s | 0.716s |
-| `AdventureWorksLT2025.bak` | 0.378s | 0.387s | 0.765s |
-| `BaseballData.bak` | 19.556s | 12.74s | 32.296s |
-| `Chinook-id-pk.bak` | 0.311s | 0.34s | 0.651s |
-| `Chinook.bak` | 0.291s | 0.347s | 0.638s |
-| `ContosoRetailDW.bak` | 963.111s | 1129.32s | 2092.431s |
-| `CreditBackup100.bak` | 42.096s | 41.007s | 83.103s |
-| `data.gov.bak` | 5.41s | 3.374s | 8.784s |
-| `dba.stackexchange.com.bak` | 133.46s | 138.01s | 271.47s |
-| `EmployeeCaseStudySampleDB2012.bak` | 7.361s | 2.481s | 9.842s |
-| `GeneralHospital.bak` | 80.895s | 49.613s | 130.508s |
-| `IndexInternals2008.bak` | 5.594s | 1.559s | 7.153s |
-| `Northwinds.bak` | 0.299s | 0.338s | 0.637s |
-| `NYCTaxi_Sample.bak` | 48.38s | 57.085s | 105.465s |
-| `Pubs.bak` | 0.2s | 0.211s | 0.411s |
-| `SalesDB2014.bak` | 50.038s | 54.171s | 104.209s |
-| `SalesDBOriginal.bak` | 49.867s | 53.022s | 102.889s |
-| `StackOverflowMini.bak` | 186.3s | 71.138s | 257.438s |
-| `tpcxbb_1gb.bak` | 204.147s | 214.036s | 418.183s |
-| `TutorialDB.bak` | 0.123s | 0.089s | 0.212s |
-| `WideWorldImporters-Full.bak` | 100.474s | 97.896s | 198.37s |
-| `WideWorldImporters-Full_old.bak` | 99.585s | 98.326s | 197.911s |
-| `WideWorldImporters-Standard.bak` | 103.882s | 98.172s | 202.054s |
-| `WideWorldImporters-Standard_old.bak` | 104.791s | 97.635s | 202.426s |
-| `WideWorldImportersDW-Full.bak` | 19.706s | 21.79s | 41.496s |
-| `WideWorldImportersDW-Standard.bak` | 28.364s | 20.627s | 48.991s |
+| `AdventureWorks2008R2.bak` | 27.56s | 22.448s | 50.008s |
+| `AdventureWorks2012.bak` | 29.487s | 22.575s | 52.062s |
+| `AdventureWorks2014.bak` | 29.045s | 22.323s | 51.368s |
+| `AdventureWorks2016.bak` | 28.892s | 22.326s | 51.218s |
+| `AdventureWorks2016_EXT.bak` | 58.004s | 36.878s | 94.882s |
+| `AdventureWorks2017.bak` | 29.243s | 22.814s | 52.057s |
+| `AdventureWorks2019.bak` | 27.233s | 23.008s | 50.241s |
+| `AdventureWorks2022.bak` | 27.814s | 22.121s | 49.935s |
+| `AdventureWorks2025.bak` | 28.226s | 21.636s | 49.862s |
+| `AdventureWorksDW2008R2.bak` | 8.123s | 8.327s | 16.45s |
+| `AdventureWorksDW2012.bak` | 21.475s | 24.47s | 45.945s |
+| `AdventureWorksDW2014.bak` | 20.888s | 24.079s | 44.967s |
+| `AdventureWorksDW2016.bak` | 20.739s | 23.972s | 44.711s |
+| `AdventureWorksDW2016_EXT.bak` | 1129.592s | 820.967s | 1950.559s |
+| `AdventureWorksDW2017.bak` | 21.563s | 24.256s | 45.819s |
+| `AdventureWorksDW2019.bak` | 21.782s | 23.244s | 45.026s |
+| `AdventureWorksDW2022.bak` | 20.014s | 23.395s | 43.409s |
+| `AdventureWorksDW2025.bak` | 20.949s | 23.747s | 44.696s |
+| `AdventureWorksLT2012.bak` | 0.367s | 0.323s | 0.69s |
+| `AdventureWorksLT2014.bak` | 0.352s | 0.322s | 0.674s |
+| `AdventureWorksLT2016.bak` | 0.334s | 0.315s | 0.649s |
+| `AdventureWorksLT2017.bak` | 0.346s | 0.333s | 0.679s |
+| `AdventureWorksLT2019.bak` | 0.391s | 0.315s | 0.706s |
+| `AdventureWorksLT2022.bak` | 0.376s | 0.335s | 0.711s |
+| `AdventureWorksLT2025.bak` | 0.408s | 0.314s | 0.722s |
+| `BaseballData.bak` | 19.1s | 12.314s | 31.414s |
+| `Chinook-id-pk.bak` | 0.317s | 0.333s | 0.65s |
+| `Chinook.bak` | 0.362s | 0.322s | 0.684s |
+| `ContosoRetailDW.bak` | 945.311s | 1610.113s | 2555.424s |
+| `CreditBackup100.bak` | 43.284s | 40.2s | 83.484s |
+| `data.gov.bak` | 5.628s | 3.101s | 8.729s |
+| `dba.stackexchange.com.bak` | 254.95s | 265.137s | 520.087s |
+| `EmployeeCaseStudySampleDB2012.bak` | 7.627s | 2.118s | 9.745s |
+| `GeneralHospital.bak` | 78.503s | 48.191s | 126.694s |
+| `IndexInternals2008.bak` | 5.901s | 1.308s | 7.209s |
+| `Northwinds.bak` | 0.312s | 0.249s | 0.561s |
+| `NYCTaxi_Sample.bak` | 80.333s | 87.732s | 168.065s |
+| `Pubs.bak` | 0.26s | 0.188s | 0.448s |
+| `SalesDB2014.bak` | 51.274s | 54.337s | 105.611s |
+| `SalesDBOriginal.bak` | 48.217s | 50.671s | 98.888s |
+| `StackOverflowMini.bak` | 311.262s | 75.084s | 386.346s |
+| `tpcxbb_1gb.bak` | 301.431s | 299.692s | 601.123s |
+| `TutorialDB.bak` | 0.136s | 0.047s | 0.183s |
+| `WideWorldImporters-Full.bak` | 99.186s | 91.344s | 190.53s |
+| `WideWorldImporters-Full_old.bak` | 98.888s | 91.306s | 190.194s |
+| `WideWorldImporters-Standard.bak` | 104.049s | 93.825s | 197.874s |
+| `WideWorldImporters-Standard_old.bak` | 103.718s | 93.542s | 197.26s |
+| `WideWorldImportersDW-Full.bak` | 31.552s | 21.358s | 52.91s |
+| `WideWorldImportersDW-Standard.bak` | 28.139s | 19.024s | 47.163s |
 
 _Verify = wall − extract (Arrow conversion, ground-truth compare, cell verification, and confidence analysis; cell verification dominates for large fixtures)._
 
@@ -8832,58 +8894,58 @@ _Verify = wall − extract (Arrow conversion, ground-truth compare, cell verific
 
 | Backup | delta write | delta read | pg_dir write | pg_dir read |
 |--------|-------:| ------: | -------:| ------:|
-| `AdventureWorks2008R2.bak` | 0.418s | 9.108s | 6.25s | 13.329s |
-| `AdventureWorks2012.bak` | 0.439s | 9.025s | 6.194s | 13.375s |
-| `AdventureWorks2014.bak` | 0.399s | 9.031s | 6.193s | 13.323s |
-| `AdventureWorks2016.bak` | 0.401s | 9.047s | 6.246s | 13.192s |
-| `AdventureWorks2016_EXT.bak` | 0.716s | 14.278s | 11.912s | 23.092s |
-| `AdventureWorks2017.bak` | 0.431s | 9.009s | 6.274s | 13.143s |
-| `AdventureWorks2019.bak` | 0.422s | 8.99s | 6.263s | 13.162s |
-| `AdventureWorks2022.bak` | 0.422s | 9.104s | 6.287s | 13.267s |
-| `AdventureWorks2025.bak` | 0.413s | 8.855s | 6.193s | 12.907s |
-| `AdventureWorksDW2008R2.bak` | 0.182s | 3.02s | 3.035s | 5.382s |
-| `AdventureWorksDW2012.bak` | 0.311s | 9.022s | 7.85s | 14.765s |
-| `AdventureWorksDW2014.bak` | 0.311s | 8.973s | 7.827s | 14.96s |
-| `AdventureWorksDW2016.bak` | 0.316s | 8.878s | 7.82s | 14.556s |
-| `AdventureWorksDW2016_EXT.bak` | 16.169s | 10.842s | 550.324s | 429.58s |
-| `AdventureWorksDW2017.bak` | 0.306s | 8.91s | 7.882s | 14.905s |
-| `AdventureWorksDW2019.bak` | 0.321s | 8.965s | 7.883s | 14.658s |
-| `AdventureWorksDW2022.bak` | 0.321s | 8.877s | 7.945s | 14.605s |
-| `AdventureWorksDW2025.bak` | 0.318s | 8.922s | 7.796s | 14.516s |
-| `AdventureWorksLT2012.bak` | 0.034s | 0.115s | 0.041s | 0.15s |
-| `AdventureWorksLT2014.bak` | 0.034s | 0.117s | 0.041s | 0.159s |
-| `AdventureWorksLT2016.bak` | 0.034s | 0.124s | 0.041s | 0.172s |
-| `AdventureWorksLT2017.bak` | 0.035s | 0.122s | 0.04s | 0.17s |
-| `AdventureWorksLT2019.bak` | 0.038s | 0.127s | 0.041s | 0.164s |
-| `AdventureWorksLT2022.bak` | 0.035s | 0.123s | 0.041s | 0.166s |
-| `AdventureWorksLT2025.bak` | 0.039s | 0.121s | 0.041s | 0.16s |
-| `BaseballData.bak` | 0.245s | 4.338s | 5.995s | 8.201s |
-| `Chinook-id-pk.bak` | 0.029s | 0.125s | 0.059s | 0.145s |
-| `Chinook.bak` | 0.03s | 0.129s | 0.058s | 0.153s |
-| `ContosoRetailDW.bak` | 16.071s | 381.259s | 478.263s | 735.101s |
-| `CreditBackup100.bak` | 0.447s | 16.133s | 11.647s | 23.412s |
-| `data.gov.bak` | 0.075s | 0.353s | 2.036s | 2.646s |
-| `dba.stackexchange.com.bak` | 3.721s | 17.008s | 23.776s | 108.636s |
-| `EmployeeCaseStudySampleDB2012.bak` | 0.108s | 0.383s | 1.619s | 1.643s |
-| `GeneralHospital.bak` | 1.046s | 6.913s | 28.755s | 41.849s |
-| `IndexInternals2008.bak` | 0.045s | 0.287s | 0.906s | 0.956s |
-| `Northwinds.bak` | 0.034s | 0.118s | 0.03s | 0.123s |
-| `NYCTaxi_Sample.bak` | 0.905s | 0.0s | 32.718s | 56.796s |
-| `Pubs.bak` | 0.028s | 0.073s | 0.007s | 0.057s |
-| `SalesDB2014.bak` | 1.257s | 18.711s | 24.067s | 34.463s |
-| `SalesDBOriginal.bak` | 1.226s | 18.499s | 24.061s | 34.012s |
-| `StackOverflowMini.bak` | 6.597s | 48.382s | 58.649s | 4.798s |
-| `tpcxbb_1gb.bak` | 3.424s | 0.716s | 144.537s | 209.943s |
-| `TutorialDB.bak` | 0.005s | 0.015s | 0.006s | 0.015s |
-| `WideWorldImporters-Full.bak` | 1.262s | 35.806s | 35.73s | 58.918s |
-| `WideWorldImporters-Full_old.bak` | 1.202s | 35.58s | 34.837s | 59.538s |
-| `WideWorldImporters-Standard.bak` | 1.173s | 35.685s | 35.063s | 59.083s |
-| `WideWorldImporters-Standard_old.bak` | 1.257s | 35.13s | 35.744s | 59.027s |
-| `WideWorldImportersDW-Full.bak` | 0.307s | 0.123s | 11.716s | 20.372s |
-| `WideWorldImportersDW-Standard.bak` | 0.355s | 0.265s | 11.698s | 18.827s |
+| `AdventureWorks2008R2.bak` | 0.4s | 8.965s | 6.159s | 13.402s |
+| `AdventureWorks2012.bak` | 0.435s | 9.181s | 6.494s | 13.298s |
+| `AdventureWorks2014.bak` | 0.421s | 9.051s | 6.344s | 13.181s |
+| `AdventureWorks2016.bak` | 0.419s | 9.069s | 6.256s | 13.157s |
+| `AdventureWorks2016_EXT.bak` | 0.678s | 14.061s | 11.766s | 22.715s |
+| `AdventureWorks2017.bak` | 0.428s | 9.301s | 6.376s | 13.417s |
+| `AdventureWorks2019.bak` | 0.382s | 9.889s | 6.074s | 13.04s |
+| `AdventureWorks2022.bak` | 0.403s | 8.872s | 6.197s | 13.172s |
+| `AdventureWorks2025.bak` | 0.416s | 8.758s | 6.166s | 12.799s |
+| `AdventureWorksDW2008R2.bak` | 0.185s | 2.973s | 3.03s | 5.31s |
+| `AdventureWorksDW2012.bak` | 0.352s | 9.509s | 8.311s | 14.9s |
+| `AdventureWorksDW2014.bak` | 0.353s | 9.197s | 8.052s | 14.823s |
+| `AdventureWorksDW2016.bak` | 0.317s | 9.033s | 8.123s | 14.886s |
+| `AdventureWorksDW2016_EXT.bak` | 25.101s | 26.007s | 939.893s | 794.644s |
+| `AdventureWorksDW2017.bak` | 0.343s | 9.262s | 8.318s | 14.936s |
+| `AdventureWorksDW2019.bak` | 0.326s | 8.786s | 7.959s | 14.408s |
+| `AdventureWorksDW2022.bak` | 0.306s | 8.827s | 7.818s | 14.52s |
+| `AdventureWorksDW2025.bak` | 0.367s | 9.051s | 8.183s | 14.64s |
+| `AdventureWorksLT2012.bak` | 0.052s | 0.126s | 0.044s | 0.171s |
+| `AdventureWorksLT2014.bak` | 0.041s | 0.126s | 0.042s | 0.172s |
+| `AdventureWorksLT2016.bak` | 0.039s | 0.125s | 0.042s | 0.168s |
+| `AdventureWorksLT2017.bak` | 0.04s | 0.14s | 0.043s | 0.168s |
+| `AdventureWorksLT2019.bak` | 0.044s | 0.127s | 0.052s | 0.164s |
+| `AdventureWorksLT2022.bak` | 0.042s | 0.131s | 0.043s | 0.175s |
+| `AdventureWorksLT2025.bak` | 0.042s | 0.125s | 0.045s | 0.166s |
+| `BaseballData.bak` | 0.238s | 4.231s | 5.938s | 8.046s |
+| `Chinook-id-pk.bak` | 0.034s | 0.149s | 0.06s | 0.157s |
+| `Chinook.bak` | 0.074s | 0.138s | 0.074s | 0.159s |
+| `ContosoRetailDW.bak` | 15.544s | 533.521s | 470.552s | 1076.448s |
+| `CreditBackup100.bak` | 0.464s | 16.432s | 11.925s | 23.733s |
+| `data.gov.bak` | 0.077s | 0.384s | 2.11s | 2.697s |
+| `dba.stackexchange.com.bak` | 6.083s | 40.48s | 46.635s | 224.568s |
+| `EmployeeCaseStudySampleDB2012.bak` | 0.108s | 0.401s | 1.698s | 1.693s |
+| `GeneralHospital.bak` | 0.994s | 6.719s | 27.914s | 41.413s |
+| `IndexInternals2008.bak` | 0.048s | 0.302s | 0.955s | 0.984s |
+| `Northwinds.bak` | 0.036s | 0.11s | 0.03s | 0.116s |
+| `NYCTaxi_Sample.bak` | 0.873s | 32.87s | 31.886s | 54.827s |
+| `Pubs.bak` | 0.037s | 0.088s | 0.008s | 0.077s |
+| `SalesDB2014.bak` | 1.289s | 18.872s | 24.488s | 35.416s |
+| `SalesDBOriginal.bak` | 1.173s | 17.671s | 23.635s | 32.96s |
+| `StackOverflowMini.bak` | 9.137s | 68.823s | 100.662s | 5.884s |
+| `tpcxbb_1gb.bak` | 3.386s | 94.046s | 146.101s | 205.56s |
+| `TutorialDB.bak` | 0.006s | 0.018s | 0.006s | 0.015s |
+| `WideWorldImporters-Full.bak` | 1.152s | 33.938s | 35.208s | 57.324s |
+| `WideWorldImporters-Full_old.bak` | 1.149s | 33.985s | 35.131s | 57.238s |
+| `WideWorldImporters-Standard.bak` | 1.145s | 34.814s | 35.748s | 58.929s |
+| `WideWorldImporters-Standard_old.bak` | 1.138s | 34.627s | 35.488s | 58.831s |
+| `WideWorldImportersDW-Full.bak` | 0.344s | 0.308s | 12.166s | 21.01s |
+| `WideWorldImportersDW-Standard.bak` | 0.337s | 0.259s | 11.497s | 18.726s |
 
 _Write and read times are wall-clock estimates (coarse, not exact per-sink isolation)._
 
 ---
 
-_Generated 2026-07-14 · 49 fixtures · 45 pass · 0 xfail · 4 fail_
+_Generated 2026-07-14 · 49 fixtures · 49 pass · 0 xfail · 0 fail_
