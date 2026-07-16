@@ -14,6 +14,7 @@ Two layers:
 
 from __future__ import annotations
 
+import datetime as _dt
 import json
 from pathlib import Path
 
@@ -21,6 +22,7 @@ import pyarrow as pa
 import pyarrow.parquet as pq
 import pytest
 
+from mssqlbak.sink import sanitize_fqn
 from tests.fixture_companions import is_redundant_stripe, resolve_bak_input
 from tools.cell_canon import canon, column_digest
 from tools.known_gaps import expected_skipped_tables, gap_reason, version_from_fixture_dir
@@ -531,7 +533,14 @@ _CELLS_DIRS = _fixtures_with_cells()
 @pytest.mark.full
 @pytest.mark.skipif(not _CELLS_DIRS, reason="no .cells/ sidecars yet (run cells capture)")
 @pytest.mark.parametrize("cells_dir", _CELLS_DIRS, ids=lambda p: p.name)
-def test_fixture_cells_match_ground_truth(cells_dir: Path) -> None:
+@pytest.mark.parametrize(
+    "level",
+    [
+        "digest",
+        pytest.param("full", marks=pytest.mark.matrix),
+    ],
+)
+def test_fixture_cells_match_ground_truth(cells_dir: Path, level: str) -> None:
     from mssqlbak.extract import extract_bak_to_delta  # local: heavy import
     import deltalake  # type: ignore[import]
     import tempfile
@@ -571,7 +580,7 @@ def test_fixture_cells_match_ground_truth(cells_dir: Path) -> None:
         skipped = expected_skipped_tables(bak.stem)
         failures: list[str] = []
         for entry in manifest.get("tables", []):
-            ext = extracted.get(entry["fqn"])
+            ext = extracted.get(entry["fqn"]) or extracted.get(sanitize_fqn(entry["fqn"]))
             if ext is None:
                 if entry["fqn"] in skipped:
                     # Intentionally unsupported for this backup (e.g. XTP tables
@@ -580,9 +589,15 @@ def test_fixture_cells_match_ground_truth(cells_dir: Path) -> None:
                     continue
                 failures.append(f"{entry['fqn']}: absent from decode")
                 continue
-            res = verify_table(ext, cells_dir, entry)
+            res = verify_table(ext, cells_dir, entry, level=level)
             if not res.ok:
-                failures.append(f"{entry['fqn']}: {res.col_mismatches or res.digest_mismatches or res.error}")
+                detail = (
+                    res.col_mismatches
+                    or res.digest_mismatches
+                    or res.order_mismatches
+                    or res.error
+                )
+                failures.append(f"{entry['fqn']}: {detail}")
     if failures and reason is not None:
         pytest.xfail(f"{reason}: {failures}")
     assert not failures, "; ".join(failures)
@@ -708,3 +723,177 @@ def test_canon_to_arrow_uniqueidentifier_mixed_case() -> None:
     col = pa.array(guids, pa.string())
     got = _canon_to_arrow(col, "uniqueidentifier").to_pylist()
     assert got == [g.lower() if g else None for g in guids]
+
+
+
+# ---------------------------------------------------------------------------
+# Vectorized digest parity tests (Change 1 & 2 of vectorize plan)
+# ---------------------------------------------------------------------------
+
+@pytest.mark.quick
+@pytest.mark.parametrize(
+    "values",
+    [
+        ["alpha", "beta", "gamma"],
+        ["alpha", "beta", "gamma", "alpha"],  # duplicate
+        [],
+        [None, None],
+        ["", "x", None, "y"],             # empty string + nulls
+        ["\t hello\n", "back\\slash"],    # embedded whitespace / backslash
+        ["A", "B", "C", "D", "E", "F"],
+    ],
+)
+def test_multiset_digest_parity(values: list) -> None:
+    """_arrow_column_digest (vectorized) must reproduce column_digest bit-for-bit."""
+    arr = pa.array(values, type=pa.string())
+    assert _arrow_column_digest(arr) == column_digest(values)
+
+
+@pytest.mark.quick
+def test_multiset_digest_parity_large_n() -> None:
+    """Exercises the block boundary (>2M rows) in _arrow_column_digest."""
+    n = 2_500_000
+    values = [str(i) for i in range(n)]
+    arr = pa.array(values, type=pa.string())
+    assert _arrow_column_digest(arr) == column_digest(values)
+
+
+@pytest.mark.quick
+def test_multiset_digest_parity_block_boundary_nulls() -> None:
+    """Nulls sprinkled across a 2M+ array; block splitting must not shift digest."""
+    from tools.value_verify import _arrow_column_digest
+    from tools.cell_canon import column_digest
+
+    n = 2_200_000
+    values = [None if i % 100 == 0 else str(i) for i in range(n)]
+    arr = pa.array(values, type=pa.string())
+    assert _arrow_column_digest(arr) == column_digest(values)
+
+
+# ---------------------------------------------------------------------------
+# Vectorized ordered-digest parity tests
+# ---------------------------------------------------------------------------
+
+@pytest.mark.quick
+@pytest.mark.parametrize(
+    "values",
+    [
+        ["alpha", "beta", "gamma"],
+        ["alpha", None, "gamma", None, "delta"],
+        [None, None, None],
+        [],
+        ["", "x", None],
+        ["\t hello\n", "back\\slash"],
+    ],
+)
+def test_ordered_digest_parity(values: list) -> None:
+    """_arrow_ordered_column_digest (vectorized) must reproduce column_ordered_digest bit-for-bit."""
+    from tools.value_verify import _arrow_ordered_column_digest
+    from tools.cell_canon import column_ordered_digest
+
+    arr = pa.array(values, type=pa.string())
+    assert _arrow_ordered_column_digest(arr) == column_ordered_digest(values)
+
+
+@pytest.mark.quick
+def test_ordered_digest_parity_large_n() -> None:
+    """Block boundary (>2M rows) with null every 7th row."""
+    from tools.value_verify import _arrow_ordered_column_digest
+    from tools.cell_canon import column_ordered_digest
+
+    n = 2_200_000
+    values = [None if i % 7 == 0 else str(i) for i in range(n)]
+    arr = pa.array(values, type=pa.string())
+    assert _arrow_ordered_column_digest(arr) == column_ordered_digest(values)
+
+
+@pytest.mark.quick
+def test_ordered_digest_parity_null_at_block_boundary() -> None:
+    """Null precisely at the 2M-row block boundary."""
+    from tools.value_verify import _arrow_ordered_column_digest, _HASH_BLOCK_ROWS
+    from tools.cell_canon import column_ordered_digest
+
+    B = _HASH_BLOCK_ROWS
+    values: list = [str(i) for i in range(B - 1)] + [None] + [str(i) for i in range(100)]
+    arr = pa.array(values, type=pa.string())
+    assert _arrow_ordered_column_digest(arr) == column_ordered_digest(values)
+
+
+@pytest.mark.quick
+def test_ordered_digest_null_at_first_and_last() -> None:
+    """Nulls at position 0 and last should produce a different digest from no-null."""
+    from tools.value_verify import _arrow_ordered_column_digest
+    from tools.cell_canon import column_ordered_digest
+
+    vals_no_null = ["A", "B", "C"]
+    vals_first_null: list = [None, "B", "C"]
+    vals_last_null: list = ["A", "B", None]
+    for vals in [vals_first_null, vals_last_null]:
+        arr = pa.array(vals, type=pa.string())
+        assert _arrow_ordered_column_digest(arr) == column_ordered_digest(vals)
+    # And all three must differ from each other.
+    d1 = column_ordered_digest(vals_no_null)
+    d2 = column_ordered_digest(vals_first_null)
+    d3 = column_ordered_digest(vals_last_null)
+    assert d1 != d2 and d1 != d3 and d2 != d3
+
+
+# ---------------------------------------------------------------------------
+# Temporal canon fast-path parity tests (Change 3)
+# ---------------------------------------------------------------------------
+
+_D = _dt.date
+_DT = _dt.datetime
+_T = _dt.time
+
+_TEMPORAL_NULL_CASES = [
+    ([None], pa.date32(), "date"),
+    ([None, None], pa.date32(), "date"),
+]
+
+_TEMPORAL_PARITY_CASES = [
+    # date: no sub-day component
+    ([None, _D(2024, 1, 15), _D(1, 1, 1), _D(9999, 12, 31)], pa.date32(), "date"),
+    # datetime2 at us precision: with and without microseconds
+    (
+        [None, _DT(2024, 1, 15, 10, 30, 0), _DT(2024, 1, 15, 10, 30, 0, 123456), _DT(2000, 2, 29, 23, 59, 59, 999999)],
+        pa.timestamp("us"),
+        "datetime2",
+    ),
+    # datetime at ms precision: cast to us reproduces Python isoformat exactly
+    ([None, _DT(2024, 1, 15, 10, 30, 0), _DT(2024, 1, 15, 10, 30, 0, 500000)], pa.timestamp("ms"), "datetime"),
+    # smalldatetime at second precision: no decimal part
+    ([None, _DT(2024, 1, 15, 10, 30, 0)], pa.timestamp("s"), "smalldatetime"),
+    # time at us precision
+    ([None, _T(10, 30, 0), _T(10, 30, 0, 123456)], pa.time64("us"), "time"),
+]
+
+
+@pytest.mark.quick
+@pytest.mark.parametrize("values,arrow_type,sql_type", _TEMPORAL_NULL_CASES)
+def test_temporal_canon_parity_nulls(values: list, arrow_type: pa.DataType, sql_type: str) -> None:
+    """All-null temporal arrays must produce all-None canonical strings."""
+    arr = pa.array(values, type=arrow_type)
+    got = _canon_to_arrow(arr, sql_type).to_pylist()
+    assert got == [None] * len(values)
+
+
+@pytest.mark.quick
+@pytest.mark.parametrize("py_values,arrow_type,sql_type", _TEMPORAL_PARITY_CASES)
+def test_temporal_canon_parity(
+    py_values: list, arrow_type: pa.DataType, sql_type: str
+) -> None:
+    """_canon_to_arrow temporal fast path must match Python canon() value-for-value."""
+    arr = pa.array(py_values, type=arrow_type)
+    got = _canon_to_arrow(arr, sql_type).to_pylist()
+    expected = [canon(v, sql_type) for v in py_values]
+    assert got == expected, f"mismatch for {sql_type}: {list(zip(got, expected))}"
+
+
+@pytest.mark.quick
+def test_float_uses_python_fallback() -> None:
+    """float/real columns must still use the Python path (Arrow cast is not canon-compatible)."""
+    arr = pa.array([1.5, 0.1, None], type=pa.float64())
+    got = _canon_to_arrow(arr, "float").to_pylist()
+    expected = [canon(v, "float") for v in [1.5, 0.1, None]]
+    assert got == expected

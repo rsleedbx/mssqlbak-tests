@@ -20,19 +20,22 @@
           "name": "lat",
           "sql_type": "varchar(40)",
           "digest": "sha256:7bd186d613511f1acd8d74de8061510401816c09b84e2f35b89c9a4645be71b1",
-          "null_count": 1
+          "null_count": 1,
+          "ordered_digest": "sha256:eaad21adf4fa07569167bef7ae7d8015d86f578f955f4852947a1788e10a5712"
         },
         {
           "name": "grk",
           "sql_type": "varchar(40)",
           "digest": "sha256:9bf1c0ce6526e476121848b1ebb2cf381b9972d9759dbe9e8783cd16023bd3e3",
-          "null_count": 1
+          "null_count": 1,
+          "ordered_digest": "sha256:c13ff48cad0c2ae2b7674cf703ec214d00175afb8c2a02fbf63c514f9c1f5c6d"
         },
         {
           "name": "heb",
           "sql_type": "varchar(40)",
           "digest": "sha256:29da5cb675a6aa540db7e69a31cc7d67a1b919951524c9b1cb52816d5ddbcf8b",
-          "null_count": 1
+          "null_count": 1,
+          "ordered_digest": "sha256:cfb3d5e7e1b8fe2e15c799a84ee168a9a1f9275be02d3b4e8fdcf083b11fb5a9"
         }
       ]
     }

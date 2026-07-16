@@ -20,13 +20,15 @@
           "name": "label",
           "sql_type": "nvarchar(200)",
           "digest": "sha256:ea1769502720b2e1f677699150d5725c31dc3c71753c1451b37831f89939f35d",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:ea1769502720b2e1f677699150d5725c31dc3c71753c1451b37831f89939f35d"
         },
         {
           "name": "phase",
           "sql_type": "varchar(30)",
           "digest": "sha256:521056b22c11c80fba5c4f8ff252d4611f0d2ddc4aa2ecb141525f99d3566d27",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:521056b22c11c80fba5c4f8ff252d4611f0d2ddc4aa2ecb141525f99d3566d27"
         }
       ]
     },
@@ -48,13 +50,15 @@
           "name": "label",
           "sql_type": "nvarchar(200)",
           "digest": "sha256:3cf19151541bda38220e597b9cd3861594ac5a9e94d1f68057df6c1aa6feebbb",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:3cf19151541bda38220e597b9cd3861594ac5a9e94d1f68057df6c1aa6feebbb"
         },
         {
           "name": "phase",
           "sql_type": "varchar(30)",
           "digest": "sha256:18918906d9552e7d3bbfff120c991a0f8bb89426669355403774e70d341a1f02",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:18918906d9552e7d3bbfff120c991a0f8bb89426669355403774e70d341a1f02"
         }
       ]
     }

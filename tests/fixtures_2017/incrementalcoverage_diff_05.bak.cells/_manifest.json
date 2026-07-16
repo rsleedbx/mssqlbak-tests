@@ -20,19 +20,22 @@
           "name": "batch",
           "sql_type": "int",
           "digest": "sha256:b6f357662fe2c739bcc9eeb2d6aae4b24068ef882759b3684ea707259a40a9ee",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:de999de72d636c920f1acd3891971478083403e61b9fd28a939011101702ad40"
         },
         {
           "name": "action",
           "sql_type": "varchar(10)",
           "digest": "sha256:e7a652290bc9a199f7db94da52c917537ebe27b1e1ea06f39a7104554bdaab39",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:8e0181ba7f1ad2f6fea457c0cdd274aa6bf55f5fd5b889e8eae0fd6bf4012697"
         },
         {
           "name": "val",
           "sql_type": "nvarchar(200)",
           "digest": "sha256:dce6678f6ffd212cbc749bb4ea1f11b1e183caefb13ec563166f64559b71caac",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:ea1b2737b34b995a5457d4dfaa24daa6673baeefd086ba8e409aed12132e78c3"
         }
       ]
     }

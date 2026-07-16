@@ -318,3 +318,31 @@ def column_digest(canon_values: Iterable[str | None]) -> str:
     for b in encoded:
         h.update(len(b).to_bytes(4, "little") + b)
     return "sha256:" + h.hexdigest()
+
+
+# Null sentinel for ordered digest: length prefix 0xFFFFFFFF with no payload.
+# Distinguishable from any real string (which would need ~4 GB of payload) and
+# from the empty string (which has length 0x00000000 with no payload).
+_ORDERED_NULL_SENTINEL = b"\xff\xff\xff\xff"
+
+
+def column_ordered_digest(canon_values_in_order: Iterable[str | None]) -> str:
+    """Length-prefixed SHA-256 over canonical values in their given row order.
+
+    Unlike :func:`column_digest` this does **not** sort the values, so the
+    hash is sensitive to the position of each value in the column.  Nulls are
+    represented by a 4-byte sentinel (``0xFFFFFFFF``) rather than being dropped,
+    so a null shifting rows also changes the digest.
+
+    Use together with :func:`column_digest` for order-aware verification: the
+    multiset digest catches wrong values; the ordered digest catches values on
+    the wrong row.
+    """
+    h = hashlib.sha256()
+    for v in canon_values_in_order:
+        if v is None:
+            h.update(_ORDERED_NULL_SENTINEL)
+        else:
+            b = v.encode("utf-8")
+            h.update(len(b).to_bytes(4, "little") + b)
+    return "sha256:" + h.hexdigest()

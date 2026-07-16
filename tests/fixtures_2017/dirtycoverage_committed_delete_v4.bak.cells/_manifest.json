@@ -20,43 +20,50 @@
           "name": "phase",
           "sql_type": "varchar(10)",
           "digest": "sha256:0986bc33df9e82b145474bdd4f4809b60606c08c0f96b449353f96206e44904d",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:0986bc33df9e82b145474bdd4f4809b60606c08c0f96b449353f96206e44904d"
         },
         {
           "name": "val_int",
           "sql_type": "int",
           "digest": "sha256:fda8f7ccebdc1cedc879fd42406f45bf4129c2ae076ae401ee4aa4f647edab65",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:d0828716d6bc1fe890d89ea764624a82ec3a4a9ab1c17ca8d2ac84cfa657088c"
         },
         {
           "name": "val_str",
           "sql_type": "varchar(100)",
           "digest": "sha256:cda50b2dcb7a262531ecfbd0061ad863f8f73ecc644fd593d58a03d2e771407e",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:cda50b2dcb7a262531ecfbd0061ad863f8f73ecc644fd593d58a03d2e771407e"
         },
         {
           "name": "val_nstr",
           "sql_type": "nvarchar(100)",
           "digest": "sha256:e0fe06fe1b103f9e76ac7b0a8594af542c0b725286a98633c0db76c9ed4e4a31",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:e0fe06fe1b103f9e76ac7b0a8594af542c0b725286a98633c0db76c9ed4e4a31"
         },
         {
           "name": "val_float",
           "sql_type": "float",
           "digest": "sha256:9778120f6bb2ecb513adc6edd58ec9f0e8b02eb354ba179ff6fb1d5369ed02f6",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:9778120f6bb2ecb513adc6edd58ec9f0e8b02eb354ba179ff6fb1d5369ed02f6"
         },
         {
           "name": "val_dt",
           "sql_type": "datetime2",
           "digest": "sha256:8c4a01bcd003e88880b2a2541039ce004278b26d92f1e172f7f4667c8ca7fb57",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:60737a3e9a49c2cd8f22c42bfbf693c63e28673401d964c425b0ca2f4a5f7b79"
         },
         {
           "name": "val_guid",
           "sql_type": "uniqueidentifier",
           "digest": "sha256:5914cc14d72bc6cbaee5892ea5a33e28ccdfdc85cf4c67d940b69fb9cbcfb059",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:7333ecc53400a096c39381e2c82aa69eb99cc27ef1ace8b7a8283cd36b4cd9f6"
         }
       ]
     },

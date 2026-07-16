@@ -20,13 +20,15 @@
           "name": "nc_label",
           "sql_type": "nchar(50)",
           "digest": "sha256:c155a782fcf9cc0dcd6f086305936bd22a00d872e5dfa49a23755fba9ef15c9f",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:c155a782fcf9cc0dcd6f086305936bd22a00d872e5dfa49a23755fba9ef15c9f"
         },
         {
           "name": "nv_desc",
           "sql_type": "nvarchar(200)",
           "digest": "sha256:27650d940beede2754bd2f3ffae71b46268e2e4e2b31fb84965e13b2eae094fb",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:27650d940beede2754bd2f3ffae71b46268e2e4e2b31fb84965e13b2eae094fb"
         }
       ]
     }

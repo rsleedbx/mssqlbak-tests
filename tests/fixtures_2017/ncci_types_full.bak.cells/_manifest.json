@@ -36,7 +36,8 @@
           "name": "val",
           "sql_type": "bigint",
           "digest": "sha256:b69bea5158449aca341fff9a10c01b3cfa1d5c16cebfd6bd210af6660df54b05",
-          "null_count": 1
+          "null_count": 1,
+          "ordered_digest": "sha256:a8692204e997a7f4e6bdeb56d4ae0a3c10f7730e7ca3b04e5baa2983e06e48d5"
         }
       ]
     },
@@ -58,7 +59,8 @@
           "name": "val",
           "sql_type": "binary(8)",
           "digest": "sha256:3a10f83b6c280fe8e70fe382e8e7359100e7826b4f0060369b21cab5698db44e",
-          "null_count": 1
+          "null_count": 1,
+          "ordered_digest": "sha256:19d6360b9497b3383e02654f42c0464a2803ec896dec223b43709021cc41d72b"
         }
       ]
     },
@@ -80,7 +82,8 @@
           "name": "val",
           "sql_type": "bit",
           "digest": "sha256:920fa1878b83479fb19c21bfe5ccedb83425b38965e2ffa6610b7c84699ca520",
-          "null_count": 1
+          "null_count": 1,
+          "ordered_digest": "sha256:2bcbb4b8ed3f27fa6fad6d5f98324b452b3e7dea91af218a7bacbc49dba03af7"
         }
       ]
     },
@@ -102,7 +105,8 @@
           "name": "val",
           "sql_type": "char(10)",
           "digest": "sha256:18c3fdce12adb90eebad80e6346eb8d458d4dc6dbaa086114b577483cf9762b3",
-          "null_count": 1
+          "null_count": 1,
+          "ordered_digest": "sha256:cd20e3de8f4e7ecb54f82e486e20a0c5dab66851513735fb538f91f05ab9acd0"
         }
       ]
     },
@@ -124,7 +128,8 @@
           "name": "val",
           "sql_type": "date",
           "digest": "sha256:1c8713267429290e0187aae14662fa8618eebb1479f303a547fc5597cc691c1a",
-          "null_count": 1
+          "null_count": 1,
+          "ordered_digest": "sha256:345b7cde62f10be6ae5b6d6b61a7c43e24d0948a29178e29973464083e24f6f1"
         }
       ]
     },
@@ -146,7 +151,8 @@
           "name": "val",
           "sql_type": "datetime2",
           "digest": "sha256:a43c47df7a07c83ecc2c7cbc7d2ffcde5b2a02a4955824a4f5e90ad3ccdabe55",
-          "null_count": 1
+          "null_count": 1,
+          "ordered_digest": "sha256:0581d2861378739f0c008faa770e75bbaf72fced4a1eb26e681eaa2dc2c6be2c"
         }
       ]
     },
@@ -168,7 +174,8 @@
           "name": "val",
           "sql_type": "datetimeoffset",
           "digest": "sha256:2709baf3fa1b4e26841dd6c2efbd5404942a0ac7c64709d28e457cc790e3e716",
-          "null_count": 1
+          "null_count": 1,
+          "ordered_digest": "sha256:bdb9ba186e4e8c4abd8dbc27bd04b3adde7d87dfd3f28bc6af6f7e156c1475f9"
         }
       ]
     },
@@ -190,7 +197,8 @@
           "name": "val",
           "sql_type": "float",
           "digest": "sha256:eb1e31dd32635e33567e9b80e4ccc699b8f365ee312e24d8ca912a57ad27de69",
-          "null_count": 1
+          "null_count": 1,
+          "ordered_digest": "sha256:f0bdcce21288879228021cc2b3e9766b6c27236e9f747066c5ea61f0bd3d50da"
         }
       ]
     },
@@ -212,7 +220,8 @@
           "name": "val",
           "sql_type": "money",
           "digest": "sha256:987d2b442b547eebe28fe0e9c4ff444624672416cd2b37dc5010465109dde392",
-          "null_count": 1
+          "null_count": 1,
+          "ordered_digest": "sha256:84ef08be91160eac10b6f80857026116b2d5690998868e5bef4b3baf8a09e106"
         }
       ]
     },
@@ -234,7 +243,8 @@
           "name": "val",
           "sql_type": "nchar(10)",
           "digest": "sha256:18c3fdce12adb90eebad80e6346eb8d458d4dc6dbaa086114b577483cf9762b3",
-          "null_count": 1
+          "null_count": 1,
+          "ordered_digest": "sha256:cd20e3de8f4e7ecb54f82e486e20a0c5dab66851513735fb538f91f05ab9acd0"
         }
       ]
     },
@@ -256,7 +266,8 @@
           "name": "val",
           "sql_type": "nvarchar(50)",
           "digest": "sha256:8399dc57c5056c6ec10bd1b858914dccfa0130a538e8c7328887338ffc986529",
-          "null_count": 1
+          "null_count": 1,
+          "ordered_digest": "sha256:c6ea40ceab762661e4c0e68f2d0f8308acfc070d81af3055a7a16ef965c583ae"
         }
       ]
     },
@@ -278,7 +289,8 @@
           "name": "val",
           "sql_type": "real",
           "digest": "sha256:0e3c825a58622400cdc685268dc88b385e210210b59b9101e8f091cc1cb2932e",
-          "null_count": 1
+          "null_count": 1,
+          "ordered_digest": "sha256:ed08c2f10ae5c050bd216442e275ba885d2b4640f0e645a44d8d940718490fa5"
         }
       ]
     },
@@ -300,7 +312,8 @@
           "name": "val",
           "sql_type": "smallint",
           "digest": "sha256:b6b782ca67d75c91d437b9934e2e597e556f2f78944c75c3ab888bdc6d9b32a5",
-          "null_count": 1
+          "null_count": 1,
+          "ordered_digest": "sha256:7b0930084d58d1fca11c07ee66010c53c317db9e6bae0867865746f4ed54450b"
         }
       ]
     },
@@ -322,7 +335,8 @@
           "name": "val",
           "sql_type": "smallmoney",
           "digest": "sha256:4520fce0cc2522bca225090c4cc53edda5ff4528135d40ca79a009abd4162fd8",
-          "null_count": 1
+          "null_count": 1,
+          "ordered_digest": "sha256:79d19e137c64805cc33caa807c5738f37f148406a9209a0bd9f0d385c6d33e9d"
         }
       ]
     },
@@ -344,7 +358,8 @@
           "name": "val",
           "sql_type": "time",
           "digest": "sha256:274b9feeed91c45205c8891c4fa2aaadb3ecf56f0faad252f940f11c01e89d29",
-          "null_count": 1
+          "null_count": 1,
+          "ordered_digest": "sha256:79f8f6022c40dcfb7caf31e7755c302d5b1af07e97a1ae3063479bd2efdce443"
         }
       ]
     },
@@ -366,7 +381,8 @@
           "name": "val",
           "sql_type": "tinyint",
           "digest": "sha256:54bcb99965b42cd0ac73950fa5e8f1c11ff5b639b7d0c7b575392bef4e117901",
-          "null_count": 1
+          "null_count": 1,
+          "ordered_digest": "sha256:9f40b2d2633df9e29527d670ee40f3be68f8dcb3cf5d08a7d666b7c42a7834e5"
         }
       ]
     },
@@ -388,7 +404,8 @@
           "name": "val",
           "sql_type": "uniqueidentifier",
           "digest": "sha256:81e170f23fe14c7fa50653a2745e10277c6665091b4004686bba5011a4511f49",
-          "null_count": 1
+          "null_count": 1,
+          "ordered_digest": "sha256:82f05c68a83c0da5f348e7deef729c67c2fc700481b8448be2eaf3a44b7878d3"
         }
       ]
     },
@@ -410,7 +427,8 @@
           "name": "val",
           "sql_type": "varbinary(8)",
           "digest": "sha256:150226d84f0be58d2ebec13e8dd8b6568f475a9975b9db3b0dae2f74b906b3be",
-          "null_count": 1
+          "null_count": 1,
+          "ordered_digest": "sha256:8feb55b0db75497fc8114754030ce4ad5aca36ada5b5ddecfb98667150fb2006"
         }
       ]
     },
@@ -432,7 +450,8 @@
           "name": "val",
           "sql_type": "varchar(50)",
           "digest": "sha256:8399dc57c5056c6ec10bd1b858914dccfa0130a538e8c7328887338ffc986529",
-          "null_count": 1
+          "null_count": 1,
+          "ordered_digest": "sha256:c6ea40ceab762661e4c0e68f2d0f8308acfc070d81af3055a7a16ef965c583ae"
         }
       ]
     }

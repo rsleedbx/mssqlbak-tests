@@ -20,19 +20,22 @@
           "name": "label",
           "sql_type": "varchar(60)",
           "digest": "sha256:6b43d0716ed3782fce10a5cb58ad72d1ba08f0e7acc427cc54b240c484a275df",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:6b43d0716ed3782fce10a5cb58ad72d1ba08f0e7acc427cc54b240c484a275df"
         },
         {
           "name": "varchar_col",
           "sql_type": "varchar(1000)",
           "digest": "sha256:c5f4f5cedcadb30508522ce7d62a3a6406dc0aeea684ee1ab004605f55f87e5a",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:c5f4f5cedcadb30508522ce7d62a3a6406dc0aeea684ee1ab004605f55f87e5a"
         },
         {
           "name": "nvarchar_col",
           "sql_type": "nvarchar(1000)",
           "digest": "sha256:adaf507ae8108e97e7c0d8d023c2c2ff10901862ae8bb989b34a1ccb604ad4b4",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:adaf507ae8108e97e7c0d8d023c2c2ff10901862ae8bb989b34a1ccb604ad4b4"
         }
       ]
     },
@@ -54,19 +57,22 @@
           "name": "label",
           "sql_type": "varchar(60)",
           "digest": "sha256:da3e75c34951d65f2e6a5d22de4cd39bdd53dcdc779b4997dfb32319fa20b009",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:547352f2491c287e489665dbed8b06cf75c3846475e6df74a856dd8a20e4ba7a"
         },
         {
           "name": "varchar_col",
           "sql_type": "varchar(1000)",
           "digest": "sha256:9372db1fec597d3e3c009517c5fd8552cfcb9b37886847e69cf04c1692067c10",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:7ea0478e4538fce7a089f0150777a2e38d0afa12193529093f5709c24d31244c"
         },
         {
           "name": "nvarchar_col",
           "sql_type": "nvarchar(1000)",
           "digest": "sha256:f6e0af1ed01cb612fccbdf62f946fc0e9814427f853caaaf22778c1752c1926d",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:ee09ec8ac45d761fd5ebc808094bae9085fc17f496ba0d0ce403102a3d040262"
         }
       ]
     },
@@ -88,19 +94,22 @@
           "name": "label",
           "sql_type": "varchar(60)",
           "digest": "sha256:4e36b35aa15da298aab44ab15abcbf0e9a1a831bda4e248a6da4c63fe5cb5901",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:4e36b35aa15da298aab44ab15abcbf0e9a1a831bda4e248a6da4c63fe5cb5901"
         },
         {
           "name": "varchar_col",
           "sql_type": "varchar(1000)",
           "digest": "sha256:8d2fb2adf330d8c206ee4b40d2ce0bea16da7276501945a555421e4bb60f84fd",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:8d2fb2adf330d8c206ee4b40d2ce0bea16da7276501945a555421e4bb60f84fd"
         },
         {
           "name": "nvarchar_col",
           "sql_type": "nvarchar(1000)",
           "digest": "sha256:8d2fb2adf330d8c206ee4b40d2ce0bea16da7276501945a555421e4bb60f84fd",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:8d2fb2adf330d8c206ee4b40d2ce0bea16da7276501945a555421e4bb60f84fd"
         }
       ]
     },
@@ -122,19 +131,22 @@
           "name": "label",
           "sql_type": "varchar(60)",
           "digest": "sha256:722ea219242195be324888ec7fe71581e1bac3870c1f112778b201c53621efcb",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:722ea219242195be324888ec7fe71581e1bac3870c1f112778b201c53621efcb"
         },
         {
           "name": "varchar_col",
           "sql_type": "varchar(1000)",
           "digest": "sha256:a5c7d4de899c96f0db35644f5fb02ca76bb4af392fb152b1b1c7b6b539124a21",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:a5c7d4de899c96f0db35644f5fb02ca76bb4af392fb152b1b1c7b6b539124a21"
         },
         {
           "name": "nvarchar_col",
           "sql_type": "nvarchar(1000)",
           "digest": "sha256:a5c7d4de899c96f0db35644f5fb02ca76bb4af392fb152b1b1c7b6b539124a21",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:a5c7d4de899c96f0db35644f5fb02ca76bb4af392fb152b1b1c7b6b539124a21"
         }
       ]
     },
@@ -156,19 +168,22 @@
           "name": "label",
           "sql_type": "varchar(60)",
           "digest": "sha256:33c45210d3f810c82118721a90c4d3523769fa5031be110fef5b5cf3ae52fad8",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:33c45210d3f810c82118721a90c4d3523769fa5031be110fef5b5cf3ae52fad8"
         },
         {
           "name": "varchar_col",
           "sql_type": "varchar(1000)",
           "digest": "sha256:f78fe27bda864bedb45f9f1711986e6d9fc7cde5b1a76df5ca468e54b6b00977",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:f78fe27bda864bedb45f9f1711986e6d9fc7cde5b1a76df5ca468e54b6b00977"
         },
         {
           "name": "nvarchar_col",
           "sql_type": "nvarchar(1000)",
           "digest": "sha256:f78fe27bda864bedb45f9f1711986e6d9fc7cde5b1a76df5ca468e54b6b00977",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:f78fe27bda864bedb45f9f1711986e6d9fc7cde5b1a76df5ca468e54b6b00977"
         }
       ]
     },
@@ -190,19 +205,22 @@
           "name": "label",
           "sql_type": "varchar(60)",
           "digest": "sha256:cff05848c152f6da2c48bc2f0423514fb87e69c4f29dc8e6c08e9ea02c8d56b7",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:cff05848c152f6da2c48bc2f0423514fb87e69c4f29dc8e6c08e9ea02c8d56b7"
         },
         {
           "name": "varchar_col",
           "sql_type": "varchar(1000)",
           "digest": "sha256:b0b2ecc9c10b53e736ee8e97b80621475aef943cb7c64265048eead026e4b978",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:b0b2ecc9c10b53e736ee8e97b80621475aef943cb7c64265048eead026e4b978"
         },
         {
           "name": "nvarchar_col",
           "sql_type": "nvarchar(1000)",
           "digest": "sha256:b0b2ecc9c10b53e736ee8e97b80621475aef943cb7c64265048eead026e4b978",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:b0b2ecc9c10b53e736ee8e97b80621475aef943cb7c64265048eead026e4b978"
         }
       ]
     },
@@ -224,19 +242,22 @@
           "name": "label",
           "sql_type": "varchar(60)",
           "digest": "sha256:87b3be0fbaef7c6b813c1465b645ed115354c57c3204c0d6e3988fa7bf487325",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:87b3be0fbaef7c6b813c1465b645ed115354c57c3204c0d6e3988fa7bf487325"
         },
         {
           "name": "varchar_col",
           "sql_type": "varchar(1000)",
           "digest": "sha256:9446d8c3d4bcde240860ed2ed70d05d52bfdc1d134da38a7b667bdff6875c862",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:9446d8c3d4bcde240860ed2ed70d05d52bfdc1d134da38a7b667bdff6875c862"
         },
         {
           "name": "nvarchar_col",
           "sql_type": "nvarchar(1000)",
           "digest": "sha256:9446d8c3d4bcde240860ed2ed70d05d52bfdc1d134da38a7b667bdff6875c862",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:9446d8c3d4bcde240860ed2ed70d05d52bfdc1d134da38a7b667bdff6875c862"
         }
       ]
     },
@@ -258,19 +279,22 @@
           "name": "label",
           "sql_type": "varchar(60)",
           "digest": "sha256:652eb7080ad3768609ba1088868c287f34ed47d0a7b2536b439bcfa4228dc4be",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:652eb7080ad3768609ba1088868c287f34ed47d0a7b2536b439bcfa4228dc4be"
         },
         {
           "name": "varchar_col",
           "sql_type": "varchar(1000)",
           "digest": "sha256:aab767f214588d541fa6e13f0af47dd6b499538da043cda831af7e37b884be2f",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:aab767f214588d541fa6e13f0af47dd6b499538da043cda831af7e37b884be2f"
         },
         {
           "name": "nvarchar_col",
           "sql_type": "nvarchar(1000)",
           "digest": "sha256:a671a9697ff8f1e799090f64ae338605dee8bb8b37bede8fd301047459a83622",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:a671a9697ff8f1e799090f64ae338605dee8bb8b37bede8fd301047459a83622"
         }
       ]
     },
@@ -292,19 +316,22 @@
           "name": "label",
           "sql_type": "varchar(60)",
           "digest": "sha256:b754ef7fb69439d43a4613818228517e9895199acd944d80590c53a75e029725",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:b754ef7fb69439d43a4613818228517e9895199acd944d80590c53a75e029725"
         },
         {
           "name": "varchar_col",
           "sql_type": "varchar(1000)",
           "digest": "sha256:249d72f8a4e6ef4ba6aa549ffb6f65c3812378d7adf5121093660e0dd4bbbb50",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:249d72f8a4e6ef4ba6aa549ffb6f65c3812378d7adf5121093660e0dd4bbbb50"
         },
         {
           "name": "nvarchar_col",
           "sql_type": "nvarchar(1000)",
           "digest": "sha256:249d72f8a4e6ef4ba6aa549ffb6f65c3812378d7adf5121093660e0dd4bbbb50",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:249d72f8a4e6ef4ba6aa549ffb6f65c3812378d7adf5121093660e0dd4bbbb50"
         }
       ]
     },
@@ -326,19 +353,22 @@
           "name": "label",
           "sql_type": "varchar(60)",
           "digest": "sha256:69b9d90ac47cc1e137d3cfb11d80c92f994b05da8e7e15284f48bb83a345f081",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:780658f21c7eab2d1cd96c4598ef23d41efa6b0dd6d810bac37b4b95227b0262"
         },
         {
           "name": "varchar_col",
           "sql_type": "varchar(1000)",
           "digest": "sha256:cf77e9f79494ee6fb663eab7dad1709ad2905f0a00089eda9e6b75ecea1158ad",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:3f9fb41dd5b60faf8885077bcd28637f0b4cabb611d0acdcc04fe5aceb1b17a1"
         },
         {
           "name": "nvarchar_col",
           "sql_type": "nvarchar(1000)",
           "digest": "sha256:cf77e9f79494ee6fb663eab7dad1709ad2905f0a00089eda9e6b75ecea1158ad",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:3f9fb41dd5b60faf8885077bcd28637f0b4cabb611d0acdcc04fe5aceb1b17a1"
         }
       ]
     },
@@ -360,19 +390,22 @@
           "name": "label",
           "sql_type": "varchar(60)",
           "digest": "sha256:c21713db5f7ddc4a435ef93852bcb204cad35fa9045234e9504c883544eaf69e",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:c21713db5f7ddc4a435ef93852bcb204cad35fa9045234e9504c883544eaf69e"
         },
         {
           "name": "varchar_col",
           "sql_type": "varchar(1000)",
           "digest": "sha256:9aa8c43038c99d2d537e6ff3e61a34b7b1a942c445317503dda7c220d9576ef8",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:9aa8c43038c99d2d537e6ff3e61a34b7b1a942c445317503dda7c220d9576ef8"
         },
         {
           "name": "nvarchar_col",
           "sql_type": "nvarchar(1000)",
           "digest": "sha256:9aa8c43038c99d2d537e6ff3e61a34b7b1a942c445317503dda7c220d9576ef8",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:9aa8c43038c99d2d537e6ff3e61a34b7b1a942c445317503dda7c220d9576ef8"
         }
       ]
     },
@@ -394,19 +427,22 @@
           "name": "label",
           "sql_type": "varchar(60)",
           "digest": "sha256:445145fa5b301c88fa33f144a372cfe655db0f55aefdd5c310f6a6987162edcc",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:445145fa5b301c88fa33f144a372cfe655db0f55aefdd5c310f6a6987162edcc"
         },
         {
           "name": "varchar_col",
           "sql_type": "varchar(1000)",
           "digest": "sha256:ad06ec9df6ea6c319eb3b249e53aa6253d8fb1d1425d799fffebed5f0233c3ab",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:ad06ec9df6ea6c319eb3b249e53aa6253d8fb1d1425d799fffebed5f0233c3ab"
         },
         {
           "name": "nvarchar_col",
           "sql_type": "nvarchar(1000)",
           "digest": "sha256:ad06ec9df6ea6c319eb3b249e53aa6253d8fb1d1425d799fffebed5f0233c3ab",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:ad06ec9df6ea6c319eb3b249e53aa6253d8fb1d1425d799fffebed5f0233c3ab"
         }
       ]
     },
@@ -428,19 +464,22 @@
           "name": "label",
           "sql_type": "varchar(60)",
           "digest": "sha256:36c1afa446a71863c21b324f7d70f340847ec7881eb58ce10eff3e12480da9f5",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:36c1afa446a71863c21b324f7d70f340847ec7881eb58ce10eff3e12480da9f5"
         },
         {
           "name": "varchar_col",
           "sql_type": "varchar(1000)",
           "digest": "sha256:fe710ba6c0124e70d644e1abd074885eb9f1fdbead2e50ffbcf8ed7c2e8d7c63",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:fe710ba6c0124e70d644e1abd074885eb9f1fdbead2e50ffbcf8ed7c2e8d7c63"
         },
         {
           "name": "nvarchar_col",
           "sql_type": "nvarchar(1000)",
           "digest": "sha256:fe710ba6c0124e70d644e1abd074885eb9f1fdbead2e50ffbcf8ed7c2e8d7c63",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:fe710ba6c0124e70d644e1abd074885eb9f1fdbead2e50ffbcf8ed7c2e8d7c63"
         }
       ]
     }

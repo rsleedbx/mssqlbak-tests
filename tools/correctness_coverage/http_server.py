@@ -2,17 +2,26 @@
 
 from __future__ import annotations
 
+import errno
 import functools
 import http.server
 import os
 import re
+import sys
 import threading
+import time
 from contextlib import contextmanager
 from pathlib import Path
 from typing import Generator
 
 _CDN_PREFIX = "/_cdn"
 _RANGE_RE = re.compile(r"^bytes=(\d+)-(\d*)$")
+
+# macOS exhausts the per-socket send buffer (ENOBUFS) under many concurrent
+# per-chunk Range GETs.  Retry the write a bounded number of times with a short
+# backoff before giving up on the response (the client retries the Range GET).
+_ENOBUFS_MAX_RETRIES = 100
+_ENOBUFS_BACKOFF_S = 0.005
 
 
 class _RangeCDNHandler(http.server.SimpleHTTPRequestHandler):
@@ -37,6 +46,27 @@ class _RangeCDNHandler(http.server.SimpleHTTPRequestHandler):
 
     def log_message(self, *_: object) -> None:  # silence request logs
         pass
+
+    def _safe_write(self, chunk: bytes) -> bool:
+        """Write *chunk* to the client, tolerating transient socket errors.
+
+        Returns ``True`` on success.  On ``ENOBUFS`` (macOS send-buffer
+        exhaustion under concurrent Range GETs) it retries with a short backoff.
+        On a dropped connection (``EPIPE`` / ``ECONNRESET`` / broken pipe) it
+        returns ``False`` so the caller aborts the response quietly; the client
+        (:class:`~mssqlbak.readers.http.HTTPBakReader`) retries the Range GET.
+        """
+        for _attempt in range(_ENOBUFS_MAX_RETRIES):
+            try:
+                self.wfile.write(chunk)
+                return True
+            except OSError as exc:
+                if exc.errno == errno.ENOBUFS:
+                    time.sleep(_ENOBUFS_BACKOFF_S)
+                    continue
+                # EPIPE / ECONNRESET / other: client went away — abort quietly.
+                return False
+        return False
 
     def do_GET(self) -> None:  # noqa: N802
         # ── redirect leg: /<name>.bak → /_cdn/<name>.bak ───────────────────
@@ -84,7 +114,8 @@ class _RangeCDNHandler(http.server.SimpleHTTPRequestHandler):
                     chunk = f.read(min(65536, remaining))
                     if not chunk:
                         break
-                    self.wfile.write(chunk)
+                    if not self._safe_write(chunk):
+                        return
                     remaining -= len(chunk)
         else:
             # No Range header → full 200 response (fallback / spool path).
@@ -95,7 +126,25 @@ class _RangeCDNHandler(http.server.SimpleHTTPRequestHandler):
             self.end_headers()
             with open(fs_path, "rb") as f:
                 while chunk := f.read(65536):
-                    self.wfile.write(chunk)
+                    if not self._safe_write(chunk):
+                        return
+
+
+class _QuietThreadingHTTPServer(http.server.ThreadingHTTPServer):
+    """ThreadingHTTPServer that does not dump a traceback for expected socket errors.
+
+    Under heavy concurrent Range GETs the client may drop a connection or the OS
+    may exhaust send buffers (``ENOBUFS``); these surface as ``OSError`` and are
+    handled/retried in :meth:`_RangeCDNHandler._safe_write`.  Any that still
+    escape are benign, so suppress the noisy stack trace the default
+    ``handle_error`` would print.
+    """
+
+    def handle_error(self, request: object, client_address: object) -> None:
+        exc = sys.exc_info()[1]
+        if isinstance(exc, OSError):
+            return
+        super().handle_error(request, client_address)  # type: ignore[arg-type]
 
 
 @contextmanager
@@ -116,7 +165,7 @@ def _local_http_server(directory: Path) -> Generator[int, None, None]:
     concurrent worker processes and many per-chunk Range GETs never serialise.
     """
     handler = functools.partial(_RangeCDNHandler, directory=str(directory))
-    with http.server.ThreadingHTTPServer(("127.0.0.1", 0), handler) as httpd:
+    with _QuietThreadingHTTPServer(("127.0.0.1", 0), handler) as httpd:
         port = httpd.server_address[1]
         t = threading.Thread(target=httpd.serve_forever, daemon=True)
         t.start()

@@ -20,31 +20,36 @@
           "name": "LastName",
           "sql_type": "nchar(30)",
           "digest": "sha256:664ee69eab64ee5b2a6a0592bfb4656ae2254fcbae018b1fe9370e545720ef42",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:6e7d6e588d3fabab3e451c2e9a654c8d47598a4c3b2a7413687ab1c1be497cd8"
         },
         {
           "name": "FirstName",
           "sql_type": "nchar(29)",
           "digest": "sha256:d6ea1443014ca3000ae48cf9a6a7d1f7d76c5dc25bc65b608e0c7c5d7239e8a0",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:4bdb1d617dbce42b900be6001f7596244db78c28ac6dc2a17e1b797d566f0030"
         },
         {
           "name": "MiddleInitial",
           "sql_type": "nchar(1)",
           "digest": "sha256:fcab311ddca5de0ca45f28176dddb05fb0bbe0cc69e550f5cc5a9358a8327cf1",
-          "null_count": 12
+          "null_count": 12,
+          "ordered_digest": "sha256:9b148de4cb3f874b8f69ff63ccbf8954dfb99c98b08b00bf438892aea48873e1"
         },
         {
           "name": "SSN",
           "sql_type": "char(11)",
           "digest": "sha256:9c9475edc60b6ca672622788873690bf542a617619cf4aca6c72199544437951",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:88c26efdb7167fe7788e476afbecf415ee09437a397ecff256f4f894a250ecd2"
         },
         {
           "name": "OtherColumns",
           "sql_type": "char(258)",
           "digest": "sha256:c8b02502e866fe5af5cecdddf74627490c302d1de46b39057a14974f074a47ce",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:c8b02502e866fe5af5cecdddf74627490c302d1de46b39057a14974f074a47ce"
         }
       ]
     },
@@ -66,31 +71,36 @@
           "name": "LastName",
           "sql_type": "nchar(30)",
           "digest": "sha256:664ee69eab64ee5b2a6a0592bfb4656ae2254fcbae018b1fe9370e545720ef42",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:6e7d6e588d3fabab3e451c2e9a654c8d47598a4c3b2a7413687ab1c1be497cd8"
         },
         {
           "name": "FirstName",
           "sql_type": "nchar(29)",
           "digest": "sha256:d6ea1443014ca3000ae48cf9a6a7d1f7d76c5dc25bc65b608e0c7c5d7239e8a0",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:4bdb1d617dbce42b900be6001f7596244db78c28ac6dc2a17e1b797d566f0030"
         },
         {
           "name": "MiddleInitial",
           "sql_type": "nchar(1)",
           "digest": "sha256:fcab311ddca5de0ca45f28176dddb05fb0bbe0cc69e550f5cc5a9358a8327cf1",
-          "null_count": 12
+          "null_count": 12,
+          "ordered_digest": "sha256:9b148de4cb3f874b8f69ff63ccbf8954dfb99c98b08b00bf438892aea48873e1"
         },
         {
           "name": "SSN",
           "sql_type": "char(11)",
           "digest": "sha256:9c9475edc60b6ca672622788873690bf542a617619cf4aca6c72199544437951",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:88c26efdb7167fe7788e476afbecf415ee09437a397ecff256f4f894a250ecd2"
         },
         {
           "name": "OtherColumns",
           "sql_type": "char(258)",
           "digest": "sha256:c8b02502e866fe5af5cecdddf74627490c302d1de46b39057a14974f074a47ce",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:c8b02502e866fe5af5cecdddf74627490c302d1de46b39057a14974f074a47ce"
         }
       ]
     }

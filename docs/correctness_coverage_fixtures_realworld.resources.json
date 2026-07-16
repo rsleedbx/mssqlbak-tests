@@ -1,0 +1,4320 @@
+{
+  "run_id": "20260715T234402",
+  "source_mode": "local",
+  "mem_budget_gb": 8.0,
+  "threads": 4,
+  "fixtures": [
+    {
+      "bak": "ContosoRetailDW.bak",
+      "bak_size_mb": 629.956,
+      "total_src_rows": 34326475,
+      "wall_s": 659.194,
+      "extract_s": 272.737,
+      "catalog_s": 0.028,
+      "data_decode_net_s": 255.583,
+      "phases": {
+        "pagestore_build_s": 16.44,
+        "schema_recover_s": 0.025,
+        "lsn_s": 0.003,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.68,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 255.583,
+        "sink_finish_s": 0.001
+      },
+      "write_s": {
+        "delta": 25.427,
+        "pg_dir": 36.691
+      },
+      "readback_s": {
+        "delta": 188.665,
+        "pg_dir": 197.583
+      },
+      "read_s": {
+        "delta": 0.823,
+        "pg_dir": 25.971
+      },
+      "stats_s": {
+        "delta": 2.013,
+        "pg_dir": 2.409
+      },
+      "verify_s": {
+        "mssql_arrow": 200.976,
+        "delta": 185.457,
+        "pg_dir": 168.907
+      },
+      "pid": 13603,
+      "peak_rss_mb": 12014.2,
+      "hwm_rss_mb": 12918.7,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 75.3,
+          "peak_rss_mb": 75.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.176,
+          "rss_mb": 75.7,
+          "peak_rss_mb": 75.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 272.913,
+          "rss_mb": 11253.5,
+          "peak_rss_mb": 12531.4,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 461.597,
+          "rss_mb": 9152.3,
+          "peak_rss_mb": 12531.4,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 659.181,
+          "rss_mb": 12013.8,
+          "peak_rss_mb": 12918.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 659.194,
+          "rss_mb": 12014.2,
+          "peak_rss_mb": 12918.7,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "StackOverflowMini.bak",
+      "bak_size_mb": 758.564,
+      "total_src_rows": 8097337,
+      "wall_s": 258.017,
+      "extract_s": 74.491,
+      "catalog_s": 0.031,
+      "data_decode_net_s": 48.682,
+      "phases": {
+        "pagestore_build_s": 17.494,
+        "schema_recover_s": 0.029,
+        "lsn_s": 0.002,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.567,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 48.682,
+        "sink_finish_s": 7.71
+      },
+      "write_s": {
+        "delta": 7.354,
+        "pg_dir": 16.805
+      },
+      "readback_s": {
+        "delta": 38.651,
+        "pg_dir": 144.803
+      },
+      "read_s": {
+        "delta": 0.468,
+        "pg_dir": 105.936
+      },
+      "stats_s": {
+        "delta": 0.298,
+        "pg_dir": 0.297
+      },
+      "verify_s": {
+        "mssql_arrow": 41.842,
+        "delta": 37.686,
+        "pg_dir": 38.263
+      },
+      "pid": 14316,
+      "peak_rss_mb": 5703.0,
+      "hwm_rss_mb": 13920.8,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 74.2,
+          "peak_rss_mb": 74.4,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.055,
+          "rss_mb": 74.3,
+          "peak_rss_mb": 74.4,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 74.546,
+          "rss_mb": 5703.0,
+          "peak_rss_mb": 13920.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 113.204,
+          "rss_mb": 5254.6,
+          "peak_rss_mb": 13920.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 258.008,
+          "rss_mb": 5648.1,
+          "peak_rss_mb": 13920.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 258.017,
+          "rss_mb": 5648.2,
+          "peak_rss_mb": 13920.8,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "tpcxbb_1gb.bak",
+      "bak_size_mb": 233.98,
+      "total_src_rows": 34001580,
+      "wall_s": 384.992,
+      "extract_s": 220.287,
+      "catalog_s": 0.083,
+      "data_decode_net_s": 212.573,
+      "phases": {
+        "pagestore_build_s": 6.601,
+        "schema_recover_s": 0.078,
+        "lsn_s": 0.005,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.397,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 212.573,
+        "sink_finish_s": 0.629
+      },
+      "write_s": {
+        "delta": 8.304,
+        "pg_dir": 25.44
+      },
+      "readback_s": {
+        "delta": 87.453,
+        "pg_dir": 77.156
+      },
+      "read_s": {
+        "delta": 0.585,
+        "pg_dir": 12.958
+      },
+      "stats_s": {
+        "delta": 1.102,
+        "pg_dir": 0.861
+      },
+      "verify_s": {
+        "mssql_arrow": 92.749,
+        "delta": 85.362,
+        "pg_dir": 62.996
+      },
+      "pid": 92347,
+      "peak_rss_mb": 6740.8,
+      "hwm_rss_mb": 7815.1,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 76.1,
+          "peak_rss_mb": 76.3,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.06,
+          "rss_mb": 76.5,
+          "peak_rss_mb": 76.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 220.347,
+          "rss_mb": 5007.0,
+          "peak_rss_mb": 5582.4,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 307.819,
+          "rss_mb": 6039.8,
+          "peak_rss_mb": 6483.2,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 384.977,
+          "rss_mb": 6740.8,
+          "peak_rss_mb": 7815.1,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 384.992,
+          "rss_mb": 6740.8,
+          "peak_rss_mb": 7815.1,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "dba.stackexchange.com.bak",
+      "bak_size_mb": 489.32,
+      "total_src_rows": 2968576,
+      "wall_s": 171.7,
+      "extract_s": 51.954,
+      "catalog_s": 0.027,
+      "data_decode_net_s": 37.038,
+      "phases": {
+        "pagestore_build_s": 13.051,
+        "schema_recover_s": 0.025,
+        "lsn_s": 0.002,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.363,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 37.038,
+        "sink_finish_s": 1.47
+      },
+      "write_s": {
+        "delta": 4.065,
+        "pg_dir": 10.413
+      },
+      "readback_s": {
+        "delta": 18.166,
+        "pg_dir": 101.541
+      },
+      "read_s": {
+        "delta": 0.349,
+        "pg_dir": 86.48
+      },
+      "stats_s": {
+        "delta": 0.149,
+        "pg_dir": 0.168
+      },
+      "verify_s": {
+        "mssql_arrow": 17.157,
+        "delta": 17.518,
+        "pg_dir": 14.807
+      },
+      "pid": 15177,
+      "peak_rss_mb": 12419.9,
+      "hwm_rss_mb": 16102.3,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 74.2,
+          "peak_rss_mb": 74.3,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.021,
+          "rss_mb": 74.3,
+          "peak_rss_mb": 74.3,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 51.975,
+          "rss_mb": 11511.4,
+          "peak_rss_mb": 16102.3,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 70.15,
+          "rss_mb": 8588.6,
+          "peak_rss_mb": 16102.3,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 171.691,
+          "rss_mb": 12419.8,
+          "peak_rss_mb": 16102.3,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 171.699,
+          "rss_mb": 12419.9,
+          "peak_rss_mb": 16102.3,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorksDW2016_EXT.bak",
+      "bak_size_mb": 883.324,
+      "total_src_rows": 24400096,
+      "wall_s": 157.741,
+      "extract_s": 91.537,
+      "catalog_s": 0.036,
+      "data_decode_net_s": 74.959,
+      "phases": {
+        "pagestore_build_s": 15.861,
+        "schema_recover_s": 0.033,
+        "lsn_s": 0.003,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.662,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 74.959,
+        "sink_finish_s": 0.015
+      },
+      "write_s": {
+        "delta": 23.48,
+        "pg_dir": 44.771
+      },
+      "readback_s": {
+        "delta": 8.023,
+        "pg_dir": 58.023
+      },
+      "read_s": {
+        "delta": 0.873,
+        "pg_dir": 50.859
+      },
+      "stats_s": {
+        "delta": 3.899,
+        "pg_dir": 3.793
+      },
+      "verify_s": {
+        "mssql_arrow": 3.406,
+        "delta": 3.005,
+        "pg_dir": 3.068
+      },
+      "pid": 15772,
+      "peak_rss_mb": 15010.5,
+      "hwm_rss_mb": 15642.7,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 74.3,
+          "peak_rss_mb": 74.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.133,
+          "rss_mb": 74.8,
+          "peak_rss_mb": 74.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 91.671,
+          "rss_mb": 15010.5,
+          "peak_rss_mb": 15067.6,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 99.703,
+          "rss_mb": 14789.5,
+          "peak_rss_mb": 15245.2,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 157.73,
+          "rss_mb": 12716.7,
+          "peak_rss_mb": 15642.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 157.741,
+          "rss_mb": 12717.5,
+          "peak_rss_mb": 15642.7,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "NYCTaxi_Sample.bak",
+      "bak_size_mb": 97.117,
+      "total_src_rows": 1703957,
+      "wall_s": 170.181,
+      "extract_s": 74.503,
+      "catalog_s": 0.096,
+      "data_decode_net_s": 31.351,
+      "phases": {
+        "pagestore_build_s": 0.284,
+        "schema_recover_s": 0.041,
+        "lsn_s": 0.055,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.145,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 31.351,
+        "sink_finish_s": 42.62
+      },
+      "write_s": {
+        "delta": 2.282,
+        "pg_dir": 10.713
+      },
+      "readback_s": {
+        "delta": 39.562,
+        "pg_dir": 56.071
+      },
+      "read_s": {
+        "delta": 0.112,
+        "pg_dir": 14.208
+      },
+      "stats_s": {
+        "delta": 0.525,
+        "pg_dir": 0.534
+      },
+      "verify_s": {
+        "mssql_arrow": 40.903,
+        "delta": 38.901,
+        "pg_dir": 41.313
+      },
+      "pid": 99924,
+      "peak_rss_mb": 4463.0,
+      "hwm_rss_mb": 5438.0,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 76.3,
+          "peak_rss_mb": 76.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.009,
+          "rss_mb": 76.4,
+          "peak_rss_mb": 76.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 74.512,
+          "rss_mb": 2574.8,
+          "peak_rss_mb": 3563.3,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 114.093,
+          "rss_mb": 4463.0,
+          "peak_rss_mb": 4539.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 170.164,
+          "rss_mb": 3155.0,
+          "peak_rss_mb": 5438.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 170.181,
+          "rss_mb": 3155.0,
+          "peak_rss_mb": 5438.0,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "WideWorldImporters-Full.bak",
+      "bak_size_mb": 121.223,
+      "total_src_rows": 4713833,
+      "wall_s": 139.548,
+      "extract_s": 75.066,
+      "catalog_s": 0.092,
+      "data_decode_net_s": 57.374,
+      "phases": {
+        "pagestore_build_s": 7.499,
+        "schema_recover_s": 0.088,
+        "lsn_s": 0.004,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.19,
+        "xtp_s": 9.51,
+        "constraints_s": 0.0,
+        "data_decode_s": 57.374,
+        "sink_finish_s": 0.386
+      },
+      "write_s": {
+        "delta": 3.472,
+        "pg_dir": 7.405
+      },
+      "readback_s": {
+        "delta": 29.733,
+        "pg_dir": 34.603
+      },
+      "read_s": {
+        "delta": 0.296,
+        "pg_dir": 2.903
+      },
+      "stats_s": {
+        "delta": 0.183,
+        "pg_dir": 0.205
+      },
+      "verify_s": {
+        "mssql_arrow": 34.489,
+        "delta": 28.879,
+        "pg_dir": 31.083
+      },
+      "pid": 821,
+      "peak_rss_mb": 7430.9,
+      "hwm_rss_mb": 7632.6,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 76.3,
+          "peak_rss_mb": 76.4,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.1,
+          "rss_mb": 76.8,
+          "peak_rss_mb": 76.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 75.165,
+          "rss_mb": 6104.2,
+          "peak_rss_mb": 6148.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 104.916,
+          "rss_mb": 6923.2,
+          "peak_rss_mb": 6926.4,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 139.524,
+          "rss_mb": 7430.9,
+          "peak_rss_mb": 7632.6,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 139.547,
+          "rss_mb": 7430.9,
+          "peak_rss_mb": 7632.6,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "WideWorldImporters-Full_old.bak",
+      "bak_size_mb": 121.171,
+      "total_src_rows": 4713832,
+      "wall_s": 132.282,
+      "extract_s": 68.766,
+      "catalog_s": 0.068,
+      "data_decode_net_s": 54.436,
+      "phases": {
+        "pagestore_build_s": 5.884,
+        "schema_recover_s": 0.065,
+        "lsn_s": 0.003,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.158,
+        "xtp_s": 7.738,
+        "constraints_s": 0.0,
+        "data_decode_s": 54.436,
+        "sink_finish_s": 0.465
+      },
+      "write_s": {
+        "delta": 2.602,
+        "pg_dir": 7.123
+      },
+      "readback_s": {
+        "delta": 31.395,
+        "pg_dir": 32.007
+      },
+      "read_s": {
+        "delta": 0.307,
+        "pg_dir": 2.721
+      },
+      "stats_s": {
+        "delta": 0.194,
+        "pg_dir": 0.195
+      },
+      "verify_s": {
+        "mssql_arrow": 32.877,
+        "delta": 30.523,
+        "pg_dir": 28.663
+      },
+      "pid": 2287,
+      "peak_rss_mb": 7293.6,
+      "hwm_rss_mb": 7745.4,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 75.2,
+          "peak_rss_mb": 75.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.067,
+          "rss_mb": 75.8,
+          "peak_rss_mb": 75.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 68.833,
+          "rss_mb": 6079.6,
+          "peak_rss_mb": 6124.6,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 100.248,
+          "rss_mb": 6815.7,
+          "peak_rss_mb": 6818.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 132.259,
+          "rss_mb": 7293.6,
+          "peak_rss_mb": 7745.4,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 132.281,
+          "rss_mb": 7293.6,
+          "peak_rss_mb": 7745.4,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "WideWorldImporters-Standard_old.bak",
+      "bak_size_mb": 121.058,
+      "total_src_rows": 4713832,
+      "wall_s": 126.474,
+      "extract_s": 62.456,
+      "catalog_s": 0.075,
+      "data_decode_net_s": 55.532,
+      "phases": {
+        "pagestore_build_s": 6.289,
+        "schema_recover_s": 0.072,
+        "lsn_s": 0.003,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.181,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 55.532,
+        "sink_finish_s": 0.373
+      },
+      "write_s": {
+        "delta": 2.58,
+        "pg_dir": 7.215
+      },
+      "readback_s": {
+        "delta": 29.345,
+        "pg_dir": 34.567
+      },
+      "read_s": {
+        "delta": 0.288,
+        "pg_dir": 2.634
+      },
+      "stats_s": {
+        "delta": 0.177,
+        "pg_dir": 0.178
+      },
+      "verify_s": {
+        "mssql_arrow": 31.598,
+        "delta": 28.544,
+        "pg_dir": 31.415
+      },
+      "pid": 2893,
+      "peak_rss_mb": 4343.5,
+      "hwm_rss_mb": 5563.8,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 75.4,
+          "peak_rss_mb": 75.6,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.065,
+          "rss_mb": 76.0,
+          "peak_rss_mb": 76.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 62.521,
+          "rss_mb": 3726.1,
+          "peak_rss_mb": 4083.2,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 91.883,
+          "rss_mb": 4343.5,
+          "peak_rss_mb": 4343.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 126.455,
+          "rss_mb": 4318.3,
+          "peak_rss_mb": 5563.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 126.473,
+          "rss_mb": 4318.3,
+          "peak_rss_mb": 5563.8,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "WideWorldImporters-Standard.bak",
+      "bak_size_mb": 121.07,
+      "total_src_rows": 4713833,
+      "wall_s": 134.353,
+      "extract_s": 64.494,
+      "catalog_s": 0.076,
+      "data_decode_net_s": 57.734,
+      "phases": {
+        "pagestore_build_s": 6.045,
+        "schema_recover_s": 0.072,
+        "lsn_s": 0.004,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.179,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 57.734,
+        "sink_finish_s": 0.455
+      },
+      "write_s": {
+        "delta": 2.439,
+        "pg_dir": 6.995
+      },
+      "readback_s": {
+        "delta": 32.978,
+        "pg_dir": 36.764
+      },
+      "read_s": {
+        "delta": 0.337,
+        "pg_dir": 3.09
+      },
+      "stats_s": {
+        "delta": 0.207,
+        "pg_dir": 0.218
+      },
+      "verify_s": {
+        "mssql_arrow": 32.467,
+        "delta": 32.047,
+        "pg_dir": 33.025
+      },
+      "pid": 4799,
+      "peak_rss_mb": 4894.7,
+      "hwm_rss_mb": 5788.9,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 74.5,
+          "peak_rss_mb": 74.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.067,
+          "rss_mb": 75.2,
+          "peak_rss_mb": 75.2,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 64.562,
+          "rss_mb": 3182.8,
+          "peak_rss_mb": 4091.3,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 97.561,
+          "rss_mb": 4371.2,
+          "peak_rss_mb": 4371.2,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 134.33,
+          "rss_mb": 4894.7,
+          "peak_rss_mb": 5788.9,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 134.353,
+          "rss_mb": 4894.7,
+          "peak_rss_mb": 5788.9,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "GeneralHospital.bak",
+      "bak_size_mb": 316.084,
+      "total_src_rows": 2175940,
+      "wall_s": 100.798,
+      "extract_s": 55.25,
+      "catalog_s": 0.397,
+      "data_decode_net_s": 53.452,
+      "phases": {
+        "pagestore_build_s": 0.765,
+        "schema_recover_s": 0.039,
+        "lsn_s": 0.358,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.412,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 53.452,
+        "sink_finish_s": 0.219
+      },
+      "write_s": {
+        "delta": 1.887,
+        "pg_dir": 13.686
+      },
+      "readback_s": {
+        "delta": 13.724,
+        "pg_dir": 31.78
+      },
+      "read_s": {
+        "delta": 0.136,
+        "pg_dir": 18.591
+      },
+      "stats_s": {
+        "delta": 0.868,
+        "pg_dir": 0.923
+      },
+      "verify_s": {
+        "mssql_arrow": 13.258,
+        "delta": 12.628,
+        "pg_dir": 12.165
+      },
+      "pid": 10333,
+      "peak_rss_mb": 2589.8,
+      "hwm_rss_mb": 3109.5,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 75.5,
+          "peak_rss_mb": 75.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.025,
+          "rss_mb": 75.7,
+          "peak_rss_mb": 75.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 55.275,
+          "rss_mb": 2052.7,
+          "peak_rss_mb": 2289.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 69.009,
+          "rss_mb": 2589.8,
+          "peak_rss_mb": 2596.4,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 100.79,
+          "rss_mb": 2537.0,
+          "peak_rss_mb": 3109.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 100.798,
+          "rss_mb": 2537.0,
+          "peak_rss_mb": 3109.5,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorks2016_EXT.bak",
+      "bak_size_mb": 125.034,
+      "total_src_rows": 1378717,
+      "wall_s": 90.503,
+      "extract_s": 57.901,
+      "catalog_s": 0.092,
+      "data_decode_net_s": 34.629,
+      "phases": {
+        "pagestore_build_s": 7.252,
+        "schema_recover_s": 0.089,
+        "lsn_s": 0.003,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.147,
+        "xtp_s": 14.737,
+        "constraints_s": 0.0,
+        "data_decode_s": 34.629,
+        "sink_finish_s": 1.009
+      },
+      "write_s": {
+        "delta": 1.674,
+        "pg_dir": 4.043
+      },
+      "readback_s": {
+        "delta": 13.905,
+        "pg_dir": 18.547
+      },
+      "read_s": {
+        "delta": 0.434,
+        "pg_dir": 5.226
+      },
+      "stats_s": {
+        "delta": 0.113,
+        "pg_dir": 0.117
+      },
+      "verify_s": {
+        "mssql_arrow": 14.058,
+        "delta": 12.682,
+        "pg_dir": 12.437
+      },
+      "pid": 5493,
+      "peak_rss_mb": 2727.1,
+      "hwm_rss_mb": 3099.9,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 75.6,
+          "peak_rss_mb": 75.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.094,
+          "rss_mb": 76.5,
+          "peak_rss_mb": 76.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 57.995,
+          "rss_mb": 2516.9,
+          "peak_rss_mb": 3099.9,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 71.921,
+          "rss_mb": 2694.5,
+          "peak_rss_mb": 3099.9,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 90.475,
+          "rss_mb": 2727.1,
+          "peak_rss_mb": 3099.9,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 90.503,
+          "rss_mb": 2727.1,
+          "peak_rss_mb": 3099.9,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "CreditBackup100.bak",
+      "bak_size_mb": 52.739,
+      "total_src_rows": 1656574,
+      "wall_s": 103.432,
+      "extract_s": 49.376,
+      "catalog_s": 0.029,
+      "data_decode_net_s": 47.101,
+      "phases": {
+        "pagestore_build_s": 2.14,
+        "schema_recover_s": 0.025,
+        "lsn_s": 0.004,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.093,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 47.101,
+        "sink_finish_s": 0.008
+      },
+      "write_s": {
+        "delta": 1.266,
+        "pg_dir": 4.663
+      },
+      "readback_s": {
+        "delta": 26.324,
+        "pg_dir": 27.681
+      },
+      "read_s": {
+        "delta": 0.208,
+        "pg_dir": 2.703
+      },
+      "stats_s": {
+        "delta": 0.154,
+        "pg_dir": 0.163
+      },
+      "verify_s": {
+        "mssql_arrow": 23.003,
+        "delta": 25.803,
+        "pg_dir": 24.72
+      },
+      "pid": 92348,
+      "peak_rss_mb": 2312.2,
+      "hwm_rss_mb": 2564.0,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 76.1,
+          "peak_rss_mb": 76.4,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.024,
+          "rss_mb": 76.3,
+          "peak_rss_mb": 76.4,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 49.4,
+          "rss_mb": 2312.2,
+          "peak_rss_mb": 2369.4,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 75.735,
+          "rss_mb": 1872.0,
+          "peak_rss_mb": 2564.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 103.417,
+          "rss_mb": 2151.2,
+          "peak_rss_mb": 2564.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 103.432,
+          "rss_mb": 2151.2,
+          "peak_rss_mb": 2564.0,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorks2025.bak",
+      "bak_size_mb": 47.902,
+      "total_src_rows": 760167,
+      "wall_s": 61.667,
+      "extract_s": 36.62,
+      "catalog_s": 0.176,
+      "data_decode_net_s": 31.901,
+      "phases": {
+        "pagestore_build_s": 3.14,
+        "schema_recover_s": 0.168,
+        "lsn_s": 0.008,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.07,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 31.901,
+        "sink_finish_s": 1.324
+      },
+      "write_s": {
+        "delta": 1.486,
+        "pg_dir": 3.276
+      },
+      "readback_s": {
+        "delta": 11.29,
+        "pg_dir": 13.505
+      },
+      "read_s": {
+        "delta": 0.468,
+        "pg_dir": 2.165
+      },
+      "stats_s": {
+        "delta": 0.081,
+        "pg_dir": 0.081
+      },
+      "verify_s": {
+        "mssql_arrow": 11.06,
+        "delta": 9.998,
+        "pg_dir": 10.515
+      },
+      "pid": 94712,
+      "peak_rss_mb": 1646.9,
+      "hwm_rss_mb": 1646.9,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 75.7,
+          "peak_rss_mb": 76.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.157,
+          "rss_mb": 76.4,
+          "peak_rss_mb": 76.4,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 36.777,
+          "rss_mb": 1195.4,
+          "peak_rss_mb": 1412.6,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 48.08,
+          "rss_mb": 1291.7,
+          "peak_rss_mb": 1498.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 61.591,
+          "rss_mb": 1646.9,
+          "peak_rss_mb": 1646.9,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 61.664,
+          "rss_mb": 1646.9,
+          "peak_rss_mb": 1646.9,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorks2014.bak",
+      "bak_size_mb": 44.594,
+      "total_src_rows": 760838,
+      "wall_s": 58.79,
+      "extract_s": 34.44,
+      "catalog_s": 0.155,
+      "data_decode_net_s": 29.958,
+      "phases": {
+        "pagestore_build_s": 2.964,
+        "schema_recover_s": 0.15,
+        "lsn_s": 0.005,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.087,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 29.958,
+        "sink_finish_s": 1.267
+      },
+      "write_s": {
+        "delta": 1.442,
+        "pg_dir": 3.124
+      },
+      "readback_s": {
+        "delta": 11.101,
+        "pg_dir": 13.075
+      },
+      "read_s": {
+        "delta": 0.414,
+        "pg_dir": 2.249
+      },
+      "stats_s": {
+        "delta": 0.073,
+        "pg_dir": 0.079
+      },
+      "verify_s": {
+        "mssql_arrow": 10.692,
+        "delta": 9.961,
+        "pg_dir": 9.802
+      },
+      "pid": 95522,
+      "peak_rss_mb": 1433.1,
+      "hwm_rss_mb": 1540.7,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 75.5,
+          "peak_rss_mb": 75.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.118,
+          "rss_mb": 76.1,
+          "peak_rss_mb": 76.1,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 34.558,
+          "rss_mb": 1259.9,
+          "peak_rss_mb": 1407.2,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 45.674,
+          "rss_mb": 1262.3,
+          "peak_rss_mb": 1467.4,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 58.756,
+          "rss_mb": 1433.1,
+          "peak_rss_mb": 1540.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 58.789,
+          "rss_mb": 1433.1,
+          "peak_rss_mb": 1540.7,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorks2017.bak",
+      "bak_size_mb": 47.957,
+      "total_src_rows": 760837,
+      "wall_s": 58.728,
+      "extract_s": 33.928,
+      "catalog_s": 0.167,
+      "data_decode_net_s": 29.528,
+      "phases": {
+        "pagestore_build_s": 3.054,
+        "schema_recover_s": 0.16,
+        "lsn_s": 0.007,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.105,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 29.528,
+        "sink_finish_s": 1.062
+      },
+      "write_s": {
+        "delta": 1.308,
+        "pg_dir": 3.122
+      },
+      "readback_s": {
+        "delta": 11.435,
+        "pg_dir": 12.945
+      },
+      "read_s": {
+        "delta": 0.449,
+        "pg_dir": 2.3
+      },
+      "stats_s": {
+        "delta": 0.078,
+        "pg_dir": 0.078
+      },
+      "verify_s": {
+        "mssql_arrow": 10.57,
+        "delta": 10.147,
+        "pg_dir": 9.797
+      },
+      "pid": 96111,
+      "peak_rss_mb": 1478.7,
+      "hwm_rss_mb": 1641.6,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.001,
+          "rss_mb": 75.7,
+          "peak_rss_mb": 76.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.367,
+          "rss_mb": 76.3,
+          "peak_rss_mb": 76.3,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 34.295,
+          "rss_mb": 1254.0,
+          "peak_rss_mb": 1455.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 45.742,
+          "rss_mb": 1282.0,
+          "peak_rss_mb": 1519.4,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 58.694,
+          "rss_mb": 1478.7,
+          "peak_rss_mb": 1641.6,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 58.727,
+          "rss_mb": 1478.7,
+          "peak_rss_mb": 1641.6,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorks2012.bak",
+      "bak_size_mb": 44.897,
+      "total_src_rows": 760837,
+      "wall_s": 58.141,
+      "extract_s": 34.677,
+      "catalog_s": 0.114,
+      "data_decode_net_s": 30.491,
+      "phases": {
+        "pagestore_build_s": 2.926,
+        "schema_recover_s": 0.109,
+        "lsn_s": 0.005,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.079,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 30.491,
+        "sink_finish_s": 1.061
+      },
+      "write_s": {
+        "delta": 1.387,
+        "pg_dir": 3.612
+      },
+      "readback_s": {
+        "delta": 10.732,
+        "pg_dir": 12.561
+      },
+      "read_s": {
+        "delta": 0.454,
+        "pg_dir": 2.199
+      },
+      "stats_s": {
+        "delta": 0.077,
+        "pg_dir": 0.076
+      },
+      "verify_s": {
+        "mssql_arrow": 10.689,
+        "delta": 9.478,
+        "pg_dir": 9.582
+      },
+      "pid": 96130,
+      "peak_rss_mb": 1417.6,
+      "hwm_rss_mb": 1551.0,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 76.2,
+          "peak_rss_mb": 76.4,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.127,
+          "rss_mb": 76.9,
+          "peak_rss_mb": 76.9,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 34.805,
+          "rss_mb": 1286.8,
+          "peak_rss_mb": 1411.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 45.548,
+          "rss_mb": 1352.5,
+          "peak_rss_mb": 1462.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 58.115,
+          "rss_mb": 1417.6,
+          "peak_rss_mb": 1551.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 58.14,
+          "rss_mb": 1417.6,
+          "peak_rss_mb": 1551.0,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorks2016.bak",
+      "bak_size_mb": 46.491,
+      "total_src_rows": 760838,
+      "wall_s": 57.545,
+      "extract_s": 34.076,
+      "catalog_s": 0.136,
+      "data_decode_net_s": 29.715,
+      "phases": {
+        "pagestore_build_s": 3.049,
+        "schema_recover_s": 0.131,
+        "lsn_s": 0.005,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.096,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 29.715,
+        "sink_finish_s": 1.074
+      },
+      "write_s": {
+        "delta": 1.35,
+        "pg_dir": 3.585
+      },
+      "readback_s": {
+        "delta": 11.01,
+        "pg_dir": 12.276
+      },
+      "read_s": {
+        "delta": 0.43,
+        "pg_dir": 2.211
+      },
+      "stats_s": {
+        "delta": 0.071,
+        "pg_dir": 0.073
+      },
+      "verify_s": {
+        "mssql_arrow": 10.333,
+        "delta": 9.75,
+        "pg_dir": 9.248
+      },
+      "pid": 97404,
+      "peak_rss_mb": 1441.6,
+      "hwm_rss_mb": 1589.6,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 76.6,
+          "peak_rss_mb": 76.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.141,
+          "rss_mb": 77.2,
+          "peak_rss_mb": 77.2,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 34.217,
+          "rss_mb": 1183.3,
+          "peak_rss_mb": 1427.6,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 45.239,
+          "rss_mb": 1299.0,
+          "peak_rss_mb": 1516.9,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 57.521,
+          "rss_mb": 1441.6,
+          "peak_rss_mb": 1589.6,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 57.544,
+          "rss_mb": 1441.6,
+          "peak_rss_mb": 1589.6,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorks2022.bak",
+      "bak_size_mb": 200.117,
+      "total_src_rows": 760837,
+      "wall_s": 46.362,
+      "extract_s": 26.575,
+      "catalog_s": 0.243,
+      "data_decode_net_s": 24.474,
+      "phases": {
+        "pagestore_build_s": 0.562,
+        "schema_recover_s": 0.109,
+        "lsn_s": 0.134,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.337,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 24.474,
+        "sink_finish_s": 0.953
+      },
+      "write_s": {
+        "delta": 1.026,
+        "pg_dir": 2.853
+      },
+      "readback_s": {
+        "delta": 9.627,
+        "pg_dir": 10.038
+      },
+      "read_s": {
+        "delta": 0.392,
+        "pg_dir": 1.787
+      },
+      "stats_s": {
+        "delta": 0.065,
+        "pg_dir": 0.062
+      },
+      "verify_s": {
+        "mssql_arrow": 8.865,
+        "delta": 8.55,
+        "pg_dir": 7.596
+      },
+      "pid": 7734,
+      "peak_rss_mb": 1653.9,
+      "hwm_rss_mb": 1653.9,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 76.2,
+          "peak_rss_mb": 76.4,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.087,
+          "rss_mb": 76.8,
+          "peak_rss_mb": 76.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 26.663,
+          "rss_mb": 1440.7,
+          "peak_rss_mb": 1441.2,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 36.302,
+          "rss_mb": 1547.1,
+          "peak_rss_mb": 1547.1,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 46.345,
+          "rss_mb": 1653.9,
+          "peak_rss_mb": 1653.9,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 46.361,
+          "rss_mb": 1653.9,
+          "peak_rss_mb": 1653.9,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorks2008R2.bak",
+      "bak_size_mb": 181.109,
+      "total_src_rows": 760838,
+      "wall_s": 34.906,
+      "extract_s": 19.832,
+      "catalog_s": 0.141,
+      "data_decode_net_s": 18.295,
+      "phases": {
+        "pagestore_build_s": 0.454,
+        "schema_recover_s": 0.051,
+        "lsn_s": 0.09,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.239,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 18.295,
+        "sink_finish_s": 0.698
+      },
+      "write_s": {
+        "delta": 0.774,
+        "pg_dir": 2.464
+      },
+      "readback_s": {
+        "delta": 6.915,
+        "pg_dir": 8.067
+      },
+      "read_s": {
+        "delta": 0.274,
+        "pg_dir": 1.437
+      },
+      "stats_s": {
+        "delta": 0.047,
+        "pg_dir": 0.048
+      },
+      "verify_s": {
+        "mssql_arrow": 6.53,
+        "delta": 6.161,
+        "pg_dir": 6.124
+      },
+      "pid": 10801,
+      "peak_rss_mb": 1643.7,
+      "hwm_rss_mb": 1643.7,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 75.7,
+          "peak_rss_mb": 75.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.063,
+          "rss_mb": 76.3,
+          "peak_rss_mb": 76.3,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 19.895,
+          "rss_mb": 1403.4,
+          "peak_rss_mb": 1412.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 26.819,
+          "rss_mb": 1485.5,
+          "peak_rss_mb": 1485.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 34.89,
+          "rss_mb": 1643.7,
+          "peak_rss_mb": 1643.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 34.905,
+          "rss_mb": 1643.7,
+          "peak_rss_mb": 1643.7,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorks2019.bak",
+      "bak_size_mb": 199.117,
+      "total_src_rows": 760837,
+      "wall_s": 35.658,
+      "extract_s": 20.238,
+      "catalog_s": 0.166,
+      "data_decode_net_s": 18.632,
+      "phases": {
+        "pagestore_build_s": 0.463,
+        "schema_recover_s": 0.067,
+        "lsn_s": 0.099,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.264,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 18.632,
+        "sink_finish_s": 0.709
+      },
+      "write_s": {
+        "delta": 0.812,
+        "pg_dir": 2.641
+      },
+      "readback_s": {
+        "delta": 6.888,
+        "pg_dir": 8.443
+      },
+      "read_s": {
+        "delta": 0.266,
+        "pg_dir": 1.535
+      },
+      "stats_s": {
+        "delta": 0.047,
+        "pg_dir": 0.051
+      },
+      "verify_s": {
+        "mssql_arrow": 6.789,
+        "delta": 6.178,
+        "pg_dir": 6.4
+      },
+      "pid": 11291,
+      "peak_rss_mb": 1722.6,
+      "hwm_rss_mb": 1722.6,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 75.6,
+          "peak_rss_mb": 75.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.061,
+          "rss_mb": 76.2,
+          "peak_rss_mb": 76.2,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 20.299,
+          "rss_mb": 1452.5,
+          "peak_rss_mb": 1456.6,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 27.195,
+          "rss_mb": 1590.5,
+          "peak_rss_mb": 1590.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 35.641,
+          "rss_mb": 1722.6,
+          "peak_rss_mb": 1722.6,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 35.658,
+          "rss_mb": 1722.6,
+          "peak_rss_mb": 1722.6,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "WideWorldImportersDW-Full.bak",
+      "bak_size_mb": 47.726,
+      "total_src_rows": 922709,
+      "wall_s": 36.841,
+      "extract_s": 19.504,
+      "catalog_s": 0.076,
+      "data_decode_net_s": 14.462,
+      "phases": {
+        "pagestore_build_s": 2.586,
+        "schema_recover_s": 0.072,
+        "lsn_s": 0.004,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.073,
+        "xtp_s": 2.299,
+        "constraints_s": 0.0,
+        "data_decode_s": 14.462,
+        "sink_finish_s": 0.002
+      },
+      "write_s": {
+        "delta": 0.605,
+        "pg_dir": 2.182
+      },
+      "readback_s": {
+        "delta": 8.094,
+        "pg_dir": 9.195
+      },
+      "read_s": {
+        "delta": 0.15,
+        "pg_dir": 1.974
+      },
+      "stats_s": {
+        "delta": 0.117,
+        "pg_dir": 0.118
+      },
+      "verify_s": {
+        "mssql_arrow": 7.897,
+        "delta": 7.674,
+        "pg_dir": 6.963
+      },
+      "pid": 97524,
+      "peak_rss_mb": 5793.5,
+      "hwm_rss_mb": 5793.5,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 75.7,
+          "peak_rss_mb": 75.9,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.029,
+          "rss_mb": 75.9,
+          "peak_rss_mb": 75.9,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 19.532,
+          "rss_mb": 5444.3,
+          "peak_rss_mb": 5455.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 27.636,
+          "rss_mb": 5598.0,
+          "peak_rss_mb": 5599.2,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 36.832,
+          "rss_mb": 5793.5,
+          "peak_rss_mb": 5793.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 36.841,
+          "rss_mb": 5793.5,
+          "peak_rss_mb": 5793.5,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "SalesDB2014.bak",
+      "bak_size_mb": 28.068,
+      "total_src_rows": 6735507,
+      "wall_s": 38.849,
+      "extract_s": 15.992,
+      "catalog_s": 0.049,
+      "data_decode_net_s": 4.279,
+      "phases": {
+        "pagestore_build_s": 1.318,
+        "schema_recover_s": 0.045,
+        "lsn_s": 0.004,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.045,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 4.279,
+        "sink_finish_s": 10.298
+      },
+      "write_s": {
+        "delta": 2.463,
+        "pg_dir": 2.408
+      },
+      "readback_s": {
+        "delta": 10.742,
+        "pg_dir": 12.044
+      },
+      "read_s": {
+        "delta": 0.131,
+        "pg_dir": 1.017
+      },
+      "stats_s": {
+        "delta": 0.013,
+        "pg_dir": 0.027
+      },
+      "verify_s": {
+        "mssql_arrow": 10.341,
+        "delta": 10.558,
+        "pg_dir": 10.953
+      },
+      "pid": 92349,
+      "peak_rss_mb": 2670.8,
+      "hwm_rss_mb": 2670.8,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 76.3,
+          "peak_rss_mb": 76.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.041,
+          "rss_mb": 76.3,
+          "peak_rss_mb": 76.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 16.033,
+          "rss_mb": 2130.5,
+          "peak_rss_mb": 2209.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 26.791,
+          "rss_mb": 2236.9,
+          "peak_rss_mb": 2328.6,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 38.835,
+          "rss_mb": 2670.8,
+          "peak_rss_mb": 2670.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 38.849,
+          "rss_mb": 2670.8,
+          "peak_rss_mb": 2670.8,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "WideWorldImportersDW-Standard.bak",
+      "bak_size_mb": 51.37,
+      "total_src_rows": 922709,
+      "wall_s": 32.416,
+      "extract_s": 16.656,
+      "catalog_s": 0.061,
+      "data_decode_net_s": 13.736,
+      "phases": {
+        "pagestore_build_s": 2.772,
+        "schema_recover_s": 0.058,
+        "lsn_s": 0.003,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.079,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 13.736,
+        "sink_finish_s": 0.002
+      },
+      "write_s": {
+        "delta": 0.622,
+        "pg_dir": 1.889
+      },
+      "readback_s": {
+        "delta": 7.335,
+        "pg_dir": 8.378
+      },
+      "read_s": {
+        "delta": 0.142,
+        "pg_dir": 1.674
+      },
+      "stats_s": {
+        "delta": 0.113,
+        "pg_dir": 0.103
+      },
+      "verify_s": {
+        "mssql_arrow": 7.7,
+        "delta": 6.956,
+        "pg_dir": 6.468
+      },
+      "pid": 98993,
+      "peak_rss_mb": 2160.8,
+      "hwm_rss_mb": 2160.8,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 76.0,
+          "peak_rss_mb": 76.3,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.028,
+          "rss_mb": 76.2,
+          "peak_rss_mb": 76.3,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 16.685,
+          "rss_mb": 1559.2,
+          "peak_rss_mb": 1569.1,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 24.028,
+          "rss_mb": 2004.5,
+          "peak_rss_mb": 2006.9,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 32.407,
+          "rss_mb": 2160.8,
+          "peak_rss_mb": 2160.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 32.416,
+          "rss_mb": 2160.8,
+          "peak_rss_mb": 2160.8,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "SalesDBOriginal.bak",
+      "bak_size_mb": 192.081,
+      "total_src_rows": 6735508,
+      "wall_s": 26.479,
+      "extract_s": 11.278,
+      "catalog_s": 0.197,
+      "data_decode_net_s": 10.397,
+      "phases": {
+        "pagestore_build_s": 0.454,
+        "schema_recover_s": 0.008,
+        "lsn_s": 0.189,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.222,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 10.397,
+        "sink_finish_s": 0.004
+      },
+      "write_s": {
+        "delta": 1.774,
+        "pg_dir": 1.707
+      },
+      "readback_s": {
+        "delta": 7.222,
+        "pg_dir": 7.929
+      },
+      "read_s": {
+        "delta": 0.09,
+        "pg_dir": 0.696
+      },
+      "stats_s": {
+        "delta": 0.011,
+        "pg_dir": 0.016
+      },
+      "verify_s": {
+        "mssql_arrow": 7.439,
+        "delta": 7.085,
+        "pg_dir": 7.179
+      },
+      "pid": 11297,
+      "peak_rss_mb": 2829.3,
+      "hwm_rss_mb": 2829.3,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 75.3,
+          "peak_rss_mb": 75.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.03,
+          "rss_mb": 75.4,
+          "peak_rss_mb": 75.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 11.308,
+          "rss_mb": 2196.0,
+          "peak_rss_mb": 2204.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 18.542,
+          "rss_mb": 2471.3,
+          "peak_rss_mb": 2471.3,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 26.471,
+          "rss_mb": 2829.3,
+          "peak_rss_mb": 2829.3,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 26.479,
+          "rss_mb": 2829.3,
+          "peak_rss_mb": 2829.3,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "BaseballData.bak",
+      "bak_size_mb": 114.171,
+      "total_src_rows": 493104,
+      "wall_s": 24.988,
+      "extract_s": 16.997,
+      "catalog_s": 0.142,
+      "data_decode_net_s": 16.402,
+      "phases": {
+        "pagestore_build_s": 0.168,
+        "schema_recover_s": 0.067,
+        "lsn_s": 0.075,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.268,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 16.402,
+        "sink_finish_s": 0.011
+      },
+      "write_s": {
+        "delta": 0.536,
+        "pg_dir": 2.06
+      },
+      "readback_s": {
+        "delta": 3.322,
+        "pg_dir": 4.604
+      },
+      "read_s": {
+        "delta": 0.163,
+        "pg_dir": 1.495
+      },
+      "stats_s": {
+        "delta": 0.087,
+        "pg_dir": 0.092
+      },
+      "verify_s": {
+        "mssql_arrow": 3.06,
+        "delta": 2.891,
+        "pg_dir": 2.824
+      },
+      "pid": 8221,
+      "peak_rss_mb": 684.4,
+      "hwm_rss_mb": 684.4,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 75.8,
+          "peak_rss_mb": 76.1,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.038,
+          "rss_mb": 76.3,
+          "peak_rss_mb": 76.3,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 17.035,
+          "rss_mb": 534.9,
+          "peak_rss_mb": 538.2,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 20.366,
+          "rss_mb": 609.6,
+          "peak_rss_mb": 620.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 24.972,
+          "rss_mb": 684.4,
+          "peak_rss_mb": 684.4,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 24.987,
+          "rss_mb": 684.4,
+          "peak_rss_mb": 684.4,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorksDW2025.bak",
+      "bak_size_mb": 24.133,
+      "total_src_rows": 1047563,
+      "wall_s": 30.566,
+      "extract_s": 11.137,
+      "catalog_s": 0.119,
+      "data_decode_net_s": 9.521,
+      "phases": {
+        "pagestore_build_s": 1.444,
+        "schema_recover_s": 0.111,
+        "lsn_s": 0.008,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.035,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 9.521,
+        "sink_finish_s": 0.012
+      },
+      "write_s": {
+        "delta": 1.137,
+        "pg_dir": 1.82
+      },
+      "readback_s": {
+        "delta": 8.316,
+        "pg_dir": 11.002
+      },
+      "read_s": {
+        "delta": 0.238,
+        "pg_dir": 2.969
+      },
+      "stats_s": {
+        "delta": 0.098,
+        "pg_dir": 0.104
+      },
+      "verify_s": {
+        "mssql_arrow": 7.662,
+        "delta": 7.628,
+        "pg_dir": 7.589
+      },
+      "pid": 93188,
+      "peak_rss_mb": 1556.6,
+      "hwm_rss_mb": 1611.2,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 75.8,
+          "peak_rss_mb": 75.9,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.063,
+          "rss_mb": 76.2,
+          "peak_rss_mb": 76.2,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 11.2,
+          "rss_mb": 1202.9,
+          "peak_rss_mb": 1211.2,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 19.531,
+          "rss_mb": 1556.6,
+          "peak_rss_mb": 1556.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 30.54,
+          "rss_mb": 1498.8,
+          "peak_rss_mb": 1611.2,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 30.566,
+          "rss_mb": 1498.8,
+          "peak_rss_mb": 1611.2,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorksDW2012.bak",
+      "bak_size_mb": 21.766,
+      "total_src_rows": 1060820,
+      "wall_s": 30.271,
+      "extract_s": 11.315,
+      "catalog_s": 0.075,
+      "data_decode_net_s": 9.789,
+      "phases": {
+        "pagestore_build_s": 1.346,
+        "schema_recover_s": 0.069,
+        "lsn_s": 0.006,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.043,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 9.789,
+        "sink_finish_s": 0.05
+      },
+      "write_s": {
+        "delta": 1.143,
+        "pg_dir": 2.05
+      },
+      "readback_s": {
+        "delta": 8.785,
+        "pg_dir": 10.002
+      },
+      "read_s": {
+        "delta": 0.415,
+        "pg_dir": 2.969
+      },
+      "stats_s": {
+        "delta": 0.099,
+        "pg_dir": 0.105
+      },
+      "verify_s": {
+        "mssql_arrow": 7.796,
+        "delta": 7.701,
+        "pg_dir": 6.536
+      },
+      "pid": 93949,
+      "peak_rss_mb": 1511.0,
+      "hwm_rss_mb": 1550.2,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.001,
+          "rss_mb": 76.4,
+          "peak_rss_mb": 76.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.132,
+          "rss_mb": 76.9,
+          "peak_rss_mb": 76.9,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 11.447,
+          "rss_mb": 1109.4,
+          "peak_rss_mb": 1124.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 20.246,
+          "rss_mb": 1511.0,
+          "peak_rss_mb": 1517.2,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 30.254,
+          "rss_mb": 1487.2,
+          "peak_rss_mb": 1550.2,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 30.271,
+          "rss_mb": 1487.2,
+          "peak_rss_mb": 1550.2,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorksDW2014.bak",
+      "bak_size_mb": 21.41,
+      "total_src_rows": 1060820,
+      "wall_s": 31.604,
+      "extract_s": 11.619,
+      "catalog_s": 0.08,
+      "data_decode_net_s": 10.31,
+      "phases": {
+        "pagestore_build_s": 1.168,
+        "schema_recover_s": 0.075,
+        "lsn_s": 0.005,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.044,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 10.31,
+        "sink_finish_s": 0.012
+      },
+      "write_s": {
+        "delta": 1.158,
+        "pg_dir": 1.697
+      },
+      "readback_s": {
+        "delta": 8.696,
+        "pg_dir": 11.19
+      },
+      "read_s": {
+        "delta": 0.297,
+        "pg_dir": 3.01
+      },
+      "stats_s": {
+        "delta": 0.105,
+        "pg_dir": 0.111
+      },
+      "verify_s": {
+        "mssql_arrow": 8.278,
+        "delta": 7.942,
+        "pg_dir": 7.653
+      },
+      "pid": 94603,
+      "peak_rss_mb": 1512.4,
+      "hwm_rss_mb": 1551.5,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 75.8,
+          "peak_rss_mb": 76.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.049,
+          "rss_mb": 76.2,
+          "peak_rss_mb": 76.2,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 11.668,
+          "rss_mb": 1104.9,
+          "peak_rss_mb": 1127.4,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 20.383,
+          "rss_mb": 1512.4,
+          "peak_rss_mb": 1513.9,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 31.579,
+          "rss_mb": 1435.2,
+          "peak_rss_mb": 1551.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 31.604,
+          "rss_mb": 1435.2,
+          "peak_rss_mb": 1551.5,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorksDW2016.bak",
+      "bak_size_mb": 21.443,
+      "total_src_rows": 1060820,
+      "wall_s": 32.614,
+      "extract_s": 12.439,
+      "catalog_s": 0.105,
+      "data_decode_net_s": 10.722,
+      "phases": {
+        "pagestore_build_s": 1.525,
+        "schema_recover_s": 0.098,
+        "lsn_s": 0.007,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.058,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 10.722,
+        "sink_finish_s": 0.019
+      },
+      "write_s": {
+        "delta": 1.515,
+        "pg_dir": 1.741
+      },
+      "readback_s": {
+        "delta": 8.604,
+        "pg_dir": 11.436
+      },
+      "read_s": {
+        "delta": 0.313,
+        "pg_dir": 3.019
+      },
+      "stats_s": {
+        "delta": 0.1,
+        "pg_dir": 0.11
+      },
+      "verify_s": {
+        "mssql_arrow": 8.557,
+        "delta": 7.798,
+        "pg_dir": 7.857
+      },
+      "pid": 94720,
+      "peak_rss_mb": 1488.7,
+      "hwm_rss_mb": 1550.6,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 76.0,
+          "peak_rss_mb": 76.2,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.079,
+          "rss_mb": 76.5,
+          "peak_rss_mb": 76.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 12.518,
+          "rss_mb": 1096.4,
+          "peak_rss_mb": 1107.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 21.141,
+          "rss_mb": 1488.7,
+          "peak_rss_mb": 1491.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 32.585,
+          "rss_mb": 1414.5,
+          "peak_rss_mb": 1550.6,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 32.614,
+          "rss_mb": 1414.5,
+          "peak_rss_mb": 1550.6,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorksDW2017.bak",
+      "bak_size_mb": 22.351,
+      "total_src_rows": 1060820,
+      "wall_s": 29.6,
+      "extract_s": 11.233,
+      "catalog_s": 0.083,
+      "data_decode_net_s": 9.573,
+      "phases": {
+        "pagestore_build_s": 1.525,
+        "schema_recover_s": 0.077,
+        "lsn_s": 0.006,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.034,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 9.573,
+        "sink_finish_s": 0.011
+      },
+      "write_s": {
+        "delta": 0.991,
+        "pg_dir": 1.533
+      },
+      "readback_s": {
+        "delta": 7.68,
+        "pg_dir": 10.579
+      },
+      "read_s": {
+        "delta": 0.209,
+        "pg_dir": 2.836
+      },
+      "stats_s": {
+        "delta": 0.093,
+        "pg_dir": 0.102
+      },
+      "verify_s": {
+        "mssql_arrow": 7.681,
+        "delta": 7.095,
+        "pg_dir": 7.319
+      },
+      "pid": 95419,
+      "peak_rss_mb": 1527.0,
+      "hwm_rss_mb": 1628.5,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 75.8,
+          "peak_rss_mb": 75.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.064,
+          "rss_mb": 76.2,
+          "peak_rss_mb": 76.2,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 11.297,
+          "rss_mb": 1139.2,
+          "peak_rss_mb": 1144.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 18.992,
+          "rss_mb": 1527.0,
+          "peak_rss_mb": 1534.4,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 29.577,
+          "rss_mb": 1410.9,
+          "peak_rss_mb": 1628.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 29.6,
+          "rss_mb": 1410.9,
+          "peak_rss_mb": 1628.5,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorksDW2019.bak",
+      "bak_size_mb": 97.117,
+      "total_src_rows": 1060820,
+      "wall_s": 27.416,
+      "extract_s": 9.287,
+      "catalog_s": 0.11,
+      "data_decode_net_s": 8.733,
+      "phases": {
+        "pagestore_build_s": 0.274,
+        "schema_recover_s": 0.056,
+        "lsn_s": 0.054,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.153,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 8.733,
+        "sink_finish_s": 0.012
+      },
+      "write_s": {
+        "delta": 0.821,
+        "pg_dir": 1.545
+      },
+      "readback_s": {
+        "delta": 6.768,
+        "pg_dir": 11.255
+      },
+      "read_s": {
+        "delta": 0.192,
+        "pg_dir": 3.006
+      },
+      "stats_s": {
+        "delta": 0.081,
+        "pg_dir": 0.102
+      },
+      "verify_s": {
+        "mssql_arrow": 7.028,
+        "delta": 6.231,
+        "pg_dir": 7.769
+      },
+      "pid": 1088,
+      "peak_rss_mb": 1608.1,
+      "hwm_rss_mb": 1685.6,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 75.6,
+          "peak_rss_mb": 75.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.061,
+          "rss_mb": 76.0,
+          "peak_rss_mb": 76.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 9.348,
+          "rss_mb": 1125.4,
+          "peak_rss_mb": 1149.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 16.129,
+          "rss_mb": 1547.1,
+          "peak_rss_mb": 1548.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 27.39,
+          "rss_mb": 1608.1,
+          "peak_rss_mb": 1685.6,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 27.415,
+          "rss_mb": 1608.1,
+          "peak_rss_mb": 1685.6,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorksDW2022.bak",
+      "bak_size_mb": 97.117,
+      "total_src_rows": 1060820,
+      "wall_s": 22.695,
+      "extract_s": 8.537,
+      "catalog_s": 0.168,
+      "data_decode_net_s": 7.84,
+      "phases": {
+        "pagestore_build_s": 0.304,
+        "schema_recover_s": 0.09,
+        "lsn_s": 0.078,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.209,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 7.84,
+        "sink_finish_s": 0.008
+      },
+      "write_s": {
+        "delta": 0.729,
+        "pg_dir": 1.299
+      },
+      "readback_s": {
+        "delta": 5.983,
+        "pg_dir": 8.071
+      },
+      "read_s": {
+        "delta": 0.161,
+        "pg_dir": 2.129
+      },
+      "stats_s": {
+        "delta": 0.071,
+        "pg_dir": 0.076
+      },
+      "verify_s": {
+        "mssql_arrow": 6.35,
+        "delta": 5.536,
+        "pg_dir": 5.606
+      },
+      "pid": 1643,
+      "peak_rss_mb": 1699.7,
+      "hwm_rss_mb": 1699.7,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 76.0,
+          "peak_rss_mb": 76.2,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.065,
+          "rss_mb": 76.5,
+          "peak_rss_mb": 76.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 8.602,
+          "rss_mb": 1161.2,
+          "peak_rss_mb": 1172.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 14.595,
+          "rss_mb": 1533.8,
+          "peak_rss_mb": 1535.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 22.671,
+          "rss_mb": 1699.7,
+          "peak_rss_mb": 1699.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 22.695,
+          "rss_mb": 1699.7,
+          "peak_rss_mb": 1699.7,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorksDW2008R2.bak",
+      "bak_size_mb": 74.109,
+      "total_src_rows": 282030,
+      "wall_s": 10.117,
+      "extract_s": 4.1,
+      "catalog_s": 0.071,
+      "data_decode_net_s": 3.674,
+      "phases": {
+        "pagestore_build_s": 0.204,
+        "schema_recover_s": 0.028,
+        "lsn_s": 0.043,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.112,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 3.674,
+        "sink_finish_s": 0.034
+      },
+      "write_s": {
+        "delta": 0.405,
+        "pg_dir": 0.781
+      },
+      "readback_s": {
+        "delta": 2.696,
+        "pg_dir": 3.26
+      },
+      "read_s": {
+        "delta": 0.149,
+        "pg_dir": 1.173
+      },
+      "stats_s": {
+        "delta": 0.052,
+        "pg_dir": 0.047
+      },
+      "verify_s": {
+        "mssql_arrow": 2.684,
+        "delta": 2.292,
+        "pg_dir": 1.851
+      },
+      "pid": 99000,
+      "peak_rss_mb": 1033.1,
+      "hwm_rss_mb": 1033.1,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 75.7,
+          "peak_rss_mb": 75.9,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.038,
+          "rss_mb": 76.1,
+          "peak_rss_mb": 76.1,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 4.139,
+          "rss_mb": 580.8,
+          "peak_rss_mb": 775.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 6.843,
+          "rss_mb": 940.8,
+          "peak_rss_mb": 940.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 10.106,
+          "rss_mb": 1033.1,
+          "peak_rss_mb": 1033.1,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 10.117,
+          "rss_mb": 1033.1,
+          "peak_rss_mb": 1033.1,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "EmployeeCaseStudySampleDB2012.bak",
+      "bak_size_mb": 13.293,
+      "total_src_rows": 160000,
+      "wall_s": 12.921,
+      "extract_s": 7.774,
+      "catalog_s": 0.055,
+      "data_decode_net_s": 5.779,
+      "phases": {
+        "pagestore_build_s": 1.091,
+        "schema_recover_s": 0.051,
+        "lsn_s": 0.004,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.026,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 5.779,
+        "sink_finish_s": 0.818
+      },
+      "write_s": {
+        "delta": 0.304,
+        "pg_dir": 0.654
+      },
+      "readback_s": {
+        "delta": 1.857,
+        "pg_dir": 3.249
+      },
+      "read_s": {
+        "delta": 0.12,
+        "pg_dir": 1.78
+      },
+      "stats_s": {
+        "delta": 0.071,
+        "pg_dir": 0.061
+      },
+      "verify_s": {
+        "mssql_arrow": 1.516,
+        "delta": 1.638,
+        "pg_dir": 1.387
+      },
+      "pid": 93189,
+      "peak_rss_mb": 1084.0,
+      "hwm_rss_mb": 1084.0,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 76.2,
+          "peak_rss_mb": 76.4,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.007,
+          "rss_mb": 76.3,
+          "peak_rss_mb": 76.4,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 7.781,
+          "rss_mb": 899.5,
+          "peak_rss_mb": 899.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 9.658,
+          "rss_mb": 957.2,
+          "peak_rss_mb": 957.2,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 12.908,
+          "rss_mb": 1084.0,
+          "peak_rss_mb": 1084.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 12.921,
+          "rss_mb": 1084.0,
+          "peak_rss_mb": 1084.0,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "data.gov.bak",
+      "bak_size_mb": 12.047,
+      "total_src_rows": 150482,
+      "wall_s": 9.179,
+      "extract_s": 4.909,
+      "catalog_s": 0.067,
+      "data_decode_net_s": 2.609,
+      "phases": {
+        "pagestore_build_s": 0.909,
+        "schema_recover_s": 0.063,
+        "lsn_s": 0.004,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.025,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 2.609,
+        "sink_finish_s": 1.292
+      },
+      "write_s": {
+        "delta": 0.193,
+        "pg_dir": 1.124
+      },
+      "readback_s": {
+        "delta": 1.302,
+        "pg_dir": 2.937
+      },
+      "read_s": {
+        "delta": 0.083,
+        "pg_dir": 1.776
+      },
+      "stats_s": {
+        "delta": 0.075,
+        "pg_dir": 0.078
+      },
+      "verify_s": {
+        "mssql_arrow": 1.215,
+        "delta": 1.132,
+        "pg_dir": 1.072
+      },
+      "pid": 93540,
+      "peak_rss_mb": 1081.8,
+      "hwm_rss_mb": 1096.8,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 76.1,
+          "peak_rss_mb": 76.3,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.006,
+          "rss_mb": 76.1,
+          "peak_rss_mb": 76.3,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 4.915,
+          "rss_mb": 878.0,
+          "peak_rss_mb": 878.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 6.227,
+          "rss_mb": 984.6,
+          "peak_rss_mb": 984.6,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 9.165,
+          "rss_mb": 1081.8,
+          "peak_rss_mb": 1096.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 9.179,
+          "rss_mb": 1081.8,
+          "peak_rss_mb": 1096.8,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "IndexInternals2008.bak",
+      "bak_size_mb": 6.427,
+      "total_src_rows": 160000,
+      "wall_s": 6.714,
+      "extract_s": 4.213,
+      "catalog_s": 0.027,
+      "data_decode_net_s": 3.043,
+      "phases": {
+        "pagestore_build_s": 0.772,
+        "schema_recover_s": 0.023,
+        "lsn_s": 0.004,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.018,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 3.043,
+        "sink_finish_s": 0.346
+      },
+      "write_s": {
+        "delta": 0.127,
+        "pg_dir": 0.49
+      },
+      "readback_s": {
+        "delta": 0.787,
+        "pg_dir": 1.678
+      },
+      "read_s": {
+        "delta": 0.08,
+        "pg_dir": 0.975
+      },
+      "stats_s": {
+        "delta": 0.035,
+        "pg_dir": 0.037
+      },
+      "verify_s": {
+        "mssql_arrow": 0.689,
+        "delta": 0.648,
+        "pg_dir": 0.645
+      },
+      "pid": 93790,
+      "peak_rss_mb": 799.2,
+      "hwm_rss_mb": 799.2,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 75.5,
+          "peak_rss_mb": 75.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.007,
+          "rss_mb": 75.6,
+          "peak_rss_mb": 75.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 4.221,
+          "rss_mb": 707.0,
+          "peak_rss_mb": 707.3,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 5.024,
+          "rss_mb": 722.4,
+          "peak_rss_mb": 722.4,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 6.702,
+          "rss_mb": 799.1,
+          "peak_rss_mb": 799.1,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 6.714,
+          "rss_mb": 799.2,
+          "peak_rss_mb": 799.2,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorksLT2025.bak",
+      "bak_size_mb": 1.684,
+      "total_src_rows": 4277,
+      "wall_s": 1.701,
+      "extract_s": 0.816,
+      "catalog_s": 0.087,
+      "data_decode_net_s": 0.512,
+      "phases": {
+        "pagestore_build_s": 0.162,
+        "schema_recover_s": 0.084,
+        "lsn_s": 0.003,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.009,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 0.512,
+        "sink_finish_s": 0.037
+      },
+      "write_s": {
+        "delta": 0.227,
+        "pg_dir": 0.125
+      },
+      "readback_s": {
+        "delta": 0.379,
+        "pg_dir": 0.414
+      },
+      "read_s": {
+        "delta": 0.134,
+        "pg_dir": 0.149
+      },
+      "stats_s": {
+        "delta": 0.005,
+        "pg_dir": 0.005
+      },
+      "verify_s": {
+        "mssql_arrow": 0.303,
+        "delta": 0.091,
+        "pg_dir": 0.093
+      },
+      "pid": 93934,
+      "peak_rss_mb": 220.0,
+      "hwm_rss_mb": 220.0,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 76.4,
+          "peak_rss_mb": 76.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.052,
+          "rss_mb": 76.6,
+          "peak_rss_mb": 76.6,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 0.868,
+          "rss_mb": 188.9,
+          "peak_rss_mb": 189.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 1.266,
+          "rss_mb": 210.2,
+          "peak_rss_mb": 210.2,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 1.681,
+          "rss_mb": 220.0,
+          "peak_rss_mb": 220.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 1.701,
+          "rss_mb": 220.0,
+          "peak_rss_mb": 220.0,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorksLT2022.bak",
+      "bak_size_mb": 8.117,
+      "total_src_rows": 4277,
+      "wall_s": 1.682,
+      "extract_s": 0.697,
+      "catalog_s": 0.101,
+      "data_decode_net_s": 0.502,
+      "phases": {
+        "pagestore_build_s": 0.038,
+        "schema_recover_s": 0.092,
+        "lsn_s": 0.009,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.018,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 0.502,
+        "sink_finish_s": 0.029
+      },
+      "write_s": {
+        "delta": 0.264,
+        "pg_dir": 0.093
+      },
+      "readback_s": {
+        "delta": 0.433,
+        "pg_dir": 0.478
+      },
+      "read_s": {
+        "delta": 0.184,
+        "pg_dir": 0.224
+      },
+      "stats_s": {
+        "delta": 0.005,
+        "pg_dir": 0.005
+      },
+      "verify_s": {
+        "mssql_arrow": 0.301,
+        "delta": 0.127,
+        "pg_dir": 0.124
+      },
+      "pid": 93979,
+      "peak_rss_mb": 222.5,
+      "hwm_rss_mb": 222.5,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 76.1,
+          "peak_rss_mb": 76.4,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.035,
+          "rss_mb": 76.3,
+          "peak_rss_mb": 76.4,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 0.732,
+          "rss_mb": 186.0,
+          "peak_rss_mb": 186.2,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 1.183,
+          "rss_mb": 208.7,
+          "peak_rss_mb": 208.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 1.663,
+          "rss_mb": 222.5,
+          "peak_rss_mb": 222.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 1.682,
+          "rss_mb": 222.5,
+          "peak_rss_mb": 222.5,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorksLT2017.bak",
+      "bak_size_mb": 7.113,
+      "total_src_rows": 4277,
+      "wall_s": 1.389,
+      "extract_s": 0.601,
+      "catalog_s": 0.073,
+      "data_decode_net_s": 0.455,
+      "phases": {
+        "pagestore_build_s": 0.03,
+        "schema_recover_s": 0.066,
+        "lsn_s": 0.007,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.019,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 0.455,
+        "sink_finish_s": 0.015
+      },
+      "write_s": {
+        "delta": 0.168,
+        "pg_dir": 0.107
+      },
+      "readback_s": {
+        "delta": 0.341,
+        "pg_dir": 0.383
+      },
+      "read_s": {
+        "delta": 0.11,
+        "pg_dir": 0.156
+      },
+      "stats_s": {
+        "delta": 0.005,
+        "pg_dir": 0.004
+      },
+      "verify_s": {
+        "mssql_arrow": 0.309,
+        "delta": 0.11,
+        "pg_dir": 0.105
+      },
+      "pid": 94132,
+      "peak_rss_mb": 219.3,
+      "hwm_rss_mb": 219.3,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 75.7,
+          "peak_rss_mb": 75.9,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.031,
+          "rss_mb": 75.9,
+          "peak_rss_mb": 75.9,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 0.632,
+          "rss_mb": 185.8,
+          "peak_rss_mb": 185.9,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 0.986,
+          "rss_mb": 206.9,
+          "peak_rss_mb": 206.9,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 1.371,
+          "rss_mb": 219.3,
+          "peak_rss_mb": 219.3,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 1.389,
+          "rss_mb": 219.3,
+          "peak_rss_mb": 219.3,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorksLT2016.bak",
+      "bak_size_mb": 7.113,
+      "total_src_rows": 4277,
+      "wall_s": 1.758,
+      "extract_s": 0.813,
+      "catalog_s": 0.074,
+      "data_decode_net_s": 0.645,
+      "phases": {
+        "pagestore_build_s": 0.031,
+        "schema_recover_s": 0.067,
+        "lsn_s": 0.007,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.019,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 0.645,
+        "sink_finish_s": 0.034
+      },
+      "write_s": {
+        "delta": 0.391,
+        "pg_dir": 0.134
+      },
+      "readback_s": {
+        "delta": 0.451,
+        "pg_dir": 0.431
+      },
+      "read_s": {
+        "delta": 0.154,
+        "pg_dir": 0.158
+      },
+      "stats_s": {
+        "delta": 0.007,
+        "pg_dir": 0.005
+      },
+      "verify_s": {
+        "mssql_arrow": 0.323,
+        "delta": 0.113,
+        "pg_dir": 0.097
+      },
+      "pid": 94171,
+      "peak_rss_mb": 217.5,
+      "hwm_rss_mb": 217.5,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 76.0,
+          "peak_rss_mb": 76.2,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.031,
+          "rss_mb": 76.1,
+          "peak_rss_mb": 76.2,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 0.844,
+          "rss_mb": 184.1,
+          "peak_rss_mb": 184.3,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 1.312,
+          "rss_mb": 206.0,
+          "peak_rss_mb": 206.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 1.745,
+          "rss_mb": 217.5,
+          "peak_rss_mb": 217.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 1.758,
+          "rss_mb": 217.5,
+          "peak_rss_mb": 217.5,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorksLT2012.bak",
+      "bak_size_mb": 13.426,
+      "total_src_rows": 4277,
+      "wall_s": 1.445,
+      "extract_s": 0.657,
+      "catalog_s": 0.065,
+      "data_decode_net_s": 0.49,
+      "phases": {
+        "pagestore_build_s": 0.027,
+        "schema_recover_s": 0.059,
+        "lsn_s": 0.006,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.039,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 0.49,
+        "sink_finish_s": 0.027
+      },
+      "write_s": {
+        "delta": 0.166,
+        "pg_dir": 0.137
+      },
+      "readback_s": {
+        "delta": 0.353,
+        "pg_dir": 0.367
+      },
+      "read_s": {
+        "delta": 0.118,
+        "pg_dir": 0.153
+      },
+      "stats_s": {
+        "delta": 0.005,
+        "pg_dir": 0.005
+      },
+      "verify_s": {
+        "mssql_arrow": 0.322,
+        "delta": 0.1,
+        "pg_dir": 0.101
+      },
+      "pid": 94187,
+      "peak_rss_mb": 214.9,
+      "hwm_rss_mb": 214.9,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.001,
+          "rss_mb": 75.7,
+          "peak_rss_mb": 75.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.038,
+          "rss_mb": 75.9,
+          "peak_rss_mb": 75.9,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 0.694,
+          "rss_mb": 186.3,
+          "peak_rss_mb": 186.6,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 1.059,
+          "rss_mb": 206.7,
+          "peak_rss_mb": 206.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 1.427,
+          "rss_mb": 214.9,
+          "peak_rss_mb": 214.9,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 1.445,
+          "rss_mb": 214.9,
+          "peak_rss_mb": 214.9,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorksLT2014.bak",
+      "bak_size_mb": 13.336,
+      "total_src_rows": 4277,
+      "wall_s": 1.787,
+      "extract_s": 0.652,
+      "catalog_s": 0.068,
+      "data_decode_net_s": 0.459,
+      "phases": {
+        "pagestore_build_s": 0.027,
+        "schema_recover_s": 0.063,
+        "lsn_s": 0.005,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.039,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 0.459,
+        "sink_finish_s": 0.049
+      },
+      "write_s": {
+        "delta": 0.18,
+        "pg_dir": 0.15
+      },
+      "readback_s": {
+        "delta": 0.616,
+        "pg_dir": 0.429
+      },
+      "read_s": {
+        "delta": 0.238,
+        "pg_dir": 0.159
+      },
+      "stats_s": {
+        "delta": 0.008,
+        "pg_dir": 0.005
+      },
+      "verify_s": {
+        "mssql_arrow": 0.284,
+        "delta": 0.129,
+        "pg_dir": 0.106
+      },
+      "pid": 94205,
+      "peak_rss_mb": 214.9,
+      "hwm_rss_mb": 214.9,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 76.0,
+          "peak_rss_mb": 76.1,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.032,
+          "rss_mb": 76.2,
+          "peak_rss_mb": 76.2,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 0.684,
+          "rss_mb": 186.4,
+          "peak_rss_mb": 186.6,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 1.341,
+          "rss_mb": 206.9,
+          "peak_rss_mb": 206.9,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 1.771,
+          "rss_mb": 214.9,
+          "peak_rss_mb": 214.9,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 1.786,
+          "rss_mb": 214.9,
+          "peak_rss_mb": 214.9,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "AdventureWorksLT2019.bak",
+      "bak_size_mb": 8.117,
+      "total_src_rows": 4277,
+      "wall_s": 1.881,
+      "extract_s": 1.018,
+      "catalog_s": 0.079,
+      "data_decode_net_s": 0.817,
+      "phases": {
+        "pagestore_build_s": 0.037,
+        "schema_recover_s": 0.072,
+        "lsn_s": 0.007,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.037,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 0.817,
+        "sink_finish_s": 0.04
+      },
+      "write_s": {
+        "delta": 0.422,
+        "pg_dir": 0.249
+      },
+      "readback_s": {
+        "delta": 0.411,
+        "pg_dir": 0.391
+      },
+      "read_s": {
+        "delta": 0.147,
+        "pg_dir": 0.156
+      },
+      "stats_s": {
+        "delta": 0.006,
+        "pg_dir": 0.005
+      },
+      "verify_s": {
+        "mssql_arrow": 0.382,
+        "delta": 0.116,
+        "pg_dir": 0.101
+      },
+      "pid": 94297,
+      "peak_rss_mb": 223.0,
+      "hwm_rss_mb": 223.0,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 76.4,
+          "peak_rss_mb": 76.6,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.028,
+          "rss_mb": 76.5,
+          "peak_rss_mb": 76.6,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 1.045,
+          "rss_mb": 189.3,
+          "peak_rss_mb": 189.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 1.474,
+          "rss_mb": 211.0,
+          "peak_rss_mb": 211.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 1.867,
+          "rss_mb": 222.9,
+          "peak_rss_mb": 222.9,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 1.881,
+          "rss_mb": 223.0,
+          "peak_rss_mb": 223.0,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "Northwinds.bak",
+      "bak_size_mb": 0.816,
+      "total_src_rows": 1153,
+      "wall_s": 1.208,
+      "extract_s": 0.572,
+      "catalog_s": 0.069,
+      "data_decode_net_s": 0.346,
+      "phases": {
+        "pagestore_build_s": 0.113,
+        "schema_recover_s": 0.066,
+        "lsn_s": 0.003,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.005,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 0.346,
+        "sink_finish_s": 0.025
+      },
+      "write_s": {
+        "delta": 0.118,
+        "pg_dir": 0.104
+      },
+      "readback_s": {
+        "delta": 0.318,
+        "pg_dir": 0.249
+      },
+      "read_s": {
+        "delta": 0.114,
+        "pg_dir": 0.069
+      },
+      "stats_s": {
+        "delta": 0.004,
+        "pg_dir": 0.004
+      },
+      "verify_s": {
+        "mssql_arrow": 0.223,
+        "delta": 0.059,
+        "pg_dir": 0.056
+      },
+      "pid": 94439,
+      "peak_rss_mb": 175.0,
+      "hwm_rss_mb": 175.0,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 76.1,
+          "peak_rss_mb": 76.4,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.038,
+          "rss_mb": 76.3,
+          "peak_rss_mb": 76.4,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 0.61,
+          "rss_mb": 148.5,
+          "peak_rss_mb": 148.8,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 0.942,
+          "rss_mb": 166.3,
+          "peak_rss_mb": 166.3,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 1.192,
+          "rss_mb": 175.0,
+          "peak_rss_mb": 175.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 1.208,
+          "rss_mb": 175.0,
+          "peak_rss_mb": 175.0,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "Chinook-id-pk.bak",
+      "bak_size_mb": 12.257,
+      "total_src_rows": 16075,
+      "wall_s": 1.217,
+      "extract_s": 0.511,
+      "catalog_s": 0.108,
+      "data_decode_net_s": 0.274,
+      "phases": {
+        "pagestore_build_s": 0.04,
+        "schema_recover_s": 0.093,
+        "lsn_s": 0.015,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.052,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 0.274,
+        "sink_finish_s": 0.022
+      },
+      "write_s": {
+        "delta": 0.14,
+        "pg_dir": 0.047
+      },
+      "readback_s": {
+        "delta": 0.336,
+        "pg_dir": 0.301
+      },
+      "read_s": {
+        "delta": 0.135,
+        "pg_dir": 0.052
+      },
+      "stats_s": {
+        "delta": 0.004,
+        "pg_dir": 0.003
+      },
+      "verify_s": {
+        "mssql_arrow": 0.225,
+        "delta": 0.047,
+        "pg_dir": 0.048
+      },
+      "pid": 94443,
+      "peak_rss_mb": 155.0,
+      "hwm_rss_mb": 155.0,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 76.2,
+          "peak_rss_mb": 76.4,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.039,
+          "rss_mb": 76.3,
+          "peak_rss_mb": 76.4,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 0.55,
+          "rss_mb": 134.6,
+          "peak_rss_mb": 134.9,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 0.9,
+          "rss_mb": 149.7,
+          "peak_rss_mb": 149.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 1.201,
+          "rss_mb": 154.9,
+          "peak_rss_mb": 154.9,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 1.217,
+          "rss_mb": 155.0,
+          "peak_rss_mb": 155.0,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "Pubs.bak",
+      "bak_size_mb": 0.5,
+      "total_src_rows": 255,
+      "wall_s": 0.923,
+      "extract_s": 0.47,
+      "catalog_s": 0.066,
+      "data_decode_net_s": 0.301,
+      "phases": {
+        "pagestore_build_s": 0.072,
+        "schema_recover_s": 0.062,
+        "lsn_s": 0.004,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.007,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 0.301,
+        "sink_finish_s": 0.017
+      },
+      "write_s": {
+        "delta": 0.11,
+        "pg_dir": 0.071
+      },
+      "readback_s": {
+        "delta": 0.211,
+        "pg_dir": 0.18
+      },
+      "read_s": {
+        "delta": 0.062,
+        "pg_dir": 0.035
+      },
+      "stats_s": {
+        "delta": 0.004,
+        "pg_dir": 0.003
+      },
+      "verify_s": {
+        "mssql_arrow": 0.238,
+        "delta": 0.026,
+        "pg_dir": 0.024
+      },
+      "pid": 94462,
+      "peak_rss_mb": 143.6,
+      "hwm_rss_mb": 143.6,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 76.0,
+          "peak_rss_mb": 76.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.031,
+          "rss_mb": 76.1,
+          "peak_rss_mb": 76.1,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 0.502,
+          "rss_mb": 133.0,
+          "peak_rss_mb": 133.3,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 0.727,
+          "rss_mb": 141.5,
+          "peak_rss_mb": 141.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 0.908,
+          "rss_mb": 143.6,
+          "peak_rss_mb": 143.6,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 0.923,
+          "rss_mb": 143.6,
+          "peak_rss_mb": 143.6,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "Chinook.bak",
+      "bak_size_mb": 6.098,
+      "total_src_rows": 16075,
+      "wall_s": 1.091,
+      "extract_s": 0.44,
+      "catalog_s": 0.092,
+      "data_decode_net_s": 0.272,
+      "phases": {
+        "pagestore_build_s": 0.026,
+        "schema_recover_s": 0.081,
+        "lsn_s": 0.011,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.013,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 0.272,
+        "sink_finish_s": 0.029
+      },
+      "write_s": {
+        "delta": 0.139,
+        "pg_dir": 0.042
+      },
+      "readback_s": {
+        "delta": 0.331,
+        "pg_dir": 0.255
+      },
+      "read_s": {
+        "delta": 0.146,
+        "pg_dir": 0.036
+      },
+      "stats_s": {
+        "delta": 0.004,
+        "pg_dir": 0.004
+      },
+      "verify_s": {
+        "mssql_arrow": 0.221,
+        "delta": 0.045,
+        "pg_dir": 0.048
+      },
+      "pid": 94469,
+      "peak_rss_mb": 154.7,
+      "hwm_rss_mb": 154.7,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.0,
+          "rss_mb": 75.9,
+          "peak_rss_mb": 76.1,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.026,
+          "rss_mb": 76.0,
+          "peak_rss_mb": 76.1,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 0.466,
+          "rss_mb": 134.4,
+          "peak_rss_mb": 134.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 0.812,
+          "rss_mb": 150.5,
+          "peak_rss_mb": 150.5,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 1.07,
+          "rss_mb": 154.7,
+          "peak_rss_mb": 154.7,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 1.091,
+          "rss_mb": 154.7,
+          "peak_rss_mb": 154.7,
+          "arrow_mb": 0.0
+        }
+      ]
+    },
+    {
+      "bak": "TutorialDB.bak",
+      "bak_size_mb": 0.411,
+      "total_src_rows": 453,
+      "wall_s": 0.351,
+      "extract_s": 0.244,
+      "catalog_s": 0.057,
+      "data_decode_net_s": 0.002,
+      "phases": {
+        "pagestore_build_s": 0.067,
+        "schema_recover_s": 0.053,
+        "lsn_s": 0.004,
+        "catalog_recover_s": 0.0,
+        "logtail_s": 0.005,
+        "xtp_s": 0.0,
+        "constraints_s": 0.0,
+        "data_decode_s": 0.002,
+        "sink_finish_s": 0.103
+      },
+      "write_s": {
+        "delta": 0.024,
+        "pg_dir": 0.042
+      },
+      "readback_s": {
+        "delta": 0.033,
+        "pg_dir": 0.03
+      },
+      "read_s": {
+        "delta": 0.011,
+        "pg_dir": 0.004
+      },
+      "stats_s": {
+        "delta": 0.001,
+        "pg_dir": 0.0
+      },
+      "verify_s": {
+        "mssql_arrow": 0.099,
+        "delta": 0.012,
+        "pg_dir": 0.011
+      },
+      "pid": 94549,
+      "peak_rss_mb": 123.9,
+      "hwm_rss_mb": 123.9,
+      "snapshots": [
+        {
+          "label": "start",
+          "elapsed_s": 0.001,
+          "rss_mb": 75.8,
+          "peak_rss_mb": 76.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "before_extract",
+          "elapsed_s": 0.007,
+          "rss_mb": 75.8,
+          "peak_rss_mb": 76.0,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_extract",
+          "elapsed_s": 0.252,
+          "rss_mb": 117.8,
+          "peak_rss_mb": 118.1,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_delta",
+          "elapsed_s": 0.3,
+          "rss_mb": 122.9,
+          "peak_rss_mb": 122.9,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "after_readback_pg_dir",
+          "elapsed_s": 0.331,
+          "rss_mb": 123.9,
+          "peak_rss_mb": 123.9,
+          "arrow_mb": 0.0
+        },
+        {
+          "label": "done",
+          "elapsed_s": 0.351,
+          "rss_mb": 123.9,
+          "peak_rss_mb": 123.9,
+          "arrow_mb": 0.0
+        }
+      ]
+    }
+  ]
+}

@@ -4,13 +4,10 @@ from __future__ import annotations
 
 import datetime
 from decimal import Decimal, InvalidOperation
-from pathlib import Path
 from typing import Any, Callable
 
 import pyarrow as pa
 import pyarrow.compute as pc
-
-from tools import value_verify
 
 from .config import NodeStats, _MINMAX_SKIP_TYPES
 
@@ -142,31 +139,6 @@ def _arrow_minmax_equal(act: Any, exp: Any) -> bool:
     return act == exp
 
 
-def _node_stats_from_arrow(tables: dict[str, pa.Table]) -> NodeStats:
-    """Compute per-table stats from Arrow tables (extracted or read-back)."""
-    node: NodeStats = {}
-    for fqn, tbl in tables.items():
-        if len(tbl) == 0:
-            continue
-        null_counts: dict[str, int] = {}
-        min_vals: dict[str, Any] = {}
-        max_vals: dict[str, Any] = {}
-        for col_name in tbl.schema.names:
-            col = tbl.column(col_name)
-            null_counts[col_name] = col.null_count if col.null_count is not None else 0
-            min_vals[col_name], max_vals[col_name] = _minmax_from_col(col)
-        node[fqn] = {
-            "kind": "arrow",
-            "row_count": len(tbl),
-            "null_counts": null_counts,
-            "min_vals": min_vals,
-            "max_vals": max_vals,
-            "col_count": len(tbl.schema.names),
-            "col_names": list(tbl.schema.names),
-        }
-    return node
-
-
 def _node_stats_from_ground_truth(
     ground_truth: dict[str, Any],
 ) -> tuple[NodeStats, int, int]:
@@ -216,82 +188,61 @@ def _node_stats_from_arrow_table(fqn: str, tbl: pa.Table) -> dict[str, Any]:
     }
 
 
+_UNSCORED_PREFIX = "ground-truth parquet missing"
+
+
+def _apply_verify_result_to_table(t: dict[str, Any], vr: Any) -> None:
+    """Apply one TableVerifyResult to a per-table row dict in-place.
+
+    Distinguishes hard verification errors from un-scored tables (no GT parquet
+    available) so the latter don't count as correctness failures in the report.
+    """
+    err = getattr(vr, "error", None)
+    if err:
+        if err.startswith(_UNSCORED_PREFIX):
+            # GT parquet not yet captured — table is un-scored, not failed.
+            t["value_unscored"] = True
+        else:
+            t["value_error"] = err
+            t["_bad_columns"] = t["_column_names"]
+            t["column_ok"] = 0
+        return
+    t["value_mode"] = vr.mode
+    t["value_ok"] = vr.cells_ok
+    t["value_total"] = vr.cells_total
+    t["value_bad"] = (
+        sorted(vr.col_mismatches)
+        + [f"digest:{c}" for c in vr.digest_mismatches]
+        + [f"order:{c}" for c in vr.order_mismatches]
+    )
+    t["value_missing_keys"] = vr.missing_keys
+    t["value_pass"] = vr.ok
+    bad_columns = set(t.get("_bad_columns", []))
+    bad_columns.update(vr.col_mismatches)
+    bad_columns.update(vr.digest_mismatches)
+    bad_columns.update(vr.order_mismatches)
+    if vr.missing_keys:
+        bad_columns.update(t.get("_column_names", []))
+    t["_bad_columns"] = sorted(bad_columns)
+    t["column_ok"] = max(0, t["n_gt_cols"] - len(bad_columns))
+
+
 def _apply_precomputed_cell_results(
     tables_out: list[dict[str, Any]],
     verify_results: dict[str, Any],
 ) -> None:
-    """Apply pre-computed TableVerifyResult objects to tables_out in-place.
-
-    Same semantics as the inline call inside _compare_tables, but uses results
-    gathered during the streaming extraction pass rather than re-running
-    verify_bak over the full arrow_tables dict.
-    """
+    """Apply pre-computed TableVerifyResult objects to tables_out in-place."""
     for t in tables_out:
         if t["xtp_skip"]:
+            continue
+        if t.get("value_error"):
+            t["_bad_columns"] = t["_column_names"]
+            t["column_ok"] = 0
             continue
         vr = verify_results.get(t["fqn"])
-        if t.get("value_error"):
-            t["_bad_columns"] = t["_column_names"]
-            t["column_ok"] = 0
-            continue
         if vr is None:
             continue
-        err = getattr(vr, "error", None)
-        if err:
-            t["value_error"] = err
-            t["_bad_columns"] = t["_column_names"]
-            t["column_ok"] = 0
-            continue
-        t["value_mode"] = vr.mode
-        t["value_ok"] = vr.cells_ok
-        t["value_total"] = vr.cells_total
-        t["value_bad"] = sorted(vr.col_mismatches) + [f"digest:{c}" for c in vr.digest_mismatches]
-        t["value_missing_keys"] = vr.missing_keys
-        t["value_pass"] = vr.ok
-        bad_columns = set(t.get("_bad_columns", []))
-        bad_columns.update(vr.col_mismatches)
-        bad_columns.update(vr.digest_mismatches)
-        if vr.missing_keys:
-            bad_columns.update(t.get("_column_names", []))
-        t["_bad_columns"] = sorted(bad_columns)
-        t["column_ok"] = max(0, t["n_gt_cols"] - len(bad_columns))
-
-
-def _apply_cell_verification(
-    tables_out: list[dict[str, Any]],
-    arrow_tables: dict[str, Any],
-    cells_dir: Path,
-) -> None:
-    """Run value_verify against cells_dir and update tables_out in-place."""
-    try:
-        vres = value_verify.verify_bak(arrow_tables, cells_dir)
-    except Exception as exc:
-        for t in tables_out:
-            t["value_error"] = str(exc)
-        return
-    for t in tables_out:
-        if t["xtp_skip"]:
-            continue
-        vr = vres.get(t["fqn"])
-        if t.get("value_error"):
-            t["_bad_columns"] = t["_column_names"]
-            t["column_ok"] = 0
-            continue
-        if vr is None:
-            continue
-        t["value_mode"] = vr.mode
-        t["value_ok"] = vr.cells_ok
-        t["value_total"] = vr.cells_total
-        t["value_bad"] = sorted(vr.col_mismatches) + [f"digest:{c}" for c in vr.digest_mismatches]
-        t["value_missing_keys"] = vr.missing_keys
-        t["value_pass"] = vr.ok
-        bad_columns = set(t.get("_bad_columns", []))
-        bad_columns.update(vr.col_mismatches)
-        bad_columns.update(vr.digest_mismatches)
-        if vr.missing_keys:
-            bad_columns.update(t.get("_column_names", []))
-        t["_bad_columns"] = sorted(bad_columns)
-        t["column_ok"] = max(0, t["n_gt_cols"] - len(bad_columns))
+        _apply_verify_result_to_table(t, vr)
 
 
 def _compare_tables(
@@ -301,15 +252,12 @@ def _compare_tables(
     table_types: dict[str, str],
     expected_skips: frozenset[str],
     normalize_col: Callable[[str], str],
-    cells_dir: Path | None = None,
-    arrow_tables_for_cells: dict[str, Any] | None = None,
 ) -> list[dict[str, Any]]:
     """Compare expected vs actual nodes; return per-table diff rows.
 
     When expected is a GT node (kind="ground_truth"), uses SQL-string min/max
     parsing and xtp_skip logic.  When expected is an Arrow node (kind="arrow"),
     compares native Python values directly (write-fidelity edges).
-    Cell verification runs only when cells_dir is set (GT edges only).
     """
     tables_out: list[dict[str, Any]] = []
 
@@ -411,8 +359,5 @@ def _compare_tables(
                 "_bad_columns": sorted(bad_columns),
             }
         )
-
-    if cells_dir is not None and cells_dir.exists() and arrow_tables_for_cells:
-        _apply_cell_verification(tables_out, arrow_tables_for_cells, cells_dir)
 
     return tables_out

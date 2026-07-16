@@ -20,13 +20,15 @@
           "name": "name",
           "sql_type": "nvarchar(20)",
           "digest": "sha256:9566638775245bb41765ce3002b3d2d4429220cebc5f7140d8f92a0827a9bc1a",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:9ef3a8837ece989f0d83541b9aa0233325435748ca4f4511049a6f0670434494"
         },
         {
           "name": "doc",
           "sql_type": "xml",
           "digest": "sha256:85566bb54eec80ee93f91969860cb029258418d5664def2dddee53bd2370df6e",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:a0a4ca2350ed0815ce264468d21c14a74696e2202fce84b1dcebccd85e241e75"
         }
       ]
     }

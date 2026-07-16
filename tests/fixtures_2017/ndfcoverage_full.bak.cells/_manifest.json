@@ -20,7 +20,8 @@
           "name": "val",
           "sql_type": "nvarchar(100)",
           "digest": "sha256:6ff306b16304e0b83ee4f4dd1fe09dc3ef69911ba90022d68335aad906edc64d",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:6ff306b16304e0b83ee4f4dd1fe09dc3ef69911ba90022d68335aad906edc64d"
         }
       ]
     },
@@ -42,7 +43,8 @@
           "name": "val",
           "sql_type": "nvarchar(100)",
           "digest": "sha256:9cbf98318b1c20b974b302b79b39c834a5178426c8dccd48a5c6d8bd7fd731eb",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:9cbf98318b1c20b974b302b79b39c834a5178426c8dccd48a5c6d8bd7fd731eb"
         }
       ]
     }

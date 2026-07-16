@@ -20,13 +20,15 @@
           "name": "label",
           "sql_type": "varchar(40)",
           "digest": "sha256:87f5d4cb20b012836d688c07cff0f6637c5823b6e483aa2c2bd000bd16b81f53",
-          "null_count": 42
+          "null_count": 42,
+          "ordered_digest": "sha256:1d3df9019a3a81bea59d2c3e36e6bd2419378c81fe70e6d87009360acaefc7fd"
         },
         {
           "name": "score",
           "sql_type": "int",
           "digest": "sha256:7c2396f677e7d7859812a99b70d9ca9aecb93d07cee7f4a052e84396c5e45a27",
-          "null_count": 27
+          "null_count": 27,
+          "ordered_digest": "sha256:9ce2465648f3c434c193c837458ae055102841f75b44277de5b205c80ab9c110"
         }
       ]
     }

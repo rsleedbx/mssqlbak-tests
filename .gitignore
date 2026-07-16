@@ -50,3 +50,5 @@ tests/fixtures_realworld/tpcxbb_1gb.bak
 *.bacpac
 *.bak.zst
 *.parquet
+# All of the run history are local-only in this repo.
+docs/correctness_reports

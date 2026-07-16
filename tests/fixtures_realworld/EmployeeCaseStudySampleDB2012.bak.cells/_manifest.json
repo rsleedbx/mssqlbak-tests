@@ -20,67 +20,78 @@
           "name": "LastName",
           "sql_type": "nchar(30)",
           "digest": "sha256:664ee69eab64ee5b2a6a0592bfb4656ae2254fcbae018b1fe9370e545720ef42",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:6e7d6e588d3fabab3e451c2e9a654c8d47598a4c3b2a7413687ab1c1be497cd8"
         },
         {
           "name": "FirstName",
           "sql_type": "nchar(29)",
           "digest": "sha256:d6ea1443014ca3000ae48cf9a6a7d1f7d76c5dc25bc65b608e0c7c5d7239e8a0",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:4bdb1d617dbce42b900be6001f7596244db78c28ac6dc2a17e1b797d566f0030"
         },
         {
           "name": "MiddleInitial",
           "sql_type": "nchar(1)",
           "digest": "sha256:659636c5597617cb13e2479328fae0d5ebedb70fa3aadc8866bf79758a73b697",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:251e11d6ab649964a84456204995783a40968a2f659bbdf25d9e6dbbb2ec0ea9"
         },
         {
           "name": "SSN",
           "sql_type": "char(11)",
           "digest": "sha256:9b496a44acdf225cd612ed6f6d092cee00d9616d30059d30131d7893704e6a0c",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:1f1ad88faf5c185e1945fb1bf40b4ba15710b7d4d78454f4dda21bdaa05515d3"
         },
         {
           "name": "Address",
           "sql_type": "char(40)",
           "digest": "sha256:89d91605f37d67cf70854ea75f239952ddf110fd8254839e89ac98915dc093c8",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:0ad10b43803fd36583feafeb08a03b5a9e44dca91d0a55c77b0d5f288e5dfebc"
         },
         {
           "name": "City",
           "sql_type": "char(16)",
           "digest": "sha256:f8889fba2faf94103ed9c84e35f829bf3b2ced402fec9563acbf023752bcb9f5",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:25732f706ef3707c9567be4c1f24e4270f37ba71123f9674d861c593f4f1bf1e"
         },
         {
           "name": "State",
           "sql_type": "char(2)",
           "digest": "sha256:9bffad4ea6781401eab1d357e4adb39b9286e5b08b84262550d486b893c01e3e",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:9f6b29e8c0b8659f4c97a283604a8d1617728e5cde4d94433ab48debeaf750fd"
         },
         {
           "name": "Zip",
           "sql_type": "char(5)",
           "digest": "sha256:278a21153d142cc3f71a0132c920e3233f27fb781875eef266ee1690bb7625ea",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:3e929c93743eb7b7c83ef5a820257e781b4fa628cd2f924eabf547e83dd52676"
         },
         {
           "name": "Phone",
           "sql_type": "char(14)",
           "digest": "sha256:04c859d933ae7040c38867992c3a6ba533c4427315e09d1c5b069d6f4c2cc33c",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:760282b959bd6d129cb56db8a02e8bd7a9850a01d1bad93f901f70ff0d8670c1"
         },
         {
           "name": "Status",
           "sql_type": "tinyint",
           "digest": "sha256:7f340d5fa6743585099b01dad0149bf42fad6f0424951d4660976ca0c44a8c0d",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:f1f34aed09a950b3771105779256921050f826aa5d6b47f6892f2e41977e2544"
         },
         {
           "name": "Description",
           "sql_type": "char(179)",
           "digest": "sha256:4a75cceb4663c6c4fb8794652fb22b88930c40ae9d2d3523987375cb671019ca",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:4a75cceb4663c6c4fb8794652fb22b88930c40ae9d2d3523987375cb671019ca"
         }
       ]
     },
@@ -102,67 +113,78 @@
           "name": "LastName",
           "sql_type": "nchar(30)",
           "digest": "sha256:664ee69eab64ee5b2a6a0592bfb4656ae2254fcbae018b1fe9370e545720ef42",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:6e7d6e588d3fabab3e451c2e9a654c8d47598a4c3b2a7413687ab1c1be497cd8"
         },
         {
           "name": "FirstName",
           "sql_type": "nchar(29)",
           "digest": "sha256:d6ea1443014ca3000ae48cf9a6a7d1f7d76c5dc25bc65b608e0c7c5d7239e8a0",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:4bdb1d617dbce42b900be6001f7596244db78c28ac6dc2a17e1b797d566f0030"
         },
         {
           "name": "MiddleInitial",
           "sql_type": "nchar(1)",
           "digest": "sha256:659636c5597617cb13e2479328fae0d5ebedb70fa3aadc8866bf79758a73b697",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:251e11d6ab649964a84456204995783a40968a2f659bbdf25d9e6dbbb2ec0ea9"
         },
         {
           "name": "SSN",
           "sql_type": "char(11)",
           "digest": "sha256:9b496a44acdf225cd612ed6f6d092cee00d9616d30059d30131d7893704e6a0c",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:1f1ad88faf5c185e1945fb1bf40b4ba15710b7d4d78454f4dda21bdaa05515d3"
         },
         {
           "name": "Address",
           "sql_type": "char(40)",
           "digest": "sha256:89d91605f37d67cf70854ea75f239952ddf110fd8254839e89ac98915dc093c8",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:0ad10b43803fd36583feafeb08a03b5a9e44dca91d0a55c77b0d5f288e5dfebc"
         },
         {
           "name": "City",
           "sql_type": "char(16)",
           "digest": "sha256:f8889fba2faf94103ed9c84e35f829bf3b2ced402fec9563acbf023752bcb9f5",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:25732f706ef3707c9567be4c1f24e4270f37ba71123f9674d861c593f4f1bf1e"
         },
         {
           "name": "State",
           "sql_type": "char(2)",
           "digest": "sha256:9bffad4ea6781401eab1d357e4adb39b9286e5b08b84262550d486b893c01e3e",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:9f6b29e8c0b8659f4c97a283604a8d1617728e5cde4d94433ab48debeaf750fd"
         },
         {
           "name": "Zip",
           "sql_type": "char(5)",
           "digest": "sha256:278a21153d142cc3f71a0132c920e3233f27fb781875eef266ee1690bb7625ea",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:3e929c93743eb7b7c83ef5a820257e781b4fa628cd2f924eabf547e83dd52676"
         },
         {
           "name": "Phone",
           "sql_type": "char(14)",
           "digest": "sha256:04c859d933ae7040c38867992c3a6ba533c4427315e09d1c5b069d6f4c2cc33c",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:760282b959bd6d129cb56db8a02e8bd7a9850a01d1bad93f901f70ff0d8670c1"
         },
         {
           "name": "Status",
           "sql_type": "tinyint",
           "digest": "sha256:7f340d5fa6743585099b01dad0149bf42fad6f0424951d4660976ca0c44a8c0d",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:f1f34aed09a950b3771105779256921050f826aa5d6b47f6892f2e41977e2544"
         },
         {
           "name": "Description",
           "sql_type": "char(179)",
           "digest": "sha256:4a75cceb4663c6c4fb8794652fb22b88930c40ae9d2d3523987375cb671019ca",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:4a75cceb4663c6c4fb8794652fb22b88930c40ae9d2d3523987375cb671019ca"
         }
       ]
     }

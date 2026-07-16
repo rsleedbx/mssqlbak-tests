@@ -20,19 +20,22 @@
           "name": "label",
           "sql_type": "nvarchar(200)",
           "digest": "sha256:6a9b21397bbd4c1c1a177507aad746c0ba4deef8ff654894ec1c649aef2bbe4c",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:2c82364b08dc108c5894373c4f02be904d2a2e0a35d5bb0d9e40c0bf5ec8dd3f"
         },
         {
           "name": "phase",
           "sql_type": "varchar(30)",
           "digest": "sha256:52d6c4aef7bf2a4e144bc6d66cd96590eb429266a91fbf81e883b4201fe4ef1a",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:4ed35ce5c85042191c6118ea38a8d1e4c74c8808de050f1d4d960bf7975ade31"
         },
         {
           "name": "seq",
           "sql_type": "int",
           "digest": "sha256:c869a86dba1922a8da9491f5a8a73714f9baecf1e924838d8ee7c490bc2a97b6",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:7078fde6893dff90bc5f5aa3b81697b50451b74b025aeea552adfed37a622455"
         }
       ]
     }

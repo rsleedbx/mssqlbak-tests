@@ -20,7 +20,8 @@
           "name": "label",
           "sql_type": "nvarchar(200)",
           "digest": "sha256:91a97aa740ea563c4043b637400cc39498c37287ee05f1c4acb066d54cc4bbab",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:91a97aa740ea563c4043b637400cc39498c37287ee05f1c4acb066d54cc4bbab"
         }
       ]
     }

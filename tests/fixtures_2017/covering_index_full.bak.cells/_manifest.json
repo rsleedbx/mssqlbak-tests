@@ -20,19 +20,22 @@
           "name": "code",
           "sql_type": "int",
           "digest": "sha256:2acd664b7bb34db5a74b3ed8c474f2afc5ceece3dffca9a799c0bd4b00db0b93",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:ad130dcab843b40160c579bc8d4979e47fcb8958646899ad45be7d690e2c1dee"
         },
         {
           "name": "name",
           "sql_type": "varchar(50)",
           "digest": "sha256:3114773fa4712a3860b205d7a4e7ccca4bf18b1aa386adc41644c4279511a12c",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:3114773fa4712a3860b205d7a4e7ccca4bf18b1aa386adc41644c4279511a12c"
         },
         {
           "name": "amount",
           "sql_type": "decimal(10,2)",
           "digest": "sha256:f55efef23f74e283511416c3386ef6551062fa4718caedb95110e5cde1ae760e",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:1dbe1b916c3944c84414723675b59c71a553e0c5d24b6e53f09361f1ea280105"
         }
       ]
     },

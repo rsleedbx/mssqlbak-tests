@@ -20,7 +20,8 @@
           "name": "shape",
           "sql_type": "geography",
           "digest": "sha256:371708a9da9dd87de4e9f144d1cd9580b55f8e407b2abdc77716885a5c4d9f0b",
-          "null_count": 1
+          "null_count": 1,
+          "ordered_digest": "sha256:93ba7f8cd817a6d0bdb0ed8fdd019d91fbdaebe4861e8711f3c2fdf93552bf10"
         }
       ]
     },
@@ -42,7 +43,8 @@
           "name": "shape",
           "sql_type": "geometry",
           "digest": "sha256:b6bef825b09443aaa1e7cd3f37e9bea9991a234c6afe154026f5080b09cee0fa",
-          "null_count": 1
+          "null_count": 1,
+          "ordered_digest": "sha256:e81dbc639cb41afe2775a992a256109514d5301aad57f6307250918595cc3aa6"
         }
       ]
     }

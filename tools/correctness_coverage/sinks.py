@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import logging
 import time
 from collections.abc import Iterator
 from dataclasses import dataclass
@@ -10,9 +11,11 @@ from typing import Any, Callable
 
 import pyarrow as pa
 
-from mssqlbak.sink import DeltaSink, sanitize_uc_column, sanitize_uc_id
+from mssqlbak.sink import DeltaSink, sanitize_fqn, sanitize_uc_column
 from mssqlbak.sinks.pg_dir_sink import DirSink
-from pgdump.dir_reader import iter_dir_batches, read_dir_tables
+from pgdump.dir_reader import iter_dir_batches
+
+log = logging.getLogger(__name__)
 
 
 class _TimingSink:
@@ -63,26 +66,9 @@ class SinkSpec:
 
     name: str
     make: Callable[[Path], Any]
-    read_back: Callable[[Path, list[str]], dict[str, pa.Table]]
     normalize_col: Callable[[str], str]
     #: Yield (fqn, table) one at a time — keeps peak bounded to one table.
     iter_tables: Callable[[Path, list[str]], Iterator[tuple[str, pa.Table]]]
-
-
-def _read_delta(root: Path, fqns: list[str]) -> dict[str, pa.Table]:
-    from deltalake import DeltaTable
-
-    result: dict[str, pa.Table] = {}
-    for fqn in fqns:
-        schema_name, _, table_name = fqn.partition(".")
-        path = root / sanitize_uc_id(schema_name) / sanitize_uc_id(table_name)
-        if not path.exists():
-            continue
-        try:
-            result[fqn] = DeltaTable(str(path)).to_pyarrow_table()
-        except Exception:
-            pass
-    return result
 
 
 def _iter_delta_tables(root: Path, fqns: list[str]) -> Iterator[tuple[str, pa.Table]]:
@@ -90,21 +76,15 @@ def _iter_delta_tables(root: Path, fqns: list[str]) -> Iterator[tuple[str, pa.Ta
     from deltalake import DeltaTable
 
     for fqn in fqns:
-        schema_name, _, table_name = fqn.partition(".")
-        path = root / sanitize_uc_id(schema_name) / sanitize_uc_id(table_name)
+        sanitized = sanitize_fqn(fqn)
+        schema_part, _, table_part = sanitized.partition(".")
+        path = root / schema_part / table_part
         if not path.exists():
             continue
         try:
             yield fqn, DeltaTable(str(path)).to_pyarrow_table()
         except Exception:
-            pass
-
-
-def _read_pg_dir(root: Path, _fqns: list[str]) -> dict[str, pa.Table]:
-    try:
-        return read_dir_tables(root)
-    except Exception:
-        return {}
+            log.exception("Error reading delta table %s from %s", fqn, path)
 
 
 def _iter_pg_dir_tables(root: Path, _fqns: list[str]) -> Iterator[tuple[str, pa.Table]]:
@@ -114,9 +94,9 @@ def _iter_pg_dir_tables(root: Path, _fqns: list[str]) -> Iterator[tuple[str, pa.
     Table when the fqn changes.  Peak memory is bounded to one table's data
     plus the next batch being decoded, not the whole archive.
     """
+    current_fqn: str | None = None
+    current_batches: list[pa.RecordBatch] = []
     try:
-        current_fqn: str | None = None
-        current_batches: list[pa.RecordBatch] = []
         for qname, batch in iter_dir_batches(root):
             if qname != current_fqn:
                 if current_fqn is not None and current_batches:
@@ -127,21 +107,19 @@ def _iter_pg_dir_tables(root: Path, _fqns: list[str]) -> Iterator[tuple[str, pa.
         if current_fqn is not None and current_batches:
             yield current_fqn, pa.Table.from_batches(current_batches)
     except Exception:
-        pass
+        log.exception("Error streaming pg_dir tables from %s (last fqn: %s)", root, current_fqn)
 
 
 SINKS: dict[str, SinkSpec] = {
     "delta": SinkSpec(
         name="delta",
         make=lambda root: DeltaSink(root),
-        read_back=_read_delta,
         normalize_col=sanitize_uc_column,
         iter_tables=_iter_delta_tables,
     ),
     "pg_dir": SinkSpec(
         name="pg_dir",
         make=lambda root: DirSink(root),
-        read_back=_read_pg_dir,
         normalize_col=lambda col: col,
         iter_tables=_iter_pg_dir_tables,
     ),

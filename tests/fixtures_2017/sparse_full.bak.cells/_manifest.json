@@ -20,31 +20,36 @@
           "name": "a",
           "sql_type": "int",
           "digest": "sha256:c08315ece91fdd72ad5a396fa7aa382e2bdb992034aa9447256baf3e4eaddece",
-          "null_count": 5000
+          "null_count": 5000,
+          "ordered_digest": "sha256:ebd2d33db9491f7fe0785e250c541496f4196a4fcb5be363ec44fe8f6db855ce"
         },
         {
           "name": "b",
           "sql_type": "varchar(20)",
           "digest": "sha256:39b76fd77d128bb739324caf7354c35185ff3da0cae3988ba324215fb32b9a55",
-          "null_count": 6667
+          "null_count": 6667,
+          "ordered_digest": "sha256:ea2db5044c84adf41eaf6c929d33e7a484e57bf650e7434c0ec194a68da5a7a3"
         },
         {
           "name": "c",
           "sql_type": "datetime2",
           "digest": "sha256:22fdf1edf3a2efe2513458e2bdec3a39be29d23b1b3b176505e20f2a67340e42",
-          "null_count": 7500
+          "null_count": 7500,
+          "ordered_digest": "sha256:d439800221b5e7b0707e39f5dce6502bce6c146437ec402760da78824d604b37"
         },
         {
           "name": "d",
           "sql_type": "decimal(10,2)",
           "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "null_count": 10000
+          "null_count": 10000,
+          "ordered_digest": "sha256:e2ce7238a89a97ffcf46b9a0b4af34fb4e189f0fb18bd15e2cfa527833f776bf"
         },
         {
           "name": "cs",
           "sql_type": "xml",
           "digest": "sha256:08d1808450fbfe4ea42a3a084956d33a763545b01584891acc6d6502f53f773b",
-          "null_count": 3333
+          "null_count": 3333,
+          "ordered_digest": "sha256:650abdf2a83fa528535d8cb9055014caa7bcc9af85f71fe44657db35babf2914"
         }
       ]
     }

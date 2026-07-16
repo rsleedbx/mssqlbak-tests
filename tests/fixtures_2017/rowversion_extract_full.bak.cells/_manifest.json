@@ -36,13 +36,15 @@
           "name": "label",
           "sql_type": "varchar(30)",
           "digest": "sha256:d74cb1b8a0e9bb8655a75a20853f5fe5790f90857ca4f093e752b28093d4c594",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:d74cb1b8a0e9bb8655a75a20853f5fe5790f90857ca4f093e752b28093d4c594"
         },
         {
           "name": "rv",
           "sql_type": "timestamp",
           "digest": "sha256:b0caaac3155ca2aacc9fa35321ba1bf49e7b06581b2f83127db723644e8b8808",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:944aa3a8e9cc880a1a909a8dec3c6942814b05e7bc9230e360f520db2a15dd3d"
         }
       ]
     }

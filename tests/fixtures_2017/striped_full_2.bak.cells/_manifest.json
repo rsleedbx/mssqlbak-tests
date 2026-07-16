@@ -20,19 +20,22 @@
           "name": "label",
           "sql_type": "varchar(20)",
           "digest": "sha256:6b7896f48ad0bbc6611c9322a0981ca265cb512e3e5efbd94445f7c16e3f7b7b",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:6b7896f48ad0bbc6611c9322a0981ca265cb512e3e5efbd94445f7c16e3f7b7b"
         },
         {
           "name": "score",
           "sql_type": "float",
           "digest": "sha256:0dcc5e739e5cac98cd6e35b069bb8dbbc6d2313633fa7799b1b7e8b5dd5d9558",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:248f5368e0cfca7d20958ee93246f1e69e9cb75d59ce11abb1f44d802043a19d"
         },
         {
           "name": "flag",
           "sql_type": "bit",
           "digest": "sha256:33d3ffd9a9ecdf209e3bd421eb62a1f799264ba018dded403f2da8dc946444aa",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:56f54e829c8cae4741c43af957df0e7952fd934ddd477be83790f7a0bcad1971"
         }
       ]
     }

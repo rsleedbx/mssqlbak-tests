@@ -20,7 +20,8 @@
           "name": "node",
           "sql_type": "hierarchyid",
           "digest": "sha256:0646ee9173dbae55775c2b677fc68cff7509bdae9f54f6e5b05b975d71158b72",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:a7f7ff8968c05686428a32cecb28194987928f3bb558470cd7c92b7b86d72009"
         }
       ]
     }

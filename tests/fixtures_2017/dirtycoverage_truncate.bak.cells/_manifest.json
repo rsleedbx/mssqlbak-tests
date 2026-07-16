@@ -20,13 +20,15 @@
           "name": "label",
           "sql_type": "nvarchar(200)",
           "digest": "sha256:cb085e5805a3998b09162d7116d4a5df9f939413b9f69a3bd24f5b3de8c20baf",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:cb085e5805a3998b09162d7116d4a5df9f939413b9f69a3bd24f5b3de8c20baf"
         },
         {
           "name": "phase",
           "sql_type": "varchar(30)",
           "digest": "sha256:6e44a3c59fc7fef9ee3f7e52cc021f5e4d9b38c7bb04e2b019013257ea7a81b2",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:6e44a3c59fc7fef9ee3f7e52cc021f5e4d9b38c7bb04e2b019013257ea7a81b2"
         }
       ]
     }

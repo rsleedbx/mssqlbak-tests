@@ -20,79 +20,92 @@
           "name": "WWI City ID",
           "sql_type": "int",
           "digest": "sha256:d91eb94bc253d3361a5b089e885017e6efce6a7156597f9206d6a702e0183b29",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:5ebc3736b683d60252a64ca37da86c8101160c72f6a5460ae1538985f64ef78a"
         },
         {
           "name": "City",
           "sql_type": "nvarchar(50)",
           "digest": "sha256:44bd3f5d1870687599c93b1c36a5cdb7cdcb6cfb987f1eaf326a28e89f40af7b",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:a2f32583961dfc495659657406652eb10394941d1cdb23e08a6eb9ae04d3cfe4"
         },
         {
           "name": "State Province",
           "sql_type": "nvarchar(50)",
           "digest": "sha256:92771432329ba6252de7cb43542169a6b666fc78bf7376ea15889c84fa997077",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:fa3d4357f17d7da6d72dd21c8ea11c2ef96f832b88cd2c8d646feb75a8842d02"
         },
         {
           "name": "Country",
           "sql_type": "nvarchar(60)",
           "digest": "sha256:95d59fc3150113e82c66681f8e9cb4bc5f565efea5a30a4225140a16203eb95e",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:95d59fc3150113e82c66681f8e9cb4bc5f565efea5a30a4225140a16203eb95e"
         },
         {
           "name": "Continent",
           "sql_type": "nvarchar(30)",
           "digest": "sha256:5f1be780f270288dea86282a867eb80b5ffe1185124c3f7691c62f204833dd2c",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:5f1be780f270288dea86282a867eb80b5ffe1185124c3f7691c62f204833dd2c"
         },
         {
           "name": "Sales Territory",
           "sql_type": "nvarchar(50)",
           "digest": "sha256:3748d208a9de62efcb8a43777c39d30e4cb5188af064285211ec593562f394ec",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:36b528598a0ad9376d11fbbcdc0b6e83a0f9f01de62efa3fd6ec20519e708d6a"
         },
         {
           "name": "Region",
           "sql_type": "nvarchar(30)",
           "digest": "sha256:806bba4c964091fd45d6495794e4cab0e48137a3f5ef0be95f34bf89ad2b2093",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:3692f0c4e3ed72d99e40d5d74808f2bbc867d9a3ca4ef0663f2e77295881bf8b"
         },
         {
           "name": "Subregion",
           "sql_type": "nvarchar(30)",
           "digest": "sha256:a8e696f2f942e756fe54012860eaf44c61560d30f70cc6eedf4f11d4eb7682bf",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:a8e696f2f942e756fe54012860eaf44c61560d30f70cc6eedf4f11d4eb7682bf"
         },
         {
           "name": "Location",
           "sql_type": "geography",
-          "digest": "sha256:0a89c2c79ee827b9782eb5c054ab1f33769c97c5a3fedea16d1891d3b7253266",
-          "null_count": 1
+          "digest": "sha256:df0c5231025b7c2035da0d3d6f461c7a7e54e0c277115c6629d4bd1f49191d11",
+          "null_count": 1,
+          "ordered_digest": "sha256:778ca9d076c7a139e8974843849eb638a46f13ccebc4144bbbeb299dd4c9bf4b"
         },
         {
           "name": "Latest Recorded Population",
           "sql_type": "bigint",
           "digest": "sha256:18434b62eae8be3d670cd79aaef6c6141ea3cc6a17d1581c7fd8303872c87ddb",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:178c4a753f46a435bba68b02f8f60c47dbae6861d7d6566152aaaeede8da0f0f"
         },
         {
           "name": "Valid From",
           "sql_type": "datetime2",
           "digest": "sha256:6189ccaba6627264e05a8b8f3a39c0f2dbc850cd5570c31c45e67caec3a72a95",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:3c6e0c6c1372140bc06023319dd0eb6fd785d803be5f76d8261e6d409b907f92"
         },
         {
           "name": "Valid To",
           "sql_type": "datetime2",
           "digest": "sha256:1da18f5f647593fafda50ccf8557f926761722df82e412a8b638eb7d1a577dcc",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:e8bc6d5e0df27838090bb5268bc6c0c1c7dae99f2670626ad186745b3a293fc3"
         },
         {
           "name": "Lineage Key",
           "sql_type": "int",
           "digest": "sha256:f908f0bd5ae17867867be4d69ab1db9e2351c8fb09713c57227c600b35edcc26",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:f908f0bd5ae17867867be4d69ab1db9e2351c8fb09713c57227c600b35edcc26"
         }
       ]
     },
@@ -114,61 +127,71 @@
           "name": "WWI Customer ID",
           "sql_type": "int",
           "digest": "sha256:baf32ee4fedf423e91c0ed3da8aa0f0f1a355d9f88f322066b10ab67be63d6ec",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:d6096bb5928b0ba3e6cb2662b5100fbb62921cd5ec0382329683d760f1146a12"
         },
         {
           "name": "Customer",
           "sql_type": "nvarchar(100)",
           "digest": "sha256:ca76b29c4dbcb60ff1d955b21742aeb19379c8b1a53bf48aec0548e96caf13c9",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:60ba362231c36a4fee217b9fb325d056203a999a88910c00a323cb5000352159"
         },
         {
           "name": "Bill To Customer",
           "sql_type": "nvarchar(100)",
           "digest": "sha256:b73c0c6346d568c46b0e109dfc604ae1e556d890ddb8aca36442d863641d4e4c",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:33746e7191fc6b8f2f536d887ff9a03549a3f142a5e1ca0e7ec9f9946e7b85d7"
         },
         {
           "name": "Category",
           "sql_type": "nvarchar(50)",
           "digest": "sha256:b24ab0cb67dd94f74d9b54031ad3068b37023e3816c2eb17c97224a3c7547b49",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:b24ab0cb67dd94f74d9b54031ad3068b37023e3816c2eb17c97224a3c7547b49"
         },
         {
           "name": "Buying Group",
           "sql_type": "nvarchar(50)",
           "digest": "sha256:6edc92a99012c3c87a7f7b3e7fed291941fadbb4fc7efee42886d135113ac132",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:364343b25be9e2e4b9cfe3bf0589534099b3b5f9cb6fedec3ff819afe1ca0af1"
         },
         {
           "name": "Primary Contact",
           "sql_type": "nvarchar(50)",
           "digest": "sha256:4e542672c58e691b4ee9eb3e1c34acf416a853084d2b18e68d3298240d1de45d",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:1b92bc48ef8997ce5991b2f40f08fcee253c98e48e9ff5477970272766fe1a42"
         },
         {
           "name": "Postal Code",
           "sql_type": "nvarchar(10)",
           "digest": "sha256:41c94c7a865239d818a374405edc71da06dee71a1c91423c9c36365c46112273",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:d2059c1a0f41981fe6688f5717555f2a4f83111cba3895b0fa64cefdca7d4495"
         },
         {
           "name": "Valid From",
           "sql_type": "datetime2",
           "digest": "sha256:e78a34235ad233667c316a6a5569f9751340180d7a99f4cca8d4f528fe63cbe5",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:e78a34235ad233667c316a6a5569f9751340180d7a99f4cca8d4f528fe63cbe5"
         },
         {
           "name": "Valid To",
           "sql_type": "datetime2",
           "digest": "sha256:fbda1d720a9f2548dd4efcfd720e5c157211beea1bd3cf9ed7702c67edfed8d2",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:fbda1d720a9f2548dd4efcfd720e5c157211beea1bd3cf9ed7702c67edfed8d2"
         },
         {
           "name": "Lineage Key",
           "sql_type": "int",
           "digest": "sha256:a4204860ed5b70052d677d2e2e2b1463ef74a3e5904dc55ebacf7321d7d17e13",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:a4204860ed5b70052d677d2e2e2b1463ef74a3e5904dc55ebacf7321d7d17e13"
         }
       ]
     },
@@ -190,79 +213,92 @@
           "name": "Day Number",
           "sql_type": "int",
           "digest": "sha256:52cb762a93961ff7ef5dab66c95b7cffc479890eaad132668e31d230bf2d19c6",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:9ebbe55c613f2c06550d9b8bac3e45e10b7309fd11ecb6645223482b08ede963"
         },
         {
           "name": "Day",
           "sql_type": "nvarchar(10)",
           "digest": "sha256:52cb762a93961ff7ef5dab66c95b7cffc479890eaad132668e31d230bf2d19c6",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:9ebbe55c613f2c06550d9b8bac3e45e10b7309fd11ecb6645223482b08ede963"
         },
         {
           "name": "Month",
           "sql_type": "nvarchar(10)",
           "digest": "sha256:687037631da75fb711362b9f37fc31f41426881df524db510e0e7b10a0b352ae",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:9051e1feb750ef059b41659310d421d70d20e0cb8d34e5199500d7dc88a48584"
         },
         {
           "name": "Short Month",
           "sql_type": "nvarchar(3)",
           "digest": "sha256:5b96ab7097d8451095eedfd88edacdbfc7a439aa62933a5ec80247c334002a4b",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:540821475b78d7ec0975382f91c95777eab4b82e7739fb41346e0945d69ec4d5"
         },
         {
           "name": "Calendar Month Number",
           "sql_type": "int",
           "digest": "sha256:696cfe132ad44421cc451813498e08cb2376a13a267f0ca958297bfebc17a534",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:d960db4fab1b02a39db3d85c223c249d52b26bc51326fc6d012fc30a10dcb1ca"
         },
         {
           "name": "Calendar Month Label",
           "sql_type": "nvarchar(20)",
           "digest": "sha256:3b8beafe097a514620860660ca16f038e7c0409a962721294b45b4b1da2588cb",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:cc986584a80b63e87e62558e81de44cf0bd72d1170fc58f4db23b6b268cb3853"
         },
         {
           "name": "Calendar Year",
           "sql_type": "int",
           "digest": "sha256:b0e61a2d04a26f8ecdd2419c40063a38a26efbb8035a02e5f2a7cf921e379fc3",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:b0e61a2d04a26f8ecdd2419c40063a38a26efbb8035a02e5f2a7cf921e379fc3"
         },
         {
           "name": "Calendar Year Label",
           "sql_type": "nvarchar(10)",
           "digest": "sha256:a1b8cb2f0c9acbbb1bfed68820fefdd8317ca69ff983d1931412192137d579a6",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:a1b8cb2f0c9acbbb1bfed68820fefdd8317ca69ff983d1931412192137d579a6"
         },
         {
           "name": "Fiscal Month Number",
           "sql_type": "int",
           "digest": "sha256:5411d7911f87f507f9674c998e8ecc3cf055acdbdd64d0e66d8e5177addd6afe",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:32dad83b2746e06ae902a4723e9b73e7a54849e587df0a0e5f2e055e6c82935c"
         },
         {
           "name": "Fiscal Month Label",
           "sql_type": "nvarchar(20)",
           "digest": "sha256:26f3f71e95a01856f2f5d024ac06f5ab1b901a7024721655608df1c528414285",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:e821af5229d8850fc9396cec804d5634c2a8d277ee9a81293b6bc7c400cf564e"
         },
         {
           "name": "Fiscal Year",
           "sql_type": "int",
           "digest": "sha256:abde78b2741a091d5aab9d656b1d17f74ee3ef6f7dbbc04c82b49a799b014141",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:abde78b2741a091d5aab9d656b1d17f74ee3ef6f7dbbc04c82b49a799b014141"
         },
         {
           "name": "Fiscal Year Label",
           "sql_type": "nvarchar(10)",
           "digest": "sha256:4975011d396256371a701d0a18317994c099f0927f1d1817cbced37f61be54a2",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:4975011d396256371a701d0a18317994c099f0927f1d1817cbced37f61be54a2"
         },
         {
           "name": "ISO Week Number",
           "sql_type": "int",
           "digest": "sha256:4c016a0f62ed89f8b60a39ddc313673fe23fd3955b86a1d9848167d637944451",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:7b7382dbda8d3e3b69d0033a7b40457e5823d027f9fb531c939bc664a24b1a31"
         }
       ]
     },
@@ -284,49 +320,57 @@
           "name": "WWI Employee ID",
           "sql_type": "int",
           "digest": "sha256:5a9814fd3d0688c6a9a1689b4ea6f2bcc7549efb281e9df5d571987d65a83164",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:84ef83056596eb7b23488404344aba3bdf2336e2a905812e3fececcac0fbed2a"
         },
         {
           "name": "Employee",
           "sql_type": "nvarchar(50)",
           "digest": "sha256:6f2f8513759b0df757c9bc28591780b6a42ddc3611ac011f3e013781b30da89c",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:6b91a816f7b54ee8770e49ce565442b7d8bd5471aea17f14163f1f3e22aefc97"
         },
         {
           "name": "Preferred Name",
           "sql_type": "nvarchar(50)",
           "digest": "sha256:52cc2f5f28b97b5b08cbf20fda6bfb44723d28e13c762ee9b6a0a9d81beadd7b",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:c0751f9efdf5d084f69d0b4f3e69e3b39e092aeeb27b3cdc4ca53cdac6447a3d"
         },
         {
           "name": "Is Salesperson",
           "sql_type": "bit",
           "digest": "sha256:e172e83db8265e42f10f0659e1e0e2f7ce4443f2c076cfc0061d782f4701164a",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:3d7f09401bb3ecac47eaf62aee173046c4e74a930e9eab288e9ca0415fad3490"
         },
         {
           "name": "Photo",
           "sql_type": "varbinary(max)",
           "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "null_count": 213
+          "null_count": 213,
+          "ordered_digest": "sha256:4a477c949106670d9127123c2b6471af75ac8e0ce855200774ce377da8c36f98"
         },
         {
           "name": "Valid From",
           "sql_type": "datetime2",
           "digest": "sha256:aae5bcec1497afaf1358f6a91b6f5107da548fc0dddbaaf7189ec0960524dcc2",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:96415b1f472a4f68e41b41d8e18a5ac0b676c3c7b7ca7b2552a622dd1c8cebe5"
         },
         {
           "name": "Valid To",
           "sql_type": "datetime2",
           "digest": "sha256:3f0d23097e00b02de794e5279465cc664251d758610d4aa108f43921d3b9772a",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:d205de55f0c4de0db4aba07d80cb7ef561cd3a966c153620d3fc021a84d02b2d"
         },
         {
           "name": "Lineage Key",
           "sql_type": "int",
           "digest": "sha256:568e3960e846d5539b13ab82c92229ccbf11d60d5e297ed2d1e4dcd974601761",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:568e3960e846d5539b13ab82c92229ccbf11d60d5e297ed2d1e4dcd974601761"
         }
       ]
     },
@@ -348,31 +392,36 @@
           "name": "WWI Payment Method ID",
           "sql_type": "int",
           "digest": "sha256:cee50e1ed988b5151c48b404a2242cc1dd1a53084f910503412ce086b380a48e",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:deb8ebe6f5c11f9e89bcd649efc89b80b79dc1be8c50dd7a569085aace2628d3"
         },
         {
           "name": "Payment Method",
           "sql_type": "nvarchar(50)",
           "digest": "sha256:13b6a1bf474efe0a2fe5689abc729d869823b80cfed6b978cebf59bd314286b0",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:d38c6343e550ca2b2aeaac014157eda280a4909a1581230f1d2cbb3f6ead0459"
         },
         {
           "name": "Valid From",
           "sql_type": "datetime2",
           "digest": "sha256:b61adfcf2baba30f5f0cc74184b0e6cfda52a75eeb1931fcdf42e9fb636d7fcb",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:b61adfcf2baba30f5f0cc74184b0e6cfda52a75eeb1931fcdf42e9fb636d7fcb"
         },
         {
           "name": "Valid To",
           "sql_type": "datetime2",
           "digest": "sha256:ca1d65f890c3c56ffafee60309c62657ae5f92ac436b7aecb32f833eebc1c307",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:0e50f1b7d38e6cc46e9337ac7a09219b08f322872ac7c01fa1302e85abfea658"
         },
         {
           "name": "Lineage Key",
           "sql_type": "int",
           "digest": "sha256:3f865c13583006d5539a90db38a354ce4d17185de21cc8190d675866efa8317f",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:3f865c13583006d5539a90db38a354ce4d17185de21cc8190d675866efa8317f"
         }
       ]
     },
@@ -394,115 +443,134 @@
           "name": "WWI Stock Item ID",
           "sql_type": "int",
           "digest": "sha256:80d1f4601fa4cfb383b9b58f9fac5efbf45663249ce841a603ffc4ec1465ac28",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:da1f07f3fc6dbdea6ecd442ad8a6a0ee330a751c49dda06fe124703706d82e52"
         },
         {
           "name": "Stock Item",
           "sql_type": "nvarchar(100)",
           "digest": "sha256:9b2f982184fa1a348552748bd0ed08bf58c4c0e300880ebef62f43a2d8102eac",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:7e1ed50acb5d5d4e9c26070bc4d812c4da9b632c61cf3578800a8d389bb77eba"
         },
         {
           "name": "Color",
           "sql_type": "nvarchar(20)",
           "digest": "sha256:b2210b99505b796d6af433270521dcb97617b31692bcb0f9d8a237103b2a1cc2",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:f13329298c95ac8c3107d05e3f75009234d1abd4dd5d0e5a8d70550d80e7b937"
         },
         {
           "name": "Selling Package",
           "sql_type": "nvarchar(50)",
           "digest": "sha256:be521376046adb9abd13a685284617a9e1af4d3623fc3aa91c3e1ab467060a35",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:87e2dce2759a378b26e0adf2d24ed551bdb41ae4460f9e6a2fd254a1d334b380"
         },
         {
           "name": "Buying Package",
           "sql_type": "nvarchar(50)",
           "digest": "sha256:697cc7ca754a7573b7e5762907d78d5bd9045848f606f8500f42193335dab475",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:ad9cbac354b21f827fabb23037e9ba8338f648f27a83c489468df5d156e29cd5"
         },
         {
           "name": "Brand",
           "sql_type": "nvarchar(50)",
           "digest": "sha256:649e42a538ab290da492c190508c43319ae0491a4258ed2097152de51566c9f0",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:a1f5474faf3a69df6fcce9fd2f959af70b5be22d208862666ff25e0d46cc1514"
         },
         {
           "name": "Size",
           "sql_type": "nvarchar(20)",
           "digest": "sha256:9f01c33527447c4f43ce274ed30de65dd1a4a200aa5312c23c7a415121dfaebd",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:0b3c076749eb07a8d014b3be70cd6c192fc27f87b909cc233f93e324e92d4cc6"
         },
         {
           "name": "Lead Time Days",
           "sql_type": "int",
           "digest": "sha256:0a20674ffe3d5f6fd76e7e7aab82cca0eea0e0df9e4dc2cac4ad60740a5e07b1",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:6e439317db064c80bd570f51ede9ce7d474d3e54004dc40f9c140f169a3e2fb1"
         },
         {
           "name": "Quantity Per Outer",
           "sql_type": "int",
           "digest": "sha256:0f1dfd17af8019a1ee959930134f3501ed12828db3970747b26ffdafce43e561",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:140fe76d8b6fb3b796b6dd188b2553b8c8bbcce482b49d1bb65f3ec20a99bfcb"
         },
         {
           "name": "Is Chiller Stock",
           "sql_type": "bit",
           "digest": "sha256:12d249f9444ec2c2f495f9bab7eb4d1fd8531b617bb87abe2fa0b489e56d725d",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:fdeaf12554c1e7cc684536945cc0835fa29eb848184df6c3e67ce49fde23af83"
         },
         {
           "name": "Barcode",
           "sql_type": "nvarchar(50)",
           "digest": "sha256:f38c4bc80458230c19bf1b133f37da6bfb5634329896b68cfce7cd0f1948ec2a",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:f38712d9cfea484f09e5a8c9d7201a0d6325b8d4b9b37536fc922b202c82352d"
         },
         {
           "name": "Tax Rate",
           "sql_type": "decimal(18,3)",
           "digest": "sha256:77a57042a2e3191417fd4ec40f6d715e35f4c7250352b488f7a4834c1b0c80e3",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:a9825abd1312b642cee6333b246822ea6e0111c02becd57c63be202cd4c9d505"
         },
         {
           "name": "Unit Price",
           "sql_type": "decimal(18,2)",
           "digest": "sha256:693e587f098b3c050358ef13e779cb422430b957fbf74102f9f30c1a9dfc7783",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:2668368c7c6b2c7dbfe4a481c2393798a43b34d76a81dce4381f93bb60540afc"
         },
         {
           "name": "Recommended Retail Price",
           "sql_type": "decimal(18,2)",
           "digest": "sha256:a8acebdd1f7d55aff5c826e7f6df295613550dd472af236869dd6a7df143251c",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:cc7997630f6b616077256bcfc1fa5a0ce468d37ba5695f6b1ae64e8946c16f99"
         },
         {
           "name": "Typical Weight Per Unit",
           "sql_type": "decimal(18,3)",
           "digest": "sha256:1c663a5fcd033ff425a41da6b735ed97c73d85dbc09da7ce44b26dac8335826b",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:180cb15dd1ff42199d3ddf53a74231ddabd8b3177976412acd155a93e56e0792"
         },
         {
           "name": "Photo",
           "sql_type": "varbinary(max)",
           "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "null_count": 672
+          "null_count": 672,
+          "ordered_digest": "sha256:b3cd9ae375e9ce9ff32c0db552d31a4ab2ea5e2385cf7808452edb637ef8f5db"
         },
         {
           "name": "Valid From",
           "sql_type": "datetime2",
           "digest": "sha256:bb7cee12639613b24f4f35a7ed21f25df6bd35405bb92ac461b1add00c0b6608",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:d201bebc906c7b8b53128b7013067e32792bbbb94aa27b098f39f241d99897fe"
         },
         {
           "name": "Valid To",
           "sql_type": "datetime2",
           "digest": "sha256:22f5de4035a7044533c54dffc4516cb70f5ebe467e74970f0e3c5aef379a3361",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:998a2ac1c442398795d0fba86af6acedfdcd6d70e8088daa44ea04c9ef32521b"
         },
         {
           "name": "Lineage Key",
           "sql_type": "int",
           "digest": "sha256:b7643e0f6c3f1379a2d6c1c59bfc01f906d2eedc2550dbac3e6e5ef7361af681",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:b7643e0f6c3f1379a2d6c1c59bfc01f906d2eedc2550dbac3e6e5ef7361af681"
         }
       ]
     },
@@ -524,61 +592,71 @@
           "name": "WWI Supplier ID",
           "sql_type": "int",
           "digest": "sha256:34262cfa65771cec8fd52684b82ba142c6b924d099ef5a8a0bd38dcb0a41a8d2",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:c3ec687d9984875f0e8a95d9e78155832d81ed3da37e5d08586a78602385748a"
         },
         {
           "name": "Supplier",
           "sql_type": "nvarchar(100)",
           "digest": "sha256:0b2278b5af8d8cb9980c4f25e0857788e9fb498c1bc2ff7dffd4f875b59329e2",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:1688b4a10466cf051f5421bc61533c74929331e1983c15a2d7682e8b4ec50897"
         },
         {
           "name": "Category",
           "sql_type": "nvarchar(50)",
           "digest": "sha256:acbaf249cac2e3599263c3a199db5e6cc1c5369c9760f6777253ec5defef91cd",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:c38931a8e859af2c8b0634ca282655d3801fe330a6929209d46e80e4352b4941"
         },
         {
           "name": "Primary Contact",
           "sql_type": "nvarchar(50)",
           "digest": "sha256:0e457bc3a30fa41e2880a5c1489ee45c110f38f7496623948dd70b9d1bd99953",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:87317a616721565a70257ec661344d1c572b21205a9bece2b30d074a4717167e"
         },
         {
           "name": "Supplier Reference",
           "sql_type": "nvarchar(20)",
           "digest": "sha256:bbbc95ecdb3b28ad5e270100a9c68cb9da2f7dfcd453cec67d7cd167d70d57de",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:4e849acc6bee19385a88cc2a5480b9e77d801e7e361deb05494310b51bd94836"
         },
         {
           "name": "Payment Days",
           "sql_type": "int",
           "digest": "sha256:6ed4720cc7cff0005f69cf47586f86e6c371b31017991021c2ed8cca03f5051f",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:64a31b3e3d96be9996b0c3f62ba347fc2d6ffe6ad1e1a7c52e5fa71a4c0c6784"
         },
         {
           "name": "Postal Code",
           "sql_type": "nvarchar(10)",
           "digest": "sha256:f9c8d4ed1694939c2fc80e3f4a64504e31f6172edc880d81f2ee1319c036206a",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:d5057953ef16e622edf3dd5fc55851e615c893acf90b116a1839d230a573b0ae"
         },
         {
           "name": "Valid From",
           "sql_type": "datetime2",
           "digest": "sha256:c653799c26526735bdb66cdc4bb8781967b0da98812fecf2c99f9e45928f6087",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:2ff749691288bb6834ebca5bb808ec1cac360be177d0ab771015003b73c02f8b"
         },
         {
           "name": "Valid To",
           "sql_type": "datetime2",
           "digest": "sha256:dcfd82793e6fd9dd7060fe39da7e10824ea1412c5222ab719b8e7720d341f211",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:50012c3c9de0dd718f8e250830fae2435c4a335afd71a3c755bd0d6b3508e0b4"
         },
         {
           "name": "Lineage Key",
           "sql_type": "int",
           "digest": "sha256:a80e7e10e7606fd661e1a3d6d2449f76ec0d18831bffe48c89e6132cdbf6f569",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:a80e7e10e7606fd661e1a3d6d2449f76ec0d18831bffe48c89e6132cdbf6f569"
         }
       ]
     },
@@ -600,31 +678,36 @@
           "name": "WWI Transaction Type ID",
           "sql_type": "int",
           "digest": "sha256:8f70ad51d94f3ca73eaa168f2dcb53c9771157e74a9f2c1d32dba79acfb2c609",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:8f70ad51d94f3ca73eaa168f2dcb53c9771157e74a9f2c1d32dba79acfb2c609"
         },
         {
           "name": "Transaction Type",
           "sql_type": "nvarchar(50)",
           "digest": "sha256:b03028455c0a700a4543bf04fac807d4465db5895bb97bb21747c58149411177",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:0f066a2b3e0008220d7761efbd54c774c58c3e311e81b33df2a9c6e7a0ca6e7a"
         },
         {
           "name": "Valid From",
           "sql_type": "datetime2",
           "digest": "sha256:7d75d8fd3680ae2713bf9e4010cba206087817a8e944a1fb0f46fb794e43a94f",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:230cb749dd7a2fd8ed72b8e496da7defdd5fbeed601d3699d1077eabdd99e202"
         },
         {
           "name": "Valid To",
           "sql_type": "datetime2",
           "digest": "sha256:6d76f21ec2579a5548677b4f699465f8430e01a595197b4ba7e90b894702494e",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:0b3ead79b5d31a2ab3d5a0f42f29b443678ee5e9de26b3f896cea89c38a61b3c"
         },
         {
           "name": "Lineage Key",
           "sql_type": "int",
           "digest": "sha256:783a511eaab2325fdf70e82b1f0e3fb24a14250bcc555b0256bb5aba96e5becc",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:783a511eaab2325fdf70e82b1f0e3fb24a14250bcc555b0256bb5aba96e5becc"
         }
       ]
     },
@@ -653,55 +736,64 @@
           "name": "Stock Item Key",
           "sql_type": "int",
           "digest": "sha256:28cb365273ea68526501d5377830ff160bf55ad2a8ec5e7152ac31fcd4e45310",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:79742558695c05e0457157f8b48ab04703a30285cd1779ba5bda1fd74d5b55a2"
         },
         {
           "name": "Customer Key",
           "sql_type": "int",
           "digest": "sha256:e2c8bccc578e3b54ab91f180b615d324d4527af995ffe761061c52fbbc61601e",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:4d0bd702b9924da945e54ddbc794933b901fff960261c33feddf9d788eee8086"
         },
         {
           "name": "Supplier Key",
           "sql_type": "int",
           "digest": "sha256:1c76a975082f1d78b41feb9d9e56d080152e3c86bb4655bd49c3057e5653ef5e",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:b6827020805856ff357c186f4ae2a6a6b1896e21194b33b3936767685e2ed180"
         },
         {
           "name": "Transaction Type Key",
           "sql_type": "int",
           "digest": "sha256:5fa717b2630297d9845b7d876eb4d6ecd12c22fc851b384c5ca85201e35fc083",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:cdec154798838812b132c575026b9b9d8df1c173ea7a09d0550eff98043a7330"
         },
         {
           "name": "WWI Stock Item Transaction ID",
           "sql_type": "int",
           "digest": "sha256:f6c0750aa896b097a8c16c1e3d097c43914a26e4710559213a027c7f1e982f80",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:bc63d1677faf72b33c1b72fe216e650a286e22f0f27aac3a52ae23c261f95953"
         },
         {
           "name": "WWI Invoice ID",
           "sql_type": "int",
           "digest": "sha256:dc13652996fb59f7483aa8ebcc0404887f0c2b5c9aa930e60c6a90483b99dcae",
-          "null_count": 8402
+          "null_count": 8402,
+          "ordered_digest": "sha256:6dad0f87f0a71f98ad100a31af11954500693d6637e00cdebb03c255393dbb41"
         },
         {
           "name": "WWI Purchase Order ID",
           "sql_type": "int",
           "digest": "sha256:a9c26cccedb6c251db80b969aac43ea336708916a2c5f674eacb0ef6719436c2",
-          "null_count": 228309
+          "null_count": 228309,
+          "ordered_digest": "sha256:9acf7e946dbf13b58b14e49f125b021eef19618bb5c1c633ce1f629dc2c05a40"
         },
         {
           "name": "Quantity",
           "sql_type": "int",
           "digest": "sha256:a1b5d898b3283817098a82ea50f1450c36fec3962e190cb87f5e9ce264301338",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:b2cb6c6f4fb0151785228e484ffb38752ef9eea0a54ea575f4bd20eb8ebdd66b"
         },
         {
           "name": "Lineage Key",
           "sql_type": "int",
           "digest": "sha256:43429bf61eac3475e0caeaadd484742d5f2e0477611ba74224804ef7557dd951",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:43429bf61eac3475e0caeaadd484742d5f2e0477611ba74224804ef7557dd951"
         }
       ]
     },
@@ -724,19 +816,22 @@
           "name": "City Key",
           "sql_type": "int",
           "digest": "sha256:723877c4f06f2d3d05812645598f369f2c08d0314e5e901313858d244c64b03b",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:3bd5e27a609e9b64735a81b50a54b210ee88710d068f52d1643d32364d80e832"
         },
         {
           "name": "Customer Key",
           "sql_type": "int",
           "digest": "sha256:568604a47e03d5c6ad7b2386b0e329c820eb86ebd91284b88c9bba41f0f72193",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:4d4118266010a5367f5e6319de792c4798c57ac5855f4f0d30d823615d6be25c"
         },
         {
           "name": "Stock Item Key",
           "sql_type": "int",
           "digest": "sha256:7267dfa9bf1cc71311106f914adbadbceced6eeb344d87b1950a34837ba1930c",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:1a13654cf78cdb0d960c325b5d79e0d052bf99f69a390698d327d7e8af804793"
         },
         {
           "name": "Order Date Key",
@@ -748,85 +843,99 @@
           "name": "Picked Date Key",
           "sql_type": "date",
           "digest": "sha256:f02e30974f8111b5757338524e37f21d4bd550fb5ead9d6f2ff14b62d01978fe",
-          "null_count": 3147
+          "null_count": 3147,
+          "ordered_digest": "sha256:3fc3130e1537dd3aa6cea56e6635325d4ef10eab0f76e2b3e588b13c8df3d318"
         },
         {
           "name": "Salesperson Key",
           "sql_type": "int",
           "digest": "sha256:954f7b8446dc942efff1b1a28f58d1b84ac20af427ceb3e57f66639e50166398",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:93ef279b0586949922a3953548a8a47c0550f818d5723ba93aeb9eb269398f19"
         },
         {
           "name": "Picker Key",
           "sql_type": "int",
           "digest": "sha256:a0e9a93956e48184e488acb492a065b0d9a9c6a069e9997e1d70b5b6db4e9a01",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:6963d18c950f9137a826353f24c9c8883cb2a5ea360f7c02920221a3f10a6408"
         },
         {
           "name": "WWI Order ID",
           "sql_type": "int",
           "digest": "sha256:5c702c6054b009811984428508692226a94a591d8822d8c9e68eaf0659cb8a22",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:3beaf9cf8781afd4e465b14cfb71e6b07f9c052b394c8ce653ef8cd62b5e0761"
         },
         {
           "name": "WWI Backorder ID",
           "sql_type": "int",
           "digest": "sha256:9886ac29c6b44e796d5b85427c3c7ed95933516258419447504d0e05826d36de",
-          "null_count": 210819
+          "null_count": 210819,
+          "ordered_digest": "sha256:08abbb293b23c03c490b6cd6523b84233c25e5d11a23b8f3df7c5c6c36a2d09f"
         },
         {
           "name": "Description",
           "sql_type": "nvarchar(100)",
           "digest": "sha256:7ec116a1b0a4394c36424438ed52c936b84b05f6fa04b3522beb8ebea545c054",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:23542c4a888f407f72c40c668057ee93daa2cb21f36885ac35704caea8dd3871"
         },
         {
           "name": "Package",
           "sql_type": "nvarchar(50)",
           "digest": "sha256:7edf88833a5831df9378127d0ab104b5773a5c6b1fe5b4112f4417e08a5fc9e8",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:4c3eb0f07f2dd57ea5d2edbb4b8a87b55ff34be4b12618aff3e9ffeb11685577"
         },
         {
           "name": "Quantity",
           "sql_type": "int",
           "digest": "sha256:a7e1b466f4fcbb6b796b521ca5a86e69283bdaaf0579653a6b12bef3df29d4b0",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:bca2ef99196d2cb6c7954c18d60954aa1b72d449bf8015f8f4797c20873f9924"
         },
         {
           "name": "Unit Price",
           "sql_type": "decimal(18,2)",
           "digest": "sha256:644dd4936d7e7015f659a1a2e692ea3691626bef17568850793b1c87e076fac9",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:5f3e1db89eb29d772075919811dfbeef307b09fba76ec859d92cf18fe27747f0"
         },
         {
           "name": "Tax Rate",
           "sql_type": "decimal(18,3)",
           "digest": "sha256:c11c978b6ebd234173fb9d6e93cae25e95146d92f90837110abe8c7ef09710c2",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:8efb04d4f550abd76e861d5c98034b2120d80326cb78ba60d3650d3e01c1728c"
         },
         {
           "name": "Total Excluding Tax",
           "sql_type": "decimal(18,2)",
           "digest": "sha256:0ab3696d9fad3d8db915a85e009717042fac669c2ea89c1e9ad6fc8481268f5e",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:fb7451987535d370f731361162cc2a07fca94f76a8c84d467699d07c5266c63a"
         },
         {
           "name": "Tax Amount",
           "sql_type": "decimal(18,2)",
           "digest": "sha256:64609029882c7516d4aa12ce44a4d3082c469507a6336801c1acba5fb96cb49e",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:da370a37adb5eecbb85c34f597966c9f39ed757a2b7e537c04499f64d6daf09f"
         },
         {
           "name": "Total Including Tax",
           "sql_type": "decimal(18,2)",
           "digest": "sha256:218a4808025e11e08424a874df158b0abd48b60ab61223f163d9fbf17ee4bd6c",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:5c417099fd59e839cfdd3c6eff26d0740269f055f360e7e2feb979f1e6ee2f80"
         },
         {
           "name": "Lineage Key",
           "sql_type": "int",
           "digest": "sha256:79b69716fad26ef606d43340d78c841ab13b180a7da07f3e3df186c602a6a422",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:79b69716fad26ef606d43340d78c841ab13b180a7da07f3e3df186c602a6a422"
         }
       ]
     },
@@ -855,55 +964,64 @@
           "name": "Supplier Key",
           "sql_type": "int",
           "digest": "sha256:06ac47431a470cd6879b0f27187b98cc137153da1ce57c89d731faf54b960641",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:5b6dc979818c0c0ebea6a112c0a6ad4267a54627576af831100c3d5ec97097f2"
         },
         {
           "name": "Stock Item Key",
           "sql_type": "int",
           "digest": "sha256:df2fdf74f23ae374056e423911d5370acb81ce767c33a896bdb1f7d799ea363e",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:149bd146b87040ed36dfcc66ecaec62d53306f404e54a7996d4ac1ec45d7ac21"
         },
         {
           "name": "WWI Purchase Order ID",
           "sql_type": "int",
           "digest": "sha256:2770aecb7062516da8b26e477dc6fbefad57e2475839d84353d7b5315c4ce597",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:e4dbcaf76e0cf0709c84590d946f59285faaaf0ad390ee5441b362ac8701c915"
         },
         {
           "name": "Ordered Outers",
           "sql_type": "int",
           "digest": "sha256:5e557ad1af057b89b342726b6ba121d6d29cdaee12da94f0d0e4cdd025ff848a",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:f66cc94df6b520ceba9a73b73a31640a3f20c8bb462d38faea270a6d019d9ab7"
         },
         {
           "name": "Ordered Quantity",
           "sql_type": "int",
           "digest": "sha256:f9a9241bedf26d930bd4ad5227c71d2389789d71f0f172218a2de5a64facaed1",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:0da7c7098bb390080ca47c12fcaab716a37b64d906ef6b0da0b7b136354faf6f"
         },
         {
           "name": "Received Outers",
           "sql_type": "int",
           "digest": "sha256:9d05aa5379efb8bcb04263b6610bc78931935facbb58cc627678aaa342bbb0b3",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:4b54c3ceaee922c1f5e2ab9dfc294e79f209a7d2e6fc638ac93d4aa9ed1d600f"
         },
         {
           "name": "Package",
           "sql_type": "nvarchar(50)",
           "digest": "sha256:9b721cbf55521746ecceeea0b5436a2dbf6d2f2802c4697e5b975a8ade9a1e80",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:18386f5fc1aeba5eae2ad74c197502bce60c8008b6c7ed56ab89a21da4e48d37"
         },
         {
           "name": "Is Order Finalized",
           "sql_type": "bit",
           "digest": "sha256:beb754f98c381ea787585866ee92e9ac0abfa75d927a8313013f945922e5f086",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:e6a0f06b30a28ae1de32f4669ded9f53dd01cdf51e3c08d0da5ce4b6707eaac6"
         },
         {
           "name": "Lineage Key",
           "sql_type": "int",
           "digest": "sha256:48465919f4f4e922775a4b739fe58ebe488ccb035d1087ce366029f3ac1b769d",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:48465919f4f4e922775a4b739fe58ebe488ccb035d1087ce366029f3ac1b769d"
         }
       ]
     },
@@ -926,25 +1044,29 @@
           "name": "City Key",
           "sql_type": "int",
           "digest": "sha256:1c939a1b50ddbd5136ff24328c981df1bceea532d9c6aeb174ac73df733b7300",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:7493b4aaa2bb6f1d872c6b8438b6cd818e87d27c85f724119e3cca1410fe71bc"
         },
         {
           "name": "Customer Key",
           "sql_type": "int",
           "digest": "sha256:1e4df3978157562eb1d4e058b52367bfbc1fdb1eabacb6c09b027ba4ed1e4405",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:ad4305e8b8abbc58dffec9cf63b9a42285b31714f21d01c83699c108791c7b78"
         },
         {
           "name": "Bill To Customer Key",
           "sql_type": "int",
           "digest": "sha256:8d492359630f1a16f010e7fdd39a1c55474894609d04e94d1d97fb99f846fb8d",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:33da17f238f653746ed678da7c601b635a0876c4d4aff225a08a46eb0c657aee"
         },
         {
           "name": "Stock Item Key",
           "sql_type": "int",
           "digest": "sha256:cf16409e09515b1b98e1785ec43732ff2463ed63a958235292eb40d526cc7763",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:7a7fc7faf8be2371d79c2b26830db20e614b4f57e8578459a4572997230fa3ac"
         },
         {
           "name": "Invoice Date Key",
@@ -956,91 +1078,106 @@
           "name": "Delivery Date Key",
           "sql_type": "date",
           "digest": "sha256:b02d246dd8b01da71c8700d04ab9b6b887cb3ff522a58e0406cd73783a29419d",
-          "null_count": 284
+          "null_count": 284,
+          "ordered_digest": "sha256:da36d0037dd4bc2b8d0472b220632df423d37b4995f95bf05c2481a7333e2d68"
         },
         {
           "name": "Salesperson Key",
           "sql_type": "int",
           "digest": "sha256:bca30218a0788c078f6a21b2c8e813f9f44de54dc4d8b7c07362874ef57a5880",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:44efe62bc3de69ae2bb3459793c1556d54821fe8d664464480e5fd0b6247ac01"
         },
         {
           "name": "WWI Invoice ID",
           "sql_type": "int",
           "digest": "sha256:dc13652996fb59f7483aa8ebcc0404887f0c2b5c9aa930e60c6a90483b99dcae",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:89b9bc939c51fe782e9b9eae8a129c6e66d686f8f53b6965cf813ea12f987c95"
         },
         {
           "name": "Description",
           "sql_type": "nvarchar(100)",
           "digest": "sha256:e525334f80442a036519aa89b77c9bef3f90cfd8d4ca82db0933e97d3219a023",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:406836743575a8606fd34d5e6c3219995630ad865fe64ec9b9c60ab7408ad84e"
         },
         {
           "name": "Package",
           "sql_type": "nvarchar(50)",
           "digest": "sha256:bc3677b571119d5f2c2e9da8659f97a3d13fad76637bba78509a12bf4b6f5c1c",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:d912b12b4cf2c109528a60de799e29f28ade3467f1fc2693dd4ad860ae9322b3"
         },
         {
           "name": "Quantity",
           "sql_type": "int",
           "digest": "sha256:c2605c050007c54aeebf731e22600f01c69e13662c3458ec0135ac74c3fb3955",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:415dc3fbddf606de17297caa2b9ed2a11680ae6ff1c89013c27320e9be023dae"
         },
         {
           "name": "Unit Price",
           "sql_type": "decimal(18,2)",
           "digest": "sha256:a53423a4275b5593930b7e998e2c87b3afd3fffcc26295cb02b132a0c2dbc450",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:d3d61c4e9072e50a3128a1f3838f61b18d865d92b6e7dda33716f6b6eda8a932"
         },
         {
           "name": "Tax Rate",
           "sql_type": "decimal(18,3)",
           "digest": "sha256:15f24a5e07d877e0e8e19cb7476c76853374ece911cc080a96c1b8fc5367bbba",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:d63809ebbc18a429eb85a31c9cac24817fb20a77039ba4e1296e1e3a4da133fd"
         },
         {
           "name": "Total Excluding Tax",
           "sql_type": "decimal(18,2)",
           "digest": "sha256:a2c80540dbd49514237d43f443dba33455826849b21588ab2f8c4067f29498d1",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:1dda824596ba1969df55bd3754916e4fdfb59a88af30606d79bb7e1f3d7caa65"
         },
         {
           "name": "Tax Amount",
           "sql_type": "decimal(18,2)",
           "digest": "sha256:728b7c2cc202302e6646e265fe9c05a9d3191a57dae4fa3c9d80b96a95b51790",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:e47d77c4889498cbafc3eb5842021c815f199973ffe58dab33998f5e252636cb"
         },
         {
           "name": "Profit",
           "sql_type": "decimal(18,2)",
           "digest": "sha256:f929e1654afe88f67bfeb519f3c72b7717c3e821ddc1920ea2677c28bc4acd08",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:630e4a7d9093611a730234b524dc50dec2a0d3ba7ca79380f76a50e25c88b419"
         },
         {
           "name": "Total Including Tax",
           "sql_type": "decimal(18,2)",
           "digest": "sha256:a6f9e4bf3bd649da520d3c0ab1ff591326246816585770b8620bb70ede99d110",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:e23b4e4733495db7af2aa82063efb1ac1c03abd582267159f0e6466157099e19"
         },
         {
           "name": "Total Dry Items",
           "sql_type": "int",
           "digest": "sha256:fa271c2859ffc233f762c0ff6581ebea40373d3750722114fdc091a126452ac8",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:185d3563ef48663027215e92fdb55e388251489ca7330c30b12fa408567e13fa"
         },
         {
           "name": "Total Chiller Items",
           "sql_type": "int",
           "digest": "sha256:bbe01b0c0f2f65f54702425f76a956fbf011deb3de27e4e47f1218ba1d062cda",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:1873c6c842cf16c74550d28ad3d3fc307f6bb442c1be2c19bbd839812c277ba4"
         },
         {
           "name": "Lineage Key",
           "sql_type": "int",
           "digest": "sha256:02e4376ea6903012889ed180c163ae8aa81fb6acb1323b1763187bb268bd05c3",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:02e4376ea6903012889ed180c163ae8aa81fb6acb1323b1763187bb268bd05c3"
         }
       ]
     },
@@ -1062,49 +1199,57 @@
           "name": "Stock Item Key",
           "sql_type": "int",
           "digest": "sha256:3745855fb039acb79ec9845f382d7c28d7aed0358ff58c1254d30fbc3259f2cb",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:e79ad5f30c990148784589902eaa55e3de0f630f7cdf74c9ad32dcc887656048"
         },
         {
           "name": "Quantity On Hand",
           "sql_type": "int",
           "digest": "sha256:fa267b933999ad286c43b775b214418458dc954cc03f0fd105c9dcd0b0760b2f",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:3b5365b3364acd382c1069d10f315b37d4f6f6e675466fdeae452c203511abfa"
         },
         {
           "name": "Bin Location",
           "sql_type": "nvarchar(20)",
           "digest": "sha256:e44a6efde3bfbecb0be32c6b8a68b6d7164513919f00f49d9fa8f2c409f98c65",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:14a15f3e2bfd586be264d05b87ad405baf6782b6fd7659096b8b1735ce00a414"
         },
         {
           "name": "Last Stocktake Quantity",
           "sql_type": "int",
           "digest": "sha256:937e1da4c66edf2b2aa89356235ba9f28d44d0d12bfb378291ac7b2f3646705b",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:99564f30960413ec9f92ca474884189c24c7435b3c63744f0048f93181a359b7"
         },
         {
           "name": "Last Cost Price",
           "sql_type": "decimal(18,2)",
           "digest": "sha256:cbfbb7fe9236b077419cec499978d7bbef50df3cdd0616bf3e3bbb399436785a",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:c1fe0e81bdb80a2be1cdc3a57a248a8ab46cc4655db0e496aa9970df32ca97bb"
         },
         {
           "name": "Reorder Level",
           "sql_type": "int",
           "digest": "sha256:2b6a1a12fe5bdbbafd0899a9cab76e55736cd6ff8b32ff3b400a27a2ff819a35",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:7c70af26ef43ddbb813a80140cc7b953bae76c30dae4408c7af3db1984661624"
         },
         {
           "name": "Target Stock Level",
           "sql_type": "int",
           "digest": "sha256:5481afdbd3d9ef6fd1f938d3b5a8fdfcf7188f9d706a376ea0aa60d9042b6f47",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:7a40aacdda04608b0fc08befa18c049a17e838a759c0aafb852d5373a59e1890"
         },
         {
           "name": "Lineage Key",
           "sql_type": "int",
           "digest": "sha256:354f38066fe5092ec43c3b3b4f04deb96d360a39d81e06312b226321bc414ac4",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:354f38066fe5092ec43c3b3b4f04deb96d360a39d81e06312b226321bc414ac4"
         }
       ]
     },
@@ -1133,97 +1278,113 @@
           "name": "Customer Key",
           "sql_type": "int",
           "digest": "sha256:fe68a5f3928d40f972647de45093b13665e8c512a6e574de24b20386da3cd00c",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:97579445522af244144c753bd374da990520bc062047b3bbfb1b813535bb11ea"
         },
         {
           "name": "Bill To Customer Key",
           "sql_type": "int",
           "digest": "sha256:5bbd4c3c7c32a2b76bf89e7ac16c8066222920f63c08a547ccd9b42ec45d1a2c",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:cedebbb334ef32acac973c5675982056615862a213f0efb052dde8780f2d296f"
         },
         {
           "name": "Supplier Key",
           "sql_type": "int",
           "digest": "sha256:12cf0958c56fdef58f5b530a0a5683a842ba6898b63c570a8de7a3e624158188",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:27137f8a4a1ba6e757025f4f8c7bbd3462c5c1a73ab0f7944bebed685fa0330b"
         },
         {
           "name": "Transaction Type Key",
           "sql_type": "int",
           "digest": "sha256:1649d2b58a2e728fe10e2ad977a58bd2d6645fc465edf9edbd77ad7fad48a5bf",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:9b2528619a8cd1df28d79d50533f6f2408197d25a36a636736853b8e93616df6"
         },
         {
           "name": "Payment Method Key",
           "sql_type": "int",
           "digest": "sha256:216ab9df53aa100a3ed2ee8bb731852b8d234012a606e0f5cd1948cbecf70dba",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:8c75335a1b83703aa9fb7b673643298c607c072b3da18219e1569715051eafb4"
         },
         {
           "name": "WWI Customer Transaction ID",
           "sql_type": "int",
           "digest": "sha256:15d7ef05a37852133574bb0383e19d2b75dd9fbddf084496195d6f5f29dc6faa",
-          "null_count": 2438
+          "null_count": 2438,
+          "ordered_digest": "sha256:9d52794ef0d2459936043d59848136e76517d40898b50e243dde5ac28c9a9360"
         },
         {
           "name": "WWI Supplier Transaction ID",
           "sql_type": "int",
           "digest": "sha256:10ffa3111725867c3a7f4e761c92ea0a85b9661bd8c8917a9ceedef8abaeece0",
-          "null_count": 97147
+          "null_count": 97147,
+          "ordered_digest": "sha256:c4b50daa9887960fa2a15c7b39990e8b7d2cbdd21b5308e37193b2f40f34e0a8"
         },
         {
           "name": "WWI Invoice ID",
           "sql_type": "int",
           "digest": "sha256:371b78d712e0b0911e13c8377376e0b47a9bdfc7a3aa5b4e8cf54a25287cbb56",
-          "null_count": 29075
+          "null_count": 29075,
+          "ordered_digest": "sha256:55e6f9c622e2060d951f70d2dc7141c562f9e8468258d85f1e98f32d03b3594a"
         },
         {
           "name": "WWI Purchase Order ID",
           "sql_type": "int",
           "digest": "sha256:fb93f3afcb78ca6f95029898866a49e4159981558c78db0a44cc8a3a08623023",
-          "null_count": 97513
+          "null_count": 97513,
+          "ordered_digest": "sha256:70695478e2c47d650ac25f0cb66011ca5c587a6c4064c4b251f89d0c0bebf4de"
         },
         {
           "name": "Supplier Invoice Number",
           "sql_type": "nvarchar(20)",
           "digest": "sha256:b515dc0faf09233f165e2fc3c8884e6583f475b76ba220c09b5c449b305019aa",
-          "null_count": 97513
+          "null_count": 97513,
+          "ordered_digest": "sha256:e944777f07661ef3ed476217eef24f7de895de7672fa498fb286cf01a9a5e224"
         },
         {
           "name": "Total Excluding Tax",
           "sql_type": "decimal(18,2)",
           "digest": "sha256:aff9ac5528077527bee3b9ce381acebe57f9dfcaed6da499ad9327a0d4475713",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:30fbae3410aa37fb4615e5d25b37ab5b97f55499f73399511489c911a049c655"
         },
         {
           "name": "Tax Amount",
           "sql_type": "decimal(18,2)",
           "digest": "sha256:85a0598b8c65958e61dbe2fdbf50a241a37e1453e8fab9db32c9069ca176837e",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:48505ca0f14b430dc42f81d61cd4d7664c9e848200c9ba4f219ec8a9c46023bd"
         },
         {
           "name": "Total Including Tax",
           "sql_type": "decimal(18,2)",
           "digest": "sha256:35d2053951aa12cab79f735336ec29f9d96502d8f95794099d188f69d56b24d8",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:e6bd262382d486fa91036a360442a1bc5e5546c4356610397495916de4206625"
         },
         {
           "name": "Outstanding Balance",
           "sql_type": "decimal(18,2)",
           "digest": "sha256:862ba46da5f31f82992c9eb59a0925ef2acb66f02747d5b0aea42202ecb6144a",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:d8faa69a0bdc5d941cebaaa0ae1fe446fbf63892cc2ca6e6cf10dc73eb8fd9ed"
         },
         {
           "name": "Is Finalized",
           "sql_type": "bit",
           "digest": "sha256:e82b6c33a0b3119ea92f57b3dfdd71f7b1a7aa9000e32d52fb05a71909242b67",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:aee835e7f9ef735a0d1005f4a65145f208d848e2732c897d5deef8a838ecab89"
         },
         {
           "name": "Lineage Key",
           "sql_type": "int",
           "digest": "sha256:5b06bd074d00a6f47f27f49f1954384f4be9fac476fa8b714b9fcbaaa4cfebb2",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:5b06bd074d00a6f47f27f49f1954384f4be9fac476fa8b714b9fcbaaa4cfebb2"
         }
       ]
     },
@@ -1245,7 +1406,8 @@
           "name": "Cutoff Time",
           "sql_type": "datetime2",
           "digest": "sha256:05a52745ba0b80389c9c736ff53c571a9c0af4fd8bd585b662dd90cfbf7792f4",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:89392a0fc76ddf33a584d33864b4a16aa64b93e54c359c521a15562c335995c7"
         }
       ]
     },
@@ -1267,31 +1429,36 @@
           "name": "Data Load Started",
           "sql_type": "datetime2",
           "digest": "sha256:27ff2f4dcf054c771d6c6c4175dd8a75a2b3aa363773f1d6febb30c12f32d5fe",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:311a488d0a7b0b710dd7f508612b272aee0fead1bee810d61ea517ff0a82c2b3"
         },
         {
           "name": "Table Name",
           "sql_type": "sysname",
           "digest": "sha256:6c040830dcf05ebcb4d1ca74d2a265c68a5c66bfe534512f2da74e2e5efac909",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:05a3f0281f7d505129d67f86cfa5231b4f45df867905b044d6064072367921d6"
         },
         {
           "name": "Data Load Completed",
           "sql_type": "datetime2",
           "digest": "sha256:85aa3c919ac5687a3a2796d0de42fb17d4f47e8c7e7002111b717358b853172d",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:5fbd656e958f2e7316047edd44bd145a6b65926c916ab96d6d377cf22a695efc"
         },
         {
           "name": "Was Successful",
           "sql_type": "bit",
           "digest": "sha256:d6690ea95a577b3fc88437d32e87f0334bf16bc58fee9d733f7996e5ae61afd1",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:d6690ea95a577b3fc88437d32e87f0334bf16bc58fee9d733f7996e5ae61afd1"
         },
         {
           "name": "Source System Cutoff Time",
           "sql_type": "datetime2",
           "digest": "sha256:9cbc2a4813ba5c156429f967bea4daa2efb3af2664786c48fd4abb82995ce7a4",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:9cbc2a4813ba5c156429f967bea4daa2efb3af2664786c48fd4abb82995ce7a4"
         }
       ]
     }

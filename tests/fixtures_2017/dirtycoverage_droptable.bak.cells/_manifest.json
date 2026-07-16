@@ -20,13 +20,15 @@
           "name": "label",
           "sql_type": "nvarchar(200)",
           "digest": "sha256:424ab75f8989b9198bd7b62352beb10bf179b9c7711382bf434bcc50742ec1c3",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:424ab75f8989b9198bd7b62352beb10bf179b9c7711382bf434bcc50742ec1c3"
         },
         {
           "name": "phase",
           "sql_type": "varchar(30)",
           "digest": "sha256:135c4d84bf08d462c37a20bc1dbedd2afa6a47fd87bb17df39ee47502c35be75",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:135c4d84bf08d462c37a20bc1dbedd2afa6a47fd87bb17df39ee47502c35be75"
         }
       ]
     },
@@ -48,7 +50,8 @@
           "name": "label",
           "sql_type": "nvarchar(200)",
           "digest": "sha256:3ecdbdab960cf322c7e11526a0457d1cdcfb3b89c54e650b6552a290e2850231",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:3ecdbdab960cf322c7e11526a0457d1cdcfb3b89c54e650b6552a290e2850231"
         }
       ]
     }

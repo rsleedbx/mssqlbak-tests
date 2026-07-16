@@ -31,7 +31,7 @@
         {
           "name": "Location",
           "sql_type": "geography",
-          "digest": "sha256:9a1e8f46ba21bd8b9d166c99223e19baf809c6064027f5522bb52aee690e4c2e",
+          "digest": "sha256:73de6f991c20931f0c1a6447f9c1a4a746a6b047efe5309c286d3d8748d04e68",
           "null_count": 0
         },
         {
@@ -188,7 +188,7 @@
         {
           "name": "Border",
           "sql_type": "geography",
-          "digest": "sha256:53f340039485138a7fd86c792ba1ed9693fda0a46e29975029d5cbe7935184c5",
+          "digest": "sha256:6b00974ec27e6368d3b5ac6f2ec2d8787e8468207f02934f3103968e0966bb93",
           "null_count": 0
         },
         {
@@ -762,7 +762,7 @@
         {
           "name": "Border",
           "sql_type": "geography",
-          "digest": "sha256:59b69dc961d1e8c11572f09b09cc4ff0cf01fe87ddd6e9f7a4eb584e9e6e4aaa",
+          "digest": "sha256:54e551504f5ff3b87db5e91c42b57f234b52c1b927013a573b51081ff7a30101",
           "null_count": 1
         },
         {
@@ -2005,7 +2005,7 @@
         {
           "name": "DeliveryLocation",
           "sql_type": "geography",
-          "digest": "sha256:72da8dcbe6f20062cf02c768fdd9bee17982859f3c9c736ec7db38a9545a6759",
+          "digest": "sha256:58297ee6b56c8bb755ae71e783c7a110af0a68e063b641786e4451ccb5d1fc49",
           "null_count": 0
         },
         {

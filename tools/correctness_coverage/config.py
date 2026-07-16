@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import os
 from pathlib import Path
-from typing import Any
+from typing import Any, TypedDict
 
 # Full Rust backtraces so Rust panics (PanicException) print the call chain to
 # stderr rather than just the panic message.
@@ -46,9 +46,73 @@ _MINMAX_SKIP_TYPES: frozenset[str] = frozenset(
 )
 
 # ---------------------------------------------------------------------------
-# NodeStats type alias
+# NodeStats type alias and TypedDicts
 # ---------------------------------------------------------------------------
 
 # {fqn: per-table stats dict}
 # GT node entries have kind="ground_truth"; Arrow node entries have kind="arrow".
 NodeStats = dict[str, dict[str, Any]]
+
+
+class ArrowNodeEntry(TypedDict, total=False):
+    """Per-table stats computed from an extracted or read-back Arrow table."""
+
+    kind: str           # always "arrow"
+    row_count: int
+    null_counts: dict[str, int]
+    min_vals: dict[str, Any]
+    max_vals: dict[str, Any]
+    col_count: int
+    col_names: list[str]
+
+
+class GTNodeEntry(TypedDict, total=False):
+    """Per-table stats loaded from a .bak.stats.json ground-truth file."""
+
+    kind: str           # always "ground_truth"
+    expected_rows: int
+    col_count: int
+    col_names: list[str]
+    gt_columns: list[dict[str, Any]]
+
+
+class EdgeResult(TypedDict, total=False):
+    """One pipeline-edge comparison result (e.g. mssql→arrow or arrow→delta)."""
+
+    tables: list[dict[str, Any]]
+    write_s: float | None
+    readback_s: float | None
+
+
+class FixtureResult(TypedDict, total=False):
+    """Top-level result dict returned by _run_one / _run_case for one .bak file.
+
+    Crashed fixtures populate only ``bak``, ``error``, ``traceback``, ``crashed``,
+    ``tables``, and ``edges`` (empty); all timing/resource fields are absent.
+    """
+
+    bak: str
+    sql_version: str
+    bak_size_mb: float
+    extract_s: float
+    wall_s: float
+    write_s: dict[str, float]
+    readback_s: dict[str, float]
+    read_s: dict[str, float]
+    stats_s: dict[str, float]
+    verify_s: dict[str, float]
+    phases: dict[str, float]
+    catalog_s: float
+    data_decode_net_s: float
+    tables: list[dict[str, Any]]
+    edges: dict[str, EdgeResult]
+    total_src_rows: int
+    total_src_cols: int
+    resources: dict[str, Any]
+    confidence: dict[str, Any]
+    run_id: str
+    source_mode: str
+    # Set only when the fixture crashed/errored before producing a result.
+    error: str
+    traceback: str
+    crashed: bool

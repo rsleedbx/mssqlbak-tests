@@ -20,7 +20,8 @@
           "name": "val",
           "sql_type": "sql_variant",
           "digest": "sha256:388921176044fe55dfcc74143161534e27cf4792bd61a02372b80d52b964b5ca",
-          "null_count": 1
+          "null_count": 1,
+          "ordered_digest": "sha256:cebf014e55d463f3dff70eede8917a6471ab78b68e8a33cda35ba9954ae13942"
         }
       ]
     }

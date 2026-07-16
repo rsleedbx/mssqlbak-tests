@@ -488,6 +488,12 @@ def pytest_addoption(parser: pytest.Parser) -> None:
         default=False,
         help="Also run real-world large .bak/.bacpac benchmarks from tests/fixtures_realworld/.",
     )
+    parser.addoption(
+        "--matrix",
+        action="store_true",
+        default=False,
+        help="Include exhaustive per-cell (level=full) value verification (matrix variants).",
+    )
 
 
 def pytest_configure(config: pytest.Config) -> None:
@@ -525,6 +531,13 @@ def pytest_collection_modifyitems(
         for item in items:
             if "samples" in item.keywords:
                 item.add_marker(skip)
+    if not config.getoption("--matrix", default=False):
+        skip_matrix = pytest.mark.skip(
+            reason="pass --matrix to include exhaustive per-cell (level=full) verification"
+        )
+        for item in items:
+            if "matrix" in item.keywords:
+                item.add_marker(skip_matrix)
 
 
 @pytest.fixture

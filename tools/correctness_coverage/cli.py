@@ -5,6 +5,8 @@ from __future__ import annotations
 import argparse
 import datetime
 import json
+import logging
+import os
 import sys
 from pathlib import Path
 from typing import Any
@@ -153,7 +155,35 @@ def main(argv: list[str] | None = None) -> int:
             "reports under --reports-dir. Useful for regenerating after editing."
         ),
     )
+    parser.add_argument(
+        "-v", "--verbose",
+        action="store_true",
+        help=(
+            "Enable DEBUG logging to stderr. Shows per-table extraction details and "
+            "full tracebacks from worker errors. Equivalent to MSSQLBAK_LOG_LEVEL=DEBUG."
+        ),
+    )
+    parser.add_argument(
+        "--faulthandler",
+        action="store_true",
+        help=(
+            "Enable faulthandler periodic stack dumps every 60 s in worker processes. "
+            "Useful for locating hangs. Equivalent to MSSQLBAK_FAULTHANDLER=1."
+        ),
+    )
     args = parser.parse_args(argv)
+
+    # Wire up logging for the orchestrator process and propagate settings to workers
+    # via environment variables that _run_case checks on startup.
+    if args.verbose:
+        os.environ.setdefault("MSSQLBAK_LOG_LEVEL", "DEBUG")
+    if args.faulthandler:
+        os.environ.setdefault("MSSQLBAK_FAULTHANDLER", "1")
+    logging.basicConfig(
+        level=logging.DEBUG if args.verbose else logging.WARNING,
+        format="%(name)s %(levelname)s %(message)s",
+        stream=sys.stderr,
+    )
 
     # Parse and validate --sinks
     raw_sinks = [s.strip() for s in args.sinks.split(",") if s.strip()]

@@ -2384,49 +2384,57 @@
           "name": "model_id",
           "sql_type": "int",
           "digest": "sha256:d7c0db5a2a0b7eb9abf5c315453ababfd88818917d8672d8c8889558477d6102",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:d7c0db5a2a0b7eb9abf5c315453ababfd88818917d8672d8c8889558477d6102"
         },
         {
           "name": "scoring_characteristics",
           "sql_type": "varchar(8000)",
           "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "null_count": 1
+          "null_count": 1,
+          "ordered_digest": "sha256:ad95131bc0b799c0b1af477fb14fcf26a6a9f76079e48bf090acb7e8367bfd0e"
         },
         {
           "name": "scoring_duration_ms",
           "sql_type": "bigint",
           "digest": "sha256:98aa44de8a9bf6c22c2eacd3f08bcaaccdf3d1abb9d937fcb8d28c82debdf9e9",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:98aa44de8a9bf6c22c2eacd3f08bcaaccdf3d1abb9d937fcb8d28c82debdf9e9"
         },
         {
           "name": "scoring_sample_rows",
           "sql_type": "bigint",
           "digest": "sha256:56b659eae4f791095f54a22b9806cd805ae10d3ffb771a7033bcdda3cee91ba1",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:56b659eae4f791095f54a22b9806cd805ae10d3ffb771a7033bcdda3cee91ba1"
         },
         {
           "name": "created_by",
           "sql_type": "nvarchar(255)",
           "digest": "sha256:4dcf5836fabc85ea7eba0cf31b37f9f63525b2b1b12498dc056a9aa196a944d9",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:4dcf5836fabc85ea7eba0cf31b37f9f63525b2b1b12498dc056a9aa196a944d9"
         },
         {
           "name": "create_time",
           "sql_type": "datetime2",
           "digest": "sha256:d335291b62acee56c140fd402330f84a41fec1dc3a6fe8c9b6b66b947ff334eb",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:d335291b62acee56c140fd402330f84a41fec1dc3a6fe8c9b6b66b947ff334eb"
         },
         {
           "name": "host_name",
           "sql_type": "nvarchar(128)",
           "digest": "sha256:a5197e89766773885d06f4515445bed4df1611d2f508d4290f762d5121b13942",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:a5197e89766773885d06f4515445bed4df1611d2f508d4290f762d5121b13942"
         },
         {
           "name": "app_name",
           "sql_type": "nvarchar(128)",
           "digest": "sha256:63955fc5016cbbf86f24002f49f80f0a5bc07e3e1ab33012410521eaa9d09f1b",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:63955fc5016cbbf86f24002f49f80f0a5bc07e3e1ab33012410521eaa9d09f1b"
         }
       ]
     },
@@ -2448,79 +2456,92 @@
           "name": "model_id",
           "sql_type": "int",
           "digest": "sha256:9da03f600fd80c24b1d2dee6c82556a5837f664355196ae112613f6c62546a5d",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:14d9784b7c16d3f00e47fe6c05483ea7c355e77d05902b797e24e3f659ab5ff5"
         },
         {
           "name": "model_function_call",
           "sql_type": "nvarchar(max)",
           "digest": "sha256:22560153680648345c65ebd055e68ad048d4f1e233302507ce40e0745926aa84",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:54db634892ae511c15d3dae370e7246a37d618210dffa5e0e4459516f1a022e3"
         },
         {
           "name": "model_formula",
           "sql_type": "nvarchar(max)",
           "digest": "sha256:560b0a79695c86242348d6e48bf300acd64549c0c83838904919e97109ba413a",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:a2f556a248b739dd1ccef39cad3af8b506f1e9d12493c200a91a5ee53e9c1482"
         },
         {
           "name": "model_valid_observations",
           "sql_type": "int",
           "digest": "sha256:643aea9fc58ee0300e3058f7fc72b3ccf98b38aefd265fb3ff83360d73f014e3",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:ccb4c251ffc53fa04950e1c43c70eac42fb868e95677fff672a04a9540374d61"
         },
         {
           "name": "model_iterations",
           "sql_type": "int",
           "digest": "sha256:296e27acfab596851d07dd73c917fac9375996aaabd4ebc1bdc6c6571776e092",
-          "null_count": 6
+          "null_count": 6,
+          "ordered_digest": "sha256:d4e03c225033f7dd293ea86c5843cd6de2e8839ec0b4bd3c29e671970260c3b5"
         },
         {
           "name": "model_characteristics",
           "sql_type": "nvarchar(max)",
           "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "null_count": 8
+          "null_count": 8,
+          "ordered_digest": "sha256:af9613760f72635fbdb44a5a0a63c39f12af30f950a6ee5c971be188e89c4051"
         },
         {
           "name": "model_object",
           "sql_type": "varbinary(max)",
           "digest": "sha256:ea97b6399a0bddc143bac8c11e84543986eb9f994012c7a52f6fae10e075b805",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:5d6f045ebd9ba31e593b06f03bb314b216d343553a3db278f3bddb0ac9d6a1b9"
         },
         {
           "name": "model_generation_duration_ms",
           "sql_type": "float",
           "digest": "sha256:879500014ed09964e8d2326b956b129b5cac18a05b0397b5c854c65024d0a17b",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:a5fdeae0e4f9262daf7f55194237667bb95155eada7458c676fb65c5046cd92d"
         },
         {
           "name": "training_duration_ms",
           "sql_type": "bigint",
           "digest": "sha256:24caefa73c4e9a30035c4a58aeece9967100cc425eb331ae20fac8385b8aae1b",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:799b14f363ebdf55a5d4750daf9eedf20bf176ac241b7545e5d61d38cb9a2e76"
         },
         {
           "name": "created_by",
           "sql_type": "nvarchar(255)",
           "digest": "sha256:931647d0d112689aec605c77a81d5057ad148b4e3837e3e5effd69a88bba940a",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:931647d0d112689aec605c77a81d5057ad148b4e3837e3e5effd69a88bba940a"
         },
         {
           "name": "create_time",
           "sql_type": "datetime2",
           "digest": "sha256:3016b08b7598a006fbefe0a6b3961adc35d2102b7ed8ee25f8e7ff2c6ce11672",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:b59c5f3051e73336b76a53017123c94bfce3e70050032d421809ffa94c386f5b"
         },
         {
           "name": "host_name",
           "sql_type": "nvarchar(128)",
           "digest": "sha256:77621eb9f21fae3ad487934b0d5b723f96e4637ed6d7ab4f1e4a4fb1097b1aa1",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:77621eb9f21fae3ad487934b0d5b723f96e4637ed6d7ab4f1e4a4fb1097b1aa1"
         },
         {
           "name": "app_name",
           "sql_type": "nvarchar(128)",
           "digest": "sha256:16654f3838d1472c1bfd196ea231961e86c8c3334a11e95f1c1577bcb751dea6",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:16654f3838d1472c1bfd196ea231961e86c8c3334a11e95f1c1577bcb751dea6"
         }
       ]
     },
@@ -2542,61 +2563,71 @@
           "name": "model_name",
           "sql_type": "nvarchar(100)",
           "digest": "sha256:ced719f42373dc6b7ab0056626ab55df3ddd3993c08d96c032c2965515a1637f",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:488ee5516ad7844ed5f1ccd0165816649689b1115212d826ce049826e0725623"
         },
         {
           "name": "model_type",
           "sql_type": "nvarchar(100)",
           "digest": "sha256:ed3b856a8af4656587bd76dd458ee0d0ccf539aa1d1ff4e69a74cfe48a7c795c",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:272a36c7641ce5314bca60edc6c7322849b42be7faaf78ca3c7933fec72dcc14"
         },
         {
           "name": "model_description",
           "sql_type": "varchar(1000)",
           "digest": "sha256:e39d28f827ae231c620ad6ab52411be7146ed51371d9eaed6b74d16478891f43",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:467edd40f55fbb6ee4594c14fd5a2e8e3d6e87d84e68ddac545c7b5e4295ac72"
         },
         {
           "name": "model_version",
           "sql_type": "int",
           "digest": "sha256:9c94fa5d555e9815b11e655f39d4a82102b0172fb9134b817b6085559632b7fa",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:9c94fa5d555e9815b11e655f39d4a82102b0172fb9134b817b6085559632b7fa"
         },
         {
           "name": "created_by",
           "sql_type": "nvarchar(255)",
           "digest": "sha256:27cc0c33df799e8b4ef302d03ab3bcd6e12836ce1c8fd4d2154e5e70e6d41f0c",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:27cc0c33df799e8b4ef302d03ab3bcd6e12836ce1c8fd4d2154e5e70e6d41f0c"
         },
         {
           "name": "create_time",
           "sql_type": "datetime2",
           "digest": "sha256:fb20db06e9ba095abf8df77fbb7b40411d5b16e2a31da22b3fbced949a8f957a",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:fb20db06e9ba095abf8df77fbb7b40411d5b16e2a31da22b3fbced949a8f957a"
         },
         {
           "name": "modified_by",
           "sql_type": "nvarchar(255)",
           "digest": "sha256:27cc0c33df799e8b4ef302d03ab3bcd6e12836ce1c8fd4d2154e5e70e6d41f0c",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:27cc0c33df799e8b4ef302d03ab3bcd6e12836ce1c8fd4d2154e5e70e6d41f0c"
         },
         {
           "name": "modified_time",
           "sql_type": "datetime2",
           "digest": "sha256:ba14f8e74c39a5c5027b49d26735ce319341748d2d8408061850ad8b5a449c83",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:ba14f8e74c39a5c5027b49d26735ce319341748d2d8408061850ad8b5a449c83"
         },
         {
           "name": "host_name",
           "sql_type": "nvarchar(128)",
           "digest": "sha256:6f0d9a883573e668fea545fe5811ce58b48d3e030cd7672010bc297bc4ae0ee7",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:6f0d9a883573e668fea545fe5811ce58b48d3e030cd7672010bc297bc4ae0ee7"
         },
         {
           "name": "app_name",
           "sql_type": "nvarchar(128)",
           "digest": "sha256:48c1f3078406bcd3593d075dc0d9f8b32681fb1478c5216f531e8cbdb611a641",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:48c1f3078406bcd3593d075dc0d9f8b32681fb1478c5216f531e8cbdb611a641"
         }
       ]
     },
@@ -2619,7 +2650,8 @@
           "name": "script_definition",
           "sql_type": "nvarchar(max)",
           "digest": "sha256:543554cdc669456266da27ffc864cd0ae68a265472ce5e108088d11ff28677a3",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:543554cdc669456266da27ffc864cd0ae68a265472ce5e108088d11ff28677a3"
         },
         {
           "name": "created_by",
@@ -2631,19 +2663,22 @@
           "name": "create_time",
           "sql_type": "datetime2",
           "digest": "sha256:830887dbf2c9ba9e5868ea0161bee19cee14ecc4cb215e9e4e7615f5a585788a",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:830887dbf2c9ba9e5868ea0161bee19cee14ecc4cb215e9e4e7615f5a585788a"
         },
         {
           "name": "host_name",
           "sql_type": "nvarchar(128)",
           "digest": "sha256:a5197e89766773885d06f4515445bed4df1611d2f508d4290f762d5121b13942",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:a5197e89766773885d06f4515445bed4df1611d2f508d4290f762d5121b13942"
         },
         {
           "name": "app_name",
           "sql_type": "nvarchar(128)",
           "digest": "sha256:63955fc5016cbbf86f24002f49f80f0a5bc07e3e1ab33012410521eaa9d09f1b",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:63955fc5016cbbf86f24002f49f80f0a5bc07e3e1ab33012410521eaa9d09f1b"
         }
       ]
     }

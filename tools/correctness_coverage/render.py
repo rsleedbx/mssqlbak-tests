@@ -25,10 +25,13 @@ def _value_ok(t: dict[str, Any]) -> bool:
     """True unless row-level cell verification ran for this table and failed.
 
     Returns True when no ``.cells/`` sidecar scored the table, so this is inert
-    until ground-truth capture has produced cells.
+    until ground-truth capture has produced cells.  Also returns True for
+    un-scored tables (GT parquet not yet captured) so they don't count as fails.
     """
     if t.get("value_error"):
         return False
+    if t.get("value_unscored"):
+        return True
     if "value_pass" not in t:
         return True
     return bool(t["value_pass"])
@@ -49,6 +52,8 @@ def _cells_note(t: dict[str, Any]) -> str:
     """Compact per-table cell-verification note (empty when unscored)."""
     if t.get("value_error"):
         return f"cells: ERROR ({t['value_error']})"
+    if t.get("value_unscored"):
+        return ""
     if "value_pass" not in t:
         return ""
     ok, total = t.get("value_ok", 0), t.get("value_total", 0)
@@ -352,8 +357,7 @@ def _render(
             col_s = _fmt_count(col_ok_n, row_total)
             cells_s = (
                 _cells_summary(tables)
-                if edge_name in ("mssql_arrow",)
-                or any(edge_name.endswith("_arrow") for _ in [None])
+                if edge_name.endswith("_arrow")
                 else "—"
             )
 
@@ -453,15 +457,15 @@ def _render(
             "|------------------:|-----------:|-------------:|------------:|"
         )
         for r in phase_rows:
-            ph: dict = r.get("phases") or {}
-            ws: dict = r.get("write_s") or {}
-            vs: dict = r.get("verify_s") or {}
+            ph: dict[str, Any] = r.get("phases") or {}
+            ph_ws: dict[str, Any] = r.get("write_s") or {}
+            vs: dict[str, Any] = r.get("verify_s") or {}
 
             def _fs(key: str) -> str:
                 v = ph.get(key)
                 return f"{v}s" if v is not None else "—"
 
-            sink_write_total = round(sum(ws.values()), 3)
+            sink_write_total = round(sum(ph_ws.values()), 3)
             arrow_verify = vs.get("mssql_arrow")
             ddn = r.get("data_decode_net_s")
             lines.append(
@@ -473,7 +477,7 @@ def _render(
                 f"| {_fs('logtail_s')} "
                 f"| {_fs('xtp_s')} "
                 f"| {f'{ddn}s' if ddn is not None else '—'} "
-                f"| {f'{sink_write_total}s' if ws else '—'} "
+                f"| {f'{sink_write_total}s' if ph_ws else '—'} "
                 f"| {f'{arrow_verify}s' if arrow_verify is not None else '—'} "
                 f"| {_fs('sink_finish_s')} |"
             )
@@ -498,12 +502,12 @@ def _render(
         lines.append(f"| Backup | {write_cols} |")
         lines.append(f"|--------|{sep_cols}|")
         for r in sink_timing_rows:
-            ws: dict[str, Any] = r.get("write_s") or {}
-            rs: dict[str, Any] = r.get("readback_s") or {}
+            sink_ws: dict[str, Any] = r.get("write_s") or {}
+            sink_rs: dict[str, Any] = r.get("readback_s") or {}
             cols = []
             for s in active_sinks:
-                w = ws.get(s)
-                rb = rs.get(s)
+                w = sink_ws.get(s)
+                rb = sink_rs.get(s)
                 cols.append(f"{w}s" if w is not None else "—")
                 cols.append(f"{rb}s" if rb is not None else "—")
             lines.append(f"| `{r['bak']}` | {' | '.join(cols)} |")
@@ -528,15 +532,15 @@ def _render(
         lines.append(f"| Backup | {' | '.join(hdr_parts)} |")
         lines.append(f"|--------| {' | '.join(sep_parts)}|")
         for r in breakdown_rows:
-            rs: dict = r.get("read_s") or {}
-            ss: dict = r.get("stats_s") or {}
-            vs: dict = r.get("verify_s") or {}
-            arrow_v = vs.get("mssql_arrow")
+            bd_rs: dict[str, Any] = r.get("read_s") or {}
+            bd_ss: dict[str, Any] = r.get("stats_s") or {}
+            bd_vs: dict[str, Any] = r.get("verify_s") or {}
+            arrow_v = bd_vs.get("mssql_arrow")
             cols = [f"{arrow_v}s" if arrow_v is not None else "—"]
             for s in active_sinks:
-                rd = rs.get(s)
-                st = ss.get(s)
-                vv = vs.get(s)
+                rd = bd_rs.get(s)
+                st = bd_ss.get(s)
+                vv = bd_vs.get(s)
                 cols.append(f"{rd}s" if rd is not None else "—")
                 cols.append(f"{st}s" if st is not None else "—")
                 cols.append(f"{vv}s" if vv is not None else "—")

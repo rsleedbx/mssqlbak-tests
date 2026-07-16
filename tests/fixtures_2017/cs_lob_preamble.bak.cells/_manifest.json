@@ -20,7 +20,8 @@
           "name": "long_str",
           "sql_type": "nvarchar(4000)",
           "digest": "sha256:68397033834e8c30287179711bc7ed99b70e54aae09f8632a07cdd5adbb6e9d3",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:d269c5b7d405107a78f65b3888363b29f3d527f6f52465db11320e5b0cb129da"
         }
       ]
     }

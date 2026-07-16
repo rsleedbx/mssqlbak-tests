@@ -36,13 +36,15 @@
           "name": "doc",
           "sql_type": "xml",
           "digest": "sha256:7245388f40a7cfeaeca07c614068447b247adeac0b6c76a3f97f33ee6f04ed4e",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:7245388f40a7cfeaeca07c614068447b247adeac0b6c76a3f97f33ee6f04ed4e"
         },
         {
           "name": "tag",
           "sql_type": "varchar(20)",
           "digest": "sha256:32cf2c1ec1cb3d6ed91e2f0ebea2561981bf896629ff9a8a0f59bdce999ef9fd",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:2dcb2bae6dd53c85d6aab20728ef8f72f0c50afba3a1a0641a79e49b639f84d4"
         }
       ]
     }

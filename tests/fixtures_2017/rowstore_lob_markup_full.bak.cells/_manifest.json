@@ -20,19 +20,22 @@
           "name": "html_body",
           "sql_type": "varchar(max)",
           "digest": "sha256:2a24877dd8d404148f2b597a74892fc869c539a286f46b1d9eddee9134d14b9f",
-          "null_count": 1
+          "null_count": 1,
+          "ordered_digest": "sha256:b1fccbcb2c20377949b7df8c7ede76d158db025e5cc57b8b0b2781b5cbb15374"
         },
         {
           "name": "wide_body",
           "sql_type": "nvarchar(max)",
           "digest": "sha256:592b9e00b7e0a45e341307ad362c5605a9431fa5d0f44ca923b36d13a8efa949",
-          "null_count": 1
+          "null_count": 1,
+          "ordered_digest": "sha256:9e953e2b186181fd557472ea1b0db2a29716b99cd5f8a9294fe0393e0e04d0e4"
         },
         {
           "name": "json_body",
           "sql_type": "varchar(max)",
           "digest": "sha256:2b23e1b1b2194218eb9d63b2ac6f44c8614fe0d932b5cb2c61988e57e2b2aaf2",
-          "null_count": 1
+          "null_count": 1,
+          "ordered_digest": "sha256:f479a6df12e5e85603abd0d55226f911ecea1bfef620cdad357d784b02ee4421"
         }
       ]
     }

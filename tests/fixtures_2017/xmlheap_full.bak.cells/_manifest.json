@@ -20,37 +20,43 @@
           "name": "event_time",
           "sql_type": "datetime2",
           "digest": "sha256:19b4eec0d9cb9e8026ae04cd080df1cb82f891a24d517fbe7ad76e099e04265d",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:19b4eec0d9cb9e8026ae04cd080df1cb82f891a24d517fbe7ad76e099e04265d"
         },
         {
           "name": "event_type",
           "sql_type": "nvarchar(100)",
           "digest": "sha256:1088b7b69f4233d6f3c57080be686fcec600910af32aec37ed76019b19c7ed39",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:1088b7b69f4233d6f3c57080be686fcec600910af32aec37ed76019b19c7ed39"
         },
         {
           "name": "xml_event",
           "sql_type": "xml",
           "digest": "sha256:a0cfeb886846d3e48a990ae9eb46d3f86d1b1374787a0bb7a543c7edb9974a24",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:a0cfeb886846d3e48a990ae9eb46d3f86d1b1374787a0bb7a543c7edb9974a24"
         },
         {
           "name": "xml_small",
           "sql_type": "xml",
           "digest": "sha256:b44e0505dfbed45c3f7ac981a20206aadb3e95d2f3f30e7488422a1c42e997f5",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:b44e0505dfbed45c3f7ac981a20206aadb3e95d2f3f30e7488422a1c42e997f5"
         },
         {
           "name": "text_payload",
           "sql_type": "varchar(max)",
           "digest": "sha256:a50fb75774306ed9142efe8462b252be8d3587d7d94bcc13878c775310cd8532",
-          "null_count": 100
+          "null_count": 100,
+          "ordered_digest": "sha256:8869925e1341bbc112b054994edc73c4b3137d495229e43a44c5f38c46174c68"
         },
         {
           "name": "bin_payload",
           "sql_type": "varbinary(max)",
           "digest": "sha256:2c19d7c62021ac24b3a01ad055adefbc7b1669078ba2b7d95b14272ffb4fb4f6",
-          "null_count": 100
+          "null_count": 100,
+          "ordered_digest": "sha256:71647d52d307d164e03c0c22742de5fc62ee9368495c51dcf451e215dfd34ba9"
         }
       ]
     }

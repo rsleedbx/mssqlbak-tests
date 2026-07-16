@@ -20,19 +20,22 @@
           "name": "hashed_password",
           "sql_type": "binary(32)",
           "digest": "sha256:b67023c944d465825121ab95415f6617e4b6f4a2c0c9c83759d50fa9c4cf0742",
-          "null_count": 1
+          "null_count": 1,
+          "ordered_digest": "sha256:3a1eceb939c2951ac3fc49a21761dc5a482c60cb457925f9c1e94e2eef9d7d34"
         },
         {
           "name": "ssn_cipher",
           "sql_type": "varbinary(16)",
           "digest": "sha256:a74f881f5aa17bf00a7a01edb7c183b9c863397a51cd51f31c8d9168e2974190",
-          "null_count": 1
+          "null_count": 1,
+          "ordered_digest": "sha256:ce73dc4edd33afb2b5cfb89f8ab00c8aec6bd55686657dab00f5f8fd56939984"
         },
         {
           "name": "credit_card_cipher",
           "sql_type": "varbinary(max)",
           "digest": "sha256:3cb3920283f4feb0add41d45449fa90c5d981134edf520d28ace2cb2001312e7",
-          "null_count": 1
+          "null_count": 1,
+          "ordered_digest": "sha256:093bf9c29000e32ab4a7b317630e04b0a6343a39f55dd1d4235fe64d6bd0a0df"
         }
       ]
     }

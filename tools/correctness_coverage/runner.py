@@ -11,7 +11,8 @@ import re
 import shutil
 import sys
 import time
-from concurrent.futures import FIRST_COMPLETED, ProcessPoolExecutor, wait
+import traceback
+from concurrent.futures import BrokenExecutor, FIRST_COMPLETED, ProcessPoolExecutor, wait
 from pathlib import Path
 from typing import Any
 
@@ -20,6 +21,7 @@ import pyarrow as pa
 from mssqlbak.confidence import ConfidenceCheck, ConfidenceReport, analyze_bak
 from mssqlbak.extract import extract_bak
 from mssqlbak.sink import MultiSink
+from mssqlbak.sinks.async_writer_sink import AsyncWriterSink
 from tools import value_verify
 from tools.known_gaps import expected_skipped_tables
 
@@ -116,17 +118,10 @@ class _StreamingStatsSink:
                 entry = self._manifest_by_fqn.get(fqn)
                 if entry is not None:
                     t_v = time.perf_counter()
-                    try:
-                        vr = value_verify.verify_table(
-                            tbl, self._cells_dir, entry, level=self._verify_level
-                        )
-                        self.verify_results[fqn] = vr
-                    except Exception as exc:
-                        vr2 = value_verify.TableVerifyResult(fqn=fqn, mode="full")
-                        vr2.error = str(exc)
-                        self.verify_results[fqn] = vr2
-                    finally:
-                        self.verify_s += time.perf_counter() - t_v
+                    self.verify_results[fqn] = _verify_one(
+                        tbl, self._cells_dir, entry, self._verify_level
+                    )
+                    self.verify_s += time.perf_counter() - t_v
         del tbl
 
 
@@ -186,7 +181,6 @@ def _estimate_peak_mb(bak_path: Path, stats_path: Path | None) -> float:
 # ---------------------------------------------------------------------------
 
 
-
 def _resolve_bak_input(bak_path: Path) -> Path | list[Path]:
     stem = bak_path.stem
     m = re.match(r"^(.+)_(\d)$", stem)
@@ -204,6 +198,53 @@ def _resolve_bak_input(bak_path: Path) -> Path | list[Path]:
         if full_path.exists():
             return [full_path, bak_path]
     return bak_path
+
+
+# ---------------------------------------------------------------------------
+# Per-fixture helpers
+# ---------------------------------------------------------------------------
+
+
+def _error_result(bak_path: Path, exc: BaseException) -> dict[str, Any]:
+    """Build a minimal result dict for a fixture that failed or crashed.
+
+    Keeps the fixture visible in the rendered report as an explicit failure row
+    rather than silently disappearing from the results list.
+    """
+    return {
+        "bak": bak_path.name,
+        "sql_version": "",
+        "bak_size_mb": 0,
+        "extract_s": 0,
+        "tables": [],
+        "edges": {},
+        "total_src_rows": 0,
+        "total_src_cols": 0,
+        "error": str(exc),
+        "traceback": traceback.format_exc(),
+        "crashed": True,
+    }
+
+
+def _verify_one(
+    tbl: "pa.Table",
+    cells_dir: Path,
+    entry: dict[str, Any],
+    level: str,
+) -> "value_verify.TableVerifyResult":
+    """Run verify_table for one table, converting exceptions to error results.
+
+    Centralises the try/except/log pattern shared by _StreamingStatsSink._flush_fqn
+    and the readback verify loop so both callers get identical error semantics.
+    """
+    fqn: str = entry.get("fqn", "")
+    try:
+        return value_verify.verify_table(tbl, cells_dir, entry, level=level)
+    except Exception as exc:
+        log.exception("verify_table failed for %s", fqn)
+        vr = value_verify.TableVerifyResult(fqn=fqn, mode="full")
+        vr.error = f"{exc}\n{traceback.format_exc()}"
+        return vr
 
 
 # ---------------------------------------------------------------------------
@@ -277,7 +318,6 @@ def _run_one(
         manifest_by_fqn,
         verify_level=verify_level,
     )
-    all_sinks: list[Any] = [streaming_sink]
 
     if active_specs and outdir is not None:
         base = outdir / stem
@@ -288,16 +328,24 @@ def _run_one(
             real_sink = spec.make(sink_root)
             tsink = _TimingSink(real_sink)
             timing_sinks.append(tsink)
-            all_sinks.append(tsink)
 
-    # extract_bak automatically wraps non-ResumableSinks in AsyncWriterSink on
-    # the serial decode path so sink writes overlap Rust/xpress_lz77 decode.
-    combined_sink: Any = MultiSink(*all_sinks) if len(all_sinks) > 1 else streaming_sink
+    # Overlap decode with the real I/O sinks (delta, pg_dir) by driving ONLY them
+    # on a background writer thread.  The stats/verify sink stays synchronous on
+    # the main thread: its digest builds zero-copy numpy views over Arrow buffers,
+    # which is unsafe to run concurrently with the main-thread Rust decode
+    # recycling those buffers.  We therefore pass async_writes=False so
+    # extract_bak does not wrap the whole MultiSink, and wrap the I/O sinks here.
+    combined_sink: Any
+    if timing_sinks:
+        io_sink: Any = MultiSink(*timing_sinks) if len(timing_sinks) > 1 else timing_sinks[0]
+        combined_sink = MultiSink(streaming_sink, AsyncWriterSink(io_sink))
+    else:
+        combined_sink = streaming_sink
 
     # --- Extract once; streaming_sink processes each table in close() ---
     mon.snapshot("before_extract")
     t0 = time.perf_counter()
-    extract_report = extract_bak(bak_input, combined_sink)
+    extract_report = extract_bak(bak_input, combined_sink, async_writes=False)
     extract_s = round(time.perf_counter() - t0, 3)
     mon.snapshot("after_extract")
 
@@ -378,17 +426,10 @@ def _run_one(
                     entry = manifest_by_fqn.get(fqn)
                     if entry is not None:
                         t_v = time.perf_counter()
-                        try:
-                            vr = value_verify.verify_table(
-                                sink_tbl, cells_dir, entry, level=verify_level
-                            )
-                            sink_verify_results[fqn] = vr
-                        except Exception as exc:
-                            vr2 = value_verify.TableVerifyResult(fqn=fqn, mode="full")
-                            vr2.error = str(exc)
-                            sink_verify_results[fqn] = vr2
-                        finally:
-                            _verify += time.perf_counter() - t_v
+                        sink_verify_results[fqn] = _verify_one(
+                            sink_tbl, cells_dir, entry, verify_level
+                        )
+                        _verify += time.perf_counter() - t_v
 
             del sink_tbl
             _release_arrow_memory()
@@ -656,7 +697,8 @@ def _run_cases(
                 serial_results.append(_run_logged_case(bak_path, stats_path, _url(bak_path), **kw))
                 _release_arrow_memory()
             except Exception as exc:
-                print(f"  ERROR: {exc}", file=sys.stderr)
+                log.exception("ERROR processing %s: %s", bak_path.name, exc)
+                serial_results.append(_error_result(bak_path, exc))
         return serial_results
 
     max_workers = min(threads, len(cases))
@@ -681,9 +723,12 @@ def _run_cases(
         active: dict[Any, tuple[int, Path, float]] = {}  # future → (idx, path, est_mb)
         queue = list(enumerate(cases))
         reserved_mb: float = 0.0
+        pool_broken: bool = False
 
         def _fill() -> None:
-            nonlocal reserved_mb
+            nonlocal reserved_mb, pool_broken
+            if pool_broken:
+                return
             while queue and len(active) < max_workers:
                 # Scan the full queue for the first fixture whose estimate fits
                 # inside the remaining budget.  This avoids one large fixture
@@ -707,15 +752,38 @@ def _run_cases(
                         break  # wait for a running worker to finish
                 qidx, (bak_path, stats_path) = queue.pop(chosen_i)
                 reserved_mb += chosen_est
-                fut = executor.submit(
-                    _run_logged_case, bak_path, stats_path, _url(bak_path), **kw
-                )
+                try:
+                    fut = executor.submit(
+                        _run_logged_case, bak_path, stats_path, _url(bak_path), **kw
+                    )
+                except BrokenExecutor as exc:
+                    pool_broken = True
+                    log.error(
+                        "Worker pool broken: %s — %s queued fixture(s) will not run", exc, len(queue) + 1
+                    )
+                    # Record the just-dequeued fixture as an error result.
+                    results[qidx] = _error_result(bak_path, exc)
+                    # Mark all remaining queued fixtures too.
+                    while queue:
+                        qi, (bp, _) = queue.pop(0)
+                        results[qi] = _error_result(bp, exc)
+                    return
                 active[fut] = (qidx, bak_path, chosen_est)
 
         _fill()
 
         while active:
-            done, _ = wait(list(active), return_when=FIRST_COMPLETED)
+            try:
+                done, _ = wait(list(active), return_when=FIRST_COMPLETED)
+            except BrokenExecutor as exc:
+                pool_broken = True
+                log.error("Worker pool broken during wait: %s", exc)
+                for fut2, (idx2, bp2, est2) in list(active.items()):
+                    reserved_mb = max(0.0, reserved_mb - est2)
+                    if results[idx2] is None:
+                        results[idx2] = _error_result(bp2, exc)
+                active.clear()
+                break
             for fut in done:
                 idx, bak_path, est_mb = active.pop(fut)
                 reserved_mb = max(0.0, reserved_mb - est_mb)
@@ -723,7 +791,12 @@ def _run_cases(
                     results[idx] = fut.result()
                     print(f"  finished {bak_path.name}", file=sys.stderr)
                 except Exception as exc:
-                    print(f"  ERROR: {exc}", file=sys.stderr)
+                    log.exception("ERROR processing %s: %s", bak_path.name, exc)
+                    results[idx] = _error_result(bak_path, exc)
             _fill()
 
-    return [result for result in results if result is not None]
+    # Replace any remaining None slots (e.g. from a broken pool race) with error results.
+    for i, (bak_path, _) in enumerate(cases):
+        if results[i] is None:
+            results[i] = _error_result(bak_path, RuntimeError("fixture never ran"))
+    return [r for r in results if r is not None]

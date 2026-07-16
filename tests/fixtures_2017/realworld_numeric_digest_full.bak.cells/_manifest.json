@@ -87,37 +87,43 @@
           "name": "pickup_longitude",
           "sql_type": "float",
           "digest": "sha256:6e87794ab2ef5756b3b462c16cff21b1e6b545ac2b781a86a3dd243c361b545b",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:142d8171bbee457acad41387b3a419ac59699ae4f2b575edaf17cebe58123214"
         },
         {
           "name": "pickup_latitude",
           "sql_type": "float",
           "digest": "sha256:5de3363ae1aa3b3ebae4e4d9e60ffb998ce5ac1ae7ceb0509de218b49de72d53",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:8efcffbe24700529667ff5024c83d44c50aadd522896b85aa55dd5be0dce9de4"
         },
         {
           "name": "tax_rate",
           "sql_type": "decimal(9,4)",
           "digest": "sha256:58c06b6c68df6c744ebea737eb524cf0fcc572f0d6831a20502521cc26e2c0c0",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:96bcb11a6bd870bfde07bc179ace8e2ad819f1dd47ae034df4e6e46a143d8e66"
         },
         {
           "name": "resource_cost",
           "sql_type": "money",
           "digest": "sha256:369cc92150a7ece53b93dd7892a6247c11f29d40821b29ef16f7d58828bce9b9",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:013e0cbdc1485b31a507af3f3333aacab25f79bb7498db32e4b82876e33956fd"
         },
         {
           "name": "tipped",
           "sql_type": "bit",
           "digest": "sha256:32b9ea9d4c2377b4cc40fb07b07ab98a3c82b0cf573aee8978466ff259a4a283",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:6d5034cf1e26126bb8a484d78ab2d5dbb49b587eed7adc96a4ce3eed51b8e4e0"
         },
         {
           "name": "supplier_key",
           "sql_type": "int",
           "digest": "sha256:31ad143d31775cde0f445a0a75c526ae8dfcc53d561c0a57144b450dc41e37a8",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:cc5d5257194d9169e6b94d91d473284a0cf0957f7d5cab223bb813041e77f265"
         }
       ]
     },
@@ -139,37 +145,43 @@
           "name": "pickup_longitude",
           "sql_type": "float",
           "digest": "sha256:6e87794ab2ef5756b3b462c16cff21b1e6b545ac2b781a86a3dd243c361b545b",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:142d8171bbee457acad41387b3a419ac59699ae4f2b575edaf17cebe58123214"
         },
         {
           "name": "pickup_latitude",
           "sql_type": "float",
           "digest": "sha256:5de3363ae1aa3b3ebae4e4d9e60ffb998ce5ac1ae7ceb0509de218b49de72d53",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:8efcffbe24700529667ff5024c83d44c50aadd522896b85aa55dd5be0dce9de4"
         },
         {
           "name": "tax_rate",
           "sql_type": "decimal(9,4)",
           "digest": "sha256:58c06b6c68df6c744ebea737eb524cf0fcc572f0d6831a20502521cc26e2c0c0",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:96bcb11a6bd870bfde07bc179ace8e2ad819f1dd47ae034df4e6e46a143d8e66"
         },
         {
           "name": "resource_cost",
           "sql_type": "money",
           "digest": "sha256:369cc92150a7ece53b93dd7892a6247c11f29d40821b29ef16f7d58828bce9b9",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:013e0cbdc1485b31a507af3f3333aacab25f79bb7498db32e4b82876e33956fd"
         },
         {
           "name": "tipped",
           "sql_type": "bit",
           "digest": "sha256:32b9ea9d4c2377b4cc40fb07b07ab98a3c82b0cf573aee8978466ff259a4a283",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:6d5034cf1e26126bb8a484d78ab2d5dbb49b587eed7adc96a4ce3eed51b8e4e0"
         },
         {
           "name": "supplier_key",
           "sql_type": "int",
           "digest": "sha256:31ad143d31775cde0f445a0a75c526ae8dfcc53d561c0a57144b450dc41e37a8",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:cc5d5257194d9169e6b94d91d473284a0cf0957f7d5cab223bb813041e77f265"
         }
       ]
     }

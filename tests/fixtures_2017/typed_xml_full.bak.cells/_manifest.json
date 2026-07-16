@@ -20,7 +20,8 @@
           "name": "doc",
           "sql_type": "xml",
           "digest": "sha256:c8e607cead92fa00a51c0b30e99d7c7ffee057638e16d920be2176116b291fd6",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:c8e607cead92fa00a51c0b30e99d7c7ffee057638e16d920be2176116b291fd6"
         }
       ]
     }

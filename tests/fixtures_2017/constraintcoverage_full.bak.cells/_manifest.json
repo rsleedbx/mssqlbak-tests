@@ -20,13 +20,15 @@
           "name": "code",
           "sql_type": "int",
           "digest": "sha256:80e792df4dd1951f57e00c3db5c324e56987ced537db858b60766fb951229b43",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:80e792df4dd1951f57e00c3db5c324e56987ced537db858b60766fb951229b43"
         },
         {
           "name": "name",
           "sql_type": "varchar(20)",
           "digest": "sha256:97de6cdf03aa773a32b71590e6be4c932791d41af97851f573f4e151dd704e86",
-          "null_count": 1
+          "null_count": 1,
+          "ordered_digest": "sha256:e76923429be9c5630947d213d605b4ca9c96f35658acacb8b48c33aaa60951af"
         }
       ]
     },
@@ -48,13 +50,15 @@
           "name": "code",
           "sql_type": "int",
           "digest": "sha256:80e792df4dd1951f57e00c3db5c324e56987ced537db858b60766fb951229b43",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:80e792df4dd1951f57e00c3db5c324e56987ced537db858b60766fb951229b43"
         },
         {
           "name": "name",
           "sql_type": "varchar(20)",
           "digest": "sha256:d8f4b53f5151933f98ebe8c2948b4d15b12f8c081a83813540bf6112cb1228b9",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:d8f4b53f5151933f98ebe8c2948b4d15b12f8c081a83813540bf6112cb1228b9"
         }
       ]
     },
@@ -76,13 +80,15 @@
           "name": "code",
           "sql_type": "int",
           "digest": "sha256:80e792df4dd1951f57e00c3db5c324e56987ced537db858b60766fb951229b43",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:80e792df4dd1951f57e00c3db5c324e56987ced537db858b60766fb951229b43"
         },
         {
           "name": "name",
           "sql_type": "varchar(20)",
           "digest": "sha256:97de6cdf03aa773a32b71590e6be4c932791d41af97851f573f4e151dd704e86",
-          "null_count": 1
+          "null_count": 1,
+          "ordered_digest": "sha256:e76923429be9c5630947d213d605b4ca9c96f35658acacb8b48c33aaa60951af"
         }
       ]
     },
@@ -104,13 +110,15 @@
           "name": "code",
           "sql_type": "int",
           "digest": "sha256:ae3c4d2a1258c2e1b37f828a32a0fe0de003823bcb915fbf1a3d28fb98115ecd",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:ae3c4d2a1258c2e1b37f828a32a0fe0de003823bcb915fbf1a3d28fb98115ecd"
         },
         {
           "name": "name",
           "sql_type": "varchar(20)",
           "digest": "sha256:e6deb0851e5b0fbb91721ffd623db5667f569a2522ad51a4e42a7d484322cd31",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:e6deb0851e5b0fbb91721ffd623db5667f569a2522ad51a4e42a7d484322cd31"
         }
       ]
     },
@@ -132,13 +140,15 @@
           "name": "code",
           "sql_type": "int",
           "digest": "sha256:80e792df4dd1951f57e00c3db5c324e56987ced537db858b60766fb951229b43",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:80e792df4dd1951f57e00c3db5c324e56987ced537db858b60766fb951229b43"
         },
         {
           "name": "name",
           "sql_type": "varchar(20)",
           "digest": "sha256:97de6cdf03aa773a32b71590e6be4c932791d41af97851f573f4e151dd704e86",
-          "null_count": 1
+          "null_count": 1,
+          "ordered_digest": "sha256:e76923429be9c5630947d213d605b4ca9c96f35658acacb8b48c33aaa60951af"
         }
       ]
     },
@@ -160,13 +170,15 @@
           "name": "code",
           "sql_type": "int",
           "digest": "sha256:80e792df4dd1951f57e00c3db5c324e56987ced537db858b60766fb951229b43",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:80e792df4dd1951f57e00c3db5c324e56987ced537db858b60766fb951229b43"
         },
         {
           "name": "name",
           "sql_type": "varchar(20)",
           "digest": "sha256:97de6cdf03aa773a32b71590e6be4c932791d41af97851f573f4e151dd704e86",
-          "null_count": 1
+          "null_count": 1,
+          "ordered_digest": "sha256:e76923429be9c5630947d213d605b4ca9c96f35658acacb8b48c33aaa60951af"
         }
       ]
     },
@@ -188,13 +200,15 @@
           "name": "code",
           "sql_type": "int",
           "digest": "sha256:80e792df4dd1951f57e00c3db5c324e56987ced537db858b60766fb951229b43",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:80e792df4dd1951f57e00c3db5c324e56987ced537db858b60766fb951229b43"
         },
         {
           "name": "name",
           "sql_type": "varchar(20)",
           "digest": "sha256:97de6cdf03aa773a32b71590e6be4c932791d41af97851f573f4e151dd704e86",
-          "null_count": 1
+          "null_count": 1,
+          "ordered_digest": "sha256:e76923429be9c5630947d213d605b4ca9c96f35658acacb8b48c33aaa60951af"
         }
       ]
     },
@@ -216,13 +230,15 @@
           "name": "code",
           "sql_type": "int",
           "digest": "sha256:80e792df4dd1951f57e00c3db5c324e56987ced537db858b60766fb951229b43",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:80e792df4dd1951f57e00c3db5c324e56987ced537db858b60766fb951229b43"
         },
         {
           "name": "name",
           "sql_type": "varchar(20)",
           "digest": "sha256:97de6cdf03aa773a32b71590e6be4c932791d41af97851f573f4e151dd704e86",
-          "null_count": 1
+          "null_count": 1,
+          "ordered_digest": "sha256:e76923429be9c5630947d213d605b4ca9c96f35658acacb8b48c33aaa60951af"
         }
       ]
     },
@@ -244,13 +260,15 @@
           "name": "code",
           "sql_type": "int",
           "digest": "sha256:80e792df4dd1951f57e00c3db5c324e56987ced537db858b60766fb951229b43",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:80e792df4dd1951f57e00c3db5c324e56987ced537db858b60766fb951229b43"
         },
         {
           "name": "name",
           "sql_type": "varchar(20)",
           "digest": "sha256:97de6cdf03aa773a32b71590e6be4c932791d41af97851f573f4e151dd704e86",
-          "null_count": 1
+          "null_count": 1,
+          "ordered_digest": "sha256:e76923429be9c5630947d213d605b4ca9c96f35658acacb8b48c33aaa60951af"
         }
       ]
     }

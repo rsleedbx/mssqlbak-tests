@@ -16,12 +16,19 @@ The hot paths for large tables are fully vectorized via PyArrow compute:
 
 * :func:`_canon_to_arrow` canonicalizes an Arrow column to a ``pa.string()`` array
   entirely in C++ for the high-volume SQL types (integers, strings, char, bit,
-  decimal, uniqueidentifier).  Only float/real, temporal, binary, XML, spatial, and
-  ``sql_variant`` fall back to a Python-per-value loop.
+  decimal, uniqueidentifier, **date, datetime/datetime2/smalldatetime, time**).
+  Only float/real, binary, XML, spatial, datetimeoffset, and ``sql_variant`` fall
+  back to a Python-per-value loop.
 
 * :func:`_arrow_column_digest` reproduces :func:`cell_canon.column_digest`
-  bit-for-bit using Arrow's C++ sort and zero-copy ``memoryview`` buffer access
-  rather than materializing Python ``bytes`` objects per value.
+  bit-for-bit using numpy buffer assembly — the interleaved length-prefixed byte
+  stream is built in C via scatter operations and fed to SHA-256 as a single
+  :py:meth:`~hashlib.HASH.update` call per :data:`_HASH_BLOCK_ROWS` rows.
+  No Python loop over individual values.
+
+* :func:`_arrow_ordered_column_digest` similarly vectorizes the ordered hash-feed,
+  emitting null sentinels via masked prefix assembly and gathering non-null value
+  bytes without a Python row loop.
 
 * :func:`verify_table` uses ``pc.take`` + ``pc.equal`` for the keyed cell
   comparison instead of a Python ``dict`` + per-cell ``==`` loop.  The digest is
@@ -46,6 +53,7 @@ import numpy as np
 import pyarrow as pa
 import pyarrow.compute as pc
 
+from mssqlbak.sink import resolve_sanitized_name
 from tools.cell_canon import _base_type, _canon_bit, canon
 
 if TYPE_CHECKING:
@@ -64,6 +72,7 @@ class TableVerifyResult:
     cells_total: int = 0
     col_mismatches: dict[str, int] = field(default_factory=dict)
     digest_mismatches: list[str] = field(default_factory=list)
+    order_mismatches: list[str] = field(default_factory=list)
     missing_keys: int = 0
     samples: list[tuple[Any, str, str | None, str | None]] = field(default_factory=list)
     error: str | None = None
@@ -74,6 +83,7 @@ class TableVerifyResult:
             self.error is None
             and not self.col_mismatches
             and not self.digest_mismatches
+            and not self.order_mismatches
             and self.missing_keys == 0
         )
 
@@ -180,6 +190,13 @@ _INT_ARROW = frozenset({"int", "bigint", "smallint", "tinyint"})
 _STR_ARROW = frozenset({"varchar", "nvarchar", "text", "ntext", "hierarchyid"})
 _CHAR_ARROW = frozenset({"char", "nchar"})
 _DECIMAL_ARROW = frozenset({"decimal", "numeric", "money", "smallmoney"})
+_DATE_ARROW = frozenset({"date"})
+_DATETIME_ARROW = frozenset({"datetime", "datetime2", "smalldatetime"})
+_TIME_ARROW = frozenset({"time"})
+
+# Per-block row cap for vectorized hash-feed to bound transient RAM.
+# At 2M rows × avg 50 bytes/value the output buffer is ~108 MB — well within budget.
+_HASH_BLOCK_ROWS = 1 << 21  # 2 097 152 rows
 
 
 def _canon_to_arrow(
@@ -194,9 +211,14 @@ def _canon_to_arrow(
     * ``bit`` (bool Arrow type) → ``pc.if_else(col, "1", "0")``
     * ``decimal/numeric/money/smallmoney`` (decimal128) → ``pc.cast(col, pa.string())``
     * ``uniqueidentifier`` → ``pc.utf8_lower(col)``
+    * ``date`` (Arrow date32) → ``pc.strftime(col, "%Y-%m-%d")``
+    * ``datetime/datetime2/smalldatetime`` (tz-naive Arrow timestamp) →
+      ``pc.strftime(col, "%Y-%m-%dT%H:%M:%S")`` then strip the ``.000000`` suffix
+      to reproduce Python ``isoformat()``'s conditional-microseconds behaviour.
+    * ``time`` (Arrow time32/time64) → same strftime + ``.000000`` strip approach.
 
-    Python per-value fallback (via ``canon()``) for: float/real, all temporal
-    types, binary/varbinary/timestamp/image, xml, geometry/geography,
+    Python per-value fallback (via ``canon()``) for: float/real,
+    binary/varbinary/timestamp/image, xml, geometry/geography,
     datetimeoffset, sql_variant, and any type whose Arrow storage doesn't
     match the expected fast-path Arrow type.
     """
@@ -227,7 +249,30 @@ def _canon_to_arrow(
         s = arr if pa.types.is_string(arr.type) else pc.cast(arr, pa.string())
         return pc.utf8_lower(s)
 
-    # Python fallback: float/real, temporal, binary, xml, spatial, sql_variant.
+    # date32 → "YYYY-MM-DD"  (matches Python date.isoformat())
+    if t in _DATE_ARROW and pa.types.is_date(arr.type):
+        return pc.strftime(arr, format="%Y-%m-%d")
+
+    # tz-naive timestamp → "YYYY-MM-DDTHH:MM:SS[.ffffff]"
+    # Arrow's strftime embeds sub-second precision directly in %S (not %f, which is
+    # not a valid Arrow format specifier).  For timestamp[us], %S emits "SS.ffffff";
+    # for timestamp[s], it emits plain "SS".  Cast to microsecond precision first so
+    # the output is always 0 or 6 decimal places, matching Python datetime.isoformat().
+    if t in _DATETIME_ARROW and pa.types.is_timestamp(arr.type) and arr.type.tz is None:
+        arr_us = pc.cast(arr, pa.timestamp("us")) if arr.type.unit != "us" else arr
+        formatted = pc.strftime(arr_us, format="%Y-%m-%dT%H:%M:%S")
+        return pc.replace_substring_regex(formatted, pattern=r"\.000000$", replacement="")
+
+    # time32/time64 → "HH:MM:SS[.ffffff]"  (matches Python time.isoformat())
+    # Same %S convention: cast to time64[us] then strip ".000000".
+    if t in _TIME_ARROW and pa.types.is_time(arr.type):
+        arr_us: "pa.Array" = (
+            pc.cast(arr, pa.time64("us")) if arr.type.unit != "us" else arr
+        )
+        formatted = pc.strftime(arr_us, format="%H:%M:%S")
+        return pc.replace_substring_regex(formatted, pattern=r"\.000000$", replacement="")
+
+    # Python fallback: float/real, binary, xml, spatial, datetimeoffset, sql_variant.
     return pa.array(_canon_col(_safe_to_pylist(arr), sql_type), pa.string())
 
 
@@ -236,19 +281,19 @@ def _arrow_column_digest(arr: "pa.Array | pa.ChunkedArray") -> str:
 
     Drops nulls, sorts in C++ (same lexicographic order as Python ``sorted()``
     on UTF-8 bytes), then feeds each value as
-    ``uint32-LE-length || UTF-8-bytes`` into SHA-256 via zero-copy
-    ``memoryview`` slices of the Arrow string buffer — no Python ``bytes``
-    allocation per value.
+    ``uint32-LE-length || UTF-8-bytes`` into SHA-256.
+
+    Vectorized via numpy: assembles the interleaved length-prefixed byte stream
+    entirely in C without a Python loop, then calls ``h.update`` once per
+    :data:`_HASH_BLOCK_ROWS` rows so the transient buffer stays bounded.
 
     Handles both ``pa.string()`` (int32 offsets) and ``pa.large_string()``
     (int64 offsets); large_string is cast to string first for uniform buffer access.
     Accepts ChunkedArray (e.g. from parquet reads) in addition to plain Array.
     """
-    # Consolidate chunks so we can access the underlying Arrow buffer.
     if hasattr(arr, "chunks"):
         arr = arr.combine_chunks()
     arr = pc.drop_null(arr)
-    # Another combine after drop_null in case it returns a ChunkedArray.
     if hasattr(arr, "chunks"):
         arr = arr.combine_chunks()
     if pa.types.is_large_string(arr.type):
@@ -259,27 +304,168 @@ def _arrow_column_digest(arr: "pa.Array | pa.ChunkedArray") -> str:
     if n == 0:
         return "sha256:" + h.hexdigest()
 
-    # Arrow string buffer layout for a freshly sorted (offset == 0) array:
-    #   buffers[0]: validity bitmap (None after drop_null)
-    #   buffers[1]: int32 offsets  (n+1 values)
+    # Arrow string buffer layout after drop_null + sort (array offset is 0):
+    #   buffers[1]: int32 offsets (n+1 values)
     #   buffers[2]: contiguous UTF-8 value bytes
     buffers = arr.buffers()
-    offset = arr.offset  # 0 for freshly created arrays, handled generically
-    offsets_np = np.frombuffer(buffers[1], dtype=np.int32)[offset : offset + n + 1]
-    lengths_u32 = (offsets_np[1:] - offsets_np[:-1]).astype(np.uint32)
+    arr_off = arr.offset  # almost always 0 after a fresh sort
+    offsets_np = np.frombuffer(buffers[1], dtype=np.int32)[arr_off : arr_off + n + 1].astype(
+        np.int64
+    )
+    buf_u8 = np.frombuffer(buffers[2], dtype=np.uint8)
 
-    # Zero-copy views: avoids one Python bytes object per value.
-    # ndarray.data is already typed as memoryview in numpy stubs.
-    lengths_mv = lengths_u32.view(np.uint8).data
-    vals_mv = memoryview(buffers[2])
+    for blk_start in range(0, n, _HASH_BLOCK_ROWS):
+        blk_end = min(blk_start + _HASH_BLOCK_ROWS, n)
+        blen = blk_end - blk_start
+        blk_off = offsets_np[blk_start : blk_end + 1]  # (blen+1,) int64
+        blk_lens = (blk_off[1:] - blk_off[:-1]).astype(np.uint32)  # (blen,) uint32
+        buf_start = int(blk_off[0])
+        buf_end = int(blk_off[blen])
+        blk_total = buf_end - buf_start
 
-    for i in range(n):
-        # Feeds: uint32-LE length (4 B) then UTF-8 bytes — identical to
-        # len(b).to_bytes(4, "little") + b in cell_canon.column_digest.
-        h.update(lengths_mv[4 * i : 4 * i + 4])
-        h.update(vals_mv[int(offsets_np[i]) : int(offsets_np[i + 1])])
+        # Output stream: [len0(4B), val0, len1(4B), val1, …]
+        # Row i's length prefix starts at: blk_rel_off[i] + 4*i
+        # Row i's value bytes start at: blk_rel_off[i] + 4*(i+1)
+        out = np.empty(4 * blen + blk_total, dtype=np.uint8)
+        blk_rel = (blk_off[:-1] - buf_start).astype(np.int64)  # relative offsets, shape (blen,)
+        len_pos = blk_rel + 4 * np.arange(blen, dtype=np.int64)
+        # Assign 4-byte LE length prefix for each row.
+        out[len_pos[:, None] + np.arange(4, dtype=np.int64)] = blk_lens.view(np.uint8).reshape(
+            blen, 4
+        )
+        if blk_total > 0:
+            # For value byte j (global within block): its output position is
+            # j + 4*(row_index+1) where row_index = which row owns byte j.
+            # row_index is computed via np.repeat without a Python loop.
+            blk_lens_i64 = blk_lens.astype(np.int64)
+            val_dst = np.arange(blk_total, dtype=np.int64) + 4 * np.repeat(
+                np.arange(1, blen + 1, dtype=np.int64), blk_lens_i64
+            )
+            out[val_dst] = buf_u8[buf_start:buf_end]
+        h.update(out.data)
 
     return "sha256:" + h.hexdigest()
+
+
+def _arrow_ordered_column_digest(arr: "pa.Array | pa.ChunkedArray") -> str:
+    """Reproduce :func:`cell_canon.column_ordered_digest` bit-for-bit from an Arrow string array.
+
+    Feeds each value **in its original position order** (no sort) as
+    ``uint32-LE-length || UTF-8-bytes`` into SHA-256.  Nulls emit the 4-byte
+    sentinel ``0xFFFFFFFF`` with no payload, matching ``column_ordered_digest``.
+
+    Vectorized via numpy: assembles the length-prefixed stream in C, treating
+    null rows' 4-byte prefix as the sentinel and gathering only non-null value
+    bytes from the Arrow buffer, then calls ``h.update`` once per
+    :data:`_HASH_BLOCK_ROWS` rows so the transient buffer stays bounded.
+
+    Handles both ``pa.string()`` and ``pa.large_string()`` arrays and
+    ChunkedArrays from parquet reads.
+    """
+    if hasattr(arr, "chunks"):
+        arr = arr.combine_chunks()
+    if pa.types.is_large_string(arr.type):
+        arr = arr.cast(pa.string())
+
+    n = len(arr)
+    h = hashlib.sha256()
+    if n == 0:
+        return "sha256:" + h.hexdigest()
+
+    # Arrow string buffer layout:
+    #   buffers[0]: validity bitmap (may be None when all non-null)
+    #   buffers[1]: int32 offsets (n+1 values)
+    #   buffers[2]: contiguous UTF-8 value bytes (null rows have length 0 in PyArrow)
+    buffers = arr.buffers()
+    arr_off = arr.offset
+    offsets_np = np.frombuffer(buffers[1], dtype=np.int32)[arr_off : arr_off + n + 1].astype(
+        np.int64
+    )
+    buf_u8 = np.frombuffer(buffers[2], dtype=np.uint8) if buffers[2] is not None else np.empty(
+        0, dtype=np.uint8
+    )
+
+    # Validity: True = non-null.  pc.is_valid is faster than unpacking the bitmap.
+    valid_np = pc.is_valid(arr).to_numpy(zero_copy_only=False)  # bool array, shape (n,)
+
+    for blk_start in range(0, n, _HASH_BLOCK_ROWS):
+        blk_end = min(blk_start + _HASH_BLOCK_ROWS, n)
+        blen = blk_end - blk_start
+        blk_off = offsets_np[blk_start : blk_end + 1]  # (blen+1,) int64
+        blk_raw_lens = (blk_off[1:] - blk_off[:-1]).astype(np.uint32)  # Arrow buffer lengths
+        blk_valid = valid_np[blk_start:blk_end]  # bool (blen,)
+
+        # For null rows: effective value length is 0 (sentinel is 4 bytes, no value).
+        # For non-null rows: effective value length is the Arrow buffer length.
+        eff_lens = np.where(blk_valid, blk_raw_lens, np.uint32(0))  # (blen,) uint32
+        eff_total = int(eff_lens.sum())
+
+        # Row i's 4-byte prefix starts at: 4*i + prefix_eff[i]
+        # where prefix_eff[i] = sum of eff_lens for rows 0..i-1.
+        prefix_eff = np.empty(blen, dtype=np.int64)
+        prefix_eff[0] = 0
+        if blen > 1:
+            np.cumsum(eff_lens[:-1], out=prefix_eff[1:])
+        row_pos = 4 * np.arange(blen, dtype=np.int64) + prefix_eff
+
+        total_out = 4 * blen + eff_total
+        out = np.empty(total_out, dtype=np.uint8)
+
+        # Write 4-byte prefixes:
+        #   null rows  → 0xFF 0xFF 0xFF 0xFF (sentinel)
+        #   non-null   → uint32-LE length
+        null_mask = ~blk_valid
+        if null_mask.any():
+            null_pos = row_pos[null_mask]
+            out[null_pos[:, None] + np.arange(4, dtype=np.int64)] = np.uint8(0xFF)
+        if blk_valid.any():
+            nonnull_pos = row_pos[blk_valid]
+            nonnull_lens = blk_raw_lens[blk_valid]  # uint32
+            out[nonnull_pos[:, None] + np.arange(4, dtype=np.int64)] = (
+                nonnull_lens.view(np.uint8).reshape(-1, 4)
+            )
+            # Gather non-null value bytes from the Arrow buffer into `out`.
+            # nonnull_src_start[rr] = start offset in buf_u8 of non-null row rr.
+            nonnull_src_start = blk_off[:-1][blk_valid]  # int64
+            nonnull_lens_i64 = nonnull_lens.astype(np.int64)
+            nonnull_total = int(nonnull_lens_i64.sum())
+            if nonnull_total > 0:
+                # Cumulative start of each non-null row within the gathered bytes.
+                nn_prefix = np.empty(len(nonnull_pos), dtype=np.int64)
+                nn_prefix[0] = 0
+                if len(nonnull_pos) > 1:
+                    np.cumsum(nonnull_lens_i64[:-1], out=nn_prefix[1:])
+                # intra[k] = within-row offset for the k-th gathered value byte.
+                intra = np.arange(nonnull_total, dtype=np.int64) - np.repeat(
+                    nn_prefix, nonnull_lens_i64
+                )
+                dst = np.repeat(nonnull_pos + 4, nonnull_lens_i64) + intra
+                src = np.repeat(nonnull_src_start, nonnull_lens_i64) + intra
+                out[dst] = buf_u8[src]
+
+        h.update(out.data)
+
+    return "sha256:" + h.hexdigest()
+
+
+def _key_sort_indices(key_arrs: list["pa.Array"]) -> "pa.Array":
+    """Return sort indices that put rows in ascending Arrow-binary-order by key columns.
+
+    Uses ``pc.sort_indices`` with a stable multi-key sort over canonical string
+    arrays so the order matches what :func:`backfill_ordered_digest` computes
+    from the GT parquet.
+
+    ``key_arrs`` are canonical string arrays (output of ``_canon_to_arrow``),
+    one per key column, in key-ordinal order.
+    """
+    if len(key_arrs) == 1:
+        return pc.sort_indices(key_arrs[0])
+
+    # Build a temporary RecordBatch and sort it multi-column.
+    fields = [pa.field(f"k{i}", pa.string()) for i in range(len(key_arrs))]
+    rb = pa.record_batch(key_arrs, schema=pa.schema(fields))
+    sort_keys = [(f"k{i}", "ascending") for i in range(len(key_arrs))]
+    return pc.sort_indices(rb, sort_keys=sort_keys)
 
 
 # ---------------------------------------------------------------------------
@@ -332,10 +518,11 @@ def _diagnose_digest_only(
     import pyarrow.parquet as pq
 
     gt = pq.read_table(gt_path)
-    ext_names = set(extracted.schema.names)
+    _diag_ext_names: set[str] = set(extracted.schema.names)
     per_col = max(2, max_samples // max(1, len(res.digest_mismatches)))
     for name in res.digest_mismatches:
-        if name not in ext_names or name not in gt.schema.names:
+        ext_col_name = resolve_sanitized_name(_diag_ext_names, name, column=True)
+        if ext_col_name is None or name not in gt.schema.names:
             continue
         want = sorted(
             v
@@ -344,7 +531,7 @@ def _diagnose_digest_only(
         )
         got = sorted(
             v
-            for v in _canon_arrow_col(extracted.column(name), sql_types.get(name, ""))
+            for v in _canon_arrow_col(extracted.column(ext_col_name), sql_types.get(name, ""))
             if v is not None
         )
         want_set, got_set = set(want), set(got)
@@ -366,6 +553,7 @@ def verify_table(
     cells_dir: Path,
     manifest_entry: dict[str, Any],
     *,
+    level: str = "full",
     max_samples: int = 20,
 ) -> TableVerifyResult:
     """Diff ``extracted`` against the ground-truth parquet for one table.
@@ -378,8 +566,19 @@ def verify_table(
     cell comparison uses ``pc.take`` + ``pc.equal`` rather than a Python
     per-cell loop.
 
-    Full-mode tables (≤ ``sample_threshold`` rows) skip the digest check
-    because the keyed compare already covers every row.
+    ``level`` controls verification depth:
+
+    * ``"full"`` (default): exhaustive keyed row-level compare; also catches
+      value-preserving row misalignment/transposition.  Full-mode manifest
+      tables skip the redundant digest (the keyed compare already covers every
+      row).
+    * ``"digest"``: per-column SHA-256 digest check only — O(rows) with no GT
+      parquet read and no Python key index.  Catches any multiset-level value
+      corruption (wrong values somewhere in a column) combined with the
+      already-present row-count and null-count aggregates.  Does *not* detect
+      value-preserving row reorderings.  Manifest ``digest-only`` tables are
+      handled identically to ``full`` (their path is already digest-based).
+    * ``"none"``: not handled here — the runner skips calling this function.
     """
     import pyarrow.parquet as pq
 
@@ -390,11 +589,35 @@ def verify_table(
     sql_types: dict[str, str] = {
         c["name"]: _effective_sql_type(c) for c in manifest_entry.get("columns", [])
     }
-    ext_names = set(extracted.schema.names)
+    _raw_ext_names: set[str] = set(extracted.schema.names)
+
+    def _resolve_ext(name: str) -> str | None:
+        """Return the column name as it exists in *extracted*, or None.
+
+        The manifest always stores original SQL names (e.g. ``"City Key"``).
+        When the extracted table came back from a DeltaSink round-trip the
+        column was sanitized to ``"City_Key"``.  This resolver tries the
+        verbatim name first, then the sanitized form, so both paths work
+        transparently.
+        """
+        return resolve_sanitized_name(_raw_ext_names, name, column=True)
+
+    # ── Decide which GT parquet reads are required ───────────────────────────
+    # For level="digest" we skip the parquet entirely for full/sample manifest
+    # tables (no keyed compare, no gt_recanon path).  We still need it for
+    # digest-only manifest tables with gt_recanon (handled below).
+    _need_gt_for_keyed = level == "full"
+    _maybe_need_gt_for_recanon = (
+        mode == "digest-only"
+        and manifest_entry.get("values_sorted")
+        and not manifest_entry.get("values_capped")
+    )
+    _load_gt = _need_gt_for_keyed or _maybe_need_gt_for_recanon
+
     gt: pa.Table | None = None
     gt_names: set[str] = set()
     gt_path = cells_dir / f"{fqn}.parquet"
-    if gt_path.exists():
+    if _load_gt and gt_path.exists():
         loaded_gt = pq.read_table(gt_path)
         if loaded_gt is not None:
             gt = loaded_gt
@@ -402,21 +625,27 @@ def verify_table(
 
     # Memoized Arrow canonicalization of extracted columns.
     # Each column is canonicalized at most once and reused for both the
-    # digest check and the keyed comparison.
+    # digest check and the keyed comparison.  The cache key is the *manifest*
+    # name (original SQL form); the actual column fetch uses _resolve_ext so
+    # sanitized Delta round-trip names are found transparently.
     _ext_arr_cache: dict[str, pa.Array] = {}
 
     def _ext_arr(name: str) -> pa.Array:
         a = _ext_arr_cache.get(name)
         if a is None:
-            a = _canon_to_arrow(extracted.column(name), sql_types.get(name, ""))
+            ext_col_name = _resolve_ext(name)
+            if ext_col_name is None:
+                raise KeyError(f"Column {name!r} not found in extracted table (tried sanitized form too)")
+            a = _canon_to_arrow(extracted.column(ext_col_name), sql_types.get(name, ""))
             _ext_arr_cache[name] = a
         return a
 
     # ── Per-column digest ────────────────────────────────────────────────────
-    # Skip digest for ``full`` mode: the keyed compare below covers every row,
-    # making the digest check redundant.  For ``sample`` and ``digest-only``
-    # modes the digest is the authority for the full column.
-    skip_digest = mode == "full"
+    # Skip digest for ``full`` mode on full-manifest tables: the keyed compare
+    # below covers every row, making the digest redundant.  For ``sample`` and
+    # ``digest-only`` manifest modes, and always when level="digest", run the
+    # digest check for the whole-column aggregate signal.
+    skip_digest = mode == "full" and level == "full"
 
     # For ``digest-only`` tables whose parquet stores the complete sorted
     # non-null canonical values (``values_sorted`` and not ``values_capped``),
@@ -432,7 +661,7 @@ def verify_table(
     if not skip_digest:
         for col in manifest_entry.get("columns", []):
             name, want_digest = col["name"], col.get("digest")
-            if not want_digest or name not in ext_names:
+            if not want_digest or _resolve_ext(name) is None:
                 continue
             got = _arrow_column_digest(_ext_arr(name))
             expected_digests = {want_digest}
@@ -456,6 +685,40 @@ def verify_table(
             if got not in expected_digests:
                 res.digest_mismatches.append(name)
 
+    # ── Fast path: digest level — ordered digest check then return ───────────
+    # For full/sample manifest-mode tables with level="digest" we do two checks
+    # and then return without reading the GT parquet or building a key index:
+    #   1. Multiset digest (already done above) — catches wrong values anywhere.
+    #   2. Key-ordered digest (when ordered_digest present in manifest) — catches
+    #      value-preserving row misalignment/transposition.
+    # digest-only manifest tables fall through to their own branch below.
+    if level == "digest" and mode != "digest-only":
+        # Key-ordered digest: only valid for full-mode tables where the GT parquet
+        # contains every row.  For sample-mode tables the parquet has fewer rows than
+        # the extracted table, so the pre-computed ordered_digest from backfill would
+        # never match — skip the ordered check but still return here on the multiset
+        # digest (reading the GT parquet / building a key index would be wrong for a
+        # sampled table).  If any other prerequisite is missing, skip gracefully
+        # (multiset-only degradation).
+        key_cols_digest: list[str] = manifest_entry.get("key_columns", []) or []
+        if mode != "sample" and key_cols_digest and extracted.num_rows > 0:
+            # Build canonical key arrays (reuse the _ext_arr cache).
+            key_arrs = [_ext_arr(k) for k in key_cols_digest if _resolve_ext(k) is not None]
+            if len(key_arrs) == len(key_cols_digest):
+                sort_idx = _key_sort_indices(key_arrs)
+                for col in manifest_entry.get("columns", []):
+                    name = col["name"]
+                    want_ordered = col.get("ordered_digest")
+                    if not want_ordered or name in key_cols_digest or _resolve_ext(name) is None:
+                        continue
+                    reordered = pc.take(_ext_arr(name), sort_idx)
+                    got_ordered = _arrow_ordered_column_digest(reordered)
+                    if got_ordered != want_ordered:
+                        res.order_mismatches.append(name)
+
+        res.mode = "digest"
+        return res
+
     key_cols: list[str] = manifest_entry.get("key_columns", []) or []
     if mode == "digest-only" or not key_cols:
         res.mode = "digest-only"
@@ -466,7 +729,7 @@ def verify_table(
         res.error = f"ground-truth parquet missing: {gt_path.name}"
         return res
 
-    if any(k not in ext_names for k in key_cols):
+    if any(_resolve_ext(k) is None for k in key_cols):
         res.error = f"key columns {key_cols} not in decoded table"
         return res
 
@@ -482,7 +745,7 @@ def verify_table(
             _gt_arr_cache[name] = a
         return a
 
-    cmp_cols = [n for n in gt.schema.names if n in ext_names and n not in key_cols]
+    cmp_cols = [n for n in gt.schema.names if _resolve_ext(n) is not None and n not in key_cols]
 
     if len(key_cols) == 1:
         # ── Single-key fast path ─────────────────────────────────────────────
@@ -603,7 +866,10 @@ def verify_table(
 
 
 def verify_bak(
-    extracted_tables: dict[str, "pa.Table"], cells_dir: Path
+    extracted_tables: dict[str, "pa.Table"],
+    cells_dir: Path,
+    *,
+    level: str = "full",
 ) -> dict[str, TableVerifyResult]:
     """Verify every table in a manifest that has a decoded Arrow table in hand.
 
@@ -613,6 +879,9 @@ def verify_bak(
     ``min(4, cpu_count)`` and can be overridden with the
     ``MSSQLBAK_VERIFY_THREADS`` environment variable (set to ``1`` for serial
     execution when debugging).
+
+    ``level`` is forwarded to :func:`verify_table`; see its docstring for
+    ``"full"`` vs ``"digest"`` semantics.
     """
     manifest = load_manifest(cells_dir)
     entries = manifest.get("tables", [])
@@ -627,7 +896,7 @@ def verify_bak(
             r = TableVerifyResult(fqn=fqn, mode=entry.get("mode", "full"))
             r.error = "table absent from decode output"
             return fqn, r
-        return fqn, verify_table(ext, cells_dir, entry)
+        return fqn, verify_table(ext, cells_dir, entry, level=level)
 
     out: dict[str, TableVerifyResult] = {}
     if n_workers == 1 or len(entries) <= 1:

@@ -20,19 +20,22 @@
           "name": "a",
           "sql_type": "int",
           "digest": "sha256:80e792df4dd1951f57e00c3db5c324e56987ced537db858b60766fb951229b43",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:80e792df4dd1951f57e00c3db5c324e56987ced537db858b60766fb951229b43"
         },
         {
           "name": "b",
           "sql_type": "int",
           "digest": "sha256:4fe2a1c7c2b2ed7fde0b579fb8c3b618d0bb574146f1b56a53cc23b17b68bd9f",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:4fe2a1c7c2b2ed7fde0b579fb8c3b618d0bb574146f1b56a53cc23b17b68bd9f"
         },
         {
           "name": "label",
           "sql_type": "nvarchar(20)",
           "digest": "sha256:7e6e4749e684527cb25cb1f009d7a2cbcefaa7359e010381684a4531b2cbedb2",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:7e6e4749e684527cb25cb1f009d7a2cbcefaa7359e010381684a4531b2cbedb2"
         }
       ]
     },
@@ -54,19 +57,22 @@
           "name": "a",
           "sql_type": "int",
           "digest": "sha256:80e792df4dd1951f57e00c3db5c324e56987ced537db858b60766fb951229b43",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:80e792df4dd1951f57e00c3db5c324e56987ced537db858b60766fb951229b43"
         },
         {
           "name": "b",
           "sql_type": "int",
           "digest": "sha256:4fe2a1c7c2b2ed7fde0b579fb8c3b618d0bb574146f1b56a53cc23b17b68bd9f",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:4fe2a1c7c2b2ed7fde0b579fb8c3b618d0bb574146f1b56a53cc23b17b68bd9f"
         },
         {
           "name": "label",
           "sql_type": "nvarchar(20)",
           "digest": "sha256:7e6e4749e684527cb25cb1f009d7a2cbcefaa7359e010381684a4531b2cbedb2",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:7e6e4749e684527cb25cb1f009d7a2cbcefaa7359e010381684a4531b2cbedb2"
         }
       ]
     }

@@ -20,13 +20,15 @@
           "name": "f64",
           "sql_type": "float",
           "digest": "sha256:fc9617cf1801767ca91fe5fdcc196ad06b80e150d669f45fe5d9f0fda0521c2e",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:3e12c490ff4aafc559ab25e1692ca4386b1fa741d0d9ad499c6b6e16abb0be5f"
         },
         {
           "name": "f32",
           "sql_type": "real",
           "digest": "sha256:c201cc5948a0857d7abba10f719693f75364d8c183010c1c09f7e4d1514e3035",
-          "null_count": 0
+          "null_count": 0,
+          "ordered_digest": "sha256:464fac70a5ccfdf17371ed9c9d9792e7e5cff4fe41a0fb80f59e2cc9be385921"
         }
       ]
     }
