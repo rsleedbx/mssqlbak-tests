@@ -161,6 +161,7 @@ def build_recovered_metadata(
         recover_catalog_objects,
         recover_extended_properties,
         recover_module_definitions,
+        recover_module_objects,
         recover_object_permissions,
         recover_principals,
         recover_schema,
@@ -209,23 +210,15 @@ def build_recovered_metadata(
     # --- Module definitions (views, procs, functions, triggers) -------------
     try:
         rm.module_defs = recover_module_definitions(store)
-        # Collect type_desc from schema tables for modules lookup
-        if rm.schema:
-            for tbl in rm.schema.tables:
-                # Tables themselves aren't modules; skip
-                pass
-        # Build obj_to_type from schema for module classification
-        # (The obj_type comes from sysschobjs.type which is available in obj_to_name)
-        # recover_module_definitions returns object_id → text; we recover type separately
-        # from sysschobjs. Use the schema's tables for FQN; non-table objects (views,
-        # procs, etc.) are in obj_to_name but not in schema.tables.
-        # Add non-table names from schema.obj_to_name
-        if rm.schema:
-            for oid, name in rm.schema.obj_to_name.items():
-                if oid not in rm.obj_to_fqn:
-                    # These are non-table objects (views, procs, etc.) — we don't
-                    # know the schema part from obj_to_name alone; store as just the name.
-                    rm.obj_to_fqn[oid] = name
+        # recover_module_objects joins sysschobjs.nsid + sysclsobjs to produce
+        # schema-qualified FQNs for all module objects (views, procs, functions,
+        # triggers). Without this, non-table objects are only available as bare
+        # names from schema.obj_to_name, causing every module key to mismatch GT
+        # which uses 'Schema.Name' format.
+        module_objs = recover_module_objects(store)
+        for oid, (schema_name, obj_name, _defn) in module_objs.items():
+            if oid not in rm.obj_to_fqn:
+                rm.obj_to_fqn[oid] = f"{schema_name}.{obj_name}"
     except Exception:
         pass
 
@@ -408,16 +401,30 @@ def verify_constraints(
             }
             if c.definition:
                 entry["definition"] = _norm_sql(c.definition)
-            # Key columns from indexes (for PK/UQ)
+            # Key columns from indexes (for PK/UQ).
+            # Match by name first so tables with multiple UQ constraints don't
+            # all resolve to the columns of the first matching unique index.
+            # Fall back to flag-based match when name matching yields nothing
+            # (e.g. unnamed/legacy constraints).
             if c.type_code in ("PK", "UQ") and rm.catalog_objects.indexes:
+                best_idx = None
                 for idx in rm.catalog_objects.indexes:
-                    if idx.object_id == c.parent_object_id and (
-                        idx.is_primary_key == (c.type_code == "PK")
-                        and idx.is_unique_constraint == (c.type_code == "UQ")
-                    ):
-                        col_map = rm.col_names.get(c.parent_object_id, {})
-                        entry["columns"] = [col_map.get(cid, f"col_{cid}") for cid in idx.key_columns]
+                    if idx.object_id != c.parent_object_id:
+                        continue
+                    if idx.name == c.name:
+                        best_idx = idx
                         break
+                if best_idx is None:
+                    for idx in rm.catalog_objects.indexes:
+                        if idx.object_id == c.parent_object_id and (
+                            idx.is_primary_key == (c.type_code == "PK")
+                            and idx.is_unique_constraint == (c.type_code == "UQ")
+                        ):
+                            best_idx = idx
+                            break
+                if best_idx is not None:
+                    col_map = rm.col_names.get(c.parent_object_id, {})
+                    entry["columns"] = [col_map.get(cid, f"col_{cid}") for cid in best_idx.key_columns]
             rec_items.append(entry)
 
         # FKs from CatalogObjects.foreign_keys
@@ -505,6 +512,9 @@ def verify_indexes(
                 continue
             parent_fqn = rm.obj_to_fqn.get(idx.object_id, "")
             if not parent_fqn:
+                continue
+            # Skip indexes on sys-schema objects (XTP internal TT_* types etc.)
+            if parent_fqn.startswith("sys."):
                 continue
             col_map = rm.col_names.get(idx.object_id, {})
             rec_items.append({
@@ -724,6 +734,11 @@ def verify_schema_objects(
             col_names = [c.get("name", "") for c in s.get("columns", [])]
             gt_flat.append({"kind": "table_type", "name": s.get("name", ""), "columns": col_names})
         for tt in rm.table_types:
+            # XTP (In-Memory OLTP) generates internal TT_* table types in the
+            # sys schema (e.g. sys.TT_Sales_SalesOrderDetailType_inmem_...).
+            # GT only collects user-schema table types; skip sys-schema ones.
+            if tt.schema_name == "sys":
+                continue
             col_names = [c.name for c in tt.columns]
             rec_flat.append({
                 "kind": "table_type",
@@ -775,11 +790,24 @@ def verify_security(
         _TYPE_CODE_TO_DESC: dict[str, str] = {
             "R": "DATABASE_ROLE", "S": "SQL_USER", "U": "WINDOWS_USER",
             "G": "WINDOWS_GROUP", "E": "EXTERNAL_USER", "X": "EXTERNAL_GROUP",
+            "A": "APPLICATION_ROLE",
         }
+        # Fixed database roles (principal_id < 16384) are system-owned and are
+        # not collected by the GT collector (register_bak queries with
+        # is_fixed_role=0).  Filter them on the recovered side to avoid false
+        # "extra" hits for db_owner, db_datareader, etc.
+        _FIXED_DB_ROLES: frozenset[str] = frozenset({
+            "db_owner", "db_accessadmin", "db_securityadmin", "db_ddladmin",
+            "db_backupoperator", "db_datareader", "db_datawriter",
+            "db_denydatareader", "db_denydatawriter",
+        })
         for p in rm.principals:
-            if p.name not in _BUILTIN and p.principal_id >= 5:
-                type_desc = _TYPE_CODE_TO_DESC.get(p.principal_type, p.principal_type)
-                rec_flat.append({"kind": "principal", "name": p.name, "type": type_desc})
+            if p.name in _BUILTIN or p.name in _FIXED_DB_ROLES:
+                continue
+            if p.principal_id < 5:
+                continue
+            type_desc = _TYPE_CODE_TO_DESC.get(p.principal_type, p.principal_type)
+            rec_flat.append({"kind": "principal", "name": p.name, "type": type_desc})
 
         for p in gt_permissions:
             if p.get("grantee", "") not in _BUILTIN:
@@ -792,10 +820,11 @@ def verify_security(
                 })
         for perm in rm.permissions:
             grantee = rm.principal_id_to_name.get(perm.grantee_id, f"principal_{perm.grantee_id}")
-            if grantee in _BUILTIN:
+            if grantee in _BUILTIN or grantee in _FIXED_DB_ROLES:
                 continue
             obj_fqn = rm.obj_to_fqn.get(perm.object_id, "") if perm.object_id else ""
-            action = _ACTION_NAMES.get(perm.action_id, f"action_{perm.action_id}")
+            # Use pre-decoded action_name from recover_object_permissions.
+            action = perm.action_name or _ACTION_NAMES.get(perm.action_id, f"action_{perm.action_id}")
             rec_flat.append({
                 "kind": "permission",
                 "grantee": grantee,
@@ -852,11 +881,28 @@ def verify_statistics(
             #   sxi_*      – secondary XML index internal statistics (path, value, property)
             # These appear in sysidxstats but are excluded from sys.stats by the GT
             # query (which filters by index type ≠ 3/4 or by sys.objects.type = 'U').
-            _INTERNAL_STAT_PREFIXES = ("_WA_Sys_", "si_", "pxi_", "sxi_")
+            # Filter internal/system stat names not collected by GT.
+            # GT collects only user-table stats (sys.objects type='U')
+            # with is_auto_created=0 on the GT side.  Recovery sees all
+            # sysidxstats rows; exclude:
+            #   _WA_Sys_* – optimiser auto-created stats
+            #   si_*      – spatial index internal stats
+            #   pxi_*     – primary XML index internal stats
+            #   sxi_*     – secondary XML index internal stats
+            #   PXML_*    – XML property/path internal stats
+            #   XMLPATH_* / XMLPROPERTY_* / XMLVALUE_* – XML index stats
+            _INTERNAL_STAT_PREFIXES = (
+                "_WA_Sys_", "si_", "pxi_", "sxi_",
+                "PXML_", "XMLPATH_", "XMLPROPERTY_", "XMLVALUE_",
+            )
             if stat.name.startswith(_INTERNAL_STAT_PREFIXES):
                 continue
             parent_fqn = rm.obj_to_fqn.get(stat.object_id, "")
             if not parent_fqn:
+                continue
+            # Skip stats on sys-schema objects (internal XTP table types, etc.)
+            # GT only collects user-schema statistics.
+            if parent_fqn.startswith("sys."):
                 continue
             col_map = rm.col_names.get(stat.object_id, {})
             rec_items.append({

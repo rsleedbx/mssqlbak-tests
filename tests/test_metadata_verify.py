@@ -1094,3 +1094,265 @@ def test_verify_constraints_pk_extra_col_still_fails() -> None:
     assert not result.ok, (
         "PK missing 'region' (GT has ['id','region'], rec has ['id']) must be caught"
     )
+
+
+# ---------------------------------------------------------------------------
+# Phase 1 regressions — computed column resolution
+# ---------------------------------------------------------------------------
+
+def test_verify_indexes_computed_col_resolves_by_colid() -> None:
+    """Index key_columns that reference a computed column (colid 5) should
+    resolve to its name, not fall back to 'col_5'."""
+    from mssqlbak.catalog.model import Column, Index
+    from mssqlbak.catalog.model import Schema, Table
+
+    # Build a table with a computed column at colid=5
+    comp_col = Column(
+        name="FullName",
+        colid=5,
+        type_id=231,    # nvarchar
+        max_length=200,
+        precision=0,
+        scale=0,
+        nullable=True,
+        leaf_offset=0,
+        is_variable=True,
+        is_computed=True,
+    )
+    table = Table(
+        name="Person",
+        schema="dbo",
+        object_id=10,
+        columns=[comp_col],
+        compression=0,
+    )
+    schema = Schema(tables=[table])
+
+    gt = {
+        "indexes": [
+            {"table": "dbo.Person", "name": "IX_Full", "type": "nonclustered",
+             "is_unique": False, "is_primary_key": False,
+             "key_columns": ["FullName"]},
+        ]
+    }
+    co = _make_catalog_objects(
+        indexes=[Index(object_id=10, index_id=2, index_type=2, name="IX_Full",
+                       is_primary_key=False, is_unique=False,
+                       is_unique_constraint=False, key_columns=[5])],
+    )
+    rm = _mk_rm(
+        catalog_objects=co,
+        schema=schema,
+        obj_to_fqn={10: "dbo.Person"},
+        col_names={10: {5: "FullName"}},  # populated from tbl.columns incl. computed
+    )
+    result = verify_indexes(gt, rm)
+    assert result.ok, f"Computed column colid should resolve: {result}"
+
+
+# ---------------------------------------------------------------------------
+# Phase 2 regressions — module schema-qualification
+# ---------------------------------------------------------------------------
+
+def test_verify_modules_schema_qualified_fqn() -> None:
+    """Modules should be keyed by 'Schema.Name' not bare 'Name'.
+    GT uses 'object' field containing the schema-qualified name."""
+    gt = {
+        "modules": [
+            {"object": "HumanResources.dEmployee", "type": "V",
+             "definition": "CREATE VIEW HumanResources.dEmployee AS SELECT 1"},
+        ]
+    }
+    rm = _mk_rm(
+        module_defs={200: "CREATE VIEW HumanResources.dEmployee AS SELECT 1"},
+        obj_to_fqn={200: "HumanResources.dEmployee"},
+    )
+    result = verify_modules(gt, rm)
+    assert result.ok, f"Schema-qualified module FQN must match: {result}"
+
+
+def test_verify_modules_bare_name_fails() -> None:
+    """Bare-name module key (no schema) must not match schema-qualified GT entry."""
+    gt = {
+        "modules": [
+            {"object": "HumanResources.dEmployee", "type": "V",
+             "definition": "CREATE VIEW HumanResources.dEmployee AS SELECT 1"},
+        ]
+    }
+    # obj_to_fqn only has the bare name — old broken behaviour
+    rm = _mk_rm(
+        module_defs={200: "CREATE VIEW HumanResources.dEmployee AS SELECT 1"},
+        obj_to_fqn={200: "dEmployee"},   # bare — wrong
+    )
+    result = verify_modules(gt, rm)
+    assert not result.ok, "Bare-name module should not match schema-qualified GT entry"
+
+
+# ---------------------------------------------------------------------------
+# Phase 3a regression — UQ by name, not first unique index
+# ---------------------------------------------------------------------------
+
+def test_verify_constraints_uq_by_name() -> None:
+    """Tables with multiple UQ constraints should resolve columns by name match."""
+    from mssqlbak.catalog.model import Constraint, Index
+    gt = {
+        "constraints": [
+            {"table": "dbo.Product", "name": "AK_Product_Name",
+             "kind": "unique constraint",
+             "is_system_named": False, "columns": ["Name"]},
+            {"table": "dbo.Product", "name": "AK_Product_rowguid",
+             "kind": "unique constraint",
+             "is_system_named": False, "columns": ["rowguid"]},
+        ]
+    }
+    co = _make_catalog_objects(
+        constraints=[
+            Constraint(object_id=10, parent_object_id=50, type_code="UQ",
+                       kind="unique", name="AK_Product_Name"),
+            Constraint(object_id=11, parent_object_id=50, type_code="UQ",
+                       kind="unique", name="AK_Product_rowguid"),
+        ],
+        indexes=[
+            Index(object_id=50, index_id=2, index_type=2, name="AK_Product_Name",
+                  is_primary_key=False, is_unique=True, is_unique_constraint=True,
+                  key_columns=[1]),
+            Index(object_id=50, index_id=3, index_type=2, name="AK_Product_rowguid",
+                  is_primary_key=False, is_unique=True, is_unique_constraint=True,
+                  key_columns=[2]),
+        ],
+    )
+    rm = _mk_rm(
+        catalog_objects=co,
+        schema=__import__("mssqlbak.catalog.model", fromlist=["Schema"]).Schema(tables=[]),
+        obj_to_fqn={50: "dbo.Product"},
+        col_names={50: {1: "Name", 2: "rowguid"}},
+    )
+    result = verify_constraints(gt, rm)
+    assert result.ok, f"Multiple UQ constraints should resolve by name: {result}"
+
+
+# ---------------------------------------------------------------------------
+# Phase 4b regression — fixed database roles filtered
+# ---------------------------------------------------------------------------
+
+def test_verify_security_fixed_roles_excluded() -> None:
+    """Fixed database roles (db_owner, db_datareader etc.) must not appear as
+    'extra' in the recovered side when GT doesn't include them."""
+    from mssqlbak.catalog.model import Principal
+    gt = {"principals": [], "permissions": []}
+    rm = _mk_rm(
+        principals=[
+            Principal(principal_id=16384, name="db_owner", principal_type="R"),
+            Principal(principal_id=16390, name="db_datareader", principal_type="R"),
+        ],
+        permissions=[],
+        principal_id_to_name={},
+    )
+    result = verify_security(gt, rm)
+    # GT is empty; fixed roles filtered → should be n_total=0 (unscored), not a mismatch
+    assert result.n_total == 0 or result.ok, (
+        f"Fixed DB roles must be filtered, not reported as extra: {result}"
+    )
+
+
+# ---------------------------------------------------------------------------
+# Phase 4c regression — CONNECT permission decoded from actid
+# ---------------------------------------------------------------------------
+
+def test_verify_security_connect_permission() -> None:
+    """CONNECT database-level permission should be recovered and matched."""
+    from mssqlbak.catalog.model import ObjectPermission, Principal
+
+    gt = {
+        "principals": [
+            {"name": "appuser", "type": "SQL_USER"},
+        ],
+        "permissions": [
+            {"grantee": "appuser", "object": "", "action": "CONNECT", "state": "GRANT"},
+        ],
+    }
+    rm = _mk_rm(
+        principals=[Principal(principal_id=10, name="appuser", principal_type="S")],
+        permissions=[ObjectPermission(
+            grantor_id=1,
+            grantee_id=10,
+            object_id=0,
+            action_id=0x434f2020,
+            permission_state="GRANT",
+            action_name="CONNECT",
+        )],
+        principal_id_to_name={10: "appuser"},
+        obj_to_fqn={},
+    )
+    result = verify_security(gt, rm)
+    assert result.ok, f"CONNECT permission should be recovered and matched: {result}"
+
+
+# ---------------------------------------------------------------------------
+# Phase 5a regression — XML/auto stats filtered
+# ---------------------------------------------------------------------------
+
+def test_verify_statistics_xml_stats_filtered() -> None:
+    """XML internal stats (PXML_*, XMLPATH_*) must be silently filtered."""
+    # Simulate perf metadata with XML-internal stat that should be invisible
+    class _FakeStat:
+        def __init__(self, name, object_id, key_column_ids=()):
+            self.name = name
+            self.object_id = object_id
+            self.key_column_ids = list(key_column_ids)
+    class _FakePerf:
+        statistics = [
+            _FakeStat("PXML_IX_xml_col", 99, []),
+            _FakeStat("XMLPATH_IX_xml_col", 99, []),
+        ]
+        plan_guides = []
+
+    gt = {"statistics": []}  # GT collected nothing (all are internal)
+    rm = _mk_rm(
+        perf=_FakePerf(),
+        obj_to_fqn={99: "dbo.XmlTable"},
+        col_names={},
+    )
+    result = verify_statistics(gt, rm)
+    # GT has nothing; XML internal stats filtered → unscored, not mismatch
+    assert result.n_total == 0, (
+        f"XML internal stats must be filtered (n_total should be 0): {result}"
+    )
+
+
+# ---------------------------------------------------------------------------
+# Phase 5b regression — sys-schema table types filtered
+# ---------------------------------------------------------------------------
+
+def test_verify_schema_objects_xtp_sys_tt_filtered() -> None:
+    """XTP-internal sys.TT_* table types must be silently filtered from schema_objects."""
+    from mssqlbak.catalog.model import UserTableType
+    # Simulate recovered table types: one user type + one sys-schema XTP type
+    user_tt = UserTableType(
+        object_id=200,
+        name="SalesOrderDetailType_inmem",
+        schema_name="Sales",
+        columns=[],
+    )
+    xtp_tt = UserTableType(
+        object_id=201,
+        name="TT_Sales_SalesOrderDetailType_inmem_7B2C3D4E",
+        schema_name="sys",
+        columns=[],
+    )
+    gt = {
+        "schemas": [],
+        "sequences": [],
+        "synonyms": [],
+        "table_types": [
+            {"name": "Sales.SalesOrderDetailType_inmem", "columns": []},
+        ],
+    }
+    rm = _mk_rm(
+        schemas=[],
+        sequences=[],
+        synonyms=[],
+        table_types=[user_tt, xtp_tt],
+    )
+    result = verify_schema_objects(gt, rm)
+    assert result.ok, f"sys.TT_* must be filtered; user type must match: {result}"
