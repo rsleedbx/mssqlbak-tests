@@ -2354,6 +2354,26 @@ def main(argv: list[str] | None = None) -> int:
         help="re-capture even if .headeronly.json already exists",
     )
 
+    meta_p = sub.add_parser(
+        "register-metadata-all",
+        help=(
+            "capture <bak>.metadata.json sidecars (constraints, indexes, modules, "
+            "security, statistics, plan guides, Query Store) for every .bak that "
+            "does not have one yet (requires a full restore per fixture)"
+        ),
+    )
+    meta_p.add_argument(
+        "--fixture-dir",
+        dest="meta_fixture_dir",
+        default=None,
+        help="directory to scan (overrides global --fixture-dir)",
+    )
+    meta_p.add_argument(
+        "--force",
+        action="store_true",
+        help="re-capture even if .metadata.json already exists",
+    )
+
     layout_p = sub.add_parser("layout", help="layoutcoverage_full.bak")
     layout_p.add_argument("--compressed", action="store_true")
 
@@ -2431,7 +2451,12 @@ def main(argv: list[str] | None = None) -> int:
     # runs it from (e.g. from inside tests/fixtures_realworld/).
     # For register-all, the subparser uses dest="reg_fixture_dir" to avoid
     # argparse clobbering the global --fixture-dir value with the subparser default.
-    _raw_fdir = args.fixture_dir or getattr(args, "reg_fixture_dir", None)
+    _raw_fdir = (
+        args.fixture_dir
+        or getattr(args, "reg_fixture_dir", None)
+        or getattr(args, "ho_fixture_dir", None)
+        or getattr(args, "meta_fixture_dir", None)
+    )
     if _raw_fdir and args.command != "all-versions":
         _fdir = Path(_raw_fdir)
         if not _fdir.is_absolute():
@@ -2675,6 +2700,17 @@ def main(argv: list[str] | None = None) -> int:
         return register_headeronly_all(
             Path(fixture_dir),
             skip_existing=not args.force,
+        )
+    if args.command == "register-metadata-all":
+        from tools.register_bak import register_metadata_all
+        fixture_dir = (
+            os.environ.get("FIXTURE_DIR")
+            or getattr(args, "meta_fixture_dir", None)
+            or "tests/fixtures_2022"
+        )
+        return register_metadata_all(
+            Path(fixture_dir),
+            skip_existing=not getattr(args, "force", False),
         )
 
     if args.command == "v11-probe":

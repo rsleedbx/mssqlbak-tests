@@ -1,0 +1,77 @@
+{
+  "bak": "archive_single_chunk_random_full.bak",
+  "bak_sha256": "a0055dc8d8bf78ef227d0f738ba7ad6d775eedbfd1474d792b431236240575c3",
+  "captured_at": "2026-07-17T14:55:14.750626+00:00",
+  "constraints": [],
+  "indexes": [
+    {
+      "table": "dbo.archive_single_chunk",
+      "name": "cci_single_chunk",
+      "type": "clustered columnstore",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": []
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.archive_single_chunk",
+      "name": "_WA_Sys_00000002_34C8D9D1",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "code"
+      ]
+    },
+    {
+      "table": "dbo.archive_single_chunk",
+      "name": "cci_single_chunk",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id",
+        "code"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": false,
+    "query_texts": []
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "bak": "heapcoverage_large_50000.bak",
+  "bak_sha256": "3cbea7507359499ac4c1a7e01bc8f400b4a9fb2951d263603eee3c0a3ec580d2",
+  "captured_at": "2026-07-17T15:20:19.158900+00:00",
+  "constraints": [
+    {
+      "table": "dbo.heap_clustered",
+      "name": "PK__heap_clu__3213E83FE58F8FAE",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.heap_clustered",
+      "name": "PK__heap_clu__3213E83FE58F8FAE",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.heap_clustered",
+      "name": "PK__heap_clu__3213E83FE58F8FAE",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": false,
+    "query_texts": []
+  }
+}

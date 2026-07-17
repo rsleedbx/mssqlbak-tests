@@ -1,0 +1,540 @@
+{
+  "bak": "featurecoverage_full.bak",
+  "bak_sha256": "125400d38d10db436d0f11e4402dac5f6972900fae8aa3650897df0f637ad3f3",
+  "captured_at": "2026-07-17T16:05:34.328267+00:00",
+  "constraints": [
+    {
+      "table": "dbo.compress_col",
+      "name": "pk_compress_col",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CFD97030F3",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "pk"
+      ]
+    },
+    {
+      "table": "dbo.ledger_account",
+      "name": "pk_ledger",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.long_text",
+      "name": "pk_long_text",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.memory_oltp",
+      "name": "pk_memory_oltp",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.ncci_table",
+      "name": "pk_ncci",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.temporal_current",
+      "name": "pk_temporal_current",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.utf8_collation",
+      "name": "pk_utf8_collation",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "id"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.compress_col",
+      "name": "pk_compress_col",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CFD97030F3",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "pk"
+      ]
+    },
+    {
+      "table": "dbo.graph_follows",
+      "name": "GRAPH_UNIQUE_INDEX_20EA609C23304FBC92E01008E4332E76",
+      "type": "nonclustered",
+      "is_unique": true,
+      "is_primary_key": false,
+      "key_columns": [
+        "graph_id_FB6ED75C60CD4586BE9E53E568AC0577"
+      ]
+    },
+    {
+      "table": "dbo.graph_person",
+      "name": "GRAPH_UNIQUE_INDEX_E4F385551A2948DD9F675FC35A3F6823",
+      "type": "nonclustered",
+      "is_unique": true,
+      "is_primary_key": false,
+      "key_columns": [
+        "graph_id_111D7675B6E145B7A6305D627ECBB5CF"
+      ]
+    },
+    {
+      "table": "dbo.ledger_account",
+      "name": "pk_ledger",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.long_text",
+      "name": "pk_long_text",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.memory_oltp",
+      "name": "pk_memory_oltp",
+      "type": "nonclustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.ncci_table",
+      "name": "ncci",
+      "type": "nonclustered columnstore",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": []
+    },
+    {
+      "table": "dbo.ncci_table",
+      "name": "pk_ncci",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.temporal_current",
+      "name": "pk_temporal_current",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.temporal_history",
+      "name": "ix_temporal_history",
+      "type": "clustered",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": [
+        "valid_from",
+        "valid_to"
+      ]
+    },
+    {
+      "table": "dbo.utf8_collation",
+      "name": "pk_utf8_collation",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [
+    {
+      "object": "dbo.ledger_account_Ledger",
+      "type": "VIEW",
+      "definition": "CREATE VIEW [dbo].[ledger_account_Ledger] AS\t\t\tSELECT [id], [name], [balance], [ledger_start_transaction_id] AS [ledger_transaction_id], [ledger_start_sequence_number] AS [ledger_sequence_number], 1 AS [ledger_operation_type], N'INSERT' AS [ledger_operation_type_desc] FROM [dbo].[ledger_account]"
+    }
+  ],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.compress_col",
+      "name": "_WA_Sys_00000002_4D94879B",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "raw_text"
+      ]
+    },
+    {
+      "table": "dbo.compress_col",
+      "name": "_WA_Sys_00000003_4D94879B",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "compressed"
+      ]
+    },
+    {
+      "table": "dbo.compress_col",
+      "name": "pk_compress_col",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CFD97030F3",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "pk"
+      ]
+    },
+    {
+      "table": "dbo.graph_follows",
+      "name": "_WA_Sys_00000009_571DF1D5",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "since"
+      ]
+    },
+    {
+      "table": "dbo.graph_follows",
+      "name": "GRAPH_UNIQUE_INDEX_20EA609C23304FBC92E01008E4332E76",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "graph_id_FB6ED75C60CD4586BE9E53E568AC0577"
+      ]
+    },
+    {
+      "table": "dbo.graph_person",
+      "name": "_WA_Sys_00000003_5629CD9C",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "name"
+      ]
+    },
+    {
+      "table": "dbo.graph_person",
+      "name": "GRAPH_UNIQUE_INDEX_E4F385551A2948DD9F675FC35A3F6823",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "graph_id_111D7675B6E145B7A6305D627ECBB5CF"
+      ]
+    },
+    {
+      "table": "dbo.ledger_account",
+      "name": "_WA_Sys_00000002_534D60F1",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "name"
+      ]
+    },
+    {
+      "table": "dbo.ledger_account",
+      "name": "_WA_Sys_00000003_534D60F1",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "balance"
+      ]
+    },
+    {
+      "table": "dbo.ledger_account",
+      "name": "pk_ledger",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.long_text",
+      "name": "_WA_Sys_00000002_5812160E",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "short_text"
+      ]
+    },
+    {
+      "table": "dbo.long_text",
+      "name": "_WA_Sys_00000003_5812160E",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "long_varchar"
+      ]
+    },
+    {
+      "table": "dbo.long_text",
+      "name": "_WA_Sys_00000004_5812160E",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "long_nvarchar"
+      ]
+    },
+    {
+      "table": "dbo.long_text",
+      "name": "_WA_Sys_00000005_5812160E",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "long_char"
+      ]
+    },
+    {
+      "table": "dbo.long_text",
+      "name": "pk_long_text",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.memory_oltp",
+      "name": "_WA_Sys_00000002_59FA5E80",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "val"
+      ]
+    },
+    {
+      "table": "dbo.memory_oltp",
+      "name": "pk_memory_oltp",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.ncci_table",
+      "name": "_WA_Sys_00000002_5165187F",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "code"
+      ]
+    },
+    {
+      "table": "dbo.ncci_table",
+      "name": "_WA_Sys_00000003_5165187F",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "name"
+      ]
+    },
+    {
+      "table": "dbo.ncci_table",
+      "name": "_WA_Sys_00000004_5165187F",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "amount"
+      ]
+    },
+    {
+      "table": "dbo.ncci_table",
+      "name": "ncci",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "code",
+        "amount"
+      ]
+    },
+    {
+      "table": "dbo.ncci_table",
+      "name": "pk_ncci",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.temporal_current",
+      "name": "pk_temporal_current",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.temporal_history",
+      "name": "ix_temporal_history",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "valid_from",
+        "valid_to"
+      ]
+    },
+    {
+      "table": "dbo.utf8_collation",
+      "name": "_WA_Sys_00000002_4F7CD00D",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "latin"
+      ]
+    },
+    {
+      "table": "dbo.utf8_collation",
+      "name": "_WA_Sys_00000003_4F7CD00D",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "utf8"
+      ]
+    },
+    {
+      "table": "dbo.utf8_collation",
+      "name": "_WA_Sys_00000004_4F7CD00D",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "wide"
+      ]
+    },
+    {
+      "table": "dbo.utf8_collation",
+      "name": "pk_utf8_collation",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": true,
+    "query_texts": [
+      "INSERT INTO [dbo].[compress_col] (id, raw_text, compressed)\nSELECT\n    CAST(pk + 1 AS INT),\n    N'compress_row_' + CAST(pk + 1 AS NVARCHAR(20)),\n    COMPRESS(N'compress_row_' + CAST(pk + 1 AS NVARCHAR(20)))\nFROM fkr__seed\nWHERE pk < 20"
+    ]
+  }
+}

@@ -196,10 +196,38 @@ def _render_edge_table_rows(lines: list[str], tables: list[dict[str, Any]]) -> N
 
 
 def _all_ok(r: dict[str, Any]) -> bool:
+    """True when all data checks pass.
+
+    Metadata validation results are shown in the report's Metadata section
+    but intentionally excluded from this rollup so the data pass rate stays
+    stable while metadata validators are being tuned.
+    """
     tables = r["tables"]
     if not tables:
         return True
     return all(_table_ok(t) for t in tables)
+
+
+def _meta_pass_line(results: list[dict[str, Any]]) -> str:
+    """Build the 'Metadata: X/Y categories pass' summary line."""
+    from tools.correctness_coverage.validators import get_validators
+    all_cats = list(get_validators())
+    cat_ok: dict[str, int] = {c: 0 for c in all_cats}
+    cat_scored: dict[str, int] = {c: 0 for c in all_cats}
+    for r in results:
+        for cat, v in r.get("validations", {}).items():
+            if v.get("unscored"):
+                continue
+            cat_scored[cat] = cat_scored.get(cat, 0) + 1
+            if v.get("ok"):
+                cat_ok[cat] = cat_ok.get(cat, 0) + 1
+    scored = [(c, cat_ok[c], cat_scored[c]) for c in all_cats if cat_scored.get(c, 0) > 0]
+    if not scored:
+        return ""
+    total_ok = sum(ok for _, ok, _ in scored)
+    total = sum(n for _, _, n in scored)
+    parts = [f"{c}: {ok}/{n}" for c, ok, n in scored]
+    return f"**Metadata:** {total_ok}/{total} fixture-categories pass ({', '.join(parts)})"
 
 
 def _render(
@@ -302,6 +330,9 @@ def _render(
         "their rows from compact and WAL-style CFP blocks embedded in the backup, "
         "so they are scored normally against ground truth.\n"
     )
+    meta_line = _meta_pass_line(results)
+    if meta_line:
+        header = header + f"\n{meta_line}\n"
     lines.append(header)
     lines.append("## Summary\n")
     lines.append(
@@ -422,6 +453,81 @@ def _render(
             edge_tables = edges[edge_name]["tables"]
             lines.append(f"#### Stage: {_edge_label(edge_name)}\n")
             _render_edge_table_rows(lines, edge_tables)
+
+    # --- Metadata validation section ----------------------------------------
+    meta_results = [r for r in results if r.get("validations")]
+    if meta_results:
+        lines.append("\n## Metadata validation\n")
+        lines.append(
+            "Metadata ground truth is collected from the live SQL Server restore into "
+            "`<bak>.metadata.json` by `python -m tools.fixture_run register-metadata-all`. "
+            "Only fixtures with a sidecar are scored here; others show `—` (unscored).\n"
+        )
+        try:
+            from tools.correctness_coverage.validators import get_validators
+            all_cats = list(get_validators())
+        except Exception:
+            all_cats = ["constraints", "indexes", "extended_properties", "modules",
+                        "schema_objects", "security", "statistics", "plan_guides", "query_store"]
+        cat_cols = " | ".join(all_cats)
+        sep_cols = " | ".join(":---------:" for _ in all_cats)
+        lines.append(f"| Backup | {cat_cols} |")
+        lines.append(f"|--------|{sep_cols}|")
+        for r in sorted(meta_results, key=lambda x: x["bak"].lower()):
+            validations = r.get("validations", {})
+            cols = []
+            for cat in all_cats:
+                v = validations.get(cat)
+                if v is None:
+                    cols.append("—")
+                elif v.get("unscored"):
+                    cols.append("—")
+                elif v.get("error"):
+                    cols.append("💥")
+                elif v.get("ok"):
+                    cols.append("✓")
+                else:
+                    n_ok = v.get("n_ok", 0)
+                    n_total = v.get("n_total", 0)
+                    cols.append(f"{n_ok}/{n_total} ⚠")
+            lines.append(f"| `{r['bak']}` | {' | '.join(cols)} |")
+
+        # Per-fixture details for any failing categories
+        failing_meta = [
+            r for r in meta_results
+            if any(
+                not v.get("ok") and not v.get("unscored")
+                for v in r.get("validations", {}).values()
+            )
+        ]
+        if failing_meta:
+            lines.append("\n### Metadata failures detail\n")
+            for r in sorted(failing_meta, key=lambda x: x["bak"].lower()):
+                validations = r.get("validations", {})
+                lines.append(f"#### `{r['bak']}`\n")
+                for cat, v in validations.items():
+                    if v.get("ok") or v.get("unscored"):
+                        continue
+                    lines.append(f"**{cat}**")
+                    if v.get("error"):
+                        lines.append(f"  - error: `{v['error'][:200]}`")
+                    for key in ("missing", "extra"):
+                        items = v.get(key, [])
+                        if items:
+                            lines.append(f"  - {key}: {', '.join(f'`{i}`' for i in items[:10])}"
+                                         + (" …" if len(items) > 10 else ""))
+                    for mm in (v.get("mismatched") or [])[:5]:
+                        if "expected" in mm:
+                            lines.append(f"  - mismatch `{mm.get('key', '?')}`: "
+                                         f"expected `{mm.get('expected')}` "
+                                         f"got `{mm.get('recovered')}`")
+                        elif "missing_count" in mm:
+                            lines.append(f"  - mismatch `{mm.get('key', '?')}`: "
+                                         f"missing {mm['missing_count']}, "
+                                         f"extra {mm['extra_count']}")
+                        else:
+                            lines.append(f"  - mismatch `{mm.get('key', '?')}`: {mm}")
+                    lines.append("")
 
     # Wall timings — isolated to one table so timing jitter does not
     # cause every per-fixture section to appear modified in git diff.

@@ -1,0 +1,111 @@
+{
+  "bak": "dirtycoverage_cci_delete.bak",
+  "bak_sha256": "20bbdb6ade85b4922be15ca1dc42a1221b785bccb92b2b1aada93c97e4eee6e7",
+  "captured_at": "2026-07-17T13:09:29.922392+00:00",
+  "constraints": [
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CFDD32E8AF",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "pk"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.dirty_cci",
+      "name": "cci_idx",
+      "type": "clustered columnstore",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": []
+    },
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CFDD32E8AF",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "pk"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.dirty_cci",
+      "name": "_WA_Sys_00000001_37A5467C",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.dirty_cci",
+      "name": "cci_idx",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id",
+        "phase",
+        "val",
+        "score"
+      ]
+    },
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CFDD32E8AF",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "pk"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": true,
+    "query_texts": [
+      "(@1 smallint,@2 smallint)DELETE [dbo].[dirty_cci]  WHERE [id]>=@1 AND [id]<=@2"
+    ]
+  }
+}

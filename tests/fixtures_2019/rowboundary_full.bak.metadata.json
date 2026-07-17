@@ -1,0 +1,67 @@
+{
+  "bak": "rowboundary_full.bak",
+  "bak_sha256": "af305ca0e9a4b5e27eb8c4304e3a0223c6ebfdc66c94c76bbc01baf30eb31ece",
+  "captured_at": "2026-07-17T15:23:24.169136+00:00",
+  "constraints": [],
+  "indexes": [],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.rb_lob",
+      "name": "_WA_Sys_00000002_239E4DCF",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "val"
+      ]
+    },
+    {
+      "table": "dbo.rb_page_fill",
+      "name": "_WA_Sys_00000002_24927208",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "val"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": false,
+    "query_texts": []
+  }
+}

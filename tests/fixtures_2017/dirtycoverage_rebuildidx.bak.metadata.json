@@ -1,0 +1,109 @@
+{
+  "bak": "dirtycoverage_rebuildidx.bak",
+  "bak_sha256": "35033f281b6bba71a7e45311f47f1dd7de882b1cd44b84d865a848a0e174a61c",
+  "captured_at": "2026-07-17T15:02:28.097650+00:00",
+  "constraints": [
+    {
+      "table": "dbo.ridx_test",
+      "name": "PK__ridx_tes__3213E83F49EBB058",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.ridx_test",
+      "name": "DF__ridx_test__score__36B12243",
+      "kind": "default",
+      "is_system_named": true,
+      "columns": [
+        "score"
+      ],
+      "column": "score",
+      "definition": "((0))"
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.ridx_test",
+      "name": "ix_ridx_score",
+      "type": "nonclustered",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": [
+        "score"
+      ]
+    },
+    {
+      "table": "dbo.ridx_test",
+      "name": "PK__ridx_tes__3213E83F49EBB058",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.ridx_test",
+      "name": "ix_ridx_score",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "score"
+      ]
+    },
+    {
+      "table": "dbo.ridx_test",
+      "name": "PK__ridx_tes__3213E83F49EBB058",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": false,
+    "query_texts": []
+  }
+}

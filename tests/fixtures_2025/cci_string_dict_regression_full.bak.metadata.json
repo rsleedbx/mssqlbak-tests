@@ -1,0 +1,122 @@
+{
+  "bak": "cci_string_dict_regression_full.bak",
+  "bak_sha256": "eaf74d3998235a5cc4363276bf53918652ff39a6320b34031562c4a70123490a",
+  "captured_at": "2026-07-17T15:29:22.566201+00:00",
+  "constraints": [
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CFCA0246C4",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "pk"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.cci_string_dict_regression",
+      "name": "cci_cci_string_dict_regression",
+      "type": "clustered columnstore",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": []
+    },
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CFCA0246C4",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "pk"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.cci_string_dict_regression",
+      "name": "_WA_Sys_00000003_4AB81AF0",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "i_item_desc"
+      ]
+    },
+    {
+      "table": "dbo.cci_string_dict_regression",
+      "name": "_WA_Sys_00000004_4AB81AF0",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "pr_review_content"
+      ]
+    },
+    {
+      "table": "dbo.cci_string_dict_regression",
+      "name": "cci_cci_string_dict_regression",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id",
+        "batch",
+        "i_item_desc",
+        "pr_review_content"
+      ]
+    },
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CFCA0246C4",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "pk"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": true,
+    "query_texts": [
+      "INSERT INTO dbo.cci_string_dict_regression (id, batch, i_item_desc, pr_review_content)\nSELECT\n    (pk + 1) AS id,\n    CASE WHEN (pk + 1) <= 8192 THEN 1 ELSE 2 END AS batch,\n    CASE\n        WHEN (pk + 1) = 2 THEN NULL\n        WHEN (pk + 1) = 1 THEN ''\n        ELSE\n            'ITEM-DESC-' + RIGHT('000000' + CAST((pk + 1) AS VARCHAR(6)), 6) +\n            '|CLASS=' + RIGHT('00' + CAST((pk + 1) % 97 AS VARCHAR(2)), 2) +\n            '|FORM=' + RIGHT('00' + CAST((pk + 1) % 17 AS VARCHAR(2)), 2) +\n            '|' + REPLICATE(CHAR(65 + ((pk + 1) % 26)), 12 + ((pk + 1) % 29))\n    END AS i_item_desc,\n    CASE\n        WHEN (pk + 1) = 2 THEN NULL\n        WHEN (pk + 1) = 1 THEN ''\n        ELSE\n            'review-' + RIGHT('000000' + CAST((pk + 1) AS VARCHAR(6)), 6) +\n            ': customer noted quality=' + CAST((pk + 1) % 11 AS VARCHAR(2)) +\n            '; shipping=' + CAST((pk + 1) % 7 AS VARCHAR(2)) +\n            '; value=' + CAST((pk + 1) % 13 AS VARCHAR(2)) +\n            '. payload[' + REPLICATE(CHAR(97 + ((pk + 1) % 26)), 40 + ((pk + 1) % 73)) +\n            '] end.'\n    END AS pr_review_content\nFROM fkr__seed\nWHERE pk < 8192",
+      "INSERT INTO dbo.cci_string_dict_regression (id, batch, i_item_desc, pr_review_content)\nSELECT\n    (pk + 8193) AS id,\n    CASE WHEN (pk + 8193) <= 8192 THEN 1 ELSE 2 END AS batch,\n    CASE\n        WHEN (pk + 8193) = 2 THEN NULL\n        WHEN (pk + 8193) = 1 THEN ''\n        ELSE\n            'ITEM-DESC-' + RIGHT('000000' + CAST((pk + 8193) AS VARCHAR(6)), 6) +\n            '|CLASS=' + RIGHT('00' + CAST((pk + 8193) % 97 AS VARCHAR(2)), 2) +\n            '|FORM=' + RIGHT('00' + CAST((pk + 8193) % 17 AS VARCHAR(2)), 2) +\n            '|' + REPLICATE(CHAR(65 + ((pk + 8193) % 26)), 12 + ((pk + 8193) % 29))\n    END AS i_item_desc,\n    CASE\n        WHEN (pk + 8193) = 2 THEN NULL\n        WHEN (pk + 8193) = 1 THEN ''\n        ELSE\n            'review-' + RIGHT('000000' + CAST((pk + 8193) AS VARCHAR(6)), 6) +\n            ': customer noted quality=' + CAST((pk + 8193) % 11 AS VARCHAR(2)) +\n            '; shipping=' + CAST((pk + 8193) % 7 AS VARCHAR(2)) +\n            '; value=' + CAST((pk + 8193) % 13 AS VARCHAR(2)) +\n            '. payload[' + REPLICATE(CHAR(97 + ((pk + 8193) % 26)), 40 + ((pk + 8193) % 73)) +\n            '] end.'\n    END AS pr_review_content\nFROM fkr__seed\nWHERE pk < 8192"
+    ]
+  }
+}

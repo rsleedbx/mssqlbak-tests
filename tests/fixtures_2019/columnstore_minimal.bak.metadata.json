@@ -1,0 +1,693 @@
+{
+  "bak": "columnstore_minimal.bak",
+  "bak_sha256": "cd355ca1ee43c36a674ab317262b2d83bdf5bacfe90d9c5e09e8e3a0fedee1d8",
+  "captured_at": "2026-07-17T15:14:02.728932+00:00",
+  "constraints": [],
+  "indexes": [
+    {
+      "table": "dbo.cs_1",
+      "name": "cci_cs_1",
+      "type": "clustered columnstore",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": []
+    },
+    {
+      "table": "dbo.cs_10",
+      "name": "cci_cs_10",
+      "type": "clustered columnstore",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": []
+    },
+    {
+      "table": "dbo.cs_100",
+      "name": "cci_cs_100",
+      "type": "clustered columnstore",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": []
+    },
+    {
+      "table": "dbo.cs_1000",
+      "name": "cci_cs_1000",
+      "type": "clustered columnstore",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": []
+    },
+    {
+      "table": "dbo.cs_10000",
+      "name": "cci_cs_10000",
+      "type": "clustered columnstore",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": []
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.cs_1",
+      "name": "_WA_Sys_00000003_22AA2996",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "name"
+      ]
+    },
+    {
+      "table": "dbo.cs_1",
+      "name": "_WA_Sys_00000004_22AA2996",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "nm"
+      ]
+    },
+    {
+      "table": "dbo.cs_1",
+      "name": "_WA_Sys_00000005_22AA2996",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "ncf"
+      ]
+    },
+    {
+      "table": "dbo.cs_1",
+      "name": "_WA_Sys_00000006_22AA2996",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "amount"
+      ]
+    },
+    {
+      "table": "dbo.cs_1",
+      "name": "_WA_Sys_00000007_22AA2996",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "qty"
+      ]
+    },
+    {
+      "table": "dbo.cs_1",
+      "name": "_WA_Sys_00000008_22AA2996",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "dt"
+      ]
+    },
+    {
+      "table": "dbo.cs_1",
+      "name": "_WA_Sys_00000009_22AA2996",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "dt2"
+      ]
+    },
+    {
+      "table": "dbo.cs_1",
+      "name": "_WA_Sys_0000000A_22AA2996",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "d"
+      ]
+    },
+    {
+      "table": "dbo.cs_1",
+      "name": "_WA_Sys_0000000B_22AA2996",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "t"
+      ]
+    },
+    {
+      "table": "dbo.cs_1",
+      "name": "_WA_Sys_0000000C_22AA2996",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "dto"
+      ]
+    },
+    {
+      "table": "dbo.cs_1",
+      "name": "cci_cs_1",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id",
+        "code",
+        "name",
+        "nm",
+        "ncf",
+        "amount",
+        "qty",
+        "dt",
+        "dt2",
+        "d",
+        "t",
+        "dto"
+      ]
+    },
+    {
+      "table": "dbo.cs_10",
+      "name": "_WA_Sys_00000003_239E4DCF",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "name"
+      ]
+    },
+    {
+      "table": "dbo.cs_10",
+      "name": "_WA_Sys_00000004_239E4DCF",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "nm"
+      ]
+    },
+    {
+      "table": "dbo.cs_10",
+      "name": "_WA_Sys_00000005_239E4DCF",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "ncf"
+      ]
+    },
+    {
+      "table": "dbo.cs_10",
+      "name": "_WA_Sys_00000006_239E4DCF",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "amount"
+      ]
+    },
+    {
+      "table": "dbo.cs_10",
+      "name": "_WA_Sys_00000007_239E4DCF",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "qty"
+      ]
+    },
+    {
+      "table": "dbo.cs_10",
+      "name": "_WA_Sys_00000008_239E4DCF",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "dt"
+      ]
+    },
+    {
+      "table": "dbo.cs_10",
+      "name": "_WA_Sys_00000009_239E4DCF",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "dt2"
+      ]
+    },
+    {
+      "table": "dbo.cs_10",
+      "name": "_WA_Sys_0000000A_239E4DCF",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "d"
+      ]
+    },
+    {
+      "table": "dbo.cs_10",
+      "name": "_WA_Sys_0000000B_239E4DCF",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "t"
+      ]
+    },
+    {
+      "table": "dbo.cs_10",
+      "name": "_WA_Sys_0000000C_239E4DCF",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "dto"
+      ]
+    },
+    {
+      "table": "dbo.cs_10",
+      "name": "cci_cs_10",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id",
+        "code",
+        "name",
+        "nm",
+        "ncf",
+        "amount",
+        "qty",
+        "dt",
+        "dt2",
+        "d",
+        "t",
+        "dto"
+      ]
+    },
+    {
+      "table": "dbo.cs_100",
+      "name": "_WA_Sys_00000003_24927208",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "name"
+      ]
+    },
+    {
+      "table": "dbo.cs_100",
+      "name": "_WA_Sys_00000004_24927208",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "nm"
+      ]
+    },
+    {
+      "table": "dbo.cs_100",
+      "name": "_WA_Sys_00000005_24927208",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "ncf"
+      ]
+    },
+    {
+      "table": "dbo.cs_100",
+      "name": "_WA_Sys_00000006_24927208",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "amount"
+      ]
+    },
+    {
+      "table": "dbo.cs_100",
+      "name": "_WA_Sys_00000007_24927208",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "qty"
+      ]
+    },
+    {
+      "table": "dbo.cs_100",
+      "name": "_WA_Sys_00000008_24927208",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "dt"
+      ]
+    },
+    {
+      "table": "dbo.cs_100",
+      "name": "_WA_Sys_00000009_24927208",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "dt2"
+      ]
+    },
+    {
+      "table": "dbo.cs_100",
+      "name": "_WA_Sys_0000000A_24927208",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "d"
+      ]
+    },
+    {
+      "table": "dbo.cs_100",
+      "name": "_WA_Sys_0000000B_24927208",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "t"
+      ]
+    },
+    {
+      "table": "dbo.cs_100",
+      "name": "_WA_Sys_0000000C_24927208",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "dto"
+      ]
+    },
+    {
+      "table": "dbo.cs_100",
+      "name": "cci_cs_100",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id",
+        "code",
+        "name",
+        "nm",
+        "ncf",
+        "amount",
+        "qty",
+        "dt",
+        "dt2",
+        "d",
+        "t",
+        "dto"
+      ]
+    },
+    {
+      "table": "dbo.cs_1000",
+      "name": "_WA_Sys_00000003_25869641",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "name"
+      ]
+    },
+    {
+      "table": "dbo.cs_1000",
+      "name": "_WA_Sys_00000004_25869641",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "nm"
+      ]
+    },
+    {
+      "table": "dbo.cs_1000",
+      "name": "_WA_Sys_00000005_25869641",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "ncf"
+      ]
+    },
+    {
+      "table": "dbo.cs_1000",
+      "name": "_WA_Sys_00000006_25869641",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "amount"
+      ]
+    },
+    {
+      "table": "dbo.cs_1000",
+      "name": "_WA_Sys_00000007_25869641",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "qty"
+      ]
+    },
+    {
+      "table": "dbo.cs_1000",
+      "name": "_WA_Sys_00000008_25869641",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "dt"
+      ]
+    },
+    {
+      "table": "dbo.cs_1000",
+      "name": "_WA_Sys_00000009_25869641",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "dt2"
+      ]
+    },
+    {
+      "table": "dbo.cs_1000",
+      "name": "_WA_Sys_0000000A_25869641",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "d"
+      ]
+    },
+    {
+      "table": "dbo.cs_1000",
+      "name": "_WA_Sys_0000000B_25869641",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "t"
+      ]
+    },
+    {
+      "table": "dbo.cs_1000",
+      "name": "_WA_Sys_0000000C_25869641",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "dto"
+      ]
+    },
+    {
+      "table": "dbo.cs_1000",
+      "name": "cci_cs_1000",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id",
+        "code",
+        "name",
+        "nm",
+        "ncf",
+        "amount",
+        "qty",
+        "dt",
+        "dt2",
+        "d",
+        "t",
+        "dto"
+      ]
+    },
+    {
+      "table": "dbo.cs_10000",
+      "name": "_WA_Sys_00000003_267ABA7A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "name"
+      ]
+    },
+    {
+      "table": "dbo.cs_10000",
+      "name": "_WA_Sys_00000004_267ABA7A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "nm"
+      ]
+    },
+    {
+      "table": "dbo.cs_10000",
+      "name": "_WA_Sys_00000005_267ABA7A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "ncf"
+      ]
+    },
+    {
+      "table": "dbo.cs_10000",
+      "name": "_WA_Sys_00000006_267ABA7A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "amount"
+      ]
+    },
+    {
+      "table": "dbo.cs_10000",
+      "name": "_WA_Sys_00000007_267ABA7A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "qty"
+      ]
+    },
+    {
+      "table": "dbo.cs_10000",
+      "name": "_WA_Sys_00000008_267ABA7A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "dt"
+      ]
+    },
+    {
+      "table": "dbo.cs_10000",
+      "name": "_WA_Sys_00000009_267ABA7A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "dt2"
+      ]
+    },
+    {
+      "table": "dbo.cs_10000",
+      "name": "_WA_Sys_0000000A_267ABA7A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "d"
+      ]
+    },
+    {
+      "table": "dbo.cs_10000",
+      "name": "_WA_Sys_0000000B_267ABA7A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "t"
+      ]
+    },
+    {
+      "table": "dbo.cs_10000",
+      "name": "_WA_Sys_0000000C_267ABA7A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "dto"
+      ]
+    },
+    {
+      "table": "dbo.cs_10000",
+      "name": "cci_cs_10000",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id",
+        "code",
+        "name",
+        "nm",
+        "ncf",
+        "amount",
+        "qty",
+        "dt",
+        "dt2",
+        "d",
+        "t",
+        "dto"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": false,
+    "query_texts": []
+  }
+}

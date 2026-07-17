@@ -1,0 +1,78 @@
+{
+  "bak": "dirtycoverage_truncate.bak",
+  "bak_sha256": "29a8b610ea773cfd8be7f277b7f0ce91eafb0cceedfbf99e9b63cf8a9010cba8",
+  "captured_at": "2026-07-17T15:19:18.284878+00:00",
+  "constraints": [
+    {
+      "table": "dbo.trunc_test",
+      "name": "PK__trunc_te__3213E83F5FA3DE30",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.trunc_test",
+      "name": "PK__trunc_te__3213E83F5FA3DE30",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.trunc_test",
+      "name": "PK__trunc_te__3213E83F5FA3DE30",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": false,
+    "query_texts": []
+  }
+}

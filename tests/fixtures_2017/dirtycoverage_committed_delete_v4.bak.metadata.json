@@ -1,0 +1,107 @@
+{
+  "bak": "dirtycoverage_committed_delete_v4.bak",
+  "bak_sha256": "1f94e6cfea42e2b561366f8f5d5d1594e2cbfbe0a62c55b494065c543b9c344d",
+  "captured_at": "2026-07-17T15:00:20.006184+00:00",
+  "constraints": [
+    {
+      "table": "dbo.dirty_v4",
+      "name": "PK__dirty_v4__3213E83F609FF386",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CF760D2608",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "pk"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.dirty_v4",
+      "name": "PK__dirty_v4__3213E83F609FF386",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CF760D2608",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "pk"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.dirty_v4",
+      "name": "PK__dirty_v4__3213E83F609FF386",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CF760D2608",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "pk"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": false,
+    "query_texts": []
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "bak": "alias_types_full.bak",
+  "bak_sha256": "96b9168f3a45caf989c8461b904c0180ce2bbf4f7c27828f1d6fb53983a4507a",
+  "captured_at": "2026-07-17T18:34:38.410882+00:00",
+  "constraints": [
+    {
+      "table": "dbo.alias_probe",
+      "name": "PK__alias_pr__3213E83FBCD37869",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.alias_probe",
+      "name": "PK__alias_pr__3213E83FBCD37869",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.alias_probe",
+      "name": "_WA_Sys_00000002_34C8D9D1",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "is_active"
+      ]
+    },
+    {
+      "table": "dbo.alias_probe",
+      "name": "_WA_Sys_00000003_34C8D9D1",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "name_style"
+      ]
+    },
+    {
+      "table": "dbo.alias_probe",
+      "name": "_WA_Sys_00000004_34C8D9D1",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "display_name"
+      ]
+    },
+    {
+      "table": "dbo.alias_probe",
+      "name": "_WA_Sys_00000005_34C8D9D1",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "account_number"
+      ]
+    },
+    {
+      "table": "dbo.alias_probe",
+      "name": "_WA_Sys_00000006_34C8D9D1",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "external_id"
+      ]
+    },
+    {
+      "table": "dbo.alias_probe",
+      "name": "PK__alias_pr__3213E83FBCD37869",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": false,
+    "query_texts": []
+  }
+}

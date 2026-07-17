@@ -1,0 +1,84 @@
+{
+  "bak": "extended_properties_full.bak",
+  "captured_at": "2026-07-17T18:37:04.272692+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.products",
+      "row_count": 3,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:5be6c1972032e65c8852b651ad59e6dccaff8d9d07dc0e5718a63bff0f3f90bc",
+          "null_count": 0
+        },
+        {
+          "name": "name",
+          "sql_type": "nvarchar(100)",
+          "digest": "sha256:070217c39365703619ba77e28ba4a5b34f7fa9a30527429a82a7c71c38bc5e73",
+          "null_count": 0
+        },
+        {
+          "name": "price",
+          "sql_type": "decimal(10,2)",
+          "digest": "sha256:80da59ef3898393c232c30fc42dd78ef30460055afb2c0825835a9f73307c033",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "dbo.simple",
+      "row_count": 2,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:64dace15d2023b649d3f3378b19327afb63d7bd23e0d4a8b971b5dddb935751d",
+          "null_count": 0
+        }
+      ]
+    },
+    {
+      "fqn": "sales.orders",
+      "row_count": 3,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:5be6c1972032e65c8852b651ad59e6dccaff8d9d07dc0e5718a63bff0f3f90bc",
+          "null_count": 0
+        },
+        {
+          "name": "product_id",
+          "sql_type": "int",
+          "digest": "sha256:ab6ceb74943cbb83e23d517617d94e6df14402d8fbebdc87ae634dc25e2a8499",
+          "null_count": 0
+        },
+        {
+          "name": "qty",
+          "sql_type": "int",
+          "digest": "sha256:037ba6a30d706bb95f322312d2705f99f7d305564f62b6b474500f290c754d0d",
+          "null_count": 0
+        },
+        {
+          "name": "ordered_at",
+          "sql_type": "datetime2",
+          "digest": "sha256:d1207818479b5c1eab58b7f0493b47bae4170a6b578f3d755d7cfcefc3231346",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}

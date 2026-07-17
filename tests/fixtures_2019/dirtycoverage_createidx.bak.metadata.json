@@ -1,0 +1,89 @@
+{
+  "bak": "dirtycoverage_createidx.bak",
+  "bak_sha256": "4db3db64d3afcb73f9293e1ade7ce9293426b946248d0a09852dec227fe0f959",
+  "captured_at": "2026-07-17T15:17:04.537234+00:00",
+  "constraints": [
+    {
+      "table": "dbo.kidx_test",
+      "name": "PK__kidx_tes__3213E83F2D087A59",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.kidx_test",
+      "name": "DF__kidx_test__score__24927208",
+      "kind": "default",
+      "is_system_named": true,
+      "columns": [
+        "score"
+      ],
+      "column": "score",
+      "definition": "((0))"
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.kidx_test",
+      "name": "PK__kidx_tes__3213E83F2D087A59",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.kidx_test",
+      "name": "PK__kidx_tes__3213E83F2D087A59",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": false,
+    "query_texts": []
+  }
+}

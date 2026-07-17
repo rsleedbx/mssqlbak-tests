@@ -1,0 +1,121 @@
+{
+  "bak": "cci_enc5_largepool_full.bak",
+  "bak_sha256": "06957aab546e27c27aa7726e4128afb2466a2473cb9764d5dd3717d55ca3f80d",
+  "captured_at": "2026-07-17T12:56:23.885083+00:00",
+  "constraints": [
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CF6C45F8B5",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "pk"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.cci_char_pool",
+      "name": "cci",
+      "type": "clustered columnstore",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": []
+    },
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CF6C45F8B5",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "pk"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.cci_char_pool",
+      "name": "_WA_Sys_00000002_37A5467C",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "login"
+      ]
+    },
+    {
+      "table": "dbo.cci_char_pool",
+      "name": "_WA_Sys_00000003_37A5467C",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "code"
+      ]
+    },
+    {
+      "table": "dbo.cci_char_pool",
+      "name": "cci",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id",
+        "login",
+        "code"
+      ]
+    },
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CF6C45F8B5",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "pk"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": true,
+    "query_texts": [
+      "INSERT INTO dbo.cci_char_pool (id, login, code)\nSELECT\n    pk + 1 AS id,\n    CASE WHEN (pk + 1) % 1000 = 0 THEN NULL\n         ELSE CAST(LEFT(CONVERT(CHAR(32), HASHBYTES('MD5', CAST(pk + 1 AS VARCHAR(12))), 2), 13) AS CHAR(13))\n    END AS login,\n    CASE WHEN (pk + 1) % 1000 = 0 THEN NULL\n         ELSE CAST(LEFT(CONVERT(CHAR(32), HASHBYTES('MD5', CAST(pk + 1000003 AS VARCHAR(12))), 2), 10) AS CHAR(10))\n    END AS code\nFROM fkr__seed\nWHERE pk < 80000",
+      "INSERT INTO fkr__seed SELECT pk + 32768 FROM (SELECT pk FROM fkr__seed) AS _s"
+    ]
+  }
+}

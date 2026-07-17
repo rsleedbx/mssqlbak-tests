@@ -1,0 +1,193 @@
+{
+  "bak": "cci_extended_full.bak",
+  "bak_sha256": "886233da12f81015a661ba343539982716f08dded7c337adbda7c5619b0577c0",
+  "captured_at": "2026-07-17T15:12:59.684392+00:00",
+  "constraints": [],
+  "indexes": [
+    {
+      "table": "dbo.cci_binary4",
+      "name": "cci_cci_binary4",
+      "type": "clustered columnstore",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": []
+    },
+    {
+      "table": "dbo.cci_char10_varied",
+      "name": "cci_cci_char10_varied",
+      "type": "clustered columnstore",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": []
+    },
+    {
+      "table": "dbo.cci_int",
+      "name": "cci_cci_int",
+      "type": "clustered columnstore",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": []
+    },
+    {
+      "table": "dbo.cci_nvarchar50_sparse",
+      "name": "cci_cci_nvarchar50_sparse",
+      "type": "clustered columnstore",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": []
+    },
+    {
+      "table": "dbo.cci_varchar50",
+      "name": "cci_cci_varchar50",
+      "type": "clustered columnstore",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": []
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.cci_binary4",
+      "name": "_WA_Sys_00000002_25869641",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "val"
+      ]
+    },
+    {
+      "table": "dbo.cci_binary4",
+      "name": "cci_cci_binary4",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id",
+        "val"
+      ]
+    },
+    {
+      "table": "dbo.cci_char10_varied",
+      "name": "_WA_Sys_00000002_24927208",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "val"
+      ]
+    },
+    {
+      "table": "dbo.cci_char10_varied",
+      "name": "cci_cci_char10_varied",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id",
+        "val"
+      ]
+    },
+    {
+      "table": "dbo.cci_int",
+      "name": "_WA_Sys_00000002_22AA2996",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "val"
+      ]
+    },
+    {
+      "table": "dbo.cci_int",
+      "name": "cci_cci_int",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id",
+        "val"
+      ]
+    },
+    {
+      "table": "dbo.cci_nvarchar50_sparse",
+      "name": "_WA_Sys_00000002_267ABA7A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "val"
+      ]
+    },
+    {
+      "table": "dbo.cci_nvarchar50_sparse",
+      "name": "cci_cci_nvarchar50_sparse",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id",
+        "val"
+      ]
+    },
+    {
+      "table": "dbo.cci_varchar50",
+      "name": "_WA_Sys_00000002_239E4DCF",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "val"
+      ]
+    },
+    {
+      "table": "dbo.cci_varchar50",
+      "name": "cci_cci_varchar50",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id",
+        "val"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": false,
+    "query_texts": []
+  }
+}

@@ -1,0 +1,330 @@
+{
+  "bak": "tabletype_cci_large_full.bak",
+  "bak_sha256": "ecbe9b29aa0f5efb110b4f1da224cc475404f6bf7e8c6a56afdf84d4392aaa12",
+  "captured_at": "2026-07-17T13:25:34.113552+00:00",
+  "constraints": [],
+  "indexes": [
+    {
+      "table": "dbo.tt_column",
+      "name": "cci_tt_column",
+      "type": "clustered columnstore",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": []
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.tt_column",
+      "name": "_WA_Sys_00000002_35BCFE0A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "c_tinyint"
+      ]
+    },
+    {
+      "table": "dbo.tt_column",
+      "name": "_WA_Sys_00000003_35BCFE0A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "c_smallint"
+      ]
+    },
+    {
+      "table": "dbo.tt_column",
+      "name": "_WA_Sys_00000004_35BCFE0A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "c_int"
+      ]
+    },
+    {
+      "table": "dbo.tt_column",
+      "name": "_WA_Sys_00000005_35BCFE0A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "c_bigint"
+      ]
+    },
+    {
+      "table": "dbo.tt_column",
+      "name": "_WA_Sys_00000006_35BCFE0A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "c_bit"
+      ]
+    },
+    {
+      "table": "dbo.tt_column",
+      "name": "_WA_Sys_00000007_35BCFE0A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "c_decimal_38_10"
+      ]
+    },
+    {
+      "table": "dbo.tt_column",
+      "name": "_WA_Sys_00000008_35BCFE0A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "c_numeric_18_4"
+      ]
+    },
+    {
+      "table": "dbo.tt_column",
+      "name": "_WA_Sys_00000009_35BCFE0A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "c_money"
+      ]
+    },
+    {
+      "table": "dbo.tt_column",
+      "name": "_WA_Sys_0000000A_35BCFE0A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "c_smallmoney"
+      ]
+    },
+    {
+      "table": "dbo.tt_column",
+      "name": "_WA_Sys_0000000B_35BCFE0A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "c_real"
+      ]
+    },
+    {
+      "table": "dbo.tt_column",
+      "name": "_WA_Sys_0000000C_35BCFE0A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "c_float"
+      ]
+    },
+    {
+      "table": "dbo.tt_column",
+      "name": "_WA_Sys_0000000D_35BCFE0A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "c_date"
+      ]
+    },
+    {
+      "table": "dbo.tt_column",
+      "name": "_WA_Sys_0000000E_35BCFE0A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "c_datetime2_7"
+      ]
+    },
+    {
+      "table": "dbo.tt_column",
+      "name": "_WA_Sys_0000000F_35BCFE0A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "c_time_7"
+      ]
+    },
+    {
+      "table": "dbo.tt_column",
+      "name": "_WA_Sys_00000010_35BCFE0A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "c_smalldatetime"
+      ]
+    },
+    {
+      "table": "dbo.tt_column",
+      "name": "_WA_Sys_00000011_35BCFE0A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "c_datetime"
+      ]
+    },
+    {
+      "table": "dbo.tt_column",
+      "name": "_WA_Sys_00000012_35BCFE0A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "c_datetimeoffset_7"
+      ]
+    },
+    {
+      "table": "dbo.tt_column",
+      "name": "_WA_Sys_00000013_35BCFE0A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "c_char_10"
+      ]
+    },
+    {
+      "table": "dbo.tt_column",
+      "name": "_WA_Sys_00000014_35BCFE0A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "c_nchar_10"
+      ]
+    },
+    {
+      "table": "dbo.tt_column",
+      "name": "_WA_Sys_00000015_35BCFE0A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "c_varchar_max"
+      ]
+    },
+    {
+      "table": "dbo.tt_column",
+      "name": "_WA_Sys_00000016_35BCFE0A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "c_nvarchar_50"
+      ]
+    },
+    {
+      "table": "dbo.tt_column",
+      "name": "_WA_Sys_00000017_35BCFE0A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "c_binary_8"
+      ]
+    },
+    {
+      "table": "dbo.tt_column",
+      "name": "_WA_Sys_00000018_35BCFE0A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "c_varbinary_max"
+      ]
+    },
+    {
+      "table": "dbo.tt_column",
+      "name": "_WA_Sys_00000019_35BCFE0A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "c_uniqueidentifier"
+      ]
+    },
+    {
+      "table": "dbo.tt_column",
+      "name": "cci_tt_column",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id",
+        "c_tinyint",
+        "c_smallint",
+        "c_int",
+        "c_bigint",
+        "c_bit",
+        "c_decimal_38_10",
+        "c_numeric_18_4",
+        "c_money",
+        "c_smallmoney",
+        "c_real",
+        "c_float",
+        "c_date",
+        "c_datetime2_7",
+        "c_time_7",
+        "c_smalldatetime",
+        "c_datetime",
+        "c_datetimeoffset_7",
+        "c_char_10",
+        "c_nchar_10",
+        "c_varchar_max",
+        "c_nvarchar_50",
+        "c_binary_8",
+        "c_varbinary_max",
+        "c_uniqueidentifier"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": true,
+    "query_texts": []
+  }
+}

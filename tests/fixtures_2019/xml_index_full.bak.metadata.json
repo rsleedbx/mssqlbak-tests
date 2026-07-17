@@ -1,0 +1,127 @@
+{
+  "bak": "xml_index_full.bak",
+  "bak_sha256": "68ba52696fafe862a733c6202f232d607a73fada1b26dec53d8dc8c57a5a7032",
+  "captured_at": "2026-07-17T15:25:56.523501+00:00",
+  "constraints": [
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CF6F0B426D",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "pk"
+      ]
+    },
+    {
+      "table": "dbo.xml_docs",
+      "name": "PK__xml_docs__3213E83F110A356D",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CF6F0B426D",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "pk"
+      ]
+    },
+    {
+      "table": "dbo.xml_docs",
+      "name": "PK__xml_docs__3213E83F110A356D",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.xml_docs",
+      "name": "pxi_xml_docs",
+      "type": "xml",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": [
+        "doc"
+      ]
+    },
+    {
+      "table": "dbo.xml_docs",
+      "name": "sxi_xml_docs_path",
+      "type": "xml",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": [
+        "doc"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CF6F0B426D",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "pk"
+      ]
+    },
+    {
+      "table": "dbo.xml_docs",
+      "name": "PK__xml_docs__3213E83F110A356D",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": false,
+    "query_texts": []
+  }
+}

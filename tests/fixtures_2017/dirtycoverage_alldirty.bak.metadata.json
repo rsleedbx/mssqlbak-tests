@@ -1,0 +1,78 @@
+{
+  "bak": "dirtycoverage_alldirty.bak",
+  "bak_sha256": "11dce96809061b67a988ebc10d66c1262a905289cedc64c09b87ed7e98c9670d",
+  "captured_at": "2026-07-17T14:59:17.754142+00:00",
+  "constraints": [
+    {
+      "table": "dbo.alldirty_test",
+      "name": "PK__alldirty__3213E83F3BEC1270",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.alldirty_test",
+      "name": "PK__alldirty__3213E83F3BEC1270",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.alldirty_test",
+      "name": "PK__alldirty__3213E83F3BEC1270",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": false,
+    "query_texts": []
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "bak": "compressed_nvarchar_full.bak",
+  "bak_sha256": "30a195285a96bac4aaee0ecff99ddb6ac10dee1a17aa89eaad08cdb7ce2aa055",
+  "captured_at": "2026-07-17T14:58:05.821329+00:00",
+  "constraints": [
+    {
+      "table": "dbo.compressed_nvar",
+      "name": "PK__compress__3213E83F37AC98AD",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.compressed_nvar",
+      "name": "PK__compress__3213E83F37AC98AD",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.compressed_nvar",
+      "name": "_WA_Sys_00000002_34C8D9D1",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "val"
+      ]
+    },
+    {
+      "table": "dbo.compressed_nvar",
+      "name": "PK__compress__3213E83F37AC98AD",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": false,
+    "query_texts": []
+  }
+}

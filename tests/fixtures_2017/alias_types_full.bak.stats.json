@@ -5,8 +5,8 @@
   "bak_size_mb": 2.547,
   "bak_sha256": "96b9168f3a45caf989c8461b904c0180ce2bbf4f7c27828f1d6fb53983a4507a",
   "database": "RegisterBak_alias_types_full",
-  "registered_at": "2026-06-28T00:00:21.983955+00:00",
-  "sqlserver_restore_s": 3.336,
+  "registered_at": "2026-07-17T18:34:38.411442+00:00",
+  "sqlserver_restore_s": 1.897,
   "tables": [
     {
       "schema": "dbo",
@@ -17,43 +17,43 @@
           "name": "id",
           "sql_type": "int",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "1",
+          "max_val": "3"
         },
         {
           "name": "is_active",
-          "sql_type": "Flag",
+          "sql_type": "bit",
           "null_count": 1,
-          "min_val": null,
-          "max_val": null
+          "min_val": "0",
+          "max_val": "1"
         },
         {
           "name": "name_style",
-          "sql_type": "NameStyle",
+          "sql_type": "bit",
           "null_count": 1,
-          "min_val": null,
-          "max_val": null
+          "min_val": "0",
+          "max_val": "1"
         },
         {
           "name": "display_name",
-          "sql_type": "PersonName",
+          "sql_type": "nvarchar",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "Alice",
+          "max_val": "Null Flags"
         },
         {
           "name": "account_number",
-          "sql_type": "AccountNumber",
+          "sql_type": "int",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "1001",
+          "max_val": "1003"
         },
         {
           "name": "external_id",
-          "sql_type": "ExternalId",
+          "sql_type": "uniqueidentifier",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "11111111-1111-1111-1111-111111111111",
+          "max_val": "33333333-3333-3333-3333-333333333333"
         }
       ]
     }

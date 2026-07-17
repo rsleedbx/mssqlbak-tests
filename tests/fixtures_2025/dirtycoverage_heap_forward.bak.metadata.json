@@ -1,0 +1,57 @@
+{
+  "bak": "dirtycoverage_heap_forward.bak",
+  "bak_sha256": "c237e75728f7fc1bf10d5adea32688fbd2f946c8cdd02d2d2af3968755fe31c7",
+  "captured_at": "2026-07-17T15:35:15.677878+00:00",
+  "constraints": [],
+  "indexes": [],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.heap_forward_test",
+      "name": "_WA_Sys_00000001_48CFD27E",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": true,
+    "query_texts": []
+  }
+}

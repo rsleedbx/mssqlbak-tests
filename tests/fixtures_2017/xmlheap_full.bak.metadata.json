@@ -1,0 +1,79 @@
+{
+  "bak": "xmlheap_full.bak",
+  "bak_sha256": "aba8985a9f1c267218eb54726b9c77928bf9f7b010e46171008b6d794155ab32",
+  "captured_at": "2026-07-17T15:10:01.435241+00:00",
+  "constraints": [
+    {
+      "table": "dbo.xml_heap",
+      "name": "DF__xml_heap__event___35BCFE0A",
+      "kind": "default",
+      "is_system_named": true,
+      "columns": [
+        "event_time"
+      ],
+      "column": "event_time",
+      "definition": "(sysutcdatetime())"
+    }
+  ],
+  "indexes": [],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.xml_heap",
+      "name": "_WA_Sys_00000006_34C8D9D1",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "text_payload"
+      ]
+    },
+    {
+      "table": "dbo.xml_heap",
+      "name": "_WA_Sys_00000007_34C8D9D1",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "bin_payload"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": false,
+    "query_texts": []
+  }
+}

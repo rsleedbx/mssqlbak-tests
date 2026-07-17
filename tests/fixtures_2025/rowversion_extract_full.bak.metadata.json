@@ -1,0 +1,117 @@
+{
+  "bak": "rowversion_extract_full.bak",
+  "bak_sha256": "66b75ff1f0564f7032f6d627b7aed8c967ca7ab89b67160fbc2455dcb4ddfabf",
+  "captured_at": "2026-07-17T15:48:44.988994+00:00",
+  "constraints": [
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CFB7EB8D6D",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "pk"
+      ]
+    },
+    {
+      "table": "dbo.rv_tbl",
+      "name": "PK__rv_tbl__3213E83FC1133007",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CFB7EB8D6D",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "pk"
+      ]
+    },
+    {
+      "table": "dbo.rv_tbl",
+      "name": "PK__rv_tbl__3213E83FC1133007",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CFB7EB8D6D",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "pk"
+      ]
+    },
+    {
+      "table": "dbo.rv_tbl",
+      "name": "_WA_Sys_00000003_4AB81AF0",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "rv"
+      ]
+    },
+    {
+      "table": "dbo.rv_tbl",
+      "name": "PK__rv_tbl__3213E83FC1133007",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": true,
+    "query_texts": []
+  }
+}

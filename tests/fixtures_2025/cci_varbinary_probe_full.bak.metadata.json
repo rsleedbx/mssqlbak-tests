@@ -1,0 +1,137 @@
+{
+  "bak": "cci_varbinary_probe_full.bak",
+  "bak_sha256": "66ea8859571006e9136cbaf72ab852b331494eb089778876cb2d7cc5600e6735",
+  "captured_at": "2026-07-17T15:30:06.196471+00:00",
+  "constraints": [],
+  "indexes": [
+    {
+      "table": "dbo.cci_varbinary_maxwidth",
+      "name": "cci_cci_varbinary_maxwidth",
+      "type": "clustered columnstore",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": []
+    },
+    {
+      "table": "dbo.cci_varbinary_narrowmax",
+      "name": "cci_cci_varbinary_narrowmax",
+      "type": "clustered columnstore",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": []
+    },
+    {
+      "table": "dbo.cci_varbinary_small_rowgroup",
+      "name": "cci_cci_varbinary_small_rowgroup",
+      "type": "clustered columnstore",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": []
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.cci_varbinary_maxwidth",
+      "name": "_WA_Sys_00000002_48CFD27E",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "val"
+      ]
+    },
+    {
+      "table": "dbo.cci_varbinary_maxwidth",
+      "name": "cci_cci_varbinary_maxwidth",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id",
+        "val"
+      ]
+    },
+    {
+      "table": "dbo.cci_varbinary_narrowmax",
+      "name": "_WA_Sys_00000002_49C3F6B7",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "val"
+      ]
+    },
+    {
+      "table": "dbo.cci_varbinary_narrowmax",
+      "name": "cci_cci_varbinary_narrowmax",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id",
+        "val"
+      ]
+    },
+    {
+      "table": "dbo.cci_varbinary_small_rowgroup",
+      "name": "_WA_Sys_00000002_4AB81AF0",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "val"
+      ]
+    },
+    {
+      "table": "dbo.cci_varbinary_small_rowgroup",
+      "name": "cci_cci_varbinary_small_rowgroup",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id",
+        "val"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": true,
+    "query_texts": [
+      "INSERT INTO cci_varbinary_maxwidth (id, val)\nSELECT TOP 1197\n    n + 6                          AS id,\n    CAST(CAST(n AS VARBINARY(4)) AS VARBINARY(16))            AS val\nFROM (\n    SELECT ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS n\n    FROM sys.all_objects a CROSS JOIN sys.all_objects b\n) t"
+    ]
+  }
+}

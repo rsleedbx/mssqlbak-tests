@@ -1,0 +1,88 @@
+{
+  "bak": "cci_binary_varbinary_compare_full.bak",
+  "bak_sha256": "87dc046dff0080a92d21b78e9fa5d6f1dd0762ee27f13877d3377013686738ef",
+  "captured_at": "2026-07-17T12:55:19.947418+00:00",
+  "constraints": [],
+  "indexes": [
+    {
+      "table": "dbo.cci_binary_varbinary_compare",
+      "name": "cci_cci_binary_varbinary_compare",
+      "type": "clustered columnstore",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": []
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.cci_binary_varbinary_compare",
+      "name": "_WA_Sys_00000002_35BCFE0A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "bin8"
+      ]
+    },
+    {
+      "table": "dbo.cci_binary_varbinary_compare",
+      "name": "_WA_Sys_00000003_35BCFE0A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "vb8"
+      ]
+    },
+    {
+      "table": "dbo.cci_binary_varbinary_compare",
+      "name": "cci_cci_binary_varbinary_compare",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id",
+        "bin8",
+        "vb8"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": true,
+    "query_texts": []
+  }
+}

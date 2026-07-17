@@ -1,0 +1,83 @@
+{
+  "bak": "dirtycoverage_committed_update_v2.bak",
+  "bak_sha256": "f7721c29602c7008c0f6700b8e8a6c09764b7d798b97294f4d4c165d08fa4b0d",
+  "captured_at": "2026-07-17T14:18:52.977801+00:00",
+  "constraints": [
+    {
+      "table": "dbo.committed_update_test",
+      "name": "PK__committe__3213E83F610C42C9",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.committed_update_test",
+      "name": "PK__committe__3213E83F610C42C9",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.committed_update_test",
+      "name": "PK__committe__3213E83F610C42C9",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": true,
+    "query_texts": [
+      "INSERT INTO committed_update_test (id, label, score)\nSELECT n,\n       LEFT('original_' + CAST(n AS VARCHAR) + REPLICATE('_', 200), 200),\n       n\nFROM (SELECT TOP(300000) ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS n\n      FROM master.dbo.spt_values AS a CROSS JOIN master.dbo.spt_values AS b) x",
+      "SELECT N'id', ISNULL(CAST(MIN([id]) AS NVARCHAR(200)), N'__NULL__'), ISNULL(CAST(MAX([id]) AS NVARCHAR(200)), N'__NULL__') FROM [dbo].[committed_update_test]\nUNION ALL\nSELECT N'label', ISNULL(CAST(MIN([label] COLLATE Latin1_General_100_BIN2) AS NVARCHAR(4000)), N'__NULL__'), ISNULL(CAST(MAX([label] COLLATE Latin1_General_100_BIN2) AS NVARCHAR(4000)), N'__NULL__') FROM [dbo].[committed_update_test]\nUNION ALL\nSELECT N'score', ISNULL(CAST(MIN([score]) AS NVARCHAR(200)), N'__NULL__'), ISNULL(CAST(MAX([score]) AS NVARCHAR(200)), N'__NULL__') FROM [dbo].[committed_update_test]",
+      "SELECT SUM(CASE WHEN [id] IS NULL THEN 1 ELSE 0 END) AS [id],\n    SUM(CASE WHEN [label] IS NULL THEN 1 ELSE 0 END) AS [label],\n    SUM(CASE WHEN [score] IS NULL THEN 1 ELSE 0 END) AS [score] FROM [dbo].[committed_update_test]",
+      "UPDATE committed_update_test SET label = LEFT('updated_' + CAST(id AS VARCHAR) + REPLICATE('_', 200), 200),     score = score + 1000 WHERE id <= 150000"
+    ]
+  }
+}

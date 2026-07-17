@@ -1,0 +1,78 @@
+{
+  "bak": "dirtycoverage_lob_update.bak",
+  "bak_sha256": "5ff49d1d90a3a4603451e1e769c22696d3cd0e05cafcac1d5f9d8fcb3d98b347",
+  "captured_at": "2026-07-17T13:12:41.990125+00:00",
+  "constraints": [
+    {
+      "table": "dbo.lob_update_test",
+      "name": "PK__lob_upda__3213E83F0E001006",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.lob_update_test",
+      "name": "PK__lob_upda__3213E83F0E001006",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.lob_update_test",
+      "name": "PK__lob_upda__3213E83F0E001006",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": true,
+    "query_texts": []
+  }
+}

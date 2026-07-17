@@ -1,0 +1,206 @@
+{
+  "bak": "extended_properties_full.bak",
+  "bak_sha256": "288c06916ff61df2440d254b655fc764230da05798d3b26d020dea3bf8333a72",
+  "captured_at": "2026-07-17T13:15:22.675045+00:00",
+  "constraints": [
+    {
+      "table": "dbo.products",
+      "name": "pk_products",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.simple",
+      "name": "pk_simple",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "sales.orders",
+      "name": "pk_orders",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "id"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.products",
+      "name": "pk_products",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.simple",
+      "name": "pk_simple",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "sales.orders",
+      "name": "pk_orders",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "extended_properties": [
+    {
+      "level": "schema",
+      "object": "sales",
+      "name": "MS_Description",
+      "value": "Sales data schema"
+    },
+    {
+      "level": "table",
+      "object": "dbo.products",
+      "name": "MS_Description",
+      "value": "Product catalogue"
+    },
+    {
+      "level": "table",
+      "object": "dbo.products",
+      "name": "Owner",
+      "value": "commerce-team"
+    },
+    {
+      "level": "table",
+      "object": "sales.orders",
+      "name": "MS_Description",
+      "value": "Customer order records"
+    },
+    {
+      "level": "table/column",
+      "object": "dbo.products",
+      "name": "MS_Description",
+      "value": "Surrogate primary key",
+      "column": "id"
+    },
+    {
+      "level": "table/column",
+      "object": "dbo.products",
+      "name": "MS_Description",
+      "value": "Display name of the product",
+      "column": "name"
+    },
+    {
+      "level": "table/column",
+      "object": "dbo.products",
+      "name": "SensitivityLabel",
+      "value": "Public",
+      "column": "name"
+    },
+    {
+      "level": "table/column",
+      "object": "dbo.products",
+      "name": "MS_Description",
+      "value": "Unit price in USD",
+      "column": "price"
+    },
+    {
+      "level": "table/column",
+      "object": "sales.orders",
+      "name": "MS_Description",
+      "value": "Order surrogate key",
+      "column": "id"
+    },
+    {
+      "level": "table/column",
+      "object": "sales.orders",
+      "name": "MS_Description",
+      "value": "FK to dbo.products.id",
+      "column": "product_id"
+    }
+  ],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sales"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.products",
+      "name": "pk_products",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.simple",
+      "name": "pk_simple",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "sales.orders",
+      "name": "pk_orders",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": true,
+    "query_texts": []
+  }
+}

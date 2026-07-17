@@ -5,8 +5,8 @@
   "bak_size_mb": 8.246,
   "bak_sha256": "75e93d272e9379a6947fdb780e5efd4ce12489be25740db4f7a8ac2fc44c9aa6",
   "database": "RegisterBak_featurecoverage_full",
-  "registered_at": "2026-06-15T17:32:27.242122+00:00",
-  "sqlserver_restore_s": 5.378,
+  "registered_at": "2026-07-17T18:37:22.934429+00:00",
+  "sqlserver_restore_s": 5.225,
   "tables": [
     {
       "schema": "dbo",
@@ -42,67 +42,11 @@
       "row_count": 2,
       "columns": [
         {
-          "name": "graph_id_369E7AA9436F4BBB85867202A54F0462",
-          "sql_type": "bigint",
-          "null_count": null,
-          "min_val": null,
-          "max_val": null
-        },
-        {
-          "name": "$edge_id_CF857D685B104908873B104BA9574AF5",
-          "sql_type": "nvarchar",
-          "null_count": null,
-          "min_val": null,
-          "max_val": null
-        },
-        {
-          "name": "from_obj_id_E1815575346A402D900EB231DD8DC4A5",
-          "sql_type": "int",
-          "null_count": null,
-          "min_val": null,
-          "max_val": null
-        },
-        {
-          "name": "from_id_8439CAC3313C408BBDC30F025FBC25A9",
-          "sql_type": "bigint",
-          "null_count": null,
-          "min_val": null,
-          "max_val": null
-        },
-        {
-          "name": "$from_id_B74E14E0F6364E7080061A5A49AAA736",
-          "sql_type": "nvarchar",
-          "null_count": null,
-          "min_val": null,
-          "max_val": null
-        },
-        {
-          "name": "to_obj_id_45489A37F05E48BD9A8BE12F86616981",
-          "sql_type": "int",
-          "null_count": null,
-          "min_val": null,
-          "max_val": null
-        },
-        {
-          "name": "to_id_33334385839E47C5875BE894B36A8170",
-          "sql_type": "bigint",
-          "null_count": null,
-          "min_val": null,
-          "max_val": null
-        },
-        {
-          "name": "$to_id_5904A491C1054D8E940122C4A59E667F",
-          "sql_type": "nvarchar",
-          "null_count": null,
-          "min_val": null,
-          "max_val": null
-        },
-        {
           "name": "since",
           "sql_type": "date",
-          "null_count": null,
-          "min_val": null,
-          "max_val": null
+          "null_count": 0,
+          "min_val": "2020-01-01",
+          "max_val": "2021-06-01"
         }
       ]
     },
@@ -112,25 +56,11 @@
       "row_count": 3,
       "columns": [
         {
-          "name": "graph_id_547929F4327B4970B1B2E416D396656B",
-          "sql_type": "bigint",
-          "null_count": null,
-          "min_val": null,
-          "max_val": null
-        },
-        {
-          "name": "$node_id_F13E2793C399463AB3F863A06BE54FCD",
-          "sql_type": "nvarchar",
-          "null_count": null,
-          "min_val": null,
-          "max_val": null
-        },
-        {
           "name": "name",
           "sql_type": "nvarchar",
-          "null_count": null,
-          "min_val": null,
-          "max_val": null
+          "null_count": 0,
+          "min_val": "Alice",
+          "max_val": "Carol"
         }
       ]
     },

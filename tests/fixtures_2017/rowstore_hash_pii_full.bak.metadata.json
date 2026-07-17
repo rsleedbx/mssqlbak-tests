@@ -1,0 +1,108 @@
+{
+  "bak": "rowstore_hash_pii_full.bak",
+  "bak_sha256": "c52a010559c8c3680b9528a3c37b3f338fe614c7cca2f36fec5f6b1aa87a6041",
+  "captured_at": "2026-07-17T15:07:26.831882+00:00",
+  "constraints": [
+    {
+      "table": "dbo.hash_pii_probe",
+      "name": "PK__hash_pii__3213E83FA7FA6F48",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.hash_pii_probe",
+      "name": "PK__hash_pii__3213E83FA7FA6F48",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.hash_pii_probe",
+      "name": "_WA_Sys_00000002_34C8D9D1",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "hashed_password"
+      ]
+    },
+    {
+      "table": "dbo.hash_pii_probe",
+      "name": "_WA_Sys_00000003_34C8D9D1",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "ssn_cipher"
+      ]
+    },
+    {
+      "table": "dbo.hash_pii_probe",
+      "name": "_WA_Sys_00000004_34C8D9D1",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "credit_card_cipher"
+      ]
+    },
+    {
+      "table": "dbo.hash_pii_probe",
+      "name": "PK__hash_pii__3213E83FA7FA6F48",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": false,
+    "query_texts": []
+  }
+}

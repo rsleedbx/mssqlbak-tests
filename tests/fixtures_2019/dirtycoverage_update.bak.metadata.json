@@ -1,0 +1,89 @@
+{
+  "bak": "dirtycoverage_update.bak",
+  "bak_sha256": "964844c40247d7cb8c86f249a61095e7cc1e61aee2e59c972cf1ad9c120c26c2",
+  "captured_at": "2026-07-17T15:19:38.373101+00:00",
+  "constraints": [
+    {
+      "table": "dbo.update_test",
+      "name": "PK__update_t__3213E83F5A76B71F",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.update_test",
+      "name": "DF__update_te__score__24927208",
+      "kind": "default",
+      "is_system_named": true,
+      "columns": [
+        "score"
+      ],
+      "column": "score",
+      "definition": "((0))"
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.update_test",
+      "name": "PK__update_t__3213E83F5A76B71F",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.update_test",
+      "name": "PK__update_t__3213E83F5A76B71F",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": false,
+    "query_texts": []
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "bak": "cci_bitpack_probe_full.bak",
+  "bak_sha256": "596b105d3eafcd0ce9d59d56b3075240e878aa04bf80b3cd51c5e4835fb3f9ff",
+  "captured_at": "2026-07-17T12:55:42.092971+00:00",
+  "constraints": [
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CF4CD2C0AB",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "pk"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.cci_bitpack_probe",
+      "name": "cci_bitpack_probe_cci",
+      "type": "clustered columnstore",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": []
+    },
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CF4CD2C0AB",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "pk"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.cci_bitpack_probe",
+      "name": "cci_bitpack_probe_cci",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "pk",
+        "mod4000",
+        "mod2000",
+        "mod1000",
+        "mod100"
+      ]
+    },
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CF4CD2C0AB",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "pk"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": true,
+    "query_texts": [
+      "CREATE CLUSTERED COLUMNSTORE INDEX cci_bitpack_probe_cci ON cci_bitpack_probe",
+      "INSERT INTO cci_bitpack_probe (pk, mod4000, mod2000, mod1000, mod100)\nSELECT CAST(pk AS BIGINT) AS pk, CAST(pk % 4000 AS INT) AS mod4000, CAST(pk % 2000 AS INT) AS mod2000, CAST(pk % 1000 AS INT) AS mod1000, CAST(pk % 100 AS INT) AS mod100\nFROM fkr__seed\nWHERE pk < 200000",
+      "INSERT INTO fkr__seed SELECT pk + 131072 FROM (SELECT pk FROM fkr__seed) AS _s WHERE pk < 68928",
+      "INSERT INTO fkr__seed SELECT pk + 32768 FROM (SELECT pk FROM fkr__seed) AS _s",
+      "INSERT INTO fkr__seed SELECT pk + 65536 FROM (SELECT pk FROM fkr__seed) AS _s"
+    ]
+  }
+}

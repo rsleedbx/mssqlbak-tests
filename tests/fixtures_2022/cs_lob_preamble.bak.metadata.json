@@ -1,0 +1,99 @@
+{
+  "bak": "cs_lob_preamble.bak",
+  "bak_sha256": "073cf2f935d646ebdb5527fc0478d246f9abcafd4bb11e6466c13af99924772c",
+  "captured_at": "2026-07-17T13:08:00.985424+00:00",
+  "constraints": [
+    {
+      "table": "dbo.cs_lob_preamble",
+      "name": "pk_cslp",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "id"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.cs_lob_preamble",
+      "name": "cci_lob_preamble",
+      "type": "clustered columnstore",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": []
+    },
+    {
+      "table": "dbo.cs_lob_preamble",
+      "name": "pk_cslp",
+      "type": "nonclustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.cs_lob_preamble",
+      "name": "cci_lob_preamble",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id",
+        "long_str"
+      ]
+    },
+    {
+      "table": "dbo.cs_lob_preamble",
+      "name": "pk_cslp",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": true,
+    "query_texts": [
+      "(@1 int,@2 nvarchar(4000),@3 int,@4 nvarchar(4000),@5 int,@6 nvarchar(4000),@7 int,@8 nvarchar(4000),@9 int,@10 nvarchar(4000),@11 int,@12 nvarchar(4000),@13 int,@14 nvarchar(4000),@15 int,@16 nvarchar(4000),@17 int,@18 nvarchar(4000),@19 int,@20 nvarchar(4000),@21 int,@22 nvarchar(4000),@23 int,@24 nvarchar(4000),@25 int,@26 nvarchar(4000),@27 int,@28 nvarchar(4000),@29 int,@30 nvarchar(4000),@31 int,@32 nvarchar(4000),@33 int,@34 nvarchar(4000),@35 int,@36 nvarchar(4000),@37 int,@38 nvarchar(4000),@39 int,@40 nvarchar(4000),@41 int,@42 nvarchar(4000),@43 int,@44 nvarchar(4000),@45 int,@46 nvarchar(4000),@47 int,@48 nvarchar(4000),@49 int,@50 nvarchar(4000),@51 int,@52 nvarchar(4000),@53 int,@54 nvarchar(4000),@55 int,@56 nvarchar(4000),@57 int,@58 nvarchar(4000),@59 int,@60 nvarchar(4000),@61 int,@62 nvarchar(4000),@63 int,@64 nvarchar(4000),@65 int,@66 nvarchar(4000),@67 int,@68 nvarchar(4000),@69 int,@70 nvarchar(4000),@71 int,@72 nvarchar(4000),@73 int,@74 nvarchar(4000),@75 int,@76 nvarchar(4000),@77 int,@78 nvarchar(4000),@79 int,@80 nvarchar(4000),@81 int,@82 nvarchar(4000),@83 int,@84 nvarchar(4000),@85 int,@86 nvarchar(4000),@87 int,@88 nvarchar(4000),@89 int,@90 nvarchar(4000),@91 int,@92 nvarchar(4000),@93 int,@94 nvarchar(4000),@95 int,@96 nvarchar(4000),@97 int,@98 nvarchar(4000),@99 int,@100 nvarchar(4000),@101 int,@102 nvarchar(4000),@103 int,@104 nvarchar(4000),@105 int,@106 nvarchar(4000),@107 int,@108 nvarchar(4000),@109 int,@110 nvarchar(4000),@111 int,@112 nvarchar(4000),@113 int,@114 nvarchar(4000),@115 int,@116 nvarchar(4000),@117 int,@118 nvarchar(4000),@119 int,@120 nvarchar(4000),@121 int,@122 nvarchar(4000),@123 int,@124 nvarchar(4000),@125 int,@126 nvarchar(4000),@127 int,@128 nvarchar(4000),@129 int,@130 nvarchar(4000),@131 int,@132 nvarchar(4000),@133 int,@134 nvarchar(4000),@135 int,@136 nvarchar(4000),@137 int,@138 nvarchar(4000),@139 int,@140 nvarchar(4000),@141 int,@142 nvarchar(4000),@143 int,@144 nvarchar(4000),@145 int,@146 nvarchar(4000),@147 int,@148 nvarchar(4000),@149 int,@150 nvarchar(4000),@151 int,@152 nvarchar(4000),@153 int,@154 nvarchar(4000),@155 int,@156 nvarchar(4000),@157 int,@158 nvarchar(4000),@159 int,@160 nvarchar(4000),@161 int,@162 nvarchar(4000),@163 int,@164 nvarchar(4000),@165 int,@166 nvarchar(4000),@167 int,@168 nvarchar(4000),@169 int,@170 nvarchar(4000),@171 int,@172 nvarchar(4000),@173 int,@174 nvarchar(4000),@175 int,@176 nvarchar(4000),@177 int,@178 nvarchar(4000),@179 int,@180 nvarchar(4000),@181 int,@182 nvarchar(4000),@183 int,@184 nvarchar(4000),@185 int,@186 nvarchar(4000),@187 int,@188 nvarchar(4000),@189 int,@190 nvarchar(4000),@191 int,@192 nvarchar(4000),@193 int,@194 nvarchar(4000),@195 int,@196 nvarchar(4000),@197 int,@198 nvarchar(4000),@199 int,@200 nvarchar(4000),@201 int,@202 nvarchar(4000),@203 int,@204 nvarchar(4000),@205 int,@206 nvarchar(4000),@207 int,@208 nvarchar(4000),@209 int,@210 nvarchar(4000),@211 int,@212 nvarchar(4000),@213 int,@214 nvarchar(4000),@215 int,@216 nvarchar(4000),@217 int,@218 nvarchar(4000),@219 int,@220 nvarchar(4000),@221 int,@222 nvarchar(4000),@223 int,@224 nvarchar(4000),@225 int,@226 nvarchar(4000),@227 int,@228 nvarchar(4000),@229 int,@230 nvarchar(4000),@231 int,@232 nvarchar(4000),@233 int,@234 nvarchar(4000),@235 int,@236 nvarchar(4000),@237 int,@238 nvarchar(4000),@239 int,@240 nvarchar(4000),@241 int,@242 nvarchar(4000),@243 int,@244 nvarchar(4000),@245 int,@246 nvarchar(4000),@247 int,@248 nvarchar(4000),@249 int,@250 nvarchar(4000),@251 int,@252 nvarchar(4000),@253 int,@254 nvarchar(4000),@255 int,@256 nvarchar(4000),@257 int,@258 nvarchar(4000),@259 int,@260 nvarchar(4000),@261 int,@262 nvarchar(4000),@263 int,@264 nvarchar(4000),@265 int,@266 nvarchar(4000),@267 int,@268 nvarchar(4000),@269 int,@270 nvarchar(4000),@271 int,@272 nvarchar(4000),@273 int,@274 nvarchar(4000),@275 int,@276 nvarchar(4000),@277 int,@278 nvarchar(4000),@279 int,@280 nvarchar(4000),@281 int,@282 nvarchar(4000),@283 int,@284 nvarchar(4000),@285 int,@286 nvarchar(4000),@287 int,@288 nvarchar(4000),@289 int,@290 nvarchar(4000),@291 int,@292 nvarchar(4000),@293 int,@294 nvarchar(4000),@295 int,@296 nvarchar(4000),@297 int,@298 nvarchar(4000),@299 int,@300 nvarchar(4000),@301 int,@302 nvarchar(4000),@303 int,@304 nvarchar(4000),@305 int,@306 nvarchar(4000),@307 int,@308 nvarchar(4000),@309 int,@310 nvarchar(4000),@311 int,@312 nvarchar(4000),@313 int,@314 nvarchar(4000),@315 int,@316 nvarchar(4000),@317 int,@318 nvarchar(4000),@319 int,@320 nvarchar(4000),@321 int,@322 nvarchar(4000),@323 int,@324 nvarchar(4000),@325 int,@326 nvarchar(4000),@327 int,@328 nvarchar(4000),@329 int,@330 nvarchar(4000),@331 int,@332 nvarchar(4000),@333 int,@334 nvarchar(4000),@335 int,@336 nvarchar(4000),@337 int,@338 nvarchar(4000),@339 int,@340 nvarchar(4000),@341 int,@342 nvarchar(4000),@343 int,@344 nvarchar(4000),@345 int,@346 nvarchar(4000),@347 int,@348 nvarchar(4000),@349 int,@350 nvarchar(4000),@351 int,@352 nvarchar(4000),@353 int,@354 nvarchar(4000),@355 int,@356 nvarchar(4000),@357 int,@358 nvarchar(4000),@359 int,@360 nvarchar(4000),@361 int,@362 nvarchar(4000),@363 int,@364 nvarchar(4000),@365 int,@366 nvarchar(4000),@367 int,@368 nvarchar(4000),@369 int,@370 nvarchar(4000),@371 int,@372 nvarchar(4000),@373 int,@374 nvarchar(4000),@375 int,@376 nvarchar(4000),@377 int,@378 nvarchar(4000),@379 int,@380 nvarchar(4000),@381 int,@382 nvarchar(4000),@383 int,@384 nvarchar(4000),@385 int,@386 nvarchar(4000),@387 int,@388 nvarchar(4000),@389 int,@390 nvarchar(4000),@391 int,@392 nvarchar(4000),@393 int,@394 nvarchar(4000),@395 int,@396 nvarchar(4000),@397 int,@398 nvarchar(4000),@399 int,@400 nvarchar(4000))INSERT INTO [cs_lob_preamble]([id],[long_str]) values(@1,@2),(@3,@4),(@5,@6),(@7,@8),(@9,@10),(@11,@12),(@13,@14),(@15,@16),(@17,@18),(@19,@20),(@21,@22),(@23,@24),(@25,@26),(@27,@28),(@29,@30),(@31,@32),(@33,@34),(@35,@36),(@37,@38),(@39,@40),(@41,@42),(@43,@44),(@45,@46),(@47,@48),(@49,@50),(@51,@52),(@53,@54),(@55,@56),(@57,@58),(@59,@60),(@61,@62),(@63,@64),(@65,@66),(@67,@68),(@69,@70),(@71,@72),(@73,@74),(@75,@76),(@77,@78),(@79,@80),(@81,@82),(@83,@84),(@85,@86),(@87,@88),(@89,@90),(@91,@92),(@93,@94),(@95,@96),(@97,@98),(@99,@100),(@101,@102),(@103,@104),(@105,@106),(@107,@108),(@109,@110),(@111,@112),(@113,@114),(@115,@116),(@117,@118),(@119,@120),(@121,@122),(@123,@124),(@125,@126),(@127,@128),(@129,@130),(@131,@132),(@133,@134),(@135,@136),(@137,@138),(@139,@140),(@141,@142),(@143,@144),(@145,@146),(@147,@148),(@149,@150),(@151,@152),(@153,@154),(@155,@156),(@157,@158),(@159,@160),(@161,@162),(@163,@164),(@165,@166),(@167,@168),(@169,@170),(@171,@172),(@173,@174),(@175,@176),(@177,@178),(@179,@180),(@181,@182),(@183,@184),(@185,@186),(@187,@188),(@189,@190),(@191,@192),(@193,@194),(@195,@196),(@197,@198),(@199,@200),(@201,@202),(@203,@204),(@205,@206),(@207,@208),(@209,@210),(@211,@212),(@213,@214),(@215,@216),(@217,@218),(@219,@220),(@221,@222),(@223,@224),(@225,@226),(@227,@228),(@229,@230),(@231,@232),(@233,@234),(@235,@236),(@237,@238),(@239,@240),(@241,@242),(@243,@244),(@245,@246),(@247,@248),(@249,@250),(@251,@252),(@253,@254),(@255,@256),(@257,@258),(@259,@260),(@261,@262),(@263,@264),(@265,@266),(@267,@268),(@269,@270),(@271,@272),(@273,@274),(@275,@276),(@277,@278),(@279,@280),(@281,@282),(@283,@284),(@285,@286),(@287,@288),(@289,@290),(@291,@292),(@293,@294),(@295,@296),(@297,@298),(@299,@300),(@301,@302),(@303,@304),(@305,@306),(@307,@308),(@309,@310),(@311,@312),(@313,@314),(@315,@316),(@317,@318),(@319,@320),(@321,@322),(@323,@324),(@325,@326),(@327,@328),(@329,@330),(@331,@332),(@333,@334),(@335,@336),(@337,@338),(@339,@340),(@341,@342),(@343,@344),(@345,@346),(@347,@348),(@349,@350),(@351,@352),(@353,@354),(@355,@356),(@357,@358),(@359,@360),(@361,@362),(@363,@364),(@365,@366),(@367,@368),(@369,@370),(@371,@372),(@373,@374),(@375,@376),(@377,@378),(@379,@380),(@381,@382),(@383,@384),(@385,@386),(@387,@388),(@389,@390),(@391,@392),(@393,@394),(@395,@396),(@397,@398),(@399,@400)"
+    ]
+  }
+}

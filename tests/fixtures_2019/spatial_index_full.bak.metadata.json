@@ -1,0 +1,117 @@
+{
+  "bak": "spatial_index_full.bak",
+  "bak_sha256": "c0ee39b9dbe09b48b5b0f26ac1bdb270a0b8947a5022f81ba6aff364c6ab42e8",
+  "captured_at": "2026-07-17T15:24:11.429658+00:00",
+  "constraints": [
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CFBE30050D",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "pk"
+      ]
+    },
+    {
+      "table": "dbo.spatial_pts",
+      "name": "PK__spatial___3213E83F20C8DFC8",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CFBE30050D",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "pk"
+      ]
+    },
+    {
+      "table": "dbo.spatial_pts",
+      "name": "PK__spatial___3213E83F20C8DFC8",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.spatial_pts",
+      "name": "si_spatial_pts",
+      "type": "spatial",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": [
+        "loc"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CFBE30050D",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "pk"
+      ]
+    },
+    {
+      "table": "dbo.spatial_pts",
+      "name": "PK__spatial___3213E83F20C8DFC8",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": false,
+    "query_texts": []
+  }
+}

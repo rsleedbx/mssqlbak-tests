@@ -151,9 +151,27 @@ def _release_arrow_memory() -> None:
         pass
 
 
-def _estimate_peak_mb(bak_path: Path, stats_path: Path | None) -> float:
+# Safety margin applied on top of the observed hwm_rss_mb when calibrating from a
+# prior .resources.json.  15% absorbs run-to-run peak variance (different data
+# paths, GC timing, Arrow pool watermarks) without being so large that calibration
+# reverts to the heuristic for fixtures just below a budget boundary.
+_PEAK_SAFETY_MARGIN = 1.15
+
+
+def _estimate_peak_mb(
+    bak_path: Path,
+    stats_path: Path | None,
+    prior_peaks: dict[str, float] | None = None,
+) -> float:
     """Estimate peak resident MB for one fixture (used by the budget scheduler).
 
+    When *prior_peaks* is supplied (populated from the prior run's
+    ``<out>.resources.json`` by ``_parse_prior_peaks``), the observed
+    ``hwm_rss_mb`` (OS high-water mark) is used with a 15% safety margin.
+    This replaces the conservative ``bak_size × 25`` heuristic for known
+    fixtures and makes it safe to raise ``--mem-budget-gb`` beyond the default.
+
+    Falls back to ``bak_size × 25`` for new fixtures with no prior observation.
     Calibrated against 2017 observed peaks:
     - Process baseline + Rust overhead alone accounts for ~160 MB regardless of
       data volume, so the floor is set to 400 MB to cover the majority of
@@ -162,6 +180,10 @@ def _estimate_peak_mb(bak_path: Path, stats_path: Path | None) -> float:
       924 MB peak), so a multiplier of 25 is used above the floor.
     - Uses ``bak_size_mb`` from the stats JSON when available.
     """
+    if prior_peaks:
+        hwm = prior_peaks.get(bak_path.name)
+        if hwm and hwm > 0:
+            return max(hwm * _PEAK_SAFETY_MARGIN, 400.0)
     try:
         if stats_path is not None and stats_path.exists():
             gt = json.loads(stats_path.read_text())
@@ -491,9 +513,40 @@ def _run_one(
             payload = {**meta, "edge": edge_name, "tables": edge_data["tables"]}
             _write_edge_json(reports_dir, stem, run_id, edge_name, payload)
 
+    # --- Metadata validation (when sidecar is present) ----------------------
+    validations: dict[str, Any] = {}
+    metadata_sidecar = bak_path.with_suffix(bak_path.suffix + ".metadata.json")
+    if metadata_sidecar.exists():
+        try:
+            import json as _json
+            from tools.correctness_coverage.metadata_verify import build_recovered_metadata
+            from tools.correctness_coverage.validators import get_validators
+
+            _meta_gt = _json.loads(metadata_sidecar.read_text())
+            _bak_local_input = _resolve_bak_input(bak_path)
+            _rm = build_recovered_metadata(_bak_local_input)
+            _validators = get_validators()
+            for _cat_name, _spec in _validators.items():
+                try:
+                    _vr = _spec.run(_meta_gt, _rm)
+                except Exception as _exc:
+                    import traceback as _tb
+                    from tools.correctness_coverage.metadata_verify import ValidationResult as _VR
+                    _vr = _VR(
+                        category=_cat_name,
+                        error=f"{_exc}\n{_tb.format_exc()}",
+                    )
+                validations[_cat_name] = _vr.to_dict()
+        except Exception:
+            log.exception("Metadata validation failed for %s", bak_path.name)
+
+    # Persist validations alongside edge JSONs for --assemble-only support.
+    if validations and reports_dir is not None and run_id:
+        _write_edge_json(reports_dir, stem, run_id, "_validations", {"validations": validations})
+
     mon.snapshot("done")
 
-    return {
+    result: dict[str, Any] = {
         "bak": bak_path.name,
         "sql_version": ground_truth.get("sql_version", ""),
         "bak_size_mb": ground_truth.get("bak_size_mb", 0),
@@ -514,6 +567,9 @@ def _run_one(
         "total_src_cols": total_src_cols,
         "resources": mon.to_dict(),
     }
+    if validations:
+        result["validations"] = validations
+    return result
 
 
 # ---------------------------------------------------------------------------
@@ -658,6 +714,7 @@ def _run_cases(
     run_id: str = "",
     source_mode: str = "local",
     verify_level: str = "digest",
+    prior_peaks: dict[str, float] | None = None,
 ) -> list[dict[str, Any]]:
     """Run selected cases, preserving input order even when threaded.
 
@@ -733,10 +790,16 @@ def _run_cases(
                 # Scan the full queue for the first fixture whose estimate fits
                 # inside the remaining budget.  This avoids one large fixture
                 # blocking all smaller ones that come later in the queue.
+                # NOTE: fixtures whose estimate exceeds the entire budget can
+                # only be admitted via the solo fallback below (when active is
+                # empty), so admission order can deviate from longest-first for
+                # over-budget giants.  Raise --mem-budget-gb to reduce solo
+                # serialisation; calibrated estimates from prior_peaks make this
+                # safe by using observed hwm_rss_mb rather than bak_size * 25.
                 chosen_i: int | None = None
                 chosen_est: float = 0.0
                 for i, (_, (bp, sp)) in enumerate(queue):
-                    est_i = _estimate_peak_mb(bp, sp)
+                    est_i = _estimate_peak_mb(bp, sp, prior_peaks)
                     if reserved_mb + est_i <= mem_budget_mb:
                         chosen_i, chosen_est = i, est_i
                         break
@@ -746,7 +809,7 @@ def _run_cases(
                         # progress is always guaranteed (solo run).
                         chosen_i = 0
                         chosen_est = _estimate_peak_mb(
-                            queue[0][1][0], queue[0][1][1]
+                            queue[0][1][0], queue[0][1][1], prior_peaks
                         )
                     else:
                         break  # wait for a running worker to finish

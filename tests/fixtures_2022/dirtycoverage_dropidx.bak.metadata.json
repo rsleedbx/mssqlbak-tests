@@ -1,0 +1,111 @@
+{
+  "bak": "dirtycoverage_dropidx.bak",
+  "bak_sha256": "99bb34580822ad429f6b1def5db408c4fc9c38df3c35654da283f65237065a9d",
+  "captured_at": "2026-07-17T13:11:57.160409+00:00",
+  "constraints": [
+    {
+      "table": "dbo.kidx_test",
+      "name": "PK__kidx_tes__3213E83FA592E14F",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.kidx_test",
+      "name": "DF__kidx_test__score__37A5467C",
+      "kind": "default",
+      "is_system_named": true,
+      "columns": [
+        "score"
+      ],
+      "column": "score",
+      "definition": "((0))"
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.kidx_test",
+      "name": "ix_kidx_score",
+      "type": "nonclustered",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": [
+        "score"
+      ]
+    },
+    {
+      "table": "dbo.kidx_test",
+      "name": "PK__kidx_tes__3213E83FA592E14F",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.kidx_test",
+      "name": "ix_kidx_score",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "score"
+      ]
+    },
+    {
+      "table": "dbo.kidx_test",
+      "name": "PK__kidx_tes__3213E83FA592E14F",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": true,
+    "query_texts": [
+      "(@1 nvarchar(4000),@2 int)INSERT INTO [kidx_test]([label],[score]) values(@1,@2)"
+    ]
+  }
+}

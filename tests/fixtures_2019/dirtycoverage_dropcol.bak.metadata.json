@@ -1,0 +1,78 @@
+{
+  "bak": "dirtycoverage_dropcol.bak",
+  "bak_sha256": "342c54b5e3166c4565224601d07df1c2d96dfb388d49297256134d5bd3d34f40",
+  "captured_at": "2026-07-17T15:17:24.848461+00:00",
+  "constraints": [
+    {
+      "table": "dbo.dropcol_test",
+      "name": "PK__dropcol___3213E83FE47E5EB6",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.dropcol_test",
+      "name": "PK__dropcol___3213E83FE47E5EB6",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.dropcol_test",
+      "name": "PK__dropcol___3213E83FE47E5EB6",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": false,
+    "query_texts": []
+  }
+}

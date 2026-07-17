@@ -1,6 +1,6 @@
 {
   "bak": "vector_full.bak",
-  "captured_at": "2026-06-26T18:57:08.292512+00:00",
+  "captured_at": "2026-07-17T18:39:47.562459+00:00",
   "tables": [
     {
       "fqn": "dbo.fkr__seed",
@@ -42,7 +42,8 @@
           "name": "v",
           "sql_type": "vector",
           "digest": "sha256:351bc5b19cd2f1b341199c64d5a46623701d9b1db7ee9a2724d001cb4c568d63",
-          "null_count": 0
+          "null_count": 0,
+          "base_sql_type": "varbinary(20)"
         }
       ]
     }

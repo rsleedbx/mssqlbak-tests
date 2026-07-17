@@ -1,0 +1,81 @@
+{
+  "bak": "pagecomp_anchor_full.bak",
+  "bak_sha256": "44ea5ba213e5e9de0f65f938ca197b2d92d6c777a2356db90b57c6c7bdebae4a",
+  "captured_at": "2026-07-17T14:26:33.095846+00:00",
+  "constraints": [
+    {
+      "table": "dbo.pagecomp_anchor",
+      "name": "pk_pagecomp_anchor",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "id"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.pagecomp_anchor",
+      "name": "pk_pagecomp_anchor",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.pagecomp_anchor",
+      "name": "pk_pagecomp_anchor",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": true,
+    "query_texts": [
+      "ALTER INDEX ALL ON [dbo].[pagecomp_anchor] REBUILD\n    WITH (DATA_COMPRESSION = PAGE)",
+      "INSERT INTO [dbo].[pagecomp_anchor] (id, editor, ts, ts2, amount, qty, label, geo)\nSELECT TOP (5000)\n    ROW_NUMBER() OVER (ORDER BY (SELECT NULL))            AS id,\n    1                                              AS editor,\n    CAST('2021-06-15T12:00:00.0000000'  AS DATETIME2(7))                         AS ts,\n    CAST('2021-12-31T23:59:59.0000000' AS DATETIME2(7))                         AS ts2,\n    CAST(12.500 AS DECIMAL(18,3))                       AS amount,\n    CAST(7 AS BIGINT)                                 AS qty,\n    'COMMON_PREFIX_LABEL'                                             AS label,\n    geography::Point(47.6062, -122.3321, 4326)          AS geo\nFROM sys.all_objects a CROSS JOIN sys.all_objects b"
+    ]
+  }
+}

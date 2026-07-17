@@ -1,0 +1,78 @@
+{
+  "bak": "pagecomp_anchor_full.bak",
+  "bak_sha256": "788e265df3e64cea547943f92a83db5af548eba5df89947f0f673e21da8fbbc7",
+  "captured_at": "2026-07-17T15:06:45.692546+00:00",
+  "constraints": [
+    {
+      "table": "dbo.pagecomp_anchor",
+      "name": "pk_pagecomp_anchor",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "id"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.pagecomp_anchor",
+      "name": "pk_pagecomp_anchor",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.pagecomp_anchor",
+      "name": "pk_pagecomp_anchor",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": false,
+    "query_texts": []
+  }
+}

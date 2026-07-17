@@ -1,0 +1,81 @@
+{
+  "bak": "heapcoverage_large_50000.bak",
+  "bak_sha256": "d377aada42aa4fedbee14a5df744e902c396936f20120172ea9121cb9ce1cefe",
+  "captured_at": "2026-07-17T13:17:20.595559+00:00",
+  "constraints": [
+    {
+      "table": "dbo.heap_clustered",
+      "name": "PK__heap_clu__3213E83F73E7D8D2",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.heap_clustered",
+      "name": "PK__heap_clu__3213E83F73E7D8D2",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.heap_clustered",
+      "name": "PK__heap_clu__3213E83F73E7D8D2",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": true,
+    "query_texts": [
+      "WITH nums AS (\n    SELECT TOP (50000)\n        ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS rn\n    FROM sys.all_columns AS a\n    CROSS JOIN sys.all_columns AS b\n)\nINSERT INTO dbo.heap_clustered (id, val, label)\nSELECT\n    CAST(rn AS INT),\n    rn * 7919,\n    N'row_' + CAST(rn AS NVARCHAR(20)) + N'_' + REPLICATE(N'x', 20)\nFROM nums",
+      "WITH nums AS (\n    SELECT TOP (50000)\n        ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS rn\n    FROM sys.all_columns AS a\n    CROSS JOIN sys.all_columns AS b\n)\nINSERT INTO dbo.heap_plain (id, val, label)\nSELECT\n    CAST(rn AS INT),\n    rn * 7919,\n    N'row_' + CAST(rn AS NVARCHAR(20)) + N'_' + REPLICATE(N'x', 20)\nFROM nums"
+    ]
+  }
+}

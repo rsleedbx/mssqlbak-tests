@@ -1,0 +1,80 @@
+{
+  "bak": "forwarded_records_full.bak",
+  "bak_sha256": "0c10e2cebbf65e58ebef3696666468cbe82c820d9945f63ae834d72a8d5af537",
+  "captured_at": "2026-07-17T15:43:31.160541+00:00",
+  "constraints": [
+    {
+      "table": "dbo.fwd_control",
+      "name": "PK__fwd_cont__3213E83FC0010304",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.fwd_control",
+      "name": "PK__fwd_cont__3213E83FC0010304",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.fwd_control",
+      "name": "PK__fwd_cont__3213E83FC0010304",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": true,
+    "query_texts": [
+      "UPDATE dbo.fwd_control\nSET val = REPLICATE('y', 7000)\nWHERE id % 2 = 1"
+    ]
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "bak": "filtered_ncci_full.bak",
+  "bak_sha256": "207df01c0fece332ba8c928be34613c674654f516aad08540bf426ae77d68a3a",
+  "captured_at": "2026-07-17T15:03:41.645594+00:00",
+  "constraints": [
+    {
+      "table": "dbo.filtered_ncci_base",
+      "name": "PK__filtered__3213E83F914F8139",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CFDBF50B9B",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "pk"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.filtered_ncci_base",
+      "name": "ix_filtered_ncci",
+      "type": "nonclustered columnstore",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": []
+    },
+    {
+      "table": "dbo.filtered_ncci_base",
+      "name": "PK__filtered__3213E83F914F8139",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.filtered_ncci_heap",
+      "name": "ix_filtered_ncci_heap",
+      "type": "nonclustered columnstore",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": []
+    },
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CFDBF50B9B",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "pk"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.filtered_ncci_base",
+      "name": "_WA_Sys_00000003_36B12243",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "active"
+      ]
+    },
+    {
+      "table": "dbo.filtered_ncci_base",
+      "name": "ix_filtered_ncci",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": "([active]=(1))",
+      "key_columns": [
+        "val"
+      ]
+    },
+    {
+      "table": "dbo.filtered_ncci_base",
+      "name": "PK__filtered__3213E83F914F8139",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.filtered_ncci_heap",
+      "name": "_WA_Sys_00000003_38996AB5",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "active"
+      ]
+    },
+    {
+      "table": "dbo.filtered_ncci_heap",
+      "name": "ix_filtered_ncci_heap",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": "([active]=(1))",
+      "key_columns": [
+        "val"
+      ]
+    },
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CFDBF50B9B",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "pk"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": false,
+    "query_texts": []
+  }
+}

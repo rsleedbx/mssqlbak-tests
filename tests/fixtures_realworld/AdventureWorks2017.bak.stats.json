@@ -1,10 +1,12 @@
 {
-  "sql_version": "Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (X64)",
+  "sql_version": "Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)",
   "bak": "AdventureWorks2017.bak",
+  "bak_size_bytes": 50286592,
   "bak_size_mb": 47.957,
+  "bak_sha256": "449b862f7f8f16f5b984f85d17692a225299df1870372a9f8e50f99073b26e33",
   "database": "RegisterBak_AdventureWorks2017",
-  "registered_at": "2026-06-10T01:21:23.335115+00:00",
-  "sqlserver_restore_s": 4.094,
+  "registered_at": "2026-07-17T18:56:48.403057+00:00",
+  "sqlserver_restore_s": 3.302,
   "tables": [
     {
       "schema": "dbo",
@@ -19,18 +21,25 @@
           "max_val": "1"
         },
         {
+          "name": "Database Version",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "14.0.1000.169",
+          "max_val": "14.0.1000.169"
+        },
+        {
           "name": "VersionDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Aug 22 2017  7:39PM",
-          "max_val": "Aug 22 2017  7:39PM"
+          "min_val": "2017-08-22 19:39:35",
+          "max_val": "2017-08-22 19:39:35"
         },
         {
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Oct 27 2017  2:33PM",
-          "max_val": "Oct 27 2017  2:33PM"
+          "min_val": "2017-10-27 14:33:02",
+          "max_val": "2017-10-27 14:33:02"
         }
       ]
     },
@@ -50,8 +59,8 @@
           "name": "PostTime",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Oct 27 2017  2:33PM",
-          "max_val": "Oct 27 2017  2:33PM"
+          "min_val": "2017-10-27 14:33:01",
+          "max_val": "2017-10-27 14:33:17"
         },
         {
           "name": "DatabaseUser",
@@ -85,15 +94,15 @@
           "name": "TSQL",
           "sql_type": "nvarchar",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "\r\n\r\n\r\nCREATE FUNCTION [dbo].[ufnGetProductDealerPrice](@ProductID [int], @OrderDate [datetime])\r\nRETURNS [money] \r\nAS \r\n-- Returns the dealer price for the product on a specific date.\r\nBEGIN\r\n    DECLARE @DealerPrice money;\r\n    DECLARE @DealerDiscount money;\r\n\r\n    SET @DealerDiscount = 0.60  -- 60% of list price\r\n\r\n    SELECT @DealerPrice = plph.[ListPrice] * @DealerDiscount \r\n    FROM [Production].[Product] p \r\n        INNER JOIN [Production].[ProductListPriceHistory] plph \r\n        ON p.[ProductID] = plph.[ProductID] \r\n            AND p.[ProductID] = @ProductID \r\n            AND @OrderDate BETWEEN plph.[StartDate] AND COALESCE(plph.[EndDate], CONVERT(datetime, '99991231', 112)); -- Make sure we get all the prices!\r\n\r\n    RETURN @DealerPrice;\r\nEND;\r\n",
+          "max_val": "EXECUTE [sys].[sp_addextendedproperty] N'MS_Description', N'Work title such as Buyer or Sales Representative.', N'SCHEMA', [HumanResources], N'TABLE', [Employee], N'COLUMN', [JobTitle]"
         },
         {
           "name": "XmlEvent",
           "sql_type": "xml",
           "null_count": 0,
-          "min_val": "<EVENT_INSTANCE><EventType>ALTER_TABLE</EventType><PostTime>2017-10-27T14:33:01.400</PostTime><SPID>56</SPID><ServerName>BARBKESS24\\MSSQL2017RTM</ServerName><LoginName>REDMOND\\barbkess</LoginName><Use",
-          "max_val": "<EVENT_INSTANCE><EventType>CREATE_XML_SCHEMA_COLLECTION</EventType><PostTime>2017-10-27T14:33:01.680</PostTime><SPID>56</SPID><ServerName>BARBKESS24\\MSSQL2017RTM</ServerName><LoginName>REDMOND\\barbkes"
+          "min_val": "<EVENT_INSTANCE><EventType>ALTER_TABLE</EventType><PostTime>2017-10-27T14:33:01.400</PostTime><SPID>56</SPID><ServerName>BARBKESS24\\MSSQL2017RTM</ServerName><LoginName>REDMOND\\barbkess</LoginName><UserName>dbo</UserName><DatabaseName>AdventureWorks2017</DatabaseName><SchemaName>dbo</SchemaName><ObjectName>ErrorLog</ObjectName><ObjectType>TABLE</ObjectType><AlterTableActionList><Create><Constraints><Name>PK_ErrorLog_ErrorLogID</Name></Constraints></Create></AlterTableActionList><TSQLCommand><SetOptions ANSI_NULLS=\"ON\" ANSI_NULL_DEFAULT=\"ON\" ANSI_PADDING=\"ON\" QUOTED_IDENTIFIER=\"ON\" ENCRYPTED=\"FALSE\"/><CommandText>ALTER TABLE [dbo].[ErrorLog] WITH CHECK ADD &#x0D;\n    CONSTRAINT [PK_ErrorLog_ErrorLogID] PRIMARY KEY CLUSTERED &#x0D;\n    (&#x0D;\n        [ErrorLogID]&#x0D;\n    )  ON [PRIMARY]</CommandText></TSQLCommand></EVENT_INSTANCE>",
+          "max_val": "<EVENT_INSTANCE><EventType>CREATE_XML_SCHEMA_COLLECTION</EventType><PostTime>2017-10-27T14:33:01.680</PostTime><SPID>56</SPID><ServerName>BARBKESS24\\MSSQL2017RTM</ServerName><LoginName>REDMOND\\barbkess</LoginName><UserName>dbo</UserName><DatabaseName>AdventureWorks2017</DatabaseName><SchemaName>Sales</SchemaName><ObjectName>StoreSurveySchemaCollection</ObjectName><ObjectType>XML SCHEMA COLLECTION</ObjectType><TSQLCommand><SetOptions ANSI_NULLS=\"ON\" ANSI_NULL_DEFAULT=\"ON\" ANSI_PADDING=\"ON\" QUOTED_IDENTIFIER=\"ON\" ENCRYPTED=\"FALSE\"/><CommandText>CREATE XML SCHEMA COLLECTION [Sales].[StoreSurveySchemaCollection] AS &#x0D;\n'&lt;?xml version=\"1.0\" encoding=\"UTF-8\"?&gt;&#x0D;\n&lt;xsd:schema xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"&#x0D;\n    targetNamespace=\"http://schemas.microsoft.com/sqlserver/2004/07/adventure-works/StoreSurvey\" &#x0D;\n    xmlns=\"http://schemas.microsoft.com/sqlserver/2004/07/adventure-works/StoreSurvey\" &#x0D;\n    elementFormDefault=\"qualified\" attributeFormDefault=\"unqualified\"&gt;&#x0D;\n&#x0D;\n    &lt;!-- BM=Bicycle manu BS=bicyle store OS=online store SGS=sporting goods store D=Discount Store --&gt;&#x0D;\n    &lt;xsd:simpleType name=\"BusinessType\"&gt;&#x0D;\n        &lt;xsd:restriction base=\"xsd:string\"&gt;&#x0D;\n            &lt;xsd:enumeration value=\"BM\" /&gt;&#x0D;\n            &lt;xsd:enumeration value=\"BS\" /&gt;&#x0D;\n            &lt;xsd:enumeration value=\"D\" /&gt;&#x0D;\n            &lt;xsd:enumeration value=\"OS\" /&gt;&#x0D;\n            &lt;xsd:enumeration value=\"SGS\" /&gt;&#x0D;\n        &lt;/xsd:restriction&gt;&#x0D;\n    &lt;/xsd:simpleType&gt;&#x0D;\n&#x0D;\n    &lt;!-- BMX=BMX Racing --&gt;&#x0D;\n    &lt;xsd:simpleType name=\"SpecialtyType\"&gt;&#x0D;\n        &lt;xsd:restriction base=\"xsd:string\"&gt;&#x0D;\n            &lt;xsd:enumeration value=\"Family\" /&gt;&#x0D;\n            &lt;xsd:enumeration value=\"Kids\" /&gt;&#x0D;\n            &lt;xsd:enumeration value=\"BMX\" /&gt;&#x0D;\n            &lt;xsd:enumeration value=\"Touring\" /&gt;&#x0D;\n            &lt;xsd:enumeration value=\"Road\" /&gt;&#x0D;\n            &lt;xsd:enumeration value=\"Mountain\" /&gt;&#x0D;\n            &lt;xsd:enumeration value=\"All\" /&gt;&#x0D;\n        &lt;/xsd:restriction&gt;&#x0D;\n    &lt;/xsd:simpleType&gt;&#x0D;\n&#x0D;\n    &lt;!-- AW=AdventureWorks only 2= AdvWorks+1 other brand other brand --&gt;&#x0D;\n    &lt;xsd:simpleType name=\"BrandType\"&gt;&#x0D;\n        &lt;xsd:restriction base=\"xsd:string\"&gt;&#x0D;\n            &lt;xsd:enumeration value=\"AW\" /&gt;&#x0D;\n            &lt;xsd:enumeration value=\"2\" /&gt;&#x0D;\n            &lt;xsd:enumeration value=\"3\" /&gt;&#x0D;\n            &lt;xsd:enumeration value=\"4+\" /&gt;&#x0D;\n        &lt;/xsd:restriction&gt;&#x0D;\n    &lt;/xsd:simpleType&gt;&#x0D;\n&#x0D;\n    &lt;xsd:simpleType name=\"InternetType\"&gt;&#x0D;\n        &lt;xsd:restriction base=\"xsd:string\"&gt;&#x0D;\n            &lt;xsd:enumeration value=\"56kb\" /&gt;&#x0D;\n            &lt;xsd:enumeration value=\"ISDN\" /&gt;&#x0D;\n            &lt;xsd:enumeration value=\"DSL\" /&gt;&#x0D;\n            &lt;xsd:enumeration value=\"T1\" /&gt;&#x0D;\n            &lt;xsd:enumeration value=\"T2\" /&gt;&#x0D;\n            &lt;xsd:enumeration value=\"T3\" /&gt;&#x0D;\n        &lt;/xsd:restriction&gt;&#x0D;\n    &lt;/xsd:simpleType&gt;&#x0D;\n&#x0D;\n    &lt;xsd:element name=\"StoreSurvey\"&gt;&#x0D;\n        &lt;xsd:complexType&gt;&#x0D;\n            &lt;xsd:sequence&gt;&#x0D;\n                &lt;xsd:element name=\"ContactName\" type=\"xsd:string\" minOccurs=\"0\" maxOccurs=\"1\" /&gt;&#x0D;\n                &lt;xsd:element name=\"JobTitle\" type=\"xsd:string\" minOccurs=\"0\" maxOccurs=\"1\" /&gt;&#x0D;\n                &lt;xsd:element name=\"AnnualSales\" type=\"xsd:decimal\" minOccurs=\"0\" maxOccurs=\"1\" /&gt;&#x0D;\n                &lt;xsd:element name=\"AnnualRevenue\" type=\"xsd:decimal\" minOccurs=\"0\" maxOccurs=\"1\" /&gt;&#x0D;\n                &lt;xsd:element name=\"BankName\" type=\"xsd:string\" minOccurs=\"0\" maxOccurs=\"1\" /&gt;&#x0D;\n                &lt;xsd:element name=\"BusinessType\" type=\"BusinessType\" m"
         }
       ]
     },
@@ -181,14 +190,14 @@
         },
         {
           "name": "Name",
-          "sql_type": "Name",
+          "sql_type": "nvarchar",
           "null_count": 0,
           "min_val": "Document Control",
           "max_val": "Tool Design"
         },
         {
           "name": "GroupName",
-          "sql_type": "Name",
+          "sql_type": "nvarchar",
           "null_count": 0,
           "min_val": "Executive General and Administration",
           "max_val": "Sales and Marketing"
@@ -197,8 +206,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Apr 30 2008 12:00AM",
-          "max_val": "Apr 30 2008 12:00AM"
+          "min_val": "2008-04-30 00:00:00",
+          "max_val": "2008-04-30 00:00:00"
         }
       ]
     },
@@ -211,106 +220,106 @@
           "name": "BusinessEntityID",
           "sql_type": "int",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "1",
+          "max_val": "290"
         },
         {
           "name": "NationalIDNumber",
           "sql_type": "nvarchar",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "10708100",
+          "max_val": "999440576"
         },
         {
           "name": "LoginID",
           "sql_type": "nvarchar",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "adventure-works\\alan0",
+          "max_val": "adventure-works\\zheng0"
         },
         {
           "name": "OrganizationNode",
           "sql_type": "hierarchyid",
           "null_count": 1,
-          "min_val": null,
-          "max_val": null
+          "min_val": "/1/",
+          "max_val": "/6/3/3/"
         },
         {
           "name": "JobTitle",
           "sql_type": "nvarchar",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "Accountant",
+          "max_val": "Vice President of Sales"
         },
         {
           "name": "BirthDate",
           "sql_type": "date",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "1951-10-17",
+          "max_val": "1991-05-31"
         },
         {
           "name": "MaritalStatus",
           "sql_type": "nchar",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "M",
+          "max_val": "S"
         },
         {
           "name": "Gender",
           "sql_type": "nchar",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "F",
+          "max_val": "M"
         },
         {
           "name": "HireDate",
           "sql_type": "date",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "2006-06-30",
+          "max_val": "2013-05-30"
         },
         {
           "name": "SalariedFlag",
-          "sql_type": "Flag",
+          "sql_type": "bit",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "0",
+          "max_val": "1"
         },
         {
           "name": "VacationHours",
           "sql_type": "smallint",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "0",
+          "max_val": "99"
         },
         {
           "name": "SickLeaveHours",
           "sql_type": "smallint",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "20",
+          "max_val": "80"
         },
         {
           "name": "CurrentFlag",
-          "sql_type": "Flag",
+          "sql_type": "bit",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "1",
+          "max_val": "1"
         },
         {
           "name": "rowguid",
           "sql_type": "uniqueidentifier",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "794A0B1F-C46A-401C-984D-008996FC7092",
+          "max_val": "B6998410-EE0F-4307-9E6E-FE348F11012D"
         },
         {
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "2014-06-30 00:00:00",
+          "max_val": "2014-12-26 09:17:08"
         }
       ]
     },
@@ -358,8 +367,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Jun 29 2006 12:00AM",
-          "max_val": "Nov 13 2013 12:00AM"
+          "min_val": "2006-06-29 00:00:00",
+          "max_val": "2013-11-13 00:00:00"
         }
       ]
     },
@@ -379,8 +388,8 @@
           "name": "RateChangeDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Jun 30 2006 12:00AM",
-          "max_val": "Jul 14 2013 12:00AM"
+          "min_val": "2006-06-30 00:00:00",
+          "max_val": "2013-07-14 00:00:00"
         },
         {
           "name": "Rate",
@@ -400,8 +409,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Nov 21 2007 12:00AM",
-          "max_val": "Jun 30 2014 12:00AM"
+          "min_val": "2007-11-21 00:00:00",
+          "max_val": "2014-06-30 00:00:00"
         }
       ]
     },
@@ -428,15 +437,15 @@
           "name": "Resume",
           "sql_type": "xml",
           "null_count": 0,
-          "min_val": "<ns:Resume xmlns:ns=\"http://schemas.microsoft.com/sqlserver/2004/07/adventure-works/Resume\"><ns:Name><ns:Name.Prefix/><ns:Name.First>Peng</ns:Name.First><ns:Name.Middle/><ns:Name.Last>Wu</ns:Name.Last",
-          "max_val": "<ns:Resume xmlns:ns=\"http://schemas.microsoft.com/sqlserver/2004/07/adventure-works/Resume\"><ns:Name><ns:Name.Prefix>\u0e19\u0e32\u0e22</ns:Name.Prefix><ns:Name.First>\u0e2a\u0e38\u0e17\u0e31\u0e28\u0e19</ns:Name.First><ns:Name.Middle/><ns:Name."
+          "min_val": "<ns:Resume xmlns:ns=\"http://schemas.microsoft.com/sqlserver/2004/07/adventure-works/Resume\"><ns:Name><ns:Name.Prefix/><ns:Name.First>Peng</ns:Name.First><ns:Name.Middle/><ns:Name.Last>Wu</ns:Name.Last><ns:Name.Suffix/></ns:Name><ns:Skills>\u719f\u6089\u6240\u6709\u9500\u552e\u73af\u8282\uff0c\u4e13\u4e1a\u77e5\u8bc6\u4e30\u5bcc\u300213 \u5e74\u6765\uff0c\u4e3a\u63d0\u9ad8\u516c\u53f8\u6536\u5165\u6210\u7ee9\u5353\u8457\u3002\u5728\u8ba1\u5212\u548c\u9884\u6d4b\u9500\u552e\u3001\u53d1\u5c55\u5ba2\u6237\u4ee5\u53ca\u8fd0\u7528\u591a\u79cd\u9500\u552e\u6280\u5de7\u65b9\u9762\u5177\u6709\u4e00\u5b9a\u7ecf\u9a8c\u3002\n\u5177\u6709\u4e94\u5e74\u7684\u9500\u552e\u7ba1\u7406\u7ecf\u9a8c\uff0c\u5305\u62ec\u5ba2\u6237\u7ebf\u7d22\u751f\u6210\u3001\u9500\u552e\u4eba\u5458\u7ba1\u7406\u4ee5\u53ca\u9500\u552e\u533a\u57df\u7ba1\u7406\u3002\u5728\u7ba1\u7406\u7531\u73b0\u573a\u9500\u552e\u4ee3\u8868\u3001\u4ea7\u54c1\u6f14\u793a\u4eba\u5458\u548c\u4f9b\u5e94\u5546\u7ec4\u6210\u7684\u5206\u5e03\u5f0f\u9500\u552e\u7f51\u7edc\u8fc7\u7a0b\u4e2d\uff0c\u80fd\u591f\u5229\u7528\u5404\u79cd\u7ba1\u7406\u98ce\u683c\u548c\u4e13\u4e1a\u6280\u80fd\u6765\u8fdb\u884c\u6709\u6548\u7ba1\u7406\u548c\u6c9f\u901a\u3002\n\u6781\u4f73\u7684\u6c9f\u901a\u548c\u8868\u8fbe\u80fd\u529b\n    </ns:Skills><ns:Employment><ns:Emp.StartDate>1998-03-31Z</ns:Emp.StartDate><ns:Emp.OrgName>Wide World Imports</ns:Emp.OrgName><ns:Emp.JobTitle>\u9500\u552e\u7ecf\u7406</ns:Emp.JobTitle><ns:Emp.Responsibility>\u8d1f\u8d23\u7ba1\u7406\u7531 20 \u540d\u9500\u552e\u4ee3\u8868\u548c 5 \u540d\u652f\u6301\u4eba\u5458\u7ec4\u6210\u7684\u8de8 5 \u4e2a\u5dde\u7684\u9500\u552e\u7f51\u7edc\u3002\u53e6\u5916\uff0c\u8fd8\u8d1f\u8d23\u534f\u8c03\u4e0e\u4f9b\u5e94\u5546\u7684\u5173\u7cfb\u4ee5\u83b7\u5f97\u5ba2\u6237\u7ebf\u7d22. \u5e26\u9886\u56e2\u961f\u5229\u7528 IT \u6280\u672f\u6539\u5584\u4e0e\u9500\u552e\u4eba\u5458\u7684\u5f80\u6765\u901a\u4fe1\u60c5\u51b5\u3002\u5c06\u4ece\u5ba2\u6237\u7ebf\u7d22\u53d8\u4e3a\u8054\u7cfb\u5ba2\u6237\u7684\u65f6\u95f4\u5468\u671f\u7f29\u77ed 15%. \u8ba1\u5212\u548c\u9884\u6d4b\u6240\u6709\u9500\u552e\u6d3b\u52a8\u3002\u8c03\u6574\u9500\u552e\u533a\u57df\u5206\u914d\uff0c\u6700\u5927\u9650\u5ea6\u63d0\u9ad8\u6240\u6709\u9500\u552e\u4eba\u5458\u7684\u6548\u7387\u3002\u4e0e\u8425\u9500\u90e8\u95e8\u5bc6\u5207\u5408\u4f5c\u5c06\u4ea7\u54c1\u8bd5\u7528\u8f6c\u5316\u4e3a\u5177\u4f53\u7684\u9500\u552e\u6218\u7565\u548c\u76ee\u6807. \u5728\u6211\u7684\u7ba1\u7406\u4e4b\u4e0b\uff0c\u9500\u552e\u989d\u6bcf\u5e74\u81f3\u5c11\u589e\u957f 10%.\n        </ns:Emp.Responsibility><ns:Emp.FunctionCategory>\u9500\u552e</ns:Emp.FunctionCategory><ns:Emp.IndustryCategory>\u8fdb\u51fa\u53e3</ns:Emp.IndustryCategory><ns:Emp.Location><ns:Location><ns:Loc.CountryRegion>US </ns:Loc.CountryRegion><ns:Loc.State>WA </ns:Loc.State><ns:Loc.City>Renton</ns:Loc.City></ns:Location></ns:Emp.Location></ns:Employment><ns:Employment><ns:Emp.StartDate>1992-03-15Z</ns:Emp.StartDate><ns:Emp.EndDate>1998-03-31Z</ns:Emp.EndDate><ns:Emp.OrgName>Coho Winery</ns:Emp.OrgName><ns:Emp.JobTitle>\u9ad8\u7ea7\u9500\u552e\u52a9\u7406</ns:Emp.JobTitle><ns:Emp.Responsibility>\u5411\u96f6\u552e\u5546\u548c\u996d\u5e97\u63a8\u9500\u4ea7\u54c1\u3002\u4e0e\u5ba2\u6237\u5bc6\u5207\u8054\u7cfb\u4ee5\u62d3\u5c55\u4e1a\u52a1\u30021996 \u81f3 1998 \u5e74\u95f4\u4efb\u516c\u53f8\u9500\u552e\u4e3b\u7ba1. \u9996\u521b\u4ea7\u54c1\u642d\u5356\u65b9\u6848\u3002\u4e0e\u5f53\u5730\u5de7\u514b\u529b\u516c\u53f8\u8054\u624b\u4e3e\u529e\u7684\u6d3b\u52a8\u662f\u516c\u53f8\u5386\u53f2\u4e0a\u6700\u6210\u529f\u7684\u4fc3\u9500\u6d3b\u52a8\u3002\u8be5\u6d3b\u52a8\u4f7f\u516c\u53f8\u6536\u5165\u589e\u52a0 18%.\n        </ns:Emp.Responsibility><ns:Emp.FunctionCategory>\u9500\u552e</ns:Emp.FunctionCategory><ns:Emp.IndustryCategory>\u98df\u54c1\u548c\u996e\u6599</ns:Emp.IndustryCategory><ns:Emp.Location><ns:Location><ns:Loc.CountryRegion>US </ns:Loc.CountryRegion><ns:Loc.State>WA </ns:Loc.State><ns:Loc.City>Bellevue</ns:Loc.City></ns:Location></ns:Emp.Location></ns:Employment><ns:Employment><ns:Emp.StartDate>1990-06-10Z</ns:Emp.StartDate><ns:Emp.EndDate>1992-03-31Z</ns:Emp.EndDate><ns:Emp.OrgName>Fourth Coffee</ns:Emp.OrgName><ns:Emp.JobTitle>\u9500\u552e\u52a9\u7406</ns:Emp.JobTitle><ns:Emp.Responsibility>\u5411\u8d85\u5e02\u548c\u5496\u5561\u9986\u63a8\u9500\u4ea7\u54c1\u3002\u4e3b\u8981\u4f7f\u7528\u589e\u503c\u6cd5\u6765\u63d0\u9ad8\u9500\u91cf\uff0c\u4e3a\u526f\u4ea7\u54c1\u521b\u9020\u5e02\u573a. \u64c5\u957f\u62c9\u8ba2\u5355\u3002\u4e0e\u5ba2\u6237\u4fdd\u6301\u826f\u597d\u5173\u7cfb\uff0c\u5584\u4e8e\u5224\u65ad\u5e76\u628a\u63e1\u673a\u4f1a\u6765\u63d0\u9ad8\u9500\u91cf\n        </ns:Emp.Responsibility><ns:Emp.FunctionCategory>\u9500\u552e</ns:Emp.FunctionCategory><ns:Emp.IndustryCategory>\u98df\u54c1\u548c\u996e\u6599</ns:Emp.IndustryCategory><ns:Emp.Location><ns:Location><ns:Loc.CountryRegion>US </ns:Loc.CountryRegion><ns:Loc.State>WA </ns:Loc.State><ns:Loc.City>Kent</ns:Loc.City></ns:Location></ns:Emp.Location></ns:Employment><ns:Education><ns:Edu.Level>\u5b66\u58eb</ns:Edu.Level><ns:Edu.StartDate>1986-09-15Z</ns:Edu.StartDate><ns:Edu.EndDate>1990-05-15Z</ns:Edu.EndDate><ns:Edu.Degree>Bachelor of Science</ns:Edu.Degree><ns:Edu.Major>\u8d38\u6613</ns:Edu.Major><ns:Edu.Minor/><ns:Edu.GPA>3.3</ns:Edu.GPA><ns:Edu.GPAScale>4</ns:Edu.GPAScale><ns:Edu.School>Western University</ns:Edu.School><ns:Edu.Location><ns:Location><ns:Loc.CountryRegion>US </ns:Loc.CountryRegion><ns:Loc.State>WA </ns:Loc.State><ns:Loc.City>Seattle</ns:Loc.City></ns:Location></ns:Edu.Location></ns:Education><ns:Address><ns:Addr.Type>\u5bb6\u5ead</ns:Addr.Type><ns:Addr.Street>50 West 5th Street</ns:Addr.Street><ns:Addr.Location><ns:Location><ns:Loc.CountryRegion>US </ns:Loc.CountryRegion><ns:Loc.State>WA </ns:Loc.State><ns:Loc.City>Federal Way</ns:Loc.City></ns:Location></ns:Addr.Location><ns:Addr.PostalCode>98003</ns:Addr.PostalCode><ns:Addr.Telephone><ns:Telephone><ns:Tel.Type>\u5bb6\u5ead</ns:Tel.Type><ns:Tel.IntlCode>1</ns:Tel.IntlCode><ns:Tel.AreaCode>253</ns:Tel.AreaCode><ns:Tel.Number>555-1444</ns:Tel.Number></ns:Telephone></ns:Addr.Telephone></ns:Address><ns:EMail/><ns:WebSite/></ns:Resume>",
+          "max_val": "<ns:Resume xmlns:ns=\"http://schemas.microsoft.com/sqlserver/2004/07/adventure-works/Resume\"><ns:Name><ns:Name.Prefix>\u0e19\u0e32\u0e22</ns:Name.Prefix><ns:Name.First>\u0e2a\u0e38\u0e17\u0e31\u0e28\u0e19</ns:Name.First><ns:Name.Middle/><ns:Name.Last>\u0e04\u0e13\u0e32\u0e1e\u0e25</ns:Name.Last><ns:Name.Suffix/></ns:Name><ns:Skills>\u0e21\u0e35\u0e04\u0e27\u0e32\u0e21\u0e0a\u0e33\u0e19\u0e32\u0e0d\u0e43\u0e19\u0e2a\u0e32\u0e22\u0e07\u0e32\u0e19\u0e02\u0e32\u0e22\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e21\u0e32\u0e01  \u0e1b\u0e23\u0e30\u0e2a\u0e1a\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e33\u0e40\u0e23\u0e47\u0e08\u0e15\u0e25\u0e2d\u0e14 13 \u0e1b\u0e35\u0e43\u0e19\u0e01\u0e32\u0e23\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e23\u0e32\u0e22\u0e44\u0e14\u0e49\u0e43\u0e2b\u0e49\u0e01\u0e31\u0e1a\u0e2d\u0e07\u0e04\u0e4c\u0e01\u0e23 \u0e21\u0e35\u0e1b\u0e23\u0e30\u0e2a\u0e1a\u0e01\u0e32\u0e23\u0e13\u0e4c\u0e43\u0e19\u0e01\u0e32\u0e23\u0e27\u0e32\u0e07\u0e41\u0e1c\u0e19\u0e07\u0e32\u0e19\u0e02\u0e32\u0e22 \u0e41\u0e25\u0e30\u0e01\u0e32\u0e23\u0e1b\u0e23\u0e30\u0e21\u0e32\u0e13\u0e01\u0e32\u0e23 \u0e01\u0e32\u0e23\u0e1e\u0e31\u0e12\u0e19\u0e32\u0e18\u0e38\u0e23\u0e01\u0e34\u0e08 \u0e41\u0e25\u0e30\u0e40\u0e17\u0e04\u0e19\u0e34\u0e04\u0e01\u0e32\u0e23\u0e02\u0e32\u0e22\u0e2b\u0e25\u0e32\u0e01\u0e2b\u0e25\u0e32\u0e22\u0e1b\u0e23\u0e30\u0e40\u0e20\u0e17 \n\u0e1b\u0e23\u0e30\u0e2a\u0e1a\u0e01\u0e32\u0e23\u0e13\u0e4c 5 \u0e1b\u0e35\u0e43\u0e19\u0e01\u0e32\u0e23\u0e1a\u0e23\u0e34\u0e2b\u0e32\u0e23\u0e07\u0e32\u0e19\u0e02\u0e32\u0e22 \u0e23\u0e27\u0e21\u0e16\u0e36\u0e07\u0e01\u0e32\u0e23\u0e2a\u0e23\u0e49\u0e32\u0e07\u0e42\u0e2d\u0e01\u0e32\u0e2a\u0e17\u0e32\u0e07\u0e01\u0e32\u0e23\u0e02\u0e32\u0e22 \u0e01\u0e32\u0e23\u0e19\u0e33\u0e17\u0e35\u0e21\u0e02\u0e32\u0e22 \u0e41\u0e25\u0e30\u0e01\u0e32\u0e23\u0e08\u0e31\u0e14\u0e01\u0e32\u0e23\u0e1e\u0e37\u0e49\u0e19\u0e17\u0e35\u0e48  \u0e19\u0e33\u0e27\u0e34\u0e18\u0e35\u0e1a\u0e23\u0e34\u0e2b\u0e32\u0e23\u0e41\u0e25\u0e30\u0e04\u0e27\u0e32\u0e21\u0e23\u0e39\u0e49\u0e14\u0e49\u0e32\u0e19\u0e40\u0e17\u0e04\u0e19\u0e34\u0e04\u0e21\u0e32\u0e43\u0e0a\u0e49\u0e43\u0e19\u0e01\u0e32\u0e23\u0e08\u0e31\u0e14\u0e01\u0e32\u0e23\u0e41\u0e25\u0e30\u0e01\u0e32\u0e23\u0e2a\u0e37\u0e48\u0e2d\u0e2a\u0e32\u0e23\u0e01\u0e31\u0e1a\u0e17\u0e35\u0e21\u0e02\u0e32\u0e22\u0e17\u0e31\u0e48\u0e27\u0e1e\u0e37\u0e49\u0e19\u0e17\u0e35\u0e48 \u0e0b\u0e36\u0e48\u0e07\u0e1b\u0e23\u0e30\u0e01\u0e2d\u0e1a\u0e14\u0e49\u0e27\u0e22\u0e15\u0e31\u0e27\u0e41\u0e17\u0e19\u0e02\u0e32\u0e22\u0e43\u0e19\u0e1e\u0e37\u0e49\u0e19\u0e17\u0e35\u0e48 \u0e1c\u0e39\u0e49\u0e2a\u0e32\u0e18\u0e34\u0e15\u0e1c\u0e25\u0e34\u0e15\u0e20\u0e31\u0e13\u0e11\u0e4c \u0e41\u0e25\u0e30\u0e1c\u0e39\u0e49\u0e02\u0e32\u0e22\u0e44\u0e14\u0e49\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e21\u0e35\u0e1b\u0e23\u0e30\u0e2a\u0e34\u0e17\u0e18\u0e34\u0e20\u0e32\u0e1e \n\u0e21\u0e35\u0e17\u0e31\u0e01\u0e29\u0e30\u0e43\u0e19\u0e01\u0e32\u0e23\u0e2a\u0e37\u0e48\u0e2d\u0e2a\u0e32\u0e23\u0e41\u0e25\u0e30\u0e01\u0e32\u0e23\u0e19\u0e33\u0e40\u0e2a\u0e19\u0e2d\u0e40\u0e1b\u0e47\u0e19\u0e40\u0e25\u0e34\u0e28 \n    </ns:Skills><ns:Employment><ns:Emp.StartDate>1998-03-31Z</ns:Emp.StartDate><ns:Emp.EndDate>2004-05-15Z</ns:Emp.EndDate><ns:Emp.OrgName>\u0e40\u0e27\u0e34\u0e25\u0e14\u0e4c\u0e27\u0e32\u0e22\u0e14\u0e4c\u0e2d\u0e34\u0e21\u0e1b\u0e2d\u0e23\u0e4c\u0e15 \u0e08\u0e33\u0e01\u0e31\u0e14 </ns:Emp.OrgName><ns:Emp.JobTitle>\u0e1c\u0e39\u0e49\u0e08\u0e31\u0e14\u0e01\u0e32\u0e23\u0e1d\u0e48\u0e32\u0e22\u0e02\u0e32\u0e22 </ns:Emp.JobTitle><ns:Emp.Responsibility>\u0e08\u0e31\u0e14\u0e01\u0e32\u0e23\u0e17\u0e35\u0e21\u0e02\u0e32\u0e22\u0e17\u0e35\u0e48\u0e1b\u0e23\u0e30\u0e01\u0e2d\u0e1a\u0e14\u0e49\u0e27\u0e22\u0e15\u0e31\u0e27\u0e41\u0e17\u0e19\u0e02\u0e32\u0e22 20 \u0e04\u0e19 \u0e41\u0e25\u0e30\u0e40\u0e08\u0e49\u0e32\u0e2b\u0e19\u0e49\u0e32\u0e17\u0e35\u0e48\u0e2a\u0e19\u0e31\u0e1a\u0e2a\u0e19\u0e38\u0e19 5 \u0e04\u0e19  \u0e01\u0e23\u0e30\u0e08\u0e32\u0e22\u0e43\u0e19 5 \u0e08\u0e31\u0e07\u0e2b\u0e27\u0e31\u0e14  \u0e14\u0e39\u0e41\u0e25\u0e01\u0e32\u0e23\u0e1b\u0e23\u0e30\u0e2a\u0e32\u0e19\u0e07\u0e32\u0e19\u0e01\u0e31\u0e1a\u0e1c\u0e39\u0e49\u0e04\u0e49\u0e32 \u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e01\u0e32\u0e23\u0e2a\u0e23\u0e49\u0e32\u0e07\u0e42\u0e2d\u0e01\u0e32\u0e2a\u0e17\u0e32\u0e07\u0e01\u0e32\u0e23\u0e02\u0e32\u0e22 \n\u0e40\u0e1b\u0e47\u0e19\u0e1c\u0e39\u0e49\u0e19\u0e33\u0e43\u0e19\u0e01\u0e32\u0e23\u0e43\u0e0a\u0e49\u0e40\u0e17\u0e04\u0e42\u0e19\u0e42\u0e25\u0e22\u0e35\u0e2a\u0e32\u0e23\u0e2a\u0e19\u0e40\u0e17\u0e28\u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e1e\u0e31\u0e12\u0e19\u0e32\u0e23\u0e30\u0e1a\u0e1a\u0e2a\u0e37\u0e48\u0e2d\u0e2a\u0e32\u0e23\u0e43\u0e19\u0e1e\u0e37\u0e49\u0e19\u0e17\u0e35\u0e48\u0e02\u0e32\u0e22  \u0e40\u0e1e\u0e34\u0e48\u0e21\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e33\u0e40\u0e23\u0e47\u0e08\u0e43\u0e19\u0e01\u0e32\u0e23\u0e15\u0e34\u0e14\u0e15\u0e32\u0e21\u0e42\u0e2d\u0e01\u0e32\u0e2a\u0e17\u0e32\u0e07\u0e01\u0e32\u0e23\u0e02\u0e32\u0e22 15 \u0e40\u0e1b\u0e2d\u0e23\u0e4c\u0e40\u0e0b\u0e47\u0e19\u0e15\n\u0e27\u0e32\u0e07\u0e41\u0e1c\u0e19\u0e41\u0e25\u0e30\u0e1b\u0e23\u0e30\u0e21\u0e32\u0e13\u0e01\u0e32\u0e23\u0e02\u0e32\u0e22\u0e17\u0e31\u0e49\u0e07\u0e2b\u0e21\u0e14  \u0e08\u0e31\u0e14\u0e01\u0e32\u0e23\u0e21\u0e2d\u0e1a\u0e2b\u0e21\u0e32\u0e22\u0e40\u0e02\u0e15\u0e01\u0e32\u0e23\u0e02\u0e32\u0e22\u0e43\u0e2b\u0e21\u0e48 \u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e43\u0e2b\u0e49\u0e44\u0e14\u0e49\u0e1b\u0e23\u0e30\u0e2a\u0e34\u0e17\u0e18\u0e34\u0e1c\u0e25\u0e2a\u0e39\u0e07\u0e2a\u0e38\u0e14  \u0e1b\u0e23\u0e30\u0e2a\u0e32\u0e19\u0e07\u0e32\u0e19\u0e01\u0e31\u0e1a\u0e1d\u0e48\u0e32\u0e22\u0e01\u0e32\u0e23\u0e15\u0e25\u0e32\u0e14\u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e27\u0e32\u0e07\u0e41\u0e1c\u0e19\u0e15\u0e33\u0e41\u0e2b\u0e19\u0e48\u0e07\u0e02\u0e2d\u0e07\u0e1c\u0e25\u0e34\u0e15\u0e20\u0e31\u0e13\u0e11\u0e4c\u0e43\u0e2b\u0e49\u0e40\u0e02\u0e49\u0e32\u0e01\u0e31\u0e1a\u0e01\u0e25\u0e22\u0e38\u0e17\u0e18\u0e4c\u0e41\u0e25\u0e30\u0e40\u0e1b\u0e49\u0e32\u0e2b\u0e21\u0e32\u0e22\u0e43\u0e19\u0e01\u0e32\u0e23\u0e02\u0e32\u0e22  \u0e21\u0e35\u0e1c\u0e25\u0e07\u0e32\u0e19\u0e01\u0e32\u0e23\u0e1a\u0e23\u0e34\u0e2b\u0e32\u0e23 \u0e17\u0e33\u0e43\u0e2b\u0e49\u0e22\u0e2d\u0e14\u0e02\u0e32\u0e22\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e02\u0e36\u0e49\u0e19\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e19\u0e49\u0e2d\u0e22 10% \u0e15\u0e48\u0e2d\u0e1b\u0e35 \n        </ns:Emp.Responsibility><ns:Emp.FunctionCategory>\u0e1d\u0e48\u0e32\u0e22\u0e02\u0e32\u0e22</ns:Emp.FunctionCategory><ns:Emp.IndustryCategory>\u0e19\u0e33\u0e40\u0e02\u0e49\u0e32/\u0e2a\u0e48\u0e07\u0e2d\u0e2d\u0e01 </ns:Emp.IndustryCategory><ns:Emp.Location><ns:Location><ns:Loc.CountryRegion>\u0e1b\u0e23\u0e30\u0e40\u0e17\u0e28\u0e44\u0e17\u0e22</ns:Loc.CountryRegion><ns:Loc.State>\u0e01\u0e23\u0e38\u0e07\u0e40\u0e17\u0e1e\u0e21\u0e2b\u0e32\u0e19\u0e04\u0e23</ns:Loc.State><ns:Loc.City>\u0e2a\u0e32\u0e17\u0e23  </ns:Loc.City></ns:Location></ns:Emp.Location></ns:Employment><ns:Employment><ns:Emp.StartDate>1992-04-01Z</ns:Emp.StartDate><ns:Emp.EndDate>1997-03-01Z</ns:Emp.EndDate><ns:Emp.OrgName>\u0e2a\u0e38\u0e02\u0e38\u0e21\u0e27\u0e34\u0e17\u0e44\u0e27\u0e40\u0e19\u0e2d\u0e23</ns:Emp.OrgName><ns:Emp.JobTitle>\u0e1e\u0e19\u0e31\u0e01\u0e07\u0e32\u0e19\u0e02\u0e32\u0e22\u0e2d\u0e32\u0e27\u0e38\u0e42\u0e2a </ns:Emp.JobTitle><ns:Emp.Responsibility>\u0e02\u0e32\u0e22\u0e1c\u0e25\u0e34\u0e15\u0e20\u0e31\u0e13\u0e11\u0e4c\u0e43\u0e2b\u0e49\u0e01\u0e31\u0e1a\u0e1c\u0e39\u0e49\u0e04\u0e49\u0e32\u0e1b\u0e25\u0e35\u0e01\u0e41\u0e25\u0e30\u0e20\u0e31\u0e15\u0e15\u0e32\u0e04\u0e32\u0e23  \u0e17\u0e33\u0e07\u0e32\u0e19\u0e23\u0e48\u0e27\u0e21\u0e01\u0e31\u0e1a\u0e1d\u0e48\u0e32\u0e22\u0e08\u0e31\u0e14\u0e0b\u0e37\u0e49\u0e2d\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e43\u0e01\u0e25\u0e49\u0e0a\u0e34\u0e14 \u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e1e\u0e31\u0e12\u0e19\u0e32\u0e01\u0e32\u0e23\u0e1b\u0e23\u0e30\u0e2a\u0e32\u0e19\u0e07\u0e32\u0e19 \u0e2b\u0e31\u0e27\u0e2b\u0e19\u0e49\u0e32\u0e15\u0e31\u0e27\u0e41\u0e17\u0e19\u0e02\u0e32\u0e22\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e2d\u0e07\u0e04\u0e4c\u0e01\u0e23 \u0e23\u0e30\u0e2b\u0e27\u0e48\u0e32\u0e07\u0e1b\u0e35 2539 - 2541 \n\u0e23\u0e34\u0e40\u0e23\u0e34\u0e48\u0e21\u0e43\u0e0a\u0e49\u0e01\u0e25\u0e22\u0e38\u0e17\u0e18\u0e4c\u0e1c\u0e39\u0e01\u0e2a\u0e34\u0e19\u0e04\u0e49\u0e32\u0e17\u0e35\u0e48\u0e40\u0e01\u0e35\u0e48\u0e22\u0e27\u0e02\u0e49\u0e2d\u0e07\u0e01\u0e31\u0e19 \u0e23\u0e34\u0e40\u0e23\u0e34\u0e48\u0e21\u0e43\u0e0a\u0e49\u0e15\u0e23\u0e32\u0e2a\u0e34\u0e19\u0e04\u0e49\u0e32\u0e23\u0e48\u0e27\u0e21\u0e01\u0e31\u0e1a\u0e1a\u0e23\u0e34\u0e29\u0e31\u0e17\u0e0a\u0e47\u0e2d\u0e04\u0e43\u0e19\u0e1b\u0e23\u0e30\u0e40\u0e17\u0e28  \u0e40\u0e1b\u0e47\u0e19\u0e41\u0e04\u0e21\u0e40\u0e1b\u0e0d\u0e17\u0e35\u0e48\u0e44\u0e14\u0e49\u0e23\u0e31\u0e1a\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e33\u0e40\u0e23\u0e47\u0e08\u0e2a\u0e39\u0e07\u0e2a\u0e38\u0e14\u0e43\u0e19\u0e1b\u0e23\u0e30\u0e27\u0e31\u0e15\u0e34\u0e01\u0e32\u0e23\u0e14\u0e33\u0e40\u0e19\u0e34\u0e19\u0e18\u0e38\u0e23\u0e01\u0e34\u0e08\u0e02\u0e2d\u0e07\u0e2d\u0e07\u0e04\u0e4c\u0e01\u0e23  \u0e41\u0e04\u0e21\u0e40\u0e1b\u0e0d\u0e14\u0e31\u0e07\u0e01\u0e25\u0e48\u0e32\u0e27\u0e17\u0e33\u0e43\u0e2b\u0e49\u0e21\u0e35\u0e22\u0e2d\u0e14\u0e02\u0e32\u0e22\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e02\u0e36\u0e49\u0e19\u0e16\u0e36\u0e07 18% \n        </ns:Emp.Responsibility><ns:Emp.FunctionCategory>\u0e1d\u0e48\u0e32\u0e22\u0e02\u0e32\u0e22 </ns:Emp.FunctionCategory><ns:Emp.IndustryCategory>\u0e2d\u0e32\u0e2b\u0e32\u0e23\u0e41\u0e25\u0e30\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e14\u0e37\u0e48\u0e21 </ns:Emp.IndustryCategory><ns:Emp.Location><ns:Location><ns:Loc.CountryRegion>\u0e1b\u0e23\u0e30\u0e40\u0e17\u0e28\u0e44\u0e17\u0e22 </ns:Loc.CountryRegion><ns:Loc.State>\u0e01\u0e23\u0e38\u0e07\u0e40\u0e17\u0e1e\u0e21\u0e2b\u0e32\u0e19\u0e04\u0e23</ns:Loc.State><ns:Loc.City>\u0e1e\u0e23\u0e30\u0e42\u0e02\u0e19\u0e07</ns:Loc.City></ns:Location></ns:Emp.Location></ns:Employment><ns:Employment><ns:Emp.StartDate>1990-08-04Z</ns:Emp.StartDate><ns:Emp.EndDate>1992-02-01Z</ns:Emp.EndDate><ns:Emp.OrgName>\u0e01\u0e32\u0e41\u0e1f\u0e2d\u0e32\u0e42\u0e23\u0e21\u0e32</ns:Emp.OrgName><ns:Emp.JobTitle>\u0e1e\u0e19\u0e31\u0e01\u0e07\u0e32\u0e19\u0e02\u0e32\u0e22 </ns:Emp.JobTitle><ns:Emp.Responsibility> \u0e02\u0e32\u0e22\u0e1c\u0e25\u0e34\u0e15\u0e20\u0e31\u0e13\u0e11\u0e4c\u0e43\u0e2b\u0e49\u0e01\u0e31\u0e1a\u0e0b\u0e39\u0e40\u0e1b\u0e2d\u0e23\u0e4c\u0e21\u0e32\u0e40\u0e01\u0e47\u0e15\u0e41\u0e25\u0e30\u0e23\u0e49\u0e32\u0e19\u0e01\u0e32\u0e41\u0e1f  \u0e17\u0e33\u0e07\u0e32\u0e19\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e17\u0e38\u0e48\u0e21\u0e40\u0e17\u0e41\u0e25\u0e30\u0e08\u0e23\u0e34\u0e07\u0e08\u0e31\u0e07 \u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e17\u0e31\u0e49\u0e07\u0e43\u0e0a\u0e49\u0e40\u0e17\u0e04\u0e19\u0e34\u0e04\u0e01\u0e32\u0e23\u0e02\u0e32\u0e22\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e40\u0e15\u0e34\u0e21 \u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e22\u0e2d\u0e14\u0e02\u0e32\u0e22 \u0e43\u0e2b\u0e49\u0e01\u0e32\u0e23\u0e41\u0e19\u0e30\u0e19\u0e33\u0e1c\u0e25\u0e34\u0e15\u0e20\u0e31\u0e13\u0e11\u0e4c\u0e23\u0e2d\u0e07 \n\u0e21\u0e35\u0e04\u0e27\u0e32\u0e21\u0e0a\u0e33\u0e19\u0e32\u0e0d\u0e43\u0e19\u0e01\u0e32\u0e23\u0e02\u0e22\u0e32\u0e22\u0e22\u0e2d\u0e14\u0e2a\u0e31\u0e48\u0e07\u0e0b\u0e37\u0e49\u0e2d \u0e15\u0e34\u0e14\u0e15\u0e32\u0e21\u0e41\u0e25\u0e30\u0e2a\u0e23\u0e49\u0e32\u0e07\u0e2a\u0e31\u0e21\u0e1e\u0e31\u0e19\u0e18\u0e20\u0e32\u0e1e\u0e17\u0e35\u0e48\u0e14\u0e35\u0e01\u0e31\u0e1a\u0e25\u0e39\u0e01\u0e04\u0e49\u0e32 \u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e42\u0e2d\u0e01\u0e32\u0e2a\u0e43\u0e19\u0e01\u0e32\u0e23\u0e02\u0e32\u0e22 \t \n        </ns:Emp.Responsibility><ns:Emp.FunctionCategory>\u0e1d\u0e48\u0e32\u0e22\u0e02\u0e32\u0e22 </ns:Emp.FunctionCategory><ns:Emp.IndustryCategory>\u0e2d\u0e32\u0e2b\u0e32\u0e23\u0e41\u0e25\u0e30\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e14\u0e37\u0e48\u0e21 </ns:Emp.IndustryCategory><ns:Emp.Location><ns:Location><ns:Loc.CountryRegion>\u0e1b\u0e23\u0e30\u0e40\u0e17\u0e28\u0e44\u0e17\u0e22 </ns:Loc.CountryRegion><ns:Loc.State>\u0e01\u0e23\u0e38\u0e07\u0e40\u0e17\u0e1e\u0e21\u0e2b\u0e32\u0e19\u0e04\u0e23 </ns:Loc.State><ns:Loc.City>\u0e04\u0e25\u0e2d\u0e07\u0e40\u0e15\u0e22 </ns:Loc.City></ns:Location></ns:Emp.Location></ns:Employment><ns:Education><ns:Edu.Level>\u0e1b\u0e23\u0e34\u0e0d\u0e0d\u0e32\u0e15\u0e23</ns:Edu.Level><ns:Edu.StartDate>1986-09-03Z</ns:Edu.StartDate><ns:Edu.EndDate>1990-05-10Z</ns:Edu.EndDate><ns:Edu.Degree>\u0e1a\u0e18\u0e1a</ns:Edu.Degree><ns:Edu.Major>\u0e1a\u0e23\u0e34\u0e2b\u0e32\u0e23\u0e18\u0e38\u0e23\u0e01\u0e34\u0e08 </ns:Edu.Major><ns:Edu.Minor/><ns:Edu.GPA>3.6</ns:Edu.GPA><ns:Edu.GPAScale>4</ns:Edu.GPAScale><ns:Edu.School>\u0e21\u0e2b\u0e32\u0e27\u0e34\u0e17\u0e22\u0e32\u0e25\u0e31\u0e22\u0e23\u0e32\u0e21\u0e04\u0e33\u0e41\u0e2b\u0e07</ns:Edu"
         },
         {
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Jun 23 2007 12:00AM",
-          "max_val": "Dec 22 2013  6:32PM"
+          "min_val": "2007-06-23 00:00:00",
+          "max_val": "2013-12-22 18:32:21"
         }
       ]
     },
@@ -454,7 +463,7 @@
         },
         {
           "name": "Name",
-          "sql_type": "Name",
+          "sql_type": "nvarchar",
           "null_count": 0,
           "min_val": "Day",
           "max_val": "Night"
@@ -477,8 +486,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Apr 30 2008 12:00AM",
-          "max_val": "Apr 30 2008 12:00AM"
+          "min_val": "2008-04-30 00:00:00",
+          "max_val": "2008-04-30 00:00:00"
         }
       ]
     },
@@ -533,8 +542,8 @@
           "name": "SpatialLocation",
           "sql_type": "geography",
           "null_count": 0,
-          "min_val": "POINT (0 0)",
-          "max_val": "POINT (-99.4533110531999 27.5724604375999)"
+          "min_val": "POINT (-0.0425752780057432 51.5621364773593)",
+          "max_val": "POINT (9.99995736320072 53.5537124886933)"
         },
         {
           "name": "rowguid",
@@ -547,8 +556,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Jun 23 2006 12:00AM",
-          "max_val": "Jun 30 2014 12:00AM"
+          "min_val": "2006-06-23 00:00:00",
+          "max_val": "2014-06-30 00:00:00"
         }
       ]
     },
@@ -566,7 +575,7 @@
         },
         {
           "name": "Name",
-          "sql_type": "Name",
+          "sql_type": "nvarchar",
           "null_count": 0,
           "min_val": "Archive",
           "max_val": "Shipping"
@@ -582,8 +591,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Apr 30 2008 12:00AM",
-          "max_val": "Apr 30 2008 12:00AM"
+          "min_val": "2008-04-30 00:00:00",
+          "max_val": "2008-04-30 00:00:00"
         }
       ]
     },
@@ -610,8 +619,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Dec 13 2017  1:20PM",
-          "max_val": "Dec 13 2017  1:47PM"
+          "min_val": "2017-12-13 13:20:24",
+          "max_val": "2017-12-13 13:47:22"
         }
       ]
     },
@@ -652,8 +661,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Apr 25 2011 12:00AM",
-          "max_val": "Sep 12 2014 11:15AM"
+          "min_val": "2011-04-25 00:00:00",
+          "max_val": "2014-09-12 11:15:06"
         }
       ]
     },
@@ -694,8 +703,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Apr 25 2011 12:00AM",
-          "max_val": "Dec 13 2017  1:22PM"
+          "min_val": "2011-04-25 00:00:00",
+          "max_val": "2017-12-13 13:22:01"
         }
       ]
     },
@@ -713,7 +722,7 @@
         },
         {
           "name": "Name",
-          "sql_type": "Name",
+          "sql_type": "nvarchar",
           "null_count": 0,
           "min_val": "Accounting Manager",
           "max_val": "Sales Representative"
@@ -722,8 +731,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Apr 30 2008 12:00AM",
-          "max_val": "Apr 30 2008 12:00AM"
+          "min_val": "2008-04-30 00:00:00",
+          "max_val": "2008-04-30 00:00:00"
         }
       ]
     },
@@ -741,7 +750,7 @@
         },
         {
           "name": "Name",
-          "sql_type": "Name",
+          "sql_type": "nvarchar",
           "null_count": 0,
           "min_val": "Afghanistan",
           "max_val": "Zimbabwe"
@@ -750,8 +759,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Apr 30 2008 12:00AM",
-          "max_val": "Apr 30 2008 12:00AM"
+          "min_val": "2008-04-30 00:00:00",
+          "max_val": "2008-04-30 00:00:00"
         }
       ]
     },
@@ -792,8 +801,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Jun 23 2006 12:00AM",
-          "max_val": "Apr 15 2015  4:33PM"
+          "min_val": "2006-06-23 00:00:00",
+          "max_val": "2015-04-15 16:33:33"
         }
       ]
     },
@@ -813,15 +822,15 @@
           "name": "PasswordHash",
           "sql_type": "varchar",
           "null_count": 0,
-          "min_val": "++bTDOqaM0odBdcKgTU0hWhwtOY3+/+5x/s+c8YDDv8=",
+          "min_val": "++UC72Q8sa7xccXZ0JJ1JHw+/cT4zSf8W2Ts1nAGOAo=",
           "max_val": "zzwwJDjwWTc5xXncIe48+fe5nUQo38mFI1tqqnySGGI="
         },
         {
           "name": "PasswordSalt",
           "sql_type": "varchar",
           "null_count": 0,
-          "min_val": "++aPd2Q=",
-          "max_val": "ZzZlwYA="
+          "min_val": "++C5f1s=",
+          "max_val": "zzy0LfY="
         },
         {
           "name": "rowguid",
@@ -834,8 +843,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Jun 23 2006 12:00AM",
-          "max_val": "Apr 15 2015  4:33PM"
+          "min_val": "2006-06-23 00:00:00",
+          "max_val": "2015-04-15 16:33:33"
         }
       ]
     },
@@ -848,92 +857,92 @@
           "name": "BusinessEntityID",
           "sql_type": "int",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "1",
+          "max_val": "20777"
         },
         {
           "name": "PersonType",
           "sql_type": "nchar",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "EM",
+          "max_val": "VC"
         },
         {
           "name": "NameStyle",
-          "sql_type": "NameStyle",
+          "sql_type": "bit",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "0",
+          "max_val": "0"
         },
         {
           "name": "Title",
           "sql_type": "nvarchar",
           "null_count": 18963,
-          "min_val": null,
-          "max_val": null
+          "min_val": "Mr.",
+          "max_val": "Sra."
         },
         {
           "name": "FirstName",
-          "sql_type": "Name",
+          "sql_type": "nvarchar",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "A.",
+          "max_val": "Zoe"
         },
         {
           "name": "MiddleName",
-          "sql_type": "Name",
+          "sql_type": "nvarchar",
           "null_count": 8499,
-          "min_val": null,
-          "max_val": null
+          "min_val": "A",
+          "max_val": "l"
         },
         {
           "name": "LastName",
-          "sql_type": "Name",
+          "sql_type": "nvarchar",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "Abbas",
+          "max_val": "Zwilling"
         },
         {
           "name": "Suffix",
           "sql_type": "nvarchar",
           "null_count": 19919,
-          "min_val": null,
-          "max_val": null
+          "min_val": "II",
+          "max_val": "Sr."
         },
         {
           "name": "EmailPromotion",
           "sql_type": "int",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "0",
+          "max_val": "2"
         },
         {
           "name": "AdditionalContactInfo",
           "sql_type": "xml",
           "null_count": 19962,
-          "min_val": null,
-          "max_val": null
+          "min_val": "<AdditionalContactInfo xmlns=\"http://schemas.microsoft.com/sqlserver/2004/07/adventure-works/ContactInfo\" xmlns:crm=\"http://schemas.microsoft.com/sqlserver/2004/07/adventure-works/ContactRecord\" xmlns:act=\"http://schemas.microsoft.com/sqlserver/2004/07/adventure-works/ContactTypes\"><act:telephoneNumber><act:number>425-555-1112</act:number><act:SpecialInstructions>Call only after 5:00 p.m.</act:SpecialInstructions></act:telephoneNumber>Note that the customer has a secondary home address.<act:homePostalAddress><act:Street>123 Oak</act:Street><act:City>Seattle</act:City><act:StateProvince>WA</act:StateProvince><act:PostalCode>98001</act:PostalCode><act:CountryRegion>USA</act:CountryRegion><act:SpecialInstructions>If correspondence to the primary address fails, try this one.</act:SpecialInstructions></act:homePostalAddress>Customer provided additional email address.<act:eMail><act:eMailAddress>customer1@sample.com</act:eMailAddress><act:SpecialInstructions>For urgent issues, do not send e-mail. Instead use this emergency contact phone<act:telephoneNumber><act:number>425-555-1111</act:number></act:telephoneNumber>.</act:SpecialInstructions></act:eMail><crm:ContactRecord date=\"2001-06-02Z\">This customer is interested in purchasing high-end bicycles for his family. The customer contacted Michael in sales.</crm:ContactRecord></AdditionalContactInfo>",
+          "max_val": "<AdditionalContactInfo xmlns=\"http://schemas.microsoft.com/sqlserver/2004/07/adventure-works/ContactInfo\" xmlns:crm=\"http://schemas.microsoft.com/sqlserver/2004/07/adventure-works/ContactRecord\" xmlns:act=\"http://schemas.microsoft.com/sqlserver/2004/07/adventure-works/ContactTypes\">These are additional phone numbers the customer provided.<act:telephoneNumber><act:number>206-555-2222</act:number><act:SpecialInstructions>Best time to call is Monday-Wednesday mornings.</act:SpecialInstructions></act:telephoneNumber><act:mobile><act:number>209-555-2122</act:number></act:mobile></AdditionalContactInfo>"
         },
         {
           "name": "Demographics",
           "sql_type": "xml",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "<IndividualSurvey xmlns=\"http://schemas.microsoft.com/sqlserver/2004/07/adventure-works/IndividualSurvey\"><TotalPurchaseYTD>-0.01</TotalPurchaseYTD><DateFirstPurchase>2003-08-05Z</DateFirstPurchase><BirthDate>1972-02-08Z</BirthDate><MaritalStatus>M</MaritalStatus><YearlyIncome>25001-50000</YearlyIncome><Gender>F</Gender><TotalChildren>1</TotalChildren><NumberChildrenAtHome>1</NumberChildrenAtHome><Education>Bachelors </Education><Occupation>Skilled Manual</Occupation><HomeOwnerFlag>1</HomeOwnerFlag><NumberCarsOwned>0</NumberCarsOwned><CommuteDistance>0-1 Miles</CommuteDistance></IndividualSurvey>",
+          "max_val": "<IndividualSurvey xmlns=\"http://schemas.microsoft.com/sqlserver/2004/07/adventure-works/IndividualSurvey\"><TotalPurchaseYTD>998.8808</TotalPurchaseYTD><DateFirstPurchase>2003-01-20Z</DateFirstPurchase><BirthDate>1965-04-25Z</BirthDate><MaritalStatus>S</MaritalStatus><YearlyIncome>50001-75000</YearlyIncome><Gender>F</Gender><TotalChildren>3</TotalChildren><NumberChildrenAtHome>3</NumberChildrenAtHome><Education>Bachelors </Education><Occupation>Professional</Occupation><HomeOwnerFlag>0</HomeOwnerFlag><NumberCarsOwned>1</NumberCarsOwned><CommuteDistance>0-1 Miles</CommuteDistance></IndividualSurvey>"
         },
         {
           "name": "rowguid",
           "sql_type": "uniqueidentifier",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "AAC965D2-6E72-441E-AE35-0004C710BD47",
+          "max_val": "D08B8168-DAB4-4504-86BC-FFFB855C38BE"
         },
         {
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "2006-06-23 00:00:00",
+          "max_val": "2015-04-15 16:33:33"
         }
       ]
     },
@@ -951,7 +960,7 @@
         },
         {
           "name": "PhoneNumber",
-          "sql_type": "Phone",
+          "sql_type": "nvarchar",
           "null_count": 0,
           "min_val": "1 (11) 500 555-0110",
           "max_val": "999-555-0198"
@@ -967,8 +976,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Jun 23 2006 12:00AM",
-          "max_val": "Apr 15 2015  4:33PM"
+          "min_val": "2006-06-23 00:00:00",
+          "max_val": "2015-04-15 16:33:33"
         }
       ]
     },
@@ -986,7 +995,7 @@
         },
         {
           "name": "Name",
-          "sql_type": "Name",
+          "sql_type": "nvarchar",
           "null_count": 0,
           "min_val": "Cell",
           "max_val": "Work"
@@ -995,8 +1004,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Dec 13 2017  1:19PM",
-          "max_val": "Dec 13 2017  1:19PM"
+          "min_val": "2017-12-13 13:19:22",
+          "max_val": "2017-12-13 13:19:22"
         }
       ]
     },
@@ -1009,57 +1018,57 @@
           "name": "StateProvinceID",
           "sql_type": "int",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "1",
+          "max_val": "181"
         },
         {
           "name": "StateProvinceCode",
           "sql_type": "nchar",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "01",
+          "max_val": "YT"
         },
         {
           "name": "CountryRegionCode",
           "sql_type": "nvarchar",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "AS",
+          "max_val": "VI"
         },
         {
           "name": "IsOnlyStateProvinceFlag",
-          "sql_type": "Flag",
+          "sql_type": "bit",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "0",
+          "max_val": "1"
         },
         {
           "name": "Name",
-          "sql_type": "Name",
+          "sql_type": "nvarchar",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "Ain",
+          "max_val": "Yveline"
         },
         {
           "name": "TerritoryID",
           "sql_type": "int",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "1",
+          "max_val": "10"
         },
         {
           "name": "rowguid",
           "sql_type": "uniqueidentifier",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "C28C848F-AE86-4859-9E7E-0190D6C22700",
+          "max_val": "F0622EC9-4EB7-4019-9B08-FD2ED3F74B9B"
         },
         {
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "2008-04-30 00:00:00",
+          "max_val": "2014-02-08 10:17:21"
         }
       ]
     },
@@ -1093,15 +1102,15 @@
           "name": "StartDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Mar  4 2010 12:00AM",
-          "max_val": "Dec 23 2010 12:00AM"
+          "min_val": "2010-03-04 00:00:00",
+          "max_val": "2010-12-23 00:00:00"
         },
         {
           "name": "EndDate",
           "sql_type": "datetime",
           "null_count": 2480,
-          "min_val": "May  3 2010 12:00AM",
-          "max_val": "Nov 14 2010 12:00AM"
+          "min_val": "2010-05-03 00:00:00",
+          "max_val": "2010-11-14 00:00:00"
         },
         {
           "name": "UnitMeasureCode",
@@ -1128,8 +1137,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Feb 18 2010 12:00AM",
-          "max_val": "Dec  9 2010 12:00AM"
+          "min_val": "2010-02-18 00:00:00",
+          "max_val": "2010-12-09 00:00:00"
         }
       ]
     },
@@ -1147,7 +1156,7 @@
         },
         {
           "name": "Name",
-          "sql_type": "Name",
+          "sql_type": "nvarchar",
           "null_count": 0,
           "min_val": "Arabic",
           "max_val": "Thai"
@@ -1156,8 +1165,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Apr 30 2008 12:00AM",
-          "max_val": "Apr 30 2008 12:00AM"
+          "min_val": "2008-04-30 00:00:00",
+          "max_val": "2008-04-30 00:00:00"
         }
       ]
     },
@@ -1233,15 +1242,15 @@
           "name": "DocumentSummary",
           "sql_type": "nvarchar",
           "null_count": 8,
-          "min_val": "Detailed instructions for replacing pedals with Adventure Works Cycles replacement pedals.  Instructions are applicable to all Adventure Works Cycles bicycle models and replacement pedals. Use only Ad",
-          "max_val": "Worn or damaged seats can be easily replaced following these simple instructions.  Instructions are applicable to these  Adventure Works Cycles models: Mountain 100 through Mountain 500. Use only Adve"
+          "min_val": "Detailed instructions for replacing pedals with Adventure Works Cycles replacement pedals.  Instructions are applicable to all Adventure Works Cycles bicycle models and replacement pedals. Use only Adventure Works Cycles parts when replacing worn or broken components. \r\n",
+          "max_val": "Worn or damaged seats can be easily replaced following these simple instructions.  Instructions are applicable to these  Adventure Works Cycles models: Mountain 100 through Mountain 500. Use only Adventure Works Cycles parts when replacing worn or broken components. \r\n\r\n"
         },
         {
           "name": "Document",
           "sql_type": "varbinary",
           "null_count": 4,
-          "min_val": "0xD0CF11E0A1B11AE1000000000000000000000000000000003E000300FEFF0900060000000000000000000000010000002700000000000000001000002900000001000000FEFFFFFF0000000026000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
-          "max_val": "0xD0CF11E0A1B11AE1000000000000000000000000000000003E000300FEFF0900060000000000000000000000010000005500000000000000001000005700000001000000FEFFFFFF0000000054000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+          "min_val": "0xD0CF11E0A1B11AE1000000000000000000000000000000003E000300FEFF0900060000000000000000000000010000002700000000000000001000002900000001000000FEFFFFFF0000000026000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
+          "max_val": "0xD0CF11E0A1B11AE1000000000000000000000000000000003E000300FEFF0900060000000000000000000000010000005500000000000000001000005700000001000000FEFFFFFF0000000054000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
         },
         {
           "name": "rowguid",
@@ -1254,8 +1263,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Mar 31 2008 12:00AM",
-          "max_val": "Dec 13 2017  1:58PM"
+          "min_val": "2008-03-31 00:00:00",
+          "max_val": "2017-12-13 13:58:04"
         }
       ]
     },
@@ -1275,15 +1284,15 @@
           "name": "Diagram",
           "sql_type": "xml",
           "null_count": 0,
-          "min_val": "<!-- Generated by Adobe Illustrator CS -> XAML Export Plug-In Version 0.17      --><!-- For questions, contact Mike Swanson: http://www.mikeswanson.com/XAMLExport --><Viewbox xmlns=\"http://schemas.mic",
-          "max_val": "<!-- Generated by Adobe Illustrator CS -> XAML Export Plug-In Version 0.17      --><!-- For questions, contact Mike Swanson: http://www.mikeswanson.com/XAMLExport --><Viewbox xmlns=\"http://schemas.mic"
+          "min_val": "<!-- Generated by Adobe Illustrator CS -> XAML Export Plug-In Version 0.17      --><!-- For questions, contact Mike Swanson: http://www.mikeswanson.com/XAMLExport --><Viewbox xmlns=\"http://schemas.microsoft.com/winfx/2006/xaml/presentation\" xmlns:x=\"http://schemas.microsoft.com/winfx/2006/xaml\" Width=\"174.028320\" Height=\"314.981934\"><Canvas Width=\"174.028320\" Height=\"314.981934\"><Canvas><!-- Layer 1/<Path> --><Path StrokeThickness=\"0.500000\" Stroke=\"#ff656565\" StrokeMiterLimit=\"1.000000\" Fill=\"#ff656565\" Data=\"F1 M 111.049805,46.655762 L 114.526367,48.509766 L 112.671875,52.911621 L 109.694336,51.374512 L 111.049805,46.655762 Z\"/><!-- Layer 1/<Path> --><Path StrokeThickness=\"1.202600\" Stroke=\"#ff989898\" StrokeMiterLimit=\"1.000000\" Data=\"F1 M 155.380859,314.981934\"/><!-- Layer 1/<Path> --><Path StrokeThickness=\"1.000000\" Stroke=\"#ff000000\" StrokeMiterLimit=\"1.000000\" Data=\"F1 M 88.621094,132.691406 C 88.621094,132.691406 89.542969,135.905762 88.029785,130.630371 C 86.841797,126.486328 88.501953,126.418457 91.141113,125.661621 C 93.777832,124.904785 116.826172,118.705566 120.486328,117.249512 C 124.144531,115.791504 125.061523,117.566406 125.819336,120.205566 C 126.576172,122.842285 126.205078,121.554688 126.205078,121.554688 L 122.169922,123.121582 L 164.131836,264.715332 L 161.495117,268.324707 L 163.008789,273.599121 L 141.530273,279.757324 L 139.910156,274.105957 L 134.900391,272.280762 L 93.264160,131.816406 L 88.621094,132.691406 Z\"><Path.Fill><LinearGradientBrush MappingMode=\"Absolute\" StartPoint=\"87.639160,198.240234\" EndPoint=\"164.131836,198.240234\"><LinearGradientBrush.GradientStops><GradientStop Offset=\"0.000000\" Color=\"#ffffffff\"/><GradientStop Offset=\"0.258800\" Color=\"#fffcfcfc\"/><GradientStop Offset=\"0.396200\" Color=\"#fff4f4f4\"/><GradientStop Offset=\"0.505100\" Color=\"#ffe6e6e6\"/><GradientStop Offset=\"0.599100\" Color=\"#ffd3d3d3\"/><GradientStop Offset=\"0.683400\" Color=\"#ffbababa\"/><GradientStop Offset=\"0.761000\" Color=\"#ff9b9b9b\"/><GradientStop Offset=\"0.833200\" Color=\"#ff777777\"/><GradientStop Offset=\"0.901300\" Color=\"#ff4c4c4c\"/><GradientStop Offset=\"0.963700\" Color=\"#ff1d1d1d\"/><GradientStop Offset=\"1.000000\" Color=\"#ff000000\"/></LinearGradientBrush.GradientStops><LinearGradientBrush.Transform><MatrixTransform Matrix=\"1.000000,0.000000,0.000000,1.000000,0.000000,0.000488\"/></LinearGradientBrush.Transform></LinearGradientBrush></Path.Fill></Path><Canvas><!-- Layer 1/<Group>/<Path> --><Path StrokeThickness=\"1.000000\" Stroke=\"#ff000000\" StrokeMiterLimit=\"1.000000\" Data=\"F1 M 146.115234,281.005371 L 158.358398,277.497559 C 162.236328,276.385254 166.321289,276.416504 167.481445,280.456543 C 168.637695,284.494629 165.251953,284.917480 161.372070,286.028809 L 149.130859,289.540527 C 145.251953,290.652832 142.346680,292.032715 141.190430,287.992676 C 140.029297,283.953613 142.237305,282.118652 146.115234,281.005371 Z\"><Path.Fill><RadialGradientBrush MappingMode=\"Absolute\" GradientOrigin=\"154.242188,283.872070\" Center=\"154.242188,283.872070\" RadiusX=\"10.582401\" RadiusY=\"10.582401\"><RadialGradientBrush.GradientStops><GradientStop Offset=\"0.000000\" Color=\"#ffffffff\"/><GradientStop Offset=\"0.133000\" Color=\"#fffafafa\"/><GradientStop Offset=\"0.259600\" Color=\"#ffefefef\"/><GradientStop Offset=\"0.383500\" Color=\"#ffdcdcdc\"/><GradientStop Offset=\"0.505900\" Color=\"#ffc1c1c1\"/><GradientStop Offset=\"0.627300\" Color=\"#ff9e9e9e\"/><GradientStop Offset=\"0.747800\" Color=\"#ff737373\"/><GradientStop Offset=\"0.867600\" Color=\"#ff404040\"/><GradientStop Offset=\"0.984100\" Color=\"#ff0c0c0c\"/><GradientStop Offset=\"1.000000\" Color=\"#ff000000\"/></RadialGradientBrush.GradientStops><RadialGradientBrush.Transform><MatrixTransform Matrix=\"1.000000,0.000000,0.000000,1.000000,0.000000,0.000488\"/></RadialGradientBrush.Transform></RadialGradientBrush></Path.Fill></Path></Canvas><Canvas><!-- Layer 1/<Group>/<Path> --><Path Fill=\"#ffffffff\" Data=\"F1 M 118.931641,202.714355 L 104.067383,132.863770 L 143.547852,265.784668 L 140.114258,267.735840 L 118.931641,202.7",
+          "max_val": "<!-- Generated by Adobe Illustrator CS -> XAML Export Plug-In Version 0.17      --><!-- For questions, contact Mike Swanson: http://www.mikeswanson.com/XAMLExport --><Viewbox xmlns=\"http://schemas.microsoft.com/winfx/2006/xaml/presentation\" xmlns:x=\"http://schemas.microsoft.com/winfx/2006/xaml\" Width=\"347.409668\" Height=\"105.739258\"><Canvas Width=\"347.409668\" Height=\"105.739258\"><Canvas><!-- Layer 1/<Path> --><Path StrokeThickness=\"0.387500\" Stroke=\"#ff000000\" StrokeMiterLimit=\"1.000000\" Fill=\"#ffffffff\" Data=\"F1 M 6.166992,70.050781\"/><!-- Layer 1/<Path> --><Path StrokeThickness=\"0.387500\" Stroke=\"#ff000000\" StrokeMiterLimit=\"1.000000\" Fill=\"#ffffffff\" Data=\"F1 M 0.000000,75.550781\"/><!-- Layer 1/<Path> --><Path StrokeThickness=\"0.834100\" Stroke=\"#ffcbcbcb\" StrokeMiterLimit=\"1.000000\" Fill=\"#ffcbcbcb\" Data=\"F1 M 53.845215,13.341797 L 55.625977,16.419434 L 95.400879,23.106445 L 101.237793,23.611816 L 109.883789,23.395508 L 102.442871,21.766602 L 99.850098,20.955566 L 72.958984,13.341797 L 53.845215,13.341797 Z\"/><Canvas><Canvas><!-- Layer 1/<Group>/<Group>/<Path> --><Path Fill=\"#ff000000\" Data=\"F1 M 74.662109,15.018555 L 73.869141,14.591797 C 73.482910,14.745605 73.770996,16.224609 72.849121,15.366699 C 72.995117,15.204590 72.836914,14.939453 72.771973,14.723633 C 72.493164,14.572754 72.255859,14.566406 71.943848,14.699707 C 71.864746,14.957520 72.088867,15.438477 71.567871,15.399414 C 70.928223,15.357422 71.247070,14.204590 70.521973,14.656738 C 70.351074,14.865723 70.339844,15.220703 70.005859,15.281738 C 69.705078,15.060547 69.536133,14.367676 69.026855,14.755859 C 68.995117,15.038574 69.124023,15.468750 68.691895,15.598633 L 68.271973,15.372559 C 68.398926,15.139648 68.214844,14.920898 68.150879,14.705566 C 67.914063,14.698730 67.680176,14.572754 67.416016,14.730469 L 67.039063,15.430664 C 66.500977,15.201660 66.597168,14.349609 65.826172,14.777832 C 65.629883,15.032715 65.985840,15.707520 65.348145,15.664551 C 64.863770,15.223633 65.032227,14.351563 64.120117,14.703613 C 64.064941,14.914551 64.084961,15.105469 63.958008,15.338867 C 63.569824,15.611816 63.535156,15.230469 63.397949,15.037598 C 63.412109,14.563477 63.075195,14.743652 62.836914,14.736816 C 62.106934,14.643555 62.862793,15.471680 62.221191,15.547852 C 61.416016,15.476563 61.856934,14.208496 60.867188,14.818848 C 61.046875,15.156738 61.037109,15.511719 60.812988,15.814453 C 60.145020,15.936523 60.307129,15.300781 60.270996,14.919434 C 60.203125,14.823730 60.206055,14.705566 60.087891,14.700684 C 58.791992,14.425781 60.316895,16.509766 58.926270,15.519531 L 58.758789,14.708496 C 58.401855,14.815430 57.579102,14.554688 57.723145,15.293457 C 57.880859,15.559570 57.546875,15.619629 57.377930,15.710449 C 57.026855,15.581543 56.994141,15.082520 57.025879,14.798828 C 56.110840,14.486816 56.531250,15.495605 56.048828,15.717773 C 55.173828,15.667480 55.901855,14.314453 54.868164,14.780762 L 54.390137,15.667480 L 53.923828,15.415527 C 54.024902,15.229492 53.840820,15.010742 53.823242,14.820801 C 53.536133,14.906738 52.811035,14.576660 53.003906,15.222656 L 52.831055,15.549805 L 52.269043,15.249512 C 52.391113,15.134766 52.253906,14.940430 52.210938,14.797852 L 51.476074,14.822754 C 51.395996,15.080566 51.647949,15.396484 51.332031,15.647461 C 50.636230,15.934570 50.128906,13.857422 49.893066,15.415527 C 49.747070,15.576660 49.734863,15.932617 49.452148,15.899414 C 48.868164,15.645508 49.376953,14.475586 48.415039,14.920898 C 48.429199,15.228516 48.443848,15.538574 48.223145,15.838867 C 48.027832,15.975586 47.870117,15.709473 47.706055,15.681641 C 47.757813,15.469727 47.625000,15.157715 47.585938,14.895508 C 47.324219,14.934570 47.115234,14.763672 46.850098,14.920898 C 46.771973,15.179688 46.904785,15.491699 46.660156,15.721680 C 46.468262,15.858398 46.264160,15.567871 46.050781,15.513672 C 46.198242,15.352539 46.015137,15.133789 45.950195,14.917480 C 45.712891,14.910645 45.479980,14.784668 45.214844,14.942871 C 45.161133,15.154785 45.180176,15.344727 45.053223,15.577637"
         },
         {
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Jan  9 2014  1:06PM",
-          "max_val": "Jan  9 2014  1:06PM"
+          "min_val": "2014-01-09 13:06:11",
+          "max_val": "2014-01-09 13:06:12"
         }
       ]
     },
@@ -1301,7 +1310,7 @@
         },
         {
           "name": "Name",
-          "sql_type": "Name",
+          "sql_type": "nvarchar",
           "null_count": 0,
           "min_val": "Debur and Polish",
           "max_val": "Tool Crib"
@@ -1324,8 +1333,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Apr 30 2008 12:00AM",
-          "max_val": "Apr 30 2008 12:00AM"
+          "min_val": "2008-04-30 00:00:00",
+          "max_val": "2008-04-30 00:00:00"
         }
       ]
     },
@@ -1338,155 +1347,155 @@
           "name": "ProductID",
           "sql_type": "int",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "1",
+          "max_val": "999"
         },
         {
           "name": "Name",
-          "sql_type": "Name",
+          "sql_type": "nvarchar",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "AWC Logo Cap",
+          "max_val": "Women's Tights, S"
         },
         {
           "name": "ProductNumber",
           "sql_type": "nvarchar",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "AR-5381",
+          "max_val": "WB-H098"
         },
         {
           "name": "MakeFlag",
-          "sql_type": "Flag",
+          "sql_type": "bit",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "0",
+          "max_val": "1"
         },
         {
           "name": "FinishedGoodsFlag",
-          "sql_type": "Flag",
+          "sql_type": "bit",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "0",
+          "max_val": "1"
         },
         {
           "name": "Color",
           "sql_type": "nvarchar",
           "null_count": 248,
-          "min_val": null,
-          "max_val": null
+          "min_val": "Black",
+          "max_val": "Yellow"
         },
         {
           "name": "SafetyStockLevel",
           "sql_type": "smallint",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "4",
+          "max_val": "1000"
         },
         {
           "name": "ReorderPoint",
           "sql_type": "smallint",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "3",
+          "max_val": "750"
         },
         {
           "name": "StandardCost",
           "sql_type": "money",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "0.0000",
+          "max_val": "2171.2942"
         },
         {
           "name": "ListPrice",
           "sql_type": "money",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "0.0000",
+          "max_val": "3578.2700"
         },
         {
           "name": "Size",
           "sql_type": "nvarchar",
           "null_count": 293,
-          "min_val": null,
-          "max_val": null
+          "min_val": "38",
+          "max_val": "XL"
         },
         {
           "name": "SizeUnitMeasureCode",
           "sql_type": "nchar",
           "null_count": 328,
-          "min_val": null,
-          "max_val": null
+          "min_val": "CM",
+          "max_val": "CM"
         },
         {
           "name": "WeightUnitMeasureCode",
           "sql_type": "nchar",
           "null_count": 299,
-          "min_val": null,
-          "max_val": null
+          "min_val": "G",
+          "max_val": "LB"
         },
         {
           "name": "Weight",
           "sql_type": "decimal",
           "null_count": 299,
-          "min_val": null,
-          "max_val": null
+          "min_val": "2.12",
+          "max_val": "1050.00"
         },
         {
           "name": "DaysToManufacture",
           "sql_type": "int",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "0",
+          "max_val": "4"
         },
         {
           "name": "ProductLine",
           "sql_type": "nchar",
           "null_count": 226,
-          "min_val": null,
-          "max_val": null
+          "min_val": "M",
+          "max_val": "T"
         },
         {
           "name": "Class",
           "sql_type": "nchar",
           "null_count": 257,
-          "min_val": null,
-          "max_val": null
+          "min_val": "H",
+          "max_val": "M"
         },
         {
           "name": "Style",
           "sql_type": "nchar",
           "null_count": 293,
-          "min_val": null,
-          "max_val": null
+          "min_val": "M",
+          "max_val": "W"
         },
         {
           "name": "ProductSubcategoryID",
           "sql_type": "int",
           "null_count": 209,
-          "min_val": null,
-          "max_val": null
+          "min_val": "1",
+          "max_val": "37"
         },
         {
           "name": "ProductModelID",
           "sql_type": "int",
           "null_count": 209,
-          "min_val": null,
-          "max_val": null
+          "min_val": "1",
+          "max_val": "128"
         },
         {
           "name": "SellStartDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "2008-04-30 00:00:00",
+          "max_val": "2013-05-30 00:00:00"
         },
         {
           "name": "SellEndDate",
           "sql_type": "datetime",
           "null_count": 406,
-          "min_val": null,
-          "max_val": null
+          "min_val": "2012-05-29 00:00:00",
+          "max_val": "2013-05-29 00:00:00"
         },
         {
           "name": "DiscontinuedDate",
@@ -1499,15 +1508,15 @@
           "name": "rowguid",
           "sql_type": "uniqueidentifier",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "7A927632-99A4-4F24-ADCE-0062D2D113D9",
+          "max_val": "B9EDE243-A6F4-4629-B1D4-FFE1AEDC6DE7"
         },
         {
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "2014-02-08 10:01:36",
+          "max_val": "2014-02-08 10:03:55"
         }
       ]
     },
@@ -1525,7 +1534,7 @@
         },
         {
           "name": "Name",
-          "sql_type": "Name",
+          "sql_type": "nvarchar",
           "null_count": 0,
           "min_val": "Accessories",
           "max_val": "Components"
@@ -1541,8 +1550,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Apr 30 2008 12:00AM",
-          "max_val": "Apr 30 2008 12:00AM"
+          "min_val": "2008-04-30 00:00:00",
+          "max_val": "2008-04-30 00:00:00"
         }
       ]
     },
@@ -1562,15 +1571,15 @@
           "name": "StartDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "May 31 2011 12:00AM",
-          "max_val": "May 30 2013 12:00AM"
+          "min_val": "2011-05-31 00:00:00",
+          "max_val": "2013-05-30 00:00:00"
         },
         {
           "name": "EndDate",
           "sql_type": "datetime",
           "null_count": 195,
-          "min_val": "May 29 2012 12:00AM",
-          "max_val": "May 29 2013 12:00AM"
+          "min_val": "2012-05-29 00:00:00",
+          "max_val": "2013-05-29 00:00:00"
         },
         {
           "name": "StandardCost",
@@ -1583,8 +1592,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "May 29 2012 12:00AM",
-          "max_val": "May 29 2013 12:00AM"
+          "min_val": "2012-05-29 00:00:00",
+          "max_val": "2013-05-29 00:00:00"
         }
       ]
     },
@@ -1618,8 +1627,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Apr 30 2013 12:00AM",
-          "max_val": "Feb  8 2014 10:32AM"
+          "min_val": "2013-04-30 00:00:00",
+          "max_val": "2014-02-08 10:32:17"
         }
       ]
     },
@@ -1646,8 +1655,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Dec 29 2013  1:51PM",
-          "max_val": "Dec 29 2013  1:51PM"
+          "min_val": "2013-12-29 13:51:58",
+          "max_val": "2013-12-29 13:51:58"
         }
       ]
     },
@@ -1702,8 +1711,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Mar 31 2008 12:00AM",
-          "max_val": "Aug 12 2014 12:00AM"
+          "min_val": "2008-03-31 00:00:00",
+          "max_val": "2014-08-12 00:00:00"
         }
       ]
     },
@@ -1723,15 +1732,15 @@
           "name": "StartDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "May 31 2011 12:00AM",
-          "max_val": "May 30 2013 12:00AM"
+          "min_val": "2011-05-31 00:00:00",
+          "max_val": "2013-05-30 00:00:00"
         },
         {
           "name": "EndDate",
           "sql_type": "datetime",
           "null_count": 195,
-          "min_val": "May 29 2012 12:00AM",
-          "max_val": "May 29 2013 12:00AM"
+          "min_val": "2012-05-29 00:00:00",
+          "max_val": "2013-05-29 00:00:00"
         },
         {
           "name": "ListPrice",
@@ -1744,8 +1753,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "May 29 2012 12:00AM",
-          "max_val": "May 29 2013 12:00AM"
+          "min_val": "2012-05-29 00:00:00",
+          "max_val": "2013-05-29 00:00:00"
         }
       ]
     },
@@ -1763,7 +1772,7 @@
         },
         {
           "name": "Name",
-          "sql_type": "Name",
+          "sql_type": "nvarchar",
           "null_count": 0,
           "min_val": "All-Purpose Bike Stand",
           "max_val": "Women's Tights"
@@ -1772,15 +1781,15 @@
           "name": "CatalogDescription",
           "sql_type": "xml",
           "null_count": 122,
-          "min_val": "<?xml-stylesheet href=\"ProductDescription.xsl\" type=\"text/xsl\"?><p1:ProductDescription xmlns:p1=\"http://schemas.microsoft.com/sqlserver/2004/07/adventure-works/ProductModelDescription\" xmlns:wm=\"http:",
-          "max_val": "<?xml-stylesheet href=\"ProductDescription.xsl\" type=\"text/xsl\"?><p1:ProductDescription xmlns:p1=\"http://schemas.microsoft.com/sqlserver/2004/07/adventure-works/ProductModelDescription\" xmlns:wm=\"http:"
+          "min_val": "<?xml-stylesheet href=\"ProductDescription.xsl\" type=\"text/xsl\"?><p1:ProductDescription xmlns:p1=\"http://schemas.microsoft.com/sqlserver/2004/07/adventure-works/ProductModelDescription\" xmlns:wm=\"http://schemas.microsoft.com/sqlserver/2004/07/adventure-works/ProductModelWarrAndMain\" xmlns:wf=\"http://www.adventure-works.com/schemas/OtherFeatures\" xmlns:html=\"http://www.w3.org/1999/xhtml\" ProductModelID=\"19\" ProductModelName=\"Mountain 100\"><p1:Summary><html:p>Our top-of-the-line competition mountain bike. \n \t\t\t\tPerformance-enhancing options include the innovative HL Frame, \n\t\t\t\tsuper-smooth front suspension, and traction for all terrain.\n                        </html:p></p1:Summary><p1:Manufacturer><p1:Name>AdventureWorks</p1:Name><p1:Copyright>2002</p1:Copyright><p1:ProductURL>HTTP://www.Adventure-works.com</p1:ProductURL></p1:Manufacturer><p1:Features>These are the product highlights. \n                 <wm:Warranty><wm:WarrantyPeriod>3 years</wm:WarrantyPeriod><wm:Description>parts and labor</wm:Description></wm:Warranty><wm:Maintenance><wm:NoOfYears>10 years</wm:NoOfYears><wm:Description>maintenance contract available through your dealer or any AdventureWorks retail store.</wm:Description></wm:Maintenance><wf:wheel>High performance wheels.</wf:wheel><wf:saddle><html:i>Anatomic design</html:i> and made from durable leather for a full-day of riding in comfort.</wf:saddle><wf:pedal><html:b>Top-of-the-line</html:b> clipless pedals with adjustable tension.</wf:pedal><wf:BikeFrame>Each frame is hand-crafted in our Bothell facility to the optimum diameter \n\t\t\t\tand wall-thickness required of a premium mountain frame. \n\t\t\t\tThe heat-treated welded aluminum frame has a larger diameter tube that absorbs the bumps.</wf:BikeFrame><wf:crankset> Triple crankset; alumunim crank arm; flawless shifting. </wf:crankset></p1:Features><!-- add one or more of these elements... one for each specific product in this product model --><p1:Picture><p1:Angle>front</p1:Angle><p1:Size>small</p1:Size><p1:ProductPhotoID>118</p1:ProductPhotoID></p1:Picture><!-- add any tags in <specifications> --><p1:Specifications> These are the product specifications.\n                   <Material>Almuminum Alloy</Material><Color>Available in most colors</Color><ProductLine>Mountain bike</ProductLine><Style>Unisex</Style><RiderExperience>Advanced to Professional riders</RiderExperience></p1:Specifications></p1:ProductDescription>",
+          "max_val": "<?xml-stylesheet href=\"ProductDescription.xsl\" type=\"text/xsl\"?><p1:ProductDescription xmlns:p1=\"http://schemas.microsoft.com/sqlserver/2004/07/adventure-works/ProductModelDescription\" xmlns:wm=\"http://schemas.microsoft.com/sqlserver/2004/07/adventure-works/ProductModelWarrAndMain\" xmlns:wf=\"http://www.adventure-works.com/schemas/OtherFeatures\" xmlns:html=\"http://www.w3.org/1999/xhtml\" ProductModelID=\"35\" ProductModelName=\"Touring-2000\"><p1:Summary><html:p>The plush custom saddle keeps you riding all day, and there's plenty of space\n\t\t\t to add panniers and bike bags to the newly-redesigned carrier. \n\t\t\t\tThis bike has great stability when fully-loaded.\n                        </html:p></p1:Summary><p1:Manufacturer><p1:Name>AdventureWorks</p1:Name><p1:Copyright>2002</p1:Copyright><p1:ProductURL>HTTP://www.Adventure-works.com</p1:ProductURL></p1:Manufacturer><p1:Features>These are the product highlights. \n                 <wm:Warranty><wm:WarrantyPeriod>1 year</wm:WarrantyPeriod><wm:Description>parts and labor</wm:Description></wm:Warranty><wm:Maintenance><wm:NoOfYears>5 years</wm:NoOfYears><wm:Description>maintenance contact available through dealer</wm:Description></wm:Maintenance><wf:handlebar>A light yet stiff aluminum bar for long distance riding.</wf:handlebar><wf:saddle><html:i>New design </html:i> relieves pressure for long rides.</wf:saddle><wf:pedal><html:b>Top-of-the-line</html:b> clipless pedals with adjustable tension.</wf:pedal><wf:crankset> High-strength crank arm. </wf:crankset><wf:BikeFrame>The aluminum frame is custom-shaped for both good looks and strength; \n\t\t\t\tit will withstand the most rigorous challenges of daily riding.</wf:BikeFrame></p1:Features><!-- add one or more of these elements... one for each specific product in this product model --><p1:Picture><p1:Angle>front</p1:Angle><p1:Size>small</p1:Size><p1:ProductPhotoID>87</p1:ProductPhotoID></p1:Picture><!-- add any tags in <specifications> --><p1:Specifications> These are the product specifications.\n                   <Material>Aluminum</Material><Color>Available in all colors except metallic.</Color><ProductLine>Touring bike</ProductLine><Style>Men's</Style><FrameMaterial>Aluminium alloy</FrameMaterial><RiderExperience>Intermediate to Advanced riders</RiderExperience></p1:Specifications></p1:ProductDescription>"
         },
         {
           "name": "Instructions",
           "sql_type": "xml",
           "null_count": 119,
-          "min_val": null,
-          "max_val": null
+          "min_val": "<root xmlns=\"http://schemas.microsoft.com/sqlserver/2004/07/adventure-works/ProductModelManuInstructions\">\n                Adventure Works CyclesFR-200A Instructions for Manufacturing LL Touring Frame Summary: This document contains manufacturing instructions for manufacturing the LL Touring Frame, Product Model 10. Instructions are work center specific and are identified by work center ID. These instructions must be followed in the order presented. Deviation from the instructions is not permitted unless an authorized Change Order detailing the deviation is provided by the Engineering Manager.<Location LaborHours=\"2\" LotSize=\"100\" MachineHours=\"2\" SetupHours=\"0.1\" LocationID=\"10\">\n                    Work Center 10 - Frame Forming. The following instructions pertain to Work Center 10. (Setup hours = .10, Labor Hours = 2, Machine Hours = 2, Lot Sizing = 100)<step>\n                        Insert <material>aluminum sheet MS-6061</material> into tool <tool>T-99 framing tool</tool>.\n                    </step><step>\n                        Attach <tool>Trim Jig TJ-25</tool> to the upper and lower right corners of the aluminum sheet.\n                    </step><step>\n                        Using a <tool>router with a carbide tip 26</tool>, route the aluminum sheet following the jig carefully.\n                    </step><step>\n                        Insert the frame into <tool>Forming Tool FT-25</tool> and press Start.\n                    </step><step>\n                        When finished, inspect the form for defects per <specs>Inspection Specification INFS-110</specs>.\n                    </step><step>Remove the frame from the tool and place it in the Completed or Rejected bin as appropriate.</step></Location><Location LaborHours=\"1.5\" LotSize=\"1\" MachineHours=\"1.75\" SetupHours=\"0.25\" LocationID=\"20\">\n                    Work Center 20 - Frame Welding. The following instructions pertain to Work Center 20. (Setup hours = .25, Labor Hours = 1.5, Machine Hours = 1.75, Lot Sizing = 1)<step>\n                        Assemble all frame components following blueprint <blueprint>12345</blueprint>.\n                    </step><step>\n                        Weld all frame components together as shown in illustration <diag>3</diag></step><step>\n                        Inspect all weld joints per Adventure Works Cycles Inspection Specification <specs>INFS-206</specs>.\n                    </step></Location><Location LaborHours=\"1\" LotSize=\"1\" LocationID=\"30\">\n                    Work Center 30 - Debur and Polish. The following instructions pertain to Work Center 30. (Setup hours = 0, Labor Hours = 1, Machine Hours = 0, Lot Sizing = 1)<step>\n                        Using the <tool>standard debur tool</tool>, remove all excess material from weld areas.\n                    </step><step>\n                        Using <material>Acme Polish Cream</material>, polish all weld areas.\n                    </step></Location><Location LaborHours=\"1.5\" LotSize=\"20\" LocationID=\"4\">\n                    Work Center 40 - Paint. The following instructions pertain to Work Center 40. (Setup hours = 0, Labor Hours = 1.5, Machine Hours = 0, Lot Sizing = 20)<step>\n                        Attach a <material>maximum of 20 frames</material> to paint harness ensuring frames are not touching.\n                    </step><step>\n                        Mix <material>primer PA-345</material>. Test spray pattern on sample area and correct flow and pattern as required per engineering spec <specs>AWC-502</specs>.\n                    </step><step>Apply thin coat of primer to all surfaces.  </step><step>\n                        After 30 minutes, touch test for dryness. If dry to touch, lightly sand all surfaces. Remove all surface debris with <material>compressed air</material>.\n                    </step><step>\n                        Mix <material>paint</material> per manufacturer instructions.\n                    </step><step>\n                        Test spray pattern on sampl",
+          "max_val": "<root xmlns=\"http://schemas.microsoft.com/sqlserver/2004/07/adventure-works/ProductModelManuInstructions\">\n                Adventure Works CyclesWA-620 Instructions Assembling the LL Touring Seat Summary: This document contains manufacturing instructions for assembling the LL Touring Seat, Product Model 63. Instructions are work center specific and are identified by work center ID. These instructions must be followed in the order presented. Deviation from the instructions is not permitted unless an authorized Change Order detailing the deviation is provided by the Engineering Manager.<Location LaborHours=\"1.5\" LotSize=\"1\" LocationID=\"50\">\n                    Work Center 50 - SubAssembly. The following instructions pertain to Work Center 50. (Setup hours = .0, Labor Hours = 1.5, Machine Hours = 0, Lot Sizing = 1)<step>\n                        Put the <material>Seat post Lug (Product Number SL-0931)</material> on the <material>Seat Post (Product Number SP-2981)</material>.\n                    </step><step>\n                        Insert the <material>Pinch Bolt (Product Number PB-6109)</material> and tighten until it is secure but still able to slide up or down the post as shown in illustration <diag>6</diag>.\n                    </step><step>\n                        Attach the <material>LL Seat (Product Number SE-T312)</material> to the top of the Seat Post and tighten securely.\n                    </step><step>\n                        Inspect per specification <specs>FI-620</specs>.\n                    </step></Location></root>"
         },
         {
           "name": "rowguid",
@@ -1793,8 +1802,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Mar 31 2008 12:00AM",
-          "max_val": "Apr 15 2015  4:34PM"
+          "min_val": "2008-03-31 00:00:00",
+          "max_val": "2015-04-15 16:34:29"
         }
       ]
     },
@@ -1821,8 +1830,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Jan  9 2014  2:41PM",
-          "max_val": "Jan  9 2014  2:41PM"
+          "min_val": "2014-01-09 14:41:02",
+          "max_val": "2014-01-09 14:41:02"
         }
       ]
     },
@@ -1856,8 +1865,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Apr 30 2013 12:00AM",
-          "max_val": "Apr 30 2013 12:00AM"
+          "min_val": "2013-04-30 00:00:00",
+          "max_val": "2013-04-30 00:00:00"
         }
       ]
     },
@@ -1877,8 +1886,8 @@
           "name": "ThumbNailPhoto",
           "sql_type": "varbinary",
           "null_count": 0,
-          "min_val": "0x4749463839612D003200F700009C9B9B848283E9E3E4F6F5F6EDECEDC2BEC0E6E4E6E1E0E1DEDCDDF2F1F1FDB110D5D4D5FCFCFCFFFEFAD8D4D4FCFBF8D9D6D8D5D1D2FC6908DAD9DA919191FDB064D2CDCEF2210FFED69BC6C4C5FCF9F9CECCCEF949",
-          "max_val": "0x474946383961F0009500F7000088858A5B1F29E2DFE6F3F3FDB7B8CAE4E3E479757AD7AEB4BBC4D3877B84F60006676368C3BDC7DCDBF3C7C7DAE951715954599799AA737889FAFAFADDDBDCEDEDFCAF0108AE9195990102D3D2D3423B42CBCAE5E905"
+          "min_val": "0x4749463839612D003200F700009C9B9B848283E9E3E4F6F5F6EDECEDC2BEC0E6E4E6E1E0E1DEDCDDF2F1F1FDB110D5D4D5FCFCFCFFFEFAD8D4D4FCFBF8D9D6D8D5D1D2FC6908DAD9DA919191FDB064D2CDCEF2210FFED69BC6C4C5FCF9F9CECCCEF94902FCB138C8C5C5B3ACACFFFDCAC0BDBDD2D0D1E5E3E4B1AEB2EAE9E9A29D9DAAA3A4BAAAABDDD9DAC4C1C2D0CFD0EFEEEDFFFEA8E8E6E8999595FCFEFE8A8989DFDEDEFFFDE4A1A1A1FFF98CBEBCBDFFFFB7CAC7C9F9F7F8C6C3C4C2C0C2898789FEFDEBBDB9BAA9A6A9C9C9C9B1B1B1E1E1DECDCACCFEFDFEFAFDFEF8F8F9959796AAA9A9B6B5B6DEDEE0CCC9CAA29EA2FED710918E",
+          "max_val": "0x474946383961F0009500F7000088858A5B1F29E2DFE6F3F3FDB7B8CAE4E3E479757AD7AEB4BBC4D3877B84F60006676368C3BDC7DCDBF3C7C7DAE951715954599799AA737889FAFAFADDDBDCEDEDFCAF0108AE9195990102D3D2D3423B42CBCAE5E9053BD3D3ECEDECF4A69DA3635C624A444AE3E2F4CF032785747CF7E9EB524C53F1EEF5C4C2C3CDCBCDFAFDFD664F58F06C8BE4E3EDE4DCDCD00005292629DDDCED5B585F972957F5FBFBE4E3FA3B343ADDDCE3AEA9BAB4ACB3FDFDFAF6F6F6EBF3F8E80A3F716D728A8A92B4B1B4B10B2FD8E3E6D1CED1FAFAFEF2F1F22D4868D3C9CCF6A7B7D3D2E5BDBABD6B696E938D949D9B9FF8F7"
         },
         {
           "name": "ThumbnailPhotoFileName",
@@ -1891,8 +1900,8 @@
           "name": "LargePhoto",
           "sql_type": "varbinary",
           "null_count": 0,
-          "min_val": "0x47494638396189009600F70000AE9898FC9E0FFAF9F9B4B2B3E4DADBF105019D9B9BFDF5E4A4A2A2ACAAACFDFCFCCAC4C5C2BCBDBAB3B4FFFEFCFEFDEDC3BEC0D1CDCDE0DEE0D8D4D5F3EBECF6F5F5F2F1F1858284D1CED0FEF8B3FEF850D6D4D5FEF8",
-          "max_val": "0x474946383961F0009600F7FF00B4B4B48958496C0906EEE5DEFA88673A3A3AA77968684237DAC5BAC6A798F93922FC5537FBF7F5D44E336F33287D7D7DFB9979BA9888E6D5CBD9CDC7FD24138C3628F8BCA4B2A39CCF9A87FCA586D31007F5EFEBB359"
+          "min_val": "0x47494638396189009600F70000AE9898FC9E0FFAF9F9B4B2B3E4DADBF105019D9B9BFDF5E4A4A2A2ACAAACFDFCFCCAC4C5C2BCBDBAB3B4FFFEFCFEFDEDC3BEC0D1CDCDE0DEE0D8D4D5F3EBECF6F5F5F2F1F1858284D1CED0FEF8B3FEF850D6D4D5FEF82BB2ABAC919291FAA16EFEF893EDECEDD2D0D1E9E9E9FFFEFAF9F5F5D9D6D8DAD8D9DEDCDDB4AEB1FEEB0EE9E4E5E6E5E5C9C6C8FDF9FCFC7103D4D1D2FDFFFFA9A4A5FEFDFECECCCDD5D2D4FBFBFA908D8EC6C1C2F8FFFDA39EA0FFFDDBE2E0E1C6C4C58B8589F92B01FEF975CAC8C9BFBCBD9B9394CCC9CABAB6B7898989F2EEF0F66D578D8D8D959595F8F7F8E8E6E8C2C0C1F4F2",
+          "max_val": "0x474946383961F0009600F7FF00B4B4B48958496C0906EEE5DEFA88673A3A3AA77968684237DAC5BAC6A798F93922FC5537FBF7F5D44E336F33287D7D7DFB9979BA9888E6D5CBD9CDC7FD24138C3628F8BCA4B2A39CCF9A87FCA586D31007F5EFEBB35944AB87758F4736CB7B63D5B8AB997567CDB3A7FB4329A59C98C7BCB7EB8769CE2414946858F3EBE6FD120A9F9E9E896154E89C82795346E67458B8ABA58D271BF45B3EE76548FBFBF7FAB59AFE0000320103ECE7E4A635256F2219B28B794E4E4EF7F3EFDC755A7A6C66E89478A62518E6DBD4980C04EBDED6B10D05A74635978479856C63DED3CCD9AA96FD301BE9432AFB6B4BE603"
         },
         {
           "name": "LargePhotoFileName",
@@ -1905,8 +1914,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Mar 31 2008 12:00AM",
-          "max_val": "Apr 30 2013 12:00AM"
+          "min_val": "2008-03-31 00:00:00",
+          "max_val": "2013-04-30 00:00:00"
         }
       ]
     },
@@ -1919,29 +1928,29 @@
           "name": "ProductID",
           "sql_type": "int",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "1",
+          "max_val": "999"
         },
         {
           "name": "ProductPhotoID",
           "sql_type": "int",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "1",
+          "max_val": "179"
         },
         {
           "name": "Primary",
-          "sql_type": "Flag",
+          "sql_type": "bit",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "1",
+          "max_val": "1"
         },
         {
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "2008-03-31 00:00:00",
+          "max_val": "2013-04-30 00:00:00"
         }
       ]
     },
@@ -1966,7 +1975,7 @@
         },
         {
           "name": "ReviewerName",
-          "sql_type": "Name",
+          "sql_type": "nvarchar",
           "null_count": 0,
           "min_val": "David",
           "max_val": "Laura Norman"
@@ -1975,8 +1984,8 @@
           "name": "ReviewDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Sep 18 2013 12:00AM",
-          "max_val": "Nov 15 2013 12:00AM"
+          "min_val": "2013-09-18 00:00:00",
+          "max_val": "2013-11-15 00:00:00"
         },
         {
           "name": "EmailAddress",
@@ -1996,15 +2005,15 @@
           "name": "Comments",
           "sql_type": "nvarchar",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "A little on the heavy side, but overall the entry/exit is easy in all conditions. I've used these pedals for \r\nmore than 3 years and I've never had a problem. Cleanup is easy. Mud and sand don't get trapped. I would like \r\nthem even better if there was a weight reduction. Maybe in the next design. Still, I would recommend them to a friend.",
+          "max_val": "The Road-550-W from Adventure Works Cycles is everything it's advertised to be. Finally, a quality bike that\r\nis actually built for a woman and provides control and comfort in one neat package. The top tube is shorter, the suspension is weight-tuned and there's a much shorter reach to the brake\r\nlevers. All this adds up to a great mountain bike that is sure to accommodate any woman's anatomy. In addition to getting the size right, the saddle is incredibly comfortable. \r\nAttention to detail is apparent in every aspect from the frame finish to the careful design of each component. Each component is a solid performer without any fluff. \r\nThe designers clearly did their homework and thought about size, weight, and funtionality throughout. And at less than 19 pounds, the bike is manageable for even the most petite cyclist.\r\n\r\nWe had 5 riders take the bike out for a spin and really put it to the test. The results were consistent and very positive. Our testers loved the manuverability \r\nand control they had with the redesigned frame on the 550-W. A definite improvement over the 2002 design. Four out of five testers listed quick handling\r\nand responsivness were the key elements they noticed. Technical climbing and on the flats, the bike just cruises through the rough. Tight corners and obstacles were handled effortlessly. The fifth tester was more impressed with the smooth ride. The heavy-duty shocks absorbed even the worst bumps and provided a soft ride on all but the \r\nnastiest trails and biggest drops. The shifting was rated superb and typical of what we've come to expect from Adventure Works Cycles. On descents, the bike handled flawlessly and tracked very well. The bike is well balanced front-to-rear and frame flex was minimal. In particular, the testers\r\nnoted that the brake system had a unique combination of power and modulation.  While some brake setups can be overly touchy, these brakes had a good\r\namount of power, but also a good feel that allows you to apply as little or as much braking power as is needed. Second is their short break-in period. We found that they tend to break-in well before\r\nthe end of the first ride; while others take two to three rides (or more) to come to full power. \r\n\r\nOn the negative side, the pedals were not quite up to our tester's standards. \r\nJust for fun, we experimented with routine maintenance tasks. Overall we found most operations to be straight forward and easy to complete. The only exception was replacing the front wheel. The maintenance manual that comes\r\nwith the bike say to install the front wheel with the axle quick release or bolt, then compress the fork a few times before fastening and tightening the two quick-release mechanisms on the bottom of the dropouts. This is to seat the axle in the dropouts, and if you do not\r\ndo this, the axle will become seated after you tightened the two bottom quick releases, which will then become loose. It's better to test the tightness carefully or you may notice that the two bottom quick releases have come loose enough to fall completely open. And that's something you don't want to experience\r\nwhile out on the road! \r\n\r\nThe Road-550-W frame is available in a variety of sizes and colors and has the same durable, high-quality aluminum that AWC is known for. At a MSRP of just under $1125.00, it's comparable in price to its closest competitors and\r\nwe think that after a test drive you'l find the quality and performance above and beyond . You'll have a grin on your face and be itching to get out on the road for more. While designed for serious road racing, the Road-550-W would be an excellent choice for just about any terrain and \r\nany level of experience. It's a huge step in the right direction for female cyclists and well worth your consideration and hard-earned money."
         },
         {
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Sep 18 2013 12:00AM",
-          "max_val": "Nov 15 2013 12:00AM"
+          "min_val": "2013-09-18 00:00:00",
+          "max_val": "2013-11-15 00:00:00"
         }
       ]
     },
@@ -2029,7 +2038,7 @@
         },
         {
           "name": "Name",
-          "sql_type": "Name",
+          "sql_type": "nvarchar",
           "null_count": 0,
           "min_val": "Bib-Shorts",
           "max_val": "Wheels"
@@ -2045,8 +2054,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Apr 30 2008 12:00AM",
-          "max_val": "Apr 30 2008 12:00AM"
+          "min_val": "2008-04-30 00:00:00",
+          "max_val": "2008-04-30 00:00:00"
         }
       ]
     },
@@ -2064,7 +2073,7 @@
         },
         {
           "name": "Name",
-          "sql_type": "Name",
+          "sql_type": "nvarchar",
           "null_count": 0,
           "min_val": "Brake assembly not as ordered",
           "max_val": "Wheel misaligned"
@@ -2073,8 +2082,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Apr 30 2008 12:00AM",
-          "max_val": "Apr 30 2008 12:00AM"
+          "min_val": "2008-04-30 00:00:00",
+          "max_val": "2008-04-30 00:00:00"
         }
       ]
     },
@@ -2115,8 +2124,8 @@
           "name": "TransactionDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Jul 31 2013 12:00AM",
-          "max_val": "Aug  3 2014 12:00AM"
+          "min_val": "2013-07-31 00:00:00",
+          "max_val": "2014-08-03 00:00:00"
         },
         {
           "name": "TransactionType",
@@ -2143,8 +2152,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Jul 31 2013 12:00AM",
-          "max_val": "Aug  3 2014 12:00AM"
+          "min_val": "2013-07-31 00:00:00",
+          "max_val": "2014-08-03 00:00:00"
         }
       ]
     },
@@ -2185,8 +2194,8 @@
           "name": "TransactionDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Apr 16 2011 12:00AM",
-          "max_val": "Jul 30 2013 12:00AM"
+          "min_val": "2011-04-16 00:00:00",
+          "max_val": "2013-07-30 00:00:00"
         },
         {
           "name": "TransactionType",
@@ -2213,8 +2222,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Apr 16 2011 12:00AM",
-          "max_val": "Jul 30 2013 12:00AM"
+          "min_val": "2011-04-16 00:00:00",
+          "max_val": "2013-07-30 00:00:00"
         }
       ]
     },
@@ -2232,7 +2241,7 @@
         },
         {
           "name": "Name",
-          "sql_type": "Name",
+          "sql_type": "nvarchar",
           "null_count": 0,
           "min_val": "Bottle",
           "max_val": "US pound"
@@ -2241,8 +2250,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Apr 30 2008 12:00AM",
-          "max_val": "Apr 30 2008 12:00AM"
+          "min_val": "2008-04-30 00:00:00",
+          "max_val": "2008-04-30 00:00:00"
         }
       ]
     },
@@ -2283,22 +2292,22 @@
           "name": "StartDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Jun  3 2011 12:00AM",
-          "max_val": "Jun  2 2014 12:00AM"
+          "min_val": "2011-06-03 00:00:00",
+          "max_val": "2014-06-02 00:00:00"
         },
         {
           "name": "EndDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Jun 13 2011 12:00AM",
-          "max_val": "Jun 17 2014 12:00AM"
+          "min_val": "2011-06-13 00:00:00",
+          "max_val": "2014-06-17 00:00:00"
         },
         {
           "name": "DueDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Jun 14 2011 12:00AM",
-          "max_val": "Jun 13 2014 12:00AM"
+          "min_val": "2011-06-14 00:00:00",
+          "max_val": "2014-06-13 00:00:00"
         },
         {
           "name": "ScrapReasonID",
@@ -2311,8 +2320,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Jun 13 2011 12:00AM",
-          "max_val": "Jun 17 2014 12:00AM"
+          "min_val": "2011-06-13 00:00:00",
+          "max_val": "2014-06-17 00:00:00"
         }
       ]
     },
@@ -2353,29 +2362,29 @@
           "name": "ScheduledStartDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Jun  3 2011 12:00AM",
-          "max_val": "Jun  2 2014 12:00AM"
+          "min_val": "2011-06-03 00:00:00",
+          "max_val": "2014-06-02 00:00:00"
         },
         {
           "name": "ScheduledEndDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Jun 14 2011 12:00AM",
-          "max_val": "Jun 13 2014 12:00AM"
+          "min_val": "2011-06-14 00:00:00",
+          "max_val": "2014-06-13 00:00:00"
         },
         {
           "name": "ActualStartDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Jun  3 2011 12:00AM",
-          "max_val": "Jun 17 2014 12:00AM"
+          "min_val": "2011-06-03 00:00:00",
+          "max_val": "2014-06-17 00:00:00"
         },
         {
           "name": "ActualEndDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Jun 15 2011 12:00AM",
-          "max_val": "Jun 28 2014 12:00AM"
+          "min_val": "2011-06-15 00:00:00",
+          "max_val": "2014-06-28 00:00:00"
         },
         {
           "name": "ActualResourceHrs",
@@ -2402,8 +2411,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Jun 15 2011 12:00AM",
-          "max_val": "Jun 28 2014 12:00AM"
+          "min_val": "2011-06-15 00:00:00",
+          "max_val": "2014-06-28 00:00:00"
         }
       ]
     },
@@ -2451,8 +2460,8 @@
           "name": "LastReceiptDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Jul 22 2011 12:00AM",
-          "max_val": "Oct 22 2014 12:00AM"
+          "min_val": "2011-07-22 00:00:00",
+          "max_val": "2014-10-22 00:00:00"
         },
         {
           "name": "MinOrderQty",
@@ -2486,8 +2495,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Jul 22 2011 12:00AM",
-          "max_val": "Aug 12 2015 12:20PM"
+          "min_val": "2011-07-22 00:00:00",
+          "max_val": "2015-08-12 12:20:28"
         }
       ]
     },
@@ -2514,8 +2523,8 @@
           "name": "DueDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Apr 30 2011 12:00AM",
-          "max_val": "Oct 22 2014 12:00AM"
+          "min_val": "2011-04-30 00:00:00",
+          "max_val": "2014-10-22 00:00:00"
         },
         {
           "name": "OrderQty",
@@ -2556,8 +2565,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Apr 23 2011 12:00AM",
-          "max_val": "Aug 12 2015 12:25PM"
+          "min_val": "2011-04-23 00:00:00",
+          "max_val": "2015-08-12 12:25:46"
         }
       ]
     },
@@ -2612,15 +2621,15 @@
           "name": "OrderDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Apr 16 2011 12:00AM",
-          "max_val": "Sep 22 2014 12:00AM"
+          "min_val": "2011-04-16 00:00:00",
+          "max_val": "2014-09-22 00:00:00"
         },
         {
           "name": "ShipDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Apr 25 2011 12:00AM",
-          "max_val": "Oct 17 2014 12:00AM"
+          "min_val": "2011-04-25 00:00:00",
+          "max_val": "2014-10-17 00:00:00"
         },
         {
           "name": "SubTotal",
@@ -2647,8 +2656,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Apr 25 2011 12:00AM",
-          "max_val": "Aug 12 2015 12:25PM"
+          "min_val": "2011-04-25 00:00:00",
+          "max_val": "2015-08-12 12:25:46"
         }
       ]
     },
@@ -2666,7 +2675,7 @@
         },
         {
           "name": "Name",
-          "sql_type": "Name",
+          "sql_type": "nvarchar",
           "null_count": 0,
           "min_val": "CARGO TRANSPORT 5",
           "max_val": "ZY - EXPRESS"
@@ -2696,8 +2705,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Apr 30 2008 12:00AM",
-          "max_val": "Apr 30 2008 12:00AM"
+          "min_val": "2008-04-30 00:00:00",
+          "max_val": "2008-04-30 00:00:00"
         }
       ]
     },
@@ -2710,57 +2719,57 @@
           "name": "BusinessEntityID",
           "sql_type": "int",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "1492",
+          "max_val": "1698"
         },
         {
           "name": "AccountNumber",
-          "sql_type": "AccountNumber",
+          "sql_type": "nvarchar",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "ADATUM0001",
+          "max_val": "WOODFIT0001"
         },
         {
           "name": "Name",
-          "sql_type": "Name",
+          "sql_type": "nvarchar",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "A. Datum Corporation",
+          "max_val": "Wood Fitness"
         },
         {
           "name": "CreditRating",
           "sql_type": "tinyint",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "1",
+          "max_val": "5"
         },
         {
           "name": "PreferredVendorStatus",
-          "sql_type": "Flag",
+          "sql_type": "bit",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "0",
+          "max_val": "1"
         },
         {
           "name": "ActiveFlag",
-          "sql_type": "Flag",
+          "sql_type": "bit",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "0",
+          "max_val": "1"
         },
         {
           "name": "PurchasingWebServiceURL",
           "sql_type": "nvarchar",
           "null_count": 98,
-          "min_val": null,
-          "max_val": null
+          "min_val": "www.adatum.com/",
+          "max_val": "www.wideworldimporters.com/"
         },
         {
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "2011-04-25 00:00:00",
+          "max_val": "2012-02-18 00:00:00"
         }
       ]
     },
@@ -2787,8 +2796,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Apr 30 2008 12:00AM",
-          "max_val": "Feb  8 2014 10:17AM"
+          "min_val": "2008-04-30 00:00:00",
+          "max_val": "2014-02-08 10:17:21"
         }
       ]
     },
@@ -2836,8 +2845,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Jun 23 2006 12:00AM",
-          "max_val": "Jun 30 2014 12:00AM"
+          "min_val": "2006-06-23 00:00:00",
+          "max_val": "2014-06-30 00:00:00"
         }
       ]
     },
@@ -2855,7 +2864,7 @@
         },
         {
           "name": "Name",
-          "sql_type": "Name",
+          "sql_type": "nvarchar",
           "null_count": 0,
           "min_val": "Afghani",
           "max_val": "Zloty"
@@ -2864,8 +2873,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Apr 30 2008 12:00AM",
-          "max_val": "Apr 30 2008 12:00AM"
+          "min_val": "2008-04-30 00:00:00",
+          "max_val": "2008-04-30 00:00:00"
         }
       ]
     },
@@ -2885,8 +2894,8 @@
           "name": "CurrencyRateDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "May 31 2011 12:00AM",
-          "max_val": "May 31 2014 12:00AM"
+          "min_val": "2011-05-31 00:00:00",
+          "max_val": "2014-05-31 00:00:00"
         },
         {
           "name": "FromCurrencyCode",
@@ -2920,8 +2929,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "May 31 2011 12:00AM",
-          "max_val": "May 31 2014 12:00AM"
+          "min_val": "2011-05-31 00:00:00",
+          "max_val": "2014-05-31 00:00:00"
         }
       ]
     },
@@ -2969,8 +2978,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Sep 12 2014 11:15AM",
-          "max_val": "Sep 12 2014 11:15AM"
+          "min_val": "2014-09-12 11:15:07",
+          "max_val": "2014-09-12 11:15:07"
         }
       ]
     },
@@ -2997,8 +3006,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "May 31 2011 12:00AM",
-          "max_val": "Jun 30 2014 12:00AM"
+          "min_val": "2011-05-31 00:00:00",
+          "max_val": "2014-06-30 00:00:00"
         }
       ]
     },
@@ -3074,8 +3083,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "May 31 2011 12:00AM",
-          "max_val": "Jun 30 2014 12:00AM"
+          "min_val": "2011-05-31 00:00:00",
+          "max_val": "2014-06-30 00:00:00"
         }
       ]
     },
@@ -3088,148 +3097,148 @@
           "name": "SalesOrderID",
           "sql_type": "int",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "43659",
+          "max_val": "75123"
         },
         {
           "name": "RevisionNumber",
           "sql_type": "tinyint",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "8",
+          "max_val": "9"
         },
         {
           "name": "OrderDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "2011-05-31 00:00:00",
+          "max_val": "2014-06-30 00:00:00"
         },
         {
           "name": "DueDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "2011-06-12 00:00:00",
+          "max_val": "2014-07-12 00:00:00"
         },
         {
           "name": "ShipDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "2011-06-07 00:00:00",
+          "max_val": "2014-07-07 00:00:00"
         },
         {
           "name": "Status",
           "sql_type": "tinyint",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "5",
+          "max_val": "5"
         },
         {
           "name": "OnlineOrderFlag",
-          "sql_type": "Flag",
+          "sql_type": "bit",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "0",
+          "max_val": "1"
         },
         {
           "name": "PurchaseOrderNumber",
-          "sql_type": "OrderNumber",
+          "sql_type": "nvarchar",
           "null_count": 27659,
-          "min_val": null,
-          "max_val": null
+          "min_val": "PO10005144378",
+          "max_val": "PO9976195169"
         },
         {
           "name": "AccountNumber",
-          "sql_type": "AccountNumber",
+          "sql_type": "nvarchar",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "10-4020-000001",
+          "max_val": "10-4030-029483"
         },
         {
           "name": "CustomerID",
           "sql_type": "int",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "11000",
+          "max_val": "30118"
         },
         {
           "name": "SalesPersonID",
           "sql_type": "int",
           "null_count": 27659,
-          "min_val": null,
-          "max_val": null
+          "min_val": "274",
+          "max_val": "290"
         },
         {
           "name": "TerritoryID",
           "sql_type": "int",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "1",
+          "max_val": "10"
         },
         {
           "name": "BillToAddressID",
           "sql_type": "int",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "405",
+          "max_val": "29883"
         },
         {
           "name": "ShipToAddressID",
           "sql_type": "int",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "9",
+          "max_val": "29883"
         },
         {
           "name": "ShipMethodID",
           "sql_type": "int",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "1",
+          "max_val": "5"
         },
         {
           "name": "CreditCardID",
           "sql_type": "int",
           "null_count": 1131,
-          "min_val": null,
-          "max_val": null
+          "min_val": "1",
+          "max_val": "19237"
         },
         {
           "name": "CreditCardApprovalCode",
           "sql_type": "varchar",
           "null_count": 1131,
-          "min_val": null,
-          "max_val": null
+          "min_val": "1016006Vi91301",
+          "max_val": "98795Vi7192"
         },
         {
           "name": "CurrencyRateID",
           "sql_type": "int",
           "null_count": 17489,
-          "min_val": null,
-          "max_val": null
+          "min_val": "2",
+          "max_val": "12431"
         },
         {
           "name": "SubTotal",
           "sql_type": "money",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "1.3740",
+          "max_val": "163930.3943"
         },
         {
           "name": "TaxAmt",
           "sql_type": "money",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "0.1099",
+          "max_val": "17948.5186"
         },
         {
           "name": "Freight",
           "sql_type": "money",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "0.0344",
+          "max_val": "5608.9121"
         },
         {
           "name": "Comment",
@@ -3242,15 +3251,15 @@
           "name": "rowguid",
           "sql_type": "uniqueidentifier",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "6A830488-FA82-4D37-9754-000037C51328",
+          "max_val": "DF43118D-C53C-4775-AB74-FFFEAC56A815"
         },
         {
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "2011-06-07 00:00:00",
+          "max_val": "2014-07-07 00:00:00"
         }
       ]
     },
@@ -3277,8 +3286,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "May 31 2011 12:00AM",
-          "max_val": "Jun 30 2014 12:00AM"
+          "min_val": "2011-05-31 00:00:00",
+          "max_val": "2014-06-30 00:00:00"
         }
       ]
     },
@@ -3347,8 +3356,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Dec 28 2010 12:00AM",
-          "max_val": "May 23 2013 12:00AM"
+          "min_val": "2010-12-28 00:00:00",
+          "max_val": "2013-05-23 00:00:00"
         }
       ]
     },
@@ -3368,8 +3377,8 @@
           "name": "QuotaDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "May 31 2011 12:00AM",
-          "max_val": "Mar  1 2014 12:00AM"
+          "min_val": "2011-05-31 00:00:00",
+          "max_val": "2014-03-01 00:00:00"
         },
         {
           "name": "SalesQuota",
@@ -3389,8 +3398,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Apr 16 2011 12:00AM",
-          "max_val": "Jan 15 2014 12:00AM"
+          "min_val": "2011-04-16 00:00:00",
+          "max_val": "2014-01-15 00:00:00"
         }
       ]
     },
@@ -3408,14 +3417,14 @@
         },
         {
           "name": "Name",
-          "sql_type": "Name",
+          "sql_type": "nvarchar",
           "null_count": 0,
           "min_val": "Demo Event",
           "max_val": "Television  Advertisement"
         },
         {
           "name": "ReasonType",
-          "sql_type": "Name",
+          "sql_type": "nvarchar",
           "null_count": 0,
           "min_val": "Marketing",
           "max_val": "Promotion"
@@ -3424,8 +3433,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Apr 30 2008 12:00AM",
-          "max_val": "Apr 30 2008 12:00AM"
+          "min_val": "2008-04-30 00:00:00",
+          "max_val": "2008-04-30 00:00:00"
         }
       ]
     },
@@ -3464,7 +3473,7 @@
         },
         {
           "name": "Name",
-          "sql_type": "Name",
+          "sql_type": "nvarchar",
           "null_count": 0,
           "min_val": "Arizona State Sales Tax",
           "max_val": "Washington State Sales Tax"
@@ -3480,8 +3489,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Apr 30 2008 12:00AM",
-          "max_val": "Apr 30 2008 12:00AM"
+          "min_val": "2008-04-30 00:00:00",
+          "max_val": "2008-04-30 00:00:00"
         }
       ]
     },
@@ -3499,7 +3508,7 @@
         },
         {
           "name": "Name",
-          "sql_type": "Name",
+          "sql_type": "nvarchar",
           "null_count": 0,
           "min_val": "Australia",
           "max_val": "United Kingdom"
@@ -3557,8 +3566,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Apr 30 2008 12:00AM",
-          "max_val": "Apr 30 2008 12:00AM"
+          "min_val": "2008-04-30 00:00:00",
+          "max_val": "2008-04-30 00:00:00"
         }
       ]
     },
@@ -3585,15 +3594,15 @@
           "name": "StartDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "May 31 2011 12:00AM",
-          "max_val": "May 30 2013 12:00AM"
+          "min_val": "2011-05-31 00:00:00",
+          "max_val": "2013-05-30 00:00:00"
         },
         {
           "name": "EndDate",
           "sql_type": "datetime",
           "null_count": 13,
-          "min_val": "May 29 2012 12:00AM",
-          "max_val": "Nov 29 2012 12:00AM"
+          "min_val": "2012-05-29 00:00:00",
+          "max_val": "2012-11-29 00:00:00"
         },
         {
           "name": "rowguid",
@@ -3606,8 +3615,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "May 24 2011 12:00AM",
-          "max_val": "May 23 2013 12:00AM"
+          "min_val": "2011-05-24 00:00:00",
+          "max_val": "2013-05-23 00:00:00"
         }
       ]
     },
@@ -3648,15 +3657,15 @@
           "name": "DateCreated",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Nov  9 2013  5:54PM",
-          "max_val": "Nov  9 2013  5:54PM"
+          "min_val": "2013-11-09 17:54:07",
+          "max_val": "2013-11-09 17:54:07"
         },
         {
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Nov  9 2013  5:54PM",
-          "max_val": "Nov  9 2013  5:54PM"
+          "min_val": "2013-11-09 17:54:07",
+          "max_val": "2013-11-09 17:54:07"
         }
       ]
     },
@@ -3704,15 +3713,15 @@
           "name": "StartDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "May  1 2011 12:00AM",
-          "max_val": "Mar 31 2014 12:00AM"
+          "min_val": "2011-05-01 00:00:00",
+          "max_val": "2014-03-31 00:00:00"
         },
         {
           "name": "EndDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "May 29 2012 12:00AM",
-          "max_val": "Nov 30 2014 12:00AM"
+          "min_val": "2012-05-29 00:00:00",
+          "max_val": "2014-11-30 00:00:00"
         },
         {
           "name": "MinQty",
@@ -3739,8 +3748,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Apr  1 2011 12:00AM",
-          "max_val": "Mar  1 2014 12:00AM"
+          "min_val": "2011-04-01 00:00:00",
+          "max_val": "2014-03-01 00:00:00"
         }
       ]
     },
@@ -3774,8 +3783,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Apr  1 2011 12:00AM",
-          "max_val": "Mar  1 2014 12:00AM"
+          "min_val": "2011-04-01 00:00:00",
+          "max_val": "2014-03-01 00:00:00"
         }
       ]
     },
@@ -3793,10 +3802,10 @@
         },
         {
           "name": "Name",
-          "sql_type": "Name",
+          "sql_type": "nvarchar",
           "null_count": 0,
           "min_val": "A Bicycle Association",
-          "max_val": "Yellow Bicycle Company"
+          "max_val": "eCommerce Bikes"
         },
         {
           "name": "SalesPersonID",
@@ -3809,8 +3818,8 @@
           "name": "Demographics",
           "sql_type": "xml",
           "null_count": 0,
-          "min_val": "<StoreSurvey xmlns=\"http://schemas.microsoft.com/sqlserver/2004/07/adventure-works/StoreSurvey\"><AnnualSales>1000000</AnnualSales><AnnualRevenue>100000</AnnualRevenue><BankName>Guardian Bank</BankName",
-          "max_val": "<StoreSurvey xmlns=\"http://schemas.microsoft.com/sqlserver/2004/07/adventure-works/StoreSurvey\"><AnnualSales>800000</AnnualSales><AnnualRevenue>80000</AnnualRevenue><BankName>United Security</BankName"
+          "min_val": "<StoreSurvey xmlns=\"http://schemas.microsoft.com/sqlserver/2004/07/adventure-works/StoreSurvey\"><AnnualSales>1000000</AnnualSales><AnnualRevenue>100000</AnnualRevenue><BankName>Guardian Bank</BankName><BusinessType>BM</BusinessType><YearOpened>2000</YearOpened><Specialty>Mountain</Specialty><SquareFeet>24000</SquareFeet><Brands>2</Brands><Internet>DSL</Internet><NumberEmployees>20</NumberEmployees></StoreSurvey>",
+          "max_val": "<StoreSurvey xmlns=\"http://schemas.microsoft.com/sqlserver/2004/07/adventure-works/StoreSurvey\"><AnnualSales>800000</AnnualSales><AnnualRevenue>80000</AnnualRevenue><BankName>United Security</BankName><BusinessType>BS</BusinessType><YearOpened>1990</YearOpened><Specialty>Mountain</Specialty><SquareFeet>19000</SquareFeet><Brands>AW</Brands><Internet>DSL</Internet><NumberEmployees>19</NumberEmployees></StoreSurvey>"
         },
         {
           "name": "rowguid",
@@ -3823,8 +3832,8 @@
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Sep 12 2014 11:15AM",
-          "max_val": "Sep 12 2014 11:15AM"
+          "min_val": "2014-09-12 11:15:07",
+          "max_val": "2014-09-12 11:15:07"
         }
       ]
     }

@@ -1,0 +1,191 @@
+{
+  "bak": "temporal_hidden_full.bak",
+  "bak_sha256": "bfb9b6dcfa10ba67ed657e9a00f342e18f369f6981ed4f87d103ca95974bde2b",
+  "captured_at": "2026-07-17T13:26:17.408085+00:00",
+  "constraints": [
+    {
+      "table": "dbo.temporal_hidden",
+      "name": "pk_temporal_hidden",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.temporal_visible",
+      "name": "pk_temporal_visible",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "id"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.temporal_hidden",
+      "name": "pk_temporal_hidden",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.temporal_hidden_history",
+      "name": "ix_temporal_hidden_history",
+      "type": "clustered",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": [
+        "valid_from",
+        "valid_to"
+      ]
+    },
+    {
+      "table": "dbo.temporal_visible",
+      "name": "pk_temporal_visible",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.temporal_visible_history",
+      "name": "ix_temporal_visible_history",
+      "type": "clustered",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": [
+        "valid_from",
+        "valid_to"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.temporal_hidden",
+      "name": "_WA_Sys_00000002_35BCFE0A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "value"
+      ]
+    },
+    {
+      "table": "dbo.temporal_hidden",
+      "name": "pk_temporal_hidden",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.temporal_hidden_history",
+      "name": "_WA_Sys_00000002_37A5467C",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "value"
+      ]
+    },
+    {
+      "table": "dbo.temporal_hidden_history",
+      "name": "ix_temporal_hidden_history",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "valid_from",
+        "valid_to"
+      ]
+    },
+    {
+      "table": "dbo.temporal_visible",
+      "name": "_WA_Sys_00000002_38996AB5",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "value"
+      ]
+    },
+    {
+      "table": "dbo.temporal_visible",
+      "name": "pk_temporal_visible",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.temporal_visible_history",
+      "name": "_WA_Sys_00000002_3A81B327",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "value"
+      ]
+    },
+    {
+      "table": "dbo.temporal_visible_history",
+      "name": "ix_temporal_visible_history",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "valid_from",
+        "valid_to"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": true,
+    "query_texts": []
+  }
+}

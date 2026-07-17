@@ -1,0 +1,111 @@
+{
+  "bak": "xtp_checkpoint_straddle_full.bak",
+  "bak_sha256": "0955af34de3a8a3f8c133509ad9a2ab3aaeed5f9fe8865b2b33f60c3d5150920",
+  "captured_at": "2026-07-17T13:29:59.327944+00:00",
+  "constraints": [
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CF377D2C9F",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "pk"
+      ]
+    },
+    {
+      "table": "dbo.xtp_ckpt",
+      "name": "pk_xtp_ckpt",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "id"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CF377D2C9F",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "pk"
+      ]
+    },
+    {
+      "table": "dbo.xtp_ckpt",
+      "name": "pk_xtp_ckpt",
+      "type": "nonclustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CF377D2C9F",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "pk"
+      ]
+    },
+    {
+      "table": "dbo.xtp_ckpt",
+      "name": "pk_xtp_ckpt",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": true,
+    "query_texts": [
+      "INSERT INTO dbo.xtp_ckpt (width, payload)\nSELECT 1 + (pk % 400) AS width,\n       REPLICATE(N'x', 1 + (pk % 400)) AS payload\nFROM (SELECT pk FROM fkr__seed WHERE pk < 100000) AS _f\nORDER BY pk",
+      "INSERT INTO fkr__seed SELECT pk + 32768 FROM (SELECT pk FROM fkr__seed) AS _s",
+      "INSERT INTO fkr__seed SELECT pk + 65536 FROM (SELECT pk FROM fkr__seed) AS _s WHERE pk < 34464"
+    ]
+  }
+}

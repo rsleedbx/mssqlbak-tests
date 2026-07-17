@@ -84,6 +84,20 @@ class EdgeResult(TypedDict, total=False):
     readback_s: float | None
 
 
+class MetadataGTEntry(TypedDict, total=False):
+    """Shape of a single ``ValidationResult.to_dict()`` entry in ``validations``."""
+
+    category: str
+    n_ok: int
+    n_total: int
+    missing: list[str]
+    extra: list[str]
+    mismatched: list[dict[str, Any]]
+    error: str | None
+    unscored: bool
+    ok: bool
+
+
 class FixtureResult(TypedDict, total=False):
     """Top-level result dict returned by _run_one / _run_case for one .bak file.
 
@@ -112,6 +126,10 @@ class FixtureResult(TypedDict, total=False):
     confidence: dict[str, Any]
     run_id: str
     source_mode: str
+    # Metadata validation results: {category_name: ValidationResult.to_dict()}.
+    # Present only when a <bak>.metadata.json sidecar exists; absent (not "unscored")
+    # when the sidecar is missing, so existing data pass rates are unaffected.
+    validations: dict[str, MetadataGTEntry]
     # Set only when the fixture crashed/errored before producing a result.
     error: str
     traceback: str

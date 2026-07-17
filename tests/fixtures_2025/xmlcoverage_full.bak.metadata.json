@@ -1,0 +1,78 @@
+{
+  "bak": "xmlcoverage_full.bak",
+  "bak_sha256": "d999219c22f18f394f235eee1898adba9f51fbcf51a96283d5b310a15f44bde8",
+  "captured_at": "2026-07-17T15:51:49.685540+00:00",
+  "constraints": [
+    {
+      "table": "dbo.xmlcov",
+      "name": "PK__xmlcov__3213E83F69E5EC8E",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.xmlcov",
+      "name": "PK__xmlcov__3213E83F69E5EC8E",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.xmlcov",
+      "name": "PK__xmlcov__3213E83F69E5EC8E",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": true,
+    "query_texts": []
+  }
+}

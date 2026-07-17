@@ -197,6 +197,14 @@ _MINMAX_SKIP_TYPES: frozenset[str] = frozenset({
     #       regenerate stats.json and remove this skip.
     "varbinary",
     "image",
+    # json / vector (SQL Server 2025+): MIN/MAX is not supported on these types;
+    # register_bak.py captures the min/max by casting the whole column value to
+    # NVARCHAR(MAX) (whole-document, not a per-property aggregate).  The
+    # document-string ordering is not semantically meaningful — SQL Server's native
+    # binary form may serialize differently than the pure-Python parser output — so
+    # these types are captured in the GT for completeness but never compared here.
+    "json",
+    "vector",
 })
 
 

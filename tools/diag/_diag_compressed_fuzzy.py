@@ -26,9 +26,9 @@ sys.path.insert(0, str(_REPO))
 from mssqlbak.catalog import recover_schema  # noqa: E402
 from mssqlbak.pages import PageStore  # noqa: E402
 from mssqlbak.rows import read_table_rows  # noqa: E402
+import tools.fixture_utils as _fixture_utils  # noqa: E402
 from tools.fixture_utils import (  # noqa: E402
     _copy_out,
-    _mapped_port,
     fixture_credentials,
     load_and_backup_stmts,
 )
@@ -72,17 +72,13 @@ def _build() -> None:
     import threading
     import time
 
-    import mssql_python
-
     user, password, container = fixture_credentials()
     print(f"container={container} user={user}", file=sys.stderr)
     load_and_backup_stmts(container, user, password, _setup_stmts(_DB, "delete"))
 
-    port = _mapped_port(container)
-    cs = f"SERVER=127.0.0.1,{port};UID={user};PWD={password};TrustServerCertificate=yes;"
-    dml = mssql_python.connect(cs + f"DATABASE={_DB};", autocommit=False, timeout=300)
-    bak = mssql_python.connect(cs + "DATABASE=master;", autocommit=True, timeout=300)
-    util = mssql_python.connect(cs + f"DATABASE={_DB};", autocommit=True, timeout=300)
+    dml  = _fixture_utils.connect(container, user, password, database=_DB,      autocommit=False, timeout=300)
+    bak  = _fixture_utils.connect(container, user, password, database="master",  autocommit=True,  timeout=300)
+    util = _fixture_utils.connect(container, user, password, database=_DB,       autocommit=True,  timeout=300)
     try:
         for attempt in range(1, 41):
             for stmt in _reset_stmts_delete():

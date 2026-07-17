@@ -1,12 +1,12 @@
 {
-  "sql_version": "Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64)",
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU7) (KB5096981) - 17.0.4065.4 (X64)",
   "bak": "AdventureWorksLT2025.bak",
   "bak_size_bytes": 1765376,
   "bak_size_mb": 1.684,
   "bak_sha256": "f3b0588a210623db0721bb9b491722240b435a88e72698f57a63d753959b4031",
   "database": "RegisterBak_AdventureWorksLT2025",
-  "registered_at": "2026-06-30T22:42:25.532987+00:00",
-  "sqlserver_restore_s": 2.931,
+  "registered_at": "2026-07-17T19:31:57.155326+00:00",
+  "sqlserver_restore_s": 2.851,
   "tables": [
     {
       "schema": "dbo",
@@ -19,6 +19,13 @@
           "null_count": 0,
           "min_val": "1",
           "max_val": "1"
+        },
+        {
+          "name": "Database Version",
+          "sql_type": "nvarchar",
+          "null_count": 0,
+          "min_val": "10.50.91013.00",
+          "max_val": "10.50.91013.00"
         },
         {
           "name": "VersionDate",
@@ -141,14 +148,14 @@
         },
         {
           "name": "StateProvince",
-          "sql_type": "Name",
+          "sql_type": "nvarchar",
           "null_count": 0,
           "min_val": "Alberta",
           "max_val": "Wyoming"
         },
         {
           "name": "CountryRegion",
-          "sql_type": "Name",
+          "sql_type": "nvarchar",
           "null_count": 0,
           "min_val": "Canada",
           "max_val": "United States"
@@ -185,106 +192,106 @@
           "name": "CustomerID",
           "sql_type": "int",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "1",
+          "max_val": "30118"
         },
         {
           "name": "NameStyle",
-          "sql_type": "NameStyle",
+          "sql_type": "bit",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "0",
+          "max_val": "0"
         },
         {
           "name": "Title",
           "sql_type": "nvarchar",
           "null_count": 7,
-          "min_val": null,
-          "max_val": null
+          "min_val": "Mr.",
+          "max_val": "Sra."
         },
         {
           "name": "FirstName",
-          "sql_type": "Name",
+          "sql_type": "nvarchar",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "A.",
+          "max_val": "Yvonne"
         },
         {
           "name": "MiddleName",
-          "sql_type": "Name",
+          "sql_type": "nvarchar",
           "null_count": 343,
-          "min_val": null,
-          "max_val": null
+          "min_val": "A.",
+          "max_val": "Z."
         },
         {
           "name": "LastName",
-          "sql_type": "Name",
+          "sql_type": "nvarchar",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "Abel",
+          "max_val": "Vicknair"
         },
         {
           "name": "Suffix",
           "sql_type": "nvarchar",
           "null_count": 799,
-          "min_val": null,
-          "max_val": null
+          "min_val": "II",
+          "max_val": "Sr."
         },
         {
           "name": "CompanyName",
           "sql_type": "nvarchar",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "A Bike Store",
+          "max_val": "Yellow Bicycle Company"
         },
         {
           "name": "SalesPerson",
           "sql_type": "nvarchar",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "adventure-works\\david8",
+          "max_val": "adventure-works\\shu0"
         },
         {
           "name": "EmailAddress",
           "sql_type": "nvarchar",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "a0@adventure-works.com",
+          "max_val": "yvonne1@adventure-works.com"
         },
         {
           "name": "Phone",
-          "sql_type": "Phone",
+          "sql_type": "nvarchar",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "1 (11) 500 555-0110",
+          "max_val": "996-555-0196"
         },
         {
           "name": "PasswordHash",
           "sql_type": "varchar",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "+CFHIbYlE+nsmSbCpJOTLZXChbtYA9JzdSnd1Qejk5g=",
+          "max_val": "zrx5RFbPSu5mxzlRdxbDIH2wSdDS9S9OvSavFh1QHUA="
         },
         {
           "name": "PasswordSalt",
           "sql_type": "varchar",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "+Yo0P+0=",
+          "max_val": "zmqmiAQ="
         },
         {
           "name": "rowguid",
           "sql_type": "uniqueidentifier",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "947BCAF1-1F32-44F3-B9C3-0011F95FBE54",
+          "max_val": "7624B525-F236-4771-8D0B-FFC8EF75AFA7"
         },
         {
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "2005-07-01 00:00:00",
+          "max_val": "2009-05-16 16:33:33"
         }
       ]
     },
@@ -309,7 +316,7 @@
         },
         {
           "name": "AddressType",
-          "sql_type": "Name",
+          "sql_type": "nvarchar",
           "null_count": 0,
           "min_val": "Main Office",
           "max_val": "Shipping"
@@ -344,9 +351,9 @@
         },
         {
           "name": "Name",
-          "sql_type": "Name",
+          "sql_type": "nvarchar",
           "null_count": 0,
-          "min_val": "All-Purpose Bike Stand",
+          "min_val": "AWC Logo Cap",
           "max_val": "Women's Tights, S"
         },
         {
@@ -477,7 +484,7 @@
         },
         {
           "name": "Name",
-          "sql_type": "Name",
+          "sql_type": "nvarchar",
           "null_count": 0,
           "min_val": "Accessories",
           "max_val": "Wheels"
@@ -547,7 +554,7 @@
         },
         {
           "name": "Name",
-          "sql_type": "Name",
+          "sql_type": "nvarchar",
           "null_count": 0,
           "min_val": "All-Purpose Bike Stand",
           "max_val": "Women's Tights"
@@ -556,8 +563,8 @@
           "name": "CatalogDescription",
           "sql_type": "xml",
           "null_count": 122,
-          "min_val": null,
-          "max_val": null
+          "min_val": "<?xml-stylesheet href=\"ProductDescription.xsl\" type=\"text/xsl\"?><p1:ProductDescription xmlns:p1=\"http://schemas.microsoft.com/sqlserver/2004/07/adventure-works/ProductModelDescription\" xmlns:wm=\"http://schemas.microsoft.com/sqlserver/2004/07/adventure-works/ProductModelWarrAndMain\" xmlns:wf=\"http://www.adventure-works.com/schemas/OtherFeatures\" xmlns:html=\"http://www.w3.org/1999/xhtml\" ProductModelID=\"19\" ProductModelName=\"Mountain 100\"><p1:Summary><html:p>Our top-of-the-line competition mountain bike. \n \t\t\t\tPerformance-enhancing options include the innovative HL Frame, \n\t\t\t\tsuper-smooth front suspension, and traction for all terrain.\n                        </html:p></p1:Summary><p1:Manufacturer><p1:Name>AdventureWorks</p1:Name><p1:Copyright>2002</p1:Copyright><p1:ProductURL>HTTP://www.Adventure-works.com</p1:ProductURL></p1:Manufacturer><p1:Features>These are the product highlights. \n                 <wm:Warranty><wm:WarrantyPeriod>3 years</wm:WarrantyPeriod><wm:Description>parts and labor</wm:Description></wm:Warranty><wm:Maintenance><wm:NoOfYears>10 years</wm:NoOfYears><wm:Description>maintenance contract available through your dealer or any AdventureWorks retail store.</wm:Description></wm:Maintenance><wf:wheel>High performance wheels.</wf:wheel><wf:saddle><html:i>Anatomic design</html:i> and made from durable leather for a full-day of riding in comfort.</wf:saddle><wf:pedal><html:b>Top-of-the-line</html:b> clipless pedals with adjustable tension.</wf:pedal><wf:BikeFrame>Each frame is hand-crafted in our Bothell facility to the optimum diameter \n\t\t\t\tand wall-thickness required of a premium mountain frame. \n\t\t\t\tThe heat-treated welded aluminum frame has a larger diameter tube that absorbs the bumps.</wf:BikeFrame><wf:crankset> Triple crankset; alumunim crank arm; flawless shifting. </wf:crankset></p1:Features><!-- add one or more of these elements... one for each specific product in this product model --><p1:Picture><p1:Angle>front</p1:Angle><p1:Size>small</p1:Size><p1:ProductPhotoID>118</p1:ProductPhotoID></p1:Picture><!-- add any tags in <specifications> --><p1:Specifications> These are the product specifications.\n                   <Material>Almuminum Alloy</Material><Color>Available in most colors</Color><ProductLine>Mountain bike</ProductLine><Style>Unisex</Style><RiderExperience>Advanced to Professional riders</RiderExperience></p1:Specifications></p1:ProductDescription>",
+          "max_val": "<?xml-stylesheet href=\"ProductDescription.xsl\" type=\"text/xsl\"?><p1:ProductDescription xmlns:p1=\"http://schemas.microsoft.com/sqlserver/2004/07/adventure-works/ProductModelDescription\" xmlns:wm=\"http://schemas.microsoft.com/sqlserver/2004/07/adventure-works/ProductModelWarrAndMain\" xmlns:wf=\"http://www.adventure-works.com/schemas/OtherFeatures\" xmlns:html=\"http://www.w3.org/1999/xhtml\" ProductModelID=\"35\" ProductModelName=\"Touring-2000\"><p1:Summary><html:p>The plush custom saddle keeps you riding all day, and there's plenty of space\n\t\t\t to add panniers and bike bags to the newly-redesigned carrier. \n\t\t\t\tThis bike has great stability when fully-loaded.\n                        </html:p></p1:Summary><p1:Manufacturer><p1:Name>AdventureWorks</p1:Name><p1:Copyright>2002</p1:Copyright><p1:ProductURL>HTTP://www.Adventure-works.com</p1:ProductURL></p1:Manufacturer><p1:Features>These are the product highlights. \n                 <wm:Warranty><wm:WarrantyPeriod>1 year</wm:WarrantyPeriod><wm:Description>parts and labor</wm:Description></wm:Warranty><wm:Maintenance><wm:NoOfYears>5 years</wm:NoOfYears><wm:Description>maintenance contact available through dealer</wm:Description></wm:Maintenance><wf:handlebar>A light yet stiff aluminum bar for long distance riding.</wf:handlebar><wf:saddle><html:i>New design </html:i> relieves pressure for long rides.</wf:saddle><wf:pedal><html:b>Top-of-the-line</html:b> clipless pedals with adjustable tension.</wf:pedal><wf:crankset> High-strength crank arm. </wf:crankset><wf:BikeFrame>The aluminum frame is custom-shaped for both good looks and strength; \n\t\t\t\tit will withstand the most rigorous challenges of daily riding.</wf:BikeFrame></p1:Features><!-- add one or more of these elements... one for each specific product in this product model --><p1:Picture><p1:Angle>front</p1:Angle><p1:Size>small</p1:Size><p1:ProductPhotoID>87</p1:ProductPhotoID></p1:Picture><!-- add any tags in <specifications> --><p1:Specifications> These are the product specifications.\n                   <Material>Aluminum</Material><Color>Available in all colors except metallic.</Color><ProductLine>Touring bike</ProductLine><Style>Men's</Style><FrameMaterial>Aluminium alloy</FrameMaterial><RiderExperience>Intermediate to Advanced riders</RiderExperience></p1:Specifications></p1:ProductDescription>"
         },
         {
           "name": "rowguid",
@@ -689,92 +696,92 @@
           "name": "SalesOrderID",
           "sql_type": "int",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "71774",
+          "max_val": "71946"
         },
         {
           "name": "RevisionNumber",
           "sql_type": "tinyint",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "2",
+          "max_val": "2"
         },
         {
           "name": "OrderDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "2008-06-01 00:00:00",
+          "max_val": "2008-06-01 00:00:00"
         },
         {
           "name": "DueDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "2008-06-13 00:00:00",
+          "max_val": "2008-06-13 00:00:00"
         },
         {
           "name": "ShipDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "2008-06-08 00:00:00",
+          "max_val": "2008-06-08 00:00:00"
         },
         {
           "name": "Status",
           "sql_type": "tinyint",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "5",
+          "max_val": "5"
         },
         {
           "name": "OnlineOrderFlag",
-          "sql_type": "Flag",
+          "sql_type": "bit",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "0",
+          "max_val": "0"
         },
         {
           "name": "PurchaseOrderNumber",
-          "sql_type": "OrderNumber",
+          "sql_type": "nvarchar",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "PO10295111084",
+          "max_val": "PO8961158629"
         },
         {
           "name": "AccountNumber",
-          "sql_type": "AccountNumber",
+          "sql_type": "nvarchar",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "10-4020-000006",
+          "max_val": "10-4020-000674"
         },
         {
           "name": "CustomerID",
           "sql_type": "int",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "29485",
+          "max_val": "30113"
         },
         {
           "name": "ShipToAddressID",
           "sql_type": "int",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "635",
+          "max_val": "1102"
         },
         {
           "name": "BillToAddressID",
           "sql_type": "int",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "635",
+          "max_val": "1102"
         },
         {
           "name": "ShipMethod",
           "sql_type": "nvarchar",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "CARGO TRANSPORT 5",
+          "max_val": "CARGO TRANSPORT 5"
         },
         {
           "name": "CreditCardApprovalCode",
@@ -787,22 +794,22 @@
           "name": "SubTotal",
           "sql_type": "money",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "38.9536",
+          "max_val": "108561.8317"
         },
         {
           "name": "TaxAmt",
           "sql_type": "money",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "3.1163",
+          "max_val": "8684.9465"
         },
         {
           "name": "Freight",
           "sql_type": "money",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "0.9738",
+          "max_val": "2714.0458"
         },
         {
           "name": "Comment",
@@ -815,15 +822,15 @@
           "name": "rowguid",
           "sql_type": "uniqueidentifier",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "5EF091E1-A0AF-437D-85ED-0B557C7923F7",
+          "max_val": "05FEE073-0640-4A3C-914D-FE4AE6DA3D43"
         },
         {
           "name": "ModifiedDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "2008-06-08 00:00:00",
+          "max_val": "2008-06-08 00:00:00"
         }
       ]
     }

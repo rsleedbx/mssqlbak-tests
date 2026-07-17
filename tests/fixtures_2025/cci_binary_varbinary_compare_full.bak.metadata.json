@@ -1,0 +1,90 @@
+{
+  "bak": "cci_binary_varbinary_compare_full.bak",
+  "bak_sha256": "752773ea7f60dfdba3035ef0fec1d01624ab23ccacbb397a96310c55d0ba43cf",
+  "captured_at": "2026-07-17T15:27:45.767312+00:00",
+  "constraints": [],
+  "indexes": [
+    {
+      "table": "dbo.cci_binary_varbinary_compare",
+      "name": "cci_cci_binary_varbinary_compare",
+      "type": "clustered columnstore",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": []
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.cci_binary_varbinary_compare",
+      "name": "_WA_Sys_00000002_48CFD27E",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "bin8"
+      ]
+    },
+    {
+      "table": "dbo.cci_binary_varbinary_compare",
+      "name": "_WA_Sys_00000003_48CFD27E",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "vb8"
+      ]
+    },
+    {
+      "table": "dbo.cci_binary_varbinary_compare",
+      "name": "cci_cci_binary_varbinary_compare",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id",
+        "bin8",
+        "vb8"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": true,
+    "query_texts": [
+      "INSERT INTO cci_binary_varbinary_compare (id, bin8, vb8)\nSELECT TOP 1197\n    n + 6           AS id,\n    CAST(n AS BINARY(8))             AS bin8,\n    CAST(n AS VARBINARY(8))          AS vb8\nFROM (\n    SELECT ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS n\n    FROM sys.all_objects a CROSS JOIN sys.all_objects b\n) t"
+    ]
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "bak": "dirtycoverage_snapshot_update.bak",
+  "bak_sha256": "e70e2448a2c8e2e22a612576bb6bd0e72209b93882dd3b6ee3efc9900493f635",
+  "captured_at": "2026-07-17T13:14:08.467668+00:00",
+  "constraints": [
+    {
+      "table": "dbo.snapshot_update_test",
+      "name": "PK__snapshot__3213E83FEFA6F709",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.snapshot_update_test",
+      "name": "PK__snapshot__3213E83FEFA6F709",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.snapshot_update_test",
+      "name": "PK__snapshot__3213E83FEFA6F709",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": true,
+    "query_texts": []
+  }
+}

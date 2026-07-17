@@ -1,0 +1,92 @@
+{
+  "bak": "archivenull_full.bak",
+  "bak_sha256": "7483e4a830c49105b6ed0536024282d21eee751d6e92db44b8fc5ec56ef5372e",
+  "captured_at": "2026-07-17T12:54:12.981064+00:00",
+  "constraints": [],
+  "indexes": [
+    {
+      "table": "dbo.archive_null",
+      "name": "cci",
+      "type": "clustered columnstore",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": []
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.archive_null",
+      "name": "_WA_Sys_00000002_35BCFE0A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "code"
+      ]
+    },
+    {
+      "table": "dbo.archive_null",
+      "name": "_WA_Sys_00000003_35BCFE0A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "zip"
+      ]
+    },
+    {
+      "table": "dbo.archive_null",
+      "name": "cci",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id",
+        "code",
+        "zip"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": true,
+    "query_texts": [
+      "ALTER TABLE [dbo].[archive_null]\n    REBUILD PARTITION = ALL\n    WITH (DATA_COMPRESSION = COLUMNSTORE_ARCHIVE)",
+      "CREATE CLUSTERED COLUMNSTORE INDEX cci\n    ON [dbo].[archive_null]\n    WITH (DATA_COMPRESSION = COLUMNSTORE_ARCHIVE, MAXDOP = 1)",
+      "WITH nums AS (\n    SELECT TOP (50000)\n        ROW_NUMBER() OVER (ORDER BY a.object_id, b.object_id) AS n\n    FROM sys.all_columns a\n    CROSS JOIN sys.all_columns b\n)\nINSERT INTO [dbo].[archive_null] (id, code, zip)\nSELECT\n    CAST(n AS INT),\n    CASE WHEN n % 500 = 0 THEN NULL\n         ELSE CAST(n AS CHAR(10)) END,\n    CASE WHEN n % 1000  = 0 THEN NULL\n         ELSE CAST(n AS CHAR(10)) END\nFROM nums"
+    ]
+  }
+}

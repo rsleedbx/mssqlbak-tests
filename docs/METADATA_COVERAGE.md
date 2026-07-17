@@ -8,6 +8,8 @@ EXPOSED field stops resolving on the fixture.
 
 This is the **metadata** slice of the byte-complete [BYTE_MAP.md](BYTE_MAP.md) (the master coverage doc); the data slice is [TYPE_COVERAGE.md](TYPE_COVERAGE.md). Which backup *types* can be restored is tracked in [BACKUP_COVERAGE.md](BACKUP_COVERAGE.md).
 
+For **query-performance metadata** (statistics, plan guides, Query Store, and the Lakebridge DuckDB profiler extract), see [README.perf.md](../../README.perf.md).
+
 **Coverage:** 15/16 meaningful fields exposed (94%); 1 gap(s). Format-internal fields (reserved/checksum/positioning) are SKIPPED and excluded from the denominator.
 
 The metadata path (`read_bak_metadata`, used by the CLI `info` command and

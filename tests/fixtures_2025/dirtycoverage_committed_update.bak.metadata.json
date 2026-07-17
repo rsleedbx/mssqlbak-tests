@@ -1,0 +1,78 @@
+{
+  "bak": "dirtycoverage_committed_update.bak",
+  "bak_sha256": "ad27551eef89acb589f7e86b4d0dc43f57323294b4b82c34f3432615eb8733c9",
+  "captured_at": "2026-07-17T15:33:34.492266+00:00",
+  "constraints": [
+    {
+      "table": "dbo.committed_update_test",
+      "name": "PK__committe__3213E83FFEE4EA34",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.committed_update_test",
+      "name": "PK__committe__3213E83FFEE4EA34",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.committed_update_test",
+      "name": "PK__committe__3213E83FFEE4EA34",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": true,
+    "query_texts": []
+  }
+}

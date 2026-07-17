@@ -1,0 +1,98 @@
+{
+  "bak": "torn_page_full.bak",
+  "bak_sha256": "7fbf416143703279af5700c85cfeb41d1e12e779f0b8e0718b4b99338eacb7c5",
+  "captured_at": "2026-07-17T15:25:19.912648+00:00",
+  "constraints": [
+    {
+      "table": "dbo.tpd_probe",
+      "name": "PK__tpd_prob__3213E83F77EB3787",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.tpd_probe",
+      "name": "PK__tpd_prob__3213E83F77EB3787",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.tpd_probe",
+      "name": "_WA_Sys_00000002_22AA2996",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "label"
+      ]
+    },
+    {
+      "table": "dbo.tpd_probe",
+      "name": "_WA_Sys_00000003_22AA2996",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "score"
+      ]
+    },
+    {
+      "table": "dbo.tpd_probe",
+      "name": "PK__tpd_prob__3213E83F77EB3787",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": false,
+    "query_texts": []
+  }
+}

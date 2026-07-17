@@ -1,0 +1,137 @@
+{
+  "bak": "dirtycoverage_rich_update.bak",
+  "bak_sha256": "c2398af32a5fd585986b69ee213193315e229a51ccfdc34abe0337daf97ff875",
+  "captured_at": "2026-07-17T15:02:41.473379+00:00",
+  "constraints": [],
+  "indexes": [],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.rich_update_test",
+      "name": "_WA_Sys_00000001_34C8D9D1",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.rich_update_test",
+      "name": "_WA_Sys_00000002_34C8D9D1",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "flag"
+      ]
+    },
+    {
+      "table": "dbo.rich_update_test",
+      "name": "_WA_Sys_00000003_34C8D9D1",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "small_val"
+      ]
+    },
+    {
+      "table": "dbo.rich_update_test",
+      "name": "_WA_Sys_00000004_34C8D9D1",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "big_val"
+      ]
+    },
+    {
+      "table": "dbo.rich_update_test",
+      "name": "_WA_Sys_00000005_34C8D9D1",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "dec_val"
+      ]
+    },
+    {
+      "table": "dbo.rich_update_test",
+      "name": "_WA_Sys_00000006_34C8D9D1",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "dt2_val"
+      ]
+    },
+    {
+      "table": "dbo.rich_update_test",
+      "name": "_WA_Sys_00000007_34C8D9D1",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "guid_val"
+      ]
+    },
+    {
+      "table": "dbo.rich_update_test",
+      "name": "_WA_Sys_00000008_34C8D9D1",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "bin_val"
+      ]
+    },
+    {
+      "table": "dbo.rich_update_test",
+      "name": "_WA_Sys_00000009_34C8D9D1",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "nc_val"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": false,
+    "query_texts": []
+  }
+}

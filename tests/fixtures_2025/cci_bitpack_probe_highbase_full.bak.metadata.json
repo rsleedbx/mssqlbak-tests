@@ -1,0 +1,103 @@
+{
+  "bak": "cci_bitpack_probe_highbase_full.bak",
+  "bak_sha256": "784865cd45150ad0267698241b5bfd86535551fc7d2c26ced91a6174b19c2c4a",
+  "captured_at": "2026-07-17T15:28:12.459793+00:00",
+  "constraints": [
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CF91423184",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "pk"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.cci_bitpack_probe_highbase",
+      "name": "cci_bitpack_probe_highbase_cci",
+      "type": "clustered columnstore",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": []
+    },
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CF91423184",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "pk"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.cci_bitpack_probe_highbase",
+      "name": "cci_bitpack_probe_highbase_cci",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "pk",
+        "dt"
+      ]
+    },
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CF91423184",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "pk"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": true,
+    "query_texts": [
+      "CREATE CLUSTERED COLUMNSTORE INDEX cci_bitpack_probe_highbase_cci ON cci_bitpack_probe_highbase",
+      "INSERT INTO cci_bitpack_probe_highbase (pk, dt)\nSELECT pk AS pk, CAST(36890 + (pk % 4000) AS INT) AS dt\nFROM fkr__seed\nWHERE pk < 200000",
+      "INSERT INTO fkr__seed SELECT pk + 131072 FROM (SELECT pk FROM fkr__seed) AS _s WHERE pk < 68928",
+      "INSERT INTO fkr__seed SELECT pk + 32768 FROM (SELECT pk FROM fkr__seed) AS _s",
+      "INSERT INTO fkr__seed SELECT pk + 65536 FROM (SELECT pk FROM fkr__seed) AS _s"
+    ]
+  }
+}

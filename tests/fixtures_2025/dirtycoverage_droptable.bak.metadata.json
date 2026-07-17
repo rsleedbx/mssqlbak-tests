@@ -1,0 +1,110 @@
+{
+  "bak": "dirtycoverage_droptable.bak",
+  "bak_sha256": "10582d28007df7a584f616091aa43386b9badb9d69573ae14a5e8a0154738e14",
+  "captured_at": "2026-07-17T15:35:05.713192+00:00",
+  "constraints": [
+    {
+      "table": "dbo.drop_target",
+      "name": "PK__drop_tar__3213E83F0BCA3151",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.survivor_test",
+      "name": "PK__survivor__3213E83FFE3268BB",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.drop_target",
+      "name": "PK__drop_tar__3213E83F0BCA3151",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.survivor_test",
+      "name": "PK__survivor__3213E83FFE3268BB",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.drop_target",
+      "name": "PK__drop_tar__3213E83F0BCA3151",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.survivor_test",
+      "name": "PK__survivor__3213E83FFE3268BB",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": true,
+    "query_texts": [
+      "(@1 nvarchar(4000))INSERT INTO [survivor_test]([label]) values(@1)",
+      "(@1 nvarchar(4000),@2 varchar(8000))INSERT INTO [drop_target]([label],[phase]) values(@1,@2)"
+    ]
+  }
+}

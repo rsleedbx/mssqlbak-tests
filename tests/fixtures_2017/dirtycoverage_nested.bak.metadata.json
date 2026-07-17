@@ -1,0 +1,78 @@
+{
+  "bak": "dirtycoverage_nested.bak",
+  "bak_sha256": "d965c51fa69b1f3b00edec7721381612450a9b0efbfc1ec522a50b5e4412d315",
+  "captured_at": "2026-07-17T15:02:14.878858+00:00",
+  "constraints": [
+    {
+      "table": "dbo.nested_test",
+      "name": "PK__nested_t__3213E83F76B2FAB4",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.nested_test",
+      "name": "PK__nested_t__3213E83F76B2FAB4",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.nested_test",
+      "name": "PK__nested_t__3213E83F76B2FAB4",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": false,
+    "query_texts": []
+  }
+}

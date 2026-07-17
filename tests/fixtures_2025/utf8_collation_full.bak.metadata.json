@@ -1,0 +1,127 @@
+{
+  "bak": "utf8_collation_full.bak",
+  "bak_sha256": "837b40b07595d022f409f8fc976197508b5f70982fcb4182f0341bbcd95920b5",
+  "captured_at": "2026-07-17T15:51:24.625554+00:00",
+  "constraints": [
+    {
+      "table": "dbo.nvar_tbl",
+      "name": "PK__nvar_tbl__3213E83F7215C8F8",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.utf8_tbl",
+      "name": "PK__utf8_tbl__3213E83F87E91EAD",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.nvar_tbl",
+      "name": "PK__nvar_tbl__3213E83F7215C8F8",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.utf8_tbl",
+      "name": "PK__utf8_tbl__3213E83F87E91EAD",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.nvar_tbl",
+      "name": "_WA_Sys_00000002_4AB81AF0",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "s"
+      ]
+    },
+    {
+      "table": "dbo.nvar_tbl",
+      "name": "PK__nvar_tbl__3213E83F7215C8F8",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.utf8_tbl",
+      "name": "_WA_Sys_00000002_48CFD27E",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "s"
+      ]
+    },
+    {
+      "table": "dbo.utf8_tbl",
+      "name": "PK__utf8_tbl__3213E83F87E91EAD",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": true,
+    "query_texts": []
+  }
+}

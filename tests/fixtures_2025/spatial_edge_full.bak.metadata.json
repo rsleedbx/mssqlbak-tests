@@ -1,0 +1,109 @@
+{
+  "bak": "spatial_edge_full.bak",
+  "bak_sha256": "83745e38bb71b42778d1232aaeb0a1714e613052fb1fa4dd1a82a853c2e4582d",
+  "captured_at": "2026-07-17T15:49:02.632066+00:00",
+  "constraints": [
+    {
+      "table": "dbo.geography_edge",
+      "name": "PK__geograph__3213E83FB44354E1",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.geometry_edge",
+      "name": "PK__geometry__3213E83FBB2B933F",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.geography_edge",
+      "name": "PK__geograph__3213E83FB44354E1",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.geometry_edge",
+      "name": "PK__geometry__3213E83FBB2B933F",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.geography_edge",
+      "name": "PK__geograph__3213E83FB44354E1",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.geometry_edge",
+      "name": "PK__geometry__3213E83FBB2B933F",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": true,
+    "query_texts": [
+      "INSERT INTO dbo.geometry_edge (id, shape) VALUES\n    (1, geometry::STGeomFromText(N'POINT (10 20)', 0)),\n    (2, geometry::STGeomFromText(N'POLYGON ((0 0, 10 0, 10 10, 0 10, 0 0))', 0)),\n    (3, geometry::STGeomFromText(N'MULTIPOLYGON (((0 0, 2 0, 2 2, 0 2, 0 0)), ((5 5, 7 5, 7 7, 5 7, 5 5)))', 0)),\n    (4, NULL)"
+    ]
+  }
+}

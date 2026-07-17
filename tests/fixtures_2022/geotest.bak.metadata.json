@@ -1,0 +1,195 @@
+{
+  "bak": "geotest.bak",
+  "bak_sha256": "c7db5db24dbdecb8f4b8f5020ece5a9748740b5f719962ec41e8641f5b62dfcd",
+  "captured_at": "2026-07-17T13:16:51.481140+00:00",
+  "constraints": [
+    {
+      "table": "dbo.Locations",
+      "name": "PK__Location__3213E83F1488AC34",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.LocationsNone",
+      "name": "PK__Location__3213E83F196FFAA0",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.LocationsRow",
+      "name": "PK__Location__3213E83F55F764B5",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.spatial_lob_test",
+      "name": "PK__spatial___3213E83FE5C4FF10",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.Locations",
+      "name": "PK__Location__3213E83F1488AC34",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.LocationsNone",
+      "name": "PK__Location__3213E83F196FFAA0",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.LocationsRow",
+      "name": "PK__Location__3213E83F55F764B5",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.spatial_lob_test",
+      "name": "PK__spatial___3213E83FE5C4FF10",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.Locations",
+      "name": "_WA_Sys_00000005_35BCFE0A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "hid"
+      ]
+    },
+    {
+      "table": "dbo.Locations",
+      "name": "PK__Location__3213E83F1488AC34",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.LocationsNone",
+      "name": "_WA_Sys_00000004_398D8EEE",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "hid"
+      ]
+    },
+    {
+      "table": "dbo.LocationsNone",
+      "name": "PK__Location__3213E83F196FFAA0",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.LocationsRow",
+      "name": "_WA_Sys_00000004_37A5467C",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "hid"
+      ]
+    },
+    {
+      "table": "dbo.LocationsRow",
+      "name": "PK__Location__3213E83F55F764B5",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.spatial_lob_test",
+      "name": "PK__spatial___3213E83FE5C4FF10",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": true,
+    "query_texts": []
+  }
+}

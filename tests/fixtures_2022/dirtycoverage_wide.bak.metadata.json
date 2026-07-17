@@ -1,0 +1,78 @@
+{
+  "bak": "dirtycoverage_wide.bak",
+  "bak_sha256": "6a5af5399c79f0f44821da4e85283d71937fa78bc6352fa6b68799cd9a0dc42c",
+  "captured_at": "2026-07-17T13:15:11.188577+00:00",
+  "constraints": [
+    {
+      "table": "dbo.wide2_test",
+      "name": "PK__wide2_te__3213E83F9285EC41",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.wide2_test",
+      "name": "PK__wide2_te__3213E83F9285EC41",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.wide2_test",
+      "name": "PK__wide2_te__3213E83F9285EC41",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": true,
+    "query_texts": []
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "bak": "dirtycoverage_committed_delete_v2.bak",
+  "bak_sha256": "ce9856cdc6153c230c160b93585e12f440b38060af3e8cb755f1177780877249",
+  "captured_at": "2026-07-17T14:18:23.759586+00:00",
+  "constraints": [
+    {
+      "table": "dbo.committed_delete_test",
+      "name": "PK__committe__3213E83F8CF0FCED",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.padding_fill",
+      "name": "PK__padding___3213E83F3CABD1AB",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.committed_delete_test",
+      "name": "PK__committe__3213E83F8CF0FCED",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.padding_fill",
+      "name": "PK__padding___3213E83F3CABD1AB",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.committed_delete_test",
+      "name": "_WA_Sys_00000002_35BCFE0A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "phase"
+      ]
+    },
+    {
+      "table": "dbo.committed_delete_test",
+      "name": "PK__committe__3213E83F8CF0FCED",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.padding_fill",
+      "name": "_WA_Sys_00000002_37A5467C",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "filler"
+      ]
+    },
+    {
+      "table": "dbo.padding_fill",
+      "name": "PK__padding___3213E83F3CABD1AB",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": true,
+    "query_texts": [
+      "INSERT INTO padding_fill (id, filler)\nSELECT n, REPLICATE('P', 200)\nFROM (SELECT TOP(250000) ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS n\n      FROM master.dbo.spt_values AS a CROSS JOIN master.dbo.spt_values AS b) x",
+      "SELECT N'id', ISNULL(CAST(MIN([id]) AS NVARCHAR(200)), N'__NULL__'), ISNULL(CAST(MAX([id]) AS NVARCHAR(200)), N'__NULL__') FROM [dbo].[padding_fill]\nUNION ALL\nSELECT N'filler', ISNULL(CAST(MIN(RTRIM([filler]) COLLATE Latin1_General_100_BIN2) AS NVARCHAR(4000)), N'__NULL__'), ISNULL(CAST(MAX(RTRIM([filler]) COLLATE Latin1_General_100_BIN2) AS NVARCHAR(4000)), N'__NULL__') FROM [dbo].[padding_fill]"
+    ]
+  }
+}

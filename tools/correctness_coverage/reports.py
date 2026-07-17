@@ -70,6 +70,7 @@ def _assemble_from_disk(
             continue
         # Reconstruct result from mssql_arrow edge (primary edge)
         primary = edges.get("mssql_arrow", next(iter(edges.values())))
+        validations_payload = edges.pop("_validations", None)
         r: dict[str, Any] = {
             "bak": primary.get("bak", f"{stem}.bak"),
             "sql_version": primary.get("sql_version", ""),
@@ -92,5 +93,7 @@ def _assemble_from_disk(
             "readback_s": primary.get("readback_s", {}),
             "wall_s": None,
         }
+        if validations_payload:
+            r["validations"] = validations_payload.get("validations", {})
         results.append(r)
     return results

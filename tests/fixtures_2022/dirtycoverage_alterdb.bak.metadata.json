@@ -1,0 +1,80 @@
+{
+  "bak": "dirtycoverage_alterdb.bak",
+  "bak_sha256": "c802c758c65023772e7206a297f247b90494b9958e41751c69be516334d5a1be",
+  "captured_at": "2026-07-17T13:09:19.512703+00:00",
+  "constraints": [
+    {
+      "table": "dbo.alterdb_test",
+      "name": "PK__alterdb___3213E83F3147347D",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.alterdb_test",
+      "name": "PK__alterdb___3213E83F3147347D",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.alterdb_test",
+      "name": "PK__alterdb___3213E83F3147347D",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": true,
+    "query_texts": [
+      "(@1 nvarchar(4000))INSERT INTO [alterdb_test]([label]) values(@1)"
+    ]
+  }
+}

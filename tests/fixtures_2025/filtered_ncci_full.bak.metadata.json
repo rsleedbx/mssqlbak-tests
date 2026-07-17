@@ -1,0 +1,165 @@
+{
+  "bak": "filtered_ncci_full.bak",
+  "bak_sha256": "c0da03b41f0acc26eff3fcf81ebd5e0e8a7f8cdfeb28be81311120029a915008",
+  "captured_at": "2026-07-17T15:43:14.006757+00:00",
+  "constraints": [
+    {
+      "table": "dbo.filtered_ncci_base",
+      "name": "PK__filtered__3213E83F97680007",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CF2CC6FCB1",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "pk"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.filtered_ncci_base",
+      "name": "ix_filtered_ncci",
+      "type": "nonclustered columnstore",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": []
+    },
+    {
+      "table": "dbo.filtered_ncci_base",
+      "name": "PK__filtered__3213E83F97680007",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.filtered_ncci_heap",
+      "name": "ix_filtered_ncci_heap",
+      "type": "nonclustered columnstore",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": []
+    },
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CF2CC6FCB1",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "pk"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.filtered_ncci_base",
+      "name": "_WA_Sys_00000003_4AB81AF0",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "active"
+      ]
+    },
+    {
+      "table": "dbo.filtered_ncci_base",
+      "name": "ix_filtered_ncci",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": "([active]=(1))",
+      "key_columns": [
+        "val"
+      ]
+    },
+    {
+      "table": "dbo.filtered_ncci_base",
+      "name": "PK__filtered__3213E83F97680007",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.filtered_ncci_heap",
+      "name": "_WA_Sys_00000003_4CA06362",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "active"
+      ]
+    },
+    {
+      "table": "dbo.filtered_ncci_heap",
+      "name": "ix_filtered_ncci_heap",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": "([active]=(1))",
+      "key_columns": [
+        "val"
+      ]
+    },
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CF2CC6FCB1",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "pk"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": true,
+    "query_texts": [
+      "SELECT\n    s.name + '.' + o.name,\n    o.type_desc,\n    CAST(sm.definition AS nvarchar(max))\nFROM sys.sql_modules sm\nJOIN sys.objects o ON o.object_id=sm.object_id\nJOIN sys.schemas s ON s.schema_id=o.schema_id\nWHERE o.type IN ('V','P','FN','TF','IF','TR')\n  AND OBJECTPROPERTY(o.object_id,'IsMSShipped')=0\nORDER BY s.name, o.name"
+    ]
+  }
+}

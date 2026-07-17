@@ -1,0 +1,78 @@
+{
+  "bak": "incrementalcoverage_diff_05.bak",
+  "bak_sha256": "89cd44e90963720011dbf00d26020ce0d82e8a91665ea4d223c01efa5ec4fb6d",
+  "captured_at": "2026-07-17T15:05:13.501921+00:00",
+  "constraints": [
+    {
+      "table": "dbo.sync_batch",
+      "name": "PK__sync_bat__3213E83FFA542C67",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.sync_batch",
+      "name": "PK__sync_bat__3213E83FFA542C67",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.sync_batch",
+      "name": "PK__sync_bat__3213E83FFA542C67",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": false,
+    "query_texts": []
+  }
+}

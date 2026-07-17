@@ -55,10 +55,45 @@ _BCP_CANDIDATES = [
 
 
 def discover_sqlcmd_path(container: str, binary: str = "sqlcmd") -> str:
-    """Return the full path to *binary* inside *container* (probed once, cached)."""
+    """Return the full path to *binary* inside *container* (probed once, cached).
+
+    Discovery order:
+    1. Container's own PATH via ``command -v <binary>`` (non-login sh so no
+       ``mesg: ttyname failed`` noise).  This handles future images that add
+       sqlcmd/bcp to PATH or relocate it without requiring edits here.
+    2. Hardcoded candidate list (``_SQLCMD_CANDIDATES`` / ``_BCP_CANDIDATES``).
+       Current SQL Server images keep sqlcmd under /opt/mssql-tools18/bin which
+       is NOT on the default container PATH, so the fallback is required today.
+
+    In both stages, a "container state improper" / "no such container" stderr
+    is detected and re-raised as a clear "container is not running" error so the
+    operator isn't misled into thinking the binary is missing.
+    """
     cache_key = f"{container}:{binary}"
     if cache_key in _SQLCMD_PATH_CACHE:
         return _SQLCMD_PATH_CACHE[cache_key]
+
+    def _check_container_down(r: subprocess.CompletedProcess[str]) -> None:
+        combined = (r.stdout + r.stderr).lower()
+        if "container state" in combined or "no such container" in combined:
+            raise RuntimeError(
+                f"container {container!r} is not running; "
+                "start it with: forgedb start <instance>"
+            )
+
+    # Stage 1: let the container resolve via its own PATH.
+    path_probe = subprocess.run(
+        ["podman", "exec", container, "sh", "-c", f"command -v {binary}"],
+        capture_output=True,
+        text=True,
+    )
+    _check_container_down(path_probe)
+    found = path_probe.stdout.strip()
+    if path_probe.returncode == 0 and found:
+        _SQLCMD_PATH_CACHE[cache_key] = found
+        return found
+
+    # Stage 2: hardcoded candidate locations (sqlcmd is off PATH in current images).
     candidates = _BCP_CANDIDATES if binary == "bcp" else _SQLCMD_CANDIDATES
     for candidate in candidates:
         r = subprocess.run(
@@ -69,14 +104,7 @@ def discover_sqlcmd_path(container: str, binary: str = "sqlcmd") -> str:
         if r.returncode == 0:
             _SQLCMD_PATH_CACHE[cache_key] = candidate
             return candidate
-        # Distinguish "container stopped" from "file not found" so the error
-        # message doesn't mislead the user into thinking sqlcmd is missing.
-        combined = (r.stdout + r.stderr).lower()
-        if "container state" in combined or "no such container" in combined:
-            raise RuntimeError(
-                f"container {container!r} is not running; "
-                "start it with: forgedb start <instance>"
-            )
+        _check_container_down(r)
     raise RuntimeError(
         f"{binary} not found in container {container!r}; tried: {candidates}"
     )
@@ -217,23 +245,88 @@ def _mapped_port(container: str, container_port: int = 1433) -> int:
     return int(out.strip().split(":")[-1])
 
 
-def connect(container: str, user: str, password: str, timeout: int = 15) -> "_mssql.Connection":
-    """Return an mssql_python Connection to SQL Server in *container*.
+def connect_dsn(
+    server: str,
+    port: int,
+    user: str,
+    password: str,
+    *,
+    database: str | None = None,
+    autocommit: bool = True,
+    timeout: int = 15,
+    encrypt: bool = False,
+) -> "_mssql.Connection":
+    """Return an mssql_python Connection to *server*:*port*.
 
-    Uses ``autocommit=True`` so that BACKUP DATABASE, ALTER DATABASE, and
-    other statements that cannot run inside an explicit transaction work
-    without special handling by the caller.
+    This is the single place ``mssql_python.connect`` is called in the test
+    tooling.  All higher-level helpers delegate here.
 
-    Uses ``127.0.0.1`` (IPv4) rather than ``localhost`` because macOS
-    resolves ``localhost`` to ``::1`` (IPv6) first and the SQL Server
-    containers only bind to IPv4, causing a silent hang with the default
-    ``timeout=0``.  The explicit *timeout* default prevents that hang.
+    Parameters
+    ----------
+    server:
+        Hostname or IP address of the SQL Server instance.  Use ``127.0.0.1``
+        (not ``localhost``) for Podman-mapped containers on macOS to avoid the
+        IPv6 ``::1`` silent-hang issue.
+    port:
+        TCP port the instance is listening on.
+    database:
+        Optional initial database context.  If ``None``, the connection lands
+        on the instance's default database (usually ``master``).
+    autocommit:
+        ``True`` (default) for DDL, BACKUP/RESTORE, and read-only queries.
+        Pass ``False`` for multi-statement DML that must be committed or
+        rolled back explicitly.
+    timeout:
+        Connection and per-statement timeout in seconds.  The default (15 s)
+        prevents the silent hang caused by ``timeout=0``.
+    encrypt:
+        Add ``Encrypt=yes`` to the DSN (required for non-container targets
+        such as Azure SQL or an environment-configured engine host).
     """
     import mssql_python
+    dsn = (
+        f"SERVER={server},{port};"
+        f"UID={user};PWD={password};"
+        "TrustServerCertificate=yes;"
+    )
+    if encrypt:
+        dsn += "Encrypt=yes;"
+    if database:
+        dsn += f"DATABASE={database};"
+    return mssql_python.connect(dsn, autocommit=autocommit, timeout=timeout)
+
+
+def connect(
+    container: str,
+    user: str,
+    password: str,
+    *,
+    database: str | None = None,
+    autocommit: bool = True,
+    timeout: int = 15,
+) -> "_mssql.Connection":
+    """Return an mssql_python Connection to SQL Server in *container*.
+
+    Resolves the host-mapped TCP port via ``podman port`` and delegates to
+    :func:`connect_dsn`.  Uses ``127.0.0.1`` (IPv4) to avoid the macOS
+    ``::1`` IPv6 hang.
+
+    Parameters
+    ----------
+    database:
+        Optional initial database context (``USE [database]`` equivalent).
+        Defaults to the server's default (``master``).
+    autocommit:
+        ``True`` (default) for DDL, BACKUP/RESTORE, and catalog reads.
+        Pass ``False`` for DML that must be committed explicitly.
+    timeout:
+        Per-connection and per-statement timeout in seconds.
+    """
     port = _mapped_port(container)
-    return mssql_python.connect(
-        f"SERVER=127.0.0.1,{port};UID={user};PWD={password};TrustServerCertificate=yes;",
-        autocommit=True,
+    return connect_dsn(
+        "127.0.0.1", port, user, password,
+        database=database,
+        autocommit=autocommit,
         timeout=timeout,
     )
 
@@ -371,19 +464,11 @@ def dirty_backup_concurrent(
     import threading
     import time
 
-    import mssql_python
     from mssqlbak.logtail import logtail_from_bak
 
-    port = _mapped_port(container)
-    conn_str = (
-        f"SERVER=127.0.0.1,{port};"
-        f"UID={user};PWD={password};"
-        "TrustServerCertificate=yes;"
-    )
-
-    dml_conn  = mssql_python.connect(conn_str + f"DATABASE={db_name};", autocommit=False, timeout=300)
-    bak_conn  = mssql_python.connect(conn_str + "DATABASE=master;",     autocommit=True,  timeout=300)
-    util_conn = mssql_python.connect(conn_str + f"DATABASE={db_name};", autocommit=True,  timeout=300)
+    dml_conn  = connect(container, user, password, database=db_name,  autocommit=False, timeout=300)
+    bak_conn  = connect(container, user, password, database="master",  autocommit=True,  timeout=300)
+    util_conn = connect(container, user, password, database=db_name,   autocommit=True,  timeout=300)
     tmp = Path("/private/tmp/_dirty_bak_concurrent_verify.bak")
 
     try:

@@ -43,6 +43,7 @@ if __package__ in (None, ""):
 
 from tools.cell_canon import clr_text_method  # noqa: E402
 from tools.fixture_run import bootstrap_fixture_env  # noqa: E402
+from tools.fixture_utils import discover_sqlcmd_path  # noqa: E402
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 MSSQL_IMAGE_MATCH = "mssql/server"
@@ -51,6 +52,27 @@ _UNREGISTERABLE_BAKS = frozenset({
     "corrupt_metadata_confidence_full.bak",
     "tde_full.bak",
 })
+
+# Platform/container notes for fixtures that require a specific SQL Server 2025
+# image or host configuration:
+#
+# SQL Server 2025 + In-Memory OLTP (XTP/Hekaton) on macOS
+#   Restoring any memory-optimized fixture into the older
+#   mcr.microsoft.com/mssql/server:2025-CU5-ubuntu-22.04 image under Rosetta
+#   (x86-64 emulation on Apple Silicon, lima + podman) causes the container
+#   process to exit — the XTP engine does not survive the emulation layer.
+#   The fix is to use the CU7 Ubuntu 24.04 image, which supports XTP on macOS:
+#       image:     mcr.microsoft.com/mssql/server:2025-CU7-ubuntu-24.04
+#       image_tag: "2025-CU7-ubuntu-24.04"
+#   Affected fixtures (all memory-optimized / XTP):
+#     - fixtures_2025/xtp_simple_full.bak
+#     - fixtures_2025/xtp_probe_full.bak
+#     - fixtures_2025/xtp_rich_full.bak
+#     - fixtures_2025/xtp_checkpoint_straddle_full.bak
+#     - fixtures_realworld/AdventureWorks2016_EXT.bak
+#   Symptoms: the copy/restore step appears to start, but the container exits
+#   before RESTORE DATABASE completes, leaving only a connection failure on the
+#   next step with no SQL-level error message.
 
 
 def _sha256(path: Path, chunk: int = 1 << 20) -> str:
@@ -61,28 +83,15 @@ def _sha256(path: Path, chunk: int = 1 << 20) -> str:
             h.update(data)
     return h.hexdigest()
 
-_SQLCMD_CANDIDATES = [
-    "/opt/mssql-tools18/bin/sqlcmd",  # 2019+
-    "/opt/mssql-tools/bin/sqlcmd",    # 2017 and earlier
-]
-_SQLCMD_PATH_CACHE: dict[str, str] = {}
-
-
 def _discover_sqlcmd(container: str) -> str:
-    """Return the sqlcmd binary path inside *container* (probed once, cached)."""
-    if container in _SQLCMD_PATH_CACHE:
-        return _SQLCMD_PATH_CACHE[container]
-    for candidate in _SQLCMD_CANDIDATES:
-        r = subprocess.run(
-            ["podman", "exec", container, "test", "-f", candidate],
-            capture_output=True,
-        )
-        if r.returncode == 0:
-            _SQLCMD_PATH_CACHE[container] = candidate
-            return candidate
-    raise RuntimeError(
-        f"sqlcmd not found in container {container!r}; tried: {_SQLCMD_CANDIDATES}"
-    )
+    """Return the sqlcmd binary path inside *container*.
+
+    Delegates to ``tools.fixture_utils.discover_sqlcmd_path`` which uses a
+    two-stage probe: container PATH first, then hardcoded candidate list.  It
+    also correctly distinguishes a stopped container from a missing binary and
+    raises a clear "container is not running" error in that case.
+    """
+    return discover_sqlcmd_path(container, "sqlcmd")
 
 
 # ---------------------------------------------------------------------------
@@ -648,8 +657,17 @@ def _minmax_col_exprs(col_name: str, sql_type: str) -> tuple[str, str]:
     - ``timestamp``/``rowversion``: same restriction; cast to BINARY(8) first.
     - ``text``/``ntext``: use CONVERT to NVARCHAR(MAX) (implicit cast disallowed).
     - ``xml``: cast via NVARCHAR(MAX) to avoid XML-to-NVARCHAR(n) restriction.
+    - ``json``/``vector``: MIN/MAX unsupported; CAST to NVARCHAR(MAX) is valid.
+      Both are in _MINMAX_SKIP_TYPES so the value is captured but never compared.
     - CLR spatial/hierarchyid: call .STAsText() / .ToString() then take MIN/MAX.
     - ``binary``/``varbinary``: convert with style 1 (hex) after native MIN/MAX.
+    - Alias/user types: the caller uses a CASE expression that resolves genuine
+      alias types (is_user_defined=1, is_assembly_type=0) via TYPE_NAME(system_type_id)
+      so they dispatch to their base type branch (e.g. alias over bit → 'bit').
+      Native and CLR types keep their declared name (vector, json, geometry …).
+      The native VECTOR type specifically has system_type_id=165 (varbinary) /
+      user_type_id=255; without the CASE it would resolve to 'varbinary' and
+      the MIN() call would fail ("Argument data type vector is invalid").
     """
     q = f"[{col_name}]"
     typ = sql_type.lower()
@@ -708,6 +726,19 @@ def _minmax_col_exprs(col_name: str, sql_type: str) -> tuple[str, str]:
         raw = f"CAST(CAST({q} AS NVARCHAR(MAX)) AS NVARCHAR(4000)) COLLATE Latin1_General_100_BIN2"
         return f"ISNULL(MIN({raw}), {null_s})", f"ISNULL(MAX({raw}), {null_s})"
 
+    if typ in ("json", "vector"):
+        # json/vector: MIN/MAX not supported by SQL Server; CAST to NVARCHAR(MAX) is.
+        # Both types surface as JSON-array / document text over the wire.
+        # This is a whole-column min/max of the stored document value — deliberately
+        # NOT a per-property aggregate (MIN(CAST(JSON_VALUE(col,'$.x') AS ...)))
+        # which would require a fixed schema we don't have for arbitrary GT columns.
+        # The document-string ordering is not semantically meaningful and the native
+        # binary form may re-serialize differently than the parser output, so both
+        # types are listed in _MINMAX_SKIP_TYPES and the value is never compared.
+        # The CAST exists only to keep the UNION-ALL query syntactically valid.
+        raw = f"CAST(CAST({q} AS NVARCHAR(MAX)) AS NVARCHAR(4000)) COLLATE Latin1_General_100_BIN2"
+        return f"ISNULL(MIN({raw}), {null_s})", f"ISNULL(MAX({raw}), {null_s})"
+
     if typ == "image":
         # image → NVARCHAR is not allowed; go image→VARBINARY(250)→hex NVARCHAR.
         # NVARCHAR(MAX) with style-1 binary→hex returns '' for empty input on some
@@ -747,26 +778,23 @@ def _minmax_col_exprs(col_name: str, sql_type: str) -> tuple[str, str]:
     )
 
 
-def _collect_stats(container: str, password: str, db_name: str) -> list[dict[str, Any]]:
-    """Return per-table row counts, per-column null counts, and per-column min/max."""
+def _collect_stats(cur: Any) -> list[dict[str, Any]]:
+    """Return per-table row counts, per-column null counts, and per-column min/max.
 
+    Accepts an mssql_python cursor already positioned on the target database.
+    Returns typed values directly — no sqlcmd display-width truncation.
+    """
     # Step 1: enumerate user tables.
-    tables_sql = f"""
-USE [{db_name}];
-SET NOCOUNT ON;
+    # Driver returns typed rows; no sqlcmd noise filtering needed.
+    # Spaces in schema/table names are handled correctly (unlike the old
+    # sqlcmd path which excluded names with spaces to filter out noise lines).
+    tables_sql = """\
 SELECT s.name + '.' + t.name
 FROM sys.tables t
 JOIN sys.schemas s ON s.schema_id = t.schema_id
 WHERE t.is_ms_shipped = 0
-ORDER BY s.name, t.name;
-"""
-    out = _run_sql_query(container, password, tables_sql)
-    table_fqns = [
-        line.strip() for line in out.splitlines()
-        if "." in line.strip()
-        and not line.startswith("-")
-        and " " not in line.strip()  # exclude "Changed database context to '...'." noise
-    ]
+ORDER BY s.name, t.name"""
+    table_fqns = [row[0] for row in _query(cur, tables_sql) if row[0]]
 
     if not table_fqns:
         print("  (no user tables found)", file=sys.stderr)
@@ -779,77 +807,74 @@ ORDER BY s.name, t.name;
         quoted = f"[{schema_name}].[{table_name}]"
         print(f"  collecting stats for {quoted} …", file=sys.stderr)
 
-        # Row count.
-        rc_sql = f"""
-USE [{db_name}];
-SET NOCOUNT ON;
-SELECT COUNT_BIG(*) FROM {quoted};
-"""
-        rc_out = _run_sql_query(container, password, rc_sql)
-        row_count = 0
-        for line in rc_out.splitlines():
-            line = line.strip()
-            if line.isdigit():
-                row_count = int(line)
-                break
+        # Row count — driver returns the bigint directly as int.
+        rc_rows = _query(cur, f"SELECT COUNT_BIG(*) FROM {quoted}")
+        row_count = int(rc_rows[0][0]) if rc_rows else 0
 
-        # Column names and types.
-        cols_sql = f"""
-USE [{db_name}];
-SET NOCOUNT ON;
-SELECT c.name, t.name
+        # Column names and effective type names for dispatch in _minmax_col_exprs.
+        # The CASE expression resolves alias/user-defined types (is_user_defined=1,
+        # is_assembly_type=0) to their underlying system type via TYPE_NAME(system_type_id)
+        # — e.g. an alias "IsActive" over bit returns 'bit' so the bit branch is used.
+        # Native and CLR types (is_user_defined=0, or is_assembly_type=1) keep t.name,
+        # which is their real type name (vector, json, geometry, geography, hierarchyid …).
+        # This is necessary because the native VECTOR type has system_type_id=165
+        # (varbinary) but user_type_id=255; resolving via system_type_id would yield
+        # 'varbinary', causing the varbinary MIN() branch to run and fail with
+        # "Argument data type vector is invalid for argument 1 of min function."
+        # c.graph_type IS NULL excludes graph-internal columns (graph_id_*, from_id_*,
+        # to_id_* etc.) that appear in sys.columns on SQL Server 2017+ but cannot
+        # be selected in a query (error 13908, "Cannot access internal graph column").
+        # c.encryption_type IS NULL excludes Always Encrypted (AE) columns.  Without
+        # the Column Encryption Key (CEK) the mssql-python driver cannot decrypt the
+        # ciphertext, so MIN/MAX and even IS NULL raise "Encryption scheme mismatch …
+        # expects it to be PLAINTEXT" (AEAD_AES_256_CBC_HMAC_SHA_256).  mssqlbak
+        # itself returns None for all AE column values (G53 gap), so skipping them
+        # in GT collection is consistent — null_count and min/max are left absent
+        # and test_stats.py skips those columns automatically.
+        sn_esc = schema_name.replace("'", "''")
+        tn_esc = table_name.replace("'", "''")
+        cols_sql = f"""\
+SELECT c.name,
+  CASE
+    WHEN t.is_user_defined = 1 AND t.is_assembly_type = 0
+      THEN TYPE_NAME(c.system_type_id)
+    ELSE t.name
+  END
 FROM sys.columns c
 JOIN sys.types t ON t.user_type_id = c.user_type_id
 JOIN sys.tables tbl ON tbl.object_id = c.object_id
 JOIN sys.schemas s ON s.schema_id = tbl.schema_id
-WHERE s.name = '{schema_name}' AND tbl.name = '{table_name}'
+WHERE s.name = N'{sn_esc}' AND tbl.name = N'{tn_esc}'
   AND c.is_computed = 0
-ORDER BY c.column_id;
-"""
-        cols_out = _run_sql_query(container, password, cols_sql)
+  AND c.graph_type IS NULL
+  AND c.encryption_type IS NULL
+ORDER BY c.column_id"""
         columns: list[dict[str, Any]] = []
         col_names: list[str] = []
-        for line in cols_out.splitlines():
-            parts = line.strip().split()
-            # Require exactly 2 tokens: column_name type_name.  Lines with more
-            # tokens are sqlcmd informational messages (e.g. "Changed database
-            # context to '...'.") not data rows.
-            if len(parts) == 2 and not parts[0].startswith("-"):
-                col_names.append(parts[0])
-                columns.append({"name": parts[0], "sql_type": parts[1]})
+        for row in _query(cur, cols_sql):
+            col_names.append(row[0])
+            columns.append({"name": row[0], "sql_type": row[1]})
 
         # Null counts via one query per table (dynamic SQL → single round trip).
+        # Driver returns ints positionally in the single result row.
         if col_names and row_count > 0:
             null_parts = ",\n    ".join(
                 f"SUM(CASE WHEN [{c}] IS NULL THEN 1 ELSE 0 END) AS [{c}]"
                 for c in col_names
             )
-            null_sql = f"""
-USE [{db_name}];
-SET NOCOUNT ON;
-SELECT {null_parts}
-FROM {quoted};
-"""
-            null_out = _run_sql_query(container, password, null_sql)
-            # The output is one data line with space-separated null counts.
-            null_vals: list[int] = []
-            for line in null_out.splitlines():
-                line = line.strip()
-                if line and not line.startswith("-") and not line.startswith("("):
-                    parts_n = line.split()
-                    if all(p.isdigit() or (p.startswith("-") and p[1:].isdigit()) for p in parts_n):
-                        null_vals = [int(p) for p in parts_n]
-                        break
+            null_rows = _query(cur, f"SELECT {null_parts} FROM {quoted}")
+            null_vals = list(null_rows[0]) if null_rows else []
             for i, col in enumerate(columns):
-                col["null_count"] = null_vals[i] if i < len(null_vals) else None
+                v = null_vals[i] if i < len(null_vals) else None
+                col["null_count"] = int(v) if v is not None else None
         else:
             for col in columns:
                 col["null_count"] = 0
 
-        # Min/max via UNION ALL — one row per column, pipe-separated:
-        #   col_name | min_val | max_val
-        # NULL values are replaced by _NULL_SENTINEL to distinguish from
-        # the empty string that sqlcmd emits for NULL without this guard.
+        # Min/max via UNION ALL — one row per column: (col_name, min_val, max_val).
+        # _NULL_SENTINEL replaces SQL NULL so we can distinguish "no rows" from NULL.
+        # Keep _minmax_col_exprs SQL expressions unchanged; the driver returns the
+        # NVARCHAR results as Python str without any display-width truncation.
         if col_names and row_count > 0:
             union_terms: list[str] = []
             for col in columns:
@@ -858,25 +883,14 @@ FROM {quoted};
                 union_terms.append(
                     f"SELECT N'{name_lit}', {min_e}, {max_e} FROM {quoted}"
                 )
-            minmax_sql = f"""
-USE [{db_name}];
-SET NOCOUNT ON;
-{chr(10).join(f"{'UNION ALL' if i else ''} {t}" for i, t in enumerate(union_terms))};
-"""
-            minmax_out = _run_sql_query(container, password, minmax_sql, sep="|")
+            minmax_sql = "\nUNION ALL\n".join(union_terms)
             minmax_map: dict[str, tuple[str | None, str | None]] = {}
-            for line in minmax_out.splitlines():
-                if "|" not in line:
+            for row in _query(cur, minmax_sql):
+                cname = row[0]
+                if not cname:
                     continue
-                # Split on first two pipes only — max_val may contain '|'.
-                parts_mm = line.split("|", 2)
-                if len(parts_mm) < 3:
-                    continue
-                cname = parts_mm[0].strip()
-                raw_min = parts_mm[1].strip()
-                raw_max = parts_mm[2].strip()
-                if not cname or cname.startswith("-"):
-                    continue
+                raw_min = row[1]
+                raw_max = row[2]
                 minmax_map[cname] = (
                     None if raw_min == _NULL_SENTINEL else raw_min,
                     None if raw_max == _NULL_SENTINEL else raw_max,
@@ -924,6 +938,551 @@ END;
 GO
 """
     _run_sql(container, password, sql)
+
+
+# ---------------------------------------------------------------------------
+# Metadata ground-truth collectors (use mssql_python cursor — no sqlcmd truncation)
+# ---------------------------------------------------------------------------
+#
+# Each collector accepts an mssql_python cursor already positioned on the
+# target database (caller runs ``cur.execute(f"USE [{db_name}]")``) and
+# returns JSON-serialisable Python objects.
+#
+# sqlcmd is NOT used here: its default -y 256 silently truncates any
+# variable-length column at 256 chars (root cause of the "c_varbin" stats GT
+# bug).  The mssql_python driver returns typed Python values with no
+# display-width limit.
+#
+# _parse_pipe / _SQLCMD_NOISE are kept below for _collect_stats (data GT),
+# which still runs through sqlcmd.
+
+_SQLCMD_NOISE = frozenset({"Changed database context to", "NULL"})
+
+
+def _parse_pipe(out: str, n_cols: int) -> list[list[str]]:
+    """Parse pipe-separated sqlcmd output into rows, skipping noise lines."""
+    rows = []
+    for line in out.splitlines():
+        parts = [p.strip() for p in line.split("|")]
+        if len(parts) < n_cols:
+            continue
+        # Skip header separators (all dashes) and blank leading values
+        if parts[0].startswith("-") or not any(parts):
+            continue
+        # Skip sqlcmd informational messages (e.g. "Changed database context to '...'")
+        if any(parts[0].startswith(noise) for noise in _SQLCMD_NOISE):
+            continue
+        rows.append(parts)
+    return rows
+
+
+def _query(cur: Any, sql: str) -> list[Any]:
+    """Execute *sql* on *cur* and return all rows."""
+    cur.execute(sql)
+    return cur.fetchall()
+
+
+def _collect_constraints(cur: Any) -> list[dict[str, Any]]:
+    """Collect user constraints: PK, UQ, FK, CHECK, DEFAULT (name-resolved)."""
+    sql_pkuq = """\
+SELECT
+    s.name + '.' + t.name,
+    kc.name,
+    CASE kc.type WHEN 'PK' THEN 'primary key' WHEN 'UQ' THEN 'unique constraint' END,
+    CASE WHEN kc.is_system_named=1 THEN '1' ELSE '0' END,
+    COALESCE(STUFF((SELECT ',' + c.name
+           FROM sys.index_columns ic
+           JOIN sys.columns c ON c.object_id=ic.object_id AND c.column_id=ic.column_id
+           WHERE ic.object_id=kc.parent_object_id AND ic.index_id=kc.unique_index_id
+           ORDER BY ic.index_column_id
+           FOR XML PATH('')),1,1,''), ''),
+    '', '', ''
+FROM sys.key_constraints kc
+JOIN sys.tables t ON t.object_id=kc.parent_object_id
+JOIN sys.schemas s ON s.schema_id=t.schema_id
+WHERE t.is_ms_shipped=0
+ORDER BY s.name, t.name, kc.name"""
+
+    sql_fk = """\
+SELECT
+    s.name + '.' + t.name,
+    fk.name,
+    'foreign key',
+    CASE WHEN fk.is_system_named=1 THEN '1' ELSE '0' END,
+    COALESCE(STUFF((SELECT ',' + c.name
+           FROM sys.foreign_key_columns fkc
+           JOIN sys.columns c ON c.object_id=fkc.parent_object_id AND c.column_id=fkc.parent_column_id
+           WHERE fkc.constraint_object_id=fk.object_id
+           ORDER BY fkc.constraint_column_id
+           FOR XML PATH('')),1,1,''), ''),
+    rs.name + '.' + rt.name,
+    COALESCE(STUFF((SELECT ',' + rc.name
+           FROM sys.foreign_key_columns fkc
+           JOIN sys.columns rc ON rc.object_id=fkc.referenced_object_id AND rc.column_id=fkc.referenced_column_id
+           WHERE fkc.constraint_object_id=fk.object_id
+           ORDER BY fkc.constraint_column_id
+           FOR XML PATH('')),1,1,''), ''),
+    ''
+FROM sys.foreign_keys fk
+JOIN sys.tables t ON t.object_id=fk.parent_object_id
+JOIN sys.schemas s ON s.schema_id=t.schema_id
+JOIN sys.tables rt ON rt.object_id=fk.referenced_object_id
+JOIN sys.schemas rs ON rs.schema_id=rt.schema_id
+WHERE t.is_ms_shipped=0
+ORDER BY s.name, t.name, fk.name"""
+
+    sql_check = """\
+SELECT
+    s.name + '.' + t.name,
+    cc.name,
+    'check',
+    CASE WHEN cc.is_system_named=1 THEN '1' ELSE '0' END,
+    COALESCE(c.name, ''),
+    '', '',
+    CAST(cc.definition AS nvarchar(max))
+FROM sys.check_constraints cc
+JOIN sys.tables t ON t.object_id=cc.parent_object_id
+JOIN sys.schemas s ON s.schema_id=t.schema_id
+LEFT JOIN sys.columns c ON c.object_id=cc.parent_object_id AND c.column_id=cc.parent_column_id
+WHERE t.is_ms_shipped=0
+ORDER BY s.name, t.name, cc.name"""
+
+    sql_default = """\
+SELECT
+    s.name + '.' + t.name,
+    dc.name,
+    'default',
+    CASE WHEN dc.is_system_named=1 THEN '1' ELSE '0' END,
+    COALESCE(c.name, ''),
+    '', '',
+    CAST(dc.definition AS nvarchar(max))
+FROM sys.default_constraints dc
+JOIN sys.tables t ON t.object_id=dc.parent_object_id
+JOIN sys.schemas s ON s.schema_id=t.schema_id
+LEFT JOIN sys.columns c ON c.object_id=dc.parent_object_id AND c.column_id=dc.parent_column_id
+WHERE t.is_ms_shipped=0
+ORDER BY s.name, t.name, dc.name"""
+
+    all_rows = (
+        _query(cur, sql_pkuq)
+        + _query(cur, sql_fk)
+        + _query(cur, sql_check)
+        + _query(cur, sql_default)
+    )
+    result = []
+    for row in all_rows:
+        table = row[0]
+        name = row[1]
+        kind = row[2]
+        sys_named = row[3] or ""
+        cols_str = row[4] or ""
+        ref_table = row[5] or ""
+        ref_cols_str = row[6] or ""
+        definition = row[7] or ""
+        if not name:
+            continue
+        entry: dict[str, Any] = {
+            "table": table,
+            "name": name,
+            "kind": kind,
+            "is_system_named": sys_named == "1",
+        }
+        if cols_str:
+            entry["columns"] = cols_str.split(",")
+        if ref_table:
+            entry["ref_table"] = ref_table
+        if ref_cols_str:
+            entry["ref_columns"] = ref_cols_str.split(",")
+        if kind in ("check", "default"):
+            col = cols_str  # single column name for check/default
+            if col:
+                entry["column"] = col
+            entry["definition"] = definition
+        result.append(entry)
+    return result
+
+
+def _collect_indexes(cur: Any) -> list[dict[str, Any]]:
+    """Collect non-heap indexes (name-resolved key column lists)."""
+    sql = """\
+SELECT
+    s.name + '.' + t.name,
+    i.name,
+    i.type_desc,
+    CASE WHEN i.is_unique=1 THEN '1' ELSE '0' END,
+    CASE WHEN i.is_primary_key=1 THEN '1' ELSE '0' END,
+    COALESCE(STUFF((SELECT ',' + c.name
+           FROM sys.index_columns ic
+           JOIN sys.columns c ON c.object_id=ic.object_id AND c.column_id=ic.column_id
+           WHERE ic.object_id=i.object_id AND ic.index_id=i.index_id AND ic.is_included_column=0
+           ORDER BY ic.index_column_id
+           FOR XML PATH('')),1,1,''), '')
+FROM sys.indexes i
+JOIN sys.tables t ON t.object_id=i.object_id
+JOIN sys.schemas s ON s.schema_id=t.schema_id
+WHERE t.is_ms_shipped=0 AND i.type > 0
+ORDER BY s.name, t.name, i.name"""
+    result = []
+    for row in _query(cur, sql):
+        name = row[1]
+        if not name:
+            continue
+        key_cols_str = row[5] or ""
+        result.append({
+            "table": row[0],
+            "name": name,
+            "type": row[2].lower(),
+            "is_unique": (row[3] or "") == "1",
+            "is_primary_key": (row[4] or "") == "1",
+            "key_columns": key_cols_str.split(",") if key_cols_str else [],
+        })
+    return result
+
+
+def _collect_extended_properties(cur: Any) -> list[dict[str, Any]]:
+    """Collect extended properties (MS_Description, etc.) name-resolved."""
+    sql = """\
+SELECT
+    'table' + CASE WHEN ep.minor_id=0 THEN '' ELSE '/column' END,
+    s.name + '.' + t.name,
+    CASE WHEN ep.minor_id=0 THEN '' ELSE c.name END,
+    ep.name,
+    CAST(ep.value AS nvarchar(max))
+FROM sys.extended_properties ep
+JOIN sys.tables t ON t.object_id=ep.major_id
+JOIN sys.schemas s ON s.schema_id=t.schema_id
+LEFT JOIN sys.columns c ON c.object_id=ep.major_id AND c.column_id=ep.minor_id
+WHERE ep.class=1 AND t.is_ms_shipped=0
+  AND CAST(ep.value AS sql_variant) IS NOT NULL
+
+UNION ALL
+
+SELECT
+    'schema',
+    sc.name,
+    '',
+    ep.name,
+    CAST(ep.value AS nvarchar(max))
+FROM sys.extended_properties ep
+JOIN sys.schemas sc ON sc.schema_id=ep.major_id
+WHERE ep.class=3
+
+ORDER BY 1,2,3,4"""
+    result = []
+    for row in _query(cur, sql):
+        level = row[0]
+        obj = row[1]
+        col = row[2] or ""
+        name = row[3]
+        value = row[4] or ""
+        if not name:
+            continue
+        entry: dict[str, Any] = {
+            "level": level,
+            "object": obj,
+            "name": name,
+            "value": value,
+        }
+        if col:
+            entry["column"] = col
+        result.append(entry)
+    return result
+
+
+def _collect_modules(cur: Any) -> list[dict[str, Any]]:
+    """Collect module definitions (views, procs, functions, triggers)."""
+    sql = """\
+SELECT
+    s.name + '.' + o.name,
+    o.type_desc,
+    CAST(sm.definition AS nvarchar(max))
+FROM sys.sql_modules sm
+JOIN sys.objects o ON o.object_id=sm.object_id
+JOIN sys.schemas s ON s.schema_id=o.schema_id
+WHERE o.type IN ('V','P','FN','TF','IF','TR')
+  AND OBJECTPROPERTY(o.object_id,'IsMSShipped')=0
+ORDER BY s.name, o.name"""
+    result = []
+    for row in _query(cur, sql):
+        obj = row[0]
+        if not obj:
+            continue
+        result.append({
+            "object": obj,
+            "type": row[1],
+            "definition": row[2] or "",
+        })
+    return result
+
+
+def _collect_schema_objects(cur: Any) -> dict[str, Any]:
+    """Collect schemas, sequences, synonyms, and user table types."""
+    sql_schemas = """\
+SELECT name FROM sys.schemas WHERE schema_id < 16384 ORDER BY name"""
+    sql_sequences = """\
+SELECT s.name + '.' + seq.name FROM sys.sequences seq
+JOIN sys.schemas s ON s.schema_id=seq.schema_id ORDER BY 1"""
+    sql_synonyms = """\
+SELECT s.name + '.' + syn.name, syn.base_object_name
+FROM sys.synonyms syn
+JOIN sys.schemas s ON s.schema_id=syn.schema_id ORDER BY 1"""
+    sql_tts = """\
+SELECT
+    s.name + '.' + tt.name,
+    c.name,
+    tp.name,
+    CASE WHEN c.is_nullable=1 THEN '1' ELSE '0' END
+FROM sys.table_types tt
+JOIN sys.schemas s ON s.schema_id=tt.schema_id
+JOIN sys.columns c ON c.object_id=tt.type_table_object_id
+JOIN sys.types tp ON tp.user_type_id=c.user_type_id
+WHERE tt.is_user_defined=1
+ORDER BY s.name, tt.name, c.column_id"""
+
+    schemas = [row[0] for row in _query(cur, sql_schemas) if row[0]]
+    sequences = [row[0] for row in _query(cur, sql_sequences) if row[0]]
+    synonyms = [{"name": row[0], "target": row[1]} for row in _query(cur, sql_synonyms) if row[0]]
+
+    tt_cols: dict[str, list[dict[str, Any]]] = {}
+    for row in _query(cur, sql_tts):
+        tt_name = row[0]
+        if not tt_name:
+            continue
+        tt_cols.setdefault(tt_name, []).append({
+            "name": row[1],
+            "sql_type": row[2],
+            "nullable": (row[3] or "") == "1",
+        })
+    table_types = [{"name": k, "columns": v} for k, v in sorted(tt_cols.items())]
+    return {
+        "schemas": [{"name": s} for s in schemas],
+        "sequences": [{"name": s} for s in sequences],
+        "synonyms": synonyms,
+        "table_types": table_types,
+    }
+
+
+def _collect_security(cur: Any) -> dict[str, Any]:
+    """Collect user/role principals and object permissions (name-resolved)."""
+    sql_principals = """\
+SELECT name, type_desc FROM sys.database_principals
+WHERE type IN ('R','S','U','G','E','X') AND is_fixed_role=0
+  AND name NOT IN ('guest','INFORMATION_SCHEMA','sys','public')
+ORDER BY name"""
+    sql_perms = """\
+SELECT
+    grantee.name,
+    COALESCE(s.name + '.' + o.name, ''),
+    dp.permission_name,
+    dp.state_desc
+FROM sys.database_permissions dp
+JOIN sys.database_principals grantee ON grantee.principal_id=dp.grantee_principal_id
+LEFT JOIN sys.objects o ON o.object_id=dp.major_id
+LEFT JOIN sys.schemas s ON s.schema_id=o.schema_id
+WHERE dp.class IN (0,1)
+  AND grantee.name NOT IN ('guest','INFORMATION_SCHEMA','sys','public')
+  AND grantee.is_fixed_role=0
+ORDER BY grantee.name, s.name, o.name, dp.permission_name"""
+
+    principals = []
+    for row in _query(cur, sql_principals):
+        if row[0]:
+            principals.append({"name": row[0], "type": row[1]})
+    permissions = []
+    for row in _query(cur, sql_perms):
+        grantee, obj, action, state = row[0], row[1] or "", row[2], row[3]
+        if grantee and action:
+            permissions.append({
+                "grantee": grantee,
+                "object": obj,
+                "action": action,
+                "state": state,
+            })
+    return {"principals": principals, "permissions": permissions}
+
+
+def _collect_statistics(cur: Any) -> list[dict[str, Any]]:
+    """Collect statistics objects (existence + key columns + flags)."""
+    sql = """\
+SELECT
+    s2.name + '.' + t.name,
+    st.name,
+    CASE WHEN st.auto_created=1 THEN '1' ELSE '0' END,
+    CASE WHEN st.no_recompute=1 THEN '1' ELSE '0' END,
+    COALESCE(CAST(st.filter_definition AS nvarchar(max)), ''),
+    COALESCE(STUFF((SELECT ',' + c.name
+           FROM sys.stats_columns sc
+           JOIN sys.columns c ON c.object_id=sc.object_id AND c.column_id=sc.column_id
+           WHERE sc.object_id=st.object_id AND sc.stats_id=st.stats_id
+           ORDER BY sc.stats_column_id
+           FOR XML PATH('')),1,1,''), '')
+FROM sys.stats st
+JOIN sys.tables t ON t.object_id=st.object_id
+JOIN sys.schemas s2 ON s2.schema_id=t.schema_id
+WHERE t.is_ms_shipped=0
+ORDER BY s2.name, t.name, st.name"""
+    result = []
+    for row in _query(cur, sql):
+        name = row[1]
+        if not name:
+            continue
+        key_cols_str = row[5] or ""
+        result.append({
+            "table": row[0],
+            "name": name,
+            "auto_created": (row[2] or "") == "1",
+            "no_recompute": (row[3] or "") == "1",
+            "filter": (row[4] or "") or None,
+            "key_columns": key_cols_str.split(",") if key_cols_str else [],
+        })
+    return result
+
+
+def _collect_plan_guides(cur: Any) -> list[dict[str, Any]]:
+    """Collect plan guides (name, scope, query text, hints)."""
+    sql = """\
+SELECT
+    name,
+    scope_type_desc,
+    CAST(query_text AS nvarchar(max)),
+    COALESCE(CAST(parameters AS nvarchar(max)), ''),
+    COALESCE(CAST(hints AS nvarchar(max)), '')
+FROM sys.plan_guides
+ORDER BY name"""
+    result = []
+    for row in _query(cur, sql):
+        name = row[0]
+        if not name:
+            continue
+        result.append({
+            "name": name,
+            "scope_type_desc": row[1],
+            "query_text": row[2] or "",
+            "parameters": (row[3] or "") or None,
+            "hints": (row[4] or "") or None,
+        })
+    return result
+
+
+def _collect_query_store(cur: Any) -> dict[str, Any]:
+    """Collect Query Store enabled flag and query text list (presence only)."""
+    sql_opts = "SELECT desired_state FROM sys.database_query_store_options"
+    sql_texts = """\
+SELECT CAST(query_sql_text AS nvarchar(max))
+FROM sys.query_store_query_text
+ORDER BY 1"""
+
+    desired_state = 0
+    try:
+        rows = _query(cur, sql_opts)
+        if rows:
+            desired_state = int(rows[0][0] or 0)
+    except Exception:
+        pass
+
+    query_texts: list[str] = []
+    try:
+        for row in _query(cur, sql_texts):
+            text = row[0]
+            if text:
+                query_texts.append(text)
+    except Exception:
+        pass
+
+    return {
+        "enabled": desired_state > 0,
+        "query_texts": query_texts,
+    }
+
+
+def _stable_write_metadata(out_path: Path, payload: dict[str, Any]) -> None:
+    """Write metadata sidecar only when canonical content has changed.
+
+    Volatile field ``captured_at`` is excluded from the change check.
+    """
+    canonical_keys = [k for k in payload if k != "captured_at"]
+    canonical = {k: payload[k] for k in canonical_keys}
+    if out_path.exists():
+        try:
+            existing = json.loads(out_path.read_text())
+            existing_canonical = {k: existing[k] for k in canonical_keys if k in existing}
+            if existing_canonical == canonical:
+                print(
+                    f"==> verified, no content change — {out_path} not rewritten",
+                    file=sys.stderr,
+                )
+                return
+        except (json.JSONDecodeError, OSError, KeyError):
+            pass
+    out_path.write_text(json.dumps(payload, indent=2))
+    print(f"==> wrote {out_path}", file=sys.stderr)
+
+
+def _write_metadata_sidecar(
+    bak_path: Path,
+    bak_sha256: str,
+    metadata: dict[str, Any],
+    out_path: Path | None = None,
+) -> Path:
+    """Write ``<bak>.metadata.json`` and return the output path."""
+    import datetime as _dt
+    out = out_path or bak_path.with_suffix(bak_path.suffix + ".metadata.json")
+    payload: dict[str, Any] = {
+        "bak": bak_path.name,
+        "bak_sha256": bak_sha256,
+        "captured_at": _dt.datetime.now(_dt.timezone.utc).isoformat(),
+        **metadata,
+    }
+    _stable_write_metadata(out, payload)
+    return out
+
+
+def register_metadata_all(
+    fixture_dir: Path,
+    *,
+    skip_existing: bool = True,
+) -> int:
+    """Capture ``<bak>.metadata.json`` sidecars for every .bak in fixture_dir.
+
+    Requires the SQL Server container to be running (full restore per fixture).
+    Skips fixtures that already have a ``.metadata.json`` sidecar when
+    *skip_existing* is ``True`` (default).
+
+    Returns the number of fixtures that failed (0 = all ok or nothing to do).
+    """
+    baks = sorted(fixture_dir.glob("*.bak"))
+    todo = []
+    for bak in baks:
+        if bak.name in _UNREGISTERABLE_BAKS:
+            print(f"  skip (unregisterable by design): {bak.name}", file=sys.stderr)
+            continue
+        sidecar = bak.with_suffix(bak.suffix + ".metadata.json")
+        if skip_existing and sidecar.exists():
+            print(f"  skip (metadata sidecar already exists): {bak.name}", file=sys.stderr)
+            continue
+        todo.append(bak)
+
+    if not todo:
+        print("==> all fixtures already have .metadata.json sidecars", file=sys.stderr)
+        return 0
+
+    print(f"==> capturing metadata for {len(todo)} fixture(s) …", file=sys.stderr)
+    errors: list[tuple[Path, str]] = []
+    for bak in todo:
+        print(f"\n{'='*60}", file=sys.stderr)
+        print(f"==> {bak.name}", file=sys.stderr)
+        try:
+            rc = main([str(bak), "--metadata-only"])
+            if rc != 0:
+                errors.append((bak, f"exited {rc}"))
+        except Exception as exc:
+            errors.append((bak, str(exc)))
+            print(f"  ERROR: {exc}", file=sys.stderr)
+
+    print(f"\n==> done: {len(todo) - len(errors)} ok, {len(errors)} failed", file=sys.stderr)
+    for bak, msg in errors:
+        print(f"  FAILED {bak.name}: {msg}", file=sys.stderr)
+    return len(errors)
 
 
 # ---------------------------------------------------------------------------
@@ -1068,6 +1627,14 @@ def main(argv: list[str] | None = None) -> int:
             "restoring the database or collecting stats (reads HEADERONLY without RESTORE)"
         ),
     )
+    parser.add_argument(
+        "--metadata-only", action="store_true",
+        help=(
+            "capture only the <bak>.metadata.json sidecar (non-data metadata: "
+            "constraints, indexes, comments, modules, schemas, security, statistics, "
+            "plan guides, Query Store); does NOT collect or rewrite <bak>.stats.json"
+        ),
+    )
     args = parser.parse_args(argv)
 
     if args.cells_only and (args.no_cells or args.verify_only):
@@ -1100,6 +1667,7 @@ def main(argv: list[str] | None = None) -> int:
 
     headeronly_only: bool = getattr(args, "headeronly_only", False)
     no_headeronly: bool = getattr(args, "no_headeronly", False)
+    metadata_only: bool = getattr(args, "metadata_only", False)
 
     if args.cells_only:
         bak_sha256 = ""
@@ -1123,26 +1691,59 @@ def main(argv: list[str] | None = None) -> int:
     _restore_s: float = 0.0
     _headeronly_sets: list[dict[str, Any]] = []
     _dbinfo_lsns: dict[str, Any] | None = None
+    _metadata: dict[str, Any] = {}
     try:
         t0 = time.perf_counter()
         _restore_bak(container, password, bak_path, db_name)
         _restore_s = round(time.perf_counter() - t0, 3)
         print(f"==> restore took {_restore_s:.1f}s", file=sys.stderr)
 
+        # One driver connection serves both _collect_stats and _collect_metadata.
+        # Opened whenever stats or metadata are needed; sqlcmd (podman exec) is
+        # kept only for RESTORE/FILELISTONLY/HEADERONLY/BACKUP/DBCC above.
         if not args.cells_only:
-            print("==> collecting statistics …", file=sys.stderr)
-            tables = _collect_stats(container, password, db_name)
+            import tools.fixture_utils as _fu
+            _conn = _fu.connect(container, "sa", password)
+            try:
+                _cur = _conn.cursor()
+                _cur.execute(f"USE [{db_name}]")
 
-        # HEADERONLY LSN sidecar — always captured (unless --no-headeronly).
-        if not no_headeronly and not args.verify_only:
+                print("==> collecting statistics …", file=sys.stderr)
+                tables = _collect_stats(_cur)
+
+                # Metadata ground truth — collected unless verify-only.
+                if not args.verify_only:
+                    print("==> collecting metadata ground truth …", file=sys.stderr)
+                    schema_objects = _collect_schema_objects(_cur)
+                    security = _collect_security(_cur)
+                    _metadata = {
+                        "constraints": _collect_constraints(_cur),
+                        "indexes": _collect_indexes(_cur),
+                        "extended_properties": _collect_extended_properties(_cur),
+                        "modules": _collect_modules(_cur),
+                        "schemas": schema_objects["schemas"],
+                        "sequences": schema_objects["sequences"],
+                        "synonyms": schema_objects["synonyms"],
+                        "table_types": schema_objects["table_types"],
+                        "principals": security["principals"],
+                        "permissions": security["permissions"],
+                        "statistics": _collect_statistics(_cur),
+                        "plan_guides": _collect_plan_guides(_cur),
+                        "query_store": _collect_query_store(_cur),
+                    }
+            finally:
+                _conn.close()
+
+        # HEADERONLY LSN sidecar — always captured (unless --no-headeronly / metadata-only).
+        if not no_headeronly and not args.verify_only and not metadata_only:
             print("==> capturing RESTORE HEADERONLY LSN sidecar …", file=sys.stderr)
             container_bak = f"/tmp/{bak_path.name}"
             _headeronly_sets = _collect_headeronly_info(container, password, container_bak)
             _dbinfo_lsns = _collect_dbinfo_lsns(container, password, db_name)
 
         # Per-cell ground truth (the row-level verifier SSOT). Captured while the
-        # DB is still restored; skipped in --verify-only / --no-cells.
-        if not args.verify_only and not args.no_cells:
+        # DB is still restored; skipped in --verify-only / --no-cells / --metadata-only.
+        if not args.verify_only and not args.no_cells and not metadata_only:
             from tools.cells_capture import capture_cells
 
             print("==> capturing per-cell ground truth …", file=sys.stderr)
@@ -1158,6 +1759,14 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.cells_only:
         print("==> cells-only: stats.json left untouched", file=sys.stderr)
+        return 0
+
+    # Write metadata sidecar.
+    if _metadata:
+        _write_metadata_sidecar(bak_path, bak_sha256, _metadata)
+
+    if metadata_only:
+        print("==> metadata-only: stats.json left untouched", file=sys.stderr)
         return 0
 
     # Write HEADERONLY sidecar (outside the try/finally so the DB is already dropped).

@@ -18,7 +18,12 @@ from .config import (
     _DEFAULT_OUTDIR,
     _DEFAULT_REPORTS_DIR,
 )
-from .discovery import _parse_prior_timings, _select_cases, _sort_cases_longest_first
+from .discovery import (
+    _parse_prior_peaks,
+    _parse_prior_timings,
+    _select_cases,
+    _sort_cases_longest_first,
+)
 from .http_server import _local_http_server
 from .render import _all_ok, _render
 from .reports import _assemble_from_disk
@@ -106,6 +111,17 @@ def main(argv: list[str] | None = None) -> int:
         help=(
             "comma-separated list of sinks to fan out to (default: delta,pg_dir). "
             f"Valid choices: {', '.join(sorted(SINKS))}. Use empty string to skip sinks."
+        ),
+    )
+    parser.add_argument(
+        "--validators",
+        default="all",
+        help=(
+            "comma-separated list of metadata validators to run, 'all' (default), or 'none'. "
+            "Validators compare <bak>.metadata.json ground truth against recovered catalog. "
+            "Only scored when a .metadata.json sidecar exists; fixtures without sidecars are "
+            "always unscored. Valid names: constraints, indexes, extended_properties, modules, "
+            "schema_objects, security, statistics, plan_guides, query_store."
         ),
     )
     parser.add_argument(
@@ -251,6 +267,11 @@ def main(argv: list[str] | None = None) -> int:
     if prior_timings:
         cases = _sort_cases_longest_first(cases, prior_timings)
 
+    # Load calibrated memory peaks from the prior .resources.json (same stem as
+    # the markdown doc).  These replace the conservative bak_size×25 heuristic
+    # inside _estimate_peak_mb so that a raised --mem-budget-gb is safe.
+    prior_peaks = _parse_prior_peaks(out_path.with_suffix(".resources.json"))
+
     # One run_id per invocation so all edge JSONs for this run share the timestamp.
     run_id_suffix = "_http" if args.http else ""
     run_id = datetime.datetime.now().strftime("%Y%m%dT%H%M%S") + run_id_suffix
@@ -268,6 +289,31 @@ def main(argv: list[str] | None = None) -> int:
         file=sys.stderr,
     )
 
+    # Emit a schedule summary so the ordering and solo-run status are visible
+    # without having to decode the admission logic.
+    if cases:
+        from .runner import _estimate_peak_mb
+        n_calibrated = sum(1 for bp, _ in cases if bp.name in prior_peaks)
+        solo = [
+            bp.name for bp, sp in cases
+            if _estimate_peak_mb(bp, sp, prior_peaks) > mem_budget_mb
+        ]
+        top3 = [bp.name for bp, _ in cases[:3]]
+        solo_str = (
+            f"; {len(solo)} exceed {args.mem_budget_gb:.1f}GB budget"
+            f" (run solo): {', '.join(solo)}"
+        ) if solo else ""
+        cal_str = (
+            f"{n_calibrated}/{len(cases)} cases calibrated from prior peaks"
+            if prior_peaks
+            else "no prior peaks (first run — using bak_size\u00d725 heuristic)"
+        )
+        print(
+            f"==> schedule: {cal_str}{solo_str}; "
+            f"longest-first: {', '.join(top3)}",
+            file=sys.stderr,
+        )
+
     common_kw: dict[str, Any] = dict(
         sink_names=sink_names,
         outdir=outdir if sink_names else None,
@@ -281,11 +327,12 @@ def main(argv: list[str] | None = None) -> int:
         with _local_http_server(fixture_dir) as http_port:
             results = _run_cases(
                 cases, threads=args.threads, mem_budget_mb=mem_budget_mb,
-                http_port=http_port, **common_kw,
+                http_port=http_port, prior_peaks=prior_peaks, **common_kw,
             )
     else:
         results = _run_cases(
-            cases, threads=args.threads, mem_budget_mb=mem_budget_mb, **common_kw,
+            cases, threads=args.threads, mem_budget_mb=mem_budget_mb,
+            prior_peaks=prior_peaks, **common_kw,
         )
 
     doc = _render(

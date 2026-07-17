@@ -1,0 +1,78 @@
+{
+  "bak": "dirtycoverage_two_tx.bak",
+  "bak_sha256": "991cf6ec3032a11d9261effe248d4b09c7e7baa7ec31b9aaec158fbe6a83bbe1",
+  "captured_at": "2026-07-17T15:03:21.487891+00:00",
+  "constraints": [
+    {
+      "table": "dbo.two_tx_test",
+      "name": "PK__two_tx_t__3213E83FB5D6ADED",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.two_tx_test",
+      "name": "PK__two_tx_t__3213E83FB5D6ADED",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.two_tx_test",
+      "name": "PK__two_tx_t__3213E83FB5D6ADED",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": false,
+    "query_texts": []
+  }
+}

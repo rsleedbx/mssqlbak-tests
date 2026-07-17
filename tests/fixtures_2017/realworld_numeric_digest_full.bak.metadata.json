@@ -1,0 +1,213 @@
+{
+  "bak": "realworld_numeric_digest_full.bak",
+  "bak_sha256": "7fd58e6640b87e2f27e09c82ca60187c5f2bb8621012eb18e97bbf74775c6c53",
+  "captured_at": "2026-07-17T15:07:13.385525+00:00",
+  "constraints": [
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CF8787664A",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "pk"
+      ]
+    },
+    {
+      "table": "dbo.numeric_ncci",
+      "name": "pk_numeric_ncci",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.numeric_rowstore",
+      "name": "pk_numeric_rowstore",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "id"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CF8787664A",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "pk"
+      ]
+    },
+    {
+      "table": "dbo.numeric_cci",
+      "name": "cci_numeric_cci",
+      "type": "clustered columnstore",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": []
+    },
+    {
+      "table": "dbo.numeric_ncci",
+      "name": "ncci_numeric_ncci",
+      "type": "nonclustered columnstore",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": []
+    },
+    {
+      "table": "dbo.numeric_ncci",
+      "name": "pk_numeric_ncci",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.numeric_rowstore",
+      "name": "pk_numeric_rowstore",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CF8787664A",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "pk"
+      ]
+    },
+    {
+      "table": "dbo.numeric_cci",
+      "name": "_WA_Sys_00000006_3A81B327",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "tipped"
+      ]
+    },
+    {
+      "table": "dbo.numeric_cci",
+      "name": "cci_numeric_cci",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id",
+        "pickup_longitude",
+        "pickup_latitude",
+        "tax_rate",
+        "resource_cost",
+        "tipped",
+        "supplier_key"
+      ]
+    },
+    {
+      "table": "dbo.numeric_ncci",
+      "name": "_WA_Sys_00000006_38996AB5",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "tipped"
+      ]
+    },
+    {
+      "table": "dbo.numeric_ncci",
+      "name": "ncci_numeric_ncci",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "pickup_longitude",
+        "pickup_latitude",
+        "tax_rate",
+        "resource_cost",
+        "tipped",
+        "supplier_key"
+      ]
+    },
+    {
+      "table": "dbo.numeric_ncci",
+      "name": "pk_numeric_ncci",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.numeric_rowstore",
+      "name": "_WA_Sys_00000006_36B12243",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "tipped"
+      ]
+    },
+    {
+      "table": "dbo.numeric_rowstore",
+      "name": "pk_numeric_rowstore",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": false,
+    "query_texts": []
+  }
+}

@@ -1,0 +1,2400 @@
+{
+  "bak": "AdventureWorksDW2008R2.bak",
+  "bak_sha256": "1c905a80fba938b114ff86273b97fd69ae5bea090d237fe75ef3f4f9309d7edf",
+  "captured_at": "2026-07-17T18:58:44.021831+00:00",
+  "constraints": [
+    {
+      "table": "dbo.DimAccount",
+      "name": "PK_DimAccount",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "AccountKey"
+      ]
+    },
+    {
+      "table": "dbo.DimCurrency",
+      "name": "AK_DimCurrency_CurrencyAlternateKey",
+      "kind": "unique constraint",
+      "is_system_named": false,
+      "columns": [
+        "CurrencyAlternateKey"
+      ]
+    },
+    {
+      "table": "dbo.DimCurrency",
+      "name": "PK_DimCurrency_CurrencyKey",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "CurrencyKey"
+      ]
+    },
+    {
+      "table": "dbo.DimCustomer",
+      "name": "IX_DimCustomer_CustomerAlternateKey",
+      "kind": "unique constraint",
+      "is_system_named": false,
+      "columns": [
+        "CustomerAlternateKey"
+      ]
+    },
+    {
+      "table": "dbo.DimCustomer",
+      "name": "PK_DimCustomer_CustomerKey",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "CustomerKey"
+      ]
+    },
+    {
+      "table": "dbo.DimDate",
+      "name": "AK_DimDate_FullDateAlternateKey",
+      "kind": "unique constraint",
+      "is_system_named": false,
+      "columns": [
+        "FullDateAlternateKey"
+      ]
+    },
+    {
+      "table": "dbo.DimDate",
+      "name": "PK_DimDate_DateKey",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "DateKey"
+      ]
+    },
+    {
+      "table": "dbo.DimDepartmentGroup",
+      "name": "PK_DimDepartmentGroup",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "DepartmentGroupKey"
+      ]
+    },
+    {
+      "table": "dbo.DimEmployee",
+      "name": "PK_DimEmployee_EmployeeKey",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "EmployeeKey"
+      ]
+    },
+    {
+      "table": "dbo.DimGeography",
+      "name": "PK_DimGeography_GeographyKey",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "GeographyKey"
+      ]
+    },
+    {
+      "table": "dbo.DimOrganization",
+      "name": "PK_DimOrganization",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "OrganizationKey"
+      ]
+    },
+    {
+      "table": "dbo.DimProduct",
+      "name": "AK_DimProduct_ProductAlternateKey_StartDate",
+      "kind": "unique constraint",
+      "is_system_named": false,
+      "columns": [
+        "ProductAlternateKey",
+        "StartDate"
+      ]
+    },
+    {
+      "table": "dbo.DimProduct",
+      "name": "PK_DimProduct_ProductKey",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "ProductKey"
+      ]
+    },
+    {
+      "table": "dbo.DimProductCategory",
+      "name": "AK_DimProductCategory_ProductCategoryAlternateKey",
+      "kind": "unique constraint",
+      "is_system_named": false,
+      "columns": [
+        "ProductCategoryAlternateKey"
+      ]
+    },
+    {
+      "table": "dbo.DimProductCategory",
+      "name": "PK_DimProductCategory_ProductCategoryKey",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "ProductCategoryKey"
+      ]
+    },
+    {
+      "table": "dbo.DimProductSubcategory",
+      "name": "AK_DimProductSubcategory_ProductSubcategoryAlternateKey",
+      "kind": "unique constraint",
+      "is_system_named": false,
+      "columns": [
+        "ProductSubcategoryAlternateKey"
+      ]
+    },
+    {
+      "table": "dbo.DimProductSubcategory",
+      "name": "PK_DimProductSubcategory_ProductSubcategoryKey",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "ProductSubcategoryKey"
+      ]
+    },
+    {
+      "table": "dbo.DimPromotion",
+      "name": "AK_DimPromotion_PromotionAlternateKey",
+      "kind": "unique constraint",
+      "is_system_named": false,
+      "columns": [
+        "PromotionAlternateKey"
+      ]
+    },
+    {
+      "table": "dbo.DimPromotion",
+      "name": "PK_DimPromotion_PromotionKey",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "PromotionKey"
+      ]
+    },
+    {
+      "table": "dbo.DimReseller",
+      "name": "AK_DimReseller_ResellerAlternateKey",
+      "kind": "unique constraint",
+      "is_system_named": false,
+      "columns": [
+        "ResellerAlternateKey"
+      ]
+    },
+    {
+      "table": "dbo.DimReseller",
+      "name": "PK_DimReseller_ResellerKey",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "ResellerKey"
+      ]
+    },
+    {
+      "table": "dbo.DimSalesReason",
+      "name": "PK_DimSalesReason_SalesReasonKey",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "SalesReasonKey"
+      ]
+    },
+    {
+      "table": "dbo.DimSalesTerritory",
+      "name": "AK_DimSalesTerritory_SalesTerritoryAlternateKey",
+      "kind": "unique constraint",
+      "is_system_named": false,
+      "columns": [
+        "SalesTerritoryAlternateKey"
+      ]
+    },
+    {
+      "table": "dbo.DimSalesTerritory",
+      "name": "PK_DimSalesTerritory_SalesTerritoryKey",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "SalesTerritoryKey"
+      ]
+    },
+    {
+      "table": "dbo.DimScenario",
+      "name": "PK_DimScenario",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "ScenarioKey"
+      ]
+    },
+    {
+      "table": "dbo.FactAdditionalInternationalProductDescription",
+      "name": "PK_FactAdditionalInternationalProductDescription_ProductKey_CultureName",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "ProductKey",
+        "CultureName"
+      ]
+    },
+    {
+      "table": "dbo.FactCallCenter",
+      "name": "AK_FactCallCenter_DateKey_Shift",
+      "kind": "unique constraint",
+      "is_system_named": false,
+      "columns": [
+        "DateKey",
+        "Shift"
+      ]
+    },
+    {
+      "table": "dbo.FactCallCenter",
+      "name": "PK_FactCallCenter_FactCallCenterID",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "FactCallCenterID"
+      ]
+    },
+    {
+      "table": "dbo.FactCurrencyRate",
+      "name": "PK_FactCurrencyRate_CurrencyKey_DateKey",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "CurrencyKey",
+        "DateKey"
+      ]
+    },
+    {
+      "table": "dbo.FactInternetSales",
+      "name": "PK_FactInternetSales_SalesOrderNumber_SalesOrderLineNumber",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "SalesOrderNumber",
+        "SalesOrderLineNumber"
+      ]
+    },
+    {
+      "table": "dbo.FactInternetSalesReason",
+      "name": "PK_FactInternetSalesReason_SalesOrderNumber_SalesOrderLineNumber_SalesReasonKey",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "SalesOrderNumber",
+        "SalesOrderLineNumber",
+        "SalesReasonKey"
+      ]
+    },
+    {
+      "table": "dbo.FactResellerSales",
+      "name": "PK_FactResellerSales_SalesOrderNumber_SalesOrderLineNumber",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "SalesOrderNumber",
+        "SalesOrderLineNumber"
+      ]
+    },
+    {
+      "table": "dbo.FactSalesQuota",
+      "name": "PK_FactSalesQuota_SalesQuotaKey",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "SalesQuotaKey"
+      ]
+    },
+    {
+      "table": "dbo.FactSurveyResponse",
+      "name": "PK_FactSurveyResponse_SurveyResponseKey",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "SurveyResponseKey"
+      ]
+    },
+    {
+      "table": "dbo.ProspectiveBuyer",
+      "name": "PK_ProspectiveBuyer_ProspectiveBuyerKey",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "ProspectiveBuyerKey"
+      ]
+    },
+    {
+      "table": "dbo.DimAccount",
+      "name": "FK_DimAccount_DimAccount",
+      "kind": "foreign key",
+      "is_system_named": false,
+      "columns": [
+        "ParentAccountKey"
+      ],
+      "ref_table": "dbo.DimAccount",
+      "ref_columns": [
+        "AccountKey"
+      ]
+    },
+    {
+      "table": "dbo.DimCustomer",
+      "name": "FK_DimCustomer_DimGeography",
+      "kind": "foreign key",
+      "is_system_named": false,
+      "columns": [
+        "GeographyKey"
+      ],
+      "ref_table": "dbo.DimGeography",
+      "ref_columns": [
+        "GeographyKey"
+      ]
+    },
+    {
+      "table": "dbo.DimDepartmentGroup",
+      "name": "FK_DimDepartmentGroup_DimDepartmentGroup",
+      "kind": "foreign key",
+      "is_system_named": false,
+      "columns": [
+        "ParentDepartmentGroupKey"
+      ],
+      "ref_table": "dbo.DimDepartmentGroup",
+      "ref_columns": [
+        "DepartmentGroupKey"
+      ]
+    },
+    {
+      "table": "dbo.DimEmployee",
+      "name": "FK_DimEmployee_DimEmployee",
+      "kind": "foreign key",
+      "is_system_named": false,
+      "columns": [
+        "ParentEmployeeKey"
+      ],
+      "ref_table": "dbo.DimEmployee",
+      "ref_columns": [
+        "EmployeeKey"
+      ]
+    },
+    {
+      "table": "dbo.DimEmployee",
+      "name": "FK_DimEmployee_DimSalesTerritory",
+      "kind": "foreign key",
+      "is_system_named": false,
+      "columns": [
+        "SalesTerritoryKey"
+      ],
+      "ref_table": "dbo.DimSalesTerritory",
+      "ref_columns": [
+        "SalesTerritoryKey"
+      ]
+    },
+    {
+      "table": "dbo.DimGeography",
+      "name": "FK_DimGeography_DimSalesTerritory",
+      "kind": "foreign key",
+      "is_system_named": false,
+      "columns": [
+        "SalesTerritoryKey"
+      ],
+      "ref_table": "dbo.DimSalesTerritory",
+      "ref_columns": [
+        "SalesTerritoryKey"
+      ]
+    },
+    {
+      "table": "dbo.DimOrganization",
+      "name": "FK_DimOrganization_DimCurrency",
+      "kind": "foreign key",
+      "is_system_named": false,
+      "columns": [
+        "CurrencyKey"
+      ],
+      "ref_table": "dbo.DimCurrency",
+      "ref_columns": [
+        "CurrencyKey"
+      ]
+    },
+    {
+      "table": "dbo.DimOrganization",
+      "name": "FK_DimOrganization_DimOrganization",
+      "kind": "foreign key",
+      "is_system_named": false,
+      "columns": [
+        "ParentOrganizationKey"
+      ],
+      "ref_table": "dbo.DimOrganization",
+      "ref_columns": [
+        "OrganizationKey"
+      ]
+    },
+    {
+      "table": "dbo.DimProduct",
+      "name": "FK_DimProduct_DimProductSubcategory",
+      "kind": "foreign key",
+      "is_system_named": false,
+      "columns": [
+        "ProductSubcategoryKey"
+      ],
+      "ref_table": "dbo.DimProductSubcategory",
+      "ref_columns": [
+        "ProductSubcategoryKey"
+      ]
+    },
+    {
+      "table": "dbo.DimProductSubcategory",
+      "name": "FK_DimProductSubcategory_DimProductCategory",
+      "kind": "foreign key",
+      "is_system_named": false,
+      "columns": [
+        "ProductCategoryKey"
+      ],
+      "ref_table": "dbo.DimProductCategory",
+      "ref_columns": [
+        "ProductCategoryKey"
+      ]
+    },
+    {
+      "table": "dbo.DimReseller",
+      "name": "FK_DimReseller_DimGeography",
+      "kind": "foreign key",
+      "is_system_named": false,
+      "columns": [
+        "GeographyKey"
+      ],
+      "ref_table": "dbo.DimGeography",
+      "ref_columns": [
+        "GeographyKey"
+      ]
+    },
+    {
+      "table": "dbo.FactAdditionalInternationalProductDescription",
+      "name": "FK_FactAdditionalInternationalProductDescription_DimProduct",
+      "kind": "foreign key",
+      "is_system_named": false,
+      "columns": [
+        "ProductKey"
+      ],
+      "ref_table": "dbo.DimProduct",
+      "ref_columns": [
+        "ProductKey"
+      ]
+    },
+    {
+      "table": "dbo.FactCallCenter",
+      "name": "FK_FactCallCenter_DimDate",
+      "kind": "foreign key",
+      "is_system_named": false,
+      "columns": [
+        "DateKey"
+      ],
+      "ref_table": "dbo.DimDate",
+      "ref_columns": [
+        "DateKey"
+      ]
+    },
+    {
+      "table": "dbo.FactCurrencyRate",
+      "name": "FK_FactCurrencyRate_DimCurrency",
+      "kind": "foreign key",
+      "is_system_named": false,
+      "columns": [
+        "CurrencyKey"
+      ],
+      "ref_table": "dbo.DimCurrency",
+      "ref_columns": [
+        "CurrencyKey"
+      ]
+    },
+    {
+      "table": "dbo.FactCurrencyRate",
+      "name": "FK_FactCurrencyRate_DimDate",
+      "kind": "foreign key",
+      "is_system_named": false,
+      "columns": [
+        "DateKey"
+      ],
+      "ref_table": "dbo.DimDate",
+      "ref_columns": [
+        "DateKey"
+      ]
+    },
+    {
+      "table": "dbo.FactFinance",
+      "name": "FK_FactFinance_DimAccount",
+      "kind": "foreign key",
+      "is_system_named": false,
+      "columns": [
+        "AccountKey"
+      ],
+      "ref_table": "dbo.DimAccount",
+      "ref_columns": [
+        "AccountKey"
+      ]
+    },
+    {
+      "table": "dbo.FactFinance",
+      "name": "FK_FactFinance_DimDate",
+      "kind": "foreign key",
+      "is_system_named": false,
+      "columns": [
+        "DateKey"
+      ],
+      "ref_table": "dbo.DimDate",
+      "ref_columns": [
+        "DateKey"
+      ]
+    },
+    {
+      "table": "dbo.FactFinance",
+      "name": "FK_FactFinance_DimDepartmentGroup",
+      "kind": "foreign key",
+      "is_system_named": false,
+      "columns": [
+        "DepartmentGroupKey"
+      ],
+      "ref_table": "dbo.DimDepartmentGroup",
+      "ref_columns": [
+        "DepartmentGroupKey"
+      ]
+    },
+    {
+      "table": "dbo.FactFinance",
+      "name": "FK_FactFinance_DimOrganization",
+      "kind": "foreign key",
+      "is_system_named": false,
+      "columns": [
+        "OrganizationKey"
+      ],
+      "ref_table": "dbo.DimOrganization",
+      "ref_columns": [
+        "OrganizationKey"
+      ]
+    },
+    {
+      "table": "dbo.FactFinance",
+      "name": "FK_FactFinance_DimScenario",
+      "kind": "foreign key",
+      "is_system_named": false,
+      "columns": [
+        "ScenarioKey"
+      ],
+      "ref_table": "dbo.DimScenario",
+      "ref_columns": [
+        "ScenarioKey"
+      ]
+    },
+    {
+      "table": "dbo.FactInternetSales",
+      "name": "FK_FactInternetSales_DimCurrency",
+      "kind": "foreign key",
+      "is_system_named": false,
+      "columns": [
+        "CurrencyKey"
+      ],
+      "ref_table": "dbo.DimCurrency",
+      "ref_columns": [
+        "CurrencyKey"
+      ]
+    },
+    {
+      "table": "dbo.FactInternetSales",
+      "name": "FK_FactInternetSales_DimCustomer",
+      "kind": "foreign key",
+      "is_system_named": false,
+      "columns": [
+        "CustomerKey"
+      ],
+      "ref_table": "dbo.DimCustomer",
+      "ref_columns": [
+        "CustomerKey"
+      ]
+    },
+    {
+      "table": "dbo.FactInternetSales",
+      "name": "FK_FactInternetSales_DimDate",
+      "kind": "foreign key",
+      "is_system_named": false,
+      "columns": [
+        "OrderDateKey"
+      ],
+      "ref_table": "dbo.DimDate",
+      "ref_columns": [
+        "DateKey"
+      ]
+    },
+    {
+      "table": "dbo.FactInternetSales",
+      "name": "FK_FactInternetSales_DimDate1",
+      "kind": "foreign key",
+      "is_system_named": false,
+      "columns": [
+        "DueDateKey"
+      ],
+      "ref_table": "dbo.DimDate",
+      "ref_columns": [
+        "DateKey"
+      ]
+    },
+    {
+      "table": "dbo.FactInternetSales",
+      "name": "FK_FactInternetSales_DimDate2",
+      "kind": "foreign key",
+      "is_system_named": false,
+      "columns": [
+        "ShipDateKey"
+      ],
+      "ref_table": "dbo.DimDate",
+      "ref_columns": [
+        "DateKey"
+      ]
+    },
+    {
+      "table": "dbo.FactInternetSales",
+      "name": "FK_FactInternetSales_DimProduct",
+      "kind": "foreign key",
+      "is_system_named": false,
+      "columns": [
+        "ProductKey"
+      ],
+      "ref_table": "dbo.DimProduct",
+      "ref_columns": [
+        "ProductKey"
+      ]
+    },
+    {
+      "table": "dbo.FactInternetSales",
+      "name": "FK_FactInternetSales_DimPromotion",
+      "kind": "foreign key",
+      "is_system_named": false,
+      "columns": [
+        "PromotionKey"
+      ],
+      "ref_table": "dbo.DimPromotion",
+      "ref_columns": [
+        "PromotionKey"
+      ]
+    },
+    {
+      "table": "dbo.FactInternetSales",
+      "name": "FK_FactInternetSales_DimSalesTerritory",
+      "kind": "foreign key",
+      "is_system_named": false,
+      "columns": [
+        "SalesTerritoryKey"
+      ],
+      "ref_table": "dbo.DimSalesTerritory",
+      "ref_columns": [
+        "SalesTerritoryKey"
+      ]
+    },
+    {
+      "table": "dbo.FactInternetSalesReason",
+      "name": "FK_FactInternetSalesReason_DimSalesReason",
+      "kind": "foreign key",
+      "is_system_named": false,
+      "columns": [
+        "SalesReasonKey"
+      ],
+      "ref_table": "dbo.DimSalesReason",
+      "ref_columns": [
+        "SalesReasonKey"
+      ]
+    },
+    {
+      "table": "dbo.FactInternetSalesReason",
+      "name": "FK_FactInternetSalesReason_FactInternetSales",
+      "kind": "foreign key",
+      "is_system_named": false,
+      "columns": [
+        "SalesOrderNumber",
+        "SalesOrderLineNumber"
+      ],
+      "ref_table": "dbo.FactInternetSales",
+      "ref_columns": [
+        "SalesOrderNumber",
+        "SalesOrderLineNumber"
+      ]
+    },
+    {
+      "table": "dbo.FactResellerSales",
+      "name": "FK_FactResellerSales_DimCurrency",
+      "kind": "foreign key",
+      "is_system_named": false,
+      "columns": [
+        "CurrencyKey"
+      ],
+      "ref_table": "dbo.DimCurrency",
+      "ref_columns": [
+        "CurrencyKey"
+      ]
+    },
+    {
+      "table": "dbo.FactResellerSales",
+      "name": "FK_FactResellerSales_DimDate",
+      "kind": "foreign key",
+      "is_system_named": false,
+      "columns": [
+        "OrderDateKey"
+      ],
+      "ref_table": "dbo.DimDate",
+      "ref_columns": [
+        "DateKey"
+      ]
+    },
+    {
+      "table": "dbo.FactResellerSales",
+      "name": "FK_FactResellerSales_DimDate1",
+      "kind": "foreign key",
+      "is_system_named": false,
+      "columns": [
+        "DueDateKey"
+      ],
+      "ref_table": "dbo.DimDate",
+      "ref_columns": [
+        "DateKey"
+      ]
+    },
+    {
+      "table": "dbo.FactResellerSales",
+      "name": "FK_FactResellerSales_DimDate2",
+      "kind": "foreign key",
+      "is_system_named": false,
+      "columns": [
+        "ShipDateKey"
+      ],
+      "ref_table": "dbo.DimDate",
+      "ref_columns": [
+        "DateKey"
+      ]
+    },
+    {
+      "table": "dbo.FactResellerSales",
+      "name": "FK_FactResellerSales_DimEmployee",
+      "kind": "foreign key",
+      "is_system_named": false,
+      "columns": [
+        "EmployeeKey"
+      ],
+      "ref_table": "dbo.DimEmployee",
+      "ref_columns": [
+        "EmployeeKey"
+      ]
+    },
+    {
+      "table": "dbo.FactResellerSales",
+      "name": "FK_FactResellerSales_DimProduct",
+      "kind": "foreign key",
+      "is_system_named": false,
+      "columns": [
+        "ProductKey"
+      ],
+      "ref_table": "dbo.DimProduct",
+      "ref_columns": [
+        "ProductKey"
+      ]
+    },
+    {
+      "table": "dbo.FactResellerSales",
+      "name": "FK_FactResellerSales_DimPromotion",
+      "kind": "foreign key",
+      "is_system_named": false,
+      "columns": [
+        "PromotionKey"
+      ],
+      "ref_table": "dbo.DimPromotion",
+      "ref_columns": [
+        "PromotionKey"
+      ]
+    },
+    {
+      "table": "dbo.FactResellerSales",
+      "name": "FK_FactResellerSales_DimReseller",
+      "kind": "foreign key",
+      "is_system_named": false,
+      "columns": [
+        "ResellerKey"
+      ],
+      "ref_table": "dbo.DimReseller",
+      "ref_columns": [
+        "ResellerKey"
+      ]
+    },
+    {
+      "table": "dbo.FactResellerSales",
+      "name": "FK_FactResellerSales_DimSalesTerritory",
+      "kind": "foreign key",
+      "is_system_named": false,
+      "columns": [
+        "SalesTerritoryKey"
+      ],
+      "ref_table": "dbo.DimSalesTerritory",
+      "ref_columns": [
+        "SalesTerritoryKey"
+      ]
+    },
+    {
+      "table": "dbo.FactSalesQuota",
+      "name": "FK_FactSalesQuota_DimDate",
+      "kind": "foreign key",
+      "is_system_named": false,
+      "columns": [
+        "DateKey"
+      ],
+      "ref_table": "dbo.DimDate",
+      "ref_columns": [
+        "DateKey"
+      ]
+    },
+    {
+      "table": "dbo.FactSalesQuota",
+      "name": "FK_FactSalesQuota_DimEmployee",
+      "kind": "foreign key",
+      "is_system_named": false,
+      "columns": [
+        "EmployeeKey"
+      ],
+      "ref_table": "dbo.DimEmployee",
+      "ref_columns": [
+        "EmployeeKey"
+      ]
+    },
+    {
+      "table": "dbo.FactSurveyResponse",
+      "name": "FK_FactSurveyResponse_CustomerKey",
+      "kind": "foreign key",
+      "is_system_named": false,
+      "columns": [
+        "CustomerKey"
+      ],
+      "ref_table": "dbo.DimCustomer",
+      "ref_columns": [
+        "CustomerKey"
+      ]
+    },
+    {
+      "table": "dbo.FactSurveyResponse",
+      "name": "FK_FactSurveyResponse_DateKey",
+      "kind": "foreign key",
+      "is_system_named": false,
+      "columns": [
+        "DateKey"
+      ],
+      "ref_table": "dbo.DimDate",
+      "ref_columns": [
+        "DateKey"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.DimAccount",
+      "name": "AK_DimAccount_AccountCodeAlternateKey",
+      "type": "nonclustered",
+      "is_unique": true,
+      "is_primary_key": false,
+      "key_columns": [
+        "AccountCodeAlternateKey"
+      ]
+    },
+    {
+      "table": "dbo.DimAccount",
+      "name": "PK_DimAccount",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "AccountKey"
+      ]
+    },
+    {
+      "table": "dbo.DimCurrency",
+      "name": "AK_DimCurrency_CurrencyAlternateKey",
+      "type": "nonclustered",
+      "is_unique": true,
+      "is_primary_key": false,
+      "key_columns": [
+        "CurrencyAlternateKey"
+      ]
+    },
+    {
+      "table": "dbo.DimCurrency",
+      "name": "PK_DimCurrency_CurrencyKey",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "CurrencyKey"
+      ]
+    },
+    {
+      "table": "dbo.DimCustomer",
+      "name": "IX_DimCustomer_CustomerAlternateKey",
+      "type": "nonclustered",
+      "is_unique": true,
+      "is_primary_key": false,
+      "key_columns": [
+        "CustomerAlternateKey"
+      ]
+    },
+    {
+      "table": "dbo.DimCustomer",
+      "name": "IX_DimCustomer_GeographyKey",
+      "type": "nonclustered",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": [
+        "GeographyKey"
+      ]
+    },
+    {
+      "table": "dbo.DimCustomer",
+      "name": "PK_DimCustomer_CustomerKey",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "CustomerKey"
+      ]
+    },
+    {
+      "table": "dbo.DimDate",
+      "name": "AK_DimDate_FullDateAlternateKey",
+      "type": "nonclustered",
+      "is_unique": true,
+      "is_primary_key": false,
+      "key_columns": [
+        "FullDateAlternateKey"
+      ]
+    },
+    {
+      "table": "dbo.DimDate",
+      "name": "PK_DimDate_DateKey",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "DateKey"
+      ]
+    },
+    {
+      "table": "dbo.DimDepartmentGroup",
+      "name": "PK_DimDepartmentGroup",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "DepartmentGroupKey"
+      ]
+    },
+    {
+      "table": "dbo.DimEmployee",
+      "name": "IX_DimEmployee_ParentEmployeeKey",
+      "type": "nonclustered",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": [
+        "ParentEmployeeKey"
+      ]
+    },
+    {
+      "table": "dbo.DimEmployee",
+      "name": "IX_DimEmployee_SalesTerritoryKey",
+      "type": "nonclustered",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": [
+        "SalesTerritoryKey"
+      ]
+    },
+    {
+      "table": "dbo.DimEmployee",
+      "name": "PK_DimEmployee_EmployeeKey",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "EmployeeKey"
+      ]
+    },
+    {
+      "table": "dbo.DimGeography",
+      "name": "PK_DimGeography_GeographyKey",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "GeographyKey"
+      ]
+    },
+    {
+      "table": "dbo.DimOrganization",
+      "name": "PK_DimOrganization",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "OrganizationKey"
+      ]
+    },
+    {
+      "table": "dbo.DimProduct",
+      "name": "AK_DimProduct_ProductAlternateKey_StartDate",
+      "type": "nonclustered",
+      "is_unique": true,
+      "is_primary_key": false,
+      "key_columns": [
+        "ProductAlternateKey",
+        "StartDate"
+      ]
+    },
+    {
+      "table": "dbo.DimProduct",
+      "name": "IX_DimProduct_ProductSubcategoryKey",
+      "type": "nonclustered",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": [
+        "ProductSubcategoryKey"
+      ]
+    },
+    {
+      "table": "dbo.DimProduct",
+      "name": "PK_DimProduct_ProductKey",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "ProductKey"
+      ]
+    },
+    {
+      "table": "dbo.DimProductCategory",
+      "name": "AK_DimProductCategory_ProductCategoryAlternateKey",
+      "type": "nonclustered",
+      "is_unique": true,
+      "is_primary_key": false,
+      "key_columns": [
+        "ProductCategoryAlternateKey"
+      ]
+    },
+    {
+      "table": "dbo.DimProductCategory",
+      "name": "PK_DimProductCategory_ProductCategoryKey",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "ProductCategoryKey"
+      ]
+    },
+    {
+      "table": "dbo.DimProductSubcategory",
+      "name": "AK_DimProductSubcategory_ProductSubcategoryAlternateKey",
+      "type": "nonclustered",
+      "is_unique": true,
+      "is_primary_key": false,
+      "key_columns": [
+        "ProductSubcategoryAlternateKey"
+      ]
+    },
+    {
+      "table": "dbo.DimProductSubcategory",
+      "name": "PK_DimProductSubcategory_ProductSubcategoryKey",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "ProductSubcategoryKey"
+      ]
+    },
+    {
+      "table": "dbo.DimPromotion",
+      "name": "AK_DimPromotion_PromotionAlternateKey",
+      "type": "nonclustered",
+      "is_unique": true,
+      "is_primary_key": false,
+      "key_columns": [
+        "PromotionAlternateKey"
+      ]
+    },
+    {
+      "table": "dbo.DimPromotion",
+      "name": "PK_DimPromotion_PromotionKey",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "PromotionKey"
+      ]
+    },
+    {
+      "table": "dbo.DimReseller",
+      "name": "AK_DimReseller_ResellerAlternateKey",
+      "type": "nonclustered",
+      "is_unique": true,
+      "is_primary_key": false,
+      "key_columns": [
+        "ResellerAlternateKey"
+      ]
+    },
+    {
+      "table": "dbo.DimReseller",
+      "name": "IX_DimReseller_GeographyKey",
+      "type": "nonclustered",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": [
+        "GeographyKey"
+      ]
+    },
+    {
+      "table": "dbo.DimReseller",
+      "name": "PK_DimReseller_ResellerKey",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "ResellerKey"
+      ]
+    },
+    {
+      "table": "dbo.DimSalesReason",
+      "name": "PK_DimSalesReason_SalesReasonKey",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "SalesReasonKey"
+      ]
+    },
+    {
+      "table": "dbo.DimSalesTerritory",
+      "name": "AK_DimSalesTerritory_SalesTerritoryAlternateKey",
+      "type": "nonclustered",
+      "is_unique": true,
+      "is_primary_key": false,
+      "key_columns": [
+        "SalesTerritoryAlternateKey"
+      ]
+    },
+    {
+      "table": "dbo.DimSalesTerritory",
+      "name": "PK_DimSalesTerritory_SalesTerritoryKey",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "SalesTerritoryKey"
+      ]
+    },
+    {
+      "table": "dbo.DimScenario",
+      "name": "PK_DimScenario",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "ScenarioKey"
+      ]
+    },
+    {
+      "table": "dbo.FactAdditionalInternationalProductDescription",
+      "name": "PK_FactAdditionalInternationalProductDescription_ProductKey_CultureName",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "ProductKey",
+        "CultureName"
+      ]
+    },
+    {
+      "table": "dbo.FactCallCenter",
+      "name": "AK_FactCallCenter_DateKey_Shift",
+      "type": "nonclustered",
+      "is_unique": true,
+      "is_primary_key": false,
+      "key_columns": [
+        "DateKey",
+        "Shift"
+      ]
+    },
+    {
+      "table": "dbo.FactCallCenter",
+      "name": "PK_FactCallCenter_FactCallCenterID",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "FactCallCenterID"
+      ]
+    },
+    {
+      "table": "dbo.FactCurrencyRate",
+      "name": "PK_FactCurrencyRate_CurrencyKey_DateKey",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "CurrencyKey",
+        "DateKey"
+      ]
+    },
+    {
+      "table": "dbo.FactInternetSales",
+      "name": "IX_FactIneternetSales_ShipDateKey",
+      "type": "nonclustered",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": [
+        "ShipDateKey"
+      ]
+    },
+    {
+      "table": "dbo.FactInternetSales",
+      "name": "IX_FactInternetSales_CurrencyKey",
+      "type": "nonclustered",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": [
+        "CurrencyKey"
+      ]
+    },
+    {
+      "table": "dbo.FactInternetSales",
+      "name": "IX_FactInternetSales_CustomerKey",
+      "type": "nonclustered",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": [
+        "CustomerKey"
+      ]
+    },
+    {
+      "table": "dbo.FactInternetSales",
+      "name": "IX_FactInternetSales_DueDateKey",
+      "type": "nonclustered",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": [
+        "DueDateKey"
+      ]
+    },
+    {
+      "table": "dbo.FactInternetSales",
+      "name": "IX_FactInternetSales_OrderDateKey",
+      "type": "nonclustered",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": [
+        "OrderDateKey"
+      ]
+    },
+    {
+      "table": "dbo.FactInternetSales",
+      "name": "IX_FactInternetSales_ProductKey",
+      "type": "nonclustered",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": [
+        "ProductKey"
+      ]
+    },
+    {
+      "table": "dbo.FactInternetSales",
+      "name": "IX_FactInternetSales_PromotionKey",
+      "type": "nonclustered",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": [
+        "PromotionKey"
+      ]
+    },
+    {
+      "table": "dbo.FactInternetSales",
+      "name": "PK_FactInternetSales_SalesOrderNumber_SalesOrderLineNumber",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "SalesOrderNumber",
+        "SalesOrderLineNumber"
+      ]
+    },
+    {
+      "table": "dbo.FactInternetSalesReason",
+      "name": "PK_FactInternetSalesReason_SalesOrderNumber_SalesOrderLineNumber_SalesReasonKey",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "SalesOrderNumber",
+        "SalesOrderLineNumber",
+        "SalesReasonKey"
+      ]
+    },
+    {
+      "table": "dbo.FactResellerSales",
+      "name": "IX_FactResellerSales_CurrencyKey",
+      "type": "nonclustered",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": [
+        "CurrencyKey"
+      ]
+    },
+    {
+      "table": "dbo.FactResellerSales",
+      "name": "IX_FactResellerSales_DueDateKey",
+      "type": "nonclustered",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": [
+        "DueDateKey"
+      ]
+    },
+    {
+      "table": "dbo.FactResellerSales",
+      "name": "IX_FactResellerSales_EmployeeKey",
+      "type": "nonclustered",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": [
+        "EmployeeKey"
+      ]
+    },
+    {
+      "table": "dbo.FactResellerSales",
+      "name": "IX_FactResellerSales_OrderDateKey",
+      "type": "nonclustered",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": [
+        "OrderDateKey"
+      ]
+    },
+    {
+      "table": "dbo.FactResellerSales",
+      "name": "IX_FactResellerSales_ProductKey",
+      "type": "nonclustered",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": [
+        "ProductKey"
+      ]
+    },
+    {
+      "table": "dbo.FactResellerSales",
+      "name": "IX_FactResellerSales_PromotionKey",
+      "type": "nonclustered",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": [
+        "PromotionKey"
+      ]
+    },
+    {
+      "table": "dbo.FactResellerSales",
+      "name": "IX_FactResellerSales_ResellerKey",
+      "type": "nonclustered",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": [
+        "ResellerKey"
+      ]
+    },
+    {
+      "table": "dbo.FactResellerSales",
+      "name": "IX_FactResellerSales_ShipDateKey",
+      "type": "nonclustered",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": [
+        "ShipDateKey"
+      ]
+    },
+    {
+      "table": "dbo.FactResellerSales",
+      "name": "PK_FactResellerSales_SalesOrderNumber_SalesOrderLineNumber",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "SalesOrderNumber",
+        "SalesOrderLineNumber"
+      ]
+    },
+    {
+      "table": "dbo.FactSalesQuota",
+      "name": "IX_FactSalesQuota_DateKey",
+      "type": "nonclustered",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": [
+        "DateKey"
+      ]
+    },
+    {
+      "table": "dbo.FactSalesQuota",
+      "name": "IX_FactSalesQuota_EmployeeKey",
+      "type": "nonclustered",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": [
+        "EmployeeKey"
+      ]
+    },
+    {
+      "table": "dbo.FactSalesQuota",
+      "name": "PK_FactSalesQuota_SalesQuotaKey",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "SalesQuotaKey"
+      ]
+    },
+    {
+      "table": "dbo.FactSurveyResponse",
+      "name": "IX_FactSurveyResponse_CustomerKey",
+      "type": "nonclustered",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": [
+        "CustomerKey"
+      ]
+    },
+    {
+      "table": "dbo.FactSurveyResponse",
+      "name": "IX_FactSurveyResponse_DateKey",
+      "type": "nonclustered",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": [
+        "DateKey"
+      ]
+    },
+    {
+      "table": "dbo.FactSurveyResponse",
+      "name": "IX_FactSurveyResponse_ProductSubcategoryKey",
+      "type": "nonclustered",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": [
+        "ProductSubcategoryKey"
+      ]
+    },
+    {
+      "table": "dbo.FactSurveyResponse",
+      "name": "PK_FactSurveyResponse_SurveyResponseKey",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "SurveyResponseKey"
+      ]
+    },
+    {
+      "table": "dbo.ProspectiveBuyer",
+      "name": "IX_ProspectiveBuyer_ProspectAlternateKey",
+      "type": "nonclustered",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": [
+        "ProspectAlternateKey"
+      ]
+    },
+    {
+      "table": "dbo.ProspectiveBuyer",
+      "name": "PK_ProspectiveBuyer_ProspectiveBuyerKey",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "ProspectiveBuyerKey"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [
+    {
+      "object": "dbo.udfBuildISO8601Date",
+      "type": "SQL_SCALAR_FUNCTION",
+      "definition": "\r\n-- Builds an ISO 8601 format date from a year, month, and day specified as integers.\r\n-- This format of date should parse correctly regardless of SET DATEFORMAT and SET LANGUAGE.\r\n-- See SQL Server Books Online for more details.\r\nCREATE FUNCTION [dbo].[udfBuildISO8601Date] (@year int, @month int, @day int)\r\nRETURNS datetime\r\nAS \r\nBEGIN\r\n\tRETURN cast(convert(varchar, @year) + '-' + [dbo].[udfTwoDigitZeroFill](@month) \r\n\t    + '-' + [dbo].[udfTwoDigitZeroFill](@day) + 'T00:00:00' \r\n\t    as datetime);\r\nEND\r\n"
+    },
+    {
+      "object": "dbo.udfMinimumDate",
+      "type": "SQL_SCALAR_FUNCTION",
+      "definition": "\r\nCREATE FUNCTION [dbo].[udfMinimumDate] (\r\n    @x DATETIME, \r\n    @y DATETIME\r\n) RETURNS DATETIME\r\nAS\r\nBEGIN\r\n    DECLARE @z DATETIME\r\n\r\n    IF @x <= @y \r\n        SET @z = @x \r\n    ELSE \r\n        SET @z = @y\r\n\r\n    RETURN(@z)\r\nEND\r\n"
+    },
+    {
+      "object": "dbo.udfTwoDigitZeroFill",
+      "type": "SQL_SCALAR_FUNCTION",
+      "definition": "\r\n-- Converts the specified integer (which should be < 100 and > -1)\r\n-- into a two character string, zero filling from the left \r\n-- if the number is < 10.\r\nCREATE FUNCTION [dbo].[udfTwoDigitZeroFill] (@number int) \r\nRETURNS char(2)\r\nAS\r\nBEGIN\r\n\tDECLARE @result char(2);\r\n\tIF @number > 9 \r\n\t\tSET @result = convert(char(2), @number);\r\n\tELSE\r\n\t\tSET @result = convert(char(2), '0' + convert(varchar, @number));\r\n\tRETURN @result;\r\nEND\r\n\r\n"
+    },
+    {
+      "object": "dbo.vAssocSeqLineItems",
+      "type": "VIEW",
+      "definition": "\r\nCREATE VIEW [dbo].[vAssocSeqLineItems] \r\nAS\r\n    SELECT\r\n        OrderNumber\r\n        ,LineNumber\r\n        ,Model\r\n    FROM\r\n        [dbo].[vDMPrep] \r\n    WHERE\r\n        FiscalYear = '2008'\r\n;\r\n"
+    },
+    {
+      "object": "dbo.vAssocSeqOrders",
+      "type": "VIEW",
+      "definition": "\r\n-- vAssocSeqOrders supports assocation and sequence clustering data mmining models.\r\n--      - Limits data to FY2008.\r\n--      - Creates order case table and line item nested table.\r\nCREATE VIEW [dbo].[vAssocSeqOrders]\r\nAS\r\n    SELECT DISTINCT\r\n        [OrderNumber]\r\n        ,[CustomerKey]\r\n        ,[Region]\r\n        ,[IncomeGroup]\r\n    FROM\r\n        [dbo].[vDMPrep] \r\n    WHERE\r\n        [FiscalYear] = '2008'\r\n"
+    },
+    {
+      "object": "dbo.vDMPrep",
+      "type": "VIEW",
+      "definition": "\r\n-- vDMPrep will be used as a data source by the other data mining views.  \r\n-- Uses DW data at customer, product, day, etc. granularity and\r\n-- gets region, model, year, month, etc.\r\nCREATE VIEW [dbo].[vDMPrep]\r\nAS\r\n    SELECT\r\n        pc.[EnglishProductCategoryName]\r\n        ,Coalesce(p.[ModelName], p.[EnglishProductName]) AS [Model]\r\n        ,c.[CustomerKey]\r\n        ,s.[SalesTerritoryGroup] AS [Region]\r\n        ,CASE\r\n            WHEN Month(GetDate()) < Month(c.[BirthDate])\r\n                THEN DateDiff(yy,c.[BirthDate],GetDate()) - 1\r\n            WHEN Month(GetDate()) = Month(c.[BirthDate])\r\n            AND Day(GetDate()) < Day(c.[BirthDate])\r\n                THEN DateDiff(yy,c.[BirthDate],GetDate()) - 1\r\n            ELSE DateDiff(yy,c.[BirthDate],GetDate())\r\n        END AS [Age]\r\n        ,CASE\r\n            WHEN c.[YearlyIncome] < 40000 THEN 'Low'\r\n            WHEN c.[YearlyIncome] > 60000 THEN 'High'\r\n            ELSE 'Moderate'\r\n        END AS [IncomeGroup]\r\n        ,d.[CalendarYear]\r\n        ,d.[FiscalYear]\r\n        ,d.[MonthNumberOfYear] AS [Month]\r\n        ,f.[SalesOrderNumber] AS [OrderNumber]\r\n        ,f.SalesOrderLineNumber AS LineNumber\r\n        ,f.OrderQuantity AS Quantity\r\n        ,f.ExtendedAmount AS Amount  \r\n    FROM\r\n        [dbo].[FactInternetSales] f\r\n    INNER JOIN [dbo].[DimDate] d\r\n        ON f.[OrderDateKey] = d.[DateKey]\r\n    INNER JOIN [dbo].[DimProduct] p\r\n        ON f.[ProductKey] = p.[ProductKey]\r\n    INNER JOIN [dbo].[DimProductSubcategory] psc\r\n        ON p.[ProductSubcategoryKey] = psc.[ProductSubcategoryKey]\r\n    INNER JOIN [dbo].[DimProductCategory] pc\r\n        ON psc.[ProductCategoryKey] = pc.[ProductCategoryKey]\r\n    INNER JOIN [dbo].[DimCustomer] c\r\n        ON f.[CustomerKey] = c.[CustomerKey]\r\n    INNER JOIN [dbo].[DimGeography] g\r\n        ON c.[GeographyKey] = g.[GeographyKey]\r\n    INNER JOIN [dbo].[DimSalesTerritory] s\r\n        ON g.[SalesTerritoryKey] = s.[SalesTerritoryKey] \r\n;\r\n"
+    },
+    {
+      "object": "dbo.vTargetMail",
+      "type": "VIEW",
+      "definition": "\r\n-- vTargetMail supports targeted mailing data model\r\n-- Uses vDMPrep to determine if a customer buys a bike and joins to DimCustomer\r\nCREATE VIEW [dbo].[vTargetMail] \r\nAS\r\n    SELECT\r\n        c.[CustomerKey], \r\n        c.[GeographyKey], \r\n        c.[CustomerAlternateKey], \r\n        c.[Title], \r\n        c.[FirstName], \r\n        c.[MiddleName], \r\n        c.[LastName], \r\n        c.[NameStyle], \r\n        c.[BirthDate], \r\n        c.[MaritalStatus], \r\n        c.[Suffix], \r\n        c.[Gender], \r\n        c.[EmailAddress], \r\n        c.[YearlyIncome], \r\n        c.[TotalChildren], \r\n        c.[NumberChildrenAtHome], \r\n        c.[EnglishEducation], \r\n        c.[SpanishEducation], \r\n        c.[FrenchEducation], \r\n        c.[EnglishOccupation], \r\n        c.[SpanishOccupation], \r\n        c.[FrenchOccupation], \r\n        c.[HouseOwnerFlag], \r\n        c.[NumberCarsOwned], \r\n        c.[AddressLine1], \r\n        c.[AddressLine2], \r\n        c.[Phone], \r\n        c.[DateFirstPurchase], \r\n        c.[CommuteDistance], \r\n        x.[Region], \r\n        x.[Age], \r\n        CASE x.[Bikes] \r\n            WHEN 0 THEN 0 \r\n            ELSE 1 \r\n        END AS [BikeBuyer]\r\n    FROM\r\n        [dbo].[DimCustomer] c INNER JOIN (\r\n            SELECT\r\n                [CustomerKey]\r\n                ,[Region]\r\n                ,[Age]\r\n                ,Sum(\r\n                    CASE [EnglishProductCategoryName] \r\n                        WHEN 'Bikes' THEN 1 \r\n                        ELSE 0 \r\n                    END) AS [Bikes]\r\n            FROM\r\n                [dbo].[vDMPrep] \r\n            GROUP BY\r\n                [CustomerKey]\r\n                ,[Region]\r\n                ,[Age]\r\n            ) AS [x]\r\n        ON c.[CustomerKey] = x.[CustomerKey]\r\n;\r\n"
+    },
+    {
+      "object": "dbo.vTimeSeries",
+      "type": "VIEW",
+      "definition": "\r\n\r\n-- vTimeSeries view supports the creation of time series data mining models.\r\n--      - Replaces earlier bike models with successor models.\r\n--      - Abbreviates model names to improve readability in mining model viewer\r\n--      - Concatenates model and region so that table only has one input.\r\n--      - Creates a date field indexed to monthly reporting date for use in prediction.\r\nCREATE VIEW [dbo].[vTimeSeries] \r\nAS\r\n    SELECT \r\n        CASE [Model] \r\n            WHEN 'Mountain-100' THEN 'M200' \r\n            WHEN 'Road-150' THEN 'R250' \r\n            WHEN 'Road-650' THEN 'R750' \r\n            WHEN 'Touring-1000' THEN 'T1000' \r\n            ELSE Left([Model], 1) + Right([Model], 3) \r\n        END + ' ' + [Region] AS [ModelRegion] \r\n        ,(Convert(Integer, [CalendarYear]) * 100) + Convert(Integer, [Month]) AS [TimeIndex] \r\n        ,Sum([Quantity]) AS [Quantity] \r\n        ,Sum([Amount]) AS [Amount]\r\n\t\t,CalendarYear\r\n\t\t,[Month]\r\n\t\t,[dbo].[udfBuildISO8601Date] ([CalendarYear], [Month], 25)\r\n\t\tas ReportingDate\r\n    FROM \r\n        [dbo].[vDMPrep] \r\n    WHERE \r\n        [Model] IN ('Mountain-100', 'Mountain-200', 'Road-150', 'Road-250', \r\n            'Road-650', 'Road-750', 'Touring-1000') \r\n    GROUP BY \r\n        CASE [Model] \r\n            WHEN 'Mountain-100' THEN 'M200' \r\n            WHEN 'Road-150' THEN 'R250' \r\n            WHEN 'Road-650' THEN 'R750' \r\n            WHEN 'Touring-1000' THEN 'T1000' \r\n            ELSE Left(Model,1) + Right(Model,3) \r\n        END + ' ' + [Region] \r\n        ,(Convert(Integer, [CalendarYear]) * 100) + Convert(Integer, [Month])\r\n\t\t,CalendarYear\r\n\t\t,[Month]\r\n\t\t,[dbo].[udfBuildISO8601Date] ([CalendarYear], [Month], 25);\r\n"
+    }
+  ],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "WINDOWS_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.DimAccount",
+      "name": "_WA_Sys_00000002_00551192",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "ParentAccountKey"
+      ]
+    },
+    {
+      "table": "dbo.DimAccount",
+      "name": "AK_DimAccount_AccountCodeAlternateKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "AccountCodeAlternateKey"
+      ]
+    },
+    {
+      "table": "dbo.DimAccount",
+      "name": "PK_DimAccount",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "AccountKey"
+      ]
+    },
+    {
+      "table": "dbo.DimCurrency",
+      "name": "AK_DimCurrency_CurrencyAlternateKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "CurrencyAlternateKey"
+      ]
+    },
+    {
+      "table": "dbo.DimCurrency",
+      "name": "PK_DimCurrency_CurrencyKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "CurrencyKey"
+      ]
+    },
+    {
+      "table": "dbo.DimCustomer",
+      "name": "IX_DimCustomer_CustomerAlternateKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "CustomerAlternateKey"
+      ]
+    },
+    {
+      "table": "dbo.DimCustomer",
+      "name": "IX_DimCustomer_GeographyKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "GeographyKey"
+      ]
+    },
+    {
+      "table": "dbo.DimCustomer",
+      "name": "PK_DimCustomer_CustomerKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "CustomerKey"
+      ]
+    },
+    {
+      "table": "dbo.DimDate",
+      "name": "AK_DimDate_FullDateAlternateKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "FullDateAlternateKey"
+      ]
+    },
+    {
+      "table": "dbo.DimDate",
+      "name": "PK_DimDate_DateKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "DateKey"
+      ]
+    },
+    {
+      "table": "dbo.DimDepartmentGroup",
+      "name": "_WA_Sys_00000002_0425A276",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "ParentDepartmentGroupKey"
+      ]
+    },
+    {
+      "table": "dbo.DimDepartmentGroup",
+      "name": "PK_DimDepartmentGroup",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "DepartmentGroupKey"
+      ]
+    },
+    {
+      "table": "dbo.DimEmployee",
+      "name": "IX_DimEmployee_ParentEmployeeKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "ParentEmployeeKey"
+      ]
+    },
+    {
+      "table": "dbo.DimEmployee",
+      "name": "IX_DimEmployee_SalesTerritoryKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "SalesTerritoryKey"
+      ]
+    },
+    {
+      "table": "dbo.DimEmployee",
+      "name": "PK_DimEmployee_EmployeeKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "EmployeeKey"
+      ]
+    },
+    {
+      "table": "dbo.DimGeography",
+      "name": "_WA_Sys_0000000A_060DEAE8",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "SalesTerritoryKey"
+      ]
+    },
+    {
+      "table": "dbo.DimGeography",
+      "name": "PK_DimGeography_GeographyKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "GeographyKey"
+      ]
+    },
+    {
+      "table": "dbo.DimOrganization",
+      "name": "_WA_Sys_00000002_07020F21",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "ParentOrganizationKey"
+      ]
+    },
+    {
+      "table": "dbo.DimOrganization",
+      "name": "_WA_Sys_00000005_07020F21",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "CurrencyKey"
+      ]
+    },
+    {
+      "table": "dbo.DimOrganization",
+      "name": "PK_DimOrganization",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "OrganizationKey"
+      ]
+    },
+    {
+      "table": "dbo.DimProduct",
+      "name": "AK_DimProduct_ProductAlternateKey_StartDate",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "ProductAlternateKey",
+        "StartDate"
+      ]
+    },
+    {
+      "table": "dbo.DimProduct",
+      "name": "IX_DimProduct_ProductSubcategoryKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "ProductSubcategoryKey"
+      ]
+    },
+    {
+      "table": "dbo.DimProduct",
+      "name": "PK_DimProduct_ProductKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "ProductKey"
+      ]
+    },
+    {
+      "table": "dbo.DimProductCategory",
+      "name": "AK_DimProductCategory_ProductCategoryAlternateKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "ProductCategoryAlternateKey"
+      ]
+    },
+    {
+      "table": "dbo.DimProductCategory",
+      "name": "PK_DimProductCategory_ProductCategoryKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "ProductCategoryKey"
+      ]
+    },
+    {
+      "table": "dbo.DimProductSubcategory",
+      "name": "_WA_Sys_00000006_09DE7BCC",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "ProductCategoryKey"
+      ]
+    },
+    {
+      "table": "dbo.DimProductSubcategory",
+      "name": "AK_DimProductSubcategory_ProductSubcategoryAlternateKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "ProductSubcategoryAlternateKey"
+      ]
+    },
+    {
+      "table": "dbo.DimProductSubcategory",
+      "name": "PK_DimProductSubcategory_ProductSubcategoryKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "ProductSubcategoryKey"
+      ]
+    },
+    {
+      "table": "dbo.DimPromotion",
+      "name": "AK_DimPromotion_PromotionAlternateKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "PromotionAlternateKey"
+      ]
+    },
+    {
+      "table": "dbo.DimPromotion",
+      "name": "PK_DimPromotion_PromotionKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "PromotionKey"
+      ]
+    },
+    {
+      "table": "dbo.DimReseller",
+      "name": "AK_DimReseller_ResellerAlternateKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "ResellerAlternateKey"
+      ]
+    },
+    {
+      "table": "dbo.DimReseller",
+      "name": "IX_DimReseller_GeographyKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "GeographyKey"
+      ]
+    },
+    {
+      "table": "dbo.DimReseller",
+      "name": "PK_DimReseller_ResellerKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "ResellerKey"
+      ]
+    },
+    {
+      "table": "dbo.DimSalesReason",
+      "name": "PK_DimSalesReason_SalesReasonKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "SalesReasonKey"
+      ]
+    },
+    {
+      "table": "dbo.DimSalesTerritory",
+      "name": "AK_DimSalesTerritory_SalesTerritoryAlternateKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "SalesTerritoryAlternateKey"
+      ]
+    },
+    {
+      "table": "dbo.DimSalesTerritory",
+      "name": "PK_DimSalesTerritory_SalesTerritoryKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "SalesTerritoryKey"
+      ]
+    },
+    {
+      "table": "dbo.DimScenario",
+      "name": "PK_DimScenario",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "ScenarioKey"
+      ]
+    },
+    {
+      "table": "dbo.FactAdditionalInternationalProductDescription",
+      "name": "PK_FactAdditionalInternationalProductDescription_ProductKey_CultureName",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "ProductKey",
+        "CultureName"
+      ]
+    },
+    {
+      "table": "dbo.FactCallCenter",
+      "name": "AK_FactCallCenter_DateKey_Shift",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "DateKey",
+        "Shift"
+      ]
+    },
+    {
+      "table": "dbo.FactCallCenter",
+      "name": "PK_FactCallCenter_FactCallCenterID",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "FactCallCenterID"
+      ]
+    },
+    {
+      "table": "dbo.FactCurrencyRate",
+      "name": "_WA_Sys_00000002_117F9D94",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "DateKey"
+      ]
+    },
+    {
+      "table": "dbo.FactCurrencyRate",
+      "name": "PK_FactCurrencyRate_CurrencyKey_DateKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "CurrencyKey",
+        "DateKey"
+      ]
+    },
+    {
+      "table": "dbo.FactFinance",
+      "name": "_WA_Sys_00000002_1273C1CD",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "DateKey"
+      ]
+    },
+    {
+      "table": "dbo.FactFinance",
+      "name": "_WA_Sys_00000003_1273C1CD",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "OrganizationKey"
+      ]
+    },
+    {
+      "table": "dbo.FactFinance",
+      "name": "_WA_Sys_00000004_1273C1CD",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "DepartmentGroupKey"
+      ]
+    },
+    {
+      "table": "dbo.FactFinance",
+      "name": "_WA_Sys_00000005_1273C1CD",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "ScenarioKey"
+      ]
+    },
+    {
+      "table": "dbo.FactFinance",
+      "name": "_WA_Sys_00000006_1273C1CD",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "AccountKey"
+      ]
+    },
+    {
+      "table": "dbo.FactInternetSales",
+      "name": "_WA_Sys_00000008_1367E606",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "SalesTerritoryKey"
+      ]
+    },
+    {
+      "table": "dbo.FactInternetSales",
+      "name": "_WA_Sys_0000000A_1367E606",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "SalesOrderLineNumber"
+      ]
+    },
+    {
+      "table": "dbo.FactInternetSales",
+      "name": "IX_FactIneternetSales_ShipDateKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "ShipDateKey"
+      ]
+    },
+    {
+      "table": "dbo.FactInternetSales",
+      "name": "IX_FactInternetSales_CurrencyKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "CurrencyKey"
+      ]
+    },
+    {
+      "table": "dbo.FactInternetSales",
+      "name": "IX_FactInternetSales_CustomerKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "CustomerKey"
+      ]
+    },
+    {
+      "table": "dbo.FactInternetSales",
+      "name": "IX_FactInternetSales_DueDateKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "DueDateKey"
+      ]
+    },
+    {
+      "table": "dbo.FactInternetSales",
+      "name": "IX_FactInternetSales_OrderDateKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "OrderDateKey"
+      ]
+    },
+    {
+      "table": "dbo.FactInternetSales",
+      "name": "IX_FactInternetSales_ProductKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "ProductKey"
+      ]
+    },
+    {
+      "table": "dbo.FactInternetSales",
+      "name": "IX_FactInternetSales_PromotionKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "PromotionKey"
+      ]
+    },
+    {
+      "table": "dbo.FactInternetSales",
+      "name": "PK_FactInternetSales_SalesOrderNumber_SalesOrderLineNumber",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "SalesOrderNumber",
+        "SalesOrderLineNumber"
+      ]
+    },
+    {
+      "table": "dbo.FactInternetSalesReason",
+      "name": "_WA_Sys_00000002_15502E78",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "SalesOrderLineNumber"
+      ]
+    },
+    {
+      "table": "dbo.FactInternetSalesReason",
+      "name": "_WA_Sys_00000003_15502E78",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "SalesReasonKey"
+      ]
+    },
+    {
+      "table": "dbo.FactInternetSalesReason",
+      "name": "PK_FactInternetSalesReason_SalesOrderNumber_SalesOrderLineNumber_SalesReasonKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "SalesOrderNumber",
+        "SalesOrderLineNumber",
+        "SalesReasonKey"
+      ]
+    },
+    {
+      "table": "dbo.FactResellerSales",
+      "name": "_WA_Sys_00000009_145C0A3F",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "SalesTerritoryKey"
+      ]
+    },
+    {
+      "table": "dbo.FactResellerSales",
+      "name": "IX_FactResellerSales_CurrencyKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "CurrencyKey"
+      ]
+    },
+    {
+      "table": "dbo.FactResellerSales",
+      "name": "IX_FactResellerSales_DueDateKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "DueDateKey"
+      ]
+    },
+    {
+      "table": "dbo.FactResellerSales",
+      "name": "IX_FactResellerSales_EmployeeKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "EmployeeKey"
+      ]
+    },
+    {
+      "table": "dbo.FactResellerSales",
+      "name": "IX_FactResellerSales_OrderDateKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "OrderDateKey"
+      ]
+    },
+    {
+      "table": "dbo.FactResellerSales",
+      "name": "IX_FactResellerSales_ProductKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "ProductKey"
+      ]
+    },
+    {
+      "table": "dbo.FactResellerSales",
+      "name": "IX_FactResellerSales_PromotionKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "PromotionKey"
+      ]
+    },
+    {
+      "table": "dbo.FactResellerSales",
+      "name": "IX_FactResellerSales_ResellerKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "ResellerKey"
+      ]
+    },
+    {
+      "table": "dbo.FactResellerSales",
+      "name": "IX_FactResellerSales_ShipDateKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "ShipDateKey"
+      ]
+    },
+    {
+      "table": "dbo.FactResellerSales",
+      "name": "PK_FactResellerSales_SalesOrderNumber_SalesOrderLineNumber",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "SalesOrderNumber",
+        "SalesOrderLineNumber"
+      ]
+    },
+    {
+      "table": "dbo.FactSalesQuota",
+      "name": "IX_FactSalesQuota_DateKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "DateKey"
+      ]
+    },
+    {
+      "table": "dbo.FactSalesQuota",
+      "name": "IX_FactSalesQuota_EmployeeKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "EmployeeKey"
+      ]
+    },
+    {
+      "table": "dbo.FactSalesQuota",
+      "name": "PK_FactSalesQuota_SalesQuotaKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "SalesQuotaKey"
+      ]
+    },
+    {
+      "table": "dbo.FactSurveyResponse",
+      "name": "IX_FactSurveyResponse_CustomerKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "CustomerKey"
+      ]
+    },
+    {
+      "table": "dbo.FactSurveyResponse",
+      "name": "IX_FactSurveyResponse_DateKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "DateKey"
+      ]
+    },
+    {
+      "table": "dbo.FactSurveyResponse",
+      "name": "IX_FactSurveyResponse_ProductSubcategoryKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "ProductSubcategoryKey"
+      ]
+    },
+    {
+      "table": "dbo.FactSurveyResponse",
+      "name": "PK_FactSurveyResponse_SurveyResponseKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "SurveyResponseKey"
+      ]
+    },
+    {
+      "table": "dbo.ProspectiveBuyer",
+      "name": "IX_ProspectiveBuyer_ProspectAlternateKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "ProspectAlternateKey"
+      ]
+    },
+    {
+      "table": "dbo.ProspectiveBuyer",
+      "name": "PK_ProspectiveBuyer_ProspectiveBuyerKey",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "ProspectiveBuyerKey"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": false,
+    "query_texts": []
+  }
+}

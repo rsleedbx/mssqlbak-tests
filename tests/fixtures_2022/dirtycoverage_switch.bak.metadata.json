@@ -1,0 +1,121 @@
+{
+  "bak": "dirtycoverage_switch.bak",
+  "bak_sha256": "e33bcb43533580c210a8c88696105c0d9b0932cfd59ccbb8c15844eab61ac2f1",
+  "captured_at": "2026-07-17T13:14:18.777406+00:00",
+  "constraints": [
+    {
+      "table": "dbo.part_test",
+      "name": "pk_part",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.staging_test",
+      "name": "pk_staging",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.staging_test",
+      "name": "chk_staging_id",
+      "kind": "check",
+      "is_system_named": false,
+      "columns": [
+        "id"
+      ],
+      "column": "id",
+      "definition": "([id]>(300) AND [id] IS NOT NULL)"
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.part_test",
+      "name": "pk_part",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.staging_test",
+      "name": "pk_staging",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.part_test",
+      "name": "pk_part",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.staging_test",
+      "name": "pk_staging",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": true,
+    "query_texts": [
+      "(@1 int,@2 nvarchar(4000),@3 varchar(8000))INSERT INTO [part_test]([id],[label],[phase]) values(@1,@2,@3)",
+      "(@1 int,@2 nvarchar(4000),@3 varchar(8000))INSERT INTO [staging_test]([id],[label],[phase]) values(@1,@2,@3)"
+    ]
+  }
+}

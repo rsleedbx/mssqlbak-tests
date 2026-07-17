@@ -1,0 +1,118 @@
+{
+  "bak": "mixed_collation_full.bak",
+  "bak_sha256": "15975e90b6e4254b442d775cca675c0182bfde7dfd461635a401ae28a326b3b0",
+  "captured_at": "2026-07-17T15:46:13.436828+00:00",
+  "constraints": [
+    {
+      "table": "dbo.collation_mix",
+      "name": "pk_collation_mix",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "id"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.collation_mix",
+      "name": "pk_collation_mix",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.collation_mix",
+      "name": "_WA_Sys_00000002_48CFD27E",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "lat"
+      ]
+    },
+    {
+      "table": "dbo.collation_mix",
+      "name": "_WA_Sys_00000003_48CFD27E",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "grk"
+      ]
+    },
+    {
+      "table": "dbo.collation_mix",
+      "name": "_WA_Sys_00000004_48CFD27E",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "heb"
+      ]
+    },
+    {
+      "table": "dbo.collation_mix",
+      "name": "_WA_Sys_00000005_48CFD27E",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "utf"
+      ]
+    },
+    {
+      "table": "dbo.collation_mix",
+      "name": "pk_collation_mix",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": true,
+    "query_texts": []
+  }
+}

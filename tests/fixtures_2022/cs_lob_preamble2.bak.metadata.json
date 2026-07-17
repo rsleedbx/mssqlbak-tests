@@ -1,0 +1,107 @@
+{
+  "bak": "cs_lob_preamble2.bak",
+  "bak_sha256": "c346a617388454dd4ceb1bb8f0839d1c96e9fb20f6d46a336af3d7c86a110d8a",
+  "captured_at": "2026-07-17T13:08:09.570595+00:00",
+  "constraints": [
+    {
+      "table": "dbo.cs_lob_preamble",
+      "name": "pk_cslp",
+      "kind": "primary key",
+      "is_system_named": false,
+      "columns": [
+        "id"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.cs_lob_preamble",
+      "name": "cci_lob_preamble",
+      "type": "clustered columnstore",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": []
+    },
+    {
+      "table": "dbo.cs_lob_preamble",
+      "name": "pk_cslp",
+      "type": "nonclustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.cs_lob_preamble",
+      "name": "_WA_Sys_00000002_35BCFE0A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "long_str"
+      ]
+    },
+    {
+      "table": "dbo.cs_lob_preamble",
+      "name": "cci_lob_preamble",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id",
+        "long_str"
+      ]
+    },
+    {
+      "table": "dbo.cs_lob_preamble",
+      "name": "pk_cslp",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": true,
+    "query_texts": []
+  }
+}

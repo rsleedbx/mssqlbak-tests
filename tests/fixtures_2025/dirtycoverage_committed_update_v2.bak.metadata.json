@@ -1,0 +1,80 @@
+{
+  "bak": "dirtycoverage_committed_update_v2.bak",
+  "bak_sha256": "b568aa88ae32efae6cb5faf8e9b2d3e30c216b963de341c702ad941913d97e4c",
+  "captured_at": "2026-07-17T15:33:43.004371+00:00",
+  "constraints": [
+    {
+      "table": "dbo.committed_update_test",
+      "name": "PK__committe__3213E83F79569948",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.committed_update_test",
+      "name": "PK__committe__3213E83F79569948",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.committed_update_test",
+      "name": "PK__committe__3213E83F79569948",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": true,
+    "query_texts": [
+      "INSERT INTO committed_update_test (id, label, score)\nSELECT n,\n       LEFT('original_' + CAST(n AS VARCHAR) + REPLICATE('_', 200), 200),\n       n\nFROM (SELECT TOP(1000) ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS n\n      FROM master.dbo.spt_values AS a CROSS JOIN master.dbo.spt_values AS b) x"
+    ]
+  }
+}

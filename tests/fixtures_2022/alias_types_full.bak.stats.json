@@ -5,8 +5,8 @@
   "bak_size_mb": 2.926,
   "bak_sha256": "8c005f1eca311936fe122fbd3bdd907494459dfe02cc1d81a0ae8b82ebc48c2e",
   "database": "RegisterBak_alias_types_full",
-  "registered_at": "2026-06-28T20:21:41.301830+00:00",
-  "sqlserver_restore_s": 2.283,
+  "registered_at": "2026-07-17T18:36:59.179188+00:00",
+  "sqlserver_restore_s": 1.986,
   "tables": [
     {
       "schema": "dbo",
@@ -17,64 +17,64 @@
           "name": "id",
           "sql_type": "int",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "1",
+          "max_val": "3"
         },
         {
           "name": "is_active",
-          "sql_type": "Flag",
+          "sql_type": "bit",
           "null_count": 1,
-          "min_val": null,
-          "max_val": null
+          "min_val": "0",
+          "max_val": "1"
         },
         {
           "name": "name_style",
-          "sql_type": "NameStyle",
+          "sql_type": "bit",
           "null_count": 1,
-          "min_val": null,
-          "max_val": null
+          "min_val": "0",
+          "max_val": "1"
         },
         {
           "name": "random_flag_123",
-          "sql_type": "RandomFlag123",
+          "sql_type": "bit",
           "null_count": 1,
-          "min_val": null,
-          "max_val": null
+          "min_val": "0",
+          "max_val": "1"
         },
         {
           "name": "float_alias",
-          "sql_type": "FloatAlias",
+          "sql_type": "float",
           "null_count": 1,
-          "min_val": null,
-          "max_val": null
+          "min_val": "1.5",
+          "max_val": "2.25"
         },
         {
           "name": "money_alias",
-          "sql_type": "MoneyAlias",
+          "sql_type": "money",
           "null_count": 1,
-          "min_val": null,
-          "max_val": null
+          "min_val": "0.0100",
+          "max_val": "12.3400"
         },
         {
           "name": "display_name",
-          "sql_type": "PersonName",
+          "sql_type": "nvarchar",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "Alice",
+          "max_val": "Null Flags"
         },
         {
           "name": "account_number",
-          "sql_type": "AccountNumber",
+          "sql_type": "int",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "1001",
+          "max_val": "1003"
         },
         {
           "name": "external_id",
-          "sql_type": "ExternalId",
+          "sql_type": "uniqueidentifier",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "11111111-1111-1111-1111-111111111111",
+          "max_val": "33333333-3333-3333-3333-333333333333"
         }
       ]
     }

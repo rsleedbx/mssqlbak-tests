@@ -1,10 +1,12 @@
 {
-  "sql_version": "Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (X64)",
+  "sql_version": "Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)",
   "bak": "AdventureWorksDW2008R2.bak",
+  "bak_size_bytes": 77709312,
   "bak_size_mb": 74.109,
+  "bak_sha256": "1c905a80fba938b114ff86273b97fd69ae5bea090d237fe75ef3f4f9309d7edf",
   "database": "RegisterBak_AdventureWorksDW2008R2",
-  "registered_at": "2026-06-10T01:27:38.467842+00:00",
-  "sqlserver_restore_s": 4.873,
+  "registered_at": "2026-07-17T18:58:44.023884+00:00",
+  "sqlserver_restore_s": 3.385,
   "tables": [
     {
       "schema": "dbo",
@@ -22,8 +24,8 @@
           "name": "VersionDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Oct 12 2009 12:00AM",
-          "max_val": "Oct 12 2009 12:00AM"
+          "min_val": "2009-10-12 00:00:00",
+          "max_val": "2009-10-12 00:00:00"
         }
       ]
     },
@@ -43,8 +45,8 @@
           "name": "PostTime",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Mar 29 2012  1:43PM",
-          "max_val": "Mar 29 2012  1:43PM"
+          "min_val": "2012-03-29 13:43:37",
+          "max_val": "2012-03-29 13:43:48"
         },
         {
           "name": "DatabaseUser",
@@ -78,15 +80,15 @@
           "name": "TSQL",
           "sql_type": "nvarchar",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "\r\n\r\n-- vTimeSeries view supports the creation of time series data mining models.\r\n--      - Replaces earlier bike models with successor models.\r\n--      - Abbreviates model names to improve readability in mining model viewer\r\n--      - Concatenates model and region so that table only has one input.\r\n--      - Creates a date field indexed to monthly reporting date for use in prediction.\r\nCREATE VIEW [dbo].[vTimeSeries] \r\nAS\r\n    SELECT \r\n        CASE [Model] \r\n            WHEN 'Mountain-100' THEN 'M200' \r\n            WHEN 'Road-150' THEN 'R250' \r\n            WHEN 'Road-650' THEN 'R750' \r\n            WHEN 'Touring-1000' THEN 'T1000' \r\n            ELSE Left([Model], 1) + Right([Model], 3) \r\n        END + ' ' + [Region] AS [ModelRegion] \r\n        ,(Convert(Integer, [CalendarYear]) * 100) + Convert(Integer, [Month]) AS [TimeIndex] \r\n        ,Sum([Quantity]) AS [Quantity] \r\n        ,Sum([Amount]) AS [Amount]\r\n\t\t,CalendarYear\r\n\t\t,[Month]\r\n\t\t,[dbo].[udfBuildISO8601Date] ([CalendarYear], [Month], 25)\r\n\t\tas ReportingDate\r\n    FROM \r\n        [dbo].[vDMPrep] \r\n    WHERE \r\n        [Model] IN ('Mountain-100', 'Mountain-200', 'Road-150', 'Road-250', \r\n            'Road-650', 'Road-750', 'Touring-1000') \r\n    GROUP BY \r\n        CASE [Model] \r\n            WHEN 'Mountain-100' THEN 'M200' \r\n            WHEN 'Road-150' THEN 'R250' \r\n            WHEN 'Road-650' THEN 'R750' \r\n            WHEN 'Touring-1000' THEN 'T1000' \r\n            ELSE Left(Model,1) + Right(Model,3) \r\n        END + ' ' + [Region] \r\n        ,(Convert(Integer, [CalendarYear]) * 100) + Convert(Integer, [Month])\r\n\t\t,CalendarYear\r\n\t\t,[Month]\r\n\t\t,[dbo].[udfBuildISO8601Date] ([CalendarYear], [Month], 25);\r\n",
+          "max_val": "CREATE UNIQUE INDEX [AK_DimAccount_AccountCodeAlternateKey] ON [dbo].[DimAccount]([AccountCodeAlternateKey]) ON [PRIMARY];\r\n\r\n"
         },
         {
           "name": "XmlEvent",
           "sql_type": "xml",
           "null_count": 0,
-          "min_val": "<EVENT_INSTANCE><EventType>ALTER_TABLE</EventType><PostTime>2012-03-29T13:43:44.130</PostTime><SPID>52</SPID><ServerName>DERRICKV-MSFT</ServerName><LoginName>REDMOND\\derrickv</LoginName><UserName>dbo<",
-          "max_val": "<EVENT_INSTANCE><EventType>CREATE_VIEW</EventType><PostTime>2012-03-29T13:43:48.653</PostTime><SPID>52</SPID><ServerName>DERRICKV-MSFT</ServerName><LoginName>REDMOND\\derrickv</LoginName><UserName>dbo<"
+          "min_val": "<EVENT_INSTANCE><EventType>ALTER_TABLE</EventType><PostTime>2012-03-29T13:43:44.130</PostTime><SPID>52</SPID><ServerName>DERRICKV-MSFT</ServerName><LoginName>REDMOND\\derrickv</LoginName><UserName>dbo</UserName><DatabaseName>AdventureWorksDW2008R2</DatabaseName><SchemaName>dbo</SchemaName><ObjectName>DimAccount</ObjectName><ObjectType>TABLE</ObjectType><AlterTableActionList><Create><Constraints><Name>PK_DimAccount</Name></Constraints></Create></AlterTableActionList><TSQLCommand><SetOptions ANSI_NULLS=\"ON\" ANSI_NULL_DEFAULT=\"ON\" ANSI_PADDING=\"ON\" QUOTED_IDENTIFIER=\"ON\" ENCRYPTED=\"FALSE\"/><CommandText>ALTER TABLE [dbo].[DimAccount] WITH CHECK ADD &#x0D;\n    CONSTRAINT [PK_DimAccount] PRIMARY KEY CLUSTERED &#x0D;\n    (&#x0D;\n        [AccountKey]&#x0D;\n    )  ON [PRIMARY];&#x0D;\n&#x0D;\n</CommandText></TSQLCommand></EVENT_INSTANCE>",
+          "max_val": "<EVENT_INSTANCE><EventType>CREATE_VIEW</EventType><PostTime>2012-03-29T13:43:48.653</PostTime><SPID>52</SPID><ServerName>DERRICKV-MSFT</ServerName><LoginName>REDMOND\\derrickv</LoginName><UserName>dbo</UserName><DatabaseName>AdventureWorksDW2008R2</DatabaseName><SchemaName>dbo</SchemaName><ObjectName>vAssocSeqOrders</ObjectName><ObjectType>VIEW</ObjectType><TSQLCommand><SetOptions ANSI_NULLS=\"ON\" ANSI_NULL_DEFAULT=\"ON\" ANSI_PADDING=\"ON\" QUOTED_IDENTIFIER=\"ON\" ENCRYPTED=\"FALSE\"/><CommandText>&#x0D;\n-- vAssocSeqOrders supports assocation and sequence clustering data mmining models.&#x0D;\n--      - Limits data to FY2008.&#x0D;\n--      - Creates order case table and line item nested table.&#x0D;\nCREATE VIEW [dbo].[vAssocSeqOrders]&#x0D;\nAS&#x0D;\n    SELECT DISTINCT&#x0D;\n        [OrderNumber]&#x0D;\n        ,[CustomerKey]&#x0D;\n        ,[Region]&#x0D;\n        ,[IncomeGroup]&#x0D;\n    FROM&#x0D;\n        [dbo].[vDMPrep] &#x0D;\n    WHERE&#x0D;\n        [FiscalYear] = '2008'&#x0D;\n</CommandText></TSQLCommand></EVENT_INSTANCE>"
         }
       ]
     },
@@ -141,8 +143,8 @@
           "name": "Operator",
           "sql_type": "nvarchar",
           "null_count": 0,
-          "min_val": "-",
-          "max_val": "+"
+          "min_val": "+",
+          "max_val": "~"
         },
         {
           "name": "CustomMembers",
@@ -240,7 +242,7 @@
           "sql_type": "nvarchar",
           "null_count": 7830,
           "min_val": "A",
-          "max_val": "Z"
+          "max_val": "l"
         },
         {
           "name": "LastName",
@@ -849,7 +851,7 @@
           "sql_type": "nvarchar",
           "null_count": 0,
           "min_val": "Allemagne",
-          "max_val": "Royaume-Uni"
+          "max_val": "\u00c9tats-Unis"
         },
         {
           "name": "PostalCode",
@@ -918,253 +920,253 @@
           "name": "ProductKey",
           "sql_type": "int",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "1",
+          "max_val": "606"
         },
         {
           "name": "ProductAlternateKey",
           "sql_type": "nvarchar",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "AR-5381",
+          "max_val": "WB-H098"
         },
         {
           "name": "ProductSubcategoryKey",
           "sql_type": "int",
           "null_count": 209,
-          "min_val": null,
-          "max_val": null
+          "min_val": "1",
+          "max_val": "37"
         },
         {
           "name": "WeightUnitMeasureCode",
           "sql_type": "nchar",
           "null_count": 324,
-          "min_val": null,
-          "max_val": null
+          "min_val": "G",
+          "max_val": "LB"
         },
         {
           "name": "SizeUnitMeasureCode",
           "sql_type": "nchar",
           "null_count": 353,
-          "min_val": null,
-          "max_val": null
+          "min_val": "CM",
+          "max_val": "CM"
         },
         {
           "name": "EnglishProductName",
           "sql_type": "nvarchar",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "AWC Logo Cap",
+          "max_val": "Women's Tights, S"
         },
         {
           "name": "SpanishProductName",
           "sql_type": "nvarchar",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "",
+          "max_val": "Soporte multiusos para bicicletas"
         },
         {
           "name": "FrenchProductName",
           "sql_type": "nvarchar",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "",
+          "max_val": "V\u00e9lo de route 750 noir, 58"
         },
         {
           "name": "StandardCost",
           "sql_type": "money",
           "null_count": 211,
-          "min_val": null,
-          "max_val": null
+          "min_val": "0.8565",
+          "max_val": "2171.2942"
         },
         {
           "name": "FinishedGoodsFlag",
           "sql_type": "bit",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "0",
+          "max_val": "1"
         },
         {
           "name": "Color",
           "sql_type": "nvarchar",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "Black",
+          "max_val": "Yellow"
         },
         {
           "name": "SafetyStockLevel",
           "sql_type": "smallint",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "4",
+          "max_val": "1000"
         },
         {
           "name": "ReorderPoint",
           "sql_type": "smallint",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "3",
+          "max_val": "750"
         },
         {
           "name": "ListPrice",
           "sql_type": "money",
           "null_count": 211,
-          "min_val": null,
-          "max_val": null
+          "min_val": "2.2900",
+          "max_val": "3578.2700"
         },
         {
           "name": "Size",
           "sql_type": "nvarchar",
           "null_count": 307,
-          "min_val": null,
-          "max_val": null
+          "min_val": "38",
+          "max_val": "XL"
         },
         {
           "name": "SizeRange",
           "sql_type": "nvarchar",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "38-40 CM",
+          "max_val": "XL"
         },
         {
           "name": "Weight",
           "sql_type": "float",
           "null_count": 324,
-          "min_val": null,
-          "max_val": null
+          "min_val": "2.12",
+          "max_val": "1050"
         },
         {
           "name": "DaysToManufacture",
           "sql_type": "int",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "0",
+          "max_val": "4"
         },
         {
           "name": "ProductLine",
           "sql_type": "nchar",
           "null_count": 226,
-          "min_val": null,
-          "max_val": null
+          "min_val": "M",
+          "max_val": "T"
         },
         {
           "name": "DealerPrice",
           "sql_type": "money",
           "null_count": 211,
-          "min_val": null,
-          "max_val": null
+          "min_val": "1.3740",
+          "max_val": "2146.9620"
         },
         {
           "name": "Class",
           "sql_type": "nchar",
           "null_count": 276,
-          "min_val": null,
-          "max_val": null
+          "min_val": "H",
+          "max_val": "M"
         },
         {
           "name": "Style",
           "sql_type": "nchar",
           "null_count": 305,
-          "min_val": null,
-          "max_val": null
+          "min_val": "M",
+          "max_val": "W"
         },
         {
           "name": "ModelName",
           "sql_type": "nvarchar",
           "null_count": 209,
-          "min_val": null,
-          "max_val": null
+          "min_val": "All-Purpose Bike Stand",
+          "max_val": "Women's Tights"
         },
         {
           "name": "LargePhoto",
           "sql_type": "varbinary",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "0x47494638396189009600F70000AE9898FC9E0FFAF9F9B4B2B3E4DADBF105019D9B9BFDF5E4A4A2A2ACAAACFDFCFCCAC4C5C2BCBDBAB3B4FFFEFCFEFDEDC3BEC0D1CDCDE0DEE0D8D4D5F3EBECF6F5F5F2F1F1858284D1CED0FEF8B3FEF850D6D4D5FEF82BB2ABAC919291FAA16EFEF893EDECEDD2D0D1E9E9E9FFFEFAF9F5F5D9D6D8DAD8D9DEDCDDB4AEB1FEEB0EE9E4E5E6E5E5C9C6C8FDF9FCFC7103D4D1D2FDFFFFA9A4A5FEFDFECECCCDD5D2D4FBFBFA908D8EC6C1C2F8FFFDA39EA0FFFDDBE2E0E1C6C4C58B8589F92B01FEF975CAC8C9BFBCBD9B9394CCC9CABAB6B7898989F2EEF0F66D578D8D8D959595F8F7F8E8E6E8C2C0C1F4F2",
+          "max_val": "0x474946383961F0009600F7FF00B4B4B48958496C0906EEE5DEFA88673A3A3AA77968684237DAC5BAC6A798F93922FC5537FBF7F5D44E336F33287D7D7DFB9979BA9888E6D5CBD9CDC7FD24138C3628F8BCA4B2A39CCF9A87FCA586D31007F5EFEBB35944AB87758F4736CB7B63D5B8AB997567CDB3A7FB4329A59C98C7BCB7EB8769CE2414946858F3EBE6FD120A9F9E9E896154E89C82795346E67458B8ABA58D271BF45B3EE76548FBFBF7FAB59AFE0000320103ECE7E4A635256F2219B28B794E4E4EF7F3EFDC755A7A6C66E89478A62518E6DBD4980C04EBDED6B10D05A74635978479856C63DED3CCD9AA96FD301BE9432AFB6B4BE603"
         },
         {
           "name": "EnglishDescription",
           "sql_type": "nvarchar",
           "null_count": 210,
-          "min_val": null,
-          "max_val": null
+          "min_val": "A light yet stiff aluminum bar for long distance riding.",
+          "max_val": "Wraps to fit front and rear tires, carrier and 2 keys included."
         },
         {
           "name": "FrenchDescription",
           "sql_type": "nvarchar",
           "null_count": 210,
-          "min_val": null,
-          "max_val": null
+          "min_val": "Acier chrom\u00e9.",
+          "max_val": "\u00c9quip\u00e9 de la m\u00eame technologie que tous nos v\u00e9los de route, avec un cadre femmes. Id\u00e9al pour la promenade ou la course sur route."
         },
         {
           "name": "ChineseDescription",
           "sql_type": "nvarchar",
           "null_count": 210,
-          "min_val": null,
-          "max_val": null
+          "min_val": "HL \u94dd\u5236\u8f66\u67b6\u7ecf\u8fc7\u7279\u522b\u6253\u9020\uff0c\u4e0d\u4ec5\u5916\u5f62\u60a6\u76ee\u800c\u4e14\u575a\u56fa\u8010\u7528\uff1b\u4e0d\u8bba\u4f55\u65f6\u4f55\u5730\uff0c\u65e5\u5e38\u9a91\u4e58\uff0c\u8f7b\u677e\u638c\u63a7\u3002\u7537\u7528\u81ea\u884c\u8f66\u3002",
+          "max_val": "\u9ad8\u8d28\u91cf\u7684\u4e00\u82f1\u5bf8\u65e0\u87ba\u7eb9\u8f66\u5934\u7897\u7ec4\u5177\u6709\u6cb9\u53e3\uff0c\u53ef\u786e\u4fdd\u5feb\u901f\u6da6\u6ed1\u3002"
         },
         {
           "name": "ArabicDescription",
           "sql_type": "nvarchar",
           "null_count": 210,
-          "min_val": null,
-          "max_val": null
+          "min_val": "\u0623\u062d\u062f\u062b \u0642\u0636\u064a\u0628 \u0642\u064a\u0627\u062f\u0629 \u0645\u0634\u0643\u0651\u0644 \u0628\u0637\u0631\u064a\u0642\u0629 \u062a\u062a\u0643\u064a\u0641 \u0645\u0639 \u0628\u0646\u064a\u0629 \u0627\u0644\u0631\u0627\u0643\u0628 \u0627\u0644\u062c\u0633\u0645\u064a\u0629 \u0648\u0647\u0648 \u0645\u0635\u0646\u0648\u0639 \u0645\u0646 \u0633\u0628\u064a\u0643\u0629 \u0623\u0644\u0648\u0645\u0646\u064a\u0648\u0645\u060c \u0648\u0645\u0635\u0645\u0645 \u0644\u0644\u0645\u062a\u0633\u0627\u0628\u0642\u064a\u0646.",
+          "max_val": "\u064a\u0648\u0641\u0631 \u0647\u064a\u0643\u0644 \u0627\u0644\u0623\u0644\u0648\u0645\u0646\u064a\u0648\u0645 \u0633\u0645\u064a\u0643 \u0627\u0644\u0623\u0637\u0631\u0627\u0641 \u062e\u0641\u064a\u0641 \u0627\u0644\u0648\u0632\u0646 \u0648\u0636\u0639 \u0642\u064a\u0627\u062f\u0629 \u0623\u0643\u062b\u0631 \u0627\u0646\u062a\u0635\u0627\u0628\u064b\u0627 \u0623\u062b\u0646\u0627\u0621 \u0627\u0644\u0642\u064a\u0627\u0645 \u0628\u0631\u062d\u0644\u0627\u062a \u0641\u064a \u0623\u0631\u062c\u0627\u0621 \u0627\u0644\u0628\u0644\u062f\u0629. \u064a\u0648\u0641\u0631 \u062a\u0635\u0645\u064a\u0645\u0646\u0627 \u0627\u0644\u0627\u0628\u062a\u0643\u0627\u0631\u064a \u0623\u0639\u0644\u0649 \u062f\u0631\u062c\u0627\u062a \u0627\u0644\u0631\u0627\u062d\u0629."
         },
         {
           "name": "HebrewDescription",
           "sql_type": "nvarchar",
           "null_count": 210,
-          "min_val": null,
-          "max_val": null
+          "min_val": "\u05d0\u05d5\u05e4\u05e0\u05d9 \u05d0\u05d9\u05db\u05d5\u05ea \u05dc\u05db\u05dc \u05de\u05d8\u05e8\u05d4 \u05e2\u05dd \u05ea\u05db\u05d5\u05e0\u05d5\u05ea \u05d4\u05e0\u05d5\u05d7\u05d5\u05ea \u05d5\u05d4\u05d1\u05d8\u05d9\u05d7\u05d5\u05ea \u05d4\u05d1\u05e1\u05d9\u05e1\u05d9\u05d5\u05ea \u05e9\u05dc\u05e0\u05d5. \u05de\u05e6\u05d9\u05e2\u05d9\u05dd \u05e6\u05de\u05d9\u05d2\u05d9\u05dd \u05e8\u05d7\u05d1\u05d9\u05dd \u05d5\u05d9\u05e6\u05d9\u05d1\u05d9\u05dd \u05d9\u05d5\u05ea\u05e8 \u05dc\u05e8\u05db\u05d9\u05d1\u05d4 \u05d1\u05e8\u05d7\u05d1\u05d9 \u05d4\u05e2\u05d9\u05e8 \u05d0\u05d5 \u05dc\u05d8\u05d9\u05d5\u05dc\u05d9 \u05e1\u05d5\u05e4\u05e9\u05d1\u05d5\u05e2.",
+          "max_val": "\u05ea\u05d0\u05d5\u05e8\u05d4 \u05d1\u05de\u05d7\u05d9\u05e8 \u05e1\u05d1\u05d9\u05e8 \u05dc\u05e8\u05db\u05d9\u05d1\u05d4 \u05dc\u05d9\u05dc\u05d9\u05ea \u05d1\u05d8\u05d5\u05d7\u05d4 \u2013 \u05e4\u05d5\u05e2\u05dc\u05ea \u05d1\u05d0\u05de\u05e6\u05e2\u05d5\u05ea \u05e1\u05d5\u05dc\u05dc\u05ea AAA"
         },
         {
           "name": "ThaiDescription",
           "sql_type": "nvarchar",
           "null_count": 210,
-          "min_val": null,
-          "max_val": null
+          "min_val": "\u0e01\u0e25\u0e48\u0e2d\u0e07\u0e1c\u0e19\u0e36\u0e01\u0e2a\u0e19\u0e34\u0e17\u0e1b\u0e49\u0e2d\u0e07\u0e01\u0e31\u0e19\u0e1d\u0e38\u0e48\u0e19\u0e25\u0e30\u0e2d\u0e2d\u0e07",
+          "max_val": "\u0e44\u0e1f\u0e2b\u0e19\u0e49\u0e32\u0e41\u0e1a\u0e1a\u0e17\u0e19\u0e17\u0e32\u0e19 \u0e01\u0e31\u0e19\u0e19\u0e49\u0e33"
         },
         {
           "name": "GermanDescription",
           "sql_type": "nvarchar",
           "null_count": 210,
-          "min_val": null,
-          "max_val": null
+          "min_val": "\"Ballenschutz Synthetik, flexible Fingerpartie, atmungsaktives Netz am Handr\u00fccken. Wird von den Fahrern des AWC-Teams getragen.\"",
+          "max_val": "Wiederaufladbares Vorderlicht mit zwei Strahlen."
         },
         {
           "name": "JapaneseDescription",
           "sql_type": "nvarchar",
           "null_count": 210,
-          "min_val": null,
-          "max_val": null
+          "min_val": "1 \u65e5\u4e2d\u4e57\u3063\u3066\u3082\u5feb\u9069\u306a\u30a2\u30ca\u30c8\u30df\u30c3\u30af \u30c7\u30b6\u30a4\u30f3\u3067\u3001\u8010\u4e45\u6027\u306e\u3042\u308b\u76ae\u88fd\u3002",
+          "max_val": "\u9ad8\u901f\u8d70\u884c\u7528\u306e\u30b9\u30c6\u30f3\u30ec\u30b9\u88fd\u30b9\u30dd\u30fc\u30af\u3092\u5099\u3048\u305f\u30a2\u30eb\u30df\u30cb\u30a6\u30e0\u5408\u91d1\u30ea\u30e0\u3002"
         },
         {
           "name": "TurkishDescription",
           "sql_type": "nvarchar",
           "null_count": 210,
-          "min_val": null,
-          "max_val": null
+          "min_val": "\"4 bisikleti g\u00fcvenli bir \u015fekilde ta\u015f\u0131r, \u00e7elik konstr\u00fcksiyon, 2'' \u00e7ekiye sabitlenebilir.\"",
+          "max_val": "\u015eoku emen ve daha hassas y\u00f6nlendirilebilen g\u00fc\u00e7l\u00fc tasar\u0131m."
         },
         {
           "name": "StartDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": null,
-          "max_val": null
+          "min_val": "2002-06-01 00:00:00",
+          "max_val": "2007-07-01 00:00:00"
         },
         {
           "name": "EndDate",
           "sql_type": "datetime",
           "null_count": 406,
-          "min_val": null,
-          "max_val": null
+          "min_val": "2006-06-30 00:00:00",
+          "max_val": "2007-06-30 00:00:00"
         },
         {
           "name": "Status",
           "sql_type": "nvarchar",
           "null_count": 200,
-          "min_val": null,
-          "max_val": null
+          "min_val": "Current",
+          "max_val": "Current"
         }
       ]
     },
@@ -1248,7 +1250,7 @@
           "sql_type": "nvarchar",
           "null_count": 0,
           "min_val": "Antivol",
-          "max_val": "VTT"
+          "max_val": "\u00c9clairage"
         },
         {
           "name": "ProductCategoryKey",
@@ -1352,15 +1354,15 @@
           "name": "StartDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Jun  1 2005 12:00AM",
-          "max_val": "May  1 2008 12:00AM"
+          "min_val": "2005-06-01 00:00:00",
+          "max_val": "2008-05-01 00:00:00"
         },
         {
           "name": "EndDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Jun 30 2006 12:00AM",
-          "max_val": "Dec 31 2008 12:00AM"
+          "min_val": "2006-06-30 00:00:00",
+          "max_val": "2008-12-31 00:00:00"
         },
         {
           "name": "MinQty",
@@ -1423,7 +1425,7 @@
           "sql_type": "nvarchar",
           "null_count": 0,
           "min_val": "A Bicycle Association",
-          "max_val": "Yellow Bicycle Company"
+          "max_val": "eCommerce Bikes"
         },
         {
           "name": "NumberEmployees",
@@ -1646,8 +1648,8 @@
           "name": "ProductDescription",
           "sql_type": "nvarchar",
           "null_count": 0,
-          "min_val": "HL \u090f\u0932\u094d\u092f\u0941\u092e\u0940\u0928\u093f\u092f\u092e \u095e\u094d\u0930\u0947\u092e \u0926\u093f\u0916\u0928\u0947 \u092e\u0947\u0902 \u0914\u0930 \u0915\u094d\u0937\u092e\u0924\u093e \u0926\u094b\u0928\u094b\u0902 \u092e\u0947\u0902 \u0935\u093f\u0936\u0947\u0937 \u0939\u0948; \u092f\u0939 \u0930\u094b\u095b\u092e\u0930\u094d\u0930\u093e \u0915\u0940 \u0921\u094d\u0930\u093e\u092f\u0935\u093f\u0902\u0917 \u0915\u0940 \u0915\u0920\u094b\u0930\u0924\u092e \u091a\u0941\u0928\u094c\u0924\u093f\u092f\u094b\u0902 \u0915\u093e \u0938\u093e\u092e\u0928\u093e \u0915\u0930\u0924\u093e \u0939\u0948.  \u092a\u0941\u0930\u0941\u0937 \u0938\u0902\u0938\u094d\u0915\u0930\u0923.",
-          "max_val": "\u9ad8\u78c5\u6578\u8010\u78e8\u77ed\u8eca\u8932\uff0c\u5167\u88e1\u8a2d\u8a08\u63a1\u7528\u7121\u7e2b\u840a\u5361\u6750\u8cea\uff0c\u800c\u9e82\u76ae\u5177\u6709\u6297\u83cc\u6548\u679c\uff0c\u4e26\u53ef\u63d0\u9ad8\u8212\u9069\u5ea6\u3002"
+          "min_val": " HL \u090f\u0932\u094d\u092f\u0941\u092e\u0940\u0928\u093f\u092f\u092e \u095e\u094d\u0930\u0947\u092e \u0926\u093f\u0916\u0928\u0947 \u092e\u0947\u0902 \u0914\u0930 \u0915\u094d\u0937\u092e\u0924\u093e \u0926\u094b\u0928\u094b\u0902 \u092e\u0947\u0902 \u0935\u093f\u0936\u0947\u0937 \u0939\u0948; \u092f\u0939 \u0930\u094b\u095b\u092e\u0930\u094d\u0930\u093e \u0915\u0940 \u0921\u094d\u0930\u093e\u092f\u0935\u093f\u0902\u0917 \u0915\u0940 \u0915\u0920\u094b\u0930\u0924\u092e \u091a\u0941\u0928\u094c\u0924\u093f\u092f\u094b\u0902 \u0915\u093e \u0938\u093e\u092e\u0928\u093e \u0915\u0930\u0924\u093e \u0939\u0948.  \u092a\u0941\u0930\u0941\u0937 \u0938\u0902\u0938\u094d\u0915\u0930\u0923.  ",
+          "max_val": "\ud558\ub8e8 \uc885\uc77c \uc548\ub77d\ud558\uac8c \uc8fc\ud589\ud560 \uc218 \uc788\ub294 \uc778\uccb4 \ud574\ubd80\ud559\uc801 \ub514\uc790\uc778\uc73c\ub85c \uacac\uace0\ud55c \uac00\uc8fd\uc744 \uc0ac\uc6a9\ud588\uc2b5\ub2c8\ub2e4."
         }
       ]
     },
@@ -1682,7 +1684,7 @@
           "sql_type": "nvarchar",
           "null_count": 0,
           "min_val": "AM",
-          "max_val": "PM2"
+          "max_val": "midnight"
         },
         {
           "name": "LevelOneOperators",
@@ -2360,8 +2362,8 @@
           "name": "BirthDate",
           "sql_type": "datetime",
           "null_count": 0,
-          "min_val": "Mar 12 1923 12:00AM",
-          "max_val": "Nov 14 1984 12:00AM"
+          "min_val": "1923-03-12 00:00:00",
+          "max_val": "1984-11-14 00:00:00"
         },
         {
           "name": "MaritalStatus",

@@ -1,0 +1,290 @@
+{
+  "bak": "cci_enc5_largepool_matrix_full.bak",
+  "bak_sha256": "21c0563cf265d7ca36f613b823f5b60e81fea23454bdcfd7856625f804736b07",
+  "captured_at": "2026-07-17T12:56:43.238304+00:00",
+  "constraints": [
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CF63691793",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "pk"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.char_32767_distinct_var",
+      "name": "cci",
+      "type": "clustered columnstore",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": []
+    },
+    {
+      "table": "dbo.char_32768_distinct_var",
+      "name": "cci",
+      "type": "clustered columnstore",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": []
+    },
+    {
+      "table": "dbo.char_65536_distinct_var",
+      "name": "cci",
+      "type": "clustered columnstore",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": []
+    },
+    {
+      "table": "dbo.char_80000_distinct_var",
+      "name": "cci",
+      "type": "clustered columnstore",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": []
+    },
+    {
+      "table": "dbo.char_80000_fullwidth",
+      "name": "cci",
+      "type": "clustered columnstore",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": []
+    },
+    {
+      "table": "dbo.char_80000_lowcard_var",
+      "name": "cci",
+      "type": "clustered columnstore",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": []
+    },
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CF63691793",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "pk"
+      ]
+    },
+    {
+      "table": "dbo.varchar_80000_distinct_var",
+      "name": "cci",
+      "type": "clustered columnstore",
+      "is_unique": false,
+      "is_primary_key": false,
+      "key_columns": []
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.char_32767_distinct_var",
+      "name": "_WA_Sys_00000002_37A5467C",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "val"
+      ]
+    },
+    {
+      "table": "dbo.char_32767_distinct_var",
+      "name": "cci",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id",
+        "val"
+      ]
+    },
+    {
+      "table": "dbo.char_32768_distinct_var",
+      "name": "_WA_Sys_00000002_38996AB5",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "val"
+      ]
+    },
+    {
+      "table": "dbo.char_32768_distinct_var",
+      "name": "cci",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id",
+        "val"
+      ]
+    },
+    {
+      "table": "dbo.char_65536_distinct_var",
+      "name": "_WA_Sys_00000002_398D8EEE",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "val"
+      ]
+    },
+    {
+      "table": "dbo.char_65536_distinct_var",
+      "name": "cci",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id",
+        "val"
+      ]
+    },
+    {
+      "table": "dbo.char_80000_distinct_var",
+      "name": "_WA_Sys_00000002_3A81B327",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "val"
+      ]
+    },
+    {
+      "table": "dbo.char_80000_distinct_var",
+      "name": "cci",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id",
+        "val"
+      ]
+    },
+    {
+      "table": "dbo.char_80000_fullwidth",
+      "name": "_WA_Sys_00000002_3D5E1FD2",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "val"
+      ]
+    },
+    {
+      "table": "dbo.char_80000_fullwidth",
+      "name": "cci",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id",
+        "val"
+      ]
+    },
+    {
+      "table": "dbo.char_80000_lowcard_var",
+      "name": "_WA_Sys_00000002_3C69FB99",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "val"
+      ]
+    },
+    {
+      "table": "dbo.char_80000_lowcard_var",
+      "name": "cci",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id",
+        "val"
+      ]
+    },
+    {
+      "table": "dbo.fkr__seed",
+      "name": "PK__fkr__see__321403CF63691793",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "pk"
+      ]
+    },
+    {
+      "table": "dbo.varchar_80000_distinct_var",
+      "name": "_WA_Sys_00000002_3B75D760",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "val"
+      ]
+    },
+    {
+      "table": "dbo.varchar_80000_distinct_var",
+      "name": "cci",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id",
+        "val"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": true,
+    "query_texts": [
+      "INSERT INTO dbo.char_32767_distinct_var (id, val)\nSELECT\n    pk + 1 AS id,\n    CASE WHEN (pk + 1) % 1000 = 0 THEN NULL\n         ELSE CAST(LEFT(CONVERT(CHAR(32), HASHBYTES('MD5', CAST(pk + 1 AS VARCHAR(12))), 2), 1 + (pk % 13)) AS CHAR(13))\n    END AS val\nFROM fkr__seed\nWHERE pk < 32767",
+      "INSERT INTO dbo.char_32768_distinct_var (id, val)\nSELECT\n    pk + 1 AS id,\n    CASE WHEN (pk + 1) % 1000 = 0 THEN NULL\n         ELSE CAST(LEFT(CONVERT(CHAR(32), HASHBYTES('MD5', CAST(pk + 1 AS VARCHAR(12))), 2), 1 + (pk % 13)) AS CHAR(13))\n    END AS val\nFROM fkr__seed\nWHERE pk < 32768",
+      "INSERT INTO dbo.char_65536_distinct_var (id, val)\nSELECT\n    pk + 1 AS id,\n    CASE WHEN (pk + 1) % 1000 = 0 THEN NULL\n         ELSE CAST(LEFT(CONVERT(CHAR(32), HASHBYTES('MD5', CAST(pk + 1 AS VARCHAR(12))), 2), 1 + (pk % 13)) AS CHAR(13))\n    END AS val\nFROM fkr__seed\nWHERE pk < 65536",
+      "INSERT INTO dbo.char_80000_distinct_var (id, val)\nSELECT\n    pk + 1 AS id,\n    CASE WHEN (pk + 1) % 1000 = 0 THEN NULL\n         ELSE CAST(LEFT(CONVERT(CHAR(32), HASHBYTES('MD5', CAST(pk + 1 AS VARCHAR(12))), 2), 1 + (pk % 13)) AS CHAR(13))\n    END AS val\nFROM fkr__seed\nWHERE pk < 80000",
+      "INSERT INTO dbo.char_80000_fullwidth (id, val)\nSELECT\n    pk + 1 AS id,\n    CASE WHEN (pk + 1) % 1000 = 0 THEN NULL\n         ELSE CAST(LEFT(CONVERT(CHAR(32), HASHBYTES('MD5', CAST(pk + 1 AS VARCHAR(12))), 2), 13) AS CHAR(13))\n    END AS val\nFROM fkr__seed\nWHERE pk < 80000",
+      "INSERT INTO dbo.char_80000_lowcard_var (id, val)\nSELECT\n    pk + 1 AS id,\n    CASE WHEN (pk + 1) % 1000 = 0 THEN NULL\n         ELSE CAST(LEFT(CONVERT(CHAR(32), HASHBYTES('MD5', CAST((pk % 4096) + 1 AS VARCHAR(12))), 2), 1 + (pk % 13)) AS CHAR(13))\n    END AS val\nFROM fkr__seed\nWHERE pk < 80000",
+      "INSERT INTO dbo.varchar_80000_distinct_var (id, val)\nSELECT\n    pk + 1 AS id,\n    CASE WHEN (pk + 1) % 1000 = 0 THEN NULL\n         ELSE CAST(LEFT(CONVERT(CHAR(32), HASHBYTES('MD5', CAST(pk + 1 AS VARCHAR(12))), 2), 1 + (pk % 13)) AS VARCHAR(13))\n    END AS val\nFROM fkr__seed\nWHERE pk < 80000",
+      "INSERT INTO fkr__seed SELECT pk + 32768 FROM (SELECT pk FROM fkr__seed) AS _s"
+    ]
+  }
+}

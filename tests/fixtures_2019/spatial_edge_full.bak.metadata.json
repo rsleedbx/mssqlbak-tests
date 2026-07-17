@@ -1,0 +1,107 @@
+{
+  "bak": "spatial_edge_full.bak",
+  "bak_sha256": "27feee50cb3254dc57217b906f185eab86bbe8d81c2dd02db3111ca67a135bd0",
+  "captured_at": "2026-07-17T15:24:04.614596+00:00",
+  "constraints": [
+    {
+      "table": "dbo.geography_edge",
+      "name": "PK__geograph__3213E83F94AA289F",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.geometry_edge",
+      "name": "PK__geometry__3213E83F4FAFA73F",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.geography_edge",
+      "name": "PK__geograph__3213E83F94AA289F",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.geometry_edge",
+      "name": "PK__geometry__3213E83F4FAFA73F",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.geography_edge",
+      "name": "PK__geograph__3213E83F94AA289F",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    },
+    {
+      "table": "dbo.geometry_edge",
+      "name": "PK__geometry__3213E83F4FAFA73F",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": false,
+    "query_texts": []
+  }
+}

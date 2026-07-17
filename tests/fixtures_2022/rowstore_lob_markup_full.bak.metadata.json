@@ -1,0 +1,108 @@
+{
+  "bak": "rowstore_lob_markup_full.bak",
+  "bak_sha256": "b78501f87d16f01e93f5718b2ce39a2234bb77bec2f570916733e2a8b949be38",
+  "captured_at": "2026-07-17T13:24:04.709882+00:00",
+  "constraints": [
+    {
+      "table": "dbo.lob_markup_probe",
+      "name": "PK__lob_mark__3213E83FD8ADEBD9",
+      "kind": "primary key",
+      "is_system_named": true,
+      "columns": [
+        "id"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "table": "dbo.lob_markup_probe",
+      "name": "PK__lob_mark__3213E83FD8ADEBD9",
+      "type": "clustered",
+      "is_unique": true,
+      "is_primary_key": true,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "extended_properties": [],
+  "modules": [],
+  "schemas": [
+    {
+      "name": "dbo"
+    },
+    {
+      "name": "guest"
+    },
+    {
+      "name": "INFORMATION_SCHEMA"
+    },
+    {
+      "name": "sys"
+    }
+  ],
+  "sequences": [],
+  "synonyms": [],
+  "table_types": [],
+  "principals": [
+    {
+      "name": "dbo",
+      "type": "SQL_USER"
+    }
+  ],
+  "permissions": [
+    {
+      "grantee": "dbo",
+      "object": "",
+      "action": "CONNECT",
+      "state": "GRANT"
+    }
+  ],
+  "statistics": [
+    {
+      "table": "dbo.lob_markup_probe",
+      "name": "_WA_Sys_00000002_35BCFE0A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "html_body"
+      ]
+    },
+    {
+      "table": "dbo.lob_markup_probe",
+      "name": "_WA_Sys_00000003_35BCFE0A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "wide_body"
+      ]
+    },
+    {
+      "table": "dbo.lob_markup_probe",
+      "name": "_WA_Sys_00000004_35BCFE0A",
+      "auto_created": true,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "json_body"
+      ]
+    },
+    {
+      "table": "dbo.lob_markup_probe",
+      "name": "PK__lob_mark__3213E83FD8ADEBD9",
+      "auto_created": false,
+      "no_recompute": false,
+      "filter": null,
+      "key_columns": [
+        "id"
+      ]
+    }
+  ],
+  "plan_guides": [],
+  "query_store": {
+    "enabled": true,
+    "query_texts": []
+  }
+}

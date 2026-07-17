@@ -279,19 +279,12 @@ def _mssqlpy_dirty_backup(
     that averages 3–5 attempts.
     """
     import threading
-    import mssql_python
     from mssqlbak.logtail import logtail_from_bak
+    import tools.fixture_utils as _fu
 
-    host, port = _discover_mssql_host_port(container)
-    conn_str = (
-        f"SERVER={host},{port};"
-        f"UID={user};PWD={password};"
-        "TrustServerCertificate=yes;"
-    )
-
-    del_conn  = mssql_python.connect(conn_str + f"DATABASE={db};", autocommit=False, timeout=300)
-    bak_conn  = mssql_python.connect(conn_str + "DATABASE=master;",  autocommit=True,  timeout=300)
-    util_conn = mssql_python.connect(conn_str + f"DATABASE={db};",   autocommit=True,  timeout=300)
+    del_conn  = _fu.connect(container, user, password, database=db,       autocommit=False, timeout=300)
+    bak_conn  = _fu.connect(container, user, password, database="master",  autocommit=True,  timeout=300)
+    util_conn = _fu.connect(container, user, password, database=db,        autocommit=True,  timeout=300)
     tmp_host  = Path("/private/tmp/_mssqlpy_dirty_verify.bak")
 
     try:
