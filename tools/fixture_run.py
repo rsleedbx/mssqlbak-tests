@@ -876,6 +876,13 @@ def _run_tde(*, force: bool = False) -> int:
     return main()
 
 
+def _run_tde_page(*, force: bool = False) -> int:
+    from tools.make_tde_page_fixture import main
+
+    sys.argv = ["make_tde_page_fixture", *(["--force"] if force else [])]
+    return main()
+
+
 def _run_mixed_collation(*, force: bool = False) -> int:
     from tools.make_mixed_collation_fixture import main
 
@@ -1147,6 +1154,8 @@ _COMMANDS = {
     "delta-rowgroup": _run_delta_rowgroup,
     # Gap F-1: TDE detect-and-fail — encrypted backup raises EncryptedBackupError
     "tde": _run_tde,
+    # TDE page-level — database TDE, no backup-level encryption; decryptable with cert
+    "tde-page": _run_tde_page,
     # Gap K-2: datetime/bit/decimal boundary values in enc=4 CCI segments
     "boundary-datetime": _run_boundary_datetime,
     # Gap G-3: per-column collation override — Latin1/Greek/Hebrew/UTF-8 in one table
@@ -2003,6 +2012,16 @@ def main(argv: list[str] | None = None) -> int:
         ),
     )
     tde_p.add_argument("--force", action="store_true", help="overwrite existing .bak")
+
+    tde_page_p = sub.add_parser(
+        "tde-page",
+        help=(
+            "tde_page_full.bak + tde_page_plain.bak + tde_page_cert.pfx — "
+            "database-level TDE backup (AES_128, no backup-level encryption); "
+            "used by the Phase 0 spike and TDE page decryption integration tests"
+        ),
+    )
+    tde_page_p.add_argument("--force", action="store_true", help="overwrite existing files")
 
     bdt_p = sub.add_parser(
         "boundary-datetime",

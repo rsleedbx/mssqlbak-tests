@@ -248,6 +248,35 @@ def _error_result(bak_path: Path, exc: BaseException) -> dict[str, Any]:
     }
 
 
+# Fixtures known to raise EncryptedBackupError by design (backup-level TDE).
+# These are expected skips, not failures.
+_BACKUP_LEVEL_TDE_FIXTURES: frozenset[str] = frozenset({"tde_full"})
+
+
+def _expected_encrypted_skip_result(bak_path: Path, exc: BaseException) -> dict[str, Any]:
+    """Build a result dict for a fixture that is expected to be unreadable.
+
+    ``tde_full.bak`` uses backup-level WITH ENCRYPTION and is intentionally
+    unrestorable.  It verifies that mssqlbak raises EncryptedBackupError rather
+    than crashing.  Recording it as an expected skip (not a crash) keeps the
+    overall pass rate meaningful.
+    """
+    return {
+        "bak": bak_path.name,
+        "sql_version": "",
+        "bak_size_mb": 0,
+        "extract_s": 0,
+        "tables": [],
+        "edges": {},
+        "total_src_rows": 0,
+        "total_src_cols": 0,
+        "error": f"expected-skip (backup-level TDE): {exc}",
+        "traceback": "",
+        "crashed": False,
+        "expected_skip": True,
+    }
+
+
 def _verify_one(
     tbl: "pa.Table",
     cells_dir: Path,
@@ -646,21 +675,33 @@ def _run_case(
         )
 
     t0 = time.perf_counter()
-    result = (
-        _run_confidence_only(bak_path)
-        if stats_path is None
-        else _run_one(
-            bak_path,
-            stats_path,
-            bak_url,
-            sink_names=sink_names,
-            outdir=outdir,
-            reports_dir=reports_dir,
-            run_id=run_id,
-            source_mode=source_mode,
-            verify_level=verify_level,
+    try:
+        result = (
+            _run_confidence_only(bak_path)
+            if stats_path is None
+            else _run_one(
+                bak_path,
+                stats_path,
+                bak_url,
+                sink_names=sink_names,
+                outdir=outdir,
+                reports_dir=reports_dir,
+                run_id=run_id,
+                source_mode=source_mode,
+                verify_level=verify_level,
+            )
         )
-    )
+    except Exception as _enc_exc:
+        from mssqlbak.errors import EncryptedBackupError
+        if (
+            isinstance(_enc_exc, EncryptedBackupError)
+            and bak_path.stem in _BACKUP_LEVEL_TDE_FIXTURES
+        ):
+            # Expected: tde_full.bak is a backup-level TDE fixture that must
+            # raise EncryptedBackupError — record as expected skip, not crash.
+            result = _expected_encrypted_skip_result(bak_path, _enc_exc)
+        else:
+            raise
     result["wall_s"] = round(time.perf_counter() - t0, 3)
 
     if os.environ.get("MSSQLBAK_FAULTHANDLER"):
