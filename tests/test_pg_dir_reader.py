@@ -475,3 +475,130 @@ class TestCppCodecParity:
         )
         result = self._rt(schema, batch, tmp_path)
         assert result.column("d").to_pylist() == vals
+
+
+# ---------------------------------------------------------------------------
+# Regression: reserved-word column names must not be dropped by the DDL parser
+# ---------------------------------------------------------------------------
+
+class TestReservedWordColumnNames:
+    """A column whose name is a SQL/PG constraint keyword (PRIMARY, UNIQUE, etc.)
+    must round-trip correctly when the name is quoted in the CREATE TABLE DDL.
+
+    Regression for: _parse_column_line stripped quotes before the constraint-
+    keyword guard, so 'Primary' was mistaken for a PRIMARY KEY clause and the
+    column was silently dropped, falling back to text on readback.
+    """
+
+    def _rt(self, schema: pa.Schema, batch: pa.RecordBatch, tmp_path: Path) -> pa.Table:
+        sink = DirSink(tmp_path, dir_codec="none")
+        sink.open_table("dbo.T", schema)
+        sink.write_batch(batch)
+        sink.close()
+        sink.finish()
+        return read_dir_tables(tmp_path)["dbo.T"]
+
+    def test_primary_column_round_trips_as_boolean(self, tmp_path: Path) -> None:
+        """Column named 'Primary' (int8 / SQL Server bit) must decode as boolean."""
+        schema = pa.schema([
+            pa.field("Primary", pa.int8()),
+            pa.field("Flag", pa.int8()),
+        ])
+        batch = pa.RecordBatch.from_arrays(
+            [
+                pa.array([1, 1, 0], type=pa.int8()),
+                pa.array([1, 0, 0], type=pa.int8()),
+            ],
+            schema=schema,
+        )
+        result = self._rt(schema, batch, tmp_path)
+        assert result.schema.names == ["Primary", "Flag"], (
+            "Column 'Primary' was dropped by the DDL parser"
+        )
+        # int8 (bit workaround) is written as 't'/'f' and read back as bool
+        assert result.column("Primary").to_pylist() == [True, True, False]
+        assert result.column("Flag").to_pylist() == [True, False, False]
+
+    def test_unique_constraint_column_round_trips(self, tmp_path: Path) -> None:
+        """Column named 'Unique' (large_utf8) must not be silently dropped."""
+        schema = pa.schema([
+            pa.field("id", pa.int32()),
+            pa.field("Unique", pa.large_utf8()),
+        ])
+        batch = pa.RecordBatch.from_arrays(
+            [
+                pa.array([1, 2], type=pa.int32()),
+                pa.array(["a", "b"], type=pa.large_utf8()),
+            ],
+            schema=schema,
+        )
+        result = self._rt(schema, batch, tmp_path)
+        assert "Unique" in result.schema.names, (
+            "Column 'Unique' was dropped by the DDL parser"
+        )
+        assert result.column("Unique").to_pylist() == ["a", "b"]
+
+    def test_check_foreign_columns_round_trip(self, tmp_path: Path) -> None:
+        """Columns named 'Check' and 'Foreign' must both survive the round-trip."""
+        schema = pa.schema([
+            pa.field("Check", pa.int32()),
+            pa.field("Foreign", pa.large_utf8()),
+        ])
+        batch = pa.RecordBatch.from_arrays(
+            [
+                pa.array([10, 20], type=pa.int32()),
+                pa.array(["x", "y"], type=pa.large_utf8()),
+            ],
+            schema=schema,
+        )
+        result = self._rt(schema, batch, tmp_path)
+        assert result.schema.names == ["Check", "Foreign"]
+        assert result.column("Check").to_pylist() == [10, 20]
+        assert result.column("Foreign").to_pylist() == ["x", "y"]
+
+
+# ---------------------------------------------------------------------------
+# Regression: _arrow_minmax_equal must compare string-encoded time vs time64
+# ---------------------------------------------------------------------------
+
+class TestArrowMinmaxEqualTemporal:
+    """_arrow_minmax_equal must handle the write-fidelity case where one side is
+    a string (extractor representation for TIME/DATE/DATETIME columns) and the
+    other is a native Python temporal value (pg_dir reader output).
+    """
+
+    def setup_method(self) -> None:
+        from tools.correctness_coverage.compare import _arrow_minmax_equal
+        self._eq = _arrow_minmax_equal
+
+    def test_time_str_vs_time_obj_equal(self) -> None:
+        import datetime as dt
+        assert self._eq("07:00:00.0000000", dt.time(7, 0))
+        assert self._eq(dt.time(23, 0), "23:00:00.0000000")
+
+    def test_time_str_vs_time_obj_not_equal(self) -> None:
+        import datetime as dt
+        assert not self._eq("07:00:00.0000000", dt.time(8, 0))
+        assert not self._eq(dt.time(7, 0), "08:00:00.0000000")
+
+    def test_time_both_native_equal(self) -> None:
+        import datetime as dt
+        assert self._eq(dt.time(7, 0), dt.time(7, 0))
+
+    def test_date_str_vs_date_obj_equal(self) -> None:
+        import datetime as dt
+        assert self._eq("2020-01-15", dt.date(2020, 1, 15))
+        assert self._eq(dt.date(2020, 1, 15), "2020-01-15")
+
+    def test_date_str_vs_date_obj_not_equal(self) -> None:
+        import datetime as dt
+        assert not self._eq("2020-01-15", dt.date(2020, 1, 16))
+
+    def test_numeric_tolerance_unchanged(self) -> None:
+        assert self._eq(1.0000001, 1.0)
+        assert not self._eq(2.0, 1.0)
+
+    def test_none_handling_unchanged(self) -> None:
+        assert self._eq(None, None)
+        assert not self._eq(None, 1)
+        assert not self._eq(1, None)

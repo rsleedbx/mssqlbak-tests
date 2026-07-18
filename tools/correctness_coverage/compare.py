@@ -123,12 +123,67 @@ def _minmax_from_col(col: Any) -> tuple[Any, Any]:
         return None, None
 
 
+def _parse_time_str(s: str) -> datetime.time | None:
+    """Parse an ISO-8601 time string (e.g. '07:00:00.0000000') to datetime.time."""
+    try:
+        return datetime.time.fromisoformat(s[:15])
+    except (ValueError, TypeError):
+        return None
+
+
+def _parse_date_str(s: str) -> datetime.date | None:
+    """Parse an ISO-8601 date string to datetime.date."""
+    try:
+        return datetime.date.fromisoformat(s)
+    except (ValueError, TypeError):
+        return None
+
+
+def _parse_datetime_str(s: str) -> datetime.datetime | None:
+    """Parse an ISO-8601 datetime string to datetime.datetime."""
+    try:
+        return datetime.datetime.strptime(s[:26], "%Y-%m-%d %H:%M:%S.%f")
+    except (ValueError, TypeError):
+        try:
+            return datetime.datetime.fromisoformat(s[:19])
+        except (ValueError, TypeError):
+            return None
+
+
 def _arrow_minmax_equal(act: Any, exp: Any) -> bool:
-    """Compare two native Python min/max values with float tolerance."""
+    """Compare two native Python min/max values with float tolerance.
+
+    Handles the write-fidelity edge where one side is a string (extractor
+    representation for time columns, which have no native Arrow/Delta type)
+    and the other is a native temporal value returned by the pg_dir reader.
+    """
     if act is None and exp is None:
         return True
     if act is None or exp is None:
         return False
+
+    # Normalize temporal-vs-string pairs so that string-encoded time/date/datetime
+    # values (emitted by the extractor for TIME columns) compare equal to the native
+    # temporal objects reconstructed by the pg_dir reader.
+    if isinstance(act, datetime.time) and isinstance(exp, str):
+        parsed = _parse_time_str(exp)
+        return parsed is not None and act == parsed
+    if isinstance(exp, datetime.time) and isinstance(act, str):
+        parsed = _parse_time_str(act)
+        return parsed is not None and exp == parsed
+    if isinstance(act, datetime.datetime) and isinstance(exp, str):
+        parsed = _parse_datetime_str(exp)
+        return parsed is not None and act == parsed
+    if isinstance(exp, datetime.datetime) and isinstance(act, str):
+        parsed = _parse_datetime_str(act)
+        return parsed is not None and exp == parsed
+    if isinstance(act, datetime.date) and isinstance(exp, str):
+        parsed = _parse_date_str(exp)
+        return parsed is not None and act == parsed
+    if isinstance(exp, datetime.date) and isinstance(act, str):
+        parsed = _parse_date_str(act)
+        return parsed is not None and exp == parsed
+
     try:
         fa, fe = float(act), float(exp)
         if fe == 0.0:

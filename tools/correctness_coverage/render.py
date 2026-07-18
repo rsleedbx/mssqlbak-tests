@@ -195,17 +195,26 @@ def _render_edge_table_rows(lines: list[str], tables: list[dict[str, Any]]) -> N
     lines.append("")
 
 
+def _edge_tables_ok(tables: list[dict[str, Any]]) -> bool:
+    """True when all tables in a single edge pass every check."""
+    return all(_table_ok(t) for t in tables)
+
+
 def _all_ok(r: dict[str, Any]) -> bool:
-    """True when all data checks pass.
+    """True when every pipeline edge passes all data checks.
 
     Metadata validation results are shown in the report's Metadata section
     but intentionally excluded from this rollup so the data pass rate stays
     stable while metadata validators are being tuned.
     """
-    tables = r["tables"]
-    if not tables:
-        return True
-    return all(_table_ok(t) for t in tables)
+    edges: dict[str, dict[str, Any]] = r.get("edges", {})
+    if not edges:
+        # Fall back to the legacy flat tables list for assembled-only results.
+        tables = r["tables"]
+        if not tables:
+            return True
+        return all(_table_ok(t) for t in tables)
+    return all(_edge_tables_ok(edge["tables"]) for edge in edges.values())
 
 
 def _meta_pass_line(results: list[dict[str, Any]]) -> str:
@@ -247,38 +256,50 @@ def _render(
     n_pass = n_xfail = n_fail = 0
     table_ok = table_total = 0
     column_ok = column_total = 0
-    # Per-category failure counters (tables as the unit, matching column key)
+    # Per-category failure counters summed across all edges (tables as the unit)
     row_fail = null_fail = mm_fail = col_fail = cells_fail = 0
+    # Per-edge fail counts for the Edges scoreboard {edge_name: fail_count}
+    edge_fail_counts: dict[str, int] = {}
     for r in results:
         stem = Path(r["bak"]).stem
         is_xfail = gap_reason(stem, version) is not None
-        has_tables = bool(r["tables"])
+        has_tables = bool(r["tables"]) or bool(r.get("edges"))
         confidence_status = _confidence_status(r)
-        table_ok += sum(1 for t in r["tables"] if _table_ok(t))
-        table_total += len(r["tables"])
-        column_ok += sum(int(t.get("column_ok", t.get("n_gt_cols", 0))) for t in r["tables"])
-        column_total += sum(int(t.get("column_total", t.get("n_gt_cols", 0))) for t in r["tables"])
 
-        # Count tables failing each category (mirror _table_ok exclusion rules)
-        for t in r["tables"]:
-            if not (t["row_ok"] or t["expected_rows"] == 0 or t["xtp_skip"]):
-                row_fail += 1
-            if t["null_ok"] < t["null_total"]:
-                null_fail += 1
-            if t["minmax_ok"] < t["minmax_total"]:
-                mm_fail += 1
-            if not (t.get("col_count_ok", True) or t["expected_rows"] == 0 or t["xtp_skip"]):
-                col_fail += 1
-            if not _value_ok(t):
-                cells_fail += 1
+        # Collect all edge table lists: prefer r["edges"] when present
+        edges_dict: dict[str, dict[str, Any]] = r.get("edges", {})
+        if edges_dict:
+            all_edge_tables = {k: v["tables"] for k, v in edges_dict.items()}
+        else:
+            all_edge_tables = {"mssql_arrow": r["tables"]} if r["tables"] else {}
 
-        row_all_ok = all(
-            t["row_ok"] or t["expected_rows"] == 0 or t["xtp_skip"] for t in r["tables"]
-        )
-        null_all_ok = all(t["null_ok"] == t["null_total"] for t in r["tables"])
-        minmax_all_ok = all(t["minmax_ok"] == t["minmax_total"] for t in r["tables"])
-        value_all_ok = all(_value_ok(t) for t in r["tables"])
-        all_ok = row_all_ok and null_all_ok and minmax_all_ok and value_all_ok
+        for edge_name, etables in all_edge_tables.items():
+            table_ok += sum(1 for t in etables if _table_ok(t))
+            table_total += len(etables)
+            column_ok += sum(int(t.get("column_ok", t.get("n_gt_cols", 0))) for t in etables)
+            column_total += sum(int(t.get("column_total", t.get("n_gt_cols", 0))) for t in etables)
+
+            edge_has_fail = False
+            for t in etables:
+                if not (t["row_ok"] or t["expected_rows"] == 0 or t["xtp_skip"]):
+                    row_fail += 1
+                    edge_has_fail = True
+                if t["null_ok"] < t["null_total"]:
+                    null_fail += 1
+                    edge_has_fail = True
+                if t["minmax_ok"] < t["minmax_total"]:
+                    mm_fail += 1
+                    edge_has_fail = True
+                if not (t.get("col_count_ok", True) or t["expected_rows"] == 0 or t["xtp_skip"]):
+                    col_fail += 1
+                    edge_has_fail = True
+                if not _value_ok(t):
+                    cells_fail += 1
+                    edge_has_fail = True
+            if edge_has_fail:
+                edge_fail_counts[edge_name] = edge_fail_counts.get(edge_name, 0) + 1
+
+        all_ok = _all_ok(r)
 
         if is_xfail:
             n_xfail += 1
@@ -302,6 +323,23 @@ def _render(
         ]
     )
 
+    # Build the per-edge scoreboard from whatever edges appeared across all results.
+    # Use a stable display order: extract canonical edge names from the first result
+    # that has edges, falling back to the known default order.
+    _seen_edges: list[str] = []
+    for _r in results:
+        for _e in _r.get("edges", {}):
+            if _e not in _seen_edges:
+                _seen_edges.append(_e)
+    if not _seen_edges:
+        _seen_edges = ["mssql_arrow"]
+    edges_scoreboard_parts = []
+    for _e in _seen_edges:
+        _label = _edge_label(_e)
+        _n_fail = edge_fail_counts.get(_e, 0)
+        edges_scoreboard_parts.append(f"{_label} {'✓' if _n_fail == 0 else f'{_n_fail} fail'}")
+    edges_scoreboard = "**Edges:** " + " · ".join(edges_scoreboard_parts)
+
     header = (
         "# Correctness coverage\n\n"
         "Per-backup comparison of mssqlbak extraction against SQL Server ground truth.\n"
@@ -313,6 +351,7 @@ def _render(
         f"**{n_pass + n_xfail + n_fail} fixtures · {n_pass} pass · {n_xfail} xfail (known gap) · {n_fail} fail**\n\n"
         f"**Tables:** {table_ok}/{table_total} pass · **Columns:** {column_ok}/{column_total} pass\n\n"
         f"{category_line}\n\n"
+        f"{edges_scoreboard}\n\n"
         "Column key:\n\n"
         "| Column | Meaning |\n"
         "|--------|----------|\n"
