@@ -869,6 +869,13 @@ def _run_boundary_datetime(*, force: bool = False) -> int:
     return main()
 
 
+def _run_enc_bak(*, force: bool = False) -> int:
+    from tools.make_enc_bak_fixture import main
+
+    sys.argv = ["make_enc_bak_fixture", *(["--force"] if force else [])]
+    return main()
+
+
 def _run_tde(*, force: bool = False) -> int:
     from tools.make_tde_fixture import main
 
@@ -1153,6 +1160,7 @@ _COMMANDS = {
     # Gap C-1: CCI open delta store — compressed segment + uncompressed delta rows
     "delta-rowgroup": _run_delta_rowgroup,
     # Gap F-1: TDE detect-and-fail — encrypted backup raises EncryptedBackupError
+    "enc-bak": _run_enc_bak,
     "tde": _run_tde,
     # TDE page-level — database TDE, no backup-level encryption; decryptable with cert
     "tde-page": _run_tde_page,
@@ -1244,6 +1252,7 @@ _ALL_VERSIONS_SUITE = [
     "sql-variant-extract",  # Gap D-2: sql_variant per-value type extraction
     "tabletype-cci-large",  # Gap K-1: CCI 1,200-row row group (real segment encoding)
     "delta-rowgroup",  # Gap C-1: CCI open delta store (compressed + uncompressed rows)
+    "enc-bak",  # backup-level WITH ENCRYPTION decryption fixtures (AES_128 / AES_256)
     "tde",  # Gap F-1: TDE-encrypted backup detect-and-fail
     "boundary-datetime",  # Gap K-2: datetime/bit/decimal boundary values in enc=4 CCI segments
     "mixed-collation",  # Gap G-3: per-column collation override — Latin1/Greek/Hebrew/UTF-8
@@ -2004,6 +2013,17 @@ def main(argv: list[str] | None = None) -> int:
     )
     delta_rg_p.add_argument("--force", action="store_true", help="overwrite existing .bak")
 
+    enc_bak_p = sub.add_parser(
+        "enc-bak",
+        help=(
+            "enc_bak_plain.bak + enc_bak_aes128_full.bak + enc_bak_aes256_full.bak + "
+            "enc_bak_aes256_compressed.bak + enc_bak_cert.pfx — "
+            "backup-level WITH ENCRYPTION fixtures (known-plaintext pair) for "
+            "the mssqlbak/backupenc/ decryption feature"
+        ),
+    )
+    enc_bak_p.add_argument("--force", action="store_true", help="overwrite existing files")
+
     tde_p = sub.add_parser(
         "tde",
         help=(
@@ -2648,6 +2668,8 @@ def main(argv: list[str] | None = None) -> int:
         return _run_tabletype_cci_large(force=getattr(args, "force", False))
     if args.command == "delta-rowgroup":
         return _run_delta_rowgroup(force=getattr(args, "force", False))
+    if args.command == "enc-bak":
+        return _run_enc_bak(force=getattr(args, "force", False))
     if args.command == "tde":
         return _run_tde(force=getattr(args, "force", False))
     if args.command == "boundary-datetime":
@@ -2750,6 +2772,8 @@ def main(argv: list[str] | None = None) -> int:
         return _run_dirty_v4(force=getattr(args, "force", False))
     if args.command == "dirty-cci":
         return _run_dirty_cci(force=getattr(args, "force", False))
+    if args.command == "tde-page":
+        return _run_tde_page(force=getattr(args, "force", False))
     runner = _COMMANDS[args.command]
     return runner()
 

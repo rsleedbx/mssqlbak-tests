@@ -27,56 +27,56 @@ Column key:
 
 Memory-optimized (In-Memory OLTP / XTP) tables store their data in XTP checkpoint file pairs (CFPs) rather than 8 KB pages.  mssqlbak decodes their rows from compact and WAL-style CFP blocks embedded in the backup, so they are scored normally against ground truth.
 
-**Metadata:** 76/153 fixture-categories pass (constraints: 9/17, indexes: 1/17, extended_properties: 1/17, modules: 0/17, schema_objects: 16/17, security: 14/17, statistics: 1/17, plan_guides: 17/17, query_store: 17/17)
+**Metadata:** 153/153 fixture-categories pass (constraints: 17/17, indexes: 17/17, extended_properties: 17/17, modules: 17/17, schema_objects: 17/17, security: 17/17, statistics: 17/17, plan_guides: 17/17, query_store: 17/17)
 
 ## Summary
 
 | Backup | Stage | Source rows | Source cols | Row count | Null count | Min/max | Col count | Cells | Status |
 |--------|-------|------------:|------------:|:---------:|:----------:|:-------:|:---------:|:-----:|--------|
 | `AdventureWorks2008R2.bak` | mssql→arrow | 760,838 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
-| `AdventureWorks2008R2.bak` | arrow→delta | 760,838 | 476 | **70/70** | **468/468** | **932/932** | **70/70** | — | ✓ |
+| `AdventureWorks2008R2.bak` | arrow→delta | 760,838 | 476 | **70/70** | **477/477** | **932/932** | **70/70** | — | ✓ |
 | `AdventureWorks2008R2.bak` | delta→arrow | 760,838 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
-| `AdventureWorks2008R2.bak` | arrow→pg_dir | 760,838 | 476 | **70/70** | **468/468** | 926/932 ⚠ | **70/70** | — | ✗ |
+| `AdventureWorks2008R2.bak` | arrow→pg_dir | 760,838 | 476 | **70/70** | **477/477** | 926/932 ⚠ | **70/70** | — | ✗ |
 | `AdventureWorks2008R2.bak` | pg_dir→arrow | 760,838 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
 | `AdventureWorks2012.bak` | mssql→arrow | 760,837 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
-| `AdventureWorks2012.bak` | arrow→delta | 760,837 | 476 | **70/70** | **468/468** | **932/932** | **70/70** | — | ✓ |
+| `AdventureWorks2012.bak` | arrow→delta | 760,837 | 476 | **70/70** | **477/477** | **932/932** | **70/70** | — | ✓ |
 | `AdventureWorks2012.bak` | delta→arrow | 760,837 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
-| `AdventureWorks2012.bak` | arrow→pg_dir | 760,837 | 476 | **70/70** | **468/468** | 926/932 ⚠ | **70/70** | — | ✗ |
+| `AdventureWorks2012.bak` | arrow→pg_dir | 760,837 | 476 | **70/70** | **477/477** | 926/932 ⚠ | **70/70** | — | ✗ |
 | `AdventureWorks2012.bak` | pg_dir→arrow | 760,837 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
 | `AdventureWorks2014.bak` | mssql→arrow | 760,838 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
-| `AdventureWorks2014.bak` | arrow→delta | 760,838 | 476 | **70/70** | **468/468** | **932/932** | **70/70** | — | ✓ |
+| `AdventureWorks2014.bak` | arrow→delta | 760,838 | 476 | **70/70** | **477/477** | **932/932** | **70/70** | — | ✓ |
 | `AdventureWorks2014.bak` | delta→arrow | 760,838 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
-| `AdventureWorks2014.bak` | arrow→pg_dir | 760,838 | 476 | **70/70** | **468/468** | 926/932 ⚠ | **70/70** | — | ✗ |
+| `AdventureWorks2014.bak` | arrow→pg_dir | 760,838 | 476 | **70/70** | **477/477** | 926/932 ⚠ | **70/70** | — | ✗ |
 | `AdventureWorks2014.bak` | pg_dir→arrow | 760,838 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
 | `AdventureWorks2016.bak` | mssql→arrow | 760,838 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
-| `AdventureWorks2016.bak` | arrow→delta | 760,838 | 476 | **70/70** | **468/468** | **932/932** | **70/70** | — | ✓ |
+| `AdventureWorks2016.bak` | arrow→delta | 760,838 | 476 | **70/70** | **477/477** | **932/932** | **70/70** | — | ✓ |
 | `AdventureWorks2016.bak` | delta→arrow | 760,838 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
-| `AdventureWorks2016.bak` | arrow→pg_dir | 760,838 | 476 | **70/70** | **468/468** | 926/932 ⚠ | **70/70** | — | ✗ |
+| `AdventureWorks2016.bak` | arrow→pg_dir | 760,838 | 476 | **70/70** | **477/477** | 926/932 ⚠ | **70/70** | — | ✗ |
 | `AdventureWorks2016.bak` | pg_dir→arrow | 760,838 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
 | `AdventureWorks2016_EXT.bak` | mssql→arrow | 1,378,717 | 731 | **92/92** | **697/697** | **1314/1314** | **92/92** | digest | ✓ |
-| `AdventureWorks2016_EXT.bak` | arrow→delta | 1,378,717 | 731 | **89/89** | **701/701** | **1384/1384** | **89/89** | — | ✓ |
+| `AdventureWorks2016_EXT.bak` | arrow→delta | 1,378,717 | 731 | **89/89** | **713/713** | **1386/1386** | **89/89** | — | ✓ |
 | `AdventureWorks2016_EXT.bak` | delta→arrow | 1,378,717 | 731 | **92/92** | **697/697** | **1314/1314** | **92/92** | digest | ✓ |
-| `AdventureWorks2016_EXT.bak` | arrow→pg_dir | 1,378,717 | 731 | **89/89** | **701/701** | 1378/1384 ⚠ | **89/89** | — | ✗ |
+| `AdventureWorks2016_EXT.bak` | arrow→pg_dir | 1,378,717 | 731 | **89/89** | **713/713** | 1380/1386 ⚠ | **89/89** | — | ✗ |
 | `AdventureWorks2016_EXT.bak` | pg_dir→arrow | 1,378,717 | 731 | **92/92** | **697/697** | **1314/1314** | **92/92** | digest | ✓ |
 | `AdventureWorks2017.bak` | mssql→arrow | 760,837 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
-| `AdventureWorks2017.bak` | arrow→delta | 760,837 | 476 | **70/70** | **468/468** | **932/932** | **70/70** | — | ✓ |
+| `AdventureWorks2017.bak` | arrow→delta | 760,837 | 476 | **70/70** | **477/477** | **932/932** | **70/70** | — | ✓ |
 | `AdventureWorks2017.bak` | delta→arrow | 760,837 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
-| `AdventureWorks2017.bak` | arrow→pg_dir | 760,837 | 476 | **70/70** | **468/468** | 926/932 ⚠ | **70/70** | — | ✗ |
+| `AdventureWorks2017.bak` | arrow→pg_dir | 760,837 | 476 | **70/70** | **477/477** | 926/932 ⚠ | **70/70** | — | ✗ |
 | `AdventureWorks2017.bak` | pg_dir→arrow | 760,837 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
 | `AdventureWorks2019.bak` | mssql→arrow | 760,837 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
-| `AdventureWorks2019.bak` | arrow→delta | 760,837 | 476 | **70/70** | **468/468** | **932/932** | **70/70** | — | ✓ |
+| `AdventureWorks2019.bak` | arrow→delta | 760,837 | 476 | **70/70** | **477/477** | **932/932** | **70/70** | — | ✓ |
 | `AdventureWorks2019.bak` | delta→arrow | 760,837 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
-| `AdventureWorks2019.bak` | arrow→pg_dir | 760,837 | 476 | **70/70** | **468/468** | 926/932 ⚠ | **70/70** | — | ✗ |
+| `AdventureWorks2019.bak` | arrow→pg_dir | 760,837 | 476 | **70/70** | **477/477** | 926/932 ⚠ | **70/70** | — | ✗ |
 | `AdventureWorks2019.bak` | pg_dir→arrow | 760,837 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
 | `AdventureWorks2022.bak` | mssql→arrow | 760,837 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
-| `AdventureWorks2022.bak` | arrow→delta | 760,837 | 476 | **70/70** | **468/468** | **932/932** | **70/70** | — | ✓ |
+| `AdventureWorks2022.bak` | arrow→delta | 760,837 | 476 | **70/70** | **477/477** | **932/932** | **70/70** | — | ✓ |
 | `AdventureWorks2022.bak` | delta→arrow | 760,837 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
-| `AdventureWorks2022.bak` | arrow→pg_dir | 760,837 | 476 | **70/70** | **468/468** | 926/932 ⚠ | **70/70** | — | ✗ |
+| `AdventureWorks2022.bak` | arrow→pg_dir | 760,837 | 476 | **70/70** | **477/477** | 926/932 ⚠ | **70/70** | — | ✗ |
 | `AdventureWorks2022.bak` | pg_dir→arrow | 760,837 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
 | `AdventureWorks2025.bak` | mssql→arrow | 760,167 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
-| `AdventureWorks2025.bak` | arrow→delta | 760,167 | 476 | **70/70** | **468/468** | **932/932** | **70/70** | — | ✓ |
+| `AdventureWorks2025.bak` | arrow→delta | 760,167 | 476 | **70/70** | **477/477** | **932/932** | **70/70** | — | ✓ |
 | `AdventureWorks2025.bak` | delta→arrow | 760,167 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
-| `AdventureWorks2025.bak` | arrow→pg_dir | 760,167 | 476 | **70/70** | **468/468** | 926/932 ⚠ | **70/70** | — | ✗ |
+| `AdventureWorks2025.bak` | arrow→pg_dir | 760,167 | 476 | **70/70** | **477/477** | 926/932 ⚠ | **70/70** | — | ✗ |
 | `AdventureWorks2025.bak` | pg_dir→arrow | 760,167 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
 | `AdventureWorksDW2008R2.bak` | mssql→arrow | 282,030 | 327 | **28/28** | **327/327** | **646/646** | **28/28** | digest | ✓ |
 | `AdventureWorksDW2008R2.bak` | arrow→delta | 282,030 | 327 | **28/28** | **327/327** | **646/646** | **28/28** | — | ✓ |
@@ -124,39 +124,39 @@ Memory-optimized (In-Memory OLTP / XTP) tables store their data in XTP checkpoin
 | `AdventureWorksDW2025.bak` | arrow→pg_dir | 1,047,563 | 359 | **31/31** | **359/359** | **708/708** | **31/31** | — | ✓ |
 | `AdventureWorksDW2025.bak` | pg_dir→arrow | 1,047,563 | 359 | **31/31** | **359/359** | **704/704** | **31/31** | digest | ✓ |
 | `AdventureWorksLT2012.bak` | mssql→arrow | 4,277 | 106 | **12/12** | **97/97** | **168/168** | **12/12** | digest | ✓ |
-| `AdventureWorksLT2012.bak` | arrow→delta | 4,277 | 106 | **11/11** | **97/97** | **188/188** | **11/11** | — | ✓ |
+| `AdventureWorksLT2012.bak` | arrow→delta | 4,277 | 106 | **11/11** | **100/100** | **188/188** | **11/11** | — | ✓ |
 | `AdventureWorksLT2012.bak` | delta→arrow | 4,277 | 106 | **12/12** | **97/97** | **168/168** | **12/12** | digest | ✓ |
-| `AdventureWorksLT2012.bak` | arrow→pg_dir | 4,277 | 106 | **11/11** | **97/97** | **188/188** | **11/11** | — | ✓ |
+| `AdventureWorksLT2012.bak` | arrow→pg_dir | 4,277 | 106 | **11/11** | **100/100** | **188/188** | **11/11** | — | ✓ |
 | `AdventureWorksLT2012.bak` | pg_dir→arrow | 4,277 | 106 | **12/12** | **97/97** | **168/168** | **12/12** | digest | ✓ |
 | `AdventureWorksLT2014.bak` | mssql→arrow | 4,277 | 106 | **12/12** | **97/97** | **168/168** | **12/12** | digest | ✓ |
-| `AdventureWorksLT2014.bak` | arrow→delta | 4,277 | 106 | **11/11** | **97/97** | **188/188** | **11/11** | — | ✓ |
+| `AdventureWorksLT2014.bak` | arrow→delta | 4,277 | 106 | **11/11** | **100/100** | **188/188** | **11/11** | — | ✓ |
 | `AdventureWorksLT2014.bak` | delta→arrow | 4,277 | 106 | **12/12** | **97/97** | **168/168** | **12/12** | digest | ✓ |
-| `AdventureWorksLT2014.bak` | arrow→pg_dir | 4,277 | 106 | **11/11** | **97/97** | **188/188** | **11/11** | — | ✓ |
+| `AdventureWorksLT2014.bak` | arrow→pg_dir | 4,277 | 106 | **11/11** | **100/100** | **188/188** | **11/11** | — | ✓ |
 | `AdventureWorksLT2014.bak` | pg_dir→arrow | 4,277 | 106 | **12/12** | **97/97** | **168/168** | **12/12** | digest | ✓ |
 | `AdventureWorksLT2016.bak` | mssql→arrow | 4,277 | 106 | **12/12** | **97/97** | **168/168** | **12/12** | digest | ✓ |
-| `AdventureWorksLT2016.bak` | arrow→delta | 4,277 | 106 | **11/11** | **97/97** | **188/188** | **11/11** | — | ✓ |
+| `AdventureWorksLT2016.bak` | arrow→delta | 4,277 | 106 | **11/11** | **100/100** | **188/188** | **11/11** | — | ✓ |
 | `AdventureWorksLT2016.bak` | delta→arrow | 4,277 | 106 | **12/12** | **97/97** | **168/168** | **12/12** | digest | ✓ |
-| `AdventureWorksLT2016.bak` | arrow→pg_dir | 4,277 | 106 | **11/11** | **97/97** | **188/188** | **11/11** | — | ✓ |
+| `AdventureWorksLT2016.bak` | arrow→pg_dir | 4,277 | 106 | **11/11** | **100/100** | **188/188** | **11/11** | — | ✓ |
 | `AdventureWorksLT2016.bak` | pg_dir→arrow | 4,277 | 106 | **12/12** | **97/97** | **168/168** | **12/12** | digest | ✓ |
 | `AdventureWorksLT2017.bak` | mssql→arrow | 4,277 | 106 | **12/12** | **97/97** | **168/168** | **12/12** | digest | ✓ |
-| `AdventureWorksLT2017.bak` | arrow→delta | 4,277 | 106 | **11/11** | **97/97** | **188/188** | **11/11** | — | ✓ |
+| `AdventureWorksLT2017.bak` | arrow→delta | 4,277 | 106 | **11/11** | **100/100** | **188/188** | **11/11** | — | ✓ |
 | `AdventureWorksLT2017.bak` | delta→arrow | 4,277 | 106 | **12/12** | **97/97** | **168/168** | **12/12** | digest | ✓ |
-| `AdventureWorksLT2017.bak` | arrow→pg_dir | 4,277 | 106 | **11/11** | **97/97** | **188/188** | **11/11** | — | ✓ |
+| `AdventureWorksLT2017.bak` | arrow→pg_dir | 4,277 | 106 | **11/11** | **100/100** | **188/188** | **11/11** | — | ✓ |
 | `AdventureWorksLT2017.bak` | pg_dir→arrow | 4,277 | 106 | **12/12** | **97/97** | **168/168** | **12/12** | digest | ✓ |
 | `AdventureWorksLT2019.bak` | mssql→arrow | 4,277 | 106 | **12/12** | **97/97** | **168/168** | **12/12** | digest | ✓ |
-| `AdventureWorksLT2019.bak` | arrow→delta | 4,277 | 106 | **11/11** | **97/97** | **188/188** | **11/11** | — | ✓ |
+| `AdventureWorksLT2019.bak` | arrow→delta | 4,277 | 106 | **11/11** | **100/100** | **188/188** | **11/11** | — | ✓ |
 | `AdventureWorksLT2019.bak` | delta→arrow | 4,277 | 106 | **12/12** | **97/97** | **168/168** | **12/12** | digest | ✓ |
-| `AdventureWorksLT2019.bak` | arrow→pg_dir | 4,277 | 106 | **11/11** | **97/97** | **188/188** | **11/11** | — | ✓ |
+| `AdventureWorksLT2019.bak` | arrow→pg_dir | 4,277 | 106 | **11/11** | **100/100** | **188/188** | **11/11** | — | ✓ |
 | `AdventureWorksLT2019.bak` | pg_dir→arrow | 4,277 | 106 | **12/12** | **97/97** | **168/168** | **12/12** | digest | ✓ |
 | `AdventureWorksLT2022.bak` | mssql→arrow | 4,277 | 106 | **12/12** | **97/97** | **168/168** | **12/12** | digest | ✓ |
-| `AdventureWorksLT2022.bak` | arrow→delta | 4,277 | 106 | **11/11** | **97/97** | **188/188** | **11/11** | — | ✓ |
+| `AdventureWorksLT2022.bak` | arrow→delta | 4,277 | 106 | **11/11** | **100/100** | **188/188** | **11/11** | — | ✓ |
 | `AdventureWorksLT2022.bak` | delta→arrow | 4,277 | 106 | **12/12** | **97/97** | **168/168** | **12/12** | digest | ✓ |
-| `AdventureWorksLT2022.bak` | arrow→pg_dir | 4,277 | 106 | **11/11** | **97/97** | **188/188** | **11/11** | — | ✓ |
+| `AdventureWorksLT2022.bak` | arrow→pg_dir | 4,277 | 106 | **11/11** | **100/100** | **188/188** | **11/11** | — | ✓ |
 | `AdventureWorksLT2022.bak` | pg_dir→arrow | 4,277 | 106 | **12/12** | **97/97** | **168/168** | **12/12** | digest | ✓ |
 | `AdventureWorksLT2025.bak` | mssql→arrow | 4,277 | 106 | **12/12** | **97/97** | **168/168** | **12/12** | digest | ✓ |
-| `AdventureWorksLT2025.bak` | arrow→delta | 4,277 | 106 | **11/11** | **97/97** | **188/188** | **11/11** | — | ✓ |
+| `AdventureWorksLT2025.bak` | arrow→delta | 4,277 | 106 | **11/11** | **100/100** | **188/188** | **11/11** | — | ✓ |
 | `AdventureWorksLT2025.bak` | delta→arrow | 4,277 | 106 | **12/12** | **97/97** | **168/168** | **12/12** | digest | ✓ |
-| `AdventureWorksLT2025.bak` | arrow→pg_dir | 4,277 | 106 | **11/11** | **97/97** | **188/188** | **11/11** | — | ✓ |
+| `AdventureWorksLT2025.bak` | arrow→pg_dir | 4,277 | 106 | **11/11** | **100/100** | **188/188** | **11/11** | — | ✓ |
 | `AdventureWorksLT2025.bak` | pg_dir→arrow | 4,277 | 106 | **12/12** | **97/97** | **168/168** | **12/12** | digest | ✓ |
 | `BaseballData.bak` | mssql→arrow | 493,104 | 353 | **25/25** | **353/353** | **698/698** | **25/25** | digest | ✓ |
 | `BaseballData.bak` | arrow→delta | 493,104 | 353 | **25/25** | **353/353** | **698/698** | **25/25** | — | ✓ |
@@ -239,9 +239,9 @@ Memory-optimized (In-Memory OLTP / XTP) tables store their data in XTP checkpoin
 | `StackOverflowMini.bak` | arrow→pg_dir | 8,097,337 | 61 | **8/8** | **56/56** | **108/108** | **8/8** | — | ✓ |
 | `StackOverflowMini.bak` | pg_dir→arrow | 8,097,337 | 61 | **9/9** | **56/56** | **106/106** | **9/9** | digest | ✓ |
 | `tpcxbb_1gb.bak` | mssql→arrow | 34,001,580 | 394 | **30/30** | **394/394** | **774/774** | **30/30** | digest | ✓ |
-| `tpcxbb_1gb.bak` | arrow→delta | 34,001,580 | 394 | **30/30** | **394/394** | **776/776** | **30/30** | — | ✓ |
+| `tpcxbb_1gb.bak` | arrow→delta | 34,001,580 | 394 | **30/30** | **395/395** | **776/776** | **30/30** | — | ✓ |
 | `tpcxbb_1gb.bak` | delta→arrow | 34,001,580 | 394 | **30/30** | **394/394** | **774/774** | **30/30** | digest | ✓ |
-| `tpcxbb_1gb.bak` | arrow→pg_dir | 34,001,580 | 394 | **30/30** | **394/394** | **776/776** | **30/30** | — | ✓ |
+| `tpcxbb_1gb.bak` | arrow→pg_dir | 34,001,580 | 394 | **30/30** | **395/395** | **776/776** | **30/30** | — | ✓ |
 | `tpcxbb_1gb.bak` | pg_dir→arrow | 34,001,580 | 394 | **30/30** | **394/394** | **774/774** | **30/30** | digest | ✓ |
 | `TutorialDB.bak` | mssql→arrow | 453 | 10 | **1/1** | **10/10** | **20/20** | **1/1** | digest | ✓ |
 | `TutorialDB.bak` | arrow→delta | 453 | 10 | **1/1** | **10/10** | **20/20** | **1/1** | — | ✓ |
@@ -249,24 +249,24 @@ Memory-optimized (In-Memory OLTP / XTP) tables store their data in XTP checkpoin
 | `TutorialDB.bak` | arrow→pg_dir | 453 | 10 | **1/1** | **10/10** | **20/20** | **1/1** | — | ✓ |
 | `TutorialDB.bak` | pg_dir→arrow | 453 | 10 | **1/1** | **10/10** | **20/20** | **1/1** | digest | ✓ |
 | `WideWorldImporters-Full.bak` | mssql→arrow | 4,713,833 | 549 | **48/48** | **539/539** | **1030/1030** | **48/48** | digest | ✓ |
-| `WideWorldImporters-Full.bak` | arrow→delta | 4,713,833 | 549 | **46/46** | **543/543** | **1038/1038** | **46/46** | — | ✓ |
+| `WideWorldImporters-Full.bak` | arrow→delta | 4,713,833 | 549 | **46/46** | **548/548** | **1038/1038** | **46/46** | — | ✓ |
 | `WideWorldImporters-Full.bak` | delta→arrow | 4,713,833 | 549 | **48/48** | **539/539** | **1030/1030** | **48/48** | digest | ✓ |
-| `WideWorldImporters-Full.bak` | arrow→pg_dir | 4,713,833 | 549 | **46/46** | **543/543** | **1038/1038** | **46/46** | — | ✓ |
+| `WideWorldImporters-Full.bak` | arrow→pg_dir | 4,713,833 | 549 | **46/46** | **548/548** | **1038/1038** | **46/46** | — | ✓ |
 | `WideWorldImporters-Full.bak` | pg_dir→arrow | 4,713,833 | 549 | **48/48** | **539/539** | **1030/1030** | **48/48** | digest | ✓ |
 | `WideWorldImporters-Full_old.bak` | mssql→arrow | 4,713,832 | 549 | **48/48** | **539/539** | **1030/1030** | **48/48** | digest | ✓ |
-| `WideWorldImporters-Full_old.bak` | arrow→delta | 4,713,832 | 549 | **46/46** | **543/543** | **1038/1038** | **46/46** | — | ✓ |
+| `WideWorldImporters-Full_old.bak` | arrow→delta | 4,713,832 | 549 | **46/46** | **548/548** | **1038/1038** | **46/46** | — | ✓ |
 | `WideWorldImporters-Full_old.bak` | delta→arrow | 4,713,832 | 549 | **48/48** | **539/539** | **1030/1030** | **48/48** | digest | ✓ |
-| `WideWorldImporters-Full_old.bak` | arrow→pg_dir | 4,713,832 | 549 | **46/46** | **543/543** | **1038/1038** | **46/46** | — | ✓ |
+| `WideWorldImporters-Full_old.bak` | arrow→pg_dir | 4,713,832 | 549 | **46/46** | **548/548** | **1038/1038** | **46/46** | — | ✓ |
 | `WideWorldImporters-Full_old.bak` | pg_dir→arrow | 4,713,832 | 549 | **48/48** | **539/539** | **1030/1030** | **48/48** | digest | ✓ |
 | `WideWorldImporters-Standard.bak` | mssql→arrow | 4,713,833 | 549 | **48/48** | **539/539** | **1030/1030** | **48/48** | digest | ✓ |
-| `WideWorldImporters-Standard.bak` | arrow→delta | 4,713,833 | 549 | **46/46** | **542/542** | **1038/1038** | **46/46** | — | ✓ |
+| `WideWorldImporters-Standard.bak` | arrow→delta | 4,713,833 | 549 | **46/46** | **547/547** | **1038/1038** | **46/46** | — | ✓ |
 | `WideWorldImporters-Standard.bak` | delta→arrow | 4,713,833 | 549 | **48/48** | **539/539** | **1030/1030** | **48/48** | digest | ✓ |
-| `WideWorldImporters-Standard.bak` | arrow→pg_dir | 4,713,833 | 549 | **46/46** | **542/542** | **1038/1038** | **46/46** | — | ✓ |
+| `WideWorldImporters-Standard.bak` | arrow→pg_dir | 4,713,833 | 549 | **46/46** | **547/547** | **1038/1038** | **46/46** | — | ✓ |
 | `WideWorldImporters-Standard.bak` | pg_dir→arrow | 4,713,833 | 549 | **48/48** | **539/539** | **1030/1030** | **48/48** | digest | ✓ |
 | `WideWorldImporters-Standard_old.bak` | mssql→arrow | 4,713,832 | 549 | **48/48** | **539/539** | **1030/1030** | **48/48** | digest | ✓ |
-| `WideWorldImporters-Standard_old.bak` | arrow→delta | 4,713,832 | 549 | **46/46** | **542/542** | **1038/1038** | **46/46** | — | ✓ |
+| `WideWorldImporters-Standard_old.bak` | arrow→delta | 4,713,832 | 549 | **46/46** | **547/547** | **1038/1038** | **46/46** | — | ✓ |
 | `WideWorldImporters-Standard_old.bak` | delta→arrow | 4,713,832 | 549 | **48/48** | **539/539** | **1030/1030** | **48/48** | digest | ✓ |
-| `WideWorldImporters-Standard_old.bak` | arrow→pg_dir | 4,713,832 | 549 | **46/46** | **542/542** | **1038/1038** | **46/46** | — | ✓ |
+| `WideWorldImporters-Standard_old.bak` | arrow→pg_dir | 4,713,832 | 549 | **46/46** | **547/547** | **1038/1038** | **46/46** | — | ✓ |
 | `WideWorldImporters-Standard_old.bak` | pg_dir→arrow | 4,713,832 | 549 | **48/48** | **539/539** | **1030/1030** | **48/48** | digest | ✓ |
 | `WideWorldImportersDW-Full.bak` | mssql→arrow | 922,709 | 50 | **24/24** | **24/24** | **46/46** | **24/24** | digest | ✓ |
 | `WideWorldImportersDW-Full.bak` | arrow→delta | 922,709 | 50 | **16/16** | **194/194** | **372/372** | **16/16** | — | ✓ |
@@ -379,12 +379,12 @@ _SQL Server Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64) 
 | `Production.Culture` | rowstore | 8 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.Currency` | rowstore | 105 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.CurrencyRate` | rowstore | 13,532 | ✓ | **7/7** | **14/14** | ✓ |  |
-| `Sales.Customer` | rowstore | 19,820 | ✓ | **6/6** | **12/12** | ✓ |  |
+| `Sales.Customer` | rowstore | 19,820 | ✓ | **7/7** | **12/12** | ✓ |  |
 | `dbo.DatabaseLog` | rowstore | 1,597 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `HumanResources.Department` | rowstore | 16 | ✓ | **4/4** | **8/8** | ✓ |  |
-| `Production.Document` | rowstore | 13 | ✓ | **13/13** | **26/26** | ✓ |  |
+| `Production.Document` | rowstore | 13 | ✓ | **14/14** | **26/26** | ✓ |  |
 | `Person.EmailAddress` | rowstore | 19,972 | ✓ | **5/5** | **10/10** | ✓ |  |
-| `HumanResources.Employee` | rowstore | 290 | ✓ | **15/15** | **30/30** | ✓ |  |
+| `HumanResources.Employee` | rowstore | 290 | ✓ | **16/16** | **30/30** | ✓ |  |
 | `HumanResources.EmployeeDepartmentHistory` | rowstore | 296 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `HumanResources.EmployeePayHistory` | rowstore | 316 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Production.Illustration` | rowstore | 5 | ✓ | **3/3** | **6/6** | ✓ |  |
@@ -410,10 +410,10 @@ _SQL Server Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64) 
 | `Production.ProductReview` | rowstore | 4 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `Production.ProductSubcategory` | rowstore | 37 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Purchasing.ProductVendor` | rowstore | 460 | ✓ | **11/11** | **22/22** | ✓ |  |
-| `Purchasing.PurchaseOrderDetail` | rowstore | 8,845 | ✓ | **9/9** | **18/18** | ✓ |  |
+| `Purchasing.PurchaseOrderDetail` | rowstore | 8,845 | ✓ | **11/11** | **18/18** | ✓ |  |
 | `Purchasing.PurchaseOrderHeader` | rowstore | 4,012 | ✓ | **13/13** | **26/26** | ✓ |  |
-| `Sales.SalesOrderDetail` | rowstore | 121,317 | ✓ | **10/10** | **20/20** | ✓ |  |
-| `Sales.SalesOrderHeader` | rowstore | 31,465 | ✓ | **24/24** | **46/46** | ✓ |  |
+| `Sales.SalesOrderDetail` | rowstore | 121,317 | ✓ | **11/11** | **20/20** | ✓ |  |
+| `Sales.SalesOrderHeader` | rowstore | 31,465 | ✓ | **26/26** | **46/46** | ✓ |  |
 | `Sales.SalesOrderHeaderSalesReason` | rowstore | 27,647 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.SalesPerson` | rowstore | 17 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Sales.SalesPersonQuotaHistory` | rowstore | 163 | ✓ | **5/5** | **10/10** | ✓ |  |
@@ -433,7 +433,7 @@ _SQL Server Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64) 
 | `Production.TransactionHistoryArchive` | rowstore | 89,253 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Production.UnitMeasure` | rowstore | 38 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Purchasing.Vendor` | rowstore | 104 | ✓ | **8/8** | **16/16** | ✓ |  |
-| `Production.WorkOrder` | rowstore | 72,591 | ✓ | **9/9** | **18/18** | ✓ |  |
+| `Production.WorkOrder` | rowstore | 72,591 | ✓ | **10/10** | **18/18** | ✓ |  |
 | `Production.WorkOrderRouting` | rowstore | 67,131 | ✓ | **12/12** | **24/24** | ✓ |  |
 
 #### Stage: delta→arrow
@@ -530,12 +530,12 @@ _SQL Server Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64) 
 | `Production.Culture` | rowstore | 8 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.Currency` | rowstore | 105 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.CurrencyRate` | rowstore | 13,532 | ✓ | **7/7** | **14/14** | ✓ |  |
-| `Sales.Customer` | rowstore | 19,820 | ✓ | **6/6** | **12/12** | ✓ |  |
+| `Sales.Customer` | rowstore | 19,820 | ✓ | **7/7** | **12/12** | ✓ |  |
 | `dbo.DatabaseLog` | rowstore | 1,597 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `HumanResources.Department` | rowstore | 16 | ✓ | **4/4** | **8/8** | ✓ |  |
-| `Production.Document` | rowstore | 13 | ✓ | **13/13** | **26/26** | ✓ |  |
+| `Production.Document` | rowstore | 13 | ✓ | **14/14** | **26/26** | ✓ |  |
 | `Person.EmailAddress` | rowstore | 19,972 | ✓ | **5/5** | **10/10** | ✓ |  |
-| `HumanResources.Employee` | rowstore | 290 | ✓ | **15/15** | **30/30** | ✓ |  |
+| `HumanResources.Employee` | rowstore | 290 | ✓ | **16/16** | **30/30** | ✓ |  |
 | `HumanResources.EmployeeDepartmentHistory` | rowstore | 296 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `HumanResources.EmployeePayHistory` | rowstore | 316 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Production.Illustration` | rowstore | 5 | ✓ | **3/3** | **6/6** | ✓ |  |
@@ -561,10 +561,10 @@ _SQL Server Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64) 
 | `Production.ProductReview` | rowstore | 4 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `Production.ProductSubcategory` | rowstore | 37 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Purchasing.ProductVendor` | rowstore | 460 | ✓ | **11/11** | **22/22** | ✓ |  |
-| `Purchasing.PurchaseOrderDetail` | rowstore | 8,845 | ✓ | **9/9** | **18/18** | ✓ |  |
+| `Purchasing.PurchaseOrderDetail` | rowstore | 8,845 | ✓ | **11/11** | **18/18** | ✓ |  |
 | `Purchasing.PurchaseOrderHeader` | rowstore | 4,012 | ✓ | **13/13** | **26/26** | ✓ |  |
-| `Sales.SalesOrderDetail` | rowstore | 121,317 | ✓ | **10/10** | **20/20** | ✓ |  |
-| `Sales.SalesOrderHeader` | rowstore | 31,465 | ✓ | **24/24** | **46/46** | ✓ |  |
+| `Sales.SalesOrderDetail` | rowstore | 121,317 | ✓ | **11/11** | **20/20** | ✓ |  |
+| `Sales.SalesOrderHeader` | rowstore | 31,465 | ✓ | **26/26** | **46/46** | ✓ |  |
 | `Sales.SalesOrderHeaderSalesReason` | rowstore | 27,647 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.SalesPerson` | rowstore | 17 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Sales.SalesPersonQuotaHistory` | rowstore | 163 | ✓ | **5/5** | **10/10** | ✓ |  |
@@ -584,7 +584,7 @@ _SQL Server Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64) 
 | `Production.TransactionHistoryArchive` | rowstore | 89,253 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Production.UnitMeasure` | rowstore | 38 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Purchasing.Vendor` | rowstore | 104 | ✓ | **8/8** | **16/16** | ✓ |  |
-| `Production.WorkOrder` | rowstore | 72,591 | ✓ | **9/9** | **18/18** | ✓ |  |
+| `Production.WorkOrder` | rowstore | 72,591 | ✓ | **10/10** | **18/18** | ✓ |  |
 | `Production.WorkOrderRouting` | rowstore | 67,131 | ✓ | **12/12** | **24/24** | ✓ |  |
 
 #### Stage: pg_dir→arrow
@@ -761,12 +761,12 @@ _SQL Server Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64) 
 | `Production.Culture` | rowstore | 8 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.Currency` | rowstore | 105 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.CurrencyRate` | rowstore | 13,532 | ✓ | **7/7** | **14/14** | ✓ |  |
-| `Sales.Customer` | rowstore | 19,820 | ✓ | **6/6** | **12/12** | ✓ |  |
+| `Sales.Customer` | rowstore | 19,820 | ✓ | **7/7** | **12/12** | ✓ |  |
 | `dbo.DatabaseLog` | rowstore | 1,596 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `HumanResources.Department` | rowstore | 16 | ✓ | **4/4** | **8/8** | ✓ |  |
-| `Production.Document` | rowstore | 13 | ✓ | **13/13** | **26/26** | ✓ |  |
+| `Production.Document` | rowstore | 13 | ✓ | **14/14** | **26/26** | ✓ |  |
 | `Person.EmailAddress` | rowstore | 19,972 | ✓ | **5/5** | **10/10** | ✓ |  |
-| `HumanResources.Employee` | rowstore | 290 | ✓ | **15/15** | **30/30** | ✓ |  |
+| `HumanResources.Employee` | rowstore | 290 | ✓ | **16/16** | **30/30** | ✓ |  |
 | `HumanResources.EmployeeDepartmentHistory` | rowstore | 296 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `HumanResources.EmployeePayHistory` | rowstore | 316 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Production.Illustration` | rowstore | 5 | ✓ | **3/3** | **6/6** | ✓ |  |
@@ -792,10 +792,10 @@ _SQL Server Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64) 
 | `Production.ProductReview` | rowstore | 4 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `Production.ProductSubcategory` | rowstore | 37 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Purchasing.ProductVendor` | rowstore | 460 | ✓ | **11/11** | **22/22** | ✓ |  |
-| `Purchasing.PurchaseOrderDetail` | rowstore | 8,845 | ✓ | **9/9** | **18/18** | ✓ |  |
+| `Purchasing.PurchaseOrderDetail` | rowstore | 8,845 | ✓ | **11/11** | **18/18** | ✓ |  |
 | `Purchasing.PurchaseOrderHeader` | rowstore | 4,012 | ✓ | **13/13** | **26/26** | ✓ |  |
-| `Sales.SalesOrderDetail` | rowstore | 121,317 | ✓ | **10/10** | **20/20** | ✓ |  |
-| `Sales.SalesOrderHeader` | rowstore | 31,465 | ✓ | **24/24** | **46/46** | ✓ |  |
+| `Sales.SalesOrderDetail` | rowstore | 121,317 | ✓ | **11/11** | **20/20** | ✓ |  |
+| `Sales.SalesOrderHeader` | rowstore | 31,465 | ✓ | **26/26** | **46/46** | ✓ |  |
 | `Sales.SalesOrderHeaderSalesReason` | rowstore | 27,647 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.SalesPerson` | rowstore | 17 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Sales.SalesPersonQuotaHistory` | rowstore | 163 | ✓ | **5/5** | **10/10** | ✓ |  |
@@ -815,7 +815,7 @@ _SQL Server Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64) 
 | `Production.TransactionHistoryArchive` | rowstore | 89,253 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Production.UnitMeasure` | rowstore | 38 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Purchasing.Vendor` | rowstore | 104 | ✓ | **8/8** | **16/16** | ✓ |  |
-| `Production.WorkOrder` | rowstore | 72,591 | ✓ | **9/9** | **18/18** | ✓ |  |
+| `Production.WorkOrder` | rowstore | 72,591 | ✓ | **10/10** | **18/18** | ✓ |  |
 | `Production.WorkOrderRouting` | rowstore | 67,131 | ✓ | **12/12** | **24/24** | ✓ |  |
 
 #### Stage: delta→arrow
@@ -912,12 +912,12 @@ _SQL Server Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64) 
 | `Production.Culture` | rowstore | 8 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.Currency` | rowstore | 105 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.CurrencyRate` | rowstore | 13,532 | ✓ | **7/7** | **14/14** | ✓ |  |
-| `Sales.Customer` | rowstore | 19,820 | ✓ | **6/6** | **12/12** | ✓ |  |
+| `Sales.Customer` | rowstore | 19,820 | ✓ | **7/7** | **12/12** | ✓ |  |
 | `dbo.DatabaseLog` | rowstore | 1,596 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `HumanResources.Department` | rowstore | 16 | ✓ | **4/4** | **8/8** | ✓ |  |
-| `Production.Document` | rowstore | 13 | ✓ | **13/13** | **26/26** | ✓ |  |
+| `Production.Document` | rowstore | 13 | ✓ | **14/14** | **26/26** | ✓ |  |
 | `Person.EmailAddress` | rowstore | 19,972 | ✓ | **5/5** | **10/10** | ✓ |  |
-| `HumanResources.Employee` | rowstore | 290 | ✓ | **15/15** | **30/30** | ✓ |  |
+| `HumanResources.Employee` | rowstore | 290 | ✓ | **16/16** | **30/30** | ✓ |  |
 | `HumanResources.EmployeeDepartmentHistory` | rowstore | 296 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `HumanResources.EmployeePayHistory` | rowstore | 316 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Production.Illustration` | rowstore | 5 | ✓ | **3/3** | **6/6** | ✓ |  |
@@ -943,10 +943,10 @@ _SQL Server Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64) 
 | `Production.ProductReview` | rowstore | 4 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `Production.ProductSubcategory` | rowstore | 37 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Purchasing.ProductVendor` | rowstore | 460 | ✓ | **11/11** | **22/22** | ✓ |  |
-| `Purchasing.PurchaseOrderDetail` | rowstore | 8,845 | ✓ | **9/9** | **18/18** | ✓ |  |
+| `Purchasing.PurchaseOrderDetail` | rowstore | 8,845 | ✓ | **11/11** | **18/18** | ✓ |  |
 | `Purchasing.PurchaseOrderHeader` | rowstore | 4,012 | ✓ | **13/13** | **26/26** | ✓ |  |
-| `Sales.SalesOrderDetail` | rowstore | 121,317 | ✓ | **10/10** | **20/20** | ✓ |  |
-| `Sales.SalesOrderHeader` | rowstore | 31,465 | ✓ | **24/24** | **46/46** | ✓ |  |
+| `Sales.SalesOrderDetail` | rowstore | 121,317 | ✓ | **11/11** | **20/20** | ✓ |  |
+| `Sales.SalesOrderHeader` | rowstore | 31,465 | ✓ | **26/26** | **46/46** | ✓ |  |
 | `Sales.SalesOrderHeaderSalesReason` | rowstore | 27,647 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.SalesPerson` | rowstore | 17 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Sales.SalesPersonQuotaHistory` | rowstore | 163 | ✓ | **5/5** | **10/10** | ✓ |  |
@@ -966,7 +966,7 @@ _SQL Server Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64) 
 | `Production.TransactionHistoryArchive` | rowstore | 89,253 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Production.UnitMeasure` | rowstore | 38 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Purchasing.Vendor` | rowstore | 104 | ✓ | **8/8** | **16/16** | ✓ |  |
-| `Production.WorkOrder` | rowstore | 72,591 | ✓ | **9/9** | **18/18** | ✓ |  |
+| `Production.WorkOrder` | rowstore | 72,591 | ✓ | **10/10** | **18/18** | ✓ |  |
 | `Production.WorkOrderRouting` | rowstore | 67,131 | ✓ | **12/12** | **24/24** | ✓ |  |
 
 #### Stage: pg_dir→arrow
@@ -1143,12 +1143,12 @@ _SQL Server Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64) 
 | `Production.Culture` | rowstore | 8 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.Currency` | rowstore | 105 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.CurrencyRate` | rowstore | 13,532 | ✓ | **7/7** | **14/14** | ✓ |  |
-| `Sales.Customer` | rowstore | 19,820 | ✓ | **6/6** | **12/12** | ✓ |  |
+| `Sales.Customer` | rowstore | 19,820 | ✓ | **7/7** | **12/12** | ✓ |  |
 | `dbo.DatabaseLog` | rowstore | 1,597 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `HumanResources.Department` | rowstore | 16 | ✓ | **4/4** | **8/8** | ✓ |  |
-| `Production.Document` | rowstore | 13 | ✓ | **13/13** | **26/26** | ✓ |  |
+| `Production.Document` | rowstore | 13 | ✓ | **14/14** | **26/26** | ✓ |  |
 | `Person.EmailAddress` | rowstore | 19,972 | ✓ | **5/5** | **10/10** | ✓ |  |
-| `HumanResources.Employee` | rowstore | 290 | ✓ | **15/15** | **30/30** | ✓ |  |
+| `HumanResources.Employee` | rowstore | 290 | ✓ | **16/16** | **30/30** | ✓ |  |
 | `HumanResources.EmployeeDepartmentHistory` | rowstore | 296 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `HumanResources.EmployeePayHistory` | rowstore | 316 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Production.Illustration` | rowstore | 5 | ✓ | **3/3** | **6/6** | ✓ |  |
@@ -1174,10 +1174,10 @@ _SQL Server Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64) 
 | `Production.ProductReview` | rowstore | 4 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `Production.ProductSubcategory` | rowstore | 37 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Purchasing.ProductVendor` | rowstore | 460 | ✓ | **11/11** | **22/22** | ✓ |  |
-| `Purchasing.PurchaseOrderDetail` | rowstore | 8,845 | ✓ | **9/9** | **18/18** | ✓ |  |
+| `Purchasing.PurchaseOrderDetail` | rowstore | 8,845 | ✓ | **11/11** | **18/18** | ✓ |  |
 | `Purchasing.PurchaseOrderHeader` | rowstore | 4,012 | ✓ | **13/13** | **26/26** | ✓ |  |
-| `Sales.SalesOrderDetail` | rowstore | 121,317 | ✓ | **10/10** | **20/20** | ✓ |  |
-| `Sales.SalesOrderHeader` | rowstore | 31,465 | ✓ | **24/24** | **46/46** | ✓ |  |
+| `Sales.SalesOrderDetail` | rowstore | 121,317 | ✓ | **11/11** | **20/20** | ✓ |  |
+| `Sales.SalesOrderHeader` | rowstore | 31,465 | ✓ | **26/26** | **46/46** | ✓ |  |
 | `Sales.SalesOrderHeaderSalesReason` | rowstore | 27,647 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.SalesPerson` | rowstore | 17 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Sales.SalesPersonQuotaHistory` | rowstore | 163 | ✓ | **5/5** | **10/10** | ✓ |  |
@@ -1197,7 +1197,7 @@ _SQL Server Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64) 
 | `Production.TransactionHistoryArchive` | rowstore | 89,253 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Production.UnitMeasure` | rowstore | 38 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Purchasing.Vendor` | rowstore | 104 | ✓ | **8/8** | **16/16** | ✓ |  |
-| `Production.WorkOrder` | rowstore | 72,591 | ✓ | **9/9** | **18/18** | ✓ |  |
+| `Production.WorkOrder` | rowstore | 72,591 | ✓ | **10/10** | **18/18** | ✓ |  |
 | `Production.WorkOrderRouting` | rowstore | 67,131 | ✓ | **12/12** | **24/24** | ✓ |  |
 
 #### Stage: delta→arrow
@@ -1294,12 +1294,12 @@ _SQL Server Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64) 
 | `Production.Culture` | rowstore | 8 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.Currency` | rowstore | 105 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.CurrencyRate` | rowstore | 13,532 | ✓ | **7/7** | **14/14** | ✓ |  |
-| `Sales.Customer` | rowstore | 19,820 | ✓ | **6/6** | **12/12** | ✓ |  |
+| `Sales.Customer` | rowstore | 19,820 | ✓ | **7/7** | **12/12** | ✓ |  |
 | `dbo.DatabaseLog` | rowstore | 1,597 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `HumanResources.Department` | rowstore | 16 | ✓ | **4/4** | **8/8** | ✓ |  |
-| `Production.Document` | rowstore | 13 | ✓ | **13/13** | **26/26** | ✓ |  |
+| `Production.Document` | rowstore | 13 | ✓ | **14/14** | **26/26** | ✓ |  |
 | `Person.EmailAddress` | rowstore | 19,972 | ✓ | **5/5** | **10/10** | ✓ |  |
-| `HumanResources.Employee` | rowstore | 290 | ✓ | **15/15** | **30/30** | ✓ |  |
+| `HumanResources.Employee` | rowstore | 290 | ✓ | **16/16** | **30/30** | ✓ |  |
 | `HumanResources.EmployeeDepartmentHistory` | rowstore | 296 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `HumanResources.EmployeePayHistory` | rowstore | 316 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Production.Illustration` | rowstore | 5 | ✓ | **3/3** | **6/6** | ✓ |  |
@@ -1325,10 +1325,10 @@ _SQL Server Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64) 
 | `Production.ProductReview` | rowstore | 4 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `Production.ProductSubcategory` | rowstore | 37 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Purchasing.ProductVendor` | rowstore | 460 | ✓ | **11/11** | **22/22** | ✓ |  |
-| `Purchasing.PurchaseOrderDetail` | rowstore | 8,845 | ✓ | **9/9** | **18/18** | ✓ |  |
+| `Purchasing.PurchaseOrderDetail` | rowstore | 8,845 | ✓ | **11/11** | **18/18** | ✓ |  |
 | `Purchasing.PurchaseOrderHeader` | rowstore | 4,012 | ✓ | **13/13** | **26/26** | ✓ |  |
-| `Sales.SalesOrderDetail` | rowstore | 121,317 | ✓ | **10/10** | **20/20** | ✓ |  |
-| `Sales.SalesOrderHeader` | rowstore | 31,465 | ✓ | **24/24** | **46/46** | ✓ |  |
+| `Sales.SalesOrderDetail` | rowstore | 121,317 | ✓ | **11/11** | **20/20** | ✓ |  |
+| `Sales.SalesOrderHeader` | rowstore | 31,465 | ✓ | **26/26** | **46/46** | ✓ |  |
 | `Sales.SalesOrderHeaderSalesReason` | rowstore | 27,647 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.SalesPerson` | rowstore | 17 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Sales.SalesPersonQuotaHistory` | rowstore | 163 | ✓ | **5/5** | **10/10** | ✓ |  |
@@ -1348,7 +1348,7 @@ _SQL Server Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64) 
 | `Production.TransactionHistoryArchive` | rowstore | 89,253 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Production.UnitMeasure` | rowstore | 38 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Purchasing.Vendor` | rowstore | 104 | ✓ | **8/8** | **16/16** | ✓ |  |
-| `Production.WorkOrder` | rowstore | 72,591 | ✓ | **9/9** | **18/18** | ✓ |  |
+| `Production.WorkOrder` | rowstore | 72,591 | ✓ | **10/10** | **18/18** | ✓ |  |
 | `Production.WorkOrderRouting` | rowstore | 67,131 | ✓ | **12/12** | **24/24** | ✓ |  |
 
 #### Stage: pg_dir→arrow
@@ -1525,12 +1525,12 @@ _SQL Server Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64) 
 | `Production.Culture` | rowstore | 8 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.Currency` | rowstore | 105 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.CurrencyRate` | rowstore | 13,532 | ✓ | **7/7** | **14/14** | ✓ |  |
-| `Sales.Customer` | rowstore | 19,820 | ✓ | **6/6** | **12/12** | ✓ |  |
+| `Sales.Customer` | rowstore | 19,820 | ✓ | **7/7** | **12/12** | ✓ |  |
 | `dbo.DatabaseLog` | rowstore | 1,597 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `HumanResources.Department` | rowstore | 16 | ✓ | **4/4** | **8/8** | ✓ |  |
-| `Production.Document` | rowstore | 13 | ✓ | **13/13** | **26/26** | ✓ |  |
+| `Production.Document` | rowstore | 13 | ✓ | **14/14** | **26/26** | ✓ |  |
 | `Person.EmailAddress` | rowstore | 19,972 | ✓ | **5/5** | **10/10** | ✓ |  |
-| `HumanResources.Employee` | rowstore | 290 | ✓ | **15/15** | **30/30** | ✓ |  |
+| `HumanResources.Employee` | rowstore | 290 | ✓ | **16/16** | **30/30** | ✓ |  |
 | `HumanResources.EmployeeDepartmentHistory` | rowstore | 296 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `HumanResources.EmployeePayHistory` | rowstore | 316 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Production.Illustration` | rowstore | 5 | ✓ | **3/3** | **6/6** | ✓ |  |
@@ -1556,10 +1556,10 @@ _SQL Server Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64) 
 | `Production.ProductReview` | rowstore | 4 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `Production.ProductSubcategory` | rowstore | 37 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Purchasing.ProductVendor` | rowstore | 460 | ✓ | **11/11** | **22/22** | ✓ |  |
-| `Purchasing.PurchaseOrderDetail` | rowstore | 8,845 | ✓ | **9/9** | **18/18** | ✓ |  |
+| `Purchasing.PurchaseOrderDetail` | rowstore | 8,845 | ✓ | **11/11** | **18/18** | ✓ |  |
 | `Purchasing.PurchaseOrderHeader` | rowstore | 4,012 | ✓ | **13/13** | **26/26** | ✓ |  |
-| `Sales.SalesOrderDetail` | rowstore | 121,317 | ✓ | **10/10** | **20/20** | ✓ |  |
-| `Sales.SalesOrderHeader` | rowstore | 31,465 | ✓ | **24/24** | **46/46** | ✓ |  |
+| `Sales.SalesOrderDetail` | rowstore | 121,317 | ✓ | **11/11** | **20/20** | ✓ |  |
+| `Sales.SalesOrderHeader` | rowstore | 31,465 | ✓ | **26/26** | **46/46** | ✓ |  |
 | `Sales.SalesOrderHeaderSalesReason` | rowstore | 27,647 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.SalesPerson` | rowstore | 17 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Sales.SalesPersonQuotaHistory` | rowstore | 163 | ✓ | **5/5** | **10/10** | ✓ |  |
@@ -1579,7 +1579,7 @@ _SQL Server Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64) 
 | `Production.TransactionHistoryArchive` | rowstore | 89,253 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Production.UnitMeasure` | rowstore | 38 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Purchasing.Vendor` | rowstore | 104 | ✓ | **8/8** | **16/16** | ✓ |  |
-| `Production.WorkOrder` | rowstore | 72,591 | ✓ | **9/9** | **18/18** | ✓ |  |
+| `Production.WorkOrder` | rowstore | 72,591 | ✓ | **10/10** | **18/18** | ✓ |  |
 | `Production.WorkOrderRouting` | rowstore | 67,131 | ✓ | **12/12** | **24/24** | ✓ |  |
 
 #### Stage: delta→arrow
@@ -1676,12 +1676,12 @@ _SQL Server Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64) 
 | `Production.Culture` | rowstore | 8 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.Currency` | rowstore | 105 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.CurrencyRate` | rowstore | 13,532 | ✓ | **7/7** | **14/14** | ✓ |  |
-| `Sales.Customer` | rowstore | 19,820 | ✓ | **6/6** | **12/12** | ✓ |  |
+| `Sales.Customer` | rowstore | 19,820 | ✓ | **7/7** | **12/12** | ✓ |  |
 | `dbo.DatabaseLog` | rowstore | 1,597 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `HumanResources.Department` | rowstore | 16 | ✓ | **4/4** | **8/8** | ✓ |  |
-| `Production.Document` | rowstore | 13 | ✓ | **13/13** | **26/26** | ✓ |  |
+| `Production.Document` | rowstore | 13 | ✓ | **14/14** | **26/26** | ✓ |  |
 | `Person.EmailAddress` | rowstore | 19,972 | ✓ | **5/5** | **10/10** | ✓ |  |
-| `HumanResources.Employee` | rowstore | 290 | ✓ | **15/15** | **30/30** | ✓ |  |
+| `HumanResources.Employee` | rowstore | 290 | ✓ | **16/16** | **30/30** | ✓ |  |
 | `HumanResources.EmployeeDepartmentHistory` | rowstore | 296 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `HumanResources.EmployeePayHistory` | rowstore | 316 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Production.Illustration` | rowstore | 5 | ✓ | **3/3** | **6/6** | ✓ |  |
@@ -1707,10 +1707,10 @@ _SQL Server Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64) 
 | `Production.ProductReview` | rowstore | 4 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `Production.ProductSubcategory` | rowstore | 37 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Purchasing.ProductVendor` | rowstore | 460 | ✓ | **11/11** | **22/22** | ✓ |  |
-| `Purchasing.PurchaseOrderDetail` | rowstore | 8,845 | ✓ | **9/9** | **18/18** | ✓ |  |
+| `Purchasing.PurchaseOrderDetail` | rowstore | 8,845 | ✓ | **11/11** | **18/18** | ✓ |  |
 | `Purchasing.PurchaseOrderHeader` | rowstore | 4,012 | ✓ | **13/13** | **26/26** | ✓ |  |
-| `Sales.SalesOrderDetail` | rowstore | 121,317 | ✓ | **10/10** | **20/20** | ✓ |  |
-| `Sales.SalesOrderHeader` | rowstore | 31,465 | ✓ | **24/24** | **46/46** | ✓ |  |
+| `Sales.SalesOrderDetail` | rowstore | 121,317 | ✓ | **11/11** | **20/20** | ✓ |  |
+| `Sales.SalesOrderHeader` | rowstore | 31,465 | ✓ | **26/26** | **46/46** | ✓ |  |
 | `Sales.SalesOrderHeaderSalesReason` | rowstore | 27,647 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.SalesPerson` | rowstore | 17 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Sales.SalesPersonQuotaHistory` | rowstore | 163 | ✓ | **5/5** | **10/10** | ✓ |  |
@@ -1730,7 +1730,7 @@ _SQL Server Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64) 
 | `Production.TransactionHistoryArchive` | rowstore | 89,253 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Production.UnitMeasure` | rowstore | 38 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Purchasing.Vendor` | rowstore | 104 | ✓ | **8/8** | **16/16** | ✓ |  |
-| `Production.WorkOrder` | rowstore | 72,591 | ✓ | **9/9** | **18/18** | ✓ |  |
+| `Production.WorkOrder` | rowstore | 72,591 | ✓ | **10/10** | **18/18** | ✓ |  |
 | `Production.WorkOrderRouting` | rowstore | 67,131 | ✓ | **12/12** | **24/24** | ✓ |  |
 
 #### Stage: pg_dir→arrow
@@ -1928,18 +1928,18 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `Production.Culture` | rowstore | 8 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.Currency` | rowstore | 105 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.CurrencyRate` | rowstore | 13,532 | ✓ | **7/7** | **14/14** | ✓ |  |
-| `Sales.Customer` | rowstore | 19,820 | ✓ | **6/6** | **12/12** | ✓ |  |
+| `Sales.Customer` | rowstore | 19,820 | ✓ | **7/7** | **12/12** | ✓ |  |
 | `Sales.CustomerPII` | rowstore | 19,118 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `dbo.DatabaseLog` | rowstore | 179 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `Demo.DemoSalesOrderDetailSeed` | memory-optimized | 538 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Demo.DemoSalesOrderHeaderSeed` | memory-optimized | 31,465 | ✓ | **7/7** | **14/14** | ✓ |  |
 | `HumanResources.Department` | rowstore | 16 | ✓ | **4/4** | **8/8** | ✓ |  |
-| `Production.Document` | rowstore | 13 | ✓ | **13/13** | **26/26** | ✓ |  |
+| `Production.Document` | rowstore | 13 | ✓ | **14/14** | **26/26** | ✓ |  |
 | `Person.EmailAddress` | rowstore | 19,972 | ✓ | **5/5** | **10/10** | ✓ |  |
-| `HumanResources.Employee` | rowstore | 290 | ✓ | **15/15** | **30/30** | ✓ |  |
+| `HumanResources.Employee` | rowstore | 290 | ✓ | **16/16** | **30/30** | ✓ |  |
 | `HumanResources.EmployeeDepartmentHistory` | rowstore | 296 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `HumanResources.EmployeePayHistory` | rowstore | 316 | ✓ | **5/5** | **10/10** | ✓ |  |
-| `HumanResources.Employee_Temporal` | rowstore | 290 | ✓ | **13/13** | **26/26** | ✓ |  |
+| `HumanResources.Employee_Temporal` | rowstore | 290 | ✓ | **14/14** | **28/28** | ✓ |  |
 | `Production.Illustration` | rowstore | 5 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `HumanResources.JobCandidate` | rowstore | 13 | ✓ | **4/4** | **8/8** | ✓ |  |
 | `Production.Location` | rowstore | 14 | ✓ | **5/5** | **10/10** | ✓ |  |
@@ -1968,16 +1968,16 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `Purchasing.ProductVendor` | rowstore | 460 | ✓ | **11/11** | **22/22** | ✓ |  |
 | `Production.Product_inmem` | memory-optimized | 504 | ✓ | **24/24** | **46/46** | ✓ |  |
 | `Production.Product_ondisk` | rowstore | 504 | ✓ | **24/24** | **46/46** | ✓ |  |
-| `Purchasing.PurchaseOrderDetail` | rowstore | 8,845 | ✓ | **9/9** | **18/18** | ✓ |  |
+| `Purchasing.PurchaseOrderDetail` | rowstore | 8,845 | ✓ | **11/11** | **18/18** | ✓ |  |
 | `Purchasing.PurchaseOrderHeader` | rowstore | 4,012 | ✓ | **13/13** | **26/26** | ✓ |  |
-| `Sales.SalesOrderDetail` | rowstore | 121,317 | ✓ | **10/10** | **20/20** | ✓ |  |
+| `Sales.SalesOrderDetail` | rowstore | 121,317 | ✓ | **11/11** | **20/20** | ✓ |  |
 | `Sales.SalesOrderDetail_inmem` | memory-optimized | 121,317 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Sales.SalesOrderDetail_ondisk` | rowstore | 121,317 | ✓ | **9/9** | **18/18** | ✓ |  |
-| `Sales.SalesOrderHeader` | rowstore | 31,465 | ✓ | **24/24** | **46/46** | ✓ |  |
+| `Sales.SalesOrderHeader` | rowstore | 31,465 | ✓ | **26/26** | **46/46** | ✓ |  |
 | `Sales.SalesOrderHeaderSalesReason` | rowstore | 27,647 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.SalesOrderHeader_inmem` | memory-optimized | 31,465 | ✓ | **23/23** | **44/44** | ✓ |  |
 | `Sales.SalesOrderHeader_ondisk` | rowstore | 31,465 | ✓ | **23/23** | **44/44** | ✓ |  |
-| `Sales.SalesOrder_json` | rowstore | 31,465 | ✓ | **27/27** | **52/52** | ✓ |  |
+| `Sales.SalesOrder_json` | rowstore | 31,465 | ✓ | **29/29** | **52/52** | ✓ |  |
 | `Sales.SalesPerson` | rowstore | 17 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Sales.SalesPersonQuotaHistory` | rowstore | 163 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Sales.SalesReason` | rowstore | 10 | ✓ | **4/4** | **8/8** | ✓ |  |
@@ -2001,7 +2001,7 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `Production.TransactionHistoryArchive` | rowstore | 89,253 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Production.UnitMeasure` | rowstore | 38 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Purchasing.Vendor` | rowstore | 104 | ✓ | **8/8** | **16/16** | ✓ |  |
-| `Production.WorkOrder` | rowstore | 72,591 | ✓ | **9/9** | **18/18** | ✓ |  |
+| `Production.WorkOrder` | rowstore | 72,591 | ✓ | **10/10** | **18/18** | ✓ |  |
 | `Production.WorkOrderRouting` | rowstore | 67,131 | ✓ | **12/12** | **24/24** | ✓ |  |
 
 #### Stage: delta→arrow
@@ -2119,18 +2119,18 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `Production.Culture` | rowstore | 8 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.Currency` | rowstore | 105 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.CurrencyRate` | rowstore | 13,532 | ✓ | **7/7** | **14/14** | ✓ |  |
-| `Sales.Customer` | rowstore | 19,820 | ✓ | **6/6** | **12/12** | ✓ |  |
+| `Sales.Customer` | rowstore | 19,820 | ✓ | **7/7** | **12/12** | ✓ |  |
 | `Sales.CustomerPII` | rowstore | 19,118 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `dbo.DatabaseLog` | rowstore | 179 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `Demo.DemoSalesOrderDetailSeed` | memory-optimized | 538 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Demo.DemoSalesOrderHeaderSeed` | memory-optimized | 31,465 | ✓ | **7/7** | **14/14** | ✓ |  |
 | `HumanResources.Department` | rowstore | 16 | ✓ | **4/4** | **8/8** | ✓ |  |
-| `Production.Document` | rowstore | 13 | ✓ | **13/13** | **26/26** | ✓ |  |
+| `Production.Document` | rowstore | 13 | ✓ | **14/14** | **26/26** | ✓ |  |
 | `Person.EmailAddress` | rowstore | 19,972 | ✓ | **5/5** | **10/10** | ✓ |  |
-| `HumanResources.Employee` | rowstore | 290 | ✓ | **15/15** | **30/30** | ✓ |  |
+| `HumanResources.Employee` | rowstore | 290 | ✓ | **16/16** | **30/30** | ✓ |  |
 | `HumanResources.EmployeeDepartmentHistory` | rowstore | 296 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `HumanResources.EmployeePayHistory` | rowstore | 316 | ✓ | **5/5** | **10/10** | ✓ |  |
-| `HumanResources.Employee_Temporal` | rowstore | 290 | ✓ | **13/13** | **26/26** | ✓ |  |
+| `HumanResources.Employee_Temporal` | rowstore | 290 | ✓ | **14/14** | **28/28** | ✓ |  |
 | `Production.Illustration` | rowstore | 5 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `HumanResources.JobCandidate` | rowstore | 13 | ✓ | **4/4** | **8/8** | ✓ |  |
 | `Production.Location` | rowstore | 14 | ✓ | **5/5** | **10/10** | ✓ |  |
@@ -2159,16 +2159,16 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `Purchasing.ProductVendor` | rowstore | 460 | ✓ | **11/11** | **22/22** | ✓ |  |
 | `Production.Product_inmem` | memory-optimized | 504 | ✓ | **24/24** | **46/46** | ✓ |  |
 | `Production.Product_ondisk` | rowstore | 504 | ✓ | **24/24** | **46/46** | ✓ |  |
-| `Purchasing.PurchaseOrderDetail` | rowstore | 8,845 | ✓ | **9/9** | **18/18** | ✓ |  |
+| `Purchasing.PurchaseOrderDetail` | rowstore | 8,845 | ✓ | **11/11** | **18/18** | ✓ |  |
 | `Purchasing.PurchaseOrderHeader` | rowstore | 4,012 | ✓ | **13/13** | **26/26** | ✓ |  |
-| `Sales.SalesOrderDetail` | rowstore | 121,317 | ✓ | **10/10** | **20/20** | ✓ |  |
+| `Sales.SalesOrderDetail` | rowstore | 121,317 | ✓ | **11/11** | **20/20** | ✓ |  |
 | `Sales.SalesOrderDetail_inmem` | memory-optimized | 121,317 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Sales.SalesOrderDetail_ondisk` | rowstore | 121,317 | ✓ | **9/9** | **18/18** | ✓ |  |
-| `Sales.SalesOrderHeader` | rowstore | 31,465 | ✓ | **24/24** | **46/46** | ✓ |  |
+| `Sales.SalesOrderHeader` | rowstore | 31,465 | ✓ | **26/26** | **46/46** | ✓ |  |
 | `Sales.SalesOrderHeaderSalesReason` | rowstore | 27,647 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.SalesOrderHeader_inmem` | memory-optimized | 31,465 | ✓ | **23/23** | **44/44** | ✓ |  |
 | `Sales.SalesOrderHeader_ondisk` | rowstore | 31,465 | ✓ | **23/23** | **44/44** | ✓ |  |
-| `Sales.SalesOrder_json` | rowstore | 31,465 | ✓ | **27/27** | **52/52** | ✓ |  |
+| `Sales.SalesOrder_json` | rowstore | 31,465 | ✓ | **29/29** | **52/52** | ✓ |  |
 | `Sales.SalesPerson` | rowstore | 17 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Sales.SalesPersonQuotaHistory` | rowstore | 163 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Sales.SalesReason` | rowstore | 10 | ✓ | **4/4** | **8/8** | ✓ |  |
@@ -2192,7 +2192,7 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `Production.TransactionHistoryArchive` | rowstore | 89,253 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Production.UnitMeasure` | rowstore | 38 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Purchasing.Vendor` | rowstore | 104 | ✓ | **8/8** | **16/16** | ✓ |  |
-| `Production.WorkOrder` | rowstore | 72,591 | ✓ | **9/9** | **18/18** | ✓ |  |
+| `Production.WorkOrder` | rowstore | 72,591 | ✓ | **10/10** | **18/18** | ✓ |  |
 | `Production.WorkOrderRouting` | rowstore | 67,131 | ✓ | **12/12** | **24/24** | ✓ |  |
 
 #### Stage: pg_dir→arrow
@@ -2390,12 +2390,12 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `Production.Culture` | rowstore | 8 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.Currency` | rowstore | 105 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.CurrencyRate` | rowstore | 13,532 | ✓ | **7/7** | **14/14** | ✓ |  |
-| `Sales.Customer` | rowstore | 19,820 | ✓ | **6/6** | **12/12** | ✓ |  |
+| `Sales.Customer` | rowstore | 19,820 | ✓ | **7/7** | **12/12** | ✓ |  |
 | `dbo.DatabaseLog` | rowstore | 1,596 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `HumanResources.Department` | rowstore | 16 | ✓ | **4/4** | **8/8** | ✓ |  |
-| `Production.Document` | rowstore | 13 | ✓ | **13/13** | **26/26** | ✓ |  |
+| `Production.Document` | rowstore | 13 | ✓ | **14/14** | **26/26** | ✓ |  |
 | `Person.EmailAddress` | rowstore | 19,972 | ✓ | **5/5** | **10/10** | ✓ |  |
-| `HumanResources.Employee` | rowstore | 290 | ✓ | **15/15** | **30/30** | ✓ |  |
+| `HumanResources.Employee` | rowstore | 290 | ✓ | **16/16** | **30/30** | ✓ |  |
 | `HumanResources.EmployeeDepartmentHistory` | rowstore | 296 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `HumanResources.EmployeePayHistory` | rowstore | 316 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Production.Illustration` | rowstore | 5 | ✓ | **3/3** | **6/6** | ✓ |  |
@@ -2421,10 +2421,10 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `Production.ProductReview` | rowstore | 4 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `Production.ProductSubcategory` | rowstore | 37 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Purchasing.ProductVendor` | rowstore | 460 | ✓ | **11/11** | **22/22** | ✓ |  |
-| `Purchasing.PurchaseOrderDetail` | rowstore | 8,845 | ✓ | **9/9** | **18/18** | ✓ |  |
+| `Purchasing.PurchaseOrderDetail` | rowstore | 8,845 | ✓ | **11/11** | **18/18** | ✓ |  |
 | `Purchasing.PurchaseOrderHeader` | rowstore | 4,012 | ✓ | **13/13** | **26/26** | ✓ |  |
-| `Sales.SalesOrderDetail` | rowstore | 121,317 | ✓ | **10/10** | **20/20** | ✓ |  |
-| `Sales.SalesOrderHeader` | rowstore | 31,465 | ✓ | **24/24** | **46/46** | ✓ |  |
+| `Sales.SalesOrderDetail` | rowstore | 121,317 | ✓ | **11/11** | **20/20** | ✓ |  |
+| `Sales.SalesOrderHeader` | rowstore | 31,465 | ✓ | **26/26** | **46/46** | ✓ |  |
 | `Sales.SalesOrderHeaderSalesReason` | rowstore | 27,647 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.SalesPerson` | rowstore | 17 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Sales.SalesPersonQuotaHistory` | rowstore | 163 | ✓ | **5/5** | **10/10** | ✓ |  |
@@ -2444,7 +2444,7 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `Production.TransactionHistoryArchive` | rowstore | 89,253 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Production.UnitMeasure` | rowstore | 38 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Purchasing.Vendor` | rowstore | 104 | ✓ | **8/8** | **16/16** | ✓ |  |
-| `Production.WorkOrder` | rowstore | 72,591 | ✓ | **9/9** | **18/18** | ✓ |  |
+| `Production.WorkOrder` | rowstore | 72,591 | ✓ | **10/10** | **18/18** | ✓ |  |
 | `Production.WorkOrderRouting` | rowstore | 67,131 | ✓ | **12/12** | **24/24** | ✓ |  |
 
 #### Stage: delta→arrow
@@ -2541,12 +2541,12 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `Production.Culture` | rowstore | 8 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.Currency` | rowstore | 105 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.CurrencyRate` | rowstore | 13,532 | ✓ | **7/7** | **14/14** | ✓ |  |
-| `Sales.Customer` | rowstore | 19,820 | ✓ | **6/6** | **12/12** | ✓ |  |
+| `Sales.Customer` | rowstore | 19,820 | ✓ | **7/7** | **12/12** | ✓ |  |
 | `dbo.DatabaseLog` | rowstore | 1,596 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `HumanResources.Department` | rowstore | 16 | ✓ | **4/4** | **8/8** | ✓ |  |
-| `Production.Document` | rowstore | 13 | ✓ | **13/13** | **26/26** | ✓ |  |
+| `Production.Document` | rowstore | 13 | ✓ | **14/14** | **26/26** | ✓ |  |
 | `Person.EmailAddress` | rowstore | 19,972 | ✓ | **5/5** | **10/10** | ✓ |  |
-| `HumanResources.Employee` | rowstore | 290 | ✓ | **15/15** | **30/30** | ✓ |  |
+| `HumanResources.Employee` | rowstore | 290 | ✓ | **16/16** | **30/30** | ✓ |  |
 | `HumanResources.EmployeeDepartmentHistory` | rowstore | 296 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `HumanResources.EmployeePayHistory` | rowstore | 316 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Production.Illustration` | rowstore | 5 | ✓ | **3/3** | **6/6** | ✓ |  |
@@ -2572,10 +2572,10 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `Production.ProductReview` | rowstore | 4 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `Production.ProductSubcategory` | rowstore | 37 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Purchasing.ProductVendor` | rowstore | 460 | ✓ | **11/11** | **22/22** | ✓ |  |
-| `Purchasing.PurchaseOrderDetail` | rowstore | 8,845 | ✓ | **9/9** | **18/18** | ✓ |  |
+| `Purchasing.PurchaseOrderDetail` | rowstore | 8,845 | ✓ | **11/11** | **18/18** | ✓ |  |
 | `Purchasing.PurchaseOrderHeader` | rowstore | 4,012 | ✓ | **13/13** | **26/26** | ✓ |  |
-| `Sales.SalesOrderDetail` | rowstore | 121,317 | ✓ | **10/10** | **20/20** | ✓ |  |
-| `Sales.SalesOrderHeader` | rowstore | 31,465 | ✓ | **24/24** | **46/46** | ✓ |  |
+| `Sales.SalesOrderDetail` | rowstore | 121,317 | ✓ | **11/11** | **20/20** | ✓ |  |
+| `Sales.SalesOrderHeader` | rowstore | 31,465 | ✓ | **26/26** | **46/46** | ✓ |  |
 | `Sales.SalesOrderHeaderSalesReason` | rowstore | 27,647 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.SalesPerson` | rowstore | 17 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Sales.SalesPersonQuotaHistory` | rowstore | 163 | ✓ | **5/5** | **10/10** | ✓ |  |
@@ -2595,7 +2595,7 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `Production.TransactionHistoryArchive` | rowstore | 89,253 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Production.UnitMeasure` | rowstore | 38 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Purchasing.Vendor` | rowstore | 104 | ✓ | **8/8** | **16/16** | ✓ |  |
-| `Production.WorkOrder` | rowstore | 72,591 | ✓ | **9/9** | **18/18** | ✓ |  |
+| `Production.WorkOrder` | rowstore | 72,591 | ✓ | **10/10** | **18/18** | ✓ |  |
 | `Production.WorkOrderRouting` | rowstore | 67,131 | ✓ | **12/12** | **24/24** | ✓ |  |
 
 #### Stage: pg_dir→arrow
@@ -2772,12 +2772,12 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `Production.Culture` | rowstore | 8 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.Currency` | rowstore | 105 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.CurrencyRate` | rowstore | 13,532 | ✓ | **7/7** | **14/14** | ✓ |  |
-| `Sales.Customer` | rowstore | 19,820 | ✓ | **6/6** | **12/12** | ✓ |  |
+| `Sales.Customer` | rowstore | 19,820 | ✓ | **7/7** | **12/12** | ✓ |  |
 | `dbo.DatabaseLog` | rowstore | 1,596 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `HumanResources.Department` | rowstore | 16 | ✓ | **4/4** | **8/8** | ✓ |  |
-| `Production.Document` | rowstore | 13 | ✓ | **13/13** | **26/26** | ✓ |  |
+| `Production.Document` | rowstore | 13 | ✓ | **14/14** | **26/26** | ✓ |  |
 | `Person.EmailAddress` | rowstore | 19,972 | ✓ | **5/5** | **10/10** | ✓ |  |
-| `HumanResources.Employee` | rowstore | 290 | ✓ | **15/15** | **30/30** | ✓ |  |
+| `HumanResources.Employee` | rowstore | 290 | ✓ | **16/16** | **30/30** | ✓ |  |
 | `HumanResources.EmployeeDepartmentHistory` | rowstore | 296 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `HumanResources.EmployeePayHistory` | rowstore | 316 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Production.Illustration` | rowstore | 5 | ✓ | **3/3** | **6/6** | ✓ |  |
@@ -2803,10 +2803,10 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `Production.ProductReview` | rowstore | 4 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `Production.ProductSubcategory` | rowstore | 37 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Purchasing.ProductVendor` | rowstore | 460 | ✓ | **11/11** | **22/22** | ✓ |  |
-| `Purchasing.PurchaseOrderDetail` | rowstore | 8,845 | ✓ | **9/9** | **18/18** | ✓ |  |
+| `Purchasing.PurchaseOrderDetail` | rowstore | 8,845 | ✓ | **11/11** | **18/18** | ✓ |  |
 | `Purchasing.PurchaseOrderHeader` | rowstore | 4,012 | ✓ | **13/13** | **26/26** | ✓ |  |
-| `Sales.SalesOrderDetail` | rowstore | 121,317 | ✓ | **10/10** | **20/20** | ✓ |  |
-| `Sales.SalesOrderHeader` | rowstore | 31,465 | ✓ | **24/24** | **46/46** | ✓ |  |
+| `Sales.SalesOrderDetail` | rowstore | 121,317 | ✓ | **11/11** | **20/20** | ✓ |  |
+| `Sales.SalesOrderHeader` | rowstore | 31,465 | ✓ | **26/26** | **46/46** | ✓ |  |
 | `Sales.SalesOrderHeaderSalesReason` | rowstore | 27,647 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.SalesPerson` | rowstore | 17 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Sales.SalesPersonQuotaHistory` | rowstore | 163 | ✓ | **5/5** | **10/10** | ✓ |  |
@@ -2826,7 +2826,7 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `Production.TransactionHistoryArchive` | rowstore | 89,253 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Production.UnitMeasure` | rowstore | 38 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Purchasing.Vendor` | rowstore | 104 | ✓ | **8/8** | **16/16** | ✓ |  |
-| `Production.WorkOrder` | rowstore | 72,591 | ✓ | **9/9** | **18/18** | ✓ |  |
+| `Production.WorkOrder` | rowstore | 72,591 | ✓ | **10/10** | **18/18** | ✓ |  |
 | `Production.WorkOrderRouting` | rowstore | 67,131 | ✓ | **12/12** | **24/24** | ✓ |  |
 
 #### Stage: delta→arrow
@@ -2923,12 +2923,12 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `Production.Culture` | rowstore | 8 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.Currency` | rowstore | 105 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.CurrencyRate` | rowstore | 13,532 | ✓ | **7/7** | **14/14** | ✓ |  |
-| `Sales.Customer` | rowstore | 19,820 | ✓ | **6/6** | **12/12** | ✓ |  |
+| `Sales.Customer` | rowstore | 19,820 | ✓ | **7/7** | **12/12** | ✓ |  |
 | `dbo.DatabaseLog` | rowstore | 1,596 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `HumanResources.Department` | rowstore | 16 | ✓ | **4/4** | **8/8** | ✓ |  |
-| `Production.Document` | rowstore | 13 | ✓ | **13/13** | **26/26** | ✓ |  |
+| `Production.Document` | rowstore | 13 | ✓ | **14/14** | **26/26** | ✓ |  |
 | `Person.EmailAddress` | rowstore | 19,972 | ✓ | **5/5** | **10/10** | ✓ |  |
-| `HumanResources.Employee` | rowstore | 290 | ✓ | **15/15** | **30/30** | ✓ |  |
+| `HumanResources.Employee` | rowstore | 290 | ✓ | **16/16** | **30/30** | ✓ |  |
 | `HumanResources.EmployeeDepartmentHistory` | rowstore | 296 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `HumanResources.EmployeePayHistory` | rowstore | 316 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Production.Illustration` | rowstore | 5 | ✓ | **3/3** | **6/6** | ✓ |  |
@@ -2954,10 +2954,10 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `Production.ProductReview` | rowstore | 4 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `Production.ProductSubcategory` | rowstore | 37 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Purchasing.ProductVendor` | rowstore | 460 | ✓ | **11/11** | **22/22** | ✓ |  |
-| `Purchasing.PurchaseOrderDetail` | rowstore | 8,845 | ✓ | **9/9** | **18/18** | ✓ |  |
+| `Purchasing.PurchaseOrderDetail` | rowstore | 8,845 | ✓ | **11/11** | **18/18** | ✓ |  |
 | `Purchasing.PurchaseOrderHeader` | rowstore | 4,012 | ✓ | **13/13** | **26/26** | ✓ |  |
-| `Sales.SalesOrderDetail` | rowstore | 121,317 | ✓ | **10/10** | **20/20** | ✓ |  |
-| `Sales.SalesOrderHeader` | rowstore | 31,465 | ✓ | **24/24** | **46/46** | ✓ |  |
+| `Sales.SalesOrderDetail` | rowstore | 121,317 | ✓ | **11/11** | **20/20** | ✓ |  |
+| `Sales.SalesOrderHeader` | rowstore | 31,465 | ✓ | **26/26** | **46/46** | ✓ |  |
 | `Sales.SalesOrderHeaderSalesReason` | rowstore | 27,647 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.SalesPerson` | rowstore | 17 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Sales.SalesPersonQuotaHistory` | rowstore | 163 | ✓ | **5/5** | **10/10** | ✓ |  |
@@ -2977,7 +2977,7 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `Production.TransactionHistoryArchive` | rowstore | 89,253 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Production.UnitMeasure` | rowstore | 38 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Purchasing.Vendor` | rowstore | 104 | ✓ | **8/8** | **16/16** | ✓ |  |
-| `Production.WorkOrder` | rowstore | 72,591 | ✓ | **9/9** | **18/18** | ✓ |  |
+| `Production.WorkOrder` | rowstore | 72,591 | ✓ | **10/10** | **18/18** | ✓ |  |
 | `Production.WorkOrderRouting` | rowstore | 67,131 | ✓ | **12/12** | **24/24** | ✓ |  |
 
 #### Stage: pg_dir→arrow
@@ -3154,12 +3154,12 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `Production.Culture` | rowstore | 8 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.Currency` | rowstore | 105 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.CurrencyRate` | rowstore | 13,532 | ✓ | **7/7** | **14/14** | ✓ |  |
-| `Sales.Customer` | rowstore | 19,820 | ✓ | **6/6** | **12/12** | ✓ |  |
+| `Sales.Customer` | rowstore | 19,820 | ✓ | **7/7** | **12/12** | ✓ |  |
 | `dbo.DatabaseLog` | rowstore | 1,596 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `HumanResources.Department` | rowstore | 16 | ✓ | **4/4** | **8/8** | ✓ |  |
-| `Production.Document` | rowstore | 13 | ✓ | **13/13** | **26/26** | ✓ |  |
+| `Production.Document` | rowstore | 13 | ✓ | **14/14** | **26/26** | ✓ |  |
 | `Person.EmailAddress` | rowstore | 19,972 | ✓ | **5/5** | **10/10** | ✓ |  |
-| `HumanResources.Employee` | rowstore | 290 | ✓ | **15/15** | **30/30** | ✓ |  |
+| `HumanResources.Employee` | rowstore | 290 | ✓ | **16/16** | **30/30** | ✓ |  |
 | `HumanResources.EmployeeDepartmentHistory` | rowstore | 296 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `HumanResources.EmployeePayHistory` | rowstore | 316 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Production.Illustration` | rowstore | 5 | ✓ | **3/3** | **6/6** | ✓ |  |
@@ -3185,10 +3185,10 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `Production.ProductReview` | rowstore | 4 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `Production.ProductSubcategory` | rowstore | 37 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Purchasing.ProductVendor` | rowstore | 460 | ✓ | **11/11** | **22/22** | ✓ |  |
-| `Purchasing.PurchaseOrderDetail` | rowstore | 8,845 | ✓ | **9/9** | **18/18** | ✓ |  |
+| `Purchasing.PurchaseOrderDetail` | rowstore | 8,845 | ✓ | **11/11** | **18/18** | ✓ |  |
 | `Purchasing.PurchaseOrderHeader` | rowstore | 4,012 | ✓ | **13/13** | **26/26** | ✓ |  |
-| `Sales.SalesOrderDetail` | rowstore | 121,317 | ✓ | **10/10** | **20/20** | ✓ |  |
-| `Sales.SalesOrderHeader` | rowstore | 31,465 | ✓ | **24/24** | **46/46** | ✓ |  |
+| `Sales.SalesOrderDetail` | rowstore | 121,317 | ✓ | **11/11** | **20/20** | ✓ |  |
+| `Sales.SalesOrderHeader` | rowstore | 31,465 | ✓ | **26/26** | **46/46** | ✓ |  |
 | `Sales.SalesOrderHeaderSalesReason` | rowstore | 27,647 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.SalesPerson` | rowstore | 17 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Sales.SalesPersonQuotaHistory` | rowstore | 163 | ✓ | **5/5** | **10/10** | ✓ |  |
@@ -3208,7 +3208,7 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `Production.TransactionHistoryArchive` | rowstore | 89,253 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Production.UnitMeasure` | rowstore | 38 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Purchasing.Vendor` | rowstore | 104 | ✓ | **8/8** | **16/16** | ✓ |  |
-| `Production.WorkOrder` | rowstore | 72,591 | ✓ | **9/9** | **18/18** | ✓ |  |
+| `Production.WorkOrder` | rowstore | 72,591 | ✓ | **10/10** | **18/18** | ✓ |  |
 | `Production.WorkOrderRouting` | rowstore | 67,131 | ✓ | **12/12** | **24/24** | ✓ |  |
 
 #### Stage: delta→arrow
@@ -3305,12 +3305,12 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `Production.Culture` | rowstore | 8 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.Currency` | rowstore | 105 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.CurrencyRate` | rowstore | 13,532 | ✓ | **7/7** | **14/14** | ✓ |  |
-| `Sales.Customer` | rowstore | 19,820 | ✓ | **6/6** | **12/12** | ✓ |  |
+| `Sales.Customer` | rowstore | 19,820 | ✓ | **7/7** | **12/12** | ✓ |  |
 | `dbo.DatabaseLog` | rowstore | 1,596 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `HumanResources.Department` | rowstore | 16 | ✓ | **4/4** | **8/8** | ✓ |  |
-| `Production.Document` | rowstore | 13 | ✓ | **13/13** | **26/26** | ✓ |  |
+| `Production.Document` | rowstore | 13 | ✓ | **14/14** | **26/26** | ✓ |  |
 | `Person.EmailAddress` | rowstore | 19,972 | ✓ | **5/5** | **10/10** | ✓ |  |
-| `HumanResources.Employee` | rowstore | 290 | ✓ | **15/15** | **30/30** | ✓ |  |
+| `HumanResources.Employee` | rowstore | 290 | ✓ | **16/16** | **30/30** | ✓ |  |
 | `HumanResources.EmployeeDepartmentHistory` | rowstore | 296 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `HumanResources.EmployeePayHistory` | rowstore | 316 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Production.Illustration` | rowstore | 5 | ✓ | **3/3** | **6/6** | ✓ |  |
@@ -3336,10 +3336,10 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `Production.ProductReview` | rowstore | 4 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `Production.ProductSubcategory` | rowstore | 37 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Purchasing.ProductVendor` | rowstore | 460 | ✓ | **11/11** | **22/22** | ✓ |  |
-| `Purchasing.PurchaseOrderDetail` | rowstore | 8,845 | ✓ | **9/9** | **18/18** | ✓ |  |
+| `Purchasing.PurchaseOrderDetail` | rowstore | 8,845 | ✓ | **11/11** | **18/18** | ✓ |  |
 | `Purchasing.PurchaseOrderHeader` | rowstore | 4,012 | ✓ | **13/13** | **26/26** | ✓ |  |
-| `Sales.SalesOrderDetail` | rowstore | 121,317 | ✓ | **10/10** | **20/20** | ✓ |  |
-| `Sales.SalesOrderHeader` | rowstore | 31,465 | ✓ | **24/24** | **46/46** | ✓ |  |
+| `Sales.SalesOrderDetail` | rowstore | 121,317 | ✓ | **11/11** | **20/20** | ✓ |  |
+| `Sales.SalesOrderHeader` | rowstore | 31,465 | ✓ | **26/26** | **46/46** | ✓ |  |
 | `Sales.SalesOrderHeaderSalesReason` | rowstore | 27,647 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.SalesPerson` | rowstore | 17 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Sales.SalesPersonQuotaHistory` | rowstore | 163 | ✓ | **5/5** | **10/10** | ✓ |  |
@@ -3359,7 +3359,7 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `Production.TransactionHistoryArchive` | rowstore | 89,253 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Production.UnitMeasure` | rowstore | 38 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Purchasing.Vendor` | rowstore | 104 | ✓ | **8/8** | **16/16** | ✓ |  |
-| `Production.WorkOrder` | rowstore | 72,591 | ✓ | **9/9** | **18/18** | ✓ |  |
+| `Production.WorkOrder` | rowstore | 72,591 | ✓ | **10/10** | **18/18** | ✓ |  |
 | `Production.WorkOrderRouting` | rowstore | 67,131 | ✓ | **12/12** | **24/24** | ✓ |  |
 
 #### Stage: pg_dir→arrow
@@ -3536,12 +3536,12 @@ _SQL Server Microsoft SQL Server 2025 (RTM-CU7) (KB5096981) - 17.0.4065.4 (X64) 
 | `Production.Culture` | rowstore | 8 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.Currency` | rowstore | 105 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.CurrencyRate` | rowstore | 13,532 | ✓ | **7/7** | **14/14** | ✓ |  |
-| `Sales.Customer` | rowstore | 19,820 | ✓ | **6/6** | **12/12** | ✓ |  |
+| `Sales.Customer` | rowstore | 19,820 | ✓ | **7/7** | **12/12** | ✓ |  |
 | `dbo.DatabaseLog` | rowstore | 927 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `HumanResources.Department` | rowstore | 16 | ✓ | **4/4** | **8/8** | ✓ |  |
-| `Production.Document` | rowstore | 12 | ✓ | **13/13** | **26/26** | ✓ |  |
+| `Production.Document` | rowstore | 12 | ✓ | **14/14** | **26/26** | ✓ |  |
 | `Person.EmailAddress` | rowstore | 19,972 | ✓ | **5/5** | **10/10** | ✓ |  |
-| `HumanResources.Employee` | rowstore | 290 | ✓ | **15/15** | **30/30** | ✓ |  |
+| `HumanResources.Employee` | rowstore | 290 | ✓ | **16/16** | **30/30** | ✓ |  |
 | `HumanResources.EmployeeDepartmentHistory` | rowstore | 296 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `HumanResources.EmployeePayHistory` | rowstore | 316 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Production.Illustration` | rowstore | 5 | ✓ | **3/3** | **6/6** | ✓ |  |
@@ -3567,10 +3567,10 @@ _SQL Server Microsoft SQL Server 2025 (RTM-CU7) (KB5096981) - 17.0.4065.4 (X64) 
 | `Production.ProductReview` | rowstore | 4 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `Production.ProductSubcategory` | rowstore | 37 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Purchasing.ProductVendor` | rowstore | 460 | ✓ | **11/11** | **22/22** | ✓ |  |
-| `Purchasing.PurchaseOrderDetail` | rowstore | 8,845 | ✓ | **9/9** | **18/18** | ✓ |  |
+| `Purchasing.PurchaseOrderDetail` | rowstore | 8,845 | ✓ | **11/11** | **18/18** | ✓ |  |
 | `Purchasing.PurchaseOrderHeader` | rowstore | 4,012 | ✓ | **13/13** | **26/26** | ✓ |  |
-| `Sales.SalesOrderDetail` | rowstore | 121,317 | ✓ | **10/10** | **20/20** | ✓ |  |
-| `Sales.SalesOrderHeader` | rowstore | 31,465 | ✓ | **24/24** | **46/46** | ✓ |  |
+| `Sales.SalesOrderDetail` | rowstore | 121,317 | ✓ | **11/11** | **20/20** | ✓ |  |
+| `Sales.SalesOrderHeader` | rowstore | 31,465 | ✓ | **26/26** | **46/46** | ✓ |  |
 | `Sales.SalesOrderHeaderSalesReason` | rowstore | 27,647 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.SalesPerson` | rowstore | 17 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Sales.SalesPersonQuotaHistory` | rowstore | 163 | ✓ | **5/5** | **10/10** | ✓ |  |
@@ -3590,7 +3590,7 @@ _SQL Server Microsoft SQL Server 2025 (RTM-CU7) (KB5096981) - 17.0.4065.4 (X64) 
 | `Production.TransactionHistoryArchive` | rowstore | 89,253 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Production.UnitMeasure` | rowstore | 38 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Purchasing.Vendor` | rowstore | 104 | ✓ | **8/8** | **16/16** | ✓ |  |
-| `Production.WorkOrder` | rowstore | 72,591 | ✓ | **9/9** | **18/18** | ✓ |  |
+| `Production.WorkOrder` | rowstore | 72,591 | ✓ | **10/10** | **18/18** | ✓ |  |
 | `Production.WorkOrderRouting` | rowstore | 67,131 | ✓ | **12/12** | **24/24** | ✓ |  |
 
 #### Stage: delta→arrow
@@ -3687,12 +3687,12 @@ _SQL Server Microsoft SQL Server 2025 (RTM-CU7) (KB5096981) - 17.0.4065.4 (X64) 
 | `Production.Culture` | rowstore | 8 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.Currency` | rowstore | 105 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.CurrencyRate` | rowstore | 13,532 | ✓ | **7/7** | **14/14** | ✓ |  |
-| `Sales.Customer` | rowstore | 19,820 | ✓ | **6/6** | **12/12** | ✓ |  |
+| `Sales.Customer` | rowstore | 19,820 | ✓ | **7/7** | **12/12** | ✓ |  |
 | `dbo.DatabaseLog` | rowstore | 927 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `HumanResources.Department` | rowstore | 16 | ✓ | **4/4** | **8/8** | ✓ |  |
-| `Production.Document` | rowstore | 12 | ✓ | **13/13** | **26/26** | ✓ |  |
+| `Production.Document` | rowstore | 12 | ✓ | **14/14** | **26/26** | ✓ |  |
 | `Person.EmailAddress` | rowstore | 19,972 | ✓ | **5/5** | **10/10** | ✓ |  |
-| `HumanResources.Employee` | rowstore | 290 | ✓ | **15/15** | **30/30** | ✓ |  |
+| `HumanResources.Employee` | rowstore | 290 | ✓ | **16/16** | **30/30** | ✓ |  |
 | `HumanResources.EmployeeDepartmentHistory` | rowstore | 296 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `HumanResources.EmployeePayHistory` | rowstore | 316 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Production.Illustration` | rowstore | 5 | ✓ | **3/3** | **6/6** | ✓ |  |
@@ -3718,10 +3718,10 @@ _SQL Server Microsoft SQL Server 2025 (RTM-CU7) (KB5096981) - 17.0.4065.4 (X64) 
 | `Production.ProductReview` | rowstore | 4 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `Production.ProductSubcategory` | rowstore | 37 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Purchasing.ProductVendor` | rowstore | 460 | ✓ | **11/11** | **22/22** | ✓ |  |
-| `Purchasing.PurchaseOrderDetail` | rowstore | 8,845 | ✓ | **9/9** | **18/18** | ✓ |  |
+| `Purchasing.PurchaseOrderDetail` | rowstore | 8,845 | ✓ | **11/11** | **18/18** | ✓ |  |
 | `Purchasing.PurchaseOrderHeader` | rowstore | 4,012 | ✓ | **13/13** | **26/26** | ✓ |  |
-| `Sales.SalesOrderDetail` | rowstore | 121,317 | ✓ | **10/10** | **20/20** | ✓ |  |
-| `Sales.SalesOrderHeader` | rowstore | 31,465 | ✓ | **24/24** | **46/46** | ✓ |  |
+| `Sales.SalesOrderDetail` | rowstore | 121,317 | ✓ | **11/11** | **20/20** | ✓ |  |
+| `Sales.SalesOrderHeader` | rowstore | 31,465 | ✓ | **26/26** | **46/46** | ✓ |  |
 | `Sales.SalesOrderHeaderSalesReason` | rowstore | 27,647 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Sales.SalesPerson` | rowstore | 17 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Sales.SalesPersonQuotaHistory` | rowstore | 163 | ✓ | **5/5** | **10/10** | ✓ |  |
@@ -3741,7 +3741,7 @@ _SQL Server Microsoft SQL Server 2025 (RTM-CU7) (KB5096981) - 17.0.4065.4 (X64) 
 | `Production.TransactionHistoryArchive` | rowstore | 89,253 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Production.UnitMeasure` | rowstore | 38 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Purchasing.Vendor` | rowstore | 104 | ✓ | **8/8** | **16/16** | ✓ |  |
-| `Production.WorkOrder` | rowstore | 72,591 | ✓ | **9/9** | **18/18** | ✓ |  |
+| `Production.WorkOrder` | rowstore | 72,591 | ✓ | **10/10** | **18/18** | ✓ |  |
 | `Production.WorkOrderRouting` | rowstore | 67,131 | ✓ | **12/12** | **24/24** | ✓ |  |
 
 #### Stage: pg_dir→arrow
@@ -5505,8 +5505,8 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `SalesLT.ProductDescription` | rowstore | 762 | ✓ | **4/4** | **8/8** | ✓ |  |
 | `SalesLT.ProductModel` | rowstore | 128 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `SalesLT.ProductModelProductDescription` | rowstore | 762 | ✓ | **5/5** | **10/10** | ✓ |  |
-| `SalesLT.SalesOrderDetail` | rowstore | 542 | ✓ | **8/8** | **16/16** | ✓ |  |
-| `SalesLT.SalesOrderHeader` | rowstore | 32 | ✓ | **20/20** | **36/36** | ✓ |  |
+| `SalesLT.SalesOrderDetail` | rowstore | 542 | ✓ | **9/9** | **16/16** | ✓ |  |
+| `SalesLT.SalesOrderHeader` | rowstore | 32 | ✓ | **22/22** | **36/36** | ✓ |  |
 
 #### Stage: delta→arrow
 
@@ -5538,8 +5538,8 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `SalesLT.ProductDescription` | rowstore | 762 | ✓ | **4/4** | **8/8** | ✓ |  |
 | `SalesLT.ProductModel` | rowstore | 128 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `SalesLT.ProductModelProductDescription` | rowstore | 762 | ✓ | **5/5** | **10/10** | ✓ |  |
-| `SalesLT.SalesOrderDetail` | rowstore | 542 | ✓ | **8/8** | **16/16** | ✓ |  |
-| `SalesLT.SalesOrderHeader` | rowstore | 32 | ✓ | **20/20** | **36/36** | ✓ |  |
+| `SalesLT.SalesOrderDetail` | rowstore | 542 | ✓ | **9/9** | **16/16** | ✓ |  |
+| `SalesLT.SalesOrderHeader` | rowstore | 32 | ✓ | **22/22** | **36/36** | ✓ |  |
 
 #### Stage: pg_dir→arrow
 
@@ -5592,8 +5592,8 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `SalesLT.ProductDescription` | rowstore | 762 | ✓ | **4/4** | **8/8** | ✓ |  |
 | `SalesLT.ProductModel` | rowstore | 128 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `SalesLT.ProductModelProductDescription` | rowstore | 762 | ✓ | **5/5** | **10/10** | ✓ |  |
-| `SalesLT.SalesOrderDetail` | rowstore | 542 | ✓ | **8/8** | **16/16** | ✓ |  |
-| `SalesLT.SalesOrderHeader` | rowstore | 32 | ✓ | **20/20** | **36/36** | ✓ |  |
+| `SalesLT.SalesOrderDetail` | rowstore | 542 | ✓ | **9/9** | **16/16** | ✓ |  |
+| `SalesLT.SalesOrderHeader` | rowstore | 32 | ✓ | **22/22** | **36/36** | ✓ |  |
 
 #### Stage: delta→arrow
 
@@ -5625,8 +5625,8 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `SalesLT.ProductDescription` | rowstore | 762 | ✓ | **4/4** | **8/8** | ✓ |  |
 | `SalesLT.ProductModel` | rowstore | 128 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `SalesLT.ProductModelProductDescription` | rowstore | 762 | ✓ | **5/5** | **10/10** | ✓ |  |
-| `SalesLT.SalesOrderDetail` | rowstore | 542 | ✓ | **8/8** | **16/16** | ✓ |  |
-| `SalesLT.SalesOrderHeader` | rowstore | 32 | ✓ | **20/20** | **36/36** | ✓ |  |
+| `SalesLT.SalesOrderDetail` | rowstore | 542 | ✓ | **9/9** | **16/16** | ✓ |  |
+| `SalesLT.SalesOrderHeader` | rowstore | 32 | ✓ | **22/22** | **36/36** | ✓ |  |
 
 #### Stage: pg_dir→arrow
 
@@ -5679,8 +5679,8 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `SalesLT.ProductDescription` | rowstore | 762 | ✓ | **4/4** | **8/8** | ✓ |  |
 | `SalesLT.ProductModel` | rowstore | 128 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `SalesLT.ProductModelProductDescription` | rowstore | 762 | ✓ | **5/5** | **10/10** | ✓ |  |
-| `SalesLT.SalesOrderDetail` | rowstore | 542 | ✓ | **8/8** | **16/16** | ✓ |  |
-| `SalesLT.SalesOrderHeader` | rowstore | 32 | ✓ | **20/20** | **36/36** | ✓ |  |
+| `SalesLT.SalesOrderDetail` | rowstore | 542 | ✓ | **9/9** | **16/16** | ✓ |  |
+| `SalesLT.SalesOrderHeader` | rowstore | 32 | ✓ | **22/22** | **36/36** | ✓ |  |
 
 #### Stage: delta→arrow
 
@@ -5712,8 +5712,8 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `SalesLT.ProductDescription` | rowstore | 762 | ✓ | **4/4** | **8/8** | ✓ |  |
 | `SalesLT.ProductModel` | rowstore | 128 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `SalesLT.ProductModelProductDescription` | rowstore | 762 | ✓ | **5/5** | **10/10** | ✓ |  |
-| `SalesLT.SalesOrderDetail` | rowstore | 542 | ✓ | **8/8** | **16/16** | ✓ |  |
-| `SalesLT.SalesOrderHeader` | rowstore | 32 | ✓ | **20/20** | **36/36** | ✓ |  |
+| `SalesLT.SalesOrderDetail` | rowstore | 542 | ✓ | **9/9** | **16/16** | ✓ |  |
+| `SalesLT.SalesOrderHeader` | rowstore | 32 | ✓ | **22/22** | **36/36** | ✓ |  |
 
 #### Stage: pg_dir→arrow
 
@@ -5766,8 +5766,8 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `SalesLT.ProductDescription` | rowstore | 762 | ✓ | **4/4** | **8/8** | ✓ |  |
 | `SalesLT.ProductModel` | rowstore | 128 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `SalesLT.ProductModelProductDescription` | rowstore | 762 | ✓ | **5/5** | **10/10** | ✓ |  |
-| `SalesLT.SalesOrderDetail` | rowstore | 542 | ✓ | **8/8** | **16/16** | ✓ |  |
-| `SalesLT.SalesOrderHeader` | rowstore | 32 | ✓ | **20/20** | **36/36** | ✓ |  |
+| `SalesLT.SalesOrderDetail` | rowstore | 542 | ✓ | **9/9** | **16/16** | ✓ |  |
+| `SalesLT.SalesOrderHeader` | rowstore | 32 | ✓ | **22/22** | **36/36** | ✓ |  |
 
 #### Stage: delta→arrow
 
@@ -5799,8 +5799,8 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `SalesLT.ProductDescription` | rowstore | 762 | ✓ | **4/4** | **8/8** | ✓ |  |
 | `SalesLT.ProductModel` | rowstore | 128 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `SalesLT.ProductModelProductDescription` | rowstore | 762 | ✓ | **5/5** | **10/10** | ✓ |  |
-| `SalesLT.SalesOrderDetail` | rowstore | 542 | ✓ | **8/8** | **16/16** | ✓ |  |
-| `SalesLT.SalesOrderHeader` | rowstore | 32 | ✓ | **20/20** | **36/36** | ✓ |  |
+| `SalesLT.SalesOrderDetail` | rowstore | 542 | ✓ | **9/9** | **16/16** | ✓ |  |
+| `SalesLT.SalesOrderHeader` | rowstore | 32 | ✓ | **22/22** | **36/36** | ✓ |  |
 
 #### Stage: pg_dir→arrow
 
@@ -5853,8 +5853,8 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `SalesLT.ProductDescription` | rowstore | 762 | ✓ | **4/4** | **8/8** | ✓ |  |
 | `SalesLT.ProductModel` | rowstore | 128 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `SalesLT.ProductModelProductDescription` | rowstore | 762 | ✓ | **5/5** | **10/10** | ✓ |  |
-| `SalesLT.SalesOrderDetail` | rowstore | 542 | ✓ | **8/8** | **16/16** | ✓ |  |
-| `SalesLT.SalesOrderHeader` | rowstore | 32 | ✓ | **20/20** | **36/36** | ✓ |  |
+| `SalesLT.SalesOrderDetail` | rowstore | 542 | ✓ | **9/9** | **16/16** | ✓ |  |
+| `SalesLT.SalesOrderHeader` | rowstore | 32 | ✓ | **22/22** | **36/36** | ✓ |  |
 
 #### Stage: delta→arrow
 
@@ -5886,8 +5886,8 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `SalesLT.ProductDescription` | rowstore | 762 | ✓ | **4/4** | **8/8** | ✓ |  |
 | `SalesLT.ProductModel` | rowstore | 128 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `SalesLT.ProductModelProductDescription` | rowstore | 762 | ✓ | **5/5** | **10/10** | ✓ |  |
-| `SalesLT.SalesOrderDetail` | rowstore | 542 | ✓ | **8/8** | **16/16** | ✓ |  |
-| `SalesLT.SalesOrderHeader` | rowstore | 32 | ✓ | **20/20** | **36/36** | ✓ |  |
+| `SalesLT.SalesOrderDetail` | rowstore | 542 | ✓ | **9/9** | **16/16** | ✓ |  |
+| `SalesLT.SalesOrderHeader` | rowstore | 32 | ✓ | **22/22** | **36/36** | ✓ |  |
 
 #### Stage: pg_dir→arrow
 
@@ -5940,8 +5940,8 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `SalesLT.ProductDescription` | rowstore | 762 | ✓ | **4/4** | **8/8** | ✓ |  |
 | `SalesLT.ProductModel` | rowstore | 128 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `SalesLT.ProductModelProductDescription` | rowstore | 762 | ✓ | **5/5** | **10/10** | ✓ |  |
-| `SalesLT.SalesOrderDetail` | rowstore | 542 | ✓ | **8/8** | **16/16** | ✓ |  |
-| `SalesLT.SalesOrderHeader` | rowstore | 32 | ✓ | **20/20** | **36/36** | ✓ |  |
+| `SalesLT.SalesOrderDetail` | rowstore | 542 | ✓ | **9/9** | **16/16** | ✓ |  |
+| `SalesLT.SalesOrderHeader` | rowstore | 32 | ✓ | **22/22** | **36/36** | ✓ |  |
 
 #### Stage: delta→arrow
 
@@ -5973,8 +5973,8 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `SalesLT.ProductDescription` | rowstore | 762 | ✓ | **4/4** | **8/8** | ✓ |  |
 | `SalesLT.ProductModel` | rowstore | 128 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `SalesLT.ProductModelProductDescription` | rowstore | 762 | ✓ | **5/5** | **10/10** | ✓ |  |
-| `SalesLT.SalesOrderDetail` | rowstore | 542 | ✓ | **8/8** | **16/16** | ✓ |  |
-| `SalesLT.SalesOrderHeader` | rowstore | 32 | ✓ | **20/20** | **36/36** | ✓ |  |
+| `SalesLT.SalesOrderDetail` | rowstore | 542 | ✓ | **9/9** | **16/16** | ✓ |  |
+| `SalesLT.SalesOrderHeader` | rowstore | 32 | ✓ | **22/22** | **36/36** | ✓ |  |
 
 #### Stage: pg_dir→arrow
 
@@ -6027,8 +6027,8 @@ _SQL Server Microsoft SQL Server 2025 (RTM-CU7) (KB5096981) - 17.0.4065.4 (X64) 
 | `SalesLT.ProductDescription` | rowstore | 762 | ✓ | **4/4** | **8/8** | ✓ |  |
 | `SalesLT.ProductModel` | rowstore | 128 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `SalesLT.ProductModelProductDescription` | rowstore | 762 | ✓ | **5/5** | **10/10** | ✓ |  |
-| `SalesLT.SalesOrderDetail` | rowstore | 542 | ✓ | **8/8** | **16/16** | ✓ |  |
-| `SalesLT.SalesOrderHeader` | rowstore | 32 | ✓ | **20/20** | **36/36** | ✓ |  |
+| `SalesLT.SalesOrderDetail` | rowstore | 542 | ✓ | **9/9** | **16/16** | ✓ |  |
+| `SalesLT.SalesOrderHeader` | rowstore | 32 | ✓ | **22/22** | **36/36** | ✓ |  |
 
 #### Stage: delta→arrow
 
@@ -6060,8 +6060,8 @@ _SQL Server Microsoft SQL Server 2025 (RTM-CU7) (KB5096981) - 17.0.4065.4 (X64) 
 | `SalesLT.ProductDescription` | rowstore | 762 | ✓ | **4/4** | **8/8** | ✓ |  |
 | `SalesLT.ProductModel` | rowstore | 128 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `SalesLT.ProductModelProductDescription` | rowstore | 762 | ✓ | **5/5** | **10/10** | ✓ |  |
-| `SalesLT.SalesOrderDetail` | rowstore | 542 | ✓ | **8/8** | **16/16** | ✓ |  |
-| `SalesLT.SalesOrderHeader` | rowstore | 32 | ✓ | **20/20** | **36/36** | ✓ |  |
+| `SalesLT.SalesOrderDetail` | rowstore | 542 | ✓ | **9/9** | **16/16** | ✓ |  |
+| `SalesLT.SalesOrderHeader` | rowstore | 32 | ✓ | **22/22** | **36/36** | ✓ |  |
 
 #### Stage: pg_dir→arrow
 
@@ -7352,7 +7352,7 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (
 | `dbo.item` | columnstore | 17,820 | ✓ | **22/22** | **42/42** | ✓ |  |
 | `dbo.item_marketprices` | columnstore | 89,100 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `sqlr.model_scoring_history` | rowstore | 1 | ✓ | **9/9** | **16/16** | ✓ |  |
-| `sqlr.model_training_history` | rowstore | 8 | ✓ | **14/14** | **26/26** | ✓ |  |
+| `sqlr.model_training_history` | rowstore | 8 | ✓ | **15/15** | **26/26** | ✓ |  |
 | `sqlr.models` | rowstore | 4 | ✓ | **11/11** | **22/22** | ✓ |  |
 | `dbo.product_reviews` | columnstore | 89,991 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `dbo.promotion` | columnstore | 300 | ✓ | **19/19** | **38/38** | ✓ |  |
@@ -7422,7 +7422,7 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (
 | `dbo.item` | columnstore | 17,820 | ✓ | **22/22** | **42/42** | ✓ |  |
 | `dbo.item_marketprices` | columnstore | 89,100 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `sqlr.model_scoring_history` | rowstore | 1 | ✓ | **9/9** | **16/16** | ✓ |  |
-| `sqlr.model_training_history` | rowstore | 8 | ✓ | **14/14** | **26/26** | ✓ |  |
+| `sqlr.model_training_history` | rowstore | 8 | ✓ | **15/15** | **26/26** | ✓ |  |
 | `sqlr.models` | rowstore | 4 | ✓ | **11/11** | **22/22** | ✓ |  |
 | `dbo.product_reviews` | columnstore | 89,991 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `dbo.promotion` | columnstore | 300 | ✓ | **19/19** | **38/38** | ✓ |  |
@@ -7587,13 +7587,13 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (
 | `Application.DeliveryMethods` | rowstore | 10 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Application.DeliveryMethods_Archive` | rowstore | 1 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Sales.InvoiceLines` | rowstore | 228,265 | ✓ | **13/13** | **26/26** | ✓ |  |
-| `Sales.Invoices` | rowstore | 70,510 | ✓ | **23/23** | **40/40** | ✓ |  |
+| `Sales.Invoices` | rowstore | 70,510 | ✓ | **25/25** | **40/40** | ✓ |  |
 | `Sales.OrderLines` | rowstore | 231,412 | ✓ | **12/12** | **24/24** | ✓ |  |
 | `Sales.Orders` | rowstore | 73,595 | ✓ | **16/16** | **26/26** | ✓ |  |
 | `Warehouse.PackageTypes` | rowstore | 14 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Application.PaymentMethods` | rowstore | 4 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Application.PaymentMethods_Archive` | rowstore | 1 | ✓ | **5/5** | **10/10** | ✓ |  |
-| `Application.People` | rowstore | 1,111 | ✓ | **20/20** | **38/38** | ✓ |  |
+| `Application.People` | rowstore | 1,111 | ✓ | **21/21** | **38/38** | ✓ |  |
 | `Application.People_Archive` | rowstore | 961 | ✓ | **21/21** | **40/40** | ✓ |  |
 | `Purchasing.PurchaseOrderLines` | rowstore | 8,367 | ✓ | **12/12** | **24/24** | ✓ |  |
 | `Purchasing.PurchaseOrders` | rowstore | 2,074 | ✓ | **12/12** | **20/20** | ✓ |  |
@@ -7605,7 +7605,7 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (
 | `Warehouse.StockItemHoldings` | rowstore | 227 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Warehouse.StockItemStockGroups` | rowstore | 442 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Warehouse.StockItemTransactions` | columnstore | 236,667 | ✓ | **12/12** | **22/22** | ✓ |  |
-| `Warehouse.StockItems` | rowstore | 227 | ✓ | **23/23** | **42/42** | ✓ |  |
+| `Warehouse.StockItems` | rowstore | 227 | ✓ | **25/25** | **42/42** | ✓ |  |
 | `Warehouse.StockItems_Archive` | rowstore | 444 | ✓ | **25/25** | **46/46** | ✓ |  |
 | `Purchasing.SupplierCategories` | rowstore | 9 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Purchasing.SupplierCategories_Archive` | rowstore | 1 | ✓ | **5/5** | **10/10** | ✓ |  |
@@ -7691,13 +7691,13 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (
 | `Application.DeliveryMethods` | rowstore | 10 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Application.DeliveryMethods_Archive` | rowstore | 1 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Sales.InvoiceLines` | rowstore | 228,265 | ✓ | **13/13** | **26/26** | ✓ |  |
-| `Sales.Invoices` | rowstore | 70,510 | ✓ | **23/23** | **40/40** | ✓ |  |
+| `Sales.Invoices` | rowstore | 70,510 | ✓ | **25/25** | **40/40** | ✓ |  |
 | `Sales.OrderLines` | rowstore | 231,412 | ✓ | **12/12** | **24/24** | ✓ |  |
 | `Sales.Orders` | rowstore | 73,595 | ✓ | **16/16** | **26/26** | ✓ |  |
 | `Warehouse.PackageTypes` | rowstore | 14 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Application.PaymentMethods` | rowstore | 4 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Application.PaymentMethods_Archive` | rowstore | 1 | ✓ | **5/5** | **10/10** | ✓ |  |
-| `Application.People` | rowstore | 1,111 | ✓ | **20/20** | **38/38** | ✓ |  |
+| `Application.People` | rowstore | 1,111 | ✓ | **21/21** | **38/38** | ✓ |  |
 | `Application.People_Archive` | rowstore | 961 | ✓ | **21/21** | **40/40** | ✓ |  |
 | `Purchasing.PurchaseOrderLines` | rowstore | 8,367 | ✓ | **12/12** | **24/24** | ✓ |  |
 | `Purchasing.PurchaseOrders` | rowstore | 2,074 | ✓ | **12/12** | **20/20** | ✓ |  |
@@ -7709,7 +7709,7 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (
 | `Warehouse.StockItemHoldings` | rowstore | 227 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Warehouse.StockItemStockGroups` | rowstore | 442 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Warehouse.StockItemTransactions` | columnstore | 236,667 | ✓ | **12/12** | **22/22** | ✓ |  |
-| `Warehouse.StockItems` | rowstore | 227 | ✓ | **23/23** | **42/42** | ✓ |  |
+| `Warehouse.StockItems` | rowstore | 227 | ✓ | **25/25** | **42/42** | ✓ |  |
 | `Warehouse.StockItems_Archive` | rowstore | 444 | ✓ | **25/25** | **46/46** | ✓ |  |
 | `Purchasing.SupplierCategories` | rowstore | 9 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Purchasing.SupplierCategories_Archive` | rowstore | 1 | ✓ | **5/5** | **10/10** | ✓ |  |
@@ -7852,13 +7852,13 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (
 | `Application.DeliveryMethods` | rowstore | 10 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Application.DeliveryMethods_Archive` | rowstore | 1 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Sales.InvoiceLines` | rowstore | 228,265 | ✓ | **13/13** | **26/26** | ✓ |  |
-| `Sales.Invoices` | rowstore | 70,510 | ✓ | **23/23** | **40/40** | ✓ |  |
+| `Sales.Invoices` | rowstore | 70,510 | ✓ | **25/25** | **40/40** | ✓ |  |
 | `Sales.OrderLines` | rowstore | 231,412 | ✓ | **12/12** | **24/24** | ✓ |  |
 | `Sales.Orders` | rowstore | 73,595 | ✓ | **16/16** | **26/26** | ✓ |  |
 | `Warehouse.PackageTypes` | rowstore | 14 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Application.PaymentMethods` | rowstore | 4 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Application.PaymentMethods_Archive` | rowstore | 1 | ✓ | **5/5** | **10/10** | ✓ |  |
-| `Application.People` | rowstore | 1,111 | ✓ | **20/20** | **38/38** | ✓ |  |
+| `Application.People` | rowstore | 1,111 | ✓ | **21/21** | **38/38** | ✓ |  |
 | `Application.People_Archive` | rowstore | 961 | ✓ | **21/21** | **40/40** | ✓ |  |
 | `Purchasing.PurchaseOrderLines` | rowstore | 8,367 | ✓ | **12/12** | **24/24** | ✓ |  |
 | `Purchasing.PurchaseOrders` | rowstore | 2,074 | ✓ | **12/12** | **20/20** | ✓ |  |
@@ -7870,7 +7870,7 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (
 | `Warehouse.StockItemHoldings` | rowstore | 227 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Warehouse.StockItemStockGroups` | rowstore | 442 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Warehouse.StockItemTransactions` | columnstore | 236,667 | ✓ | **12/12** | **22/22** | ✓ |  |
-| `Warehouse.StockItems` | rowstore | 227 | ✓ | **23/23** | **42/42** | ✓ |  |
+| `Warehouse.StockItems` | rowstore | 227 | ✓ | **25/25** | **42/42** | ✓ |  |
 | `Warehouse.StockItems_Archive` | rowstore | 444 | ✓ | **25/25** | **46/46** | ✓ |  |
 | `Purchasing.SupplierCategories` | rowstore | 9 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Purchasing.SupplierCategories_Archive` | rowstore | 1 | ✓ | **5/5** | **10/10** | ✓ |  |
@@ -7956,13 +7956,13 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (
 | `Application.DeliveryMethods` | rowstore | 10 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Application.DeliveryMethods_Archive` | rowstore | 1 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Sales.InvoiceLines` | rowstore | 228,265 | ✓ | **13/13** | **26/26** | ✓ |  |
-| `Sales.Invoices` | rowstore | 70,510 | ✓ | **23/23** | **40/40** | ✓ |  |
+| `Sales.Invoices` | rowstore | 70,510 | ✓ | **25/25** | **40/40** | ✓ |  |
 | `Sales.OrderLines` | rowstore | 231,412 | ✓ | **12/12** | **24/24** | ✓ |  |
 | `Sales.Orders` | rowstore | 73,595 | ✓ | **16/16** | **26/26** | ✓ |  |
 | `Warehouse.PackageTypes` | rowstore | 14 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Application.PaymentMethods` | rowstore | 4 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Application.PaymentMethods_Archive` | rowstore | 1 | ✓ | **5/5** | **10/10** | ✓ |  |
-| `Application.People` | rowstore | 1,111 | ✓ | **20/20** | **38/38** | ✓ |  |
+| `Application.People` | rowstore | 1,111 | ✓ | **21/21** | **38/38** | ✓ |  |
 | `Application.People_Archive` | rowstore | 961 | ✓ | **21/21** | **40/40** | ✓ |  |
 | `Purchasing.PurchaseOrderLines` | rowstore | 8,367 | ✓ | **12/12** | **24/24** | ✓ |  |
 | `Purchasing.PurchaseOrders` | rowstore | 2,074 | ✓ | **12/12** | **20/20** | ✓ |  |
@@ -7974,7 +7974,7 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (
 | `Warehouse.StockItemHoldings` | rowstore | 227 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Warehouse.StockItemStockGroups` | rowstore | 442 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Warehouse.StockItemTransactions` | columnstore | 236,667 | ✓ | **12/12** | **22/22** | ✓ |  |
-| `Warehouse.StockItems` | rowstore | 227 | ✓ | **23/23** | **42/42** | ✓ |  |
+| `Warehouse.StockItems` | rowstore | 227 | ✓ | **25/25** | **42/42** | ✓ |  |
 | `Warehouse.StockItems_Archive` | rowstore | 444 | ✓ | **25/25** | **46/46** | ✓ |  |
 | `Purchasing.SupplierCategories` | rowstore | 9 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Purchasing.SupplierCategories_Archive` | rowstore | 1 | ✓ | **5/5** | **10/10** | ✓ |  |
@@ -8117,13 +8117,13 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (
 | `Application.DeliveryMethods` | rowstore | 10 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Application.DeliveryMethods_Archive` | rowstore | 1 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Sales.InvoiceLines` | rowstore | 228,265 | ✓ | **13/13** | **26/26** | ✓ |  |
-| `Sales.Invoices` | rowstore | 70,510 | ✓ | **23/23** | **40/40** | ✓ |  |
+| `Sales.Invoices` | rowstore | 70,510 | ✓ | **25/25** | **40/40** | ✓ |  |
 | `Sales.OrderLines` | rowstore | 231,412 | ✓ | **12/12** | **24/24** | ✓ |  |
 | `Sales.Orders` | rowstore | 73,595 | ✓ | **16/16** | **26/26** | ✓ |  |
 | `Warehouse.PackageTypes` | rowstore | 14 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Application.PaymentMethods` | rowstore | 4 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Application.PaymentMethods_Archive` | rowstore | 1 | ✓ | **5/5** | **10/10** | ✓ |  |
-| `Application.People` | rowstore | 1,111 | ✓ | **20/20** | **38/38** | ✓ |  |
+| `Application.People` | rowstore | 1,111 | ✓ | **21/21** | **38/38** | ✓ |  |
 | `Application.People_Archive` | rowstore | 961 | ✓ | **21/21** | **40/40** | ✓ |  |
 | `Purchasing.PurchaseOrderLines` | rowstore | 8,367 | ✓ | **12/12** | **24/24** | ✓ |  |
 | `Purchasing.PurchaseOrders` | rowstore | 2,074 | ✓ | **12/12** | **20/20** | ✓ |  |
@@ -8135,7 +8135,7 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (
 | `Warehouse.StockItemHoldings` | rowstore | 227 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Warehouse.StockItemStockGroups` | rowstore | 442 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Warehouse.StockItemTransactions` | rowstore | 236,667 | ✓ | **11/11** | **22/22** | ✓ |  |
-| `Warehouse.StockItems` | rowstore | 227 | ✓ | **23/23** | **42/42** | ✓ |  |
+| `Warehouse.StockItems` | rowstore | 227 | ✓ | **25/25** | **42/42** | ✓ |  |
 | `Warehouse.StockItems_Archive` | rowstore | 444 | ✓ | **25/25** | **46/46** | ✓ |  |
 | `Purchasing.SupplierCategories` | rowstore | 9 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Purchasing.SupplierCategories_Archive` | rowstore | 1 | ✓ | **5/5** | **10/10** | ✓ |  |
@@ -8221,13 +8221,13 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (
 | `Application.DeliveryMethods` | rowstore | 10 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Application.DeliveryMethods_Archive` | rowstore | 1 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Sales.InvoiceLines` | rowstore | 228,265 | ✓ | **13/13** | **26/26** | ✓ |  |
-| `Sales.Invoices` | rowstore | 70,510 | ✓ | **23/23** | **40/40** | ✓ |  |
+| `Sales.Invoices` | rowstore | 70,510 | ✓ | **25/25** | **40/40** | ✓ |  |
 | `Sales.OrderLines` | rowstore | 231,412 | ✓ | **12/12** | **24/24** | ✓ |  |
 | `Sales.Orders` | rowstore | 73,595 | ✓ | **16/16** | **26/26** | ✓ |  |
 | `Warehouse.PackageTypes` | rowstore | 14 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Application.PaymentMethods` | rowstore | 4 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Application.PaymentMethods_Archive` | rowstore | 1 | ✓ | **5/5** | **10/10** | ✓ |  |
-| `Application.People` | rowstore | 1,111 | ✓ | **20/20** | **38/38** | ✓ |  |
+| `Application.People` | rowstore | 1,111 | ✓ | **21/21** | **38/38** | ✓ |  |
 | `Application.People_Archive` | rowstore | 961 | ✓ | **21/21** | **40/40** | ✓ |  |
 | `Purchasing.PurchaseOrderLines` | rowstore | 8,367 | ✓ | **12/12** | **24/24** | ✓ |  |
 | `Purchasing.PurchaseOrders` | rowstore | 2,074 | ✓ | **12/12** | **20/20** | ✓ |  |
@@ -8239,7 +8239,7 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (
 | `Warehouse.StockItemHoldings` | rowstore | 227 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Warehouse.StockItemStockGroups` | rowstore | 442 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Warehouse.StockItemTransactions` | rowstore | 236,667 | ✓ | **11/11** | **22/22** | ✓ |  |
-| `Warehouse.StockItems` | rowstore | 227 | ✓ | **23/23** | **42/42** | ✓ |  |
+| `Warehouse.StockItems` | rowstore | 227 | ✓ | **25/25** | **42/42** | ✓ |  |
 | `Warehouse.StockItems_Archive` | rowstore | 444 | ✓ | **25/25** | **46/46** | ✓ |  |
 | `Purchasing.SupplierCategories` | rowstore | 9 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Purchasing.SupplierCategories_Archive` | rowstore | 1 | ✓ | **5/5** | **10/10** | ✓ |  |
@@ -8382,13 +8382,13 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (
 | `Application.DeliveryMethods` | rowstore | 10 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Application.DeliveryMethods_Archive` | rowstore | 1 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Sales.InvoiceLines` | rowstore | 228,265 | ✓ | **13/13** | **26/26** | ✓ |  |
-| `Sales.Invoices` | rowstore | 70,510 | ✓ | **23/23** | **40/40** | ✓ |  |
+| `Sales.Invoices` | rowstore | 70,510 | ✓ | **25/25** | **40/40** | ✓ |  |
 | `Sales.OrderLines` | rowstore | 231,412 | ✓ | **12/12** | **24/24** | ✓ |  |
 | `Sales.Orders` | rowstore | 73,595 | ✓ | **16/16** | **26/26** | ✓ |  |
 | `Warehouse.PackageTypes` | rowstore | 14 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Application.PaymentMethods` | rowstore | 4 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Application.PaymentMethods_Archive` | rowstore | 1 | ✓ | **5/5** | **10/10** | ✓ |  |
-| `Application.People` | rowstore | 1,111 | ✓ | **20/20** | **38/38** | ✓ |  |
+| `Application.People` | rowstore | 1,111 | ✓ | **21/21** | **38/38** | ✓ |  |
 | `Application.People_Archive` | rowstore | 961 | ✓ | **21/21** | **40/40** | ✓ |  |
 | `Purchasing.PurchaseOrderLines` | rowstore | 8,367 | ✓ | **12/12** | **24/24** | ✓ |  |
 | `Purchasing.PurchaseOrders` | rowstore | 2,074 | ✓ | **12/12** | **20/20** | ✓ |  |
@@ -8400,7 +8400,7 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (
 | `Warehouse.StockItemHoldings` | rowstore | 227 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Warehouse.StockItemStockGroups` | rowstore | 442 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Warehouse.StockItemTransactions` | rowstore | 236,667 | ✓ | **11/11** | **22/22** | ✓ |  |
-| `Warehouse.StockItems` | rowstore | 227 | ✓ | **23/23** | **42/42** | ✓ |  |
+| `Warehouse.StockItems` | rowstore | 227 | ✓ | **25/25** | **42/42** | ✓ |  |
 | `Warehouse.StockItems_Archive` | rowstore | 444 | ✓ | **25/25** | **46/46** | ✓ |  |
 | `Purchasing.SupplierCategories` | rowstore | 9 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Purchasing.SupplierCategories_Archive` | rowstore | 1 | ✓ | **5/5** | **10/10** | ✓ |  |
@@ -8486,13 +8486,13 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (
 | `Application.DeliveryMethods` | rowstore | 10 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Application.DeliveryMethods_Archive` | rowstore | 1 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Sales.InvoiceLines` | rowstore | 228,265 | ✓ | **13/13** | **26/26** | ✓ |  |
-| `Sales.Invoices` | rowstore | 70,510 | ✓ | **23/23** | **40/40** | ✓ |  |
+| `Sales.Invoices` | rowstore | 70,510 | ✓ | **25/25** | **40/40** | ✓ |  |
 | `Sales.OrderLines` | rowstore | 231,412 | ✓ | **12/12** | **24/24** | ✓ |  |
 | `Sales.Orders` | rowstore | 73,595 | ✓ | **16/16** | **26/26** | ✓ |  |
 | `Warehouse.PackageTypes` | rowstore | 14 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Application.PaymentMethods` | rowstore | 4 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Application.PaymentMethods_Archive` | rowstore | 1 | ✓ | **5/5** | **10/10** | ✓ |  |
-| `Application.People` | rowstore | 1,111 | ✓ | **20/20** | **38/38** | ✓ |  |
+| `Application.People` | rowstore | 1,111 | ✓ | **21/21** | **38/38** | ✓ |  |
 | `Application.People_Archive` | rowstore | 961 | ✓ | **21/21** | **40/40** | ✓ |  |
 | `Purchasing.PurchaseOrderLines` | rowstore | 8,367 | ✓ | **12/12** | **24/24** | ✓ |  |
 | `Purchasing.PurchaseOrders` | rowstore | 2,074 | ✓ | **12/12** | **20/20** | ✓ |  |
@@ -8504,7 +8504,7 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU25-GDR) (KB5095580) - 16.0.4260.1 (
 | `Warehouse.StockItemHoldings` | rowstore | 227 | ✓ | **9/9** | **18/18** | ✓ |  |
 | `Warehouse.StockItemStockGroups` | rowstore | 442 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Warehouse.StockItemTransactions` | rowstore | 236,667 | ✓ | **11/11** | **22/22** | ✓ |  |
-| `Warehouse.StockItems` | rowstore | 227 | ✓ | **23/23** | **42/42** | ✓ |  |
+| `Warehouse.StockItems` | rowstore | 227 | ✓ | **25/25** | **42/42** | ✓ |  |
 | `Warehouse.StockItems_Archive` | rowstore | 444 | ✓ | **25/25** | **46/46** | ✓ |  |
 | `Purchasing.SupplierCategories` | rowstore | 9 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Purchasing.SupplierCategories_Archive` | rowstore | 1 | ✓ | **5/5** | **10/10** | ✓ |  |
@@ -8842,512 +8842,77 @@ Metadata ground truth is collected from the live SQL Server restore into `<bak>.
 
 | Backup | constraints | indexes | extended_properties | modules | schema_objects | security | statistics | plan_guides | query_store |
 |--------|:---------: | :---------: | :---------: | :---------: | :---------: | :---------: | :---------: | :---------: | :---------:|
-| `AdventureWorks2008R2.bak` | ✓ | 169/173 ⚠ | 545/561 ⚠ | 0/51 ⚠ | ✓ | ✓ | 161/165 ⚠ | ✓ | ✓ |
-| `AdventureWorks2012.bak` | ✓ | 169/173 ⚠ | 545/561 ⚠ | 0/51 ⚠ | ✓ | ✓ | 161/165 ⚠ | ✓ | ✓ |
-| `AdventureWorks2014.bak` | ✓ | 169/173 ⚠ | 545/561 ⚠ | 0/51 ⚠ | ✓ | ✓ | 161/165 ⚠ | ✓ | ✓ |
-| `AdventureWorks2016.bak` | ✓ | 169/173 ⚠ | 545/561 ⚠ | 0/51 ⚠ | ✓ | ✓ | 161/165 ⚠ | ✓ | ✓ |
-| `AdventureWorks2016_EXT.bak` | ✓ | 205/209 ⚠ | 555/571 ⚠ | 0/76 ⚠ | 11/13 ⚠ | 20/46 ⚠ | 197/201 ⚠ | ✓ | ✓ |
-| `AdventureWorks2017.bak` | ✓ | 169/173 ⚠ | 545/561 ⚠ | 0/51 ⚠ | ✓ | ✓ | 161/165 ⚠ | ✓ | ✓ |
-| `AdventureWorks2019.bak` | ✓ | 169/173 ⚠ | 545/561 ⚠ | 0/51 ⚠ | ✓ | ✓ | 161/165 ⚠ | ✓ | ✓ |
-| `AdventureWorks2022.bak` | ✓ | 169/173 ⚠ | 545/561 ⚠ | 0/51 ⚠ | ✓ | ✓ | 161/165 ⚠ | ✓ | ✓ |
-| `AdventureWorks2025.bak` | ✓ | 169/173 ⚠ | 521/535 ⚠ | 0/51 ⚠ | ✓ | ✓ | 161/165 ⚠ | ✓ | ✓ |
-| `AdventureWorksDW2008R2.bak` | 74/78 ⚠ | ✓ | ✓ | 0/8 ⚠ | ✓ | ✓ | ✓ | ✓ | ✓ |
-| `AdventureWorksLT2012.bak` | 76/82 ⚠ | 31/32 ⚠ | 109/114 ⚠ | 0/10 ⚠ | ✓ | 0/2 ⚠ | 30/31 ⚠ | ✓ | ✓ |
-| `AdventureWorksLT2014.bak` | 76/82 ⚠ | 31/32 ⚠ | 109/114 ⚠ | 0/10 ⚠ | ✓ | 0/2 ⚠ | 30/31 ⚠ | ✓ | ✓ |
-| `AdventureWorksLT2016.bak` | 76/82 ⚠ | 31/32 ⚠ | 109/114 ⚠ | 0/10 ⚠ | ✓ | ✓ | 30/31 ⚠ | ✓ | ✓ |
-| `AdventureWorksLT2017.bak` | 76/82 ⚠ | 31/32 ⚠ | 109/114 ⚠ | 0/10 ⚠ | ✓ | ✓ | 30/31 ⚠ | ✓ | ✓ |
-| `AdventureWorksLT2019.bak` | 76/82 ⚠ | 31/32 ⚠ | 109/114 ⚠ | 0/10 ⚠ | ✓ | ✓ | 30/31 ⚠ | ✓ | ✓ |
-| `AdventureWorksLT2022.bak` | 76/82 ⚠ | 31/32 ⚠ | 109/114 ⚠ | 0/10 ⚠ | ✓ | ✓ | 30/31 ⚠ | ✓ | ✓ |
-| `AdventureWorksLT2025.bak` | 76/82 ⚠ | 31/32 ⚠ | 109/114 ⚠ | 0/10 ⚠ | ✓ | ✓ | 30/31 ⚠ | ✓ | ✓ |
-
-### Metadata failures detail
-
-#### `AdventureWorks2008R2.bak`
-
-**indexes**
-  - mismatch `('HumanResources.Employee', 'IX_Employee_OrganizationLevel_OrganizationNode')`: expected `{'type': 'nonclustered', 'is_unique': False, 'is_primary_key': False, 'key_columns': ['OrganizationLevel', 'OrganizationNode']}` got `{'type': 'nonclustered', 'is_unique': False, 'is_primary_key': False, 'key_columns': ['col_5', 'OrganizationNode']}`
-  - mismatch `('Production.Document', 'AK_Document_DocumentLevel_DocumentNode')`: expected `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['DocumentLevel', 'DocumentNode']}` got `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['col_2', 'DocumentNode']}`
-  - mismatch `('Sales.Customer', 'AK_Customer_AccountNumber')`: expected `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['AccountNumber']}` got `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['col_5']}`
-  - mismatch `('Sales.SalesOrderHeader', 'AK_SalesOrderHeader_SalesOrderNumber')`: expected `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['SalesOrderNumber']}` got `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['col_8']}`
-
-**extended_properties**
-  - missing: `('table/column', 'HumanResources.Employee', 'OrganizationLevel', 'MS_Description')`, `('table/column', 'Production.Document', 'DocumentLevel', 'MS_Description')`, `('table/column', 'Production.WorkOrder', 'StockedQty', 'MS_Description')`, `('table/column', 'Purchasing.PurchaseOrderDetail', 'LineTotal', 'MS_Description')`, `('table/column', 'Purchasing.PurchaseOrderDetail', 'StockedQty', 'MS_Description')`, `('table/column', 'Sales.Customer', 'AccountNumber', 'MS_Description')`, `('table/column', 'Sales.SalesOrderDetail', 'LineTotal', 'MS_Description')`, `('table/column', 'Sales.SalesOrderHeader', 'SalesOrderNumber', 'MS_Description')`, `('table/column', 'Sales.SalesOrderHeader', 'TotalDue', 'MS_Description')`
-  - mismatch `('table', 'HumanResources.Employee', '', 'MS_Description')`: expected `{'value': 'Employee information such as salary, department, and title.'}` got `{'value': 'The depth of the employee in the corporate hierarchy.'}`
-  - mismatch `('table', 'Production.Document', '', 'MS_Description')`: expected `{'value': 'Product maintenance documents.'}` got `{'value': 'Depth in the document hierarchy.'}`
-  - mismatch `('table', 'Production.WorkOrder', '', 'MS_Description')`: expected `{'value': 'Manufacturing work orders.'}` got `{'value': 'Quantity built and put in inventory.'}`
-  - mismatch `('table', 'Purchasing.PurchaseOrderDetail', '', 'MS_Description')`: expected `{'value': 'Individual products associated with a specific purchase order. See PurchaseOrderHeader.'}` got `{'value': 'Quantity accepted into inventory. Computed as ReceivedQty - RejectedQty.'}`
-  - mismatch `('table', 'Sales.Customer', '', 'MS_Description')`: expected `{'value': 'Current customer information. Also see the Person and Store tables.'}` got `{'value': 'Unique number identifying the customer assigned by the accounting system.'}`
-
-**modules**
-  - missing: `HumanResources.dEmployee`, `HumanResources.uspUpdateEmployeeHireInfo`, `HumanResources.uspUpdateEmployeeLogin`, `HumanResources.uspUpdateEmployeePersonalInfo`, `HumanResources.vEmployee`, `HumanResources.vEmployeeDepartment`, `HumanResources.vEmployeeDepartmentHistory`, `HumanResources.vJobCandidate`, `HumanResources.vJobCandidateEducation`, `HumanResources.vJobCandidateEmployment` …
-
-**statistics**
-  - extra: `('Person.Person', 'PXML_Person_AddContact')`, `('Person.Person', 'PXML_Person_Demographics')`, `('Person.Person', 'XMLPATH_Person_Demographics')`, `('Person.Person', 'XMLPROPERTY_Person_Demographics')`, `('Person.Person', 'XMLVALUE_Person_Demographics')`, `('Production.ProductModel', 'PXML_ProductModel_CatalogDescription')`, `('Production.ProductModel', 'PXML_ProductModel_Instructions')`, `('Sales.Store', 'PXML_Store_Demographics')`
-  - mismatch `('HumanResources.Employee', 'IX_Employee_OrganizationLevel_OrganizationNode')`: expected `{'key_columns': ['OrganizationLevel', 'OrganizationNode']}` got `{'key_columns': ['col_5', 'OrganizationNode']}`
-  - mismatch `('Production.Document', 'AK_Document_DocumentLevel_DocumentNode')`: expected `{'key_columns': ['DocumentLevel', 'DocumentNode']}` got `{'key_columns': ['col_2', 'DocumentNode']}`
-  - mismatch `('Sales.Customer', 'AK_Customer_AccountNumber')`: expected `{'key_columns': ['AccountNumber']}` got `{'key_columns': ['col_5']}`
-  - mismatch `('Sales.SalesOrderHeader', 'AK_SalesOrderHeader_SalesOrderNumber')`: expected `{'key_columns': ['SalesOrderNumber']}` got `{'key_columns': ['col_8']}`
-
-#### `AdventureWorks2012.bak`
-
-**indexes**
-  - mismatch `('HumanResources.Employee', 'IX_Employee_OrganizationLevel_OrganizationNode')`: expected `{'type': 'nonclustered', 'is_unique': False, 'is_primary_key': False, 'key_columns': ['OrganizationLevel', 'OrganizationNode']}` got `{'type': 'nonclustered', 'is_unique': False, 'is_primary_key': False, 'key_columns': ['col_5', 'OrganizationNode']}`
-  - mismatch `('Production.Document', 'AK_Document_DocumentLevel_DocumentNode')`: expected `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['DocumentLevel', 'DocumentNode']}` got `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['col_2', 'DocumentNode']}`
-  - mismatch `('Sales.Customer', 'AK_Customer_AccountNumber')`: expected `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['AccountNumber']}` got `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['col_5']}`
-  - mismatch `('Sales.SalesOrderHeader', 'AK_SalesOrderHeader_SalesOrderNumber')`: expected `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['SalesOrderNumber']}` got `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['col_8']}`
-
-**extended_properties**
-  - missing: `('table/column', 'HumanResources.Employee', 'OrganizationLevel', 'MS_Description')`, `('table/column', 'Production.Document', 'DocumentLevel', 'MS_Description')`, `('table/column', 'Production.WorkOrder', 'StockedQty', 'MS_Description')`, `('table/column', 'Purchasing.PurchaseOrderDetail', 'LineTotal', 'MS_Description')`, `('table/column', 'Purchasing.PurchaseOrderDetail', 'StockedQty', 'MS_Description')`, `('table/column', 'Sales.Customer', 'AccountNumber', 'MS_Description')`, `('table/column', 'Sales.SalesOrderDetail', 'LineTotal', 'MS_Description')`, `('table/column', 'Sales.SalesOrderHeader', 'SalesOrderNumber', 'MS_Description')`, `('table/column', 'Sales.SalesOrderHeader', 'TotalDue', 'MS_Description')`
-  - mismatch `('table', 'HumanResources.Employee', '', 'MS_Description')`: expected `{'value': 'Employee information such as salary, department, and title.'}` got `{'value': 'The depth of the employee in the corporate hierarchy.'}`
-  - mismatch `('table', 'Production.Document', '', 'MS_Description')`: expected `{'value': 'Product maintenance documents.'}` got `{'value': 'Depth in the document hierarchy.'}`
-  - mismatch `('table', 'Production.WorkOrder', '', 'MS_Description')`: expected `{'value': 'Manufacturing work orders.'}` got `{'value': 'Quantity built and put in inventory.'}`
-  - mismatch `('table', 'Purchasing.PurchaseOrderDetail', '', 'MS_Description')`: expected `{'value': 'Individual products associated with a specific purchase order. See PurchaseOrderHeader.'}` got `{'value': 'Quantity accepted into inventory. Computed as ReceivedQty - RejectedQty.'}`
-  - mismatch `('table', 'Sales.Customer', '', 'MS_Description')`: expected `{'value': 'Current customer information. Also see the Person and Store tables.'}` got `{'value': 'Unique number identifying the customer assigned by the accounting system.'}`
-
-**modules**
-  - missing: `HumanResources.dEmployee`, `HumanResources.uspUpdateEmployeeHireInfo`, `HumanResources.uspUpdateEmployeeLogin`, `HumanResources.uspUpdateEmployeePersonalInfo`, `HumanResources.vEmployee`, `HumanResources.vEmployeeDepartment`, `HumanResources.vEmployeeDepartmentHistory`, `HumanResources.vJobCandidate`, `HumanResources.vJobCandidateEducation`, `HumanResources.vJobCandidateEmployment` …
-
-**statistics**
-  - extra: `('Person.Person', 'PXML_Person_AddContact')`, `('Person.Person', 'PXML_Person_Demographics')`, `('Person.Person', 'XMLPATH_Person_Demographics')`, `('Person.Person', 'XMLPROPERTY_Person_Demographics')`, `('Person.Person', 'XMLVALUE_Person_Demographics')`, `('Production.ProductModel', 'PXML_ProductModel_CatalogDescription')`, `('Production.ProductModel', 'PXML_ProductModel_Instructions')`, `('Sales.Store', 'PXML_Store_Demographics')`
-  - mismatch `('HumanResources.Employee', 'IX_Employee_OrganizationLevel_OrganizationNode')`: expected `{'key_columns': ['OrganizationLevel', 'OrganizationNode']}` got `{'key_columns': ['col_5', 'OrganizationNode']}`
-  - mismatch `('Production.Document', 'AK_Document_DocumentLevel_DocumentNode')`: expected `{'key_columns': ['DocumentLevel', 'DocumentNode']}` got `{'key_columns': ['col_2', 'DocumentNode']}`
-  - mismatch `('Sales.Customer', 'AK_Customer_AccountNumber')`: expected `{'key_columns': ['AccountNumber']}` got `{'key_columns': ['col_5']}`
-  - mismatch `('Sales.SalesOrderHeader', 'AK_SalesOrderHeader_SalesOrderNumber')`: expected `{'key_columns': ['SalesOrderNumber']}` got `{'key_columns': ['col_8']}`
-
-#### `AdventureWorks2014.bak`
-
-**indexes**
-  - mismatch `('HumanResources.Employee', 'IX_Employee_OrganizationLevel_OrganizationNode')`: expected `{'type': 'nonclustered', 'is_unique': False, 'is_primary_key': False, 'key_columns': ['OrganizationLevel', 'OrganizationNode']}` got `{'type': 'nonclustered', 'is_unique': False, 'is_primary_key': False, 'key_columns': ['col_5', 'OrganizationNode']}`
-  - mismatch `('Production.Document', 'AK_Document_DocumentLevel_DocumentNode')`: expected `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['DocumentLevel', 'DocumentNode']}` got `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['col_2', 'DocumentNode']}`
-  - mismatch `('Sales.Customer', 'AK_Customer_AccountNumber')`: expected `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['AccountNumber']}` got `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['col_5']}`
-  - mismatch `('Sales.SalesOrderHeader', 'AK_SalesOrderHeader_SalesOrderNumber')`: expected `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['SalesOrderNumber']}` got `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['col_8']}`
-
-**extended_properties**
-  - missing: `('table/column', 'HumanResources.Employee', 'OrganizationLevel', 'MS_Description')`, `('table/column', 'Production.Document', 'DocumentLevel', 'MS_Description')`, `('table/column', 'Production.WorkOrder', 'StockedQty', 'MS_Description')`, `('table/column', 'Purchasing.PurchaseOrderDetail', 'LineTotal', 'MS_Description')`, `('table/column', 'Purchasing.PurchaseOrderDetail', 'StockedQty', 'MS_Description')`, `('table/column', 'Sales.Customer', 'AccountNumber', 'MS_Description')`, `('table/column', 'Sales.SalesOrderDetail', 'LineTotal', 'MS_Description')`, `('table/column', 'Sales.SalesOrderHeader', 'SalesOrderNumber', 'MS_Description')`, `('table/column', 'Sales.SalesOrderHeader', 'TotalDue', 'MS_Description')`
-  - mismatch `('table', 'HumanResources.Employee', '', 'MS_Description')`: expected `{'value': 'Employee information such as salary, department, and title.'}` got `{'value': 'The depth of the employee in the corporate hierarchy.'}`
-  - mismatch `('table', 'Production.Document', '', 'MS_Description')`: expected `{'value': 'Product maintenance documents.'}` got `{'value': 'Depth in the document hierarchy.'}`
-  - mismatch `('table', 'Production.WorkOrder', '', 'MS_Description')`: expected `{'value': 'Manufacturing work orders.'}` got `{'value': 'Quantity built and put in inventory.'}`
-  - mismatch `('table', 'Purchasing.PurchaseOrderDetail', '', 'MS_Description')`: expected `{'value': 'Individual products associated with a specific purchase order. See PurchaseOrderHeader.'}` got `{'value': 'Quantity accepted into inventory. Computed as ReceivedQty - RejectedQty.'}`
-  - mismatch `('table', 'Sales.Customer', '', 'MS_Description')`: expected `{'value': 'Current customer information. Also see the Person and Store tables.'}` got `{'value': 'Unique number identifying the customer assigned by the accounting system.'}`
-
-**modules**
-  - missing: `HumanResources.dEmployee`, `HumanResources.uspUpdateEmployeeHireInfo`, `HumanResources.uspUpdateEmployeeLogin`, `HumanResources.uspUpdateEmployeePersonalInfo`, `HumanResources.vEmployee`, `HumanResources.vEmployeeDepartment`, `HumanResources.vEmployeeDepartmentHistory`, `HumanResources.vJobCandidate`, `HumanResources.vJobCandidateEducation`, `HumanResources.vJobCandidateEmployment` …
-
-**statistics**
-  - extra: `('Person.Person', 'PXML_Person_AddContact')`, `('Person.Person', 'PXML_Person_Demographics')`, `('Person.Person', 'XMLPATH_Person_Demographics')`, `('Person.Person', 'XMLPROPERTY_Person_Demographics')`, `('Person.Person', 'XMLVALUE_Person_Demographics')`, `('Production.ProductModel', 'PXML_ProductModel_CatalogDescription')`, `('Production.ProductModel', 'PXML_ProductModel_Instructions')`, `('Sales.Store', 'PXML_Store_Demographics')`
-  - mismatch `('HumanResources.Employee', 'IX_Employee_OrganizationLevel_OrganizationNode')`: expected `{'key_columns': ['OrganizationLevel', 'OrganizationNode']}` got `{'key_columns': ['col_5', 'OrganizationNode']}`
-  - mismatch `('Production.Document', 'AK_Document_DocumentLevel_DocumentNode')`: expected `{'key_columns': ['DocumentLevel', 'DocumentNode']}` got `{'key_columns': ['col_2', 'DocumentNode']}`
-  - mismatch `('Sales.Customer', 'AK_Customer_AccountNumber')`: expected `{'key_columns': ['AccountNumber']}` got `{'key_columns': ['col_5']}`
-  - mismatch `('Sales.SalesOrderHeader', 'AK_SalesOrderHeader_SalesOrderNumber')`: expected `{'key_columns': ['SalesOrderNumber']}` got `{'key_columns': ['col_8']}`
-
-#### `AdventureWorks2016.bak`
-
-**indexes**
-  - mismatch `('HumanResources.Employee', 'IX_Employee_OrganizationLevel_OrganizationNode')`: expected `{'type': 'nonclustered', 'is_unique': False, 'is_primary_key': False, 'key_columns': ['OrganizationLevel', 'OrganizationNode']}` got `{'type': 'nonclustered', 'is_unique': False, 'is_primary_key': False, 'key_columns': ['col_5', 'OrganizationNode']}`
-  - mismatch `('Production.Document', 'AK_Document_DocumentLevel_DocumentNode')`: expected `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['DocumentLevel', 'DocumentNode']}` got `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['col_2', 'DocumentNode']}`
-  - mismatch `('Sales.Customer', 'AK_Customer_AccountNumber')`: expected `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['AccountNumber']}` got `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['col_5']}`
-  - mismatch `('Sales.SalesOrderHeader', 'AK_SalesOrderHeader_SalesOrderNumber')`: expected `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['SalesOrderNumber']}` got `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['col_8']}`
-
-**extended_properties**
-  - missing: `('table/column', 'HumanResources.Employee', 'OrganizationLevel', 'MS_Description')`, `('table/column', 'Production.Document', 'DocumentLevel', 'MS_Description')`, `('table/column', 'Production.WorkOrder', 'StockedQty', 'MS_Description')`, `('table/column', 'Purchasing.PurchaseOrderDetail', 'LineTotal', 'MS_Description')`, `('table/column', 'Purchasing.PurchaseOrderDetail', 'StockedQty', 'MS_Description')`, `('table/column', 'Sales.Customer', 'AccountNumber', 'MS_Description')`, `('table/column', 'Sales.SalesOrderDetail', 'LineTotal', 'MS_Description')`, `('table/column', 'Sales.SalesOrderHeader', 'SalesOrderNumber', 'MS_Description')`, `('table/column', 'Sales.SalesOrderHeader', 'TotalDue', 'MS_Description')`
-  - mismatch `('table', 'HumanResources.Employee', '', 'MS_Description')`: expected `{'value': 'Employee information such as salary, department, and title.'}` got `{'value': 'The depth of the employee in the corporate hierarchy.'}`
-  - mismatch `('table', 'Production.Document', '', 'MS_Description')`: expected `{'value': 'Product maintenance documents.'}` got `{'value': 'Depth in the document hierarchy.'}`
-  - mismatch `('table', 'Production.WorkOrder', '', 'MS_Description')`: expected `{'value': 'Manufacturing work orders.'}` got `{'value': 'Quantity built and put in inventory.'}`
-  - mismatch `('table', 'Purchasing.PurchaseOrderDetail', '', 'MS_Description')`: expected `{'value': 'Individual products associated with a specific purchase order. See PurchaseOrderHeader.'}` got `{'value': 'Quantity accepted into inventory. Computed as ReceivedQty - RejectedQty.'}`
-  - mismatch `('table', 'Sales.Customer', '', 'MS_Description')`: expected `{'value': 'Current customer information. Also see the Person and Store tables.'}` got `{'value': 'Unique number identifying the customer assigned by the accounting system.'}`
-
-**modules**
-  - missing: `HumanResources.dEmployee`, `HumanResources.uspUpdateEmployeeHireInfo`, `HumanResources.uspUpdateEmployeeLogin`, `HumanResources.uspUpdateEmployeePersonalInfo`, `HumanResources.vEmployee`, `HumanResources.vEmployeeDepartment`, `HumanResources.vEmployeeDepartmentHistory`, `HumanResources.vJobCandidate`, `HumanResources.vJobCandidateEducation`, `HumanResources.vJobCandidateEmployment` …
-
-**statistics**
-  - extra: `('Person.Person', 'PXML_Person_AddContact')`, `('Person.Person', 'PXML_Person_Demographics')`, `('Person.Person', 'XMLPATH_Person_Demographics')`, `('Person.Person', 'XMLPROPERTY_Person_Demographics')`, `('Person.Person', 'XMLVALUE_Person_Demographics')`, `('Production.ProductModel', 'PXML_ProductModel_CatalogDescription')`, `('Production.ProductModel', 'PXML_ProductModel_Instructions')`, `('Sales.Store', 'PXML_Store_Demographics')`
-  - mismatch `('HumanResources.Employee', 'IX_Employee_OrganizationLevel_OrganizationNode')`: expected `{'key_columns': ['OrganizationLevel', 'OrganizationNode']}` got `{'key_columns': ['col_5', 'OrganizationNode']}`
-  - mismatch `('Production.Document', 'AK_Document_DocumentLevel_DocumentNode')`: expected `{'key_columns': ['DocumentLevel', 'DocumentNode']}` got `{'key_columns': ['col_2', 'DocumentNode']}`
-  - mismatch `('Sales.Customer', 'AK_Customer_AccountNumber')`: expected `{'key_columns': ['AccountNumber']}` got `{'key_columns': ['col_5']}`
-  - mismatch `('Sales.SalesOrderHeader', 'AK_SalesOrderHeader_SalesOrderNumber')`: expected `{'key_columns': ['SalesOrderNumber']}` got `{'key_columns': ['col_8']}`
-
-#### `AdventureWorks2016_EXT.bak`
-
-**indexes**
-  - extra: `('sys.TT_SalesOrderDetailType_inmem_247D636F', 'IX_ProductID')`, `('sys.TT_SalesOrderDetailType_inmem_247D636F', 'IX_SpecialOfferID')`, `('sys.TT_SalesOrderDetailType_ondisk_5708E33C', 'IX_ProductID')`, `('sys.TT_SalesOrderDetailType_ondisk_5708E33C', 'IX_SpecialOfferID')`
-  - mismatch `('HumanResources.Employee', 'IX_Employee_OrganizationLevel_OrganizationNode')`: expected `{'type': 'nonclustered', 'is_unique': False, 'is_primary_key': False, 'key_columns': ['OrganizationLevel', 'OrganizationNode']}` got `{'type': 'nonclustered', 'is_unique': False, 'is_primary_key': False, 'key_columns': ['col_5', 'OrganizationNode']}`
-  - mismatch `('Production.Document', 'AK_Document_DocumentLevel_DocumentNode')`: expected `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['DocumentLevel', 'DocumentNode']}` got `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['col_2', 'DocumentNode']}`
-  - mismatch `('Sales.Customer', 'AK_Customer_AccountNumber')`: expected `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['AccountNumber']}` got `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['col_5']}`
-  - mismatch `('Sales.SalesOrderHeader', 'AK_SalesOrderHeader_SalesOrderNumber')`: expected `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['SalesOrderNumber']}` got `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['col_8']}`
-
-**extended_properties**
-  - missing: `('table/column', 'HumanResources.Employee', 'OrganizationLevel', 'MS_Description')`, `('table/column', 'Production.Document', 'DocumentLevel', 'MS_Description')`, `('table/column', 'Production.WorkOrder', 'StockedQty', 'MS_Description')`, `('table/column', 'Purchasing.PurchaseOrderDetail', 'LineTotal', 'MS_Description')`, `('table/column', 'Purchasing.PurchaseOrderDetail', 'StockedQty', 'MS_Description')`, `('table/column', 'Sales.Customer', 'AccountNumber', 'MS_Description')`, `('table/column', 'Sales.SalesOrderDetail', 'LineTotal', 'MS_Description')`, `('table/column', 'Sales.SalesOrderHeader', 'SalesOrderNumber', 'MS_Description')`, `('table/column', 'Sales.SalesOrderHeader', 'TotalDue', 'MS_Description')`
-  - mismatch `('table', 'HumanResources.Employee', '', 'MS_Description')`: expected `{'value': 'Employee information such as salary, department, and title.'}` got `{'value': 'The depth of the employee in the corporate hierarchy.'}`
-  - mismatch `('table', 'Production.Document', '', 'MS_Description')`: expected `{'value': 'Product maintenance documents.'}` got `{'value': 'Depth in the document hierarchy.'}`
-  - mismatch `('table', 'Production.WorkOrder', '', 'MS_Description')`: expected `{'value': 'Manufacturing work orders.'}` got `{'value': 'Quantity built and put in inventory.'}`
-  - mismatch `('table', 'Purchasing.PurchaseOrderDetail', '', 'MS_Description')`: expected `{'value': 'Individual products associated with a specific purchase order. See PurchaseOrderHeader.'}` got `{'value': 'Quantity accepted into inventory. Computed as ReceivedQty - RejectedQty.'}`
-  - mismatch `('table', 'Sales.Customer', '', 'MS_Description')`: expected `{'value': 'Current customer information. Also see the Person and Store tables.'}` got `{'value': 'Unique number identifying the customer assigned by the accounting system.'}`
-
-**modules**
-  - missing: `Demo.usp_DemoInitSeed`, `Demo.usp_DemoReset`, `HumanResources.dEmployee`, `HumanResources.sp_GetEmployee_Person_Info_AsOf`, `HumanResources.sp_UpdateEmployee_Temporal`, `HumanResources.uspUpdateEmployeeHireInfo`, `HumanResources.uspUpdateEmployeeLogin`, `HumanResources.uspUpdateEmployeePersonalInfo`, `HumanResources.vEmployee`, `HumanResources.vEmployeeDepartment` …
-
-**schema_objects**
-  - missing: `('table_type', 'Sales.SalesOrderDetailType_inmem')`, `('table_type', 'Sales.SalesOrderDetailType_ondisk')`
-  - extra: `('table_type', 'sys.TT_SalesOrderDetailType_inmem_247D636F')`, `('table_type', 'sys.TT_SalesOrderDetailType_ondisk_5708E33C')`
-
-**security**
-  - missing: `('permission', 'SalesManagers', 'Sales.CustomerPII', 'DELETE')`, `('permission', 'SalesManagers', 'Sales.CustomerPII', 'INSERT')`, `('permission', 'SalesManagers', 'Sales.CustomerPII', 'SELECT')`, `('permission', 'SalesManagers', 'Sales.CustomerPII', 'UPDATE')`, `('permission', 'SalesPersons', 'Sales.CustomerPII', 'DELETE')`, `('permission', 'SalesPersons', 'Sales.CustomerPII', 'INSERT')`, `('permission', 'SalesPersons', 'Sales.CustomerPII', 'SELECT')`, `('permission', 'SalesPersons', 'Sales.CustomerPII', 'UPDATE')`, `('permission', 'amy0', '', 'CONNECT')`, `('permission', 'brian3', '', 'CONNECT')` …
-  - extra: `('permission', 'principal_104', '', 'action_538987588')`, `('permission', 'principal_104', '', 'action_538987603')`, `('permission', 'principal_104', '', 'action_538988105')`, `('permission', 'principal_104', '', 'action_538988629')`, `('permission', 'principal_255', '', 'action_538987603')`, `('principal', 'db_accessadmin')`, `('principal', 'db_backupoperator')`, `('principal', 'db_datareader')`, `('principal', 'db_datawriter')`, `('principal', 'db_ddladmin')` …
-
-**statistics**
-  - extra: `('Person.Person', 'PXML_Person_AddContact')`, `('Person.Person', 'PXML_Person_Demographics')`, `('Person.Person', 'XMLPATH_Person_Demographics')`, `('Person.Person', 'XMLPROPERTY_Person_Demographics')`, `('Person.Person', 'XMLVALUE_Person_Demographics')`, `('Production.ProductModel', 'PXML_ProductModel_CatalogDescription')`, `('Production.ProductModel', 'PXML_ProductModel_Instructions')`, `('Sales.Store', 'PXML_Store_Demographics')`, `('sys.TT_SalesOrderDetailType_inmem_247D636F', 'IX_ProductID')`, `('sys.TT_SalesOrderDetailType_inmem_247D636F', 'IX_SpecialOfferID')` …
-  - mismatch `('HumanResources.Employee', 'IX_Employee_OrganizationLevel_OrganizationNode')`: expected `{'key_columns': ['OrganizationLevel', 'OrganizationNode']}` got `{'key_columns': ['col_5', 'OrganizationNode']}`
-  - mismatch `('Production.Document', 'AK_Document_DocumentLevel_DocumentNode')`: expected `{'key_columns': ['DocumentLevel', 'DocumentNode']}` got `{'key_columns': ['col_2', 'DocumentNode']}`
-  - mismatch `('Sales.Customer', 'AK_Customer_AccountNumber')`: expected `{'key_columns': ['AccountNumber']}` got `{'key_columns': ['col_5']}`
-  - mismatch `('Sales.SalesOrderHeader', 'AK_SalesOrderHeader_SalesOrderNumber')`: expected `{'key_columns': ['SalesOrderNumber']}` got `{'key_columns': ['col_8']}`
-
-#### `AdventureWorks2017.bak`
-
-**indexes**
-  - mismatch `('HumanResources.Employee', 'IX_Employee_OrganizationLevel_OrganizationNode')`: expected `{'type': 'nonclustered', 'is_unique': False, 'is_primary_key': False, 'key_columns': ['OrganizationLevel', 'OrganizationNode']}` got `{'type': 'nonclustered', 'is_unique': False, 'is_primary_key': False, 'key_columns': ['col_5', 'OrganizationNode']}`
-  - mismatch `('Production.Document', 'AK_Document_DocumentLevel_DocumentNode')`: expected `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['DocumentLevel', 'DocumentNode']}` got `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['col_2', 'DocumentNode']}`
-  - mismatch `('Sales.Customer', 'AK_Customer_AccountNumber')`: expected `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['AccountNumber']}` got `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['col_5']}`
-  - mismatch `('Sales.SalesOrderHeader', 'AK_SalesOrderHeader_SalesOrderNumber')`: expected `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['SalesOrderNumber']}` got `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['col_8']}`
-
-**extended_properties**
-  - missing: `('table/column', 'HumanResources.Employee', 'OrganizationLevel', 'MS_Description')`, `('table/column', 'Production.Document', 'DocumentLevel', 'MS_Description')`, `('table/column', 'Production.WorkOrder', 'StockedQty', 'MS_Description')`, `('table/column', 'Purchasing.PurchaseOrderDetail', 'LineTotal', 'MS_Description')`, `('table/column', 'Purchasing.PurchaseOrderDetail', 'StockedQty', 'MS_Description')`, `('table/column', 'Sales.Customer', 'AccountNumber', 'MS_Description')`, `('table/column', 'Sales.SalesOrderDetail', 'LineTotal', 'MS_Description')`, `('table/column', 'Sales.SalesOrderHeader', 'SalesOrderNumber', 'MS_Description')`, `('table/column', 'Sales.SalesOrderHeader', 'TotalDue', 'MS_Description')`
-  - mismatch `('table', 'HumanResources.Employee', '', 'MS_Description')`: expected `{'value': 'Employee information such as salary, department, and title.'}` got `{'value': 'The depth of the employee in the corporate hierarchy.'}`
-  - mismatch `('table', 'Production.Document', '', 'MS_Description')`: expected `{'value': 'Product maintenance documents.'}` got `{'value': 'Depth in the document hierarchy.'}`
-  - mismatch `('table', 'Production.WorkOrder', '', 'MS_Description')`: expected `{'value': 'Manufacturing work orders.'}` got `{'value': 'Quantity built and put in inventory.'}`
-  - mismatch `('table', 'Purchasing.PurchaseOrderDetail', '', 'MS_Description')`: expected `{'value': 'Individual products associated with a specific purchase order. See PurchaseOrderHeader.'}` got `{'value': 'Quantity accepted into inventory. Computed as ReceivedQty - RejectedQty.'}`
-  - mismatch `('table', 'Sales.Customer', '', 'MS_Description')`: expected `{'value': 'Current customer information. Also see the Person and Store tables.'}` got `{'value': 'Unique number identifying the customer assigned by the accounting system.'}`
-
-**modules**
-  - missing: `HumanResources.dEmployee`, `HumanResources.uspUpdateEmployeeHireInfo`, `HumanResources.uspUpdateEmployeeLogin`, `HumanResources.uspUpdateEmployeePersonalInfo`, `HumanResources.vEmployee`, `HumanResources.vEmployeeDepartment`, `HumanResources.vEmployeeDepartmentHistory`, `HumanResources.vJobCandidate`, `HumanResources.vJobCandidateEducation`, `HumanResources.vJobCandidateEmployment` …
-
-**statistics**
-  - extra: `('Person.Person', 'PXML_Person_AddContact')`, `('Person.Person', 'PXML_Person_Demographics')`, `('Person.Person', 'XMLPATH_Person_Demographics')`, `('Person.Person', 'XMLPROPERTY_Person_Demographics')`, `('Person.Person', 'XMLVALUE_Person_Demographics')`, `('Production.ProductModel', 'PXML_ProductModel_CatalogDescription')`, `('Production.ProductModel', 'PXML_ProductModel_Instructions')`, `('Sales.Store', 'PXML_Store_Demographics')`
-  - mismatch `('HumanResources.Employee', 'IX_Employee_OrganizationLevel_OrganizationNode')`: expected `{'key_columns': ['OrganizationLevel', 'OrganizationNode']}` got `{'key_columns': ['col_5', 'OrganizationNode']}`
-  - mismatch `('Production.Document', 'AK_Document_DocumentLevel_DocumentNode')`: expected `{'key_columns': ['DocumentLevel', 'DocumentNode']}` got `{'key_columns': ['col_2', 'DocumentNode']}`
-  - mismatch `('Sales.Customer', 'AK_Customer_AccountNumber')`: expected `{'key_columns': ['AccountNumber']}` got `{'key_columns': ['col_5']}`
-  - mismatch `('Sales.SalesOrderHeader', 'AK_SalesOrderHeader_SalesOrderNumber')`: expected `{'key_columns': ['SalesOrderNumber']}` got `{'key_columns': ['col_8']}`
-
-#### `AdventureWorks2019.bak`
-
-**indexes**
-  - mismatch `('HumanResources.Employee', 'IX_Employee_OrganizationLevel_OrganizationNode')`: expected `{'type': 'nonclustered', 'is_unique': False, 'is_primary_key': False, 'key_columns': ['OrganizationLevel', 'OrganizationNode']}` got `{'type': 'nonclustered', 'is_unique': False, 'is_primary_key': False, 'key_columns': ['col_5', 'OrganizationNode']}`
-  - mismatch `('Production.Document', 'AK_Document_DocumentLevel_DocumentNode')`: expected `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['DocumentLevel', 'DocumentNode']}` got `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['col_2', 'DocumentNode']}`
-  - mismatch `('Sales.Customer', 'AK_Customer_AccountNumber')`: expected `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['AccountNumber']}` got `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['col_5']}`
-  - mismatch `('Sales.SalesOrderHeader', 'AK_SalesOrderHeader_SalesOrderNumber')`: expected `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['SalesOrderNumber']}` got `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['col_8']}`
-
-**extended_properties**
-  - missing: `('table/column', 'HumanResources.Employee', 'OrganizationLevel', 'MS_Description')`, `('table/column', 'Production.Document', 'DocumentLevel', 'MS_Description')`, `('table/column', 'Production.WorkOrder', 'StockedQty', 'MS_Description')`, `('table/column', 'Purchasing.PurchaseOrderDetail', 'LineTotal', 'MS_Description')`, `('table/column', 'Purchasing.PurchaseOrderDetail', 'StockedQty', 'MS_Description')`, `('table/column', 'Sales.Customer', 'AccountNumber', 'MS_Description')`, `('table/column', 'Sales.SalesOrderDetail', 'LineTotal', 'MS_Description')`, `('table/column', 'Sales.SalesOrderHeader', 'SalesOrderNumber', 'MS_Description')`, `('table/column', 'Sales.SalesOrderHeader', 'TotalDue', 'MS_Description')`
-  - mismatch `('table', 'HumanResources.Employee', '', 'MS_Description')`: expected `{'value': 'Employee information such as salary, department, and title.'}` got `{'value': 'The depth of the employee in the corporate hierarchy.'}`
-  - mismatch `('table', 'Production.Document', '', 'MS_Description')`: expected `{'value': 'Product maintenance documents.'}` got `{'value': 'Depth in the document hierarchy.'}`
-  - mismatch `('table', 'Production.WorkOrder', '', 'MS_Description')`: expected `{'value': 'Manufacturing work orders.'}` got `{'value': 'Quantity built and put in inventory.'}`
-  - mismatch `('table', 'Purchasing.PurchaseOrderDetail', '', 'MS_Description')`: expected `{'value': 'Individual products associated with a specific purchase order. See PurchaseOrderHeader.'}` got `{'value': 'Quantity accepted into inventory. Computed as ReceivedQty - RejectedQty.'}`
-  - mismatch `('table', 'Sales.Customer', '', 'MS_Description')`: expected `{'value': 'Current customer information. Also see the Person and Store tables.'}` got `{'value': 'Unique number identifying the customer assigned by the accounting system.'}`
-
-**modules**
-  - missing: `HumanResources.dEmployee`, `HumanResources.uspUpdateEmployeeHireInfo`, `HumanResources.uspUpdateEmployeeLogin`, `HumanResources.uspUpdateEmployeePersonalInfo`, `HumanResources.vEmployee`, `HumanResources.vEmployeeDepartment`, `HumanResources.vEmployeeDepartmentHistory`, `HumanResources.vJobCandidate`, `HumanResources.vJobCandidateEducation`, `HumanResources.vJobCandidateEmployment` …
-
-**statistics**
-  - extra: `('Person.Person', 'PXML_Person_AddContact')`, `('Person.Person', 'PXML_Person_Demographics')`, `('Person.Person', 'XMLPATH_Person_Demographics')`, `('Person.Person', 'XMLPROPERTY_Person_Demographics')`, `('Person.Person', 'XMLVALUE_Person_Demographics')`, `('Production.ProductModel', 'PXML_ProductModel_CatalogDescription')`, `('Production.ProductModel', 'PXML_ProductModel_Instructions')`, `('Sales.Store', 'PXML_Store_Demographics')`
-  - mismatch `('HumanResources.Employee', 'IX_Employee_OrganizationLevel_OrganizationNode')`: expected `{'key_columns': ['OrganizationLevel', 'OrganizationNode']}` got `{'key_columns': ['col_5', 'OrganizationNode']}`
-  - mismatch `('Production.Document', 'AK_Document_DocumentLevel_DocumentNode')`: expected `{'key_columns': ['DocumentLevel', 'DocumentNode']}` got `{'key_columns': ['col_2', 'DocumentNode']}`
-  - mismatch `('Sales.Customer', 'AK_Customer_AccountNumber')`: expected `{'key_columns': ['AccountNumber']}` got `{'key_columns': ['col_5']}`
-  - mismatch `('Sales.SalesOrderHeader', 'AK_SalesOrderHeader_SalesOrderNumber')`: expected `{'key_columns': ['SalesOrderNumber']}` got `{'key_columns': ['col_8']}`
-
-#### `AdventureWorks2022.bak`
-
-**indexes**
-  - mismatch `('HumanResources.Employee', 'IX_Employee_OrganizationLevel_OrganizationNode')`: expected `{'type': 'nonclustered', 'is_unique': False, 'is_primary_key': False, 'key_columns': ['OrganizationLevel', 'OrganizationNode']}` got `{'type': 'nonclustered', 'is_unique': False, 'is_primary_key': False, 'key_columns': ['col_5', 'OrganizationNode']}`
-  - mismatch `('Production.Document', 'AK_Document_DocumentLevel_DocumentNode')`: expected `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['DocumentLevel', 'DocumentNode']}` got `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['col_2', 'DocumentNode']}`
-  - mismatch `('Sales.Customer', 'AK_Customer_AccountNumber')`: expected `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['AccountNumber']}` got `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['col_5']}`
-  - mismatch `('Sales.SalesOrderHeader', 'AK_SalesOrderHeader_SalesOrderNumber')`: expected `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['SalesOrderNumber']}` got `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['col_8']}`
-
-**extended_properties**
-  - missing: `('table/column', 'HumanResources.Employee', 'OrganizationLevel', 'MS_Description')`, `('table/column', 'Production.Document', 'DocumentLevel', 'MS_Description')`, `('table/column', 'Production.WorkOrder', 'StockedQty', 'MS_Description')`, `('table/column', 'Purchasing.PurchaseOrderDetail', 'LineTotal', 'MS_Description')`, `('table/column', 'Purchasing.PurchaseOrderDetail', 'StockedQty', 'MS_Description')`, `('table/column', 'Sales.Customer', 'AccountNumber', 'MS_Description')`, `('table/column', 'Sales.SalesOrderDetail', 'LineTotal', 'MS_Description')`, `('table/column', 'Sales.SalesOrderHeader', 'SalesOrderNumber', 'MS_Description')`, `('table/column', 'Sales.SalesOrderHeader', 'TotalDue', 'MS_Description')`
-  - mismatch `('table', 'HumanResources.Employee', '', 'MS_Description')`: expected `{'value': 'Employee information such as salary, department, and title.'}` got `{'value': 'The depth of the employee in the corporate hierarchy.'}`
-  - mismatch `('table', 'Production.Document', '', 'MS_Description')`: expected `{'value': 'Product maintenance documents.'}` got `{'value': 'Depth in the document hierarchy.'}`
-  - mismatch `('table', 'Production.WorkOrder', '', 'MS_Description')`: expected `{'value': 'Manufacturing work orders.'}` got `{'value': 'Quantity built and put in inventory.'}`
-  - mismatch `('table', 'Purchasing.PurchaseOrderDetail', '', 'MS_Description')`: expected `{'value': 'Individual products associated with a specific purchase order. See PurchaseOrderHeader.'}` got `{'value': 'Quantity accepted into inventory. Computed as ReceivedQty - RejectedQty.'}`
-  - mismatch `('table', 'Sales.Customer', '', 'MS_Description')`: expected `{'value': 'Current customer information. Also see the Person and Store tables.'}` got `{'value': 'Unique number identifying the customer assigned by the accounting system.'}`
-
-**modules**
-  - missing: `HumanResources.dEmployee`, `HumanResources.uspUpdateEmployeeHireInfo`, `HumanResources.uspUpdateEmployeeLogin`, `HumanResources.uspUpdateEmployeePersonalInfo`, `HumanResources.vEmployee`, `HumanResources.vEmployeeDepartment`, `HumanResources.vEmployeeDepartmentHistory`, `HumanResources.vJobCandidate`, `HumanResources.vJobCandidateEducation`, `HumanResources.vJobCandidateEmployment` …
-
-**statistics**
-  - extra: `('Person.Person', 'PXML_Person_AddContact')`, `('Person.Person', 'PXML_Person_Demographics')`, `('Person.Person', 'XMLPATH_Person_Demographics')`, `('Person.Person', 'XMLPROPERTY_Person_Demographics')`, `('Person.Person', 'XMLVALUE_Person_Demographics')`, `('Production.ProductModel', 'PXML_ProductModel_CatalogDescription')`, `('Production.ProductModel', 'PXML_ProductModel_Instructions')`, `('Sales.Store', 'PXML_Store_Demographics')`
-  - mismatch `('HumanResources.Employee', 'IX_Employee_OrganizationLevel_OrganizationNode')`: expected `{'key_columns': ['OrganizationLevel', 'OrganizationNode']}` got `{'key_columns': ['col_5', 'OrganizationNode']}`
-  - mismatch `('Production.Document', 'AK_Document_DocumentLevel_DocumentNode')`: expected `{'key_columns': ['DocumentLevel', 'DocumentNode']}` got `{'key_columns': ['col_2', 'DocumentNode']}`
-  - mismatch `('Sales.Customer', 'AK_Customer_AccountNumber')`: expected `{'key_columns': ['AccountNumber']}` got `{'key_columns': ['col_5']}`
-  - mismatch `('Sales.SalesOrderHeader', 'AK_SalesOrderHeader_SalesOrderNumber')`: expected `{'key_columns': ['SalesOrderNumber']}` got `{'key_columns': ['col_8']}`
-
-#### `AdventureWorks2025.bak`
-
-**indexes**
-  - mismatch `('HumanResources.Employee', 'IX_Employee_OrganizationLevel_OrganizationNode')`: expected `{'type': 'nonclustered', 'is_unique': False, 'is_primary_key': False, 'key_columns': ['OrganizationLevel', 'OrganizationNode']}` got `{'type': 'nonclustered', 'is_unique': False, 'is_primary_key': False, 'key_columns': ['col_5', 'OrganizationNode']}`
-  - mismatch `('Production.Document', 'AK_Document_DocumentLevel_DocumentNode')`: expected `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['DocumentLevel', 'DocumentNode']}` got `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['col_2', 'DocumentNode']}`
-  - mismatch `('Sales.Customer', 'AK_Customer_AccountNumber')`: expected `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['AccountNumber']}` got `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['col_5']}`
-  - mismatch `('Sales.SalesOrderHeader', 'AK_SalesOrderHeader_SalesOrderNumber')`: expected `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['SalesOrderNumber']}` got `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['col_8']}`
-
-**extended_properties**
-  - missing: `('table/column', 'HumanResources.Employee', 'OrganizationLevel', 'MS_Description')`, `('table/column', 'Production.Document', 'DocumentLevel', 'MS_Description')`, `('table/column', 'Purchasing.PurchaseOrderDetail', 'LineTotal', 'MS_Description')`, `('table/column', 'Purchasing.PurchaseOrderDetail', 'StockedQty', 'MS_Description')`, `('table/column', 'Sales.Customer', 'AccountNumber', 'MS_Description')`, `('table/column', 'Sales.SalesOrderDetail', 'LineTotal', 'MS_Description')`, `('table/column', 'Sales.SalesOrderHeader', 'SalesOrderNumber', 'MS_Description')`, `('table/column', 'Sales.SalesOrderHeader', 'TotalDue', 'MS_Description')`
-  - mismatch `('table', 'HumanResources.Employee', '', 'MS_Description')`: expected `{'value': 'Employee information such as salary, department, and title.'}` got `{'value': 'The depth of the employee in the corporate hierarchy.'}`
-  - mismatch `('table', 'Production.Document', '', 'MS_Description')`: expected `{'value': 'Product maintenance documents.'}` got `{'value': 'Depth in the document hierarchy.'}`
-  - mismatch `('table', 'Purchasing.PurchaseOrderDetail', '', 'MS_Description')`: expected `{'value': 'Individual products associated with a specific purchase order. See PurchaseOrderHeader.'}` got `{'value': 'Quantity accepted into inventory. Computed as ReceivedQty - RejectedQty.'}`
-  - mismatch `('table', 'Sales.Customer', '', 'MS_Description')`: expected `{'value': 'Current customer information. Also see the Person and Store tables.'}` got `{'value': 'Unique number identifying the customer assigned by the accounting system.'}`
-  - mismatch `('table', 'Sales.SalesOrderDetail', '', 'MS_Description')`: expected `{'value': 'Individual products associated with a specific sales order. See SalesOrderHeader.'}` got `{'value': 'Per product subtotal. Computed as UnitPrice * (1 - UnitPriceDiscount) * OrderQty.'}`
-
-**modules**
-  - missing: `HumanResources.dEmployee`, `HumanResources.uspUpdateEmployeeHireInfo`, `HumanResources.uspUpdateEmployeeLogin`, `HumanResources.uspUpdateEmployeePersonalInfo`, `HumanResources.vEmployee`, `HumanResources.vEmployeeDepartment`, `HumanResources.vEmployeeDepartmentHistory`, `HumanResources.vJobCandidate`, `HumanResources.vJobCandidateEducation`, `HumanResources.vJobCandidateEmployment` …
-
-**statistics**
-  - extra: `('Person.Person', 'PXML_Person_AddContact')`, `('Person.Person', 'PXML_Person_Demographics')`, `('Person.Person', 'XMLPATH_Person_Demographics')`, `('Person.Person', 'XMLPROPERTY_Person_Demographics')`, `('Person.Person', 'XMLVALUE_Person_Demographics')`, `('Production.ProductModel', 'PXML_ProductModel_CatalogDescription')`, `('Production.ProductModel', 'PXML_ProductModel_Instructions')`, `('Sales.Store', 'PXML_Store_Demographics')`
-  - mismatch `('HumanResources.Employee', 'IX_Employee_OrganizationLevel_OrganizationNode')`: expected `{'key_columns': ['OrganizationLevel', 'OrganizationNode']}` got `{'key_columns': ['col_5', 'OrganizationNode']}`
-  - mismatch `('Production.Document', 'AK_Document_DocumentLevel_DocumentNode')`: expected `{'key_columns': ['DocumentLevel', 'DocumentNode']}` got `{'key_columns': ['col_2', 'DocumentNode']}`
-  - mismatch `('Sales.Customer', 'AK_Customer_AccountNumber')`: expected `{'key_columns': ['AccountNumber']}` got `{'key_columns': ['col_5']}`
-  - mismatch `('Sales.SalesOrderHeader', 'AK_SalesOrderHeader_SalesOrderNumber')`: expected `{'key_columns': ['SalesOrderNumber']}` got `{'key_columns': ['col_8']}`
-
-#### `AdventureWorksDW2008R2.bak`
-
-**constraints**
-  - mismatch `('dbo.DimAccount', 'foreign key', 'FK_DimAccount_DimAccount')`: expected `{'kind': 'foreign key', 'columns': ['ParentAccountKey'], 'ref_table': 'dbo.DimAccount', 'ref_columns': ['AccountKey'], 'name': 'FK_DimAccount_DimAccount'}` got `{'kind': 'foreign key', 'columns': ['AccountKey'], 'ref_table': 'dbo.DimAccount', 'ref_columns': ['AccountKey'], 'name': 'FK_DimAccount_DimAccount'}`
-  - mismatch `('dbo.DimDepartmentGroup', 'foreign key', 'FK_DimDepartmentGroup_DimDepartmentGroup')`: expected `{'kind': 'foreign key', 'columns': ['ParentDepartmentGroupKey'], 'ref_table': 'dbo.DimDepartmentGroup', 'ref_columns': ['DepartmentGroupKey'], 'name': 'FK_DimDepartmentGroup_DimDepartmentGroup'}` got `{'kind': 'foreign key', 'columns': ['DepartmentGroupKey'], 'ref_table': 'dbo.DimDepartmentGroup', 'ref_columns': ['DepartmentGroupKey'], 'name': 'FK_DimDepartmentGroup_DimDepartmentGroup'}`
-  - mismatch `('dbo.DimEmployee', 'foreign key', 'FK_DimEmployee_DimEmployee')`: expected `{'kind': 'foreign key', 'columns': ['ParentEmployeeKey'], 'ref_table': 'dbo.DimEmployee', 'ref_columns': ['EmployeeKey'], 'name': 'FK_DimEmployee_DimEmployee'}` got `{'kind': 'foreign key', 'columns': ['EmployeeKey'], 'ref_table': 'dbo.DimEmployee', 'ref_columns': ['EmployeeKey'], 'name': 'FK_DimEmployee_DimEmployee'}`
-  - mismatch `('dbo.DimOrganization', 'foreign key', 'FK_DimOrganization_DimOrganization')`: expected `{'kind': 'foreign key', 'columns': ['ParentOrganizationKey'], 'ref_table': 'dbo.DimOrganization', 'ref_columns': ['OrganizationKey'], 'name': 'FK_DimOrganization_DimOrganization'}` got `{'kind': 'foreign key', 'columns': ['OrganizationKey'], 'ref_table': 'dbo.DimOrganization', 'ref_columns': ['OrganizationKey'], 'name': 'FK_DimOrganization_DimOrganization'}`
-
-**modules**
-  - missing: `dbo.udfBuildISO8601Date`, `dbo.udfMinimumDate`, `dbo.udfTwoDigitZeroFill`, `dbo.vAssocSeqLineItems`, `dbo.vAssocSeqOrders`, `dbo.vDMPrep`, `dbo.vTargetMail`, `dbo.vTimeSeries`
-
-#### `AdventureWorksLT2012.bak`
-
-**constraints**
-  - mismatch `('SalesLT.Product', 'unique constraint', 'AK_Product_ProductNumber')`: expected `{'kind': 'unique constraint', 'columns': ['ProductNumber'], 'name': 'AK_Product_ProductNumber'}` got `{'kind': 'unique constraint', 'columns': ['Name'], 'name': 'AK_Product_ProductNumber'}`
-  - mismatch `('SalesLT.Product', 'unique constraint', 'AK_Product_rowguid')`: expected `{'kind': 'unique constraint', 'columns': ['rowguid'], 'name': 'AK_Product_rowguid'}` got `{'kind': 'unique constraint', 'columns': ['Name'], 'name': 'AK_Product_rowguid'}`
-  - mismatch `('SalesLT.ProductCategory', 'foreign key', 'FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID')`: expected `{'kind': 'foreign key', 'columns': ['ParentProductCategoryID'], 'ref_table': 'SalesLT.ProductCategory', 'ref_columns': ['ProductCategoryID'], 'name': 'FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID'}` got `{'kind': 'foreign key', 'columns': ['ProductCategoryID'], 'ref_table': 'SalesLT.ProductCategory', 'ref_columns': ['ProductCategoryID'], 'name': 'FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID'}`
-  - mismatch `('SalesLT.ProductCategory', 'unique constraint', 'AK_ProductCategory_rowguid')`: expected `{'kind': 'unique constraint', 'columns': ['rowguid'], 'name': 'AK_ProductCategory_rowguid'}` got `{'kind': 'unique constraint', 'columns': ['Name'], 'name': 'AK_ProductCategory_rowguid'}`
-  - mismatch `('SalesLT.ProductModel', 'unique constraint', 'AK_ProductModel_rowguid')`: expected `{'kind': 'unique constraint', 'columns': ['rowguid'], 'name': 'AK_ProductModel_rowguid'}` got `{'kind': 'unique constraint', 'columns': ['Name'], 'name': 'AK_ProductModel_rowguid'}`
-
-**indexes**
-  - mismatch `('SalesLT.SalesOrderHeader', 'AK_SalesOrderHeader_SalesOrderNumber')`: expected `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['SalesOrderNumber']}` got `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['col_8']}`
-
-**extended_properties**
-  - missing: `('table/column', 'SalesLT.SalesOrderDetail', 'LineTotal', 'MS_Description')`, `('table/column', 'SalesLT.SalesOrderHeader', 'SalesOrderNumber', 'MS_Description')`, `('table/column', 'SalesLT.SalesOrderHeader', 'TotalDue', 'MS_Description')`
-  - mismatch `('table', 'SalesLT.SalesOrderDetail', '', 'MS_Description')`: expected `{'value': 'Individual products associated with a specific sales order. See SalesOrderHeader.'}` got `{'value': 'Per product subtotal. Computed as UnitPrice * (1 - UnitPriceDiscount) * OrderQty.'}`
-  - mismatch `('table', 'SalesLT.SalesOrderHeader', '', 'MS_Description')`: expected `{'value': 'General sales order information.'}` got `{'value': 'Total due from customer. Computed as Subtotal + TaxAmt + Freight.'}`
-
-**modules**
-  - missing: `SalesLT.iduSalesOrderDetail`, `SalesLT.uSalesOrderHeader`, `SalesLT.vGetAllCategories`, `SalesLT.vProductAndDescription`, `SalesLT.vProductModelCatalogDescription`, `dbo.ufnGetAllCategories`, `dbo.ufnGetCustomerInformation`, `dbo.ufnGetSalesOrderStatusText`, `dbo.uspLogError`, `dbo.uspPrintError`
-
-**security**
-  - missing: `('permission', 'NT AUTHORITY\\NETWORK SERVICE', '', 'CONNECT')`
-  - extra: `('permission', 'principal_255', '', 'action_538987603')`, `('principal', 'db_accessadmin')`, `('principal', 'db_backupoperator')`, `('principal', 'db_datareader')`, `('principal', 'db_datawriter')`, `('principal', 'db_ddladmin')`, `('principal', 'db_denydatareader')`, `('principal', 'db_denydatawriter')`, `('principal', 'db_owner')`, `('principal', 'db_securityadmin')`
-  - mismatch `('principal', 'NT AUTHORITY\\NETWORK SERVICE')`: expected `{'type': 'WINDOWS_USER'}` got `{'type': '?'}`
-
-**statistics**
-  - extra: `('SalesLT.ProductModel', 'PXML_ProductModel_CatalogDescription')`
-  - mismatch `('SalesLT.SalesOrderHeader', 'AK_SalesOrderHeader_SalesOrderNumber')`: expected `{'key_columns': ['SalesOrderNumber']}` got `{'key_columns': ['col_8']}`
-
-#### `AdventureWorksLT2014.bak`
-
-**constraints**
-  - mismatch `('SalesLT.Product', 'unique constraint', 'AK_Product_Name')`: expected `{'kind': 'unique constraint', 'columns': ['Name'], 'name': 'AK_Product_Name'}` got `{'kind': 'unique constraint', 'columns': ['rowguid'], 'name': 'AK_Product_Name'}`
-  - mismatch `('SalesLT.Product', 'unique constraint', 'AK_Product_ProductNumber')`: expected `{'kind': 'unique constraint', 'columns': ['ProductNumber'], 'name': 'AK_Product_ProductNumber'}` got `{'kind': 'unique constraint', 'columns': ['rowguid'], 'name': 'AK_Product_ProductNumber'}`
-  - mismatch `('SalesLT.ProductCategory', 'foreign key', 'FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID')`: expected `{'kind': 'foreign key', 'columns': ['ParentProductCategoryID'], 'ref_table': 'SalesLT.ProductCategory', 'ref_columns': ['ProductCategoryID'], 'name': 'FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID'}` got `{'kind': 'foreign key', 'columns': ['ProductCategoryID'], 'ref_table': 'SalesLT.ProductCategory', 'ref_columns': ['ProductCategoryID'], 'name': 'FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID'}`
-  - mismatch `('SalesLT.ProductCategory', 'unique constraint', 'AK_ProductCategory_Name')`: expected `{'kind': 'unique constraint', 'columns': ['Name'], 'name': 'AK_ProductCategory_Name'}` got `{'kind': 'unique constraint', 'columns': ['rowguid'], 'name': 'AK_ProductCategory_Name'}`
-  - mismatch `('SalesLT.ProductModel', 'unique constraint', 'AK_ProductModel_Name')`: expected `{'kind': 'unique constraint', 'columns': ['Name'], 'name': 'AK_ProductModel_Name'}` got `{'kind': 'unique constraint', 'columns': ['rowguid'], 'name': 'AK_ProductModel_Name'}`
-
-**indexes**
-  - mismatch `('SalesLT.SalesOrderHeader', 'AK_SalesOrderHeader_SalesOrderNumber')`: expected `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['SalesOrderNumber']}` got `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['col_8']}`
-
-**extended_properties**
-  - missing: `('table/column', 'SalesLT.SalesOrderDetail', 'LineTotal', 'MS_Description')`, `('table/column', 'SalesLT.SalesOrderHeader', 'SalesOrderNumber', 'MS_Description')`, `('table/column', 'SalesLT.SalesOrderHeader', 'TotalDue', 'MS_Description')`
-  - mismatch `('table', 'SalesLT.SalesOrderDetail', '', 'MS_Description')`: expected `{'value': 'Individual products associated with a specific sales order. See SalesOrderHeader.'}` got `{'value': 'Per product subtotal. Computed as UnitPrice * (1 - UnitPriceDiscount) * OrderQty.'}`
-  - mismatch `('table', 'SalesLT.SalesOrderHeader', '', 'MS_Description')`: expected `{'value': 'General sales order information.'}` got `{'value': 'Total due from customer. Computed as Subtotal + TaxAmt + Freight.'}`
-
-**modules**
-  - missing: `SalesLT.iduSalesOrderDetail`, `SalesLT.uSalesOrderHeader`, `SalesLT.vGetAllCategories`, `SalesLT.vProductAndDescription`, `SalesLT.vProductModelCatalogDescription`, `dbo.ufnGetAllCategories`, `dbo.ufnGetCustomerInformation`, `dbo.ufnGetSalesOrderStatusText`, `dbo.uspLogError`, `dbo.uspPrintError`
-
-**security**
-  - missing: `('permission', 'NT AUTHORITY\\NETWORK SERVICE', '', 'CONNECT')`
-  - extra: `('permission', 'principal_255', '', 'action_538987603')`, `('principal', 'db_accessadmin')`, `('principal', 'db_backupoperator')`, `('principal', 'db_datareader')`, `('principal', 'db_datawriter')`, `('principal', 'db_ddladmin')`, `('principal', 'db_denydatareader')`, `('principal', 'db_denydatawriter')`, `('principal', 'db_owner')`, `('principal', 'db_securityadmin')`
-  - mismatch `('principal', 'NT AUTHORITY\\NETWORK SERVICE')`: expected `{'type': 'WINDOWS_USER'}` got `{'type': '?'}`
-
-**statistics**
-  - extra: `('SalesLT.ProductModel', 'PXML_ProductModel_CatalogDescription')`
-  - mismatch `('SalesLT.SalesOrderHeader', 'AK_SalesOrderHeader_SalesOrderNumber')`: expected `{'key_columns': ['SalesOrderNumber']}` got `{'key_columns': ['col_8']}`
-
-#### `AdventureWorksLT2016.bak`
-
-**constraints**
-  - mismatch `('SalesLT.Product', 'unique constraint', 'AK_Product_Name')`: expected `{'kind': 'unique constraint', 'columns': ['Name'], 'name': 'AK_Product_Name'}` got `{'kind': 'unique constraint', 'columns': ['rowguid'], 'name': 'AK_Product_Name'}`
-  - mismatch `('SalesLT.Product', 'unique constraint', 'AK_Product_ProductNumber')`: expected `{'kind': 'unique constraint', 'columns': ['ProductNumber'], 'name': 'AK_Product_ProductNumber'}` got `{'kind': 'unique constraint', 'columns': ['rowguid'], 'name': 'AK_Product_ProductNumber'}`
-  - mismatch `('SalesLT.ProductCategory', 'foreign key', 'FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID')`: expected `{'kind': 'foreign key', 'columns': ['ParentProductCategoryID'], 'ref_table': 'SalesLT.ProductCategory', 'ref_columns': ['ProductCategoryID'], 'name': 'FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID'}` got `{'kind': 'foreign key', 'columns': ['ProductCategoryID'], 'ref_table': 'SalesLT.ProductCategory', 'ref_columns': ['ProductCategoryID'], 'name': 'FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID'}`
-  - mismatch `('SalesLT.ProductCategory', 'unique constraint', 'AK_ProductCategory_Name')`: expected `{'kind': 'unique constraint', 'columns': ['Name'], 'name': 'AK_ProductCategory_Name'}` got `{'kind': 'unique constraint', 'columns': ['rowguid'], 'name': 'AK_ProductCategory_Name'}`
-  - mismatch `('SalesLT.ProductModel', 'unique constraint', 'AK_ProductModel_Name')`: expected `{'kind': 'unique constraint', 'columns': ['Name'], 'name': 'AK_ProductModel_Name'}` got `{'kind': 'unique constraint', 'columns': ['rowguid'], 'name': 'AK_ProductModel_Name'}`
-
-**indexes**
-  - mismatch `('SalesLT.SalesOrderHeader', 'AK_SalesOrderHeader_SalesOrderNumber')`: expected `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['SalesOrderNumber']}` got `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['col_8']}`
-
-**extended_properties**
-  - missing: `('table/column', 'SalesLT.SalesOrderDetail', 'LineTotal', 'MS_Description')`, `('table/column', 'SalesLT.SalesOrderHeader', 'SalesOrderNumber', 'MS_Description')`, `('table/column', 'SalesLT.SalesOrderHeader', 'TotalDue', 'MS_Description')`
-  - mismatch `('table', 'SalesLT.SalesOrderDetail', '', 'MS_Description')`: expected `{'value': 'Individual products associated with a specific sales order. See SalesOrderHeader.'}` got `{'value': 'Per product subtotal. Computed as UnitPrice * (1 - UnitPriceDiscount) * OrderQty.'}`
-  - mismatch `('table', 'SalesLT.SalesOrderHeader', '', 'MS_Description')`: expected `{'value': 'General sales order information.'}` got `{'value': 'Total due from customer. Computed as Subtotal + TaxAmt + Freight.'}`
-
-**modules**
-  - missing: `SalesLT.iduSalesOrderDetail`, `SalesLT.uSalesOrderHeader`, `SalesLT.vGetAllCategories`, `SalesLT.vProductAndDescription`, `SalesLT.vProductModelCatalogDescription`, `dbo.ufnGetAllCategories`, `dbo.ufnGetCustomerInformation`, `dbo.ufnGetSalesOrderStatusText`, `dbo.uspLogError`, `dbo.uspPrintError`
-
-**statistics**
-  - extra: `('SalesLT.ProductModel', 'PXML_ProductModel_CatalogDescription')`
-  - mismatch `('SalesLT.SalesOrderHeader', 'AK_SalesOrderHeader_SalesOrderNumber')`: expected `{'key_columns': ['SalesOrderNumber']}` got `{'key_columns': ['col_8']}`
-
-#### `AdventureWorksLT2017.bak`
-
-**constraints**
-  - mismatch `('SalesLT.Product', 'unique constraint', 'AK_Product_Name')`: expected `{'kind': 'unique constraint', 'columns': ['Name'], 'name': 'AK_Product_Name'}` got `{'kind': 'unique constraint', 'columns': ['rowguid'], 'name': 'AK_Product_Name'}`
-  - mismatch `('SalesLT.Product', 'unique constraint', 'AK_Product_ProductNumber')`: expected `{'kind': 'unique constraint', 'columns': ['ProductNumber'], 'name': 'AK_Product_ProductNumber'}` got `{'kind': 'unique constraint', 'columns': ['rowguid'], 'name': 'AK_Product_ProductNumber'}`
-  - mismatch `('SalesLT.ProductCategory', 'foreign key', 'FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID')`: expected `{'kind': 'foreign key', 'columns': ['ParentProductCategoryID'], 'ref_table': 'SalesLT.ProductCategory', 'ref_columns': ['ProductCategoryID'], 'name': 'FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID'}` got `{'kind': 'foreign key', 'columns': ['ProductCategoryID'], 'ref_table': 'SalesLT.ProductCategory', 'ref_columns': ['ProductCategoryID'], 'name': 'FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID'}`
-  - mismatch `('SalesLT.ProductCategory', 'unique constraint', 'AK_ProductCategory_Name')`: expected `{'kind': 'unique constraint', 'columns': ['Name'], 'name': 'AK_ProductCategory_Name'}` got `{'kind': 'unique constraint', 'columns': ['rowguid'], 'name': 'AK_ProductCategory_Name'}`
-  - mismatch `('SalesLT.ProductModel', 'unique constraint', 'AK_ProductModel_Name')`: expected `{'kind': 'unique constraint', 'columns': ['Name'], 'name': 'AK_ProductModel_Name'}` got `{'kind': 'unique constraint', 'columns': ['rowguid'], 'name': 'AK_ProductModel_Name'}`
-
-**indexes**
-  - mismatch `('SalesLT.SalesOrderHeader', 'AK_SalesOrderHeader_SalesOrderNumber')`: expected `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['SalesOrderNumber']}` got `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['col_8']}`
-
-**extended_properties**
-  - missing: `('table/column', 'SalesLT.SalesOrderDetail', 'LineTotal', 'MS_Description')`, `('table/column', 'SalesLT.SalesOrderHeader', 'SalesOrderNumber', 'MS_Description')`, `('table/column', 'SalesLT.SalesOrderHeader', 'TotalDue', 'MS_Description')`
-  - mismatch `('table', 'SalesLT.SalesOrderDetail', '', 'MS_Description')`: expected `{'value': 'Individual products associated with a specific sales order. See SalesOrderHeader.'}` got `{'value': 'Per product subtotal. Computed as UnitPrice * (1 - UnitPriceDiscount) * OrderQty.'}`
-  - mismatch `('table', 'SalesLT.SalesOrderHeader', '', 'MS_Description')`: expected `{'value': 'General sales order information.'}` got `{'value': 'Total due from customer. Computed as Subtotal + TaxAmt + Freight.'}`
-
-**modules**
-  - missing: `SalesLT.iduSalesOrderDetail`, `SalesLT.uSalesOrderHeader`, `SalesLT.vGetAllCategories`, `SalesLT.vProductAndDescription`, `SalesLT.vProductModelCatalogDescription`, `dbo.ufnGetAllCategories`, `dbo.ufnGetCustomerInformation`, `dbo.ufnGetSalesOrderStatusText`, `dbo.uspLogError`, `dbo.uspPrintError`
-
-**statistics**
-  - extra: `('SalesLT.ProductModel', 'PXML_ProductModel_CatalogDescription')`
-  - mismatch `('SalesLT.SalesOrderHeader', 'AK_SalesOrderHeader_SalesOrderNumber')`: expected `{'key_columns': ['SalesOrderNumber']}` got `{'key_columns': ['col_8']}`
-
-#### `AdventureWorksLT2019.bak`
-
-**constraints**
-  - mismatch `('SalesLT.Product', 'unique constraint', 'AK_Product_Name')`: expected `{'kind': 'unique constraint', 'columns': ['Name'], 'name': 'AK_Product_Name'}` got `{'kind': 'unique constraint', 'columns': ['rowguid'], 'name': 'AK_Product_Name'}`
-  - mismatch `('SalesLT.Product', 'unique constraint', 'AK_Product_ProductNumber')`: expected `{'kind': 'unique constraint', 'columns': ['ProductNumber'], 'name': 'AK_Product_ProductNumber'}` got `{'kind': 'unique constraint', 'columns': ['rowguid'], 'name': 'AK_Product_ProductNumber'}`
-  - mismatch `('SalesLT.ProductCategory', 'foreign key', 'FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID')`: expected `{'kind': 'foreign key', 'columns': ['ParentProductCategoryID'], 'ref_table': 'SalesLT.ProductCategory', 'ref_columns': ['ProductCategoryID'], 'name': 'FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID'}` got `{'kind': 'foreign key', 'columns': ['ProductCategoryID'], 'ref_table': 'SalesLT.ProductCategory', 'ref_columns': ['ProductCategoryID'], 'name': 'FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID'}`
-  - mismatch `('SalesLT.ProductCategory', 'unique constraint', 'AK_ProductCategory_Name')`: expected `{'kind': 'unique constraint', 'columns': ['Name'], 'name': 'AK_ProductCategory_Name'}` got `{'kind': 'unique constraint', 'columns': ['rowguid'], 'name': 'AK_ProductCategory_Name'}`
-  - mismatch `('SalesLT.ProductModel', 'unique constraint', 'AK_ProductModel_Name')`: expected `{'kind': 'unique constraint', 'columns': ['Name'], 'name': 'AK_ProductModel_Name'}` got `{'kind': 'unique constraint', 'columns': ['rowguid'], 'name': 'AK_ProductModel_Name'}`
-
-**indexes**
-  - mismatch `('SalesLT.SalesOrderHeader', 'AK_SalesOrderHeader_SalesOrderNumber')`: expected `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['SalesOrderNumber']}` got `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['col_8']}`
-
-**extended_properties**
-  - missing: `('table/column', 'SalesLT.SalesOrderDetail', 'LineTotal', 'MS_Description')`, `('table/column', 'SalesLT.SalesOrderHeader', 'SalesOrderNumber', 'MS_Description')`, `('table/column', 'SalesLT.SalesOrderHeader', 'TotalDue', 'MS_Description')`
-  - mismatch `('table', 'SalesLT.SalesOrderDetail', '', 'MS_Description')`: expected `{'value': 'Individual products associated with a specific sales order. See SalesOrderHeader.'}` got `{'value': 'Per product subtotal. Computed as UnitPrice * (1 - UnitPriceDiscount) * OrderQty.'}`
-  - mismatch `('table', 'SalesLT.SalesOrderHeader', '', 'MS_Description')`: expected `{'value': 'General sales order information.'}` got `{'value': 'Total due from customer. Computed as Subtotal + TaxAmt + Freight.'}`
-
-**modules**
-  - missing: `SalesLT.iduSalesOrderDetail`, `SalesLT.uSalesOrderHeader`, `SalesLT.vGetAllCategories`, `SalesLT.vProductAndDescription`, `SalesLT.vProductModelCatalogDescription`, `dbo.ufnGetAllCategories`, `dbo.ufnGetCustomerInformation`, `dbo.ufnGetSalesOrderStatusText`, `dbo.uspLogError`, `dbo.uspPrintError`
-
-**statistics**
-  - extra: `('SalesLT.ProductModel', 'PXML_ProductModel_CatalogDescription')`
-  - mismatch `('SalesLT.SalesOrderHeader', 'AK_SalesOrderHeader_SalesOrderNumber')`: expected `{'key_columns': ['SalesOrderNumber']}` got `{'key_columns': ['col_8']}`
-
-#### `AdventureWorksLT2022.bak`
-
-**constraints**
-  - mismatch `('SalesLT.Product', 'unique constraint', 'AK_Product_Name')`: expected `{'kind': 'unique constraint', 'columns': ['Name'], 'name': 'AK_Product_Name'}` got `{'kind': 'unique constraint', 'columns': ['rowguid'], 'name': 'AK_Product_Name'}`
-  - mismatch `('SalesLT.Product', 'unique constraint', 'AK_Product_ProductNumber')`: expected `{'kind': 'unique constraint', 'columns': ['ProductNumber'], 'name': 'AK_Product_ProductNumber'}` got `{'kind': 'unique constraint', 'columns': ['rowguid'], 'name': 'AK_Product_ProductNumber'}`
-  - mismatch `('SalesLT.ProductCategory', 'foreign key', 'FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID')`: expected `{'kind': 'foreign key', 'columns': ['ParentProductCategoryID'], 'ref_table': 'SalesLT.ProductCategory', 'ref_columns': ['ProductCategoryID'], 'name': 'FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID'}` got `{'kind': 'foreign key', 'columns': ['ProductCategoryID'], 'ref_table': 'SalesLT.ProductCategory', 'ref_columns': ['ProductCategoryID'], 'name': 'FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID'}`
-  - mismatch `('SalesLT.ProductCategory', 'unique constraint', 'AK_ProductCategory_Name')`: expected `{'kind': 'unique constraint', 'columns': ['Name'], 'name': 'AK_ProductCategory_Name'}` got `{'kind': 'unique constraint', 'columns': ['rowguid'], 'name': 'AK_ProductCategory_Name'}`
-  - mismatch `('SalesLT.ProductModel', 'unique constraint', 'AK_ProductModel_Name')`: expected `{'kind': 'unique constraint', 'columns': ['Name'], 'name': 'AK_ProductModel_Name'}` got `{'kind': 'unique constraint', 'columns': ['rowguid'], 'name': 'AK_ProductModel_Name'}`
-
-**indexes**
-  - mismatch `('SalesLT.SalesOrderHeader', 'AK_SalesOrderHeader_SalesOrderNumber')`: expected `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['SalesOrderNumber']}` got `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['col_8']}`
-
-**extended_properties**
-  - missing: `('table/column', 'SalesLT.SalesOrderDetail', 'LineTotal', 'MS_Description')`, `('table/column', 'SalesLT.SalesOrderHeader', 'SalesOrderNumber', 'MS_Description')`, `('table/column', 'SalesLT.SalesOrderHeader', 'TotalDue', 'MS_Description')`
-  - mismatch `('table', 'SalesLT.SalesOrderDetail', '', 'MS_Description')`: expected `{'value': 'Individual products associated with a specific sales order. See SalesOrderHeader.'}` got `{'value': 'Per product subtotal. Computed as UnitPrice * (1 - UnitPriceDiscount) * OrderQty.'}`
-  - mismatch `('table', 'SalesLT.SalesOrderHeader', '', 'MS_Description')`: expected `{'value': 'General sales order information.'}` got `{'value': 'Total due from customer. Computed as Subtotal + TaxAmt + Freight.'}`
-
-**modules**
-  - missing: `SalesLT.iduSalesOrderDetail`, `SalesLT.uSalesOrderHeader`, `SalesLT.vGetAllCategories`, `SalesLT.vProductAndDescription`, `SalesLT.vProductModelCatalogDescription`, `dbo.ufnGetAllCategories`, `dbo.ufnGetCustomerInformation`, `dbo.ufnGetSalesOrderStatusText`, `dbo.uspLogError`, `dbo.uspPrintError`
-
-**statistics**
-  - extra: `('SalesLT.ProductModel', 'PXML_ProductModel_CatalogDescription')`
-  - mismatch `('SalesLT.SalesOrderHeader', 'AK_SalesOrderHeader_SalesOrderNumber')`: expected `{'key_columns': ['SalesOrderNumber']}` got `{'key_columns': ['col_8']}`
-
-#### `AdventureWorksLT2025.bak`
-
-**constraints**
-  - mismatch `('SalesLT.Product', 'unique constraint', 'AK_Product_Name')`: expected `{'kind': 'unique constraint', 'columns': ['Name'], 'name': 'AK_Product_Name'}` got `{'kind': 'unique constraint', 'columns': ['rowguid'], 'name': 'AK_Product_Name'}`
-  - mismatch `('SalesLT.Product', 'unique constraint', 'AK_Product_ProductNumber')`: expected `{'kind': 'unique constraint', 'columns': ['ProductNumber'], 'name': 'AK_Product_ProductNumber'}` got `{'kind': 'unique constraint', 'columns': ['rowguid'], 'name': 'AK_Product_ProductNumber'}`
-  - mismatch `('SalesLT.ProductCategory', 'foreign key', 'FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID')`: expected `{'kind': 'foreign key', 'columns': ['ParentProductCategoryID'], 'ref_table': 'SalesLT.ProductCategory', 'ref_columns': ['ProductCategoryID'], 'name': 'FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID'}` got `{'kind': 'foreign key', 'columns': ['ProductCategoryID'], 'ref_table': 'SalesLT.ProductCategory', 'ref_columns': ['ProductCategoryID'], 'name': 'FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID'}`
-  - mismatch `('SalesLT.ProductCategory', 'unique constraint', 'AK_ProductCategory_Name')`: expected `{'kind': 'unique constraint', 'columns': ['Name'], 'name': 'AK_ProductCategory_Name'}` got `{'kind': 'unique constraint', 'columns': ['rowguid'], 'name': 'AK_ProductCategory_Name'}`
-  - mismatch `('SalesLT.ProductModel', 'unique constraint', 'AK_ProductModel_Name')`: expected `{'kind': 'unique constraint', 'columns': ['Name'], 'name': 'AK_ProductModel_Name'}` got `{'kind': 'unique constraint', 'columns': ['rowguid'], 'name': 'AK_ProductModel_Name'}`
-
-**indexes**
-  - mismatch `('SalesLT.SalesOrderHeader', 'AK_SalesOrderHeader_SalesOrderNumber')`: expected `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['SalesOrderNumber']}` got `{'type': 'nonclustered', 'is_unique': True, 'is_primary_key': False, 'key_columns': ['col_8']}`
-
-**extended_properties**
-  - missing: `('table/column', 'SalesLT.SalesOrderDetail', 'LineTotal', 'MS_Description')`, `('table/column', 'SalesLT.SalesOrderHeader', 'SalesOrderNumber', 'MS_Description')`, `('table/column', 'SalesLT.SalesOrderHeader', 'TotalDue', 'MS_Description')`
-  - mismatch `('table', 'SalesLT.SalesOrderDetail', '', 'MS_Description')`: expected `{'value': 'Individual products associated with a specific sales order. See SalesOrderHeader.'}` got `{'value': 'Per product subtotal. Computed as UnitPrice * (1 - UnitPriceDiscount) * OrderQty.'}`
-  - mismatch `('table', 'SalesLT.SalesOrderHeader', '', 'MS_Description')`: expected `{'value': 'General sales order information.'}` got `{'value': 'Total due from customer. Computed as Subtotal + TaxAmt + Freight.'}`
-
-**modules**
-  - missing: `SalesLT.iduSalesOrderDetail`, `SalesLT.uSalesOrderHeader`, `SalesLT.vGetAllCategories`, `SalesLT.vProductAndDescription`, `SalesLT.vProductModelCatalogDescription`, `dbo.ufnGetAllCategories`, `dbo.ufnGetCustomerInformation`, `dbo.ufnGetSalesOrderStatusText`, `dbo.uspLogError`, `dbo.uspPrintError`
-
-**statistics**
-  - extra: `('SalesLT.ProductModel', 'PXML_ProductModel_CatalogDescription')`
-  - mismatch `('SalesLT.SalesOrderHeader', 'AK_SalesOrderHeader_SalesOrderNumber')`: expected `{'key_columns': ['SalesOrderNumber']}` got `{'key_columns': ['col_8']}`
-
+| `AdventureWorks2008R2.bak` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `AdventureWorks2012.bak` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `AdventureWorks2014.bak` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `AdventureWorks2016.bak` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `AdventureWorks2016_EXT.bak` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `AdventureWorks2017.bak` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `AdventureWorks2019.bak` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `AdventureWorks2022.bak` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `AdventureWorks2025.bak` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `AdventureWorksDW2008R2.bak` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `AdventureWorksLT2012.bak` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `AdventureWorksLT2014.bak` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `AdventureWorksLT2016.bak` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `AdventureWorksLT2017.bak` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `AdventureWorksLT2019.bak` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `AdventureWorksLT2022.bak` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `AdventureWorksLT2025.bak` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 
 ## Extraction timings
 
 | Backup | Extract | Verify | Wall time |
 |--------|---------|--------|-----------|
-| `AdventureWorks2008R2.bak` | 17.442s | 10.029s | 27.471s |
-| `AdventureWorks2012.bak` | 18.185s | 10.693s | 28.878s |
-| `AdventureWorks2014.bak` | 18.558s | 10.864s | 29.422s |
-| `AdventureWorks2016.bak` | 18.174s | 11.194s | 29.368s |
-| `AdventureWorks2016_EXT.bak` | 39.537s | 19.168s | 58.705s |
-| `AdventureWorks2017.bak` | 18.377s | 11.01s | 29.387s |
-| `AdventureWorks2019.bak` | 17.874s | 9.924s | 27.798s |
-| `AdventureWorks2022.bak` | 17.498s | 10.076s | 27.574s |
-| `AdventureWorks2025.bak` | 17.833s | 10.673s | 28.506s |
-| `AdventureWorksDW2008R2.bak` | 3.296s | 3.187s | 6.483s |
-| `AdventureWorksDW2012.bak` | 7.921s | 8.177s | 16.098s |
-| `AdventureWorksDW2014.bak` | 8.099s | 7.622s | 15.721s |
-| `AdventureWorksDW2016.bak` | 6.84s | 7.824s | 14.664s |
-| `AdventureWorksDW2016_EXT.bak` | 106.404s | 63.551s | 169.955s |
-| `AdventureWorksDW2017.bak` | 6.851s | 7.767s | 14.618s |
-| `AdventureWorksDW2019.bak` | 8.293s | 7.877s | 16.17s |
-| `AdventureWorksDW2022.bak` | 7.241s | 7.695s | 14.936s |
-| `AdventureWorksDW2025.bak` | 6.765s | 8.165s | 14.93s |
-| `AdventureWorksLT2012.bak` | 0.298s | 0.402s | 0.7s |
-| `AdventureWorksLT2014.bak` | 0.34s | 0.44s | 0.78s |
-| `AdventureWorksLT2016.bak` | 0.348s | 0.556s | 0.904s |
-| `AdventureWorksLT2017.bak` | 0.304s | 0.396s | 0.7s |
-| `AdventureWorksLT2019.bak` | 0.323s | 0.53s | 0.853s |
-| `AdventureWorksLT2022.bak` | 0.362s | 0.563s | 0.925s |
-| `AdventureWorksLT2025.bak` | 0.411s | 0.48s | 0.891s |
-| `BaseballData.bak` | 11.294s | 4.326s | 15.62s |
-| `Chinook-id-pk.bak` | 0.305s | 0.28s | 0.585s |
-| `Chinook.bak` | 0.285s | 0.289s | 0.574s |
-| `ContosoRetailDW.bak` | 249.671s | 370.298s | 619.969s |
-| `CreditBackup100.bak` | 25.947s | 23.365s | 49.312s |
-| `data.gov.bak` | 3.323s | 2.002s | 5.325s |
-| `dba.stackexchange.com.bak` | 112.413s | 117.441s | 229.854s |
-| `EmployeeCaseStudySampleDB2012.bak` | 6.859s | 2.275s | 9.134s |
-| `GeneralHospital.bak` | 43.467s | 30.441s | 73.908s |
-| `IndexInternals2008.bak` | 5.02s | 1.057s | 6.077s |
-| `Northwinds.bak` | 0.283s | 0.25s | 0.533s |
-| `NYCTaxi_Sample.bak` | 39.305s | 53.814s | 93.119s |
-| `Pubs.bak` | 0.32s | 0.394s | 0.714s |
-| `SalesDB2014.bak` | 13.096s | 11.871s | 24.967s |
-| `SalesDBOriginal.bak` | 11.436s | 10.622s | 22.058s |
-| `StackOverflowMini.bak` | 113.212s | 178.35s | 291.562s |
-| `tpcxbb_1gb.bak` | 105.696s | 89.852s | 195.548s |
-| `TutorialDB.bak` | 0.152s | 0.047s | 0.199s |
-| `WideWorldImporters-Full.bak` | 48.611s | 38.406s | 87.017s |
-| `WideWorldImporters-Full_old.bak` | 47.77s | 39.044s | 86.814s |
-| `WideWorldImporters-Standard.bak` | 52.429s | 38.269s | 90.698s |
-| `WideWorldImporters-Standard_old.bak` | 53.282s | 38.166s | 91.448s |
-| `WideWorldImportersDW-Full.bak` | 10.703s | 9.31s | 20.013s |
-| `WideWorldImportersDW-Standard.bak` | 9.751s | 9.534s | 19.285s |
+| `AdventureWorks2008R2.bak` | 17.155s | 10.025s | 27.18s |
+| `AdventureWorks2012.bak` | 17.957s | 10.828s | 28.785s |
+| `AdventureWorks2014.bak` | 17.617s | 10.578s | 28.195s |
+| `AdventureWorks2016.bak` | 18.183s | 11.021s | 29.204s |
+| `AdventureWorks2016_EXT.bak` | 40.59s | 18.778s | 59.368s |
+| `AdventureWorks2017.bak` | 18.06s | 10.859s | 28.919s |
+| `AdventureWorks2019.bak` | 17.467s | 10.133s | 27.6s |
+| `AdventureWorks2022.bak` | 17.42s | 10.062s | 27.482s |
+| `AdventureWorks2025.bak` | 17.638s | 10.851s | 28.489s |
+| `AdventureWorksDW2008R2.bak` | 3.432s | 3.213s | 6.645s |
+| `AdventureWorksDW2012.bak` | 6.905s | 7.876s | 14.781s |
+| `AdventureWorksDW2014.bak` | 7.215s | 7.654s | 14.869s |
+| `AdventureWorksDW2016.bak` | 7.03s | 7.718s | 14.748s |
+| `AdventureWorksDW2016_EXT.bak` | 103.033s | 62.855s | 165.888s |
+| `AdventureWorksDW2017.bak` | 7.27s | 7.655s | 14.925s |
+| `AdventureWorksDW2019.bak` | 8.437s | 7.961s | 16.398s |
+| `AdventureWorksDW2022.bak` | 6.755s | 7.978s | 14.733s |
+| `AdventureWorksDW2025.bak` | 6.789s | 8.037s | 14.826s |
+| `AdventureWorksLT2012.bak` | 0.299s | 0.443s | 0.742s |
+| `AdventureWorksLT2014.bak` | 0.318s | 0.465s | 0.783s |
+| `AdventureWorksLT2016.bak` | 0.304s | 0.473s | 0.777s |
+| `AdventureWorksLT2017.bak` | 0.372s | 0.482s | 0.854s |
+| `AdventureWorksLT2019.bak` | 0.367s | 0.465s | 0.832s |
+| `AdventureWorksLT2022.bak` | 0.326s | 0.476s | 0.802s |
+| `AdventureWorksLT2025.bak` | 0.396s | 0.518s | 0.914s |
+| `BaseballData.bak` | 11.462s | 4.388s | 15.85s |
+| `Chinook-id-pk.bak` | 0.235s | 0.252s | 0.487s |
+| `Chinook.bak` | 0.246s | 0.32s | 0.566s |
+| `ContosoRetailDW.bak` | 249.244s | 369.311s | 618.555s |
+| `CreditBackup100.bak` | 24.868s | 21.138s | 46.006s |
+| `data.gov.bak` | 2.855s | 1.789s | 4.644s |
+| `dba.stackexchange.com.bak` | 107.376s | 117.321s | 224.697s |
+| `EmployeeCaseStudySampleDB2012.bak` | 6.227s | 2.016s | 8.243s |
+| `GeneralHospital.bak` | 42.473s | 30.26s | 72.733s |
+| `IndexInternals2008.bak` | 4.868s | 0.972s | 5.84s |
+| `Northwinds.bak` | 0.307s | 0.279s | 0.586s |
+| `NYCTaxi_Sample.bak` | 38.087s | 52.354s | 90.441s |
+| `Pubs.bak` | 0.258s | 0.215s | 0.473s |
+| `SalesDB2014.bak` | 12.214s | 11.117s | 23.331s |
+| `SalesDBOriginal.bak` | 11.263s | 10.308s | 21.571s |
+| `StackOverflowMini.bak` | 113.207s | 169.451s | 282.658s |
+| `tpcxbb_1gb.bak` | 102.951s | 91.435s | 194.386s |
+| `TutorialDB.bak` | 0.137s | 0.042s | 0.179s |
+| `WideWorldImporters-Full.bak` | 48.223s | 37.49s | 85.713s |
+| `WideWorldImporters-Full_old.bak` | 46.214s | 35.39s | 81.604s |
+| `WideWorldImporters-Standard.bak` | 53.485s | 37.84s | 91.325s |
+| `WideWorldImporters-Standard_old.bak` | 50.742s | 36.643s | 87.385s |
+| `WideWorldImportersDW-Full.bak` | 11.078s | 9.54s | 20.618s |
+| `WideWorldImportersDW-Standard.bak` | 10.227s | 9.696s | 19.923s |
 
 _Verify = wall − extract (Arrow conversion, ground-truth compare, cell verification, and confidence analysis). See **Sink read breakdown** below for the per-phase split._
 
@@ -9355,55 +8920,55 @@ _Verify = wall − extract (Arrow conversion, ground-truth compare, cell verific
 
 | Backup | pagestore | schema | catalog | constraints | logtail | xtp | data decode (net) | sink write | arrow verify | sink finish |
 |--------|----------:|-------:|--------:|------------:|--------:|---:|------------------:|-----------:|-------------:|------------:|
-| `AdventureWorks2008R2.bak` | 0.753s | 0.147s | 0.0s | 0.0s | 0.122s | 0.0s | 15.955s | 4.491s | 3.691s | 0.441s |
-| `AdventureWorks2012.bak` | 1.692s | 0.159s | 0.0s | 0.0s | 0.058s | 0.0s | 15.85s | 4.081s | 3.677s | 0.408s |
-| `AdventureWorks2014.bak` | 1.89s | 0.175s | 0.0s | 0.0s | 0.058s | 0.0s | 15.982s | 4.129s | 3.718s | 0.43s |
-| `AdventureWorks2016.bak` | 1.741s | 0.159s | 0.0s | 0.0s | 0.053s | 0.0s | 15.78s | 4.353s | 3.675s | 0.426s |
-| `AdventureWorks2016_EXT.bak` | 4.84s | 0.219s | 0.0s | 0.0s | 0.214s | 7.802s | 26.008s | 6.037s | 5.117s | 0.422s |
-| `AdventureWorks2017.bak` | 1.817s | 0.164s | 0.0s | 0.0s | 0.055s | 0.0s | 15.926s | 4.507s | 3.717s | 0.401s |
-| `AdventureWorks2019.bak` | 0.905s | 0.184s | 0.0s | 0.0s | 0.127s | 0.0s | 16.218s | 4.156s | 3.653s | 0.418s |
-| `AdventureWorks2022.bak` | 0.863s | 0.19s | 0.0s | 0.0s | 0.12s | 0.0s | 15.885s | 4.321s | 3.661s | 0.422s |
-| `AdventureWorks2025.bak` | 1.705s | 0.161s | 0.0s | 0.0s | 0.057s | 0.0s | 15.462s | 4.31s | 3.609s | 0.43s |
-| `AdventureWorksDW2008R2.bak` | 0.357s | 0.054s | 0.0s | 0.0s | 0.12s | 0.0s | 2.732s | 0.959s | 1.008s | 0.012s |
-| `AdventureWorksDW2012.bak` | 0.871s | 0.113s | 0.0s | 0.0s | 0.029s | 0.0s | 6.885s | 1.694s | 3.418s | 0.006s |
-| `AdventureWorksDW2014.bak` | 0.905s | 0.159s | 0.0s | 0.0s | 0.034s | 0.0s | 6.979s | 1.812s | 3.438s | 0.005s |
-| `AdventureWorksDW2016.bak` | 0.826s | 0.079s | 0.0s | 0.0s | 0.024s | 0.0s | 5.891s | 1.362s | 3.215s | 0.006s |
-| `AdventureWorksDW2016_EXT.bak` | 33.618s | 0.12s | 0.0s | 0.0s | 1.912s | 0.0s | 70.725s | 52.076s | 3.004s | 0.01s |
-| `AdventureWorksDW2017.bak` | 0.85s | 0.092s | 0.0s | 0.0s | 0.028s | 0.0s | 5.862s | 1.29s | 3.01s | 0.005s |
-| `AdventureWorksDW2019.bak` | 0.53s | 0.102s | 0.0s | 0.0s | 0.124s | 0.0s | 7.512s | 2.232s | 3.002s | 0.006s |
-| `AdventureWorksDW2022.bak` | 0.583s | 0.107s | 0.0s | 0.0s | 0.156s | 0.0s | 6.357s | 1.539s | 3.201s | 0.005s |
-| `AdventureWorksDW2025.bak` | 0.911s | 0.119s | 0.0s | 0.0s | 0.028s | 0.0s | 5.686s | 1.358s | 3.044s | 0.006s |
-| `AdventureWorksLT2012.bak` | 0.046s | 0.034s | 0.0s | 0.0s | 0.028s | 0.0s | 0.161s | 0.122s | 0.08s | 0.009s |
-| `AdventureWorksLT2014.bak` | 0.054s | 0.038s | 0.0s | 0.0s | 0.028s | 0.0s | 0.186s | 0.129s | 0.099s | 0.01s |
-| `AdventureWorksLT2016.bak` | 0.057s | 0.039s | 0.0s | 0.0s | 0.016s | 0.0s | 0.203s | 0.161s | 0.103s | 0.015s |
-| `AdventureWorksLT2017.bak` | 0.049s | 0.039s | 0.0s | 0.0s | 0.017s | 0.0s | 0.175s | 0.126s | 0.09s | 0.009s |
-| `AdventureWorksLT2019.bak` | 0.059s | 0.04s | 0.0s | 0.0s | 0.02s | 0.0s | 0.178s | 0.129s | 0.09s | 0.01s |
-| `AdventureWorksLT2022.bak` | 0.077s | 0.049s | 0.0s | 0.0s | 0.016s | 0.0s | 0.194s | 0.162s | 0.086s | 0.011s |
-| `AdventureWorksLT2025.bak` | 0.121s | 0.047s | 0.0s | 0.0s | 0.003s | 0.0s | 0.217s | 0.184s | 0.089s | 0.012s |
-| `BaseballData.bak` | 0.305s | 0.076s | 0.0s | 0.0s | 0.114s | 0.0s | 10.768s | 2.379s | 1.583s | 0.006s |
-| `Chinook-id-pk.bak` | 0.047s | 0.039s | 0.0s | 0.0s | 0.023s | 0.0s | 0.161s | 0.11s | 0.125s | 0.013s |
-| `Chinook.bak` | 0.048s | 0.04s | 0.0s | 0.0s | 0.017s | 0.0s | 0.151s | 0.1s | 0.112s | 0.01s |
-| `ContosoRetailDW.bak` | 15.277s | 0.103s | 0.0s | 0.0s | 2.089s | 0.0s | 232.18s | 42.331s | 169.485s | 0.001s |
-| `CreditBackup100.bak` | 1.538s | 0.028s | 0.0s | 0.0s | 0.071s | 0.0s | 24.291s | 4.355s | 10.406s | 0.004s |
-| `data.gov.bak` | 0.562s | 0.056s | 0.0s | 0.0s | 0.015s | 0.0s | 2.099s | 0.401s | 0.538s | 0.574s |
-| `dba.stackexchange.com.bak` | 16.029s | 0.068s | 0.0s | 0.0s | 0.989s | 0.0s | 93.991s | 13.14s | 16.761s | 1.313s |
-| `EmployeeCaseStudySampleDB2012.bak` | 0.676s | 0.067s | 0.0s | 0.0s | 0.017s | 0.0s | 5.741s | 0.993s | 0.784s | 0.341s |
-| `GeneralHospital.bak` | 1.266s | 0.075s | 0.0s | 0.0s | 0.138s | 0.0s | 41.82s | 7.948s | 8.523s | 0.143s |
-| `IndexInternals2008.bak` | 0.484s | 0.03s | 0.0s | 0.0s | 0.008s | 0.0s | 4.333s | 0.62s | 0.277s | 0.147s |
-| `Northwinds.bak` | 0.105s | 0.032s | 0.0s | 0.0s | 0.002s | 0.0s | 0.126s | 0.08s | 0.077s | 0.006s |
-| `NYCTaxi_Sample.bak` | 2.454s | 0.062s | 0.0s | 0.0s | 0.118s | 0.0s | 12.786s | 7.99s | 22.837s | 23.858s |
-| `Pubs.bak` | 0.09s | 0.031s | 0.0s | 0.0s | 0.002s | 0.0s | 0.168s | 0.114s | 0.129s | 0.015s |
-| `SalesDB2014.bak` | 1.214s | 0.064s | 0.0s | 0.0s | 0.038s | 0.0s | 6.211s | 3.014s | 5.561s | 5.554s |
-| `SalesDBOriginal.bak` | 0.786s | 0.029s | 0.0s | 0.0s | 0.126s | 0.0s | 10.463s | 2.42s | 5.014s | 0.004s |
-| `StackOverflowMini.bak` | 22.389s | 0.075s | 0.0s | 0.0s | 1.777s | 0.0s | 81.793s | 18.582s | 38.243s | 7.153s |
-| `tpcxbb_1gb.bak` | 12.439s | 0.082s | 0.0s | 0.0s | 0.533s | 0.0s | 92.346s | 15.962s | 43.385s | 0.276s |
-| `TutorialDB.bak` | 0.067s | 0.026s | 0.0s | 0.0s | 0.002s | 0.0s | 0.001s | 0.027s | 0.042s | 0.043s |
-| `WideWorldImporters-Full.bak` | 4.245s | 0.102s | 0.0s | 0.0s | 0.204s | 4.272s | 39.559s | 6.867s | 17.783s | 0.207s |
-| `WideWorldImporters-Full_old.bak` | 4.348s | 0.111s | 0.0s | 0.0s | 0.217s | 4.587s | 38.255s | 6.584s | 17.34s | 0.227s |
-| `WideWorldImporters-Standard.bak` | 4.545s | 0.105s | 0.0s | 0.0s | 0.211s | 0.0s | 47.345s | 7.212s | 17.968s | 0.206s |
-| `WideWorldImporters-Standard_old.bak` | 4.494s | 0.104s | 0.0s | 0.0s | 0.206s | 0.0s | 48.227s | 7.329s | 18.492s | 0.233s |
-| `WideWorldImportersDW-Full.bak` | 1.733s | 0.052s | 0.0s | 0.0s | 0.054s | 1.268s | 7.578s | 1.607s | 3.914s | 0.001s |
-| `WideWorldImportersDW-Standard.bak` | 1.975s | 0.046s | 0.0s | 0.0s | 0.06s | 0.0s | 7.652s | 1.397s | 4.064s | 0.001s |
+| `AdventureWorks2008R2.bak` | 0.689s | 0.139s | 0.0s | 0.0s | 0.117s | 0.0s | 15.771s | 4.237s | 3.644s | 0.419s |
+| `AdventureWorks2012.bak` | 1.573s | 0.158s | 0.0s | 0.0s | 0.05s | 0.0s | 15.74s | 4.452s | 3.638s | 0.419s |
+| `AdventureWorks2014.bak` | 1.525s | 0.156s | 0.0s | 0.0s | 0.051s | 0.0s | 15.463s | 4.15s | 3.581s | 0.409s |
+| `AdventureWorks2016.bak` | 1.677s | 0.158s | 0.0s | 0.0s | 0.052s | 0.0s | 15.866s | 4.436s | 3.692s | 0.415s |
+| `AdventureWorks2016_EXT.bak` | 4.474s | 0.207s | 0.0s | 0.0s | 0.19s | 7.654s | 27.613s | 6.485s | 5.609s | 0.412s |
+| `AdventureWorks2017.bak` | 1.645s | 0.159s | 0.0s | 0.0s | 0.053s | 0.0s | 15.775s | 4.368s | 3.587s | 0.412s |
+| `AdventureWorks2019.bak` | 0.761s | 0.17s | 0.0s | 0.0s | 0.123s | 0.0s | 15.971s | 4.395s | 3.632s | 0.423s |
+| `AdventureWorks2022.bak` | 0.897s | 0.188s | 0.0s | 0.0s | 0.118s | 0.0s | 15.77s | 4.244s | 3.61s | 0.426s |
+| `AdventureWorks2025.bak` | 1.632s | 0.163s | 0.0s | 0.0s | 0.052s | 0.0s | 15.364s | 4.397s | 3.73s | 0.412s |
+| `AdventureWorksDW2008R2.bak` | 0.365s | 0.054s | 0.0s | 0.0s | 0.119s | 0.0s | 2.863s | 1.069s | 1.038s | 0.012s |
+| `AdventureWorksDW2012.bak` | 0.808s | 0.085s | 0.0s | 0.0s | 0.025s | 0.0s | 5.962s | 1.398s | 3.03s | 0.005s |
+| `AdventureWorksDW2014.bak` | 0.86s | 0.098s | 0.0s | 0.0s | 0.026s | 0.0s | 6.211s | 1.658s | 3.196s | 0.006s |
+| `AdventureWorksDW2016.bak` | 0.869s | 0.084s | 0.0s | 0.0s | 0.024s | 0.0s | 6.022s | 1.503s | 3.196s | 0.013s |
+| `AdventureWorksDW2016_EXT.bak` | 31.506s | 0.118s | 0.0s | 0.0s | 1.901s | 0.0s | 69.48s | 51.455s | 2.925s | 0.009s |
+| `AdventureWorksDW2017.bak` | 0.869s | 0.086s | 0.0s | 0.0s | 0.025s | 0.0s | 6.271s | 1.641s | 3.154s | 0.006s |
+| `AdventureWorksDW2019.bak` | 0.465s | 0.104s | 0.0s | 0.0s | 0.125s | 0.0s | 7.72s | 2.169s | 3.068s | 0.005s |
+| `AdventureWorksDW2022.bak` | 0.478s | 0.109s | 0.0s | 0.0s | 0.118s | 0.0s | 6.027s | 1.608s | 3.069s | 0.005s |
+| `AdventureWorksDW2025.bak` | 0.9s | 0.122s | 0.0s | 0.0s | 0.028s | 0.0s | 5.717s | 1.413s | 3.036s | 0.006s |
+| `AdventureWorksLT2012.bak` | 0.051s | 0.033s | 0.0s | 0.0s | 0.025s | 0.0s | 0.165s | 0.126s | 0.084s | 0.009s |
+| `AdventureWorksLT2014.bak` | 0.055s | 0.039s | 0.0s | 0.0s | 0.026s | 0.0s | 0.171s | 0.133s | 0.08s | 0.009s |
+| `AdventureWorksLT2016.bak` | 0.051s | 0.04s | 0.0s | 0.0s | 0.014s | 0.0s | 0.175s | 0.127s | 0.091s | 0.01s |
+| `AdventureWorksLT2017.bak` | 0.06s | 0.039s | 0.0s | 0.0s | 0.015s | 0.0s | 0.232s | 0.131s | 0.142s | 0.01s |
+| `AdventureWorksLT2019.bak` | 0.07s | 0.046s | 0.0s | 0.0s | 0.023s | 0.0s | 0.193s | 0.133s | 0.105s | 0.01s |
+| `AdventureWorksLT2022.bak` | 0.072s | 0.047s | 0.0s | 0.0s | 0.015s | 0.0s | 0.17s | 0.129s | 0.082s | 0.01s |
+| `AdventureWorksLT2025.bak` | 0.13s | 0.046s | 0.0s | 0.0s | 0.004s | 0.0s | 0.188s | 0.142s | 0.093s | 0.011s |
+| `BaseballData.bak` | 0.31s | 0.075s | 0.0s | 0.0s | 0.116s | 0.0s | 10.933s | 2.374s | 1.587s | 0.007s |
+| `Chinook-id-pk.bak` | 0.051s | 0.039s | 0.0s | 0.0s | 0.022s | 0.0s | 0.094s | 0.063s | 0.077s | 0.009s |
+| `Chinook.bak` | 0.049s | 0.039s | 0.0s | 0.0s | 0.012s | 0.0s | 0.118s | 0.088s | 0.092s | 0.013s |
+| `ContosoRetailDW.bak` | 13.981s | 0.153s | 0.0s | 0.0s | 1.952s | 0.0s | 233.141s | 41.663s | 172.176s | 0.002s |
+| `CreditBackup100.bak` | 1.502s | 0.028s | 0.0s | 0.0s | 0.059s | 0.0s | 23.261s | 4.33s | 9.93s | 0.004s |
+| `data.gov.bak` | 0.509s | 0.052s | 0.0s | 0.0s | 0.013s | 0.0s | 1.766s | 0.337s | 0.472s | 0.501s |
+| `dba.stackexchange.com.bak` | 14.827s | 0.07s | 0.0s | 0.0s | 0.95s | 0.0s | 90.225s | 13.618s | 16.278s | 1.289s |
+| `EmployeeCaseStudySampleDB2012.bak` | 0.634s | 0.062s | 0.0s | 0.0s | 0.015s | 0.0s | 5.156s | 0.974s | 0.656s | 0.347s |
+| `GeneralHospital.bak` | 1.159s | 0.074s | 0.0s | 0.0s | 0.132s | 0.0s | 40.948s | 8.456s | 8.35s | 0.136s |
+| `IndexInternals2008.bak` | 0.451s | 0.03s | 0.0s | 0.0s | 0.008s | 0.0s | 4.234s | 0.589s | 0.269s | 0.134s |
+| `Northwinds.bak` | 0.108s | 0.031s | 0.0s | 0.0s | 0.002s | 0.0s | 0.146s | 0.092s | 0.092s | 0.009s |
+| `NYCTaxi_Sample.bak` | 2.396s | 0.065s | 0.0s | 0.0s | 0.115s | 0.0s | 12.665s | 8.133s | 21.946s | 22.826s |
+| `Pubs.bak` | 0.092s | 0.03s | 0.0s | 0.0s | 0.001s | 0.0s | 0.117s | 0.091s | 0.083s | 0.008s |
+| `SalesDB2014.bak` | 1.192s | 0.063s | 0.0s | 0.0s | 0.031s | 0.0s | 5.436s | 2.602s | 5.498s | 5.478s |
+| `SalesDBOriginal.bak` | 0.651s | 0.029s | 0.0s | 0.0s | 0.126s | 0.0s | 10.43s | 2.43s | 5.116s | 0.005s |
+| `StackOverflowMini.bak` | 21.328s | 0.074s | 0.0s | 0.0s | 1.782s | 0.0s | 83.005s | 19.635s | 39.519s | 7.002s |
+| `tpcxbb_1gb.bak` | 10.956s | 0.079s | 0.0s | 0.0s | 0.448s | 0.0s | 91.177s | 15.943s | 43.291s | 0.271s |
+| `TutorialDB.bak` | 0.062s | 0.025s | 0.0s | 0.0s | 0.001s | 0.0s | 0.001s | 0.024s | 0.037s | 0.037s |
+| `WideWorldImporters-Full.bak` | 4.347s | 0.101s | 0.0s | 0.0s | 0.206s | 4.322s | 39.003s | 6.831s | 17.407s | 0.223s |
+| `WideWorldImporters-Full_old.bak` | 4.082s | 0.102s | 0.0s | 0.0s | 0.203s | 4.177s | 37.435s | 6.781s | 16.897s | 0.193s |
+| `WideWorldImporters-Standard.bak` | 4.416s | 0.102s | 0.0s | 0.0s | 0.213s | 0.0s | 48.526s | 7.687s | 18.25s | 0.216s |
+| `WideWorldImporters-Standard_old.bak` | 4.345s | 0.106s | 0.0s | 0.0s | 0.198s | 0.0s | 45.869s | 7.67s | 16.99s | 0.21s |
+| `WideWorldImportersDW-Full.bak` | 1.776s | 0.055s | 0.0s | 0.0s | 0.054s | 1.488s | 7.689s | 1.635s | 4.019s | 0.001s |
+| `WideWorldImportersDW-Standard.bak` | 1.974s | 0.048s | 0.0s | 0.0s | 0.06s | 0.0s | 8.129s | 1.496s | 4.398s | 0.002s |
 
 _data decode (net) = data\_decode\_s (raw loop wall; sink writes and arrow verify overlap decode on a background writer thread and are drained in sink finish). catalog = recover\_catalog\_objects (indexes/FKs/constraints, pg\_dir only). arrow verify = cell verification run inside extraction (_StreamingStatsSink). verify=digest: per-column SHA-256 aggregate hash — fast, no GT parquet read, catches multiset-level corruption; also runs key-ordered digest (catches row transposition) when ordered\_digest is present in the manifest (populated by backfill\_ordered\_digest). Mismatches show as digest:col (multiset) or order:col (transposition). verify=full: exhaustive keyed row compare — also catches value-preserving row misalignment._
 
@@ -9411,55 +8976,55 @@ _data decode (net) = data\_decode\_s (raw loop wall; sink writes and arrow verif
 
 | Backup | delta write | delta read | pg_dir write | pg_dir read |
 |--------|-------:| ------: | -------:| ------:|
-| `AdventureWorks2008R2.bak` | 0.987s | 4.346s | 3.504s | 5.085s |
-| `AdventureWorks2012.bak` | 0.987s | 4.287s | 3.094s | 5.023s |
-| `AdventureWorks2014.bak` | 1.045s | 4.251s | 3.084s | 5.098s |
-| `AdventureWorks2016.bak` | 1.083s | 4.302s | 3.27s | 5.246s |
-| `AdventureWorks2016_EXT.bak` | 1.373s | 5.964s | 4.664s | 8.891s |
-| `AdventureWorks2017.bak` | 1.044s | 4.333s | 3.463s | 5.087s |
-| `AdventureWorks2019.bak` | 1.145s | 4.246s | 3.011s | 5.036s |
-| `AdventureWorks2022.bak` | 0.995s | 4.407s | 3.326s | 5.225s |
-| `AdventureWorks2025.bak` | 0.985s | 4.226s | 3.325s | 4.941s |
-| `AdventureWorksDW2008R2.bak` | 0.28s | 1.179s | 0.679s | 1.737s |
-| `AdventureWorksDW2012.bak` | 0.573s | 3.601s | 1.121s | 4.497s |
-| `AdventureWorksDW2014.bak` | 0.592s | 3.263s | 1.22s | 4.302s |
-| `AdventureWorksDW2016.bak` | 0.413s | 3.341s | 0.949s | 4.428s |
-| `AdventureWorksDW2016_EXT.bak` | 17.049s | 7.484s | 35.027s | 55.907s |
-| `AdventureWorksDW2017.bak` | 0.406s | 3.209s | 0.884s | 4.511s |
-| `AdventureWorksDW2019.bak` | 0.544s | 3.343s | 1.688s | 4.475s |
-| `AdventureWorksDW2022.bak` | 0.491s | 3.28s | 1.048s | 4.364s |
-| `AdventureWorksDW2025.bak` | 0.402s | 3.405s | 0.956s | 4.703s |
-| `AdventureWorksLT2012.bak` | 0.07s | 0.122s | 0.052s | 0.15s |
-| `AdventureWorksLT2014.bak` | 0.07s | 0.168s | 0.059s | 0.136s |
-| `AdventureWorksLT2016.bak` | 0.087s | 0.242s | 0.074s | 0.162s |
-| `AdventureWorksLT2017.bak` | 0.066s | 0.128s | 0.06s | 0.128s |
-| `AdventureWorksLT2019.bak` | 0.074s | 0.126s | 0.055s | 0.237s |
-| `AdventureWorksLT2022.bak` | 0.079s | 0.158s | 0.083s | 0.225s |
-| `AdventureWorksLT2025.bak` | 0.133s | 0.13s | 0.051s | 0.149s |
-| `BaseballData.bak` | 0.603s | 1.796s | 1.776s | 2.491s |
-| `Chinook-id-pk.bak` | 0.083s | 0.16s | 0.027s | 0.089s |
-| `Chinook.bak` | 0.069s | 0.147s | 0.031s | 0.111s |
-| `ContosoRetailDW.bak` | 16.153s | 171.991s | 26.178s | 198.124s |
-| `CreditBackup100.bak` | 0.926s | 11.089s | 3.429s | 12.235s |
-| `data.gov.bak` | 0.098s | 0.579s | 0.303s | 1.393s |
-| `dba.stackexchange.com.bak` | 3.505s | 17.042s | 9.635s | 100.347s |
-| `EmployeeCaseStudySampleDB2012.bak` | 0.183s | 0.699s | 0.81s | 1.555s |
-| `GeneralHospital.bak` | 1.133s | 9.194s | 6.815s | 21.208s |
-| `IndexInternals2008.bak` | 0.074s | 0.337s | 0.546s | 0.701s |
-| `Northwinds.bak` | 0.041s | 0.121s | 0.039s | 0.103s |
-| `NYCTaxi_Sample.bak` | 0.987s | 22.533s | 7.003s | 31.192s |
-| `Pubs.bak` | 0.06s | 0.29s | 0.054s | 0.072s |
-| `SalesDB2014.bak` | 1.704s | 5.695s | 1.31s | 6.116s |
-| `SalesDBOriginal.bak` | 1.232s | 5.115s | 1.188s | 5.459s |
-| `StackOverflowMini.bak` | 5.739s | 36.207s | 12.843s | 142.049s |
-| `tpcxbb_1gb.bak` | 4.163s | 41.444s | 11.799s | 48.318s |
-| `TutorialDB.bak` | 0.006s | 0.016s | 0.021s | 0.013s |
-| `WideWorldImporters-Full.bak` | 1.697s | 18.392s | 5.17s | 19.934s |
-| `WideWorldImporters-Full_old.bak` | 1.539s | 19.125s | 5.045s | 19.834s |
-| `WideWorldImporters-Standard.bak` | 1.701s | 18.155s | 5.511s | 20.017s |
-| `WideWorldImporters-Standard_old.bak` | 1.662s | 18.322s | 5.667s | 19.756s |
-| `WideWorldImportersDW-Full.bak` | 0.392s | 4.098s | 1.215s | 5.176s |
-| `WideWorldImportersDW-Standard.bak` | 0.379s | 4.241s | 1.018s | 5.256s |
+| `AdventureWorks2008R2.bak` | 1.038s | 4.405s | 3.199s | 4.992s |
+| `AdventureWorks2012.bak` | 1.014s | 4.283s | 3.438s | 5.13s |
+| `AdventureWorks2014.bak` | 0.985s | 4.174s | 3.165s | 4.932s |
+| `AdventureWorks2016.bak` | 1.346s | 4.297s | 3.09s | 5.113s |
+| `AdventureWorks2016_EXT.bak` | 1.601s | 6.349s | 4.884s | 8.455s |
+| `AdventureWorks2017.bak` | 1.02s | 4.327s | 3.348s | 4.986s |
+| `AdventureWorks2019.bak` | 1.071s | 4.353s | 3.324s | 4.99s |
+| `AdventureWorks2022.bak` | 1.067s | 4.233s | 3.177s | 4.952s |
+| `AdventureWorks2025.bak` | 1.058s | 4.308s | 3.339s | 4.875s |
+| `AdventureWorksDW2008R2.bak` | 0.328s | 1.217s | 0.741s | 1.839s |
+| `AdventureWorksDW2012.bak` | 0.438s | 3.427s | 0.96s | 4.375s |
+| `AdventureWorksDW2014.bak` | 0.446s | 3.386s | 1.212s | 4.206s |
+| `AdventureWorksDW2016.bak` | 0.451s | 3.356s | 1.052s | 4.299s |
+| `AdventureWorksDW2016_EXT.bak` | 16.876s | 6.734s | 34.579s | 55.958s |
+| `AdventureWorksDW2017.bak` | 0.538s | 3.305s | 1.103s | 4.294s |
+| `AdventureWorksDW2019.bak` | 0.579s | 3.464s | 1.59s | 4.44s |
+| `AdventureWorksDW2022.bak` | 0.423s | 3.414s | 1.185s | 4.497s |
+| `AdventureWorksDW2025.bak` | 0.445s | 3.335s | 0.968s | 4.646s |
+| `AdventureWorksLT2012.bak` | 0.073s | 0.128s | 0.053s | 0.144s |
+| `AdventureWorksLT2014.bak` | 0.082s | 0.141s | 0.051s | 0.14s |
+| `AdventureWorksLT2016.bak` | 0.071s | 0.134s | 0.056s | 0.155s |
+| `AdventureWorksLT2017.bak` | 0.074s | 0.152s | 0.057s | 0.147s |
+| `AdventureWorksLT2019.bak` | 0.07s | 0.135s | 0.063s | 0.136s |
+| `AdventureWorksLT2022.bak` | 0.075s | 0.131s | 0.054s | 0.146s |
+| `AdventureWorksLT2025.bak` | 0.085s | 0.149s | 0.057s | 0.145s |
+| `BaseballData.bak` | 0.623s | 1.847s | 1.751s | 2.494s |
+| `Chinook-id-pk.bak` | 0.041s | 0.116s | 0.022s | 0.1s |
+| `Chinook.bak` | 0.061s | 0.206s | 0.027s | 0.085s |
+| `ContosoRetailDW.bak` | 16.215s | 173.091s | 25.448s | 195.985s |
+| `CreditBackup100.bak` | 0.779s | 10.107s | 3.551s | 10.989s |
+| `data.gov.bak` | 0.08s | 0.545s | 0.257s | 1.223s |
+| `dba.stackexchange.com.bak` | 3.493s | 17.269s | 10.125s | 100.001s |
+| `EmployeeCaseStudySampleDB2012.bak` | 0.136s | 0.683s | 0.838s | 1.31s |
+| `GeneralHospital.bak` | 1.161s | 9.036s | 7.295s | 21.159s |
+| `IndexInternals2008.bak` | 0.072s | 0.302s | 0.517s | 0.65s |
+| `Northwinds.bak` | 0.047s | 0.135s | 0.045s | 0.113s |
+| `NYCTaxi_Sample.bak` | 1.006s | 22.31s | 7.127s | 29.986s |
+| `Pubs.bak` | 0.048s | 0.1s | 0.043s | 0.087s |
+| `SalesDB2014.bak` | 1.39s | 5.384s | 1.212s | 5.684s |
+| `SalesDBOriginal.bak` | 1.259s | 4.961s | 1.171s | 5.302s |
+| `StackOverflowMini.bak` | 5.886s | 36.52s | 13.749s | 132.82s |
+| `tpcxbb_1gb.bak` | 4.072s | 41.822s | 11.871s | 49.518s |
+| `TutorialDB.bak` | 0.005s | 0.014s | 0.019s | 0.011s |
+| `WideWorldImporters-Full.bak` | 1.833s | 18.277s | 4.998s | 19.093s |
+| `WideWorldImporters-Full_old.bak` | 1.548s | 16.942s | 5.233s | 18.358s |
+| `WideWorldImporters-Standard.bak` | 1.795s | 17.928s | 5.892s | 19.796s |
+| `WideWorldImporters-Standard_old.bak` | 1.648s | 17.474s | 6.022s | 19.087s |
+| `WideWorldImportersDW-Full.bak` | 0.425s | 4.187s | 1.21s | 5.309s |
+| `WideWorldImportersDW-Standard.bak` | 0.42s | 4.471s | 1.076s | 5.185s |
 
 _Write and read times are wall-clock estimates (coarse, not exact per-sink isolation)._
 
@@ -9467,55 +9032,55 @@ _Write and read times are wall-clock estimates (coarse, not exact per-sink isola
 
 | Backup | arrow verify | delta read | delta stats | delta verify | pg_dir read | pg_dir stats | pg_dir verify |
 |--------| -------: | -------: | -------: | -------: | -------: | -------: | -------:|
-| `AdventureWorks2008R2.bak` | 3.691s | 0.225s | 0.036s | 3.683s | 1.068s | 0.034s | 3.577s |
-| `AdventureWorks2012.bak` | 3.677s | 0.249s | 0.034s | 3.596s | 1.016s | 0.035s | 3.512s |
-| `AdventureWorks2014.bak` | 3.718s | 0.242s | 0.034s | 3.567s | 1.049s | 0.035s | 3.55s |
-| `AdventureWorks2016.bak` | 3.675s | 0.265s | 0.035s | 3.581s | 1.038s | 0.036s | 3.646s |
-| `AdventureWorks2016_EXT.bak` | 5.117s | 0.332s | 0.064s | 4.999s | 2.982s | 0.067s | 5.198s |
-| `AdventureWorks2017.bak` | 3.717s | 0.261s | 0.035s | 3.608s | 1.03s | 0.034s | 3.584s |
-| `AdventureWorks2019.bak` | 3.653s | 0.258s | 0.034s | 3.509s | 1.019s | 0.035s | 3.538s |
-| `AdventureWorks2022.bak` | 3.661s | 0.223s | 0.036s | 3.745s | 1.019s | 0.036s | 3.729s |
-| `AdventureWorks2025.bak` | 3.609s | 0.245s | 0.033s | 3.529s | 0.906s | 0.035s | 3.518s |
-| `AdventureWorksDW2008R2.bak` | 1.008s | 0.094s | 0.028s | 0.909s | 0.688s | 0.028s | 0.879s |
-| `AdventureWorksDW2012.bak` | 3.418s | 0.227s | 0.04s | 3.076s | 1.198s | 0.043s | 3.045s |
-| `AdventureWorksDW2014.bak` | 3.438s | 0.119s | 0.038s | 2.921s | 1.143s | 0.04s | 2.932s |
-| `AdventureWorksDW2016.bak` | 3.215s | 0.118s | 0.038s | 3.005s | 1.18s | 0.042s | 3.008s |
-| `AdventureWorksDW2016_EXT.bak` | 3.004s | 1.178s | 2.995s | 2.946s | 47.721s | 4.561s | 3.142s |
-| `AdventureWorksDW2017.bak` | 3.01s | 0.121s | 0.038s | 2.876s | 1.16s | 0.04s | 3.122s |
-| `AdventureWorksDW2019.bak` | 3.002s | 0.11s | 0.04s | 3.035s | 1.207s | 0.042s | 3.042s |
-| `AdventureWorksDW2022.bak` | 3.201s | 0.115s | 0.038s | 2.961s | 1.175s | 0.04s | 2.96s |
-| `AdventureWorksDW2025.bak` | 3.044s | 0.132s | 0.04s | 3.029s | 1.204s | 0.045s | 3.251s |
-| `AdventureWorksLT2012.bak` | 0.08s | 0.049s | 0.002s | 0.025s | 0.067s | 0.002s | 0.026s |
-| `AdventureWorksLT2014.bak` | 0.099s | 0.059s | 0.002s | 0.027s | 0.065s | 0.002s | 0.022s |
-| `AdventureWorksLT2016.bak` | 0.103s | 0.133s | 0.003s | 0.033s | 0.065s | 0.002s | 0.026s |
-| `AdventureWorksLT2017.bak` | 0.09s | 0.05s | 0.002s | 0.024s | 0.062s | 0.002s | 0.021s |
-| `AdventureWorksLT2019.bak` | 0.09s | 0.047s | 0.002s | 0.024s | 0.071s | 0.002s | 0.034s |
-| `AdventureWorksLT2022.bak` | 0.086s | 0.061s | 0.003s | 0.03s | 0.132s | 0.002s | 0.026s |
-| `AdventureWorksLT2025.bak` | 0.089s | 0.047s | 0.002s | 0.025s | 0.065s | 0.002s | 0.022s |
-| `BaseballData.bak` | 1.583s | 0.105s | 0.047s | 1.51s | 0.807s | 0.05s | 1.5s |
-| `Chinook-id-pk.bak` | 0.125s | 0.06s | 0.002s | 0.022s | 0.013s | 0.001s | 0.019s |
-| `Chinook.bak` | 0.112s | 0.054s | 0.002s | 0.025s | 0.016s | 0.002s | 0.024s |
-| `ContosoRetailDW.bak` | 169.485s | 0.885s | 1.821s | 168.61s | 24.442s | 2.537s | 170.65s |
-| `CreditBackup100.bak` | 10.406s | 0.103s | 0.07s | 10.831s | 1.065s | 0.066s | 11.02s |
-| `data.gov.bak` | 0.538s | 0.041s | 0.031s | 0.499s | 0.737s | 0.03s | 0.543s |
-| `dba.stackexchange.com.bak` | 16.761s | 0.344s | 0.151s | 16.35s | 84.417s | 0.178s | 15.596s |
-| `EmployeeCaseStudySampleDB2012.bak` | 0.784s | 0.047s | 0.025s | 0.604s | 0.735s | 0.068s | 0.733s |
-| `GeneralHospital.bak` | 8.523s | 0.112s | 0.546s | 8.44s | 12.092s | 0.571s | 8.436s |
-| `IndexInternals2008.bak` | 0.277s | 0.044s | 0.014s | 0.262s | 0.413s | 0.015s | 0.257s |
-| `Northwinds.bak` | 0.077s | 0.044s | 0.002s | 0.022s | 0.03s | 0.001s | 0.021s |
-| `NYCTaxi_Sample.bak` | 22.837s | 0.083s | 0.307s | 22.116s | 7.78s | 0.313s | 23.074s |
-| `Pubs.bak` | 0.129s | 0.105s | 0.004s | 0.021s | 0.014s | 0.001s | 0.01s |
-| `SalesDB2014.bak` | 5.561s | 0.118s | 0.013s | 5.524s | 0.572s | 0.019s | 5.466s |
-| `SalesDBOriginal.bak` | 5.014s | 0.086s | 0.012s | 4.981s | 0.541s | 0.012s | 4.865s |
-| `StackOverflowMini.bak` | 38.243s | 0.457s | 0.191s | 35.331s | 101.81s | 0.29s | 39.59s |
-| `tpcxbb_1gb.bak` | 43.385s | 0.332s | 0.478s | 40.338s | 7.711s | 0.541s | 39.747s |
-| `TutorialDB.bak` | 0.042s | 0.004s | 0.0s | 0.005s | 0.002s | 0.0s | 0.005s |
-| `WideWorldImporters-Full.bak` | 17.783s | 0.235s | 0.102s | 17.717s | 1.741s | 0.12s | 17.675s |
-| `WideWorldImporters-Full_old.bak` | 17.34s | 0.262s | 0.106s | 18.37s | 1.66s | 0.114s | 17.705s |
-| `WideWorldImporters-Standard.bak` | 17.968s | 0.237s | 0.102s | 17.458s | 2.276s | 0.119s | 17.254s |
-| `WideWorldImporters-Standard_old.bak` | 18.492s | 0.258s | 0.108s | 17.6s | 1.771s | 0.119s | 17.418s |
-| `WideWorldImportersDW-Full.bak` | 3.914s | 0.099s | 0.058s | 3.855s | 1.062s | 0.062s | 3.942s |
-| `WideWorldImportersDW-Standard.bak` | 4.064s | 0.104s | 0.061s | 3.978s | 1.058s | 0.063s | 4.043s |
+| `AdventureWorks2008R2.bak` | 3.644s | 0.282s | 0.037s | 3.621s | 1.027s | 0.036s | 3.479s |
+| `AdventureWorks2012.bak` | 3.638s | 0.234s | 0.034s | 3.593s | 1.086s | 0.035s | 3.51s |
+| `AdventureWorks2014.bak` | 3.581s | 0.261s | 0.033s | 3.446s | 1.024s | 0.035s | 3.413s |
+| `AdventureWorks2016.bak` | 3.692s | 0.268s | 0.035s | 3.545s | 1.029s | 0.036s | 3.575s |
+| `AdventureWorks2016_EXT.bak` | 5.609s | 0.376s | 0.067s | 5.294s | 2.861s | 0.067s | 4.871s |
+| `AdventureWorks2017.bak` | 3.587s | 0.299s | 0.038s | 3.547s | 1.015s | 0.037s | 3.464s |
+| `AdventureWorks2019.bak` | 3.632s | 0.251s | 0.035s | 3.593s | 1.012s | 0.035s | 3.439s |
+| `AdventureWorks2022.bak` | 3.61s | 0.233s | 0.035s | 3.531s | 1.005s | 0.034s | 3.468s |
+| `AdventureWorks2025.bak` | 3.73s | 0.256s | 0.034s | 3.552s | 0.936s | 0.036s | 3.466s |
+| `AdventureWorksDW2008R2.bak` | 1.038s | 0.097s | 0.029s | 0.938s | 0.705s | 0.029s | 0.915s |
+| `AdventureWorksDW2012.bak` | 3.03s | 0.129s | 0.04s | 3.049s | 1.196s | 0.041s | 2.914s |
+| `AdventureWorksDW2014.bak` | 3.196s | 0.215s | 0.039s | 2.906s | 1.132s | 0.039s | 2.847s |
+| `AdventureWorksDW2016.bak` | 3.196s | 0.127s | 0.038s | 3.003s | 1.156s | 0.041s | 2.897s |
+| `AdventureWorksDW2016_EXT.bak` | 2.925s | 0.733s | 2.755s | 2.885s | 48.6s | 4.133s | 2.807s |
+| `AdventureWorksDW2017.bak` | 3.154s | 0.122s | 0.04s | 2.954s | 1.179s | 0.04s | 2.849s |
+| `AdventureWorksDW2019.bak` | 3.068s | 0.141s | 0.042s | 3.077s | 1.35s | 0.041s | 2.856s |
+| `AdventureWorksDW2022.bak` | 3.069s | 0.131s | 0.042s | 3.021s | 1.211s | 0.045s | 3.028s |
+| `AdventureWorksDW2025.bak` | 3.036s | 0.129s | 0.041s | 2.952s | 1.226s | 0.042s | 3.166s |
+| `AdventureWorksLT2012.bak` | 0.084s | 0.049s | 0.002s | 0.025s | 0.062s | 0.002s | 0.024s |
+| `AdventureWorksLT2014.bak` | 0.08s | 0.053s | 0.002s | 0.025s | 0.063s | 0.002s | 0.023s |
+| `AdventureWorksLT2016.bak` | 0.091s | 0.049s | 0.002s | 0.027s | 0.066s | 0.002s | 0.025s |
+| `AdventureWorksLT2017.bak` | 0.142s | 0.056s | 0.002s | 0.025s | 0.064s | 0.002s | 0.024s |
+| `AdventureWorksLT2019.bak` | 0.105s | 0.056s | 0.002s | 0.024s | 0.063s | 0.002s | 0.022s |
+| `AdventureWorksLT2022.bak` | 0.082s | 0.049s | 0.002s | 0.025s | 0.062s | 0.002s | 0.022s |
+| `AdventureWorksLT2025.bak` | 0.093s | 0.058s | 0.003s | 0.024s | 0.064s | 0.002s | 0.022s |
+| `BaseballData.bak` | 1.587s | 0.12s | 0.05s | 1.523s | 0.813s | 0.049s | 1.494s |
+| `Chinook-id-pk.bak` | 0.077s | 0.043s | 0.001s | 0.017s | 0.014s | 0.001s | 0.019s |
+| `Chinook.bak` | 0.092s | 0.072s | 0.002s | 0.022s | 0.015s | 0.001s | 0.017s |
+| `ContosoRetailDW.bak` | 172.176s | 1.083s | 1.734s | 169.553s | 22.117s | 2.612s | 170.757s |
+| `CreditBackup100.bak` | 9.93s | 0.087s | 0.062s | 9.886s | 1.024s | 0.064s | 9.831s |
+| `data.gov.bak` | 0.472s | 0.041s | 0.034s | 0.459s | 0.742s | 0.031s | 0.441s |
+| `dba.stackexchange.com.bak` | 16.278s | 0.401s | 0.146s | 16.546s | 82.113s | 0.166s | 17.502s |
+| `EmployeeCaseStudySampleDB2012.bak` | 0.656s | 0.047s | 0.024s | 0.594s | 0.691s | 0.024s | 0.573s |
+| `GeneralHospital.bak` | 8.35s | 0.124s | 0.543s | 8.26s | 12.228s | 0.571s | 8.238s |
+| `IndexInternals2008.bak` | 0.269s | 0.038s | 0.014s | 0.234s | 0.382s | 0.014s | 0.239s |
+| `Northwinds.bak` | 0.092s | 0.049s | 0.002s | 0.023s | 0.031s | 0.002s | 0.022s |
+| `NYCTaxi_Sample.bak` | 21.946s | 0.082s | 0.271s | 21.929s | 7.435s | 0.312s | 22.205s |
+| `Pubs.bak` | 0.083s | 0.028s | 0.002s | 0.011s | 0.015s | 0.001s | 0.01s |
+| `SalesDB2014.bak` | 5.498s | 0.097s | 0.013s | 5.235s | 0.474s | 0.012s | 5.162s |
+| `SalesDBOriginal.bak` | 5.116s | 0.077s | 0.008s | 4.843s | 0.459s | 0.011s | 4.795s |
+| `StackOverflowMini.bak` | 39.519s | 0.563s | 0.265s | 35.446s | 96.496s | 0.285s | 35.789s |
+| `tpcxbb_1gb.bak` | 43.291s | 0.388s | 0.463s | 40.626s | 8.117s | 0.562s | 40.493s |
+| `TutorialDB.bak` | 0.037s | 0.003s | 0.0s | 0.005s | 0.002s | 0.0s | 0.004s |
+| `WideWorldImporters-Full.bak` | 17.407s | 0.271s | 0.102s | 17.502s | 1.604s | 0.106s | 17.028s |
+| `WideWorldImporters-Full_old.bak` | 16.897s | 0.209s | 0.098s | 16.32s | 1.536s | 0.101s | 16.405s |
+| `WideWorldImporters-Standard.bak` | 18.25s | 0.24s | 0.104s | 17.246s | 2.013s | 0.122s | 17.208s |
+| `WideWorldImporters-Standard_old.bak` | 16.99s | 0.239s | 0.106s | 16.837s | 1.574s | 0.113s | 17.054s |
+| `WideWorldImportersDW-Full.bak` | 4.019s | 0.102s | 0.062s | 3.915s | 1.096s | 0.067s | 4.02s |
+| `WideWorldImportersDW-Standard.bak` | 4.398s | 0.119s | 0.069s | 4.163s | 1.087s | 0.066s | 3.909s |
 
 _arrow verify = cell verification folded into extract_s. Sink read = pure I/O + decode. Stats = min/max/null compute. Sink verify = cell verification on the round-tripped data. Remainder of readback_s is GC / other._
 

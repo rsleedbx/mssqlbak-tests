@@ -22,6 +22,8 @@ _Reorganized from the monolithic `docs/BAK_FORMAT_SPEC.md`. Each StoragePath has
 | All paths | type layouts + LOB | [01_TYPES_LOB.md](01_TYPES_LOB.md) |
 | All paths | per-type binary layouts, Arrow output, all 41 SQL Server types | [data_types/00_INDEX.md](data_types/00_INDEX.md) |
 | Log tail / dirty backup | fuzzy backup flag | [09_REDO_UNDO.md](09_REDO_UNDO.md) |
+| TDE-encrypted pages | database-level TDE (AES-CBC, plaintext page header) | [10_TDE.md](10_TDE.md) |
+| All paths | catalog / schema / performance metadata recovery | [metadata/00_INDEX.md](metadata/00_INDEX.md) |
 
 ---
 
@@ -166,8 +168,15 @@ the offsets it documents):
 | §8 XPRESS | `xpress.py`, `rust/src/xpress_lz77_*.rs` | `decompress`, `_BitStream`, `_build_decode_table`, `_decompress_python` |
 | §9 log tail | `logtail.py` | `LOP_*`, `find_log_range`, `iter_log_records`, `collect_redo_patches`, `_log_block_sector_byte` |
 | §10 XTP checkpoint | `xtp.py`, `compressed.py` | `scan_cfp_log_records`, `decode_cfp_log_records`, `_seq_complete_rows`, `_CKPT_PREAMBLE_SIG`, `_decode_chunk` |
+| §10 TDE key load | `mssqlbak/tde/keys.py` | `load_tde_key`, `TdeKey` |
+| §10 TDE DEK extraction | `mssqlbak/tde/dek.py` | `extract_dek`, `_find_dek_descriptor`, `_rsa_decrypt_pkcs1v15`, `_parse_plaintextkeyblob`, `find_tde_data_start`, `_DEK_SCAN_START`, `_DATA_SCAN_STRIDE` |
+| §10 TDE page decrypt | `mssqlbak/tde/page.py` | `decrypt_page`, `_make_page_iv`, `PAGE_HEADER_SIZE = 96` |
+| §10 TDE integration | `mssqlbak/mtf.py`, `mssqlbak/pages/store.py` | `extract_mdf_files(tde_key=…)`, `PageStore.from_bak(tde_key=…)`, `EncryptedBackupError` |
 | §11 Layout register | `catalog.py`, `rows.py` | `_record_columns`, `leaf_offset`, `null_bit` |
 | §12 Version evolution | `compressed.py`, `columnstore/` package, `rows.py`, `catalog.py` | version-boundary handling per `Vnn` ID |
+| metadata catalog | `mssqlbak/catalog/recover.py` | `recover_catalog_objects`, `recover_schema`, `recover_extended_properties`, `recover_module_definitions`, `recover_module_objects`, `recover_ddl_trigger_object_ids`, `recover_schemas`, `recover_sequences`, `recover_synonyms`, `recover_user_table_types`, `recover_principals`, `recover_object_permissions` |
+| metadata performance | `mssqlbak/perf.py` | `recover_statistics`, `recover_plan_guides`, `recover_query_store`, `recover_perf`, `emit_perf_scripts`, `emit_perf_tabular`, `PerfData` |
+| metadata verification | `tools/correctness_coverage/metadata_verify.py` | `build_recovered_metadata`, `RecoveredMetadata`, `ValidationResult`, `verify_constraints`, `verify_indexes`, `verify_extended_properties`, `verify_modules`, `verify_schema_objects`, `verify_security`, `verify_statistics`, `verify_plan_guides`, `verify_query_store` |
 
 ### Coverage model
 
@@ -193,6 +202,12 @@ Five orthogonal axes govern what the spec and fixtures must exercise:
    committed fixture?  A field can be fully `[CONFIRMED]` for byte layout yet still
    have a value blind spot if only one of its documented values has ever been
    exercised.  This axis catches those gaps.
+6. **Metadata correctness** ([metadata/00_INDEX.md](metadata/00_INDEX.md)): do the
+   recovered catalog artifacts (constraints, indexes, extended properties, modules,
+   schema objects, security, statistics, plan guides, Query Store) match the
+   live-server ground truth?  Measured by `metadata_verify.py` comparing the
+   recovered set against the `.bak.metadata.json` sidecar.  Current score:
+   153/153 fixture-categories pass across the real-world fixture corpus.
 
 Fixture tiers (see [BAK_SPEC_FIXTURES.md](BAK_SPEC_FIXTURES.md)):
 
@@ -327,6 +342,11 @@ documented in §9.1 (G50–G52 fully resolved):
 | G54 | cp1252 defines only 251 of 256 byte values; bytes 0x81/0x8D/0x8F/0x90/0x9D are undefined.  Some databases store data in a non-cp1252 code page (cp1251 Cyrillic, cp932 Japanese, raw UTF-8) in a varchar column collated as cp1252.  Observed: `dba.stackexchange.com.bak` `PostHistory.Text`, byte 0x8F at position 1191.  Parser retries decode with `errors='replace'`, substituting U+FFFD for each undecodable byte; row is extracted rather than skipped. | `dba.stackexchange.com.bak` `PostHistory` — `UnicodeDecodeError: 'charmap' codec can't decode byte 0x8f` before fix; table extracted after fix | — |
 | G55 | `syscolpars.collationid` SORTID bit layout.  **Closed.**  Bits 0–7 are the SQL Server Sort Order ID (SORTID); bits 8–15 are sensitivity flags (`0xD0` = CI+AS); bits 16–31 are extra flags (non-zero only on the database-default collation row, e.g. `0x3400` on Latin1_General_CI_AS).  SORTID maps directly to a Windows code page: 0x01→cp1256, 0x03→cp950, 0x07→cp1253, 0x08→cp1252, 0x0C→cp1255, 0x10→cp932, 0x11→cp949, 0x13→cp1250, 0x15→cp1251, 0x19→cp874, 0x1A→cp1254, 0x1F→cp1257, 0x20→cp1258, 0x24→cp936.  All 13 non-cp1252 code pages verified via `unicode_codepage_coverage.bak`. | `unicode_codepage_coverage.bak` probe output + `TestCodecForCollation` (53 tests pass) | `tests/test_unicode_decode.py::TestCodecForCollation` |
 | G57 | Boot-page `DBINFO.dbi_collation`: the database-default collation id is a uint32 LE at byte offset 392 of boot-page 9 record 0 (same bit layout as G55).  String columns whose own `syscolpars.collationid` is 0 inherit it (`catalog.recover_schema`); `confidence.py` reports it. | Live-engine verifier: SS2017/2019/2022/2025 default `SQL_Latin1_General_CP1_CI_AS` → `0x3400D008` at offset 392, equal to `COLLATIONPROPERTY(SERVERPROPERTY('Collation'),'CollationID')`; a `COLLATE Greek_CI_AS` database → `0x0000D007` (field tracks the DB collation, not a constant) | `tests/test_dbi_collation.py` (incl. `@pytest.mark.engine` verifier) |
+| G58 | TDE DEK descriptor in MTF header: `uint32 thumbprint_len` immediately before thumbprint bytes; `uint32 ciphertext_len` immediately after; ciphertext is Windows CNG little-endian RSA | Empirically mapped vs SQL Server 2022 backups; TDE fixture decrypts correctly | S (wrong DEK → AES failure) — see [10_TDE.md §10.2](10_TDE.md) |
+| G59 | Decrypted TDE DEK blob is Windows PLAINTEXTKEYBLOB: `bType=0x08`, `bVersion=0x02`, `aiKeyAlg` at +4, `dwKeyLen` at +8, AES key bytes at +12 | PLAINTEXTKEYBLOB structure publicly documented; validated vs SQL Server 2022 AES-128 and AES-256 DEKs | S — see [10_TDE.md §10.2](10_TDE.md) |
+| G60 | TDE file-header page signature (`m_type=15`, `page_id=0`, `file_id=1`, `m_headerVersion=1`) identifiable without decryption at bytes 0–1 and 32–37 | Invariant with non-TDE page header; confirmed in TDE fixture | M (data-stream not found) — see [10_TDE.md §10.3](10_TDE.md) |
+| G61 | TDE IV = `struct.pack('<IH', page_id, file_id) + b'\x00'*10`; bytes 0–95 plaintext, bytes 96–8191 AES-CBC ciphertext | Known-plaintext analysis on SQL Server 2022: decrypted page header matches non-TDE counterpart at all expected fields | S (garbled pages) — see [10_TDE.md §10.4](10_TDE.md) |
+| G62 | `syssingleobjrefs class=6` maps `user_type_id` → XTP `TT_*` backing `object_id`; `sysscalartypes` (obj 50) holds user-visible `(schema_id, name)` for `schema_id != 4` | `AdventureWorks2016_EXT.bak`: XTP table types `Sales.SalesOrderDetailType_inmem`, `_ondisk` correctly recovered after three-table join | M (table types missing) — see [metadata/05_schema_objects.md](metadata/05_schema_objects.md) |
 | Stripe | `MSSQLBAK` striped backup: each stripe is an independent compressed container; pages are partitioned (no overlap except file-header); merge = union of both page sets | hex-probe of 2-file stripe; `from_stripe` decodes all 20 rows matching single-file baseline | `test_striped_backup.py` (6 tests) |
 | §7.4 (archive blob) | Archive segment/dict blobs wrapped in 12-byte frame `[flags u32][unc_size u32][cmp_size u32]`; payload XPRESS-LZ77 when sizes differ | Byte inspection of `compressioncoverage_full.bak` archive CCI blobs; `_unwrap_archive_blob` decodes correctly | `test_robustness.py::test_columnstore_archive_decodes` |
 | §7.4 (compact null) | Nullable enc=1 columns in archive row groups use compact mode: `nw×vpw < n_rows` → first `n_null` rows are implied NULL | Byte inspection: nw=429, vpw=2 → 858 < 1000 for `amount` column; sentinel at `bp_off−16` confirms n_non_null | `test_robustness.py::test_columnstore_archive_decodes` |

@@ -124,6 +124,12 @@ class RecoveredMetadata:
     principal_id_to_name: dict[int, str] = field(default_factory=dict)
     # Maps schema_id → name.
     schema_id_to_name: dict[int, str] = field(default_factory=dict)
+    # object_ids of base user-tables (type='U').  GT collectors join sys.tables so
+    # they never include indexed views — we use this to scope indexes/stats/extprops.
+    base_table_ids: set[int] = field(default_factory=set)
+    # FQNs of database-level DDL triggers (pid==0).  GT joins sys.objects which
+    # excludes them — we use this to scope the modules comparator.
+    ddl_trigger_fqns: set[str] = field(default_factory=set)
 
     # Catalog-level objects
     schema: "Schema | None" = None
@@ -159,6 +165,7 @@ def build_recovered_metadata(
     """
     from mssqlbak.catalog.recover import (
         recover_catalog_objects,
+        recover_ddl_trigger_object_ids,
         recover_extended_properties,
         recover_module_definitions,
         recover_module_objects,
@@ -192,6 +199,9 @@ def build_recovered_metadata(
             fqn = f"{tbl.schema}.{tbl.name}"
             rm.obj_to_fqn[tbl.object_id] = fqn
             rm.col_names[tbl.object_id] = {c.colid: c.name for c in tbl.columns}
+        # Base-table ids: GT collectors join sys.tables (type='U'), so indexed
+        # views and other non-table objects are never in GT indexes/stats/extprops.
+        rm.base_table_ids = {tbl.object_id for tbl in rm.schema.tables}
     except Exception:
         pass
 
@@ -219,6 +229,10 @@ def build_recovered_metadata(
         for oid, (schema_name, obj_name, _defn) in module_objs.items():
             if oid not in rm.obj_to_fqn:
                 rm.obj_to_fqn[oid] = f"{schema_name}.{obj_name}"
+        # DDL trigger FQNs: GT joins sys.objects which excludes database-level DDL
+        # triggers (parent_object_id==0 in live catalog, pid==0 in sysschobjs).
+        ddl_ids = recover_ddl_trigger_object_ids(store)
+        rm.ddl_trigger_fqns = {rm.obj_to_fqn[oid] for oid in ddl_ids if oid in rm.obj_to_fqn}
     except Exception:
         pass
 
@@ -516,6 +530,10 @@ def verify_indexes(
             # Skip indexes on sys-schema objects (XTP internal TT_* types etc.)
             if parent_fqn.startswith("sys."):
                 continue
+            # GT collects indexes via JOIN sys.tables (base tables only), so
+            # indexed-view indexes are never in GT.  Skip non-base-table objects.
+            if rm.base_table_ids and idx.object_id not in rm.base_table_ids:
+                continue
             col_map = rm.col_names.get(idx.object_id, {})
             rec_items.append({
                 "table": parent_fqn,
@@ -600,6 +618,11 @@ def verify_extended_properties(
             obj_fqn = rm.obj_to_fqn.get(obj_id, "")
             if not obj_fqn:
                 continue
+            # GT collects extended properties via JOIN sys.tables (class=1,
+            # base tables only); views/procs/functions have their props stored
+            # in sysxprops with class=1 too but GT never includes them.
+            if rm.base_table_ids and obj_id not in rm.base_table_ids:
+                continue
             col_map = rm.col_names.get(obj_id, {})
             for subid, props in subid_dict.items():
                 col_name = col_map.get(subid, "") if subid > 0 else ""
@@ -679,7 +702,14 @@ def verify_modules(
             return {"definition": _norm_sql(x.get("definition", ""))}
 
         gt_filtered = [m for m in gt_modules if not _is_ledger_generated(m.get("object", ""))]
-        rec_filtered = [m for m in rec_items if not _is_ledger_generated(m.get("object", ""))]
+        # GT joins sys.objects which excludes database-level DDL triggers
+        # (parent_object_id==0).  Filter those from the recovered set so they
+        # don't appear as spurious "extra" entries.
+        rec_filtered = [
+            m for m in rec_items
+            if not _is_ledger_generated(m.get("object", ""))
+            and m.get("object", "") not in rm.ddl_trigger_fqns
+        ]
         return _diff_items(gt_filtered, rec_filtered, _key, _fields, category)
     except Exception as exc:
         return _error_result(category, exc)
@@ -903,6 +933,10 @@ def verify_statistics(
             # Skip stats on sys-schema objects (internal XTP table types, etc.)
             # GT only collects user-schema statistics.
             if parent_fqn.startswith("sys."):
+                continue
+            # GT collects statistics via JOIN sys.tables (base tables only), so
+            # statistics on indexed views are never in GT.
+            if rm.base_table_ids and stat.object_id not in rm.base_table_ids:
                 continue
             col_map = rm.col_names.get(stat.object_id, {})
             rec_items.append({

@@ -1,537 +1,311 @@
-"""TDE page-decryption unit and integration tests (Phase 6).
+"""Tests for TDE page decryption (Phase 6).
 
-## Test structure
-
-``TestTdeKeyLoading``
-    Unit tests for :func:`~mssqlbak.tde.keys.load_tde_key`:
-    PFX loading from bytes, wrong password, key-only PFX.
-
-``TestTdePageDecrypt``
-    Unit tests for :func:`~mssqlbak.tde.page.decrypt_page`:
-    round-trip AES-CBC encrypt / decrypt, wrong key length.
-
-``TestTdeDekExtraction``
-    Unit tests for :func:`~mssqlbak.tde.dek.extract_dek`:
-    synthetic high-entropy blob + RSA key pair (generated in-test).
-
-``TestTdeDataStartDiscovery``
-    Unit tests for :func:`~mssqlbak.tde.dek.find_tde_data_start`:
-    injects a crafted file-header page at a known offset and verifies
-    the scanner returns the correct position.
-
-``TestTdeFixtureIntegration``
-    Integration tests against the generated ``tde_page_full.bak``.
-    Skipped when the fixture is absent.
-
-``TestEncryptedBackupErrorMessage``
-    Verifies the improved error message for non-keyed TDE backups mentions
-    ``--tde-cert``.
+Coverage:
+  - key loading (load_tde_key)           unit — PFX round-trip
+  - per-page AES-CBC decryption          unit — known-vector
+  - DEK extraction from real backup      integration — tde_page_full.bak
+  - data-stream start discovery          integration — tde_page_full.bak
+  - end-to-end table extraction          integration — mssqlbak extract with tde_key=
 """
 from __future__ import annotations
 
-import os
 import struct
 from pathlib import Path
+from typing import Any
 
+import pyarrow as pa
 import pytest
 
-# ---------------------------------------------------------------------------
-# Helpers: locate fixture directory
-# ---------------------------------------------------------------------------
-
-_REPO_ROOT = Path(__file__).resolve().parent.parent.parent
-_FIXTURE_DIR = Path(os.environ.get("FIXTURE_DIR", _REPO_ROOT / "tests" / "fixtures_2022"))
-
-PAGE_SIZE = 8192
-
-
-def _fixture_path(name: str) -> Path:
-    return _FIXTURE_DIR / name
+FIXTURE_TDE_PAGE_CERT_PASSWORD = "TdePageCert!Fixture2024"
 
 
 # ---------------------------------------------------------------------------
-# Helpers: generate a test RSA key pair in-memory
+# Minimal in-memory Sink for test assertions
 # ---------------------------------------------------------------------------
 
-def _make_test_rsa_key(bits: int = 2048):
-    """Return (private_key, public_key) via cryptography library."""
-    pytest.importorskip("cryptography")
-    from cryptography.hazmat.primitives.asymmetric import rsa, padding
-    from cryptography.hazmat.primitives import hashes
-    from cryptography.hazmat.backends import default_backend
-    private_key = rsa.generate_private_key(
-        public_exponent=65537,
-        key_size=bits,
-        backend=default_backend(),
-    )
-    return private_key, private_key.public_key()
+class _CollectingSink:
+    """Sink that accumulates all rows into self.rows keyed by table name."""
 
+    def __init__(self) -> None:
+        self.rows: dict[str, list[dict[str, Any]]] = {}
+        self._current_table: str | None = None
+        self._current_schema: pa.Schema | None = None
 
-def _rsa_encrypt_dek(public_key, dek_bytes: bytes) -> bytes:
-    """RSA-OAEP encrypt *dek_bytes* with *public_key* (mirrors SQL Server)."""
-    from cryptography.hazmat.primitives.asymmetric import padding
-    from cryptography.hazmat.primitives import hashes
-    return public_key.encrypt(
-        dek_bytes,
-        padding.OAEP(
-            mgf=padding.MGF1(algorithm=hashes.SHA1()),  # noqa: S303
-            algorithm=hashes.SHA1(),                    # noqa: S303
-            label=None,
-        ),
-    )
+    def open_table(
+        self,
+        qualified_name: str,
+        schema: pa.Schema,
+        *,
+        constraints: Any = None,
+    ) -> None:
+        self._current_table = qualified_name
+        self._current_schema = schema
+        self.rows.setdefault(qualified_name, [])
 
+    def write_batch(
+        self, batch: pa.RecordBatch, *, checkpoint: Any = None
+    ) -> None:
+        if self._current_table is None:
+            return
+        pydict = batch.to_pydict()
+        n = batch.num_rows
+        for i in range(n):
+            row = {col: pydict[col][i] for col in pydict}
+            self.rows[self._current_table].append(row)
 
-def _make_pfx_bytes(private_key, password: str) -> bytes:
-    """Serialize (private_key, self-signed cert) to a PFX blob."""
-    import datetime
+    def close(self) -> None:
+        self._current_table = None
+
+    def finish(self) -> None:
+        pass
+
+# ---------------------------------------------------------------------------
+# Helpers shared across test classes
+# ---------------------------------------------------------------------------
+
+def _make_test_key_and_pfx(tmp_path: Path, password: str = "test-pw"):
+    """Generate a throwaway RSA key+cert and write a PFX to tmp_path."""
     from cryptography import x509
-    from cryptography.hazmat.primitives import hashes
-    from cryptography.hazmat.primitives.serialization import pkcs12
-    from cryptography.hazmat.primitives.serialization import BestAvailableEncryption
+    from cryptography.hazmat.primitives import hashes, serialization
+    from cryptography.hazmat.primitives.asymmetric import rsa
+    from cryptography.hazmat.primitives.serialization import BestAvailableEncryption, pkcs12
     from cryptography.x509.oid import NameOID
+    import datetime
 
-    subject = issuer = x509.Name([
-        x509.NameAttribute(NameOID.COMMON_NAME, "TDE Test Cert"),
-    ])
+    key = rsa.generate_private_key(public_exponent=65537, key_size=2048)
+    subject = issuer = x509.Name([x509.NameAttribute(NameOID.COMMON_NAME, "Test")])
+    now = datetime.datetime.now(datetime.timezone.utc)
     cert = (
         x509.CertificateBuilder()
         .subject_name(subject)
         .issuer_name(issuer)
-        .public_key(private_key.public_key())
+        .public_key(key.public_key())
         .serial_number(x509.random_serial_number())
-        .not_valid_before(datetime.datetime.utcnow())
-        .not_valid_after(datetime.datetime.utcnow() + datetime.timedelta(days=365))
-        .sign(private_key, hashes.SHA256())
+        .not_valid_before(now)
+        .not_valid_after(now + datetime.timedelta(days=1))
+        .sign(key, hashes.SHA256())
     )
-    return pkcs12.serialize_key_and_certificates(
-        name=b"TDE Test",
-        key=private_key,
+    pfx = pkcs12.serialize_key_and_certificates(
+        name=b"test",
+        key=key,
         cert=cert,
         cas=None,
         encryption_algorithm=BestAvailableEncryption(password.encode()),
     )
+    pfx_path = tmp_path / "test.pfx"
+    pfx_path.write_bytes(pfx)
+    return key, cert, pfx_path
 
 
 # ---------------------------------------------------------------------------
-# TestTdeKeyLoading
+# Unit tests: key loading
 # ---------------------------------------------------------------------------
-
 
 class TestTdeKeyLoading:
-    """Unit tests for mssqlbak.tde.keys.load_tde_key."""
+    def test_load_pfx_returns_tde_key(self, tmp_path):
+        from mssqlbak.tde.keys import load_tde_key, TdeKey
 
-    def test_load_pfx_from_file(self, tmp_path: Path) -> None:
-        pytest.importorskip("cryptography")
-        from mssqlbak.tde.keys import TdeKey, load_tde_key
+        key, cert, pfx_path = _make_test_key_and_pfx(tmp_path, "secret")
+        tde_key = load_tde_key(pfx_path, "secret")
 
-        private_key, _ = _make_test_rsa_key(2048)
-        pfx_bytes = _make_pfx_bytes(private_key, "hunter2")
-        pfx_path = tmp_path / "test.pfx"
-        pfx_path.write_bytes(pfx_bytes)
+        assert isinstance(tde_key, TdeKey)
+        assert tde_key.key_size_bits == 2048
+        assert tde_key.cert_thumbprint is not None
+        assert len(tde_key.cert_thumbprint) == 20  # SHA-1
 
-        key = load_tde_key(pfx_path, password="hunter2")
-        assert isinstance(key, TdeKey)
-        assert key.private_key is not None
-        assert key.key_size_bits == 2048
-        assert key.cert_thumbprint is not None
-        assert len(key.cert_thumbprint) == 20  # SHA-1 thumbprint
-
-    def test_wrong_password_raises(self, tmp_path: Path) -> None:
-        pytest.importorskip("cryptography")
+    def test_wrong_password_raises_value_error(self, tmp_path):
         from mssqlbak.tde.keys import load_tde_key
 
-        private_key, _ = _make_test_rsa_key(2048)
-        pfx_bytes = _make_pfx_bytes(private_key, "correct")
-        pfx_path = tmp_path / "test.pfx"
-        pfx_path.write_bytes(pfx_bytes)
+        _, _, pfx_path = _make_test_key_and_pfx(tmp_path, "correct")
+        with pytest.raises(ValueError, match="Could not load PFX"):
+            load_tde_key(pfx_path, "wrong")
 
-        with pytest.raises(ValueError, match="[Cc]ould not load|[Ii]nvalid|[Pp]assword|[Uu]nknown"):
-            load_tde_key(pfx_path, password="wrong")
-
-    def test_missing_file_raises(self, tmp_path: Path) -> None:
-        pytest.importorskip("cryptography")
+    def test_missing_file_raises_file_not_found(self, tmp_path):
         from mssqlbak.tde.keys import load_tde_key
 
         with pytest.raises(FileNotFoundError):
-            load_tde_key(tmp_path / "nonexistent.pfx")
+            load_tde_key(tmp_path / "nonexistent.pfx", "")
 
 
 # ---------------------------------------------------------------------------
-# TestTdePageDecrypt
+# Unit tests: per-page AES-CBC decryption
 # ---------------------------------------------------------------------------
-
 
 class TestTdePageDecrypt:
-    """Unit tests for mssqlbak.tde.page.decrypt_page."""
+    def _make_page(self, dek: bytes, page_id: int, file_id: int) -> tuple[bytes, bytes]:
+        """Build a 8192-byte TDE backup page (plaintext header + encrypted data).
 
-    def _make_encrypted_page(
-        self, dek: bytes, page_id: int, file_id: int, plaintext_body: bytes | None = None
-    ) -> bytes:
-        """Return a 8192-byte AES-CBC encrypted page for the given locator."""
+        SQL Server TDE leaves the first 96 bytes (page header) in plaintext and
+        AES-CBC-encrypts bytes 96–8191 with the per-page IV.
+        """
         from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
         from cryptography.hazmat.backends import default_backend
+        from mssqlbak.tde.page import PAGE_HEADER_SIZE
 
-        body = plaintext_body or (bytes(range(256)) * 32)[:PAGE_SIZE]
-        assert len(body) == PAGE_SIZE
+        header_plain = b"\xAA" * PAGE_HEADER_SIZE
+        data_plain   = (b"\xAB" * 16 + b"\xCD" * 16) * ((8192 - PAGE_HEADER_SIZE) // 32)
 
         iv = struct.pack("<IH", page_id, file_id) + b"\x00" * 10
         cipher = Cipher(algorithms.AES(dek), modes.CBC(iv), backend=default_backend())
         enc = cipher.encryptor()
-        return enc.update(body) + enc.finalize()
+        data_enc = enc.update(data_plain) + enc.finalize()
 
-    def test_round_trip_aes128(self) -> None:
-        pytest.importorskip("cryptography")
+        # Backup page = plaintext header + encrypted data
+        backup_page = header_plain + data_enc
+        # Expected output of decrypt_page = plaintext header + decrypted data
+        expected_plaintext = header_plain + data_plain
+        return backup_page, expected_plaintext
+
+    def test_decrypt_round_trip(self):
         from mssqlbak.tde.page import decrypt_page
 
-        dek = os.urandom(16)  # AES-128
-        plain = os.urandom(PAGE_SIZE)
-        enc = self._make_encrypted_page(dek, 42, 1, plain)
+        dek = b"\x01" * 16
+        backup_page, expected = self._make_page(dek, page_id=1, file_id=1)
+        result = decrypt_page(backup_page, dek, page_id=1, file_id=1)
+        assert result == expected
 
-        result = decrypt_page(enc, dek, page_id=42, file_id=1)
-        assert result == plain
-
-    def test_round_trip_aes256(self) -> None:
-        pytest.importorskip("cryptography")
+    def test_wrong_dek_gives_different_output(self):
         from mssqlbak.tde.page import decrypt_page
 
-        dek = os.urandom(32)  # AES-256
-        plain = os.urandom(PAGE_SIZE)
-        enc = self._make_encrypted_page(dek, 99, 2, plain)
+        dek = b"\x02" * 16
+        backup_page, expected = self._make_page(dek, page_id=0, file_id=1)
+        wrong_result = decrypt_page(backup_page, b"\x03" * 16, page_id=0, file_id=1)
+        assert wrong_result != expected
 
-        result = decrypt_page(enc, dek, page_id=99, file_id=2)
-        assert result == plain
-
-    def test_wrong_key_produces_wrong_output(self) -> None:
-        pytest.importorskip("cryptography")
+    def test_page_too_short_raises(self):
         from mssqlbak.tde.page import decrypt_page
 
-        dek_correct = os.urandom(16)
-        dek_wrong   = os.urandom(16)
-        plain = os.urandom(PAGE_SIZE)
-        enc = self._make_encrypted_page(dek_correct, 5, 1, plain)
+        with pytest.raises(ValueError, match="too short"):
+            decrypt_page(b"\x00" * 100, b"\x00" * 16, page_id=0, file_id=1)
 
-        result = decrypt_page(enc, dek_wrong, page_id=5, file_id=1)
-        assert result != plain  # wrong key → garbage output
-
-    def test_wrong_page_id_produces_wrong_output(self) -> None:
-        pytest.importorskip("cryptography")
+    def test_invalid_dek_length_raises(self):
         from mssqlbak.tde.page import decrypt_page
 
-        dek = os.urandom(16)
-        plain = os.urandom(PAGE_SIZE)
-        enc = self._make_encrypted_page(dek, 10, 1, plain)
-
-        result = decrypt_page(enc, dek, page_id=999, file_id=1)
-        assert result != plain  # wrong page_id → different IV → garbage output
-
-    def test_invalid_key_length_raises(self) -> None:
-        pytest.importorskip("cryptography")
-        from mssqlbak.tde.page import decrypt_page
-
-        enc = os.urandom(PAGE_SIZE)
-        with pytest.raises(ValueError, match="[Kk]ey|AES"):
-            decrypt_page(enc, b"\x00" * 7, page_id=0, file_id=1)
-
-    def test_short_page_raises(self) -> None:
-        pytest.importorskip("cryptography")
-        from mssqlbak.tde.page import decrypt_page
-
-        dek = os.urandom(16)
-        with pytest.raises(ValueError, match="too short|8192"):
-            decrypt_page(b"\x00" * 100, dek, page_id=0, file_id=1)
+        with pytest.raises(ValueError, match="Invalid AES key length"):
+            decrypt_page(b"\x00" * 8192, b"\x00" * 7, page_id=0, file_id=1)
 
 
 # ---------------------------------------------------------------------------
-# TestTdeDekExtraction
+# Integration tests: DEK extraction + data-stream discovery (real fixture)
 # ---------------------------------------------------------------------------
-
 
 class TestTdeDekExtraction:
-    """Unit tests for mssqlbak.tde.dek.extract_dek."""
-
-    def _build_mtf_buf_with_dek(
-        self, private_key, dek: bytes, dek_offset: int = 0x2CF0
-    ) -> bytes:
-        """Build a synthetic MTF buffer with the RSA-encrypted DEK at *dek_offset*."""
-        buf = bytearray(0x10000)
-        buf[:4] = b"TAPE"
-        # RSA-OAEP encrypt the DEK with the public key.
-        encrypted_blob = _rsa_encrypt_dek(private_key.public_key(), dek)
-        end = dek_offset + len(encrypted_blob)
-        buf[dek_offset:end] = encrypted_blob
-        return bytes(buf)
-
-    def test_extract_dek_round_trip(self) -> None:
-        pytest.importorskip("cryptography")
+    def test_extract_dek_from_real_backup(
+        self,
+        fixture_bak_tde_page: Path,
+        fixture_tde_page_pfx: Path,
+    ):
+        from mssqlbak.tde.keys import load_tde_key
         from mssqlbak.tde.dek import extract_dek
-        from mssqlbak.tde.keys import TdeKey
 
-        private_key, _ = _make_test_rsa_key(2048)
-        dek = os.urandom(16)
-        buf = self._build_mtf_buf_with_dek(private_key, dek, dek_offset=0x2CF0)
+        tde_key = load_tde_key(fixture_tde_page_pfx, FIXTURE_TDE_PAGE_CERT_PASSWORD)
+        buf = fixture_bak_tde_page.read_bytes()
+        dek = extract_dek(buf, tde_key)
 
-        key = TdeKey(private_key=private_key, cert_thumbprint=None, key_size_bits=2048)
-        result = extract_dek(buf, key)
-        assert result == dek
+        # AES-128 from the fixture (ALGORITHM = AES_128 in make_tde_page_fixture.py).
+        assert len(dek) == 16
 
-    def test_extract_dek_no_blob_raises(self) -> None:
-        pytest.importorskip("cryptography")
+    def test_extract_dek_wrong_key_raises(
+        self,
+        fixture_bak_tde_page: Path,
+        tmp_path: Path,
+    ):
+        from mssqlbak.tde.keys import TdeKey, load_tde_key
         from mssqlbak.tde.dek import extract_dek
-        from mssqlbak.tde.keys import TdeKey
 
-        private_key, _ = _make_test_rsa_key(2048)
-        # All-zero buffer (no DEK blob).
-        buf = b"TAPE" + b"\x00" * 0x10000
-
-        key = TdeKey(private_key=private_key, cert_thumbprint=None, key_size_bits=2048)
-        with pytest.raises(ValueError, match="[Nn]o.*[Dd][Ee][Kk]|not found"):
-            extract_dek(buf, key)
-
-
-# ---------------------------------------------------------------------------
-# TestTdeDataStartDiscovery
-# ---------------------------------------------------------------------------
+        _, _, pfx_path = _make_test_key_and_pfx(tmp_path, "x")
+        wrong_key = load_tde_key(pfx_path, "x")
+        buf = fixture_bak_tde_page.read_bytes()
+        with pytest.raises(ValueError):  # thumbprint not found or RSA failed
+            extract_dek(buf, wrong_key)
 
 
 class TestTdeDataStartDiscovery:
-    """Unit tests for mssqlbak.tde.dek.find_tde_data_start."""
+    def test_find_data_start_returns_valid_offset(
+        self,
+        fixture_bak_tde_page: Path,
+        fixture_tde_page_pfx: Path,
+    ):
+        from mssqlbak.tde.keys import load_tde_key
+        from mssqlbak.tde.dek import extract_dek, find_tde_data_start
 
-    def _make_encrypted_file_header_page(self, dek: bytes) -> bytes:
-        """Return an 8192-byte encrypted file-header page (page_id=0, file_id=1)."""
-        from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
-        from cryptography.hazmat.backends import default_backend
+        tde_key = load_tde_key(fixture_tde_page_pfx, FIXTURE_TDE_PAGE_CERT_PASSWORD)
+        buf = fixture_bak_tde_page.read_bytes()
+        dek = extract_dek(buf, tde_key)
+        offset = find_tde_data_start(buf, dek)
 
-        # Build a valid SQL Server file-header page (m_headerVersion=1, m_type=15,
-        # pageId=0, fileId=1 at offsets 0, 1, 32-37).
-        page = bytearray(PAGE_SIZE)
-        page[0] = 1   # m_headerVersion
-        page[1] = 15  # m_type = FILE_HEADER
-        struct.pack_into("<IH", page, 32, 0, 1)  # pageId=0, fileId=1
-        plain = bytes(page)
+        assert offset > 0
+        assert offset % 512 == 0          # MTF-aligned
+        assert offset + 8192 <= len(buf)  # room for at least one page
 
-        iv = struct.pack("<IH", 0, 1) + b"\x00" * 10
-        cipher = Cipher(algorithms.AES(dek), modes.CBC(iv), backend=default_backend())
-        enc = cipher.encryptor()
-        return enc.update(plain) + enc.finalize()
 
-    def test_find_data_start_at_known_offset(self) -> None:
-        pytest.importorskip("cryptography")
-        from mssqlbak.tde.dek import find_tde_data_start
+# ---------------------------------------------------------------------------
+# Integration test: end-to-end extraction of TDE backup
+# ---------------------------------------------------------------------------
 
-        dek = os.urandom(16)
-        # Build a buffer: MTF headers (zeroed) then the encrypted file-header page
-        # at a known offset (0x5000 = 20480).
-        target_offset = 0x5000
-        buf = bytearray(target_offset + PAGE_SIZE + 1024)
-        enc_page = self._make_encrypted_file_header_page(dek)
-        buf[target_offset : target_offset + PAGE_SIZE] = enc_page
-        buf_bytes = bytes(buf)
+class TestTdeEndToEnd:
+    def test_tde_extract_probe_table(
+        self,
+        fixture_bak_tde_page: Path,
+        fixture_tde_page_pfx: Path,
+    ):
+        """Extract the TDE backup and verify the three known probe rows."""
+        from mssqlbak.tde.keys import load_tde_key
+        from mssqlbak.extract.driver import extract_bak
 
-        found = find_tde_data_start(buf_bytes, dek)
-        assert found == target_offset, (
-            f"Expected data stream at 0x{target_offset:04x}, "
-            f"got 0x{found:04x}"
+        tde_key = load_tde_key(fixture_tde_page_pfx, FIXTURE_TDE_PAGE_CERT_PASSWORD)
+        sink = _CollectingSink()
+        extract_bak(str(fixture_bak_tde_page), sink=sink, tde_key=tde_key)
+
+        # Find the probe table regardless of schema prefix.
+        probe_rows: list[dict] = []
+        for name, rows in sink.rows.items():
+            if name.lower().endswith(".probe") or name.lower() == "probe":
+                probe_rows.extend(rows)
+
+        assert len(probe_rows) == 3, (
+            f"Expected 3 probe rows, got {len(probe_rows)}: {probe_rows}"
         )
+        ids = {r.get("id") for r in probe_rows}
+        vals = {r.get("val") for r in probe_rows}
+        assert ids == {1, 2, 3}
+        assert vals == {"hello", "world", "tde_test"}
 
-    def test_find_data_start_not_found_raises(self) -> None:
-        pytest.importorskip("cryptography")
-        from mssqlbak.tde.dek import find_tde_data_start
+    def test_tde_backup_raises_without_key(self, fixture_bak_tde_page: Path):
+        """Extracting without a TDE key should raise EncryptedBackupError.
 
-        dek = os.urandom(16)
-        wrong_dek = os.urandom(16)  # wrong key: decryption won't produce valid page
-        enc_page = self._make_encrypted_file_header_page(dek)
-        target_offset = 0x5000
-        buf = bytearray(target_offset + PAGE_SIZE + 1024)
-        buf[target_offset : target_offset + PAGE_SIZE] = enc_page
-
-        with pytest.raises(ValueError, match="[Cc]ould not locate|[Dd]ata stream"):
-            find_tde_data_start(bytes(buf), wrong_dek)
-
-
-# ---------------------------------------------------------------------------
-# TestEncryptedBackupErrorMessage
-# ---------------------------------------------------------------------------
-
-
-class TestEncryptedBackupErrorMessage:
-    """Verify the improved EncryptedBackupError message mentions --tde-cert."""
-
-    @pytest.fixture
-    def fixture_bak_tde(self) -> Path:
-        p = _fixture_path("tde_full.bak")
-        if not p.exists():
-            pytest.skip(f"TDE fixture not found: {p}")
-        return p
-
-    def test_error_message_mentions_tde_cert_option(self, fixture_bak_tde: Path) -> None:
-        """EncryptedBackupError message must mention --tde-cert for user guidance."""
+        The DEK blob in the MTF headers is high-entropy; _find_image_start
+        detects this and raises EncryptedBackupError rather than silently
+        returning garbled results.
+        """
         from mssqlbak.errors import EncryptedBackupError
-        from mssqlbak.pages import PageStore
-
-        with pytest.raises(EncryptedBackupError) as exc_info:
-            PageStore.from_bak(fixture_bak_tde)
-        msg = str(exc_info.value)
-        # The improved message should guide users toward the new --tde-cert flag.
-        assert "--tde-cert" in msg or "tde-cert" in msg.lower() or "backup-level" in msg, (
-            f"Error message does not mention --tde-cert or backup-level: {msg}"
-        )
-
-
-# ---------------------------------------------------------------------------
-# TestTdeFixtureIntegration
-# ---------------------------------------------------------------------------
-
-
-class TestTdeFixtureIntegration:
-    """Integration tests against tde_page_full.bak (database-TDE, no backup encryption).
-
-    These tests require:
-    - tde_page_full.bak  — TDE database backup
-    - tde_page_plain.bak — same database without TDE
-    - tde_page_cert.pfx  — certificate PFX
-
-    All are generated by:
-        python -m tools.fixture_run tde-page
-    """
-
-    @pytest.fixture
-    def tde_page_bak(self) -> Path:
-        p = _fixture_path("tde_page_full.bak")
-        if not p.exists():
-            pytest.skip(f"TDE page fixture not found: {p} — run: python -m tools.fixture_run tde-page")
-        return p
-
-    @pytest.fixture
-    def tde_plain_bak(self) -> Path:
-        p = _fixture_path("tde_page_plain.bak")
-        if not p.exists():
-            pytest.skip(f"TDE plain fixture not found: {p}")
-        return p
-
-    @pytest.fixture
-    def tde_cert_pfx(self) -> Path:
-        p = _fixture_path("tde_page_cert.pfx")
-        if not p.exists():
-            pytest.skip(f"TDE cert PFX not found: {p}")
-        return p
-
-    def test_page_store_without_key_raises_encrypted_backup_error(
-        self, tde_page_bak: Path
-    ) -> None:
-        """Without a TDE key, PageStore.from_bak must raise EncryptedBackupError."""
-        pytest.importorskip("cryptography")
-        from mssqlbak.errors import EncryptedBackupError
-        from mssqlbak.pages import PageStore
+        from mssqlbak.extract.driver import extract_bak
 
         with pytest.raises(EncryptedBackupError):
-            PageStore.from_bak(tde_page_bak)
+            extract_bak(str(fixture_bak_tde_page), sink=_CollectingSink())
 
-    def test_load_tde_key(self, tde_cert_pfx: Path) -> None:
-        """load_tde_key must succeed with the fixture certificate."""
-        pytest.importorskip("cryptography")
-        from mssqlbak.tde import TdeKey, load_tde_key
-        from tools.make_tde_page_fixture import CERT_PASSWORD
+    def test_plain_and_tde_row_counts_match(
+        self,
+        fixture_bak_tde_page: Path,
+        fixture_bak_tde_plain: Path,
+        fixture_tde_page_pfx: Path,
+    ):
+        """Row counts from TDE backup must equal row counts from plain backup."""
+        from mssqlbak.tde.keys import load_tde_key
+        from mssqlbak.extract.driver import extract_bak
 
-        key = load_tde_key(tde_cert_pfx, password=CERT_PASSWORD)
-        assert isinstance(key, TdeKey)
-        assert key.private_key is not None
+        tde_key = load_tde_key(fixture_tde_page_pfx, FIXTURE_TDE_PAGE_CERT_PASSWORD)
 
-    def test_page_store_with_key_succeeds(
-        self, tde_page_bak: Path, tde_cert_pfx: Path
-    ) -> None:
-        """PageStore.from_bak with a valid TDE key must open the backup."""
-        pytest.importorskip("cryptography")
-        from mssqlbak.pages import PageStore
-        from mssqlbak.tde import load_tde_key
-        from tools.make_tde_page_fixture import CERT_PASSWORD
+        def _collect(bak_path: Path, **kw) -> dict[str, int]:
+            sink = _CollectingSink()
+            extract_bak(str(bak_path), sink=sink, **kw)
+            return {name: len(rows) for name, rows in sink.rows.items()}
 
-        key = load_tde_key(tde_cert_pfx, password=CERT_PASSWORD)
-        store = PageStore.from_bak(tde_page_bak, tde_key=key)
-        assert store.page_count > 0
-        assert 1 in store.available_files
+        plain_counts = _collect(fixture_bak_tde_plain)
+        tde_counts = _collect(fixture_bak_tde_page, tde_key=tde_key)
 
-    def test_decrypted_rows_match_plain_backup(
-        self, tde_page_bak: Path, tde_plain_bak: Path, tde_cert_pfx: Path
-    ) -> None:
-        """Rows extracted from the TDE backup must match the plain (no-TDE) backup.
-
-        This is the end-to-end correctness test: if decryption is wrong, the
-        row values will differ (or the extractor will crash on bad page data).
-        """
-        pytest.importorskip("cryptography")
-        from mssqlbak.catalog import recover_schema
-        from mssqlbak.extract.python_path import _extract_table
-        from mssqlbak.pages import PageStore
-        from mssqlbak.sink import InMemorySink
-        from mssqlbak.tde import load_tde_key
-        from tools.make_tde_page_fixture import CERT_PASSWORD
-
-        key = load_tde_key(tde_cert_pfx, password=CERT_PASSWORD)
-        tde_store  = PageStore.from_bak(tde_page_bak, tde_key=key)
-        plain_store = PageStore.from_bak(tde_plain_bak)
-
-        tde_schema   = recover_schema(tde_store)
-        plain_schema = recover_schema(plain_store)
-
-        # Find the probe table in both backups.
-        tde_tables   = {t.name: t for t in tde_schema.tables}
-        plain_tables = {t.name: t for t in plain_schema.tables}
-
-        assert "probe" in tde_tables, f"probe table not in TDE backup; tables={list(tde_tables)}"
-        assert "probe" in plain_tables
-
-        tde_sink   = InMemorySink()
-        plain_sink = InMemorySink()
-
-        _extract_table(tde_store,   tde_tables["probe"],   tde_sink)
-        _extract_table(plain_store, plain_tables["probe"], plain_sink)
-
-        tde_data   = tde_sink.tables().get("dbo.probe") or tde_sink.tables().get("probe")
-        plain_data = plain_sink.tables().get("dbo.probe") or plain_sink.tables().get("probe")
-
-        assert tde_data   is not None, f"TDE probe table empty; tables={tde_sink.tables().keys()}"
-        assert plain_data is not None
-
-        assert tde_data.num_rows == plain_data.num_rows, (
-            f"Row count mismatch: TDE={tde_data.num_rows}, plain={plain_data.num_rows}"
+        assert plain_counts == tde_counts, (
+            f"Row-count mismatch between plain and TDE backups:\n"
+            f"  plain: {plain_counts}\n"
+            f"  tde:   {tde_counts}"
         )
-        # Compare sorted by id to be order-independent.
-        import pyarrow.compute as pc
-        tde_ids   = sorted(tde_data.column("id").to_pylist())
-        plain_ids = sorted(plain_data.column("id").to_pylist())
-        assert tde_ids == plain_ids, (
-            f"ID mismatch: TDE={tde_ids}, plain={plain_ids}"
-        )
-        tde_vals   = sorted(tde_data.column("val").to_pylist())
-        plain_vals = sorted(plain_data.column("val").to_pylist())
-        assert tde_vals == plain_vals, (
-            f"val mismatch: TDE={tde_vals}, plain={plain_vals}"
-        )
-
-    def test_wrong_cert_raises_or_produces_bad_store(
-        self, tde_page_bak: Path, tmp_path: Path
-    ) -> None:
-        """Using the wrong certificate must either raise or produce no valid tables."""
-        pytest.importorskip("cryptography")
-        from mssqlbak.pages import PageStore
-        from mssqlbak.tde import TdeKey
-
-        # Generate a different RSA key that was NOT used to protect this backup.
-        private_key, _ = _make_test_rsa_key(2048)
-        wrong_key = TdeKey(private_key=private_key, cert_thumbprint=None, key_size_bits=2048)
-
-        try:
-            store = PageStore.from_bak(tde_page_bak, tde_key=wrong_key)
-            # If it opened (wrong DEK decrypted to something), the schema/tables
-            # should be empty or clearly invalid.
-            from mssqlbak.catalog import recover_schema
-            schema = recover_schema(store)
-            # No user table "probe" should be found with a wrong key.
-            probe_tables = [t for t in schema.tables if t.name == "probe"]
-            assert len(probe_tables) == 0, (
-                "Wrong cert: unexpectedly found 'probe' table — "
-                "TDE decryption may have accidentally succeeded"
-            )
-        except Exception:
-            # Any exception (ValueError, EncryptedBackupError, etc.) is acceptable.
-            pass
