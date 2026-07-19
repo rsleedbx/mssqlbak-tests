@@ -17,6 +17,12 @@ from pgdump.dir_reader import iter_dir_batches
 
 log = logging.getLogger(__name__)
 
+# Sentinel object yielded as the *table* when a readback iterator hits an
+# unrecoverable infra error (e.g. FileNotFoundError on the sink output
+# directory).  The runner checks for it and records the error in the edge
+# dict rather than treating the empty-table result as a data mismatch.
+_READBACK_ERROR = object()
+
 
 class _TimingSink:
     """Wraps a real sink, accumulating wall time spent inside its own calls.
@@ -68,12 +74,27 @@ class SinkSpec:
     make: Callable[[Path], Any]
     normalize_col: Callable[[str], str]
     #: Yield (fqn, table) one at a time — keeps peak bounded to one table.
-    iter_tables: Callable[[Path, list[str]], Iterator[tuple[str, pa.Table]]]
+    #: May yield (``"__infra__"``, ``_READBACK_ERROR``) to signal a fatal
+    #: infra failure (missing sink output); the runner records this as an
+    #: edge-level error rather than a data mismatch.
+    iter_tables: Callable[[Path, list[str]], Iterator[tuple[str, pa.Table | object]]]
 
 
-def _iter_delta_tables(root: Path, fqns: list[str]) -> Iterator[tuple[str, pa.Table]]:
-    """Yield one Delta table at a time, releasing each before loading the next."""
+def _iter_delta_tables(
+    root: Path, fqns: list[str]
+) -> Iterator[tuple[str, pa.Table | object]]:
+    """Yield one Delta table at a time, releasing each before loading the next.
+
+    Yields ``(fqn, _READBACK_ERROR)`` when the table directory is missing or
+    the Delta log cannot be opened, instead of silently skipping the table.
+    Per-table read errors that do not indicate a missing sink output are still
+    logged and skipped.
+    """
     from deltalake import DeltaTable
+
+    if not root.exists():
+        yield "__infra__", _READBACK_ERROR
+        return
 
     for fqn in fqns:
         sanitized = sanitize_fqn(fqn)
@@ -87,13 +108,24 @@ def _iter_delta_tables(root: Path, fqns: list[str]) -> Iterator[tuple[str, pa.Ta
             log.exception("Error reading delta table %s from %s", fqn, path)
 
 
-def _iter_pg_dir_tables(root: Path, _fqns: list[str]) -> Iterator[tuple[str, pa.Table]]:
+def _iter_pg_dir_tables(
+    root: Path, _fqns: list[str]
+) -> Iterator[tuple[str, pa.Table | object]]:
     """Stream pg_dir tables one at a time from the archive.
 
     Accumulates batches for the current table and yields a complete Arrow
     Table when the fqn changes.  Peak memory is bounded to one table's data
     plus the next batch being decoded, not the whole archive.
+
+    Yields ``(\"__infra__\", _READBACK_ERROR)`` when the archive root is
+    missing or the toc.dat cannot be opened (infra failure, not data
+    mismatch).
     """
+    if not root.exists() or not (root / "toc.dat").exists():
+        log.error("pg_dir readback: toc.dat not found in %s — treating as infra error", root)
+        yield "__infra__", _READBACK_ERROR
+        return
+
     current_fqn: str | None = None
     current_batches: list[pa.RecordBatch] = []
     try:

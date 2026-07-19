@@ -200,8 +200,16 @@ def _edge_tables_ok(tables: list[dict[str, Any]]) -> bool:
     return all(_table_ok(t) for t in tables)
 
 
+def _edge_has_infra_error(edge: dict[str, Any]) -> bool:
+    """True when the edge has a recorded infra error (missing sink output, etc.)."""
+    return bool(edge.get("readback_error"))
+
+
 def _all_ok(r: dict[str, Any]) -> bool:
     """True when every pipeline edge passes all data checks.
+
+    Edges with infra errors (missing sink output, etc.) are excluded from the
+    data-pass/fail rollup — they are shown separately as infrastructure issues.
 
     Metadata validation results are shown in the report's Metadata section
     but intentionally excluded from this rollup so the data pass rate stays
@@ -214,7 +222,10 @@ def _all_ok(r: dict[str, Any]) -> bool:
         if not tables:
             return True
         return all(_table_ok(t) for t in tables)
-    return all(_edge_tables_ok(edge["tables"]) for edge in edges.values())
+    return all(
+        _edge_has_infra_error(edge) or _edge_tables_ok(edge["tables"])
+        for edge in edges.values()
+    )
 
 
 def _meta_pass_line(results: list[dict[str, Any]]) -> str:
@@ -274,6 +285,14 @@ def _render(
             all_edge_tables = {"mssql_arrow": r["tables"]} if r["tables"] else {}
 
         for edge_name, etables in all_edge_tables.items():
+            edge_data = edges_dict.get(edge_name, {})
+            if _edge_has_infra_error(edge_data):
+                # Infra error: the sink output was missing or unreadable.
+                # Record it as an edge-level infra fail (not a data fail) and
+                # skip all per-table category counters for this edge.
+                edge_fail_counts[edge_name] = edge_fail_counts.get(edge_name, 0) + 1
+                continue
+
             table_ok += sum(1 for t in etables if _table_ok(t))
             table_total += len(etables)
             column_ok += sum(int(t.get("column_ok", t.get("n_gt_cols", 0))) for t in etables)
@@ -406,8 +425,18 @@ def _render(
         for edge_name in edge_order:
             if edge_name not in edges:
                 continue
-            tables = edges[edge_name]["tables"]
+            edge_data = edges[edge_name]
+            tables = edge_data["tables"]
             stage = _edge_label(edge_name)
+
+            # Infra error: show a special row instead of comparing data counts.
+            if _edge_has_infra_error(edge_data):
+                err_msg = edge_data.get("readback_error", "sink output missing or unreadable")
+                lines.append(
+                    f"| `{r['bak']}` | {stage} | {src_rows:,} | {src_cols:,}"
+                    f" | — | — | — | — | — | ⚡ infra ({err_msg}) |"
+                )
+                continue
 
             row_ok_n = sum(
                 1 for t in tables if t["row_ok"] or t["expected_rows"] == 0 or t["xtp_skip"]
@@ -489,9 +518,16 @@ def _render(
         for edge_name in edge_order:
             if edge_name not in edges:
                 continue
-            edge_tables = edges[edge_name]["tables"]
+            edge_data = edges[edge_name]
             lines.append(f"#### Stage: {_edge_label(edge_name)}\n")
-            _render_edge_table_rows(lines, edge_tables)
+            if _edge_has_infra_error(edge_data):
+                err_msg = edge_data.get("readback_error", "sink output missing or unreadable")
+                lines.append(
+                    f"_Infrastructure error: {err_msg}. "
+                    f"This is a sink write/readback failure, not a data mismatch._\n"
+                )
+            else:
+                _render_edge_table_rows(lines, edge_data["tables"])
 
     # --- Metadata validation section ----------------------------------------
     meta_results = [r for r in results if r.get("validations")]

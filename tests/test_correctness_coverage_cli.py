@@ -5,6 +5,7 @@ import time
 from typing import Any
 
 from tools import correctness_coverage
+import tools.correctness_coverage.runner as _cc_runner
 
 
 def test_select_cases_can_target_one_bak(tmp_path: Path) -> None:
@@ -118,8 +119,8 @@ def test_run_cases_preserves_input_order_with_threads(
             time.sleep(0.05)
         return {"bak": bak_path.name, "stats": stats_path.name if stats_path else None}
 
-    monkeypatch.setattr(correctness_coverage, "ProcessPoolExecutor", ThreadPoolExecutor, raising=False)
-    monkeypatch.setattr(correctness_coverage, "_run_case", fake_run_case)
+    monkeypatch.setattr(_cc_runner, "ProcessPoolExecutor", ThreadPoolExecutor)
+    monkeypatch.setattr(_cc_runner, "_run_case", fake_run_case)
 
     results = correctness_coverage._run_cases(cases, threads=2)
 
@@ -138,7 +139,7 @@ def test_run_cases_uses_parallel_workers(
     active = 0
     max_active = 0
 
-    def fake_run_case(bak_path: Path, stats_path: Path | None, bak_url: str | None = None) -> dict[str, Any]:
+    def fake_run_case(bak_path: Path, stats_path: Path | None, bak_url: str | None = None, **_kw: Any) -> dict[str, Any]:
         nonlocal active, max_active
         with lock:
             active += 1
@@ -148,8 +149,8 @@ def test_run_cases_uses_parallel_workers(
             active -= 1
         return {"bak": bak_path.name}
 
-    monkeypatch.setattr(correctness_coverage, "ProcessPoolExecutor", ThreadPoolExecutor, raising=False)
-    monkeypatch.setattr(correctness_coverage, "_run_case", fake_run_case)
+    monkeypatch.setattr(_cc_runner, "ProcessPoolExecutor", ThreadPoolExecutor)
+    monkeypatch.setattr(_cc_runner, "_run_case", fake_run_case)
 
     correctness_coverage._run_cases(cases, threads=2)
 
@@ -255,16 +256,20 @@ def test_run_one_marks_expected_skipped_tables_without_bad_columns(
         """
     )
 
-    def fake_extract(_bak_input: Path, _sink: Any) -> None:
-        return None
+    class _FakeReport:
+        table_types: dict[str, str] = {}
+        phase_timings: list[tuple[str, float]] = []
 
-    monkeypatch.setattr(correctness_coverage, "extract_bak", fake_extract)
+    def fake_extract(_bak_input: Path, _sink: Any, **_kw: Any) -> Any:
+        return _FakeReport()
+
+    monkeypatch.setattr(_cc_runner, "extract_bak", fake_extract)
     # AdventureWorks2016_EXT's XTP tables now land byte-exact, so the shared
     # KNOWN_SKIPPED_TABLES registry is empty.  Monkeypatch the lookup so this
     # test exercises the xtp_skip marking mechanism itself (a genuinely
     # missing, expected-skipped table must not count as a bad column).
     monkeypatch.setattr(
-        correctness_coverage,
+        _cc_runner,
         "expected_skipped_tables",
         lambda _stem: frozenset({"Sales.SalesOrderHeader_inmem"}),
     )
@@ -274,7 +279,8 @@ def test_run_one_marks_expected_skipped_tables_without_bad_columns(
     table = result["tables"][0]
     assert table["xtp_skip"] is True
     assert table["column_ok"] == 1
-    assert correctness_coverage._table_ok(table)
+    from tools.correctness_coverage.render import _table_ok
+    assert _table_ok(table)
 
 
 def test_run_cases_logs_backups_when_processing(
@@ -290,8 +296,8 @@ def test_run_cases_logs_backups_when_processing(
     def fake_run_case(bak_path: Path, stats_path: Path | None, bak_url: str | None = None) -> dict[str, Any]:
         return {"bak": bak_path.name}
 
-    monkeypatch.setattr(correctness_coverage, "ProcessPoolExecutor", ThreadPoolExecutor, raising=False)
-    monkeypatch.setattr(correctness_coverage, "_run_case", fake_run_case)
+    monkeypatch.setattr(_cc_runner, "ProcessPoolExecutor", ThreadPoolExecutor)
+    monkeypatch.setattr(_cc_runner, "_run_case", fake_run_case)
 
     correctness_coverage._run_cases(cases, threads=2)
 
@@ -315,7 +321,7 @@ def test_run_cases_does_not_log_queued_backups_as_processing(
     two_started = threading.Event()
     release = threading.Event()
 
-    def fake_run_case(bak_path: Path, stats_path: Path | None, bak_url: str | None = None) -> dict[str, Any]:
+    def fake_run_case(bak_path: Path, stats_path: Path | None, bak_url: str | None = None, **_kw: Any) -> dict[str, Any]:
         nonlocal started
         with lock:
             started += 1
@@ -324,8 +330,8 @@ def test_run_cases_does_not_log_queued_backups_as_processing(
         release.wait(timeout=2)
         return {"bak": bak_path.name}
 
-    monkeypatch.setattr(correctness_coverage, "ProcessPoolExecutor", ThreadPoolExecutor, raising=False)
-    monkeypatch.setattr(correctness_coverage, "_run_case", fake_run_case)
+    monkeypatch.setattr(_cc_runner, "ProcessPoolExecutor", ThreadPoolExecutor)
+    monkeypatch.setattr(_cc_runner, "_run_case", fake_run_case)
 
     runner = threading.Thread(
         target=correctness_coverage._run_cases,
@@ -363,9 +369,141 @@ def test_run_cases_uses_process_pool_for_parallel_workers(
     def fake_run_case(bak_path: Path, stats_path: Path | None, bak_url: str | None = None) -> dict[str, Any]:
         return {"bak": bak_path.name}
 
-    monkeypatch.setattr(correctness_coverage, "ProcessPoolExecutor", SpyProcessPool, raising=False)
-    monkeypatch.setattr(correctness_coverage, "_run_case", fake_run_case)
+    monkeypatch.setattr(_cc_runner, "ProcessPoolExecutor", SpyProcessPool)
+    monkeypatch.setattr(_cc_runner, "_run_case", fake_run_case)
 
     correctness_coverage._run_cases(cases, threads=2)
 
     assert seen == {"max_workers": 2}
+
+
+# ---------------------------------------------------------------------------
+# Gap A: non-picklable worker exceptions must not raise PicklingError
+# ---------------------------------------------------------------------------
+
+class _UnpicklableError(Exception):
+    """Simulates an exception whose class lives in a C extension and cannot be
+    pickled (like delta-rs ``_internal.CommitFailedError``)."""
+    def __reduce__(self):  # type: ignore[override]
+        raise TypeError("cannot pickle _UnpicklableError")
+
+
+def test_run_logged_case_converts_unpicklable_exception_to_error_result(
+    monkeypatch,
+    tmp_path: Path,
+) -> None:
+    """Gap A: an exception that cannot be pickled must be converted to a
+    plain _error_result dict inside the worker rather than propagating as
+    a PicklingError across the process boundary.
+    """
+    import tools.correctness_coverage.runner as _runner
+
+    bak = tmp_path / "Sample.bak"
+    bak.write_bytes(b"bak")
+    stats = tmp_path / "Sample.bak.stats.json"
+    stats.write_text("{}")
+
+    def fake_run_case(*args: Any, **kwargs: Any) -> dict[str, Any]:
+        raise _UnpicklableError("delta internal error")
+
+    monkeypatch.setattr(_runner, "_run_case", fake_run_case)
+
+    result = correctness_coverage._run_logged_case(bak, stats)
+
+    assert result["bak"] == "Sample.bak"
+    assert result.get("crashed") is True
+    assert "_UnpicklableError" in result.get("error", "")
+    # Verify the result can be pickled (would have raised PicklingError before the fix)
+    import pickle
+    pickle.dumps(result)
+
+
+# ---------------------------------------------------------------------------
+# Gap B: sink readback infra error must not be scored as a data mismatch
+# ---------------------------------------------------------------------------
+
+def _make_table_entry(**kwargs: Any) -> dict[str, Any]:
+    """Build a minimal passing per-table entry."""
+    base = {
+        "fqn": "dbo.t",
+        "expected_rows": 1,
+        "row_ok": True,
+        "missing": False,
+        "xtp_skip": False,
+        "null_ok": 1,
+        "null_total": 1,
+        "minmax_ok": 1,
+        "minmax_total": 1,
+        "n_gt_cols": 1,
+        "col_count_ok": True,
+        "column_ok": 1,
+        "column_total": 1,
+        "table_type": "rowstore",
+    }
+    base.update(kwargs)
+    return base
+
+
+def _make_result_with_infra_error(bak: str = "Sample.bak") -> dict[str, Any]:
+    """Build a FixtureResult where arrow→delta and delta→arrow have infra errors."""
+    passing_table = _make_table_entry()
+    return {
+        "bak": bak,
+        "sql_version": "SQL Server 2022",
+        "bak_size_mb": 1.0,
+        "extract_s": 0.0,
+        "total_src_rows": 1,
+        "total_src_cols": 1,
+        "tables": [passing_table],
+        "edges": {
+            "mssql_arrow": {
+                "tables": [passing_table],
+                "write_s": None,
+                "readback_s": None,
+                "readback_error": None,
+            },
+            "arrow_delta": {
+                "tables": [],
+                "write_s": 0.1,
+                "readback_s": 0.0,
+                "readback_error": "sink output missing or unreadable at /tmp/x/delta",
+            },
+            "delta_arrow": {
+                "tables": [],
+                "write_s": 0.1,
+                "readback_s": 0.0,
+                "readback_error": "sink output missing or unreadable at /tmp/x/delta",
+            },
+        },
+    }
+
+
+def test_all_ok_treats_infra_errored_edges_as_non_data_failures() -> None:
+    """Gap B: _all_ok must not count infra-errored edges as data failures."""
+    r = _make_result_with_infra_error()
+    # extraction edge is clean; sink edges have infra errors, not data mismatches
+    assert correctness_coverage._all_ok(r) is True
+
+
+def test_render_counts_infra_errors_as_pass_not_data_fail() -> None:
+    """Gap B: the rendered headline must not count infra errors as data fails."""
+    r = _make_result_with_infra_error()
+    md = correctness_coverage._render([r], show_fixture_dir=False)
+    assert "1 pass" in md
+    assert "0 fail" in md
+
+
+def test_render_shows_infra_marker_not_data_mismatch_for_errored_edge() -> None:
+    """Gap B: infra-errored edge rows must show '⚡ infra' not '✗'."""
+    r = _make_result_with_infra_error()
+    md = correctness_coverage._render([r], show_fixture_dir=False)
+    assert "⚡ infra" in md
+
+
+def test_render_excludes_infra_edges_from_category_fail_counts() -> None:
+    """Gap B: infra-errored edges must not increment Row count / Col count fail counters."""
+    r = _make_result_with_infra_error()
+    md = correctness_coverage._render([r], show_fixture_dir=False)
+    # Category line should show all ✓ (no data mismatch from infra errors)
+    assert "**Row count:** ✓" in md
+    assert "**Col count:** ✓" in md

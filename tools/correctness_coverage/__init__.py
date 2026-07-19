@@ -21,7 +21,9 @@ from __future__ import annotations
 from .cli import main
 from .compare import _minmax_equal
 from .config import NodeStats
-from .runner import _resolve_bak_input
+from .discovery import _select_cases
+from .render import _all_ok, _render
+from .runner import _resolve_bak_input, _run_case, _run_cases, _run_logged_case, _run_one
 from .sinks import SINKS, SinkSpec
 
 __all__ = [
@@ -29,6 +31,13 @@ __all__ = [
     "SinkSpec",
     "SINKS",
     "NodeStats",
+    "_all_ok",
     "_minmax_equal",
+    "_render",
     "_resolve_bak_input",
+    "_run_case",
+    "_run_cases",
+    "_run_logged_case",
+    "_run_one",
+    "_select_cases",
 ]

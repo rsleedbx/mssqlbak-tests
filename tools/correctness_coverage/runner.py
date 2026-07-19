@@ -34,7 +34,7 @@ from .compare import (
 from .config import NodeStats
 from .reports import _write_edge_json
 from .resources import ResourceMonitor
-from .sinks import SINKS, SinkSpec, _TimingSink
+from .sinks import SINKS, SinkSpec, _TimingSink, _READBACK_ERROR
 
 log = logging.getLogger(__name__)
 
@@ -460,6 +460,7 @@ def _run_one(
         _read = _stats = _verify = 0.0
         t_rb = time.perf_counter()
         _it = spec.iter_tables(sink_root, fqn_list)
+        _readback_infra_error: str | None = None
         while True:
             t_r = time.perf_counter()
             try:
@@ -468,6 +469,20 @@ def _run_one(
                 break
             _read += time.perf_counter() - t_r
 
+            # Sentinel: the iterator encountered a fatal infra error (e.g.
+            # missing sink output directory or toc.dat).  Record the error
+            # and stop reading — do not score as a data mismatch.
+            if sink_tbl is _READBACK_ERROR:
+                _readback_infra_error = (
+                    f"sink output missing or unreadable at {sink_root}"
+                )
+                log.error(
+                    "Sink readback infra error for %s/%s: %s",
+                    bak_path.stem, spec.name, _readback_infra_error,
+                )
+                break
+
+            assert isinstance(sink_tbl, pa.Table)  # narrow type for mypy
             if len(sink_tbl) > 0:
                 t_s = time.perf_counter()
                 sink_node[fqn] = _node_stats_from_arrow_table(fqn, sink_tbl)
@@ -515,11 +530,13 @@ def _run_one(
             "tables": arrow_sink_tables,
             "write_s": write_s.get(spec.name),
             "readback_s": readback_s[spec.name],
+            "readback_error": _readback_infra_error,
         }
         edges[f"{spec.name}_arrow"] = {
             "tables": sink_arrow_tables,
             "write_s": write_s.get(spec.name),
             "readback_s": readback_s[spec.name],
+            "readback_error": _readback_infra_error,
         }
 
     _release_arrow_memory()
@@ -722,20 +739,47 @@ def _run_logged_case(
     source_mode: str = "local",
     verify_level: str = "digest",
 ) -> dict[str, Any]:
-    """Worker entrypoint that logs when the case actually starts."""
+    """Worker entrypoint that logs when the case actually starts.
+
+    Any exception that escapes this function is pickled by
+    ``ProcessPoolExecutor`` before being sent back to the parent process.
+    delta-rs ``_internal.*`` exception classes are defined in a Rust
+    extension and cannot be pickled, causing the parent to see a
+    ``PicklingError`` instead of the real error.  We therefore catch *all*
+    exceptions here, verify they can be pickled, and convert the
+    unpicklable ones to a structured ``_error_result`` so the parent
+    always receives a plain ``dict``.
+    """
+    import pickle as _pickle
+
     label = bak_url if bak_url is not None else bak_path.name
     print(f"  processing {label} …", file=sys.stderr, flush=True)
-    return _run_case(
-        bak_path,
-        stats_path,
-        bak_url,
-        sink_names=sink_names,
-        outdir=outdir,
-        reports_dir=reports_dir,
-        run_id=run_id,
-        source_mode=source_mode,
-        verify_level=verify_level,
-    )
+    try:
+        return _run_case(
+            bak_path,
+            stats_path,
+            bak_url,
+            sink_names=sink_names,
+            outdir=outdir,
+            reports_dir=reports_dir,
+            run_id=run_id,
+            source_mode=source_mode,
+            verify_level=verify_level,
+        )
+    except Exception as exc:
+        log.exception("ERROR processing %s: %s", bak_path.name, exc)
+        # Verify the exception can survive the pickling round-trip back to
+        # the parent.  If it cannot, wrap it in a plain RuntimeError so the
+        # parent still receives a useful error message rather than a cryptic
+        # PicklingError that masks the real failure.
+        try:
+            _pickle.dumps(exc)
+        except Exception:
+            exc = RuntimeError(
+                f"{type(exc).__name__}: {exc}\n"
+                f"(original exception could not be pickled)"
+            )
+        return _error_result(bak_path, exc)
 
 
 # ---------------------------------------------------------------------------
