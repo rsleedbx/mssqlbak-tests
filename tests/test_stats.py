@@ -28,6 +28,7 @@ import pytest
 
 from mssqlbak import extract_bak_to_delta
 from tests.fixture_companions import resolve_bak_input as _resolve_bak_input
+from tools.enc_cert_resolver import resolve_cert as _resolve_cert
 from tools.known_gaps import expected_skipped_tables, gap_reason, version_from_fixture_dir
 
 # Respect FIXTURE_DIR env var so the same test can run against any version's
@@ -486,9 +487,17 @@ def test_extraction_matches_sql_server_stats(
 
     bak_input = _resolve_bak_input(bak_path)
 
+    _cert_info = _resolve_cert(bak_path)
+    _extra: dict[str, Any] = {}
+    if _cert_info is not None:
+        if _cert_info.kind == "backup":
+            _extra["backup_cert"] = _cert_info.tde_key
+        else:
+            _extra["tde_key"] = _cert_info.tde_key
+
     with tempfile.TemporaryDirectory() as tmp:
         t0 = time.perf_counter()
-        extract_bak_to_delta(bak_input, tmp)
+        extract_bak_to_delta(bak_input, tmp, **_extra)
         extract_s = round(time.perf_counter() - t0, 3)
         extracted_stats = _extract_table_stats(Path(tmp))
 

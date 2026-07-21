@@ -23,6 +23,7 @@ from mssqlbak.extract import extract_bak
 from mssqlbak.sink import MultiSink
 from mssqlbak.sinks.async_writer_sink import AsyncWriterSink
 from tools import value_verify
+from tools.enc_cert_resolver import CertInfo, resolve_cert
 from tools.known_gaps import expected_skipped_tables
 
 from .compare import (
@@ -326,6 +327,8 @@ def _run_one(
     mon = ResourceMonitor()
     mon.snapshot("start")  # true process baseline before any bak I/O
 
+    _cert_info: CertInfo | None = resolve_cert(bak_path)
+
     ground_truth: dict[str, Any] = json.loads(stats_path.read_text())
     expected_skips = expected_skipped_tables(bak_path.stem)
 
@@ -394,9 +397,15 @@ def _run_one(
         combined_sink = streaming_sink
 
     # --- Extract once; streaming_sink processes each table in close() ---
+    _extract_kwargs: dict[str, Any] = {}
+    if _cert_info is not None:
+        if _cert_info.kind == "backup":
+            _extract_kwargs["backup_cert"] = _cert_info.tde_key
+        else:
+            _extract_kwargs["tde_key"] = _cert_info.tde_key
     mon.snapshot("before_extract")
     t0 = time.perf_counter()
-    extract_report = extract_bak(bak_input, combined_sink, async_writes=False)
+    extract_report = extract_bak(bak_input, combined_sink, async_writes=False, **_extract_kwargs)
     extract_s = round(time.perf_counter() - t0, 3)
     mon.snapshot("after_extract")
 
@@ -570,7 +579,13 @@ def _run_one(
 
             _meta_gt = _json.loads(metadata_sidecar.read_text())
             _bak_local_input = _resolve_bak_input(bak_path)
-            _rm = build_recovered_metadata(_bak_local_input)
+            _meta_kwargs: dict[str, Any] = {}
+            if _cert_info is not None:
+                if _cert_info.kind == "backup":
+                    _meta_kwargs["backup_cert"] = _cert_info.tde_key
+                else:
+                    _meta_kwargs["tde_key"] = _cert_info.tde_key
+            _rm = build_recovered_metadata(_bak_local_input, **_meta_kwargs)
             _validators = get_validators()
             for _cat_name, _spec in _validators.items():
                 try:
@@ -641,7 +656,14 @@ def _confidence_report_to_dict(report: ConfidenceReport) -> dict[str, Any]:
 
 
 def _run_confidence_only(bak_path: Path) -> dict[str, Any]:
-    report = analyze_bak(bak_path)
+    _cert_info = resolve_cert(bak_path)
+    _analyze_kwargs: dict[str, Any] = {}
+    if _cert_info is not None:
+        if _cert_info.kind == "backup":
+            _analyze_kwargs["backup_cert"] = _cert_info.tde_key
+        else:
+            _analyze_kwargs["tde_key"] = _cert_info.tde_key
+    report = analyze_bak(bak_path, **_analyze_kwargs)
     return {
         "bak": bak_path.name,
         "sql_version": "",

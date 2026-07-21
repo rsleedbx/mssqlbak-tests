@@ -237,7 +237,16 @@ def _load_and_backup(
 # ---------------------------------------------------------------------------
 
 def _mapped_port(container: str, container_port: int = 1433) -> int:
-    """Return the host port Podman maps to *container_port* inside *container*."""
+    """Return the host port Podman maps to *container_port* inside *container*.
+
+    When ``FIXTURE_DB_PORT`` is set it is returned directly, bypassing the
+    ``podman port`` call.  This is used when the container is on a remote host
+    (e.g. ``CONTAINER_HOST=ssh://...``) where the mapped port is known in
+    advance and ``podman port`` would return the remote host's port rather than
+    a locally-reachable one.
+    """
+    if env_port := os.environ.get("FIXTURE_DB_PORT"):
+        return int(env_port)
     out = subprocess.check_output(
         ["podman", "port", container, f"{container_port}/tcp"], text=True
     )
@@ -307,9 +316,12 @@ def connect(
 ) -> "_mssql.Connection":
     """Return an mssql_python Connection to SQL Server in *container*.
 
-    Resolves the host-mapped TCP port via ``podman port`` and delegates to
-    :func:`connect_dsn`.  Uses ``127.0.0.1`` (IPv4) to avoid the macOS
-    ``::1`` IPv6 hang.
+    Resolves the host-mapped TCP port via ``podman port`` (or ``FIXTURE_DB_PORT``
+    env override) and delegates to :func:`connect_dsn`.  Uses ``127.0.0.1``
+    (IPv4) by default to avoid the macOS ``::1`` IPv6 hang; set
+    ``FIXTURE_DB_HOST`` to target a remote SQL Server (e.g. when
+    ``CONTAINER_HOST=ssh://...`` points podman at a remote host and the
+    container port is published on the remote NIC).
 
     Parameters
     ----------
@@ -323,8 +335,9 @@ def connect(
         Per-connection and per-statement timeout in seconds.
     """
     port = _mapped_port(container)
+    host = os.environ.get("FIXTURE_DB_HOST", "127.0.0.1")
     return connect_dsn(
-        "127.0.0.1", port, user, password,
+        host, port, user, password,
         database=database,
         autocommit=autocommit,
         timeout=timeout,

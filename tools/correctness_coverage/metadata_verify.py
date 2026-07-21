@@ -151,6 +151,9 @@ class RecoveredMetadata:
 
 def build_recovered_metadata(
     bak_input: Path | list[Path],
+    *,
+    tde_key: "Any | None" = None,
+    backup_cert: "Any | None" = None,
 ) -> RecoveredMetadata:
     """Recover all non-data catalog artifacts from *bak_input*.
 
@@ -162,6 +165,11 @@ def build_recovered_metadata(
     bak_input:
         A single .bak ``Path`` or a list of striped/differential .bak paths
         (full first, then diff), as returned by ``runner._resolve_bak_input``.
+    tde_key:
+        Optional :class:`~mssqlbak.tde.TdeKey` for page-level TDE backups.
+    backup_cert:
+        Optional :class:`~mssqlbak.tde.TdeKey` (or raw RSA private key) for
+        backup-level encrypted backups (``WITH ENCRYPTION``).
     """
     from mssqlbak.catalog.recover import (
         recover_catalog_objects,
@@ -182,7 +190,7 @@ def build_recovered_metadata(
 
     baks: list[Path] = [bak_input] if isinstance(bak_input, Path) else list(bak_input)
     if len(baks) == 1:
-        store = PageStore.from_bak(baks[0])
+        store = PageStore.from_bak(baks[0], tde_key=tde_key, backup_cert=backup_cert)
     else:
         # Merge catalog pages across all parts.
         # Striped backups: catalog pages are spread across stripes; all must be merged.

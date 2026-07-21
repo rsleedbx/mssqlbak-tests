@@ -7,9 +7,11 @@ Ground truth is recorded in `tests/fixtures/<name>.bak.stats.json` by
 
 **49 fixtures · 49 pass · 0 xfail (known gap) · 0 fail**
 
-**Tables:** 1445/1445 pass · **Columns:** 12633/12633 pass
+**Tables:** 7133/7133 pass · **Columns:** 63913/63913 pass
 
 **Row count:** ✓ · **Null count:** ✓ · **Min/max:** ✓ · **Col count:** ✓ · **Cells:** ✓
+
+**Edges:** mssql→arrow ✓ · arrow→delta ✓ · delta→arrow ✓ · arrow→pg_dir ✓ · pg_dir→arrow ✓
 
 Column key:
 
@@ -36,47 +38,47 @@ Memory-optimized (In-Memory OLTP / XTP) tables store their data in XTP checkpoin
 | `AdventureWorks2008R2.bak` | mssql→arrow | 760,838 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
 | `AdventureWorks2008R2.bak` | arrow→delta | 760,838 | 476 | **70/70** | **477/477** | **932/932** | **70/70** | — | ✓ |
 | `AdventureWorks2008R2.bak` | delta→arrow | 760,838 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
-| `AdventureWorks2008R2.bak` | arrow→pg_dir | 760,838 | 476 | **70/70** | **477/477** | 926/932 ⚠ | **70/70** | — | ✗ |
+| `AdventureWorks2008R2.bak` | arrow→pg_dir | 760,838 | 476 | **70/70** | **477/477** | **932/932** | **70/70** | — | ✓ |
 | `AdventureWorks2008R2.bak` | pg_dir→arrow | 760,838 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
 | `AdventureWorks2012.bak` | mssql→arrow | 760,837 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
 | `AdventureWorks2012.bak` | arrow→delta | 760,837 | 476 | **70/70** | **477/477** | **932/932** | **70/70** | — | ✓ |
 | `AdventureWorks2012.bak` | delta→arrow | 760,837 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
-| `AdventureWorks2012.bak` | arrow→pg_dir | 760,837 | 476 | **70/70** | **477/477** | 926/932 ⚠ | **70/70** | — | ✗ |
+| `AdventureWorks2012.bak` | arrow→pg_dir | 760,837 | 476 | **70/70** | **477/477** | **932/932** | **70/70** | — | ✓ |
 | `AdventureWorks2012.bak` | pg_dir→arrow | 760,837 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
 | `AdventureWorks2014.bak` | mssql→arrow | 760,838 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
 | `AdventureWorks2014.bak` | arrow→delta | 760,838 | 476 | **70/70** | **477/477** | **932/932** | **70/70** | — | ✓ |
 | `AdventureWorks2014.bak` | delta→arrow | 760,838 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
-| `AdventureWorks2014.bak` | arrow→pg_dir | 760,838 | 476 | **70/70** | **477/477** | 926/932 ⚠ | **70/70** | — | ✗ |
+| `AdventureWorks2014.bak` | arrow→pg_dir | 760,838 | 476 | **70/70** | **477/477** | **932/932** | **70/70** | — | ✓ |
 | `AdventureWorks2014.bak` | pg_dir→arrow | 760,838 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
 | `AdventureWorks2016.bak` | mssql→arrow | 760,838 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
 | `AdventureWorks2016.bak` | arrow→delta | 760,838 | 476 | **70/70** | **477/477** | **932/932** | **70/70** | — | ✓ |
 | `AdventureWorks2016.bak` | delta→arrow | 760,838 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
-| `AdventureWorks2016.bak` | arrow→pg_dir | 760,838 | 476 | **70/70** | **477/477** | 926/932 ⚠ | **70/70** | — | ✗ |
+| `AdventureWorks2016.bak` | arrow→pg_dir | 760,838 | 476 | **70/70** | **477/477** | **932/932** | **70/70** | — | ✓ |
 | `AdventureWorks2016.bak` | pg_dir→arrow | 760,838 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
 | `AdventureWorks2016_EXT.bak` | mssql→arrow | 1,378,717 | 731 | **92/92** | **697/697** | **1314/1314** | **92/92** | digest | ✓ |
 | `AdventureWorks2016_EXT.bak` | arrow→delta | 1,378,717 | 731 | **89/89** | **713/713** | **1386/1386** | **89/89** | — | ✓ |
 | `AdventureWorks2016_EXT.bak` | delta→arrow | 1,378,717 | 731 | **92/92** | **697/697** | **1314/1314** | **92/92** | digest | ✓ |
-| `AdventureWorks2016_EXT.bak` | arrow→pg_dir | 1,378,717 | 731 | **89/89** | **713/713** | 1380/1386 ⚠ | **89/89** | — | ✗ |
+| `AdventureWorks2016_EXT.bak` | arrow→pg_dir | 1,378,717 | 731 | **89/89** | **713/713** | **1386/1386** | **89/89** | — | ✓ |
 | `AdventureWorks2016_EXT.bak` | pg_dir→arrow | 1,378,717 | 731 | **92/92** | **697/697** | **1314/1314** | **92/92** | digest | ✓ |
 | `AdventureWorks2017.bak` | mssql→arrow | 760,837 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
 | `AdventureWorks2017.bak` | arrow→delta | 760,837 | 476 | **70/70** | **477/477** | **932/932** | **70/70** | — | ✓ |
 | `AdventureWorks2017.bak` | delta→arrow | 760,837 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
-| `AdventureWorks2017.bak` | arrow→pg_dir | 760,837 | 476 | **70/70** | **477/477** | 926/932 ⚠ | **70/70** | — | ✗ |
+| `AdventureWorks2017.bak` | arrow→pg_dir | 760,837 | 476 | **70/70** | **477/477** | **932/932** | **70/70** | — | ✓ |
 | `AdventureWorks2017.bak` | pg_dir→arrow | 760,837 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
 | `AdventureWorks2019.bak` | mssql→arrow | 760,837 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
 | `AdventureWorks2019.bak` | arrow→delta | 760,837 | 476 | **70/70** | **477/477** | **932/932** | **70/70** | — | ✓ |
 | `AdventureWorks2019.bak` | delta→arrow | 760,837 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
-| `AdventureWorks2019.bak` | arrow→pg_dir | 760,837 | 476 | **70/70** | **477/477** | 926/932 ⚠ | **70/70** | — | ✗ |
+| `AdventureWorks2019.bak` | arrow→pg_dir | 760,837 | 476 | **70/70** | **477/477** | **932/932** | **70/70** | — | ✓ |
 | `AdventureWorks2019.bak` | pg_dir→arrow | 760,837 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
 | `AdventureWorks2022.bak` | mssql→arrow | 760,837 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
 | `AdventureWorks2022.bak` | arrow→delta | 760,837 | 476 | **70/70** | **477/477** | **932/932** | **70/70** | — | ✓ |
 | `AdventureWorks2022.bak` | delta→arrow | 760,837 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
-| `AdventureWorks2022.bak` | arrow→pg_dir | 760,837 | 476 | **70/70** | **477/477** | 926/932 ⚠ | **70/70** | — | ✗ |
+| `AdventureWorks2022.bak` | arrow→pg_dir | 760,837 | 476 | **70/70** | **477/477** | **932/932** | **70/70** | — | ✓ |
 | `AdventureWorks2022.bak` | pg_dir→arrow | 760,837 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
 | `AdventureWorks2025.bak` | mssql→arrow | 760,167 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
 | `AdventureWorks2025.bak` | arrow→delta | 760,167 | 476 | **70/70** | **477/477** | **932/932** | **70/70** | — | ✓ |
 | `AdventureWorks2025.bak` | delta→arrow | 760,167 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
-| `AdventureWorks2025.bak` | arrow→pg_dir | 760,167 | 476 | **70/70** | **477/477** | 926/932 ⚠ | **70/70** | — | ✗ |
+| `AdventureWorks2025.bak` | arrow→pg_dir | 760,167 | 476 | **70/70** | **477/477** | **932/932** | **70/70** | — | ✓ |
 | `AdventureWorks2025.bak` | pg_dir→arrow | 760,167 | 476 | **71/71** | **467/467** | **872/872** | **71/71** | digest | ✓ |
 | `AdventureWorksDW2008R2.bak` | mssql→arrow | 282,030 | 327 | **28/28** | **327/327** | **646/646** | **28/28** | digest | ✓ |
 | `AdventureWorksDW2008R2.bak` | arrow→delta | 282,030 | 327 | **28/28** | **327/327** | **646/646** | **28/28** | — | ✓ |
@@ -557,7 +559,7 @@ _SQL Server Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64) 
 | `Production.ProductModelIllustration` | rowstore | 7 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Production.ProductModelProductDescriptionCulture` | rowstore | 762 | ✓ | **4/4** | **8/8** | ✓ |  |
 | `Production.ProductPhoto` | rowstore | 101 | ✓ | **6/6** | **12/12** | ✓ |  |
-| `Production.ProductProductPhoto` | rowstore | 504 | ✓ | **4/4** | 6/8 ⚠ | ✓ |  |
+| `Production.ProductProductPhoto` | rowstore | 504 | ✓ | **4/4** | **8/8** | ✓ |  |
 | `Production.ProductReview` | rowstore | 4 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `Production.ProductSubcategory` | rowstore | 37 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Purchasing.ProductVendor` | rowstore | 460 | ✓ | **11/11** | **22/22** | ✓ |  |
@@ -573,7 +575,7 @@ _SQL Server Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64) 
 | `Sales.SalesTerritory` | rowstore | 10 | ✓ | **10/10** | **20/20** | ✓ |  |
 | `Sales.SalesTerritoryHistory` | rowstore | 17 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `Production.ScrapReason` | rowstore | 16 | ✓ | **3/3** | **6/6** | ✓ |  |
-| `HumanResources.Shift` | rowstore | 3 | ✓ | **5/5** | 6/10 ⚠ | ✓ |  |
+| `HumanResources.Shift` | rowstore | 3 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Purchasing.ShipMethod` | rowstore | 5 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `Sales.ShoppingCartItem` | rowstore | 3 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `Sales.SpecialOffer` | rowstore | 16 | ✓ | **11/11** | **22/22** | ✓ |  |
@@ -939,7 +941,7 @@ _SQL Server Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64) 
 | `Production.ProductModelIllustration` | rowstore | 7 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Production.ProductModelProductDescriptionCulture` | rowstore | 762 | ✓ | **4/4** | **8/8** | ✓ |  |
 | `Production.ProductPhoto` | rowstore | 101 | ✓ | **6/6** | **12/12** | ✓ |  |
-| `Production.ProductProductPhoto` | rowstore | 504 | ✓ | **4/4** | 6/8 ⚠ | ✓ |  |
+| `Production.ProductProductPhoto` | rowstore | 504 | ✓ | **4/4** | **8/8** | ✓ |  |
 | `Production.ProductReview` | rowstore | 4 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `Production.ProductSubcategory` | rowstore | 37 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Purchasing.ProductVendor` | rowstore | 460 | ✓ | **11/11** | **22/22** | ✓ |  |
@@ -955,7 +957,7 @@ _SQL Server Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64) 
 | `Sales.SalesTerritory` | rowstore | 10 | ✓ | **10/10** | **20/20** | ✓ |  |
 | `Sales.SalesTerritoryHistory` | rowstore | 17 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `Production.ScrapReason` | rowstore | 16 | ✓ | **3/3** | **6/6** | ✓ |  |
-| `HumanResources.Shift` | rowstore | 3 | ✓ | **5/5** | 6/10 ⚠ | ✓ |  |
+| `HumanResources.Shift` | rowstore | 3 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Purchasing.ShipMethod` | rowstore | 5 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `Sales.ShoppingCartItem` | rowstore | 3 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `Sales.SpecialOffer` | rowstore | 16 | ✓ | **11/11** | **22/22** | ✓ |  |
@@ -1321,7 +1323,7 @@ _SQL Server Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64) 
 | `Production.ProductModelIllustration` | rowstore | 7 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Production.ProductModelProductDescriptionCulture` | rowstore | 762 | ✓ | **4/4** | **8/8** | ✓ |  |
 | `Production.ProductPhoto` | rowstore | 101 | ✓ | **6/6** | **12/12** | ✓ |  |
-| `Production.ProductProductPhoto` | rowstore | 504 | ✓ | **4/4** | 6/8 ⚠ | ✓ |  |
+| `Production.ProductProductPhoto` | rowstore | 504 | ✓ | **4/4** | **8/8** | ✓ |  |
 | `Production.ProductReview` | rowstore | 4 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `Production.ProductSubcategory` | rowstore | 37 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Purchasing.ProductVendor` | rowstore | 460 | ✓ | **11/11** | **22/22** | ✓ |  |
@@ -1337,7 +1339,7 @@ _SQL Server Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64) 
 | `Sales.SalesTerritory` | rowstore | 10 | ✓ | **10/10** | **20/20** | ✓ |  |
 | `Sales.SalesTerritoryHistory` | rowstore | 17 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `Production.ScrapReason` | rowstore | 16 | ✓ | **3/3** | **6/6** | ✓ |  |
-| `HumanResources.Shift` | rowstore | 3 | ✓ | **5/5** | 6/10 ⚠ | ✓ |  |
+| `HumanResources.Shift` | rowstore | 3 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Purchasing.ShipMethod` | rowstore | 5 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `Sales.ShoppingCartItem` | rowstore | 3 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `Sales.SpecialOffer` | rowstore | 16 | ✓ | **11/11** | **22/22** | ✓ |  |
@@ -1703,7 +1705,7 @@ _SQL Server Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64) 
 | `Production.ProductModelIllustration` | rowstore | 7 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Production.ProductModelProductDescriptionCulture` | rowstore | 762 | ✓ | **4/4** | **8/8** | ✓ |  |
 | `Production.ProductPhoto` | rowstore | 101 | ✓ | **6/6** | **12/12** | ✓ |  |
-| `Production.ProductProductPhoto` | rowstore | 504 | ✓ | **4/4** | 6/8 ⚠ | ✓ |  |
+| `Production.ProductProductPhoto` | rowstore | 504 | ✓ | **4/4** | **8/8** | ✓ |  |
 | `Production.ProductReview` | rowstore | 4 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `Production.ProductSubcategory` | rowstore | 37 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Purchasing.ProductVendor` | rowstore | 460 | ✓ | **11/11** | **22/22** | ✓ |  |
@@ -1719,7 +1721,7 @@ _SQL Server Microsoft SQL Server 2025 (RTM-CU5) (KB5084896) - 17.0.4045.5 (X64) 
 | `Sales.SalesTerritory` | rowstore | 10 | ✓ | **10/10** | **20/20** | ✓ |  |
 | `Sales.SalesTerritoryHistory` | rowstore | 17 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `Production.ScrapReason` | rowstore | 16 | ✓ | **3/3** | **6/6** | ✓ |  |
-| `HumanResources.Shift` | rowstore | 3 | ✓ | **5/5** | 6/10 ⚠ | ✓ |  |
+| `HumanResources.Shift` | rowstore | 3 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Purchasing.ShipMethod` | rowstore | 5 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `Sales.ShoppingCartItem` | rowstore | 3 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `Sales.SpecialOffer` | rowstore | 16 | ✓ | **11/11** | **22/22** | ✓ |  |
@@ -2153,7 +2155,7 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `Production.ProductModelIllustration` | rowstore | 7 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Production.ProductModelProductDescriptionCulture` | rowstore | 762 | ✓ | **4/4** | **8/8** | ✓ |  |
 | `Production.ProductPhoto` | rowstore | 101 | ✓ | **6/6** | **12/12** | ✓ |  |
-| `Production.ProductProductPhoto` | rowstore | 504 | ✓ | **4/4** | 6/8 ⚠ | ✓ |  |
+| `Production.ProductProductPhoto` | rowstore | 504 | ✓ | **4/4** | **8/8** | ✓ |  |
 | `Production.ProductReview` | rowstore | 4 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `Production.ProductSubcategory` | rowstore | 37 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Purchasing.ProductVendor` | rowstore | 460 | ✓ | **11/11** | **22/22** | ✓ |  |
@@ -2176,7 +2178,7 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `Sales.SalesTerritory` | rowstore | 10 | ✓ | **10/10** | **20/20** | ✓ |  |
 | `Sales.SalesTerritoryHistory` | rowstore | 17 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `Production.ScrapReason` | rowstore | 16 | ✓ | **3/3** | **6/6** | ✓ |  |
-| `HumanResources.Shift` | rowstore | 3 | ✓ | **5/5** | 6/10 ⚠ | ✓ |  |
+| `HumanResources.Shift` | rowstore | 3 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Purchasing.ShipMethod` | rowstore | 5 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `Sales.ShoppingCartItem` | rowstore | 3 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `Sales.SpecialOffer` | rowstore | 16 | ✓ | **11/11** | **22/22** | ✓ |  |
@@ -2568,7 +2570,7 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `Production.ProductModelIllustration` | rowstore | 7 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Production.ProductModelProductDescriptionCulture` | rowstore | 762 | ✓ | **4/4** | **8/8** | ✓ |  |
 | `Production.ProductPhoto` | rowstore | 101 | ✓ | **6/6** | **12/12** | ✓ |  |
-| `Production.ProductProductPhoto` | rowstore | 504 | ✓ | **4/4** | 6/8 ⚠ | ✓ |  |
+| `Production.ProductProductPhoto` | rowstore | 504 | ✓ | **4/4** | **8/8** | ✓ |  |
 | `Production.ProductReview` | rowstore | 4 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `Production.ProductSubcategory` | rowstore | 37 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Purchasing.ProductVendor` | rowstore | 460 | ✓ | **11/11** | **22/22** | ✓ |  |
@@ -2584,7 +2586,7 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `Sales.SalesTerritory` | rowstore | 10 | ✓ | **10/10** | **20/20** | ✓ |  |
 | `Sales.SalesTerritoryHistory` | rowstore | 17 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `Production.ScrapReason` | rowstore | 16 | ✓ | **3/3** | **6/6** | ✓ |  |
-| `HumanResources.Shift` | rowstore | 3 | ✓ | **5/5** | 6/10 ⚠ | ✓ |  |
+| `HumanResources.Shift` | rowstore | 3 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Purchasing.ShipMethod` | rowstore | 5 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `Sales.ShoppingCartItem` | rowstore | 3 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `Sales.SpecialOffer` | rowstore | 16 | ✓ | **11/11** | **22/22** | ✓ |  |
@@ -2950,7 +2952,7 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `Production.ProductModelIllustration` | rowstore | 7 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Production.ProductModelProductDescriptionCulture` | rowstore | 762 | ✓ | **4/4** | **8/8** | ✓ |  |
 | `Production.ProductPhoto` | rowstore | 101 | ✓ | **6/6** | **12/12** | ✓ |  |
-| `Production.ProductProductPhoto` | rowstore | 504 | ✓ | **4/4** | 6/8 ⚠ | ✓ |  |
+| `Production.ProductProductPhoto` | rowstore | 504 | ✓ | **4/4** | **8/8** | ✓ |  |
 | `Production.ProductReview` | rowstore | 4 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `Production.ProductSubcategory` | rowstore | 37 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Purchasing.ProductVendor` | rowstore | 460 | ✓ | **11/11** | **22/22** | ✓ |  |
@@ -2966,7 +2968,7 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `Sales.SalesTerritory` | rowstore | 10 | ✓ | **10/10** | **20/20** | ✓ |  |
 | `Sales.SalesTerritoryHistory` | rowstore | 17 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `Production.ScrapReason` | rowstore | 16 | ✓ | **3/3** | **6/6** | ✓ |  |
-| `HumanResources.Shift` | rowstore | 3 | ✓ | **5/5** | 6/10 ⚠ | ✓ |  |
+| `HumanResources.Shift` | rowstore | 3 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Purchasing.ShipMethod` | rowstore | 5 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `Sales.ShoppingCartItem` | rowstore | 3 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `Sales.SpecialOffer` | rowstore | 16 | ✓ | **11/11** | **22/22** | ✓ |  |
@@ -3332,7 +3334,7 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `Production.ProductModelIllustration` | rowstore | 7 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Production.ProductModelProductDescriptionCulture` | rowstore | 762 | ✓ | **4/4** | **8/8** | ✓ |  |
 | `Production.ProductPhoto` | rowstore | 101 | ✓ | **6/6** | **12/12** | ✓ |  |
-| `Production.ProductProductPhoto` | rowstore | 504 | ✓ | **4/4** | 6/8 ⚠ | ✓ |  |
+| `Production.ProductProductPhoto` | rowstore | 504 | ✓ | **4/4** | **8/8** | ✓ |  |
 | `Production.ProductReview` | rowstore | 4 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `Production.ProductSubcategory` | rowstore | 37 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Purchasing.ProductVendor` | rowstore | 460 | ✓ | **11/11** | **22/22** | ✓ |  |
@@ -3348,7 +3350,7 @@ _SQL Server Microsoft SQL Server 2022 (RTM-CU24) (KB5080999) - 16.0.4245.2 (X64)
 | `Sales.SalesTerritory` | rowstore | 10 | ✓ | **10/10** | **20/20** | ✓ |  |
 | `Sales.SalesTerritoryHistory` | rowstore | 17 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `Production.ScrapReason` | rowstore | 16 | ✓ | **3/3** | **6/6** | ✓ |  |
-| `HumanResources.Shift` | rowstore | 3 | ✓ | **5/5** | 6/10 ⚠ | ✓ |  |
+| `HumanResources.Shift` | rowstore | 3 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Purchasing.ShipMethod` | rowstore | 5 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `Sales.ShoppingCartItem` | rowstore | 3 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `Sales.SpecialOffer` | rowstore | 16 | ✓ | **11/11** | **22/22** | ✓ |  |
@@ -3714,7 +3716,7 @@ _SQL Server Microsoft SQL Server 2025 (RTM-CU7) (KB5096981) - 17.0.4065.4 (X64) 
 | `Production.ProductModelIllustration` | rowstore | 7 | ✓ | **3/3** | **6/6** | ✓ |  |
 | `Production.ProductModelProductDescriptionCulture` | rowstore | 762 | ✓ | **4/4** | **8/8** | ✓ |  |
 | `Production.ProductPhoto` | rowstore | 101 | ✓ | **6/6** | **12/12** | ✓ |  |
-| `Production.ProductProductPhoto` | rowstore | 504 | ✓ | **4/4** | 6/8 ⚠ | ✓ |  |
+| `Production.ProductProductPhoto` | rowstore | 504 | ✓ | **4/4** | **8/8** | ✓ |  |
 | `Production.ProductReview` | rowstore | 4 | ✓ | **8/8** | **16/16** | ✓ |  |
 | `Production.ProductSubcategory` | rowstore | 37 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Purchasing.ProductVendor` | rowstore | 460 | ✓ | **11/11** | **22/22** | ✓ |  |
@@ -3730,7 +3732,7 @@ _SQL Server Microsoft SQL Server 2025 (RTM-CU7) (KB5096981) - 17.0.4065.4 (X64) 
 | `Sales.SalesTerritory` | rowstore | 10 | ✓ | **10/10** | **20/20** | ✓ |  |
 | `Sales.SalesTerritoryHistory` | rowstore | 17 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `Production.ScrapReason` | rowstore | 16 | ✓ | **3/3** | **6/6** | ✓ |  |
-| `HumanResources.Shift` | rowstore | 3 | ✓ | **5/5** | 6/10 ⚠ | ✓ |  |
+| `HumanResources.Shift` | rowstore | 3 | ✓ | **5/5** | **10/10** | ✓ |  |
 | `Purchasing.ShipMethod` | rowstore | 5 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `Sales.ShoppingCartItem` | rowstore | 3 | ✓ | **6/6** | **12/12** | ✓ |  |
 | `Sales.SpecialOffer` | rowstore | 16 | ✓ | **11/11** | **22/22** | ✓ |  |
@@ -8864,55 +8866,55 @@ Metadata ground truth is collected from the live SQL Server restore into `<bak>.
 
 | Backup | Extract | Verify | Wall time |
 |--------|---------|--------|-----------|
-| `AdventureWorks2008R2.bak` | 17.155s | 10.025s | 27.18s |
-| `AdventureWorks2012.bak` | 17.957s | 10.828s | 28.785s |
-| `AdventureWorks2014.bak` | 17.617s | 10.578s | 28.195s |
-| `AdventureWorks2016.bak` | 18.183s | 11.021s | 29.204s |
-| `AdventureWorks2016_EXT.bak` | 40.59s | 18.778s | 59.368s |
-| `AdventureWorks2017.bak` | 18.06s | 10.859s | 28.919s |
-| `AdventureWorks2019.bak` | 17.467s | 10.133s | 27.6s |
-| `AdventureWorks2022.bak` | 17.42s | 10.062s | 27.482s |
-| `AdventureWorks2025.bak` | 17.638s | 10.851s | 28.489s |
-| `AdventureWorksDW2008R2.bak` | 3.432s | 3.213s | 6.645s |
-| `AdventureWorksDW2012.bak` | 6.905s | 7.876s | 14.781s |
-| `AdventureWorksDW2014.bak` | 7.215s | 7.654s | 14.869s |
-| `AdventureWorksDW2016.bak` | 7.03s | 7.718s | 14.748s |
-| `AdventureWorksDW2016_EXT.bak` | 103.033s | 62.855s | 165.888s |
-| `AdventureWorksDW2017.bak` | 7.27s | 7.655s | 14.925s |
-| `AdventureWorksDW2019.bak` | 8.437s | 7.961s | 16.398s |
-| `AdventureWorksDW2022.bak` | 6.755s | 7.978s | 14.733s |
-| `AdventureWorksDW2025.bak` | 6.789s | 8.037s | 14.826s |
-| `AdventureWorksLT2012.bak` | 0.299s | 0.443s | 0.742s |
-| `AdventureWorksLT2014.bak` | 0.318s | 0.465s | 0.783s |
-| `AdventureWorksLT2016.bak` | 0.304s | 0.473s | 0.777s |
-| `AdventureWorksLT2017.bak` | 0.372s | 0.482s | 0.854s |
-| `AdventureWorksLT2019.bak` | 0.367s | 0.465s | 0.832s |
-| `AdventureWorksLT2022.bak` | 0.326s | 0.476s | 0.802s |
-| `AdventureWorksLT2025.bak` | 0.396s | 0.518s | 0.914s |
-| `BaseballData.bak` | 11.462s | 4.388s | 15.85s |
-| `Chinook-id-pk.bak` | 0.235s | 0.252s | 0.487s |
-| `Chinook.bak` | 0.246s | 0.32s | 0.566s |
-| `ContosoRetailDW.bak` | 249.244s | 369.311s | 618.555s |
-| `CreditBackup100.bak` | 24.868s | 21.138s | 46.006s |
-| `data.gov.bak` | 2.855s | 1.789s | 4.644s |
-| `dba.stackexchange.com.bak` | 107.376s | 117.321s | 224.697s |
-| `EmployeeCaseStudySampleDB2012.bak` | 6.227s | 2.016s | 8.243s |
-| `GeneralHospital.bak` | 42.473s | 30.26s | 72.733s |
-| `IndexInternals2008.bak` | 4.868s | 0.972s | 5.84s |
-| `Northwinds.bak` | 0.307s | 0.279s | 0.586s |
-| `NYCTaxi_Sample.bak` | 38.087s | 52.354s | 90.441s |
-| `Pubs.bak` | 0.258s | 0.215s | 0.473s |
-| `SalesDB2014.bak` | 12.214s | 11.117s | 23.331s |
-| `SalesDBOriginal.bak` | 11.263s | 10.308s | 21.571s |
-| `StackOverflowMini.bak` | 113.207s | 169.451s | 282.658s |
-| `tpcxbb_1gb.bak` | 102.951s | 91.435s | 194.386s |
-| `TutorialDB.bak` | 0.137s | 0.042s | 0.179s |
-| `WideWorldImporters-Full.bak` | 48.223s | 37.49s | 85.713s |
-| `WideWorldImporters-Full_old.bak` | 46.214s | 35.39s | 81.604s |
-| `WideWorldImporters-Standard.bak` | 53.485s | 37.84s | 91.325s |
-| `WideWorldImporters-Standard_old.bak` | 50.742s | 36.643s | 87.385s |
-| `WideWorldImportersDW-Full.bak` | 11.078s | 9.54s | 20.618s |
-| `WideWorldImportersDW-Standard.bak` | 10.227s | 9.696s | 19.923s |
+| `AdventureWorks2008R2.bak` | 16.878s | 10.048s | 26.926s |
+| `AdventureWorks2012.bak` | 17.736s | 10.525s | 28.261s |
+| `AdventureWorks2014.bak` | 17.781s | 10.862s | 28.643s |
+| `AdventureWorks2016.bak` | 18.023s | 10.834s | 28.857s |
+| `AdventureWorks2016_EXT.bak` | 39.875s | 18.66s | 58.535s |
+| `AdventureWorks2017.bak` | 17.879s | 10.651s | 28.53s |
+| `AdventureWorks2019.bak` | 17.055s | 9.934s | 26.989s |
+| `AdventureWorks2022.bak` | 16.986s | 9.906s | 26.892s |
+| `AdventureWorks2025.bak` | 17.376s | 10.722s | 28.098s |
+| `AdventureWorksDW2008R2.bak` | 3.257s | 3.132s | 6.389s |
+| `AdventureWorksDW2012.bak` | 6.996s | 7.77s | 14.766s |
+| `AdventureWorksDW2014.bak` | 7.024s | 7.606s | 14.63s |
+| `AdventureWorksDW2016.bak` | 6.718s | 7.543s | 14.261s |
+| `AdventureWorksDW2016_EXT.bak` | 103.778s | 60.51s | 164.288s |
+| `AdventureWorksDW2017.bak` | 6.959s | 7.874s | 14.833s |
+| `AdventureWorksDW2019.bak` | 8.445s | 7.69s | 16.135s |
+| `AdventureWorksDW2022.bak` | 6.572s | 7.698s | 14.27s |
+| `AdventureWorksDW2025.bak` | 6.67s | 7.506s | 14.176s |
+| `AdventureWorksLT2012.bak` | 0.276s | 0.425s | 0.701s |
+| `AdventureWorksLT2014.bak` | 0.342s | 0.461s | 0.803s |
+| `AdventureWorksLT2016.bak` | 0.279s | 0.433s | 0.712s |
+| `AdventureWorksLT2017.bak` | 0.324s | 0.454s | 0.778s |
+| `AdventureWorksLT2019.bak` | 0.302s | 0.473s | 0.775s |
+| `AdventureWorksLT2022.bak` | 0.306s | 0.467s | 0.773s |
+| `AdventureWorksLT2025.bak` | 0.382s | 0.495s | 0.877s |
+| `BaseballData.bak` | 11.075s | 4.551s | 15.626s |
+| `Chinook-id-pk.bak` | 0.216s | 0.225s | 0.441s |
+| `Chinook.bak` | 0.287s | 0.235s | 0.522s |
+| `ContosoRetailDW.bak` | 248.882s | 372.934s | 621.816s |
+| `CreditBackup100.bak` | 25.089s | 21.341s | 46.43s |
+| `data.gov.bak` | 2.81s | 1.73s | 4.54s |
+| `dba.stackexchange.com.bak` | 110.705s | 118.214s | 228.919s |
+| `EmployeeCaseStudySampleDB2012.bak` | 6.26s | 1.95s | 8.21s |
+| `GeneralHospital.bak` | 42.676s | 30.027s | 72.703s |
+| `IndexInternals2008.bak` | 4.823s | 0.976s | 5.799s |
+| `Northwinds.bak` | 0.292s | 0.252s | 0.544s |
+| `NYCTaxi_Sample.bak` | 39.212s | 54.081s | 93.293s |
+| `Pubs.bak` | 0.251s | 0.189s | 0.44s |
+| `SalesDB2014.bak` | 11.871s | 11.141s | 23.012s |
+| `SalesDBOriginal.bak` | 11.385s | 10.632s | 22.017s |
+| `StackOverflowMini.bak` | 112.443s | 171.246s | 283.689s |
+| `tpcxbb_1gb.bak` | 100.784s | 89.794s | 190.578s |
+| `TutorialDB.bak` | 0.14s | 0.039s | 0.179s |
+| `WideWorldImporters-Full.bak` | 48.62s | 39.363s | 87.983s |
+| `WideWorldImporters-Full_old.bak` | 47.415s | 37.347s | 84.762s |
+| `WideWorldImporters-Standard.bak` | 50.95s | 37.008s | 87.958s |
+| `WideWorldImporters-Standard_old.bak` | 51.335s | 37.972s | 89.307s |
+| `WideWorldImportersDW-Full.bak` | 11.011s | 9.387s | 20.398s |
+| `WideWorldImportersDW-Standard.bak` | 9.819s | 9.651s | 19.47s |
 
 _Verify = wall − extract (Arrow conversion, ground-truth compare, cell verification, and confidence analysis). See **Sink read breakdown** below for the per-phase split._
 
@@ -8920,55 +8922,55 @@ _Verify = wall − extract (Arrow conversion, ground-truth compare, cell verific
 
 | Backup | pagestore | schema | catalog | constraints | logtail | xtp | data decode (net) | sink write | arrow verify | sink finish |
 |--------|----------:|-------:|--------:|------------:|--------:|---:|------------------:|-----------:|-------------:|------------:|
-| `AdventureWorks2008R2.bak` | 0.689s | 0.139s | 0.0s | 0.0s | 0.117s | 0.0s | 15.771s | 4.237s | 3.644s | 0.419s |
-| `AdventureWorks2012.bak` | 1.573s | 0.158s | 0.0s | 0.0s | 0.05s | 0.0s | 15.74s | 4.452s | 3.638s | 0.419s |
-| `AdventureWorks2014.bak` | 1.525s | 0.156s | 0.0s | 0.0s | 0.051s | 0.0s | 15.463s | 4.15s | 3.581s | 0.409s |
-| `AdventureWorks2016.bak` | 1.677s | 0.158s | 0.0s | 0.0s | 0.052s | 0.0s | 15.866s | 4.436s | 3.692s | 0.415s |
-| `AdventureWorks2016_EXT.bak` | 4.474s | 0.207s | 0.0s | 0.0s | 0.19s | 7.654s | 27.613s | 6.485s | 5.609s | 0.412s |
-| `AdventureWorks2017.bak` | 1.645s | 0.159s | 0.0s | 0.0s | 0.053s | 0.0s | 15.775s | 4.368s | 3.587s | 0.412s |
-| `AdventureWorks2019.bak` | 0.761s | 0.17s | 0.0s | 0.0s | 0.123s | 0.0s | 15.971s | 4.395s | 3.632s | 0.423s |
-| `AdventureWorks2022.bak` | 0.897s | 0.188s | 0.0s | 0.0s | 0.118s | 0.0s | 15.77s | 4.244s | 3.61s | 0.426s |
-| `AdventureWorks2025.bak` | 1.632s | 0.163s | 0.0s | 0.0s | 0.052s | 0.0s | 15.364s | 4.397s | 3.73s | 0.412s |
-| `AdventureWorksDW2008R2.bak` | 0.365s | 0.054s | 0.0s | 0.0s | 0.119s | 0.0s | 2.863s | 1.069s | 1.038s | 0.012s |
-| `AdventureWorksDW2012.bak` | 0.808s | 0.085s | 0.0s | 0.0s | 0.025s | 0.0s | 5.962s | 1.398s | 3.03s | 0.005s |
-| `AdventureWorksDW2014.bak` | 0.86s | 0.098s | 0.0s | 0.0s | 0.026s | 0.0s | 6.211s | 1.658s | 3.196s | 0.006s |
-| `AdventureWorksDW2016.bak` | 0.869s | 0.084s | 0.0s | 0.0s | 0.024s | 0.0s | 6.022s | 1.503s | 3.196s | 0.013s |
-| `AdventureWorksDW2016_EXT.bak` | 31.506s | 0.118s | 0.0s | 0.0s | 1.901s | 0.0s | 69.48s | 51.455s | 2.925s | 0.009s |
-| `AdventureWorksDW2017.bak` | 0.869s | 0.086s | 0.0s | 0.0s | 0.025s | 0.0s | 6.271s | 1.641s | 3.154s | 0.006s |
-| `AdventureWorksDW2019.bak` | 0.465s | 0.104s | 0.0s | 0.0s | 0.125s | 0.0s | 7.72s | 2.169s | 3.068s | 0.005s |
-| `AdventureWorksDW2022.bak` | 0.478s | 0.109s | 0.0s | 0.0s | 0.118s | 0.0s | 6.027s | 1.608s | 3.069s | 0.005s |
-| `AdventureWorksDW2025.bak` | 0.9s | 0.122s | 0.0s | 0.0s | 0.028s | 0.0s | 5.717s | 1.413s | 3.036s | 0.006s |
-| `AdventureWorksLT2012.bak` | 0.051s | 0.033s | 0.0s | 0.0s | 0.025s | 0.0s | 0.165s | 0.126s | 0.084s | 0.009s |
-| `AdventureWorksLT2014.bak` | 0.055s | 0.039s | 0.0s | 0.0s | 0.026s | 0.0s | 0.171s | 0.133s | 0.08s | 0.009s |
-| `AdventureWorksLT2016.bak` | 0.051s | 0.04s | 0.0s | 0.0s | 0.014s | 0.0s | 0.175s | 0.127s | 0.091s | 0.01s |
-| `AdventureWorksLT2017.bak` | 0.06s | 0.039s | 0.0s | 0.0s | 0.015s | 0.0s | 0.232s | 0.131s | 0.142s | 0.01s |
-| `AdventureWorksLT2019.bak` | 0.07s | 0.046s | 0.0s | 0.0s | 0.023s | 0.0s | 0.193s | 0.133s | 0.105s | 0.01s |
-| `AdventureWorksLT2022.bak` | 0.072s | 0.047s | 0.0s | 0.0s | 0.015s | 0.0s | 0.17s | 0.129s | 0.082s | 0.01s |
-| `AdventureWorksLT2025.bak` | 0.13s | 0.046s | 0.0s | 0.0s | 0.004s | 0.0s | 0.188s | 0.142s | 0.093s | 0.011s |
-| `BaseballData.bak` | 0.31s | 0.075s | 0.0s | 0.0s | 0.116s | 0.0s | 10.933s | 2.374s | 1.587s | 0.007s |
-| `Chinook-id-pk.bak` | 0.051s | 0.039s | 0.0s | 0.0s | 0.022s | 0.0s | 0.094s | 0.063s | 0.077s | 0.009s |
-| `Chinook.bak` | 0.049s | 0.039s | 0.0s | 0.0s | 0.012s | 0.0s | 0.118s | 0.088s | 0.092s | 0.013s |
-| `ContosoRetailDW.bak` | 13.981s | 0.153s | 0.0s | 0.0s | 1.952s | 0.0s | 233.141s | 41.663s | 172.176s | 0.002s |
-| `CreditBackup100.bak` | 1.502s | 0.028s | 0.0s | 0.0s | 0.059s | 0.0s | 23.261s | 4.33s | 9.93s | 0.004s |
-| `data.gov.bak` | 0.509s | 0.052s | 0.0s | 0.0s | 0.013s | 0.0s | 1.766s | 0.337s | 0.472s | 0.501s |
-| `dba.stackexchange.com.bak` | 14.827s | 0.07s | 0.0s | 0.0s | 0.95s | 0.0s | 90.225s | 13.618s | 16.278s | 1.289s |
-| `EmployeeCaseStudySampleDB2012.bak` | 0.634s | 0.062s | 0.0s | 0.0s | 0.015s | 0.0s | 5.156s | 0.974s | 0.656s | 0.347s |
-| `GeneralHospital.bak` | 1.159s | 0.074s | 0.0s | 0.0s | 0.132s | 0.0s | 40.948s | 8.456s | 8.35s | 0.136s |
-| `IndexInternals2008.bak` | 0.451s | 0.03s | 0.0s | 0.0s | 0.008s | 0.0s | 4.234s | 0.589s | 0.269s | 0.134s |
-| `Northwinds.bak` | 0.108s | 0.031s | 0.0s | 0.0s | 0.002s | 0.0s | 0.146s | 0.092s | 0.092s | 0.009s |
-| `NYCTaxi_Sample.bak` | 2.396s | 0.065s | 0.0s | 0.0s | 0.115s | 0.0s | 12.665s | 8.133s | 21.946s | 22.826s |
-| `Pubs.bak` | 0.092s | 0.03s | 0.0s | 0.0s | 0.001s | 0.0s | 0.117s | 0.091s | 0.083s | 0.008s |
-| `SalesDB2014.bak` | 1.192s | 0.063s | 0.0s | 0.0s | 0.031s | 0.0s | 5.436s | 2.602s | 5.498s | 5.478s |
-| `SalesDBOriginal.bak` | 0.651s | 0.029s | 0.0s | 0.0s | 0.126s | 0.0s | 10.43s | 2.43s | 5.116s | 0.005s |
-| `StackOverflowMini.bak` | 21.328s | 0.074s | 0.0s | 0.0s | 1.782s | 0.0s | 83.005s | 19.635s | 39.519s | 7.002s |
-| `tpcxbb_1gb.bak` | 10.956s | 0.079s | 0.0s | 0.0s | 0.448s | 0.0s | 91.177s | 15.943s | 43.291s | 0.271s |
-| `TutorialDB.bak` | 0.062s | 0.025s | 0.0s | 0.0s | 0.001s | 0.0s | 0.001s | 0.024s | 0.037s | 0.037s |
-| `WideWorldImporters-Full.bak` | 4.347s | 0.101s | 0.0s | 0.0s | 0.206s | 4.322s | 39.003s | 6.831s | 17.407s | 0.223s |
-| `WideWorldImporters-Full_old.bak` | 4.082s | 0.102s | 0.0s | 0.0s | 0.203s | 4.177s | 37.435s | 6.781s | 16.897s | 0.193s |
-| `WideWorldImporters-Standard.bak` | 4.416s | 0.102s | 0.0s | 0.0s | 0.213s | 0.0s | 48.526s | 7.687s | 18.25s | 0.216s |
-| `WideWorldImporters-Standard_old.bak` | 4.345s | 0.106s | 0.0s | 0.0s | 0.198s | 0.0s | 45.869s | 7.67s | 16.99s | 0.21s |
-| `WideWorldImportersDW-Full.bak` | 1.776s | 0.055s | 0.0s | 0.0s | 0.054s | 1.488s | 7.689s | 1.635s | 4.019s | 0.001s |
-| `WideWorldImportersDW-Standard.bak` | 1.974s | 0.048s | 0.0s | 0.0s | 0.06s | 0.0s | 8.129s | 1.496s | 4.398s | 0.002s |
+| `AdventureWorks2008R2.bak` | 0.667s | 0.133s | 0.0s | 0.0s | 0.121s | 0.0s | 15.533s | 4.245s | 3.577s | 0.405s |
+| `AdventureWorks2012.bak` | 1.558s | 0.158s | 0.0s | 0.0s | 0.052s | 0.0s | 15.523s | 4.199s | 3.606s | 0.416s |
+| `AdventureWorks2014.bak` | 1.532s | 0.164s | 0.0s | 0.0s | 0.051s | 0.0s | 15.598s | 4.533s | 3.652s | 0.411s |
+| `AdventureWorks2016.bak` | 1.668s | 0.189s | 0.0s | 0.0s | 0.107s | 0.0s | 15.6s | 4.327s | 3.658s | 0.417s |
+| `AdventureWorks2016_EXT.bak` | 4.489s | 0.207s | 0.0s | 0.0s | 0.251s | 8.002s | 26.451s | 6.057s | 5.163s | 0.427s |
+| `AdventureWorks2017.bak` | 1.672s | 0.161s | 0.0s | 0.0s | 0.056s | 0.0s | 15.555s | 4.227s | 3.616s | 0.412s |
+| `AdventureWorks2019.bak` | 0.729s | 0.168s | 0.0s | 0.0s | 0.122s | 0.0s | 15.611s | 4.567s | 3.572s | 0.405s |
+| `AdventureWorks2022.bak` | 0.713s | 0.186s | 0.0s | 0.0s | 0.117s | 0.0s | 15.537s | 4.011s | 3.613s | 0.414s |
+| `AdventureWorks2025.bak` | 1.596s | 0.167s | 0.0s | 0.0s | 0.054s | 0.0s | 15.122s | 4.237s | 3.526s | 0.408s |
+| `AdventureWorksDW2008R2.bak` | 0.313s | 0.055s | 0.0s | 0.0s | 0.12s | 0.0s | 2.74s | 0.981s | 0.997s | 0.013s |
+| `AdventureWorksDW2012.bak` | 0.815s | 0.083s | 0.0s | 0.0s | 0.025s | 0.0s | 6.044s | 1.42s | 3.086s | 0.005s |
+| `AdventureWorksDW2014.bak` | 0.838s | 0.139s | 0.0s | 0.0s | 0.024s | 0.0s | 5.994s | 1.428s | 3.039s | 0.005s |
+| `AdventureWorksDW2016.bak` | 0.813s | 0.078s | 0.0s | 0.0s | 0.028s | 0.0s | 5.768s | 1.429s | 3.004s | 0.006s |
+| `AdventureWorksDW2016_EXT.bak` | 31.742s | 0.111s | 0.0s | 0.0s | 1.946s | 0.0s | 69.937s | 51.998s | 2.97s | 0.011s |
+| `AdventureWorksDW2017.bak` | 0.869s | 0.088s | 0.0s | 0.0s | 0.026s | 0.0s | 5.943s | 1.445s | 3.007s | 0.006s |
+| `AdventureWorksDW2019.bak` | 0.414s | 0.105s | 0.0s | 0.0s | 0.127s | 0.0s | 7.772s | 2.034s | 3.057s | 0.005s |
+| `AdventureWorksDW2022.bak` | 0.411s | 0.105s | 0.0s | 0.0s | 0.123s | 0.0s | 5.906s | 1.439s | 2.991s | 0.005s |
+| `AdventureWorksDW2025.bak` | 0.848s | 0.118s | 0.0s | 0.0s | 0.028s | 0.0s | 5.645s | 1.292s | 2.986s | 0.005s |
+| `AdventureWorksLT2012.bak` | 0.044s | 0.032s | 0.0s | 0.0s | 0.024s | 0.0s | 0.15s | 0.112s | 0.074s | 0.008s |
+| `AdventureWorksLT2014.bak` | 0.099s | 0.036s | 0.0s | 0.0s | 0.025s | 0.0s | 0.153s | 0.113s | 0.075s | 0.009s |
+| `AdventureWorksLT2016.bak` | 0.042s | 0.037s | 0.0s | 0.0s | 0.015s | 0.0s | 0.162s | 0.121s | 0.08s | 0.009s |
+| `AdventureWorksLT2017.bak` | 0.048s | 0.038s | 0.0s | 0.0s | 0.025s | 0.0s | 0.186s | 0.119s | 0.107s | 0.009s |
+| `AdventureWorksLT2019.bak` | 0.057s | 0.039s | 0.0s | 0.0s | 0.018s | 0.0s | 0.165s | 0.12s | 0.081s | 0.01s |
+| `AdventureWorksLT2022.bak` | 0.067s | 0.044s | 0.0s | 0.0s | 0.015s | 0.0s | 0.156s | 0.12s | 0.073s | 0.009s |
+| `AdventureWorksLT2025.bak` | 0.123s | 0.045s | 0.0s | 0.0s | 0.004s | 0.0s | 0.161s | 0.117s | 0.081s | 0.009s |
+| `BaseballData.bak` | 0.276s | 0.076s | 0.0s | 0.0s | 0.114s | 0.0s | 10.579s | 2.39s | 1.582s | 0.006s |
+| `Chinook-id-pk.bak` | 0.042s | 0.039s | 0.0s | 0.0s | 0.022s | 0.0s | 0.086s | 0.062s | 0.069s | 0.008s |
+| `Chinook.bak` | 0.041s | 0.052s | 0.0s | 0.0s | 0.024s | 0.0s | 0.139s | 0.092s | 0.122s | 0.009s |
+| `ContosoRetailDW.bak` | 14.131s | 0.099s | 0.0s | 0.0s | 1.914s | 0.0s | 232.71s | 39.995s | 170.141s | 0.002s |
+| `CreditBackup100.bak` | 1.511s | 0.03s | 0.0s | 0.0s | 0.065s | 0.0s | 23.439s | 4.057s | 10.354s | 0.009s |
+| `data.gov.bak` | 0.509s | 0.053s | 0.0s | 0.0s | 0.014s | 0.0s | 1.708s | 0.323s | 0.467s | 0.496s |
+| `dba.stackexchange.com.bak` | 15.364s | 0.073s | 0.0s | 0.0s | 0.968s | 0.0s | 92.959s | 13.327s | 16.408s | 1.312s |
+| `EmployeeCaseStudySampleDB2012.bak` | 0.642s | 0.063s | 0.0s | 0.0s | 0.017s | 0.0s | 5.204s | 0.898s | 0.641s | 0.305s |
+| `GeneralHospital.bak` | 1.136s | 0.073s | 0.0s | 0.0s | 0.157s | 0.0s | 41.151s | 8.247s | 8.597s | 0.135s |
+| `IndexInternals2008.bak` | 0.464s | 0.029s | 0.0s | 0.0s | 0.008s | 0.0s | 4.163s | 0.536s | 0.258s | 0.128s |
+| `Northwinds.bak` | 0.1s | 0.032s | 0.0s | 0.0s | 0.001s | 0.0s | 0.132s | 0.084s | 0.084s | 0.007s |
+| `NYCTaxi_Sample.bak` | 2.406s | 0.065s | 0.0s | 0.0s | 0.119s | 0.0s | 12.666s | 8.596s | 22.96s | 23.94s |
+| `Pubs.bak` | 0.084s | 0.028s | 0.0s | 0.0s | 0.001s | 0.0s | 0.111s | 0.082s | 0.086s | 0.006s |
+| `SalesDB2014.bak` | 1.162s | 0.062s | 0.0s | 0.0s | 0.035s | 0.0s | 5.385s | 2.563s | 5.22s | 5.204s |
+| `SalesDBOriginal.bak` | 0.661s | 0.03s | 0.0s | 0.0s | 0.131s | 0.0s | 10.535s | 2.487s | 5.123s | 0.005s |
+| `StackOverflowMini.bak` | 22.013s | 0.074s | 0.0s | 0.0s | 1.749s | 0.0s | 81.48s | 18.992s | 37.921s | 7.098s |
+| `tpcxbb_1gb.bak` | 11.188s | 0.085s | 0.0s | 0.0s | 0.556s | 0.0s | 88.672s | 15.131s | 41.216s | 0.255s |
+| `TutorialDB.bak` | 0.055s | 0.024s | 0.0s | 0.0s | 0.001s | 0.0s | 0.001s | 0.023s | 0.037s | 0.038s |
+| `WideWorldImporters-Full.bak` | 4.213s | 0.104s | 0.0s | 0.0s | 0.204s | 4.371s | 39.47s | 7.0s | 17.906s | 0.216s |
+| `WideWorldImporters-Full_old.bak` | 4.154s | 0.101s | 0.0s | 0.0s | 0.204s | 4.207s | 38.503s | 7.059s | 17.5s | 0.213s |
+| `WideWorldImporters-Standard.bak` | 4.435s | 0.104s | 0.0s | 0.0s | 0.211s | 0.0s | 45.97s | 7.489s | 17.065s | 0.206s |
+| `WideWorldImporters-Standard_old.bak` | 4.371s | 0.104s | 0.0s | 0.0s | 0.205s | 0.0s | 46.417s | 7.443s | 17.324s | 0.213s |
+| `WideWorldImportersDW-Full.bak` | 1.715s | 0.053s | 0.0s | 0.0s | 0.057s | 1.3s | 7.859s | 1.631s | 4.07s | 0.001s |
+| `WideWorldImportersDW-Standard.bak` | 1.923s | 0.047s | 0.0s | 0.0s | 0.061s | 0.0s | 7.757s | 1.399s | 4.094s | 0.002s |
 
 _data decode (net) = data\_decode\_s (raw loop wall; sink writes and arrow verify overlap decode on a background writer thread and are drained in sink finish). catalog = recover\_catalog\_objects (indexes/FKs/constraints, pg\_dir only). arrow verify = cell verification run inside extraction (_StreamingStatsSink). verify=digest: per-column SHA-256 aggregate hash — fast, no GT parquet read, catches multiset-level corruption; also runs key-ordered digest (catches row transposition) when ordered\_digest is present in the manifest (populated by backfill\_ordered\_digest). Mismatches show as digest:col (multiset) or order:col (transposition). verify=full: exhaustive keyed row compare — also catches value-preserving row misalignment._
 
@@ -8976,55 +8978,55 @@ _data decode (net) = data\_decode\_s (raw loop wall; sink writes and arrow verif
 
 | Backup | delta write | delta read | pg_dir write | pg_dir read |
 |--------|-------:| ------: | -------:| ------:|
-| `AdventureWorks2008R2.bak` | 1.038s | 4.405s | 3.199s | 4.992s |
-| `AdventureWorks2012.bak` | 1.014s | 4.283s | 3.438s | 5.13s |
-| `AdventureWorks2014.bak` | 0.985s | 4.174s | 3.165s | 4.932s |
-| `AdventureWorks2016.bak` | 1.346s | 4.297s | 3.09s | 5.113s |
-| `AdventureWorks2016_EXT.bak` | 1.601s | 6.349s | 4.884s | 8.455s |
-| `AdventureWorks2017.bak` | 1.02s | 4.327s | 3.348s | 4.986s |
-| `AdventureWorks2019.bak` | 1.071s | 4.353s | 3.324s | 4.99s |
-| `AdventureWorks2022.bak` | 1.067s | 4.233s | 3.177s | 4.952s |
-| `AdventureWorks2025.bak` | 1.058s | 4.308s | 3.339s | 4.875s |
-| `AdventureWorksDW2008R2.bak` | 0.328s | 1.217s | 0.741s | 1.839s |
-| `AdventureWorksDW2012.bak` | 0.438s | 3.427s | 0.96s | 4.375s |
-| `AdventureWorksDW2014.bak` | 0.446s | 3.386s | 1.212s | 4.206s |
-| `AdventureWorksDW2016.bak` | 0.451s | 3.356s | 1.052s | 4.299s |
-| `AdventureWorksDW2016_EXT.bak` | 16.876s | 6.734s | 34.579s | 55.958s |
-| `AdventureWorksDW2017.bak` | 0.538s | 3.305s | 1.103s | 4.294s |
-| `AdventureWorksDW2019.bak` | 0.579s | 3.464s | 1.59s | 4.44s |
-| `AdventureWorksDW2022.bak` | 0.423s | 3.414s | 1.185s | 4.497s |
-| `AdventureWorksDW2025.bak` | 0.445s | 3.335s | 0.968s | 4.646s |
-| `AdventureWorksLT2012.bak` | 0.073s | 0.128s | 0.053s | 0.144s |
-| `AdventureWorksLT2014.bak` | 0.082s | 0.141s | 0.051s | 0.14s |
-| `AdventureWorksLT2016.bak` | 0.071s | 0.134s | 0.056s | 0.155s |
-| `AdventureWorksLT2017.bak` | 0.074s | 0.152s | 0.057s | 0.147s |
-| `AdventureWorksLT2019.bak` | 0.07s | 0.135s | 0.063s | 0.136s |
-| `AdventureWorksLT2022.bak` | 0.075s | 0.131s | 0.054s | 0.146s |
-| `AdventureWorksLT2025.bak` | 0.085s | 0.149s | 0.057s | 0.145s |
-| `BaseballData.bak` | 0.623s | 1.847s | 1.751s | 2.494s |
-| `Chinook-id-pk.bak` | 0.041s | 0.116s | 0.022s | 0.1s |
-| `Chinook.bak` | 0.061s | 0.206s | 0.027s | 0.085s |
-| `ContosoRetailDW.bak` | 16.215s | 173.091s | 25.448s | 195.985s |
-| `CreditBackup100.bak` | 0.779s | 10.107s | 3.551s | 10.989s |
-| `data.gov.bak` | 0.08s | 0.545s | 0.257s | 1.223s |
-| `dba.stackexchange.com.bak` | 3.493s | 17.269s | 10.125s | 100.001s |
-| `EmployeeCaseStudySampleDB2012.bak` | 0.136s | 0.683s | 0.838s | 1.31s |
-| `GeneralHospital.bak` | 1.161s | 9.036s | 7.295s | 21.159s |
-| `IndexInternals2008.bak` | 0.072s | 0.302s | 0.517s | 0.65s |
-| `Northwinds.bak` | 0.047s | 0.135s | 0.045s | 0.113s |
-| `NYCTaxi_Sample.bak` | 1.006s | 22.31s | 7.127s | 29.986s |
-| `Pubs.bak` | 0.048s | 0.1s | 0.043s | 0.087s |
-| `SalesDB2014.bak` | 1.39s | 5.384s | 1.212s | 5.684s |
-| `SalesDBOriginal.bak` | 1.259s | 4.961s | 1.171s | 5.302s |
-| `StackOverflowMini.bak` | 5.886s | 36.52s | 13.749s | 132.82s |
-| `tpcxbb_1gb.bak` | 4.072s | 41.822s | 11.871s | 49.518s |
-| `TutorialDB.bak` | 0.005s | 0.014s | 0.019s | 0.011s |
-| `WideWorldImporters-Full.bak` | 1.833s | 18.277s | 4.998s | 19.093s |
-| `WideWorldImporters-Full_old.bak` | 1.548s | 16.942s | 5.233s | 18.358s |
-| `WideWorldImporters-Standard.bak` | 1.795s | 17.928s | 5.892s | 19.796s |
-| `WideWorldImporters-Standard_old.bak` | 1.648s | 17.474s | 6.022s | 19.087s |
-| `WideWorldImportersDW-Full.bak` | 0.425s | 4.187s | 1.21s | 5.309s |
-| `WideWorldImportersDW-Standard.bak` | 0.42s | 4.471s | 1.076s | 5.185s |
+| `AdventureWorks2008R2.bak` | 1.022s | 4.146s | 3.223s | 5.161s |
+| `AdventureWorks2012.bak` | 0.963s | 4.22s | 3.236s | 4.974s |
+| `AdventureWorks2014.bak` | 0.997s | 4.375s | 3.536s | 5.099s |
+| `AdventureWorks2016.bak` | 1.018s | 4.21s | 3.309s | 5.049s |
+| `AdventureWorks2016_EXT.bak` | 1.452s | 5.973s | 4.605s | 8.782s |
+| `AdventureWorks2017.bak` | 1.029s | 4.163s | 3.198s | 4.96s |
+| `AdventureWorks2019.bak` | 0.988s | 4.11s | 3.579s | 5.106s |
+| `AdventureWorks2022.bak` | 1.031s | 4.208s | 2.98s | 5.061s |
+| `AdventureWorks2025.bak` | 0.954s | 4.165s | 3.283s | 4.995s |
+| `AdventureWorksDW2008R2.bak` | 0.27s | 1.225s | 0.711s | 1.752s |
+| `AdventureWorksDW2012.bak` | 0.417s | 3.299s | 1.003s | 4.42s |
+| `AdventureWorksDW2014.bak` | 0.411s | 3.331s | 1.017s | 4.229s |
+| `AdventureWorksDW2016.bak` | 0.446s | 3.234s | 0.983s | 4.258s |
+| `AdventureWorksDW2016_EXT.bak` | 17.063s | 7.673s | 34.935s | 52.682s |
+| `AdventureWorksDW2017.bak` | 0.407s | 3.344s | 1.038s | 4.468s |
+| `AdventureWorksDW2019.bak` | 0.551s | 3.363s | 1.483s | 4.26s |
+| `AdventureWorksDW2022.bak` | 0.434s | 3.24s | 1.005s | 4.41s |
+| `AdventureWorksDW2025.bak` | 0.406s | 3.212s | 0.886s | 4.246s |
+| `AdventureWorksLT2012.bak` | 0.064s | 0.121s | 0.048s | 0.137s |
+| `AdventureWorksLT2014.bak` | 0.062s | 0.13s | 0.051s | 0.148s |
+| `AdventureWorksLT2016.bak` | 0.065s | 0.117s | 0.056s | 0.14s |
+| `AdventureWorksLT2017.bak` | 0.066s | 0.124s | 0.053s | 0.146s |
+| `AdventureWorksLT2019.bak` | 0.064s | 0.126s | 0.056s | 0.141s |
+| `AdventureWorksLT2022.bak` | 0.065s | 0.129s | 0.055s | 0.144s |
+| `AdventureWorksLT2025.bak` | 0.064s | 0.125s | 0.053s | 0.138s |
+| `BaseballData.bak` | 0.532s | 1.941s | 1.858s | 2.561s |
+| `Chinook-id-pk.bak` | 0.038s | 0.12s | 0.024s | 0.079s |
+| `Chinook.bak` | 0.043s | 0.121s | 0.049s | 0.087s |
+| `ContosoRetailDW.bak` | 15.608s | 178.187s | 24.387s | 194.56s |
+| `CreditBackup100.bak` | 0.759s | 10.317s | 3.298s | 10.986s |
+| `data.gov.bak` | 0.072s | 0.516s | 0.251s | 1.195s |
+| `dba.stackexchange.com.bak` | 3.509s | 16.721s | 9.818s | 101.437s |
+| `EmployeeCaseStudySampleDB2012.bak` | 0.122s | 0.646s | 0.776s | 1.286s |
+| `GeneralHospital.bak` | 1.166s | 9.15s | 7.081s | 20.828s |
+| `IndexInternals2008.bak` | 0.065s | 0.312s | 0.471s | 0.646s |
+| `Northwinds.bak` | 0.044s | 0.115s | 0.04s | 0.11s |
+| `NYCTaxi_Sample.bak` | 1.014s | 23.225s | 7.582s | 30.795s |
+| `Pubs.bak` | 0.037s | 0.083s | 0.045s | 0.072s |
+| `SalesDB2014.bak` | 1.354s | 5.189s | 1.209s | 5.89s |
+| `SalesDBOriginal.bak` | 1.295s | 5.028s | 1.192s | 5.566s |
+| `StackOverflowMini.bak` | 5.824s | 37.045s | 13.168s | 134.096s |
+| `tpcxbb_1gb.bak` | 3.756s | 40.595s | 11.375s | 49.11s |
+| `TutorialDB.bak` | 0.003s | 0.012s | 0.02s | 0.011s |
+| `WideWorldImporters-Full.bak` | 1.505s | 18.978s | 5.495s | 20.304s |
+| `WideWorldImporters-Full_old.bak` | 1.583s | 17.868s | 5.476s | 19.402s |
+| `WideWorldImporters-Standard.bak` | 1.645s | 17.833s | 5.844s | 19.089s |
+| `WideWorldImporters-Standard_old.bak` | 1.724s | 18.257s | 5.719s | 19.633s |
+| `WideWorldImportersDW-Full.bak` | 0.402s | 4.27s | 1.229s | 5.077s |
+| `WideWorldImportersDW-Standard.bak` | 0.378s | 4.355s | 1.021s | 5.261s |
 
 _Write and read times are wall-clock estimates (coarse, not exact per-sink isolation)._
 
@@ -9032,58 +9034,58 @@ _Write and read times are wall-clock estimates (coarse, not exact per-sink isola
 
 | Backup | arrow verify | delta read | delta stats | delta verify | pg_dir read | pg_dir stats | pg_dir verify |
 |--------| -------: | -------: | -------: | -------: | -------: | -------: | -------:|
-| `AdventureWorks2008R2.bak` | 3.644s | 0.282s | 0.037s | 3.621s | 1.027s | 0.036s | 3.479s |
-| `AdventureWorks2012.bak` | 3.638s | 0.234s | 0.034s | 3.593s | 1.086s | 0.035s | 3.51s |
-| `AdventureWorks2014.bak` | 3.581s | 0.261s | 0.033s | 3.446s | 1.024s | 0.035s | 3.413s |
-| `AdventureWorks2016.bak` | 3.692s | 0.268s | 0.035s | 3.545s | 1.029s | 0.036s | 3.575s |
-| `AdventureWorks2016_EXT.bak` | 5.609s | 0.376s | 0.067s | 5.294s | 2.861s | 0.067s | 4.871s |
-| `AdventureWorks2017.bak` | 3.587s | 0.299s | 0.038s | 3.547s | 1.015s | 0.037s | 3.464s |
-| `AdventureWorks2019.bak` | 3.632s | 0.251s | 0.035s | 3.593s | 1.012s | 0.035s | 3.439s |
-| `AdventureWorks2022.bak` | 3.61s | 0.233s | 0.035s | 3.531s | 1.005s | 0.034s | 3.468s |
-| `AdventureWorks2025.bak` | 3.73s | 0.256s | 0.034s | 3.552s | 0.936s | 0.036s | 3.466s |
-| `AdventureWorksDW2008R2.bak` | 1.038s | 0.097s | 0.029s | 0.938s | 0.705s | 0.029s | 0.915s |
-| `AdventureWorksDW2012.bak` | 3.03s | 0.129s | 0.04s | 3.049s | 1.196s | 0.041s | 2.914s |
-| `AdventureWorksDW2014.bak` | 3.196s | 0.215s | 0.039s | 2.906s | 1.132s | 0.039s | 2.847s |
-| `AdventureWorksDW2016.bak` | 3.196s | 0.127s | 0.038s | 3.003s | 1.156s | 0.041s | 2.897s |
-| `AdventureWorksDW2016_EXT.bak` | 2.925s | 0.733s | 2.755s | 2.885s | 48.6s | 4.133s | 2.807s |
-| `AdventureWorksDW2017.bak` | 3.154s | 0.122s | 0.04s | 2.954s | 1.179s | 0.04s | 2.849s |
-| `AdventureWorksDW2019.bak` | 3.068s | 0.141s | 0.042s | 3.077s | 1.35s | 0.041s | 2.856s |
-| `AdventureWorksDW2022.bak` | 3.069s | 0.131s | 0.042s | 3.021s | 1.211s | 0.045s | 3.028s |
-| `AdventureWorksDW2025.bak` | 3.036s | 0.129s | 0.041s | 2.952s | 1.226s | 0.042s | 3.166s |
-| `AdventureWorksLT2012.bak` | 0.084s | 0.049s | 0.002s | 0.025s | 0.062s | 0.002s | 0.024s |
-| `AdventureWorksLT2014.bak` | 0.08s | 0.053s | 0.002s | 0.025s | 0.063s | 0.002s | 0.023s |
-| `AdventureWorksLT2016.bak` | 0.091s | 0.049s | 0.002s | 0.027s | 0.066s | 0.002s | 0.025s |
-| `AdventureWorksLT2017.bak` | 0.142s | 0.056s | 0.002s | 0.025s | 0.064s | 0.002s | 0.024s |
-| `AdventureWorksLT2019.bak` | 0.105s | 0.056s | 0.002s | 0.024s | 0.063s | 0.002s | 0.022s |
-| `AdventureWorksLT2022.bak` | 0.082s | 0.049s | 0.002s | 0.025s | 0.062s | 0.002s | 0.022s |
-| `AdventureWorksLT2025.bak` | 0.093s | 0.058s | 0.003s | 0.024s | 0.064s | 0.002s | 0.022s |
-| `BaseballData.bak` | 1.587s | 0.12s | 0.05s | 1.523s | 0.813s | 0.049s | 1.494s |
-| `Chinook-id-pk.bak` | 0.077s | 0.043s | 0.001s | 0.017s | 0.014s | 0.001s | 0.019s |
-| `Chinook.bak` | 0.092s | 0.072s | 0.002s | 0.022s | 0.015s | 0.001s | 0.017s |
-| `ContosoRetailDW.bak` | 172.176s | 1.083s | 1.734s | 169.553s | 22.117s | 2.612s | 170.757s |
-| `CreditBackup100.bak` | 9.93s | 0.087s | 0.062s | 9.886s | 1.024s | 0.064s | 9.831s |
-| `data.gov.bak` | 0.472s | 0.041s | 0.034s | 0.459s | 0.742s | 0.031s | 0.441s |
-| `dba.stackexchange.com.bak` | 16.278s | 0.401s | 0.146s | 16.546s | 82.113s | 0.166s | 17.502s |
-| `EmployeeCaseStudySampleDB2012.bak` | 0.656s | 0.047s | 0.024s | 0.594s | 0.691s | 0.024s | 0.573s |
-| `GeneralHospital.bak` | 8.35s | 0.124s | 0.543s | 8.26s | 12.228s | 0.571s | 8.238s |
-| `IndexInternals2008.bak` | 0.269s | 0.038s | 0.014s | 0.234s | 0.382s | 0.014s | 0.239s |
-| `Northwinds.bak` | 0.092s | 0.049s | 0.002s | 0.023s | 0.031s | 0.002s | 0.022s |
-| `NYCTaxi_Sample.bak` | 21.946s | 0.082s | 0.271s | 21.929s | 7.435s | 0.312s | 22.205s |
-| `Pubs.bak` | 0.083s | 0.028s | 0.002s | 0.011s | 0.015s | 0.001s | 0.01s |
-| `SalesDB2014.bak` | 5.498s | 0.097s | 0.013s | 5.235s | 0.474s | 0.012s | 5.162s |
-| `SalesDBOriginal.bak` | 5.116s | 0.077s | 0.008s | 4.843s | 0.459s | 0.011s | 4.795s |
-| `StackOverflowMini.bak` | 39.519s | 0.563s | 0.265s | 35.446s | 96.496s | 0.285s | 35.789s |
-| `tpcxbb_1gb.bak` | 43.291s | 0.388s | 0.463s | 40.626s | 8.117s | 0.562s | 40.493s |
-| `TutorialDB.bak` | 0.037s | 0.003s | 0.0s | 0.005s | 0.002s | 0.0s | 0.004s |
-| `WideWorldImporters-Full.bak` | 17.407s | 0.271s | 0.102s | 17.502s | 1.604s | 0.106s | 17.028s |
-| `WideWorldImporters-Full_old.bak` | 16.897s | 0.209s | 0.098s | 16.32s | 1.536s | 0.101s | 16.405s |
-| `WideWorldImporters-Standard.bak` | 18.25s | 0.24s | 0.104s | 17.246s | 2.013s | 0.122s | 17.208s |
-| `WideWorldImporters-Standard_old.bak` | 16.99s | 0.239s | 0.106s | 16.837s | 1.574s | 0.113s | 17.054s |
-| `WideWorldImportersDW-Full.bak` | 4.019s | 0.102s | 0.062s | 3.915s | 1.096s | 0.067s | 4.02s |
-| `WideWorldImportersDW-Standard.bak` | 4.398s | 0.119s | 0.069s | 4.163s | 1.087s | 0.066s | 3.909s |
+| `AdventureWorks2008R2.bak` | 3.577s | 0.221s | 0.034s | 3.488s | 1.096s | 0.037s | 3.563s |
+| `AdventureWorks2012.bak` | 3.606s | 0.221s | 0.034s | 3.567s | 1.016s | 0.034s | 3.485s |
+| `AdventureWorks2014.bak` | 3.652s | 0.248s | 0.036s | 3.645s | 1.032s | 0.035s | 3.567s |
+| `AdventureWorks2016.bak` | 3.658s | 0.234s | 0.034s | 3.495s | 0.986s | 0.034s | 3.576s |
+| `AdventureWorks2016_EXT.bak` | 5.163s | 0.294s | 0.067s | 5.039s | 2.992s | 0.068s | 5.042s |
+| `AdventureWorks2017.bak` | 3.616s | 0.223s | 0.033s | 3.495s | 1.01s | 0.034s | 3.478s |
+| `AdventureWorks2019.bak` | 3.572s | 0.217s | 0.034s | 3.467s | 1.046s | 0.036s | 3.559s |
+| `AdventureWorks2022.bak` | 3.613s | 0.222s | 0.035s | 3.518s | 0.996s | 0.034s | 3.571s |
+| `AdventureWorks2025.bak` | 3.526s | 0.219s | 0.033s | 3.52s | 0.942s | 0.034s | 3.564s |
+| `AdventureWorksDW2008R2.bak` | 0.997s | 0.11s | 0.03s | 0.926s | 0.679s | 0.029s | 0.907s |
+| `AdventureWorksDW2012.bak` | 3.086s | 0.113s | 0.037s | 2.966s | 1.184s | 0.038s | 2.994s |
+| `AdventureWorksDW2014.bak` | 3.039s | 0.134s | 0.039s | 2.94s | 1.157s | 0.04s | 2.853s |
+| `AdventureWorksDW2016.bak` | 3.004s | 0.111s | 0.038s | 2.912s | 1.135s | 0.039s | 2.9s |
+| `AdventureWorksDW2016_EXT.bak` | 2.97s | 1.124s | 3.062s | 3.088s | 45.481s | 3.706s | 3.016s |
+| `AdventureWorksDW2017.bak` | 3.007s | 0.125s | 0.039s | 2.978s | 1.181s | 0.042s | 3.036s |
+| `AdventureWorksDW2019.bak` | 3.057s | 0.126s | 0.039s | 3.022s | 1.17s | 0.04s | 2.859s |
+| `AdventureWorksDW2022.bak` | 2.991s | 0.115s | 0.039s | 2.914s | 1.179s | 0.042s | 2.982s |
+| `AdventureWorksDW2025.bak` | 2.986s | 0.114s | 0.038s | 2.875s | 1.158s | 0.042s | 2.842s |
+| `AdventureWorksLT2012.bak` | 0.074s | 0.044s | 0.002s | 0.023s | 0.062s | 0.002s | 0.023s |
+| `AdventureWorksLT2014.bak` | 0.075s | 0.047s | 0.002s | 0.024s | 0.064s | 0.002s | 0.023s |
+| `AdventureWorksLT2016.bak` | 0.08s | 0.043s | 0.002s | 0.024s | 0.062s | 0.002s | 0.023s |
+| `AdventureWorksLT2017.bak` | 0.107s | 0.045s | 0.002s | 0.024s | 0.061s | 0.002s | 0.024s |
+| `AdventureWorksLT2019.bak` | 0.081s | 0.049s | 0.002s | 0.024s | 0.063s | 0.002s | 0.023s |
+| `AdventureWorksLT2022.bak` | 0.073s | 0.048s | 0.002s | 0.023s | 0.062s | 0.002s | 0.023s |
+| `AdventureWorksLT2025.bak` | 0.081s | 0.046s | 0.002s | 0.023s | 0.062s | 0.002s | 0.023s |
+| `BaseballData.bak` | 1.582s | 0.126s | 0.055s | 1.588s | 0.828s | 0.049s | 1.52s |
+| `Chinook-id-pk.bak` | 0.069s | 0.046s | 0.002s | 0.017s | 0.012s | 0.001s | 0.017s |
+| `Chinook.bak` | 0.122s | 0.045s | 0.002s | 0.018s | 0.013s | 0.001s | 0.019s |
+| `ContosoRetailDW.bak` | 170.141s | 1.005s | 1.812s | 174.809s | 21.74s | 2.879s | 169.526s |
+| `CreditBackup100.bak` | 10.354s | 0.082s | 0.057s | 10.115s | 1.03s | 0.072s | 9.813s |
+| `data.gov.bak` | 0.467s | 0.036s | 0.027s | 0.445s | 0.699s | 0.031s | 0.454s |
+| `dba.stackexchange.com.bak` | 16.408s | 0.351s | 0.144s | 16.031s | 84.539s | 0.159s | 16.562s |
+| `EmployeeCaseStudySampleDB2012.bak` | 0.641s | 0.043s | 0.025s | 0.563s | 0.668s | 0.024s | 0.579s |
+| `GeneralHospital.bak` | 8.597s | 0.122s | 0.533s | 8.392s | 11.859s | 0.559s | 8.3s |
+| `IndexInternals2008.bak` | 0.258s | 0.038s | 0.013s | 0.246s | 0.378s | 0.013s | 0.24s |
+| `Northwinds.bak` | 0.084s | 0.041s | 0.002s | 0.022s | 0.029s | 0.002s | 0.022s |
+| `NYCTaxi_Sample.bak` | 22.96s | 0.081s | 0.29s | 22.835s | 7.504s | 0.309s | 22.969s |
+| `Pubs.bak` | 0.086s | 0.022s | 0.001s | 0.009s | 0.013s | 0.001s | 0.009s |
+| `SalesDB2014.bak` | 5.22s | 0.078s | 0.01s | 5.07s | 0.526s | 0.012s | 5.312s |
+| `SalesDBOriginal.bak` | 5.123s | 0.082s | 0.009s | 4.902s | 0.491s | 0.012s | 5.022s |
+| `StackOverflowMini.bak` | 37.921s | 0.63s | 0.261s | 35.886s | 97.624s | 0.27s | 35.932s |
+| `tpcxbb_1gb.bak` | 41.216s | 0.326s | 0.45s | 39.514s | 7.846s | 0.563s | 40.334s |
+| `TutorialDB.bak` | 0.037s | 0.003s | 0.0s | 0.004s | 0.002s | 0.0s | 0.004s |
+| `WideWorldImporters-Full.bak` | 17.906s | 0.223s | 0.106s | 18.286s | 1.688s | 0.107s | 18.152s |
+| `WideWorldImporters-Full_old.bak` | 17.5s | 0.222s | 0.101s | 17.231s | 1.633s | 0.108s | 17.321s |
+| `WideWorldImporters-Standard.bak` | 17.065s | 0.223s | 0.099s | 17.184s | 1.65s | 0.104s | 16.963s |
+| `WideWorldImporters-Standard_old.bak` | 17.324s | 0.26s | 0.113s | 17.518s | 1.806s | 0.112s | 17.326s |
+| `WideWorldImportersDW-Full.bak` | 4.07s | 0.1s | 0.061s | 3.997s | 1.044s | 0.061s | 3.854s |
+| `WideWorldImportersDW-Standard.bak` | 4.094s | 0.1s | 0.063s | 4.092s | 1.059s | 0.063s | 4.032s |
 
 _arrow verify = cell verification folded into extract_s. Sink read = pure I/O + decode. Stats = min/max/null compute. Sink verify = cell verification on the round-tripped data. Remainder of readback_s is GC / other._
 
 ---
 
-_Generated 2026-07-17 · 49 fixtures · 49 pass · 0 xfail · 0 fail_
+_Generated 2026-07-21 · 49 fixtures · 49 pass · 0 xfail · 0 fail_

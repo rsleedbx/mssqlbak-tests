@@ -1,0 +1,28 @@
+{
+  "bak": "enc_bak_aes128_full.bak",
+  "captured_at": "2026-07-21T20:49:10.435173+00:00",
+  "tables": [
+    {
+      "fqn": "dbo.probe",
+      "row_count": 3,
+      "key_columns": [
+        "id"
+      ],
+      "mode": "full",
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "digest": "sha256:5be6c1972032e65c8852b651ad59e6dccaff8d9d07dc0e5718a63bff0f3f90bc",
+          "null_count": 0
+        },
+        {
+          "name": "val",
+          "sql_type": "varchar(40)",
+          "digest": "sha256:7e6e4749e684527cb25cb1f009d7a2cbcefaa7359e010381684a4531b2cbedb2",
+          "null_count": 0
+        }
+      ]
+    }
+  ]
+}

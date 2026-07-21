@@ -495,6 +495,183 @@ def _copy_bak(container: str, bak_path: Path) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Encryption certificate import helpers
+# ---------------------------------------------------------------------------
+
+# (name_prefix, pfx_filename, pfx_password, cert_sql_name)
+_ENC_CERT_TABLE: list[tuple[str, str, str, str]] = [
+    ("enc_bak_",  "enc_bak_cert.pfx",  "EncBakCert!Fixture2024",  "EncBakFixtureCert"),
+    ("tde_page_", "tde_page_cert.pfx", "TdePageCert!Fixture2024", "TdePageFixtureCert"),
+]
+
+
+def _enc_cert_for_bak(bak_path: Path) -> tuple[Path, str, str] | None:
+    """Return ``(pfx_path, pfx_password, cert_sql_name)`` for an encrypted fixture.
+
+    Returns ``None`` when *bak_path* does not match a known encrypted prefix.
+    """
+    stem = bak_path.stem
+    fixture_dir = bak_path.parent
+    for prefix, pfx_name, pfx_password, cert_name in _ENC_CERT_TABLE:
+        if stem.startswith(prefix):
+            pfx_path = fixture_dir / pfx_name
+            if pfx_path.exists():
+                return pfx_path, pfx_password, cert_name
+    return None
+
+
+def _rsa_key_to_pvk_blob(private_key: object) -> bytes:
+    """Encode an RSA private key as an unencrypted Microsoft PVK blob.
+
+    SQL Server's ``CREATE CERTIFICATE … WITH PRIVATE KEY (BINARY = …)``
+    requires the private key in PVK / CAPI PRIVATEKEYBLOB format, not PKCS#8
+    DER.  This function constructs the minimal unencrypted PVK blob from the
+    RSA key numbers.
+
+    PVK layout::
+
+        [0:4]   Magic    = 0xB0B5F11E (LE)
+        [4:8]   Reserved = 0x00000000
+        [8:12]  KeySpec  = 0x00000001 (AT_KEYEXCHANGE)
+        [12:16] Encrypt  = 0x00000000 (unencrypted)
+        [16:20] SaltLen  = 0x00000000
+        [20:24] KeyLen   = len(PRIVATEKEYBLOB)
+        [24 …]  PRIVATEKEYBLOB
+
+    PRIVATEKEYBLOB layout (all LE)::
+
+        BLOBHEADER (8 B): bType=0x07  bVer=0x02  res=0x0000  alg=0x0000A400
+        RSAPUBKEY  (12B): magic=0x32415352 ("RSA2")  bitlen  pubexp
+        modulus    (nb bytes, LE)
+        prime1/p   (nb/2 bytes, LE)
+        prime2/q   (nb/2 bytes, LE)
+        exp1/dp    (nb/2 bytes, LE)
+        exp2/dq    (nb/2 bytes, LE)
+        coeff/iq   (nb/2 bytes, LE)
+        privexp/d  (nb bytes, LE)
+    """
+    import struct
+    from cryptography.hazmat.primitives.asymmetric.rsa import RSAPrivateKey  # noqa: F401
+
+    nums = private_key.private_numbers()  # type: ignore[attr-defined]
+    pub = nums.public_numbers
+    nb = (pub.n.bit_length() + 7) // 8    # byte length of modulus
+    nb2 = nb // 2
+
+    def _le(v: int, size: int) -> bytes:
+        return v.to_bytes(size, "little")
+
+    blob = (
+        struct.pack("<BBHI", 0x07, 0x02, 0x0000, 0x0000A400)   # BLOBHEADER
+        + struct.pack("<III", 0x32415352, pub.n.bit_length(), pub.e)  # RSAPUBKEY
+        + _le(pub.n, nb)   # modulus
+        + _le(nums.p, nb2)  # prime1
+        + _le(nums.q, nb2)  # prime2
+        + _le(nums.dmp1, nb2)  # exponent1
+        + _le(nums.dmq1, nb2)  # exponent2
+        + _le(nums.iqmp, nb2)  # coefficient
+        + _le(nums.d, nb)   # privateExponent
+    )
+    pvk = (
+        struct.pack("<IIII", 0xB0B5F11E, 0, 1, 0)  # magic reserved keyspec encrypted
+        + struct.pack("<II", 0, len(blob))            # saltlen keylen
+        + blob
+    )
+    return pvk
+
+
+def _pfx_to_cert_and_key_pvk(pfx_path: Path, pfx_password: str) -> tuple[bytes, bytes]:
+    """Extract DER-encoded certificate and PVK-encoded private key from a PFX file.
+
+    Returns ``(cert_der, pvk_blob)`` where *pvk_blob* is the unencrypted
+    Microsoft PVK blob (PRIVATEKEYBLOB) required by SQL Server's
+    ``CREATE CERTIFICATE … FROM BINARY … WITH PRIVATE KEY (BINARY = …)``.
+    """
+    from cryptography.hazmat.primitives import serialization
+    from cryptography.hazmat.primitives.serialization.pkcs12 import load_pkcs12
+
+    p12 = load_pkcs12(pfx_path.read_bytes(), pfx_password.encode())
+    if p12.cert is None:
+        raise ValueError(f"PFX {pfx_path.name} contains no certificate")
+    if p12.key is None:
+        raise ValueError(f"PFX {pfx_path.name} contains no private key")
+    cert_der = p12.cert.certificate.public_bytes(serialization.Encoding.DER)
+    pvk_blob = _rsa_key_to_pvk_blob(p12.key)
+    return cert_der, pvk_blob
+
+
+def _import_enc_cert(
+    container: str,
+    sa_password: str,
+    bak_path: Path,
+    copied: list[str],  # noqa: ARG001 — kept for API symmetry; no file copied for binary import
+) -> str | None:
+    """Import the encryption certificate for *bak_path* into the SQL Server container.
+
+    Extracts the DER-encoded certificate and private key from the sidecar PFX
+    file in Python, then runs ``CREATE CERTIFICATE … FROM BINARY … WITH PRIVATE
+    KEY (BINARY = …)`` so SQL Server can restore the encrypted backup.
+
+    Returns the SQL certificate name (for DROP in cleanup), or ``None`` when no
+    cert is needed for *bak_path*.
+    """
+    cert_info = _enc_cert_for_bak(bak_path)
+    if cert_info is None:
+        return None
+    pfx_path, pfx_password, cert_sql_name = cert_info
+
+    cert_der, pvk_blob = _pfx_to_cert_and_key_pvk(pfx_path, pfx_password)
+    cert_hex = "0x" + cert_der.hex().upper()
+    key_hex  = "0x" + pvk_blob.hex().upper()
+
+    # Compute the SHA-1 thumbprint in Python so we can find and drop any cert
+    # with the same thumbprint that was previously imported without a private
+    # key (a stale partial import would block a re-import under a new name).
+    import hashlib as _hashlib
+    thumbprint_hex = "0x" + _hashlib.sha1(cert_der).hexdigest().upper()
+
+    import_sql = f"""
+USE [master];
+GO
+IF NOT EXISTS (
+    SELECT 1 FROM sys.symmetric_keys WHERE name = '##MS_DatabaseMasterKey##'
+)
+    CREATE MASTER KEY ENCRYPTION BY PASSWORD = N'MasterKey!FixtureSetup2024';
+GO
+-- Drop any cert with the same thumbprint (stale partial import without
+-- private key) to unblock the clean re-import.
+DECLARE @stale_name SYSNAME;
+SELECT @stale_name = name FROM sys.certificates
+WHERE thumbprint = {thumbprint_hex};
+IF @stale_name IS NOT NULL
+    EXEC('DROP CERTIFICATE [' + @stale_name + ']');
+GO
+IF EXISTS (SELECT 1 FROM sys.certificates WHERE name = N'{cert_sql_name}')
+    DROP CERTIFICATE [{cert_sql_name}];
+GO
+CREATE CERTIFICATE [{cert_sql_name}]
+FROM BINARY = {cert_hex}
+WITH PRIVATE KEY (
+    BINARY = {key_hex},
+    DECRYPTION BY PASSWORD = N''
+);
+GO
+"""
+    print(f"==> importing certificate {cert_sql_name} (binary+pvk) …", file=sys.stderr)
+    _run_sql(container, sa_password, import_sql)
+    return cert_sql_name
+
+
+def _drop_enc_cert(container: str, sa_password: str, cert_sql_name: str) -> None:
+    """Drop the encryption certificate after the restore is complete."""
+    _run_sql(
+        container, sa_password,
+        f"USE [master]; IF EXISTS (SELECT 1 FROM sys.certificates WHERE name = N'{cert_sql_name}') "
+        f"DROP CERTIFICATE [{cert_sql_name}];",
+    )
+
+
+# ---------------------------------------------------------------------------
 # BAK restoration (full / differential / striped)
 # ---------------------------------------------------------------------------
 
@@ -507,6 +684,8 @@ def _restore_bak(container: str, password: str, bak_path: Path, db_name: str) ->
       then apply the diff with RECOVERY.
     - Striped backup: gather all stripe files and provide them as multiple
       DISK = N'…' clauses in a single RESTORE command.
+    - Encrypted backup: imports the certificate from the sidecar PFX before
+      RESTORE, then drops it in the finally block.
     """
     print(f"==> copying {bak_path.name} into container …", file=sys.stderr)
     # Track every container-side /tmp copy so we can delete them afterwards.
@@ -515,11 +694,18 @@ def _restore_bak(container: str, password: str, bak_path: Path, db_name: str) ->
     copied: list[str] = []
     container_bak = _copy_bak(container, bak_path)
     copied.append(container_bak)
+    imported_cert: str | None = None
     try:
+        imported_cert = _import_enc_cert(container, password, bak_path, copied)
         _restore_bak_body(
             container, password, bak_path, db_name, container_bak, copied,
         )
     finally:
+        if imported_cert:
+            try:
+                _drop_enc_cert(container, password, imported_cert)
+            except Exception as _drop_exc:
+                print(f"==> warning: failed to drop cert {imported_cert}: {_drop_exc}", file=sys.stderr)
         if copied:
             _run(["podman", "exec", container, "rm", "-f", *copied])
 
