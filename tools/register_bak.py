@@ -50,7 +50,6 @@ MSSQL_IMAGE_MATCH = "mssql/server"
 
 _UNREGISTERABLE_BAKS = frozenset({
     "corrupt_metadata_confidence_full.bak",
-    "tde_full.bak",
 })
 
 # Platform/container notes for fixtures that require a specific SQL Server 2025
@@ -501,6 +500,7 @@ def _copy_bak(container: str, bak_path: Path) -> str:
 # (name_prefix, pfx_filename, pfx_password, cert_sql_name)
 _ENC_CERT_TABLE: list[tuple[str, str, str, str]] = [
     ("enc_bak_",  "enc_bak_cert.pfx",  "EncBakCert!Fixture2024",  "EncBakFixtureCert"),
+    ("tde_full",  "tde_full_cert.pfx", "TdeFullCert!Fixture2024", "TdeFullFixtureCert"),
     ("tde_page_", "tde_page_cert.pfx", "TdePageCert!Fixture2024", "TdePageFixtureCert"),
 ]
 
@@ -508,9 +508,15 @@ _ENC_CERT_TABLE: list[tuple[str, str, str, str]] = [
 def _enc_cert_for_bak(bak_path: Path) -> tuple[Path, str, str] | None:
     """Return ``(pfx_path, pfx_password, cert_sql_name)`` for an encrypted fixture.
 
-    Returns ``None`` when *bak_path* does not match a known encrypted prefix.
+    Returns ``None`` when:
+    - The fixture stem ends with ``_plain`` (plaintext reference backup), or
+    - No prefix in ``_ENC_CERT_TABLE`` matches, or
+    - The PFX file does not exist alongside the ``.bak``.
     """
     stem = bak_path.stem
+    # Plaintext reference twins do not need a certificate imported.
+    if stem.endswith("_plain"):
+        return None
     fixture_dir = bak_path.parent
     for prefix, pfx_name, pfx_password, cert_name in _ENC_CERT_TABLE:
         if stem.startswith(prefix):

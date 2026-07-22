@@ -2027,8 +2027,8 @@ def main(argv: list[str] | None = None) -> int:
     tde_p = sub.add_parser(
         "tde",
         help=(
-            "tde_full.bak — TDE-encrypted database backup (AES_128); "
-            "mssqlbak must raise EncryptedBackupError, not crash (Gap F-1)"
+            "tde_full.bak + tde_full_compressed.bak + tde_full_cert.pfx — "
+            "double-encrypted fixtures (TDE + WITH ENCRYPTION); same cert both layers"
         ),
     )
     tde_p.add_argument("--force", action="store_true", help="overwrite existing .bak")

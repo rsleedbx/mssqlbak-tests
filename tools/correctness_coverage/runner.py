@@ -249,9 +249,10 @@ def _error_result(bak_path: Path, exc: BaseException) -> dict[str, Any]:
     }
 
 
-# Fixtures known to raise EncryptedBackupError by design (backup-level TDE).
-# These are expected skips, not failures.
-_BACKUP_LEVEL_TDE_FIXTURES: frozenset[str] = frozenset({"tde_full"})
+# Fixtures known to raise EncryptedBackupError by design (backup-level TDE
+# without a recoverable certificate).  Once tde_full is regenerated with
+# a saved cert, it moves out of this set — see enc_cert_resolver.py.
+_BACKUP_LEVEL_TDE_FIXTURES: frozenset[str] = frozenset()
 
 
 def _expected_encrypted_skip_result(bak_path: Path, exc: BaseException) -> dict[str, Any]:
@@ -401,6 +402,10 @@ def _run_one(
     if _cert_info is not None:
         if _cert_info.kind == "backup":
             _extract_kwargs["backup_cert"] = _cert_info.tde_key
+        elif _cert_info.kind == "backup_tde":
+            # Double-encrypted: same key serves backup-level AND TDE layers.
+            _extract_kwargs["backup_cert"] = _cert_info.tde_key
+            _extract_kwargs["tde_key"] = _cert_info.tde_key
         else:
             _extract_kwargs["tde_key"] = _cert_info.tde_key
     mon.snapshot("before_extract")
@@ -583,6 +588,9 @@ def _run_one(
             if _cert_info is not None:
                 if _cert_info.kind == "backup":
                     _meta_kwargs["backup_cert"] = _cert_info.tde_key
+                elif _cert_info.kind == "backup_tde":
+                    _meta_kwargs["backup_cert"] = _cert_info.tde_key
+                    _meta_kwargs["tde_key"] = _cert_info.tde_key
                 else:
                     _meta_kwargs["tde_key"] = _cert_info.tde_key
             _rm = build_recovered_metadata(_bak_local_input, **_meta_kwargs)
@@ -661,6 +669,9 @@ def _run_confidence_only(bak_path: Path) -> dict[str, Any]:
     if _cert_info is not None:
         if _cert_info.kind == "backup":
             _analyze_kwargs["backup_cert"] = _cert_info.tde_key
+        elif _cert_info.kind == "backup_tde":
+            _analyze_kwargs["backup_cert"] = _cert_info.tde_key
+            _analyze_kwargs["tde_key"] = _cert_info.tde_key
         else:
             _analyze_kwargs["tde_key"] = _cert_info.tde_key
     report = analyze_bak(bak_path, **_analyze_kwargs)

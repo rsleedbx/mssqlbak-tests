@@ -554,6 +554,11 @@ FIXTURE_ENC_BAK_AES128  = _FIXTURE_DIR / "enc_bak_aes128_full.bak"
 FIXTURE_ENC_BAK_AES256  = _FIXTURE_DIR / "enc_bak_aes256_full.bak"
 FIXTURE_ENC_BAK_AES256C = _FIXTURE_DIR / "enc_bak_aes256_compressed.bak"
 FIXTURE_ENC_BAK_PFX     = _FIXTURE_DIR / "enc_bak_cert.pfx"
+
+FIXTURE_TDE_FULL_BAK        = _FIXTURE_DIR / "tde_full.bak"
+FIXTURE_TDE_FULL_COMPRESSED = _FIXTURE_DIR / "tde_full_compressed.bak"
+FIXTURE_TDE_FULL_PFX        = _FIXTURE_DIR / "tde_full_cert.pfx"
+FIXTURE_TDE_FULL_CERT_PASSWORD = "TdeFullCert!Fixture2024"
 ENC_BAK_CERT_PASSWORD   = "EncBakCert!Fixture2024"
 
 
@@ -1865,3 +1870,43 @@ def fixture_enc_bak_pfx() -> Path:
             f"(run: {_ENC_BAK_RUN_HINT})"
         )
     return FIXTURE_ENC_BAK_PFX
+
+
+# ---------------------------------------------------------------------------
+# Double-encrypted TDE fixtures (TDE + WITH ENCRYPTION)
+# ---------------------------------------------------------------------------
+
+_TDE_FULL_RUN_HINT = "python -m tools.fixture_run tde"
+
+
+@pytest.fixture
+def fixture_tde_full_bak() -> Path:
+    """Path to tde_full.bak (TDE + WITH ENCRYPTION, no compression)."""
+    if not FIXTURE_TDE_FULL_BAK.exists():
+        pytest.skip(
+            f"tde_full.bak missing: {FIXTURE_TDE_FULL_BAK} "
+            f"(run: {_TDE_FULL_RUN_HINT})"
+        )
+    return FIXTURE_TDE_FULL_BAK
+
+
+@pytest.fixture
+def fixture_tde_full_compressed_bak() -> Path:
+    """Path to tde_full_compressed.bak (TDE + WITH ENCRYPTION + COMPRESSION)."""
+    if not FIXTURE_TDE_FULL_COMPRESSED.exists():
+        pytest.skip(
+            f"tde_full_compressed.bak missing: {FIXTURE_TDE_FULL_COMPRESSED} "
+            f"(run: {_TDE_FULL_RUN_HINT})"
+        )
+    return FIXTURE_TDE_FULL_COMPRESSED
+
+
+@pytest.fixture
+def fixture_tde_full_pfx() -> Path:
+    """Path to the PFX certificate for tde_full fixtures."""
+    if not FIXTURE_TDE_FULL_PFX.exists():
+        pytest.skip(
+            f"tde_full PFX missing: {FIXTURE_TDE_FULL_PFX} "
+            f"(run: {_TDE_FULL_RUN_HINT})"
+        )
+    return FIXTURE_TDE_FULL_PFX

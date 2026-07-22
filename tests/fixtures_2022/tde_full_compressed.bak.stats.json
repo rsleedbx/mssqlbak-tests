@@ -1,12 +1,12 @@
 {
   "sql_version": "Microsoft SQL Server 2022 (RTM-CU26) (KB5093420) - 16.0.4265.3 (X64)",
-  "bak": "tde_full.bak",
-  "bak_size_bytes": 3080192,
-  "bak_size_mb": 2.938,
-  "bak_sha256": "ba7c2f399de5751cf80992bd130f429d21b4c04cddcc4a2635383fa65c3ef6ea",
-  "database": "RegisterBak_tde_full",
-  "registered_at": "2026-07-21T22:50:59.753311+00:00",
-  "sqlserver_restore_s": 44.139,
+  "bak": "tde_full_compressed.bak",
+  "bak_size_bytes": 532480,
+  "bak_size_mb": 0.508,
+  "bak_sha256": "0e9fd8927b72e2b887e91d14a88af43e1651c87eba9e9f7f6b4a22654568688c",
+  "database": "RegisterBak_tde_full_compressed",
+  "registered_at": "2026-07-21T22:52:28.156638+00:00",
+  "sqlserver_restore_s": 43.251,
   "tables": [
     {
       "schema": "dbo",

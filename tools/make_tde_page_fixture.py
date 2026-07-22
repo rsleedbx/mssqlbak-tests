@@ -47,9 +47,10 @@ throwaway and the certificate is never trusted for anything else.
     5.  SQL: Create the Database Encryption Key (AES_128 via TDE_Page_Cert).
     6.  SQL: ALTER DATABASE SET ENCRYPTION ON; wait for state=3.
     7.  SQL: Backup the database WITHOUT backup-level encryption → tde_page_full.bak.
-    8.  SQL: BACKUP CERTIFICATE → .cer (public) + .pvk (password-encrypted private key).
-    9.  Python: copy .cer and .pvk from container; parse .pvk; write .pfx locally.
-   10.  SQL: Drop the database and certificate.
+    8.  Python: call :func:`tools.fixture_cert.export_cert_to_pfx` — runs BACKUP
+        CERTIFICATE inside the container, copies ``.cer`` and ``.pvk`` out, and
+        writes the combined PKCS#12 ``.pfx`` file.
+    9.  SQL: Drop the database and certificate.
 
 Usage:
     python -m tools.fixture_run tde-page
@@ -59,15 +60,13 @@ from __future__ import annotations
 
 import argparse
 import os
-import struct
 import sys
 from pathlib import Path
 
 _REPO_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(_REPO_ROOT))
 
-import subprocess
-
+from tools.fixture_cert import export_cert_to_pfx  # noqa: E402
 from tools.fixture_utils import (  # noqa: E402
     _copy_out,
     fixture_credentials,
@@ -79,8 +78,6 @@ CERT_NAME = "TDE_Page_Cert"
 CERT_PASSWORD = "TdePageCert!Fixture2024"
 CONTAINER_BAK = f"/tmp/{DB_NAME}_full.bak"
 CONTAINER_PLAIN_BAK = f"/tmp/{DB_NAME}_plain.bak"
-CONTAINER_CER = f"/tmp/{DB_NAME}_cert.cer"   # public certificate (DER)
-CONTAINER_PVK = f"/tmp/{DB_NAME}_cert.pvk"   # password-encrypted private key
 
 FIXTURE_DIR = Path(os.environ.get("FIXTURE_DIR", str(_REPO_ROOT / "tests" / "fixtures_2022")))
 OUT_BAK = FIXTURE_DIR / "tde_page_full.bak"
@@ -94,152 +91,6 @@ _WAIT_SQL = (
     f"WHERE database_id = DB_ID('{DB_NAME}')) != 3 "
     "WAITFOR DELAY '00:00:02'"
 )
-
-
-def _pvk_read(pvk_bytes: bytes, password: str):
-    """Parse a Microsoft PVK file and return an RSA private key object.
-
-    Supports PVK encryption types:
-      0x00000000  unencrypted PRIVATEKEYBLOB
-      0x00000001  RC4-based (SHA-1 key derivation from salt + password)
-      0x80000001  "strong" (SHA-1 derived 3-key-3DES)
-
-    The returned object is a
-    ``cryptography.hazmat.primitives.asymmetric.rsa.RSAPrivateKey``.
-    """
-    from cryptography.hazmat.primitives import hashes
-    from cryptography.hazmat.primitives.asymmetric.rsa import (
-        RSAPrivateNumbers,
-        RSAPublicNumbers,
-    )
-    from cryptography.hazmat.backends import default_backend
-
-    # ------------------------------------------------------------------ header
-    if len(pvk_bytes) < 24:
-        raise ValueError("PVK file too short")
-    magic, version, _key_spec, enc_type, cb_salt, cb_blob = struct.unpack_from(
-        "<IIIIII", pvk_bytes, 0
-    )
-    if magic != 0xB0B5F11E:
-        raise ValueError(f"Bad PVK magic: {magic:#010x}")
-    if version != 0:
-        raise ValueError(f"Unsupported PVK version: {version}")
-
-    salt = pvk_bytes[24 : 24 + cb_salt]
-    enc_blob = pvk_bytes[24 + cb_salt : 24 + cb_salt + cb_blob]
-
-    # ----------------------------------------------------------- decrypt blob
-    if enc_type == 0x00000000:
-        blob = enc_blob
-
-    elif enc_type == 0x00000001:
-        # RC4, key = SHA-1(salt || password_ascii)[:16]
-        from cryptography.hazmat.primitives.ciphers import Cipher, algorithms
-
-        pw_bytes = password.encode("ascii")
-        digest = hashes.Hash(hashes.SHA1(), backend=default_backend())  # noqa: S303
-        digest.update(salt)
-        digest.update(pw_bytes)
-        rc4_key = digest.finalize()[:16]
-
-        cipher = Cipher(algorithms.ARC4(rc4_key), mode=None, backend=default_backend())
-        dec = cipher.decryptor()
-        # The 8-byte BLOBHEADER is stored plaintext; only the RSA key material
-        # (bytes 8+) is RC4-encrypted.
-        _BLOB_HEADER_LEN = 8
-        blob = enc_blob[:_BLOB_HEADER_LEN] + (
-            dec.update(enc_blob[_BLOB_HEADER_LEN:]) + dec.finalize()
-        )
-
-    elif enc_type == 0x80000001:
-        # "Strong" PVK: SHA-1 derived 24-byte 3DES key.
-        # Key derivation follows the same recipe as PFX / PKCS#12 on Windows:
-        #   hash1 = SHA-1(salt || password_unicode)
-        #   hash2 = SHA-1(0x36*64 XOR pad || hash1)  (inner)
-        #   key   = (hash1 || hash2)[:24]
-        from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
-
-        pw_bytes = password.encode("utf-16-le")
-        # Derive via SHA-1 twice
-        d1 = hashes.Hash(hashes.SHA1(), backend=default_backend())  # noqa: S303
-        d1.update(salt)
-        d1.update(pw_bytes)
-        h1 = d1.finalize()
-
-        d2 = hashes.Hash(hashes.SHA1(), backend=default_backend())  # noqa: S303
-        d2.update(bytes([x ^ 0x36 for x in h1]))
-        d2.update(pw_bytes)
-        h2 = d2.finalize()
-
-        key3des = (h1 + h2)[:24]
-        iv = b"\x00" * 8
-        cipher = Cipher(algorithms.TripleDES(key3des), modes.CBC(iv), backend=default_backend())
-        dec = cipher.decryptor()
-        blob = dec.update(enc_blob) + dec.finalize()
-
-    else:
-        raise ValueError(f"Unsupported PVK encryption type: {enc_type:#010x}")
-
-    # ----------------------------------------------- parse PRIVATEKEYBLOB
-    # BLOBHEADER (8 bytes)
-    if len(blob) < 20:
-        raise ValueError("Decrypted PVK blob too short (wrong password?)")
-    b_type = blob[0]
-    if b_type != 0x07:
-        raise ValueError(
-            f"Expected PRIVATEKEYBLOB (0x07), got {b_type:#x} "
-            "(PVK password may be wrong)"
-        )
-
-    # RSAPUBKEY (12 bytes) at offset 8
-    rsa_magic = blob[8:12]
-    if rsa_magic != b"RSA2":
-        raise ValueError(f"Expected RSA2 magic, got {rsa_magic!r}")
-    bit_len, pub_exp = struct.unpack_from("<II", blob, 12)
-
-    full = bit_len // 8    # byte size of modulus / private exponent
-    half = bit_len // 16   # byte size of primes / CRT exponents
-
-    def _le(off: int, length: int) -> int:
-        return int.from_bytes(blob[off : off + length], "little")
-
-    base = 20  # past BLOBHEADER (8) + RSAPUBKEY (12)
-    n  = _le(base,          full); base += full
-    p  = _le(base,          half); base += half
-    q  = _le(base,          half); base += half
-    dp = _le(base,          half); base += half
-    dq = _le(base,          half); base += half
-    qi = _le(base,          half); base += half
-    d  = _le(base,          full)
-
-    pub = RSAPublicNumbers(pub_exp, n)
-    priv = RSAPrivateNumbers(p, q, d, dp, dq, qi, pub)
-    return priv.private_key(backend=default_backend())
-
-
-def _make_pfx_from_cer_and_pvk(
-    cer_bytes: bytes,
-    pvk_bytes: bytes,
-    pvk_password: str,
-    pfx_password: str,
-    out_pfx: Path,
-) -> None:
-    """Parse SQL Server's exported .cer + .pvk and write a PKCS#12 .pfx file."""
-    from cryptography import x509
-    from cryptography.hazmat.primitives.serialization import BestAvailableEncryption, pkcs12
-
-    private_key = _pvk_read(pvk_bytes, pvk_password)
-    cert = x509.load_der_x509_certificate(cer_bytes)
-
-    pfx_bytes = pkcs12.serialize_key_and_certificates(
-        name=b"TDE_Page_Cert",
-        key=private_key,
-        cert=cert,
-        cas=None,
-        encryption_algorithm=BestAvailableEncryption(pfx_password.encode()),
-    )
-    out_pfx.parent.mkdir(parents=True, exist_ok=True)
-    out_pfx.write_bytes(pfx_bytes)
 
 
 def build_stmts() -> list[str]:
@@ -288,19 +139,14 @@ END""",
             f"BACKUP DATABASE [{DB_NAME}] TO DISK = N'{CONTAINER_BAK}' "
             "WITH FORMAT, INIT, COPY_ONLY"
         ),
-        # --- Step D: export certificate + private key.
-        # Classic (pre-PFX) BACKUP CERTIFICATE format — works on all SQL Server
-        # versions without any ALGORITHM clause.  Produces a DER-encoded .cer and
-        # a password-encrypted Microsoft PVK file.
-        (
-            f"BACKUP CERTIFICATE [{CERT_NAME}] "
-            f"TO FILE = N'{CONTAINER_CER}' "
-            f"WITH PRIVATE KEY ("
-            f"    FILE = N'{CONTAINER_PVK}', "
-            f"    ENCRYPTION BY PASSWORD = N'{CERT_PASSWORD}'"
-            f")"
-        ),
-        # Cleanup: drop the database and certificate.
+        # Certificate export is handled by export_cert_to_pfx() in main(),
+        # which runs BACKUP CERTIFICATE before the cleanup below.
+    ]
+
+
+def build_cleanup_stmts() -> list[str]:
+    """SQL statements to drop the database and certificate after cert export."""
+    return [
         f"ALTER DATABASE [{DB_NAME}] SET SINGLE_USER WITH ROLLBACK IMMEDIATE",
         f"DROP DATABASE [{DB_NAME}]",
         f"DROP CERTIFICATE [{CERT_NAME}]",
@@ -326,14 +172,6 @@ def main() -> int:
         file=sys.stderr,
     )
 
-    # Remove stale .cer/.pvk files left by a previous failed run so that
-    # "BACKUP CERTIFICATE … TO FILE" does not fail with "file already exists".
-    for container_path in (CONTAINER_CER, CONTAINER_PVK):
-        subprocess.run(
-            ["podman", "exec", container, "rm", "-f", container_path],
-            check=False,
-        )
-
     load_and_backup_stmts(container, user, password, build_stmts())
 
     size_bak = _copy_out(container, CONTAINER_BAK, OUT_BAK)
@@ -342,29 +180,19 @@ def main() -> int:
     size_plain = _copy_out(container, CONTAINER_PLAIN_BAK, OUT_PLAIN_BAK)
     print(f"wrote {OUT_PLAIN_BAK} ({size_plain:,} bytes)", file=sys.stderr)
 
-    # Fetch the certificate files from the container and combine into a PFX.
-    tmp_cer = FIXTURE_DIR / "_tmp_cert.cer"
-    tmp_pvk = FIXTURE_DIR / "_tmp_cert.pvk"
-    try:
-        _copy_out(container, CONTAINER_CER, tmp_cer)
-        _copy_out(container, CONTAINER_PVK, tmp_pvk)
-
-        _make_pfx_from_cer_and_pvk(
-            tmp_cer.read_bytes(),
-            tmp_pvk.read_bytes(),
-            pvk_password=CERT_PASSWORD,
-            pfx_password=CERT_PASSWORD,
-            out_pfx=OUT_PFX,
-        )
-    finally:
-        tmp_cer.unlink(missing_ok=True)
-        tmp_pvk.unlink(missing_ok=True)
-
-    print(f"wrote {OUT_PFX} ({OUT_PFX.stat().st_size:,} bytes)", file=sys.stderr)
-    print(
-        f"\nCertificate password: {CERT_PASSWORD!r}",
-        file=sys.stderr,
+    # Export certificate before dropping it.
+    export_cert_to_pfx(
+        container, user, password,
+        cert_name=CERT_NAME,
+        out_pfx=OUT_PFX,
+        pvk_password=CERT_PASSWORD,
+        pfx_password=CERT_PASSWORD,
+        cert_alias=b"TDE_Page_Cert",
     )
+
+    load_and_backup_stmts(container, user, password, build_cleanup_stmts())
+
+    print(f"\nCertificate password: {CERT_PASSWORD!r}", file=sys.stderr)
     return 0
 
 

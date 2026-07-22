@@ -235,3 +235,57 @@ class TestBackupEncExtract:
 
         with pytest.raises(EncryptedBackupError):
             extract_bak(str(fixture_enc_bak_aes256), sink=_CollectingSink())
+
+
+# ---------------------------------------------------------------------------
+# Integration tests: double-encrypted (TDE + WITH ENCRYPTION)
+# ---------------------------------------------------------------------------
+
+FIXTURE_TDE_FULL_CERT_PASSWORD = "TdeFullCert!Fixture2024"
+EXPECTED_TDE_FULL_PROBE_ROWS = [{"id": 1, "val": "hello"}]
+
+
+class TestTdeFullExtract:
+    """Chained decryption: backup-level decrypt → TDE page decrypt."""
+
+    def _extract_probe(
+        self, bak_path: Path, pfx_path: Path
+    ) -> list[dict]:
+        from mssqlbak.extract.driver import extract_bak
+        from mssqlbak.tde.keys import load_tde_key
+
+        tde_key = load_tde_key(pfx_path, FIXTURE_TDE_FULL_CERT_PASSWORD)
+        sink = _CollectingSink()
+        # Same key for both layers: backup_cert= (outer) and tde_key= (inner).
+        extract_bak(str(bak_path), sink=sink, backup_cert=tde_key, tde_key=tde_key)
+        return _probe_rows(sink)
+
+    def test_tde_full_enc_only_extracts_probe_rows(
+        self, fixture_tde_full_bak: Path, fixture_tde_full_pfx: Path
+    ):
+        """tde_full.bak (TDE + enc-only, no compression) decrypts to probe row."""
+        rows = self._extract_probe(fixture_tde_full_bak, fixture_tde_full_pfx)
+        assert len(rows) == 1, f"Expected 1 row, got {len(rows)}: {rows}"
+        assert rows[0]["id"] == 1
+        assert rows[0]["val"] == "hello"
+
+    def test_tde_full_compressed_extracts_probe_rows(
+        self,
+        fixture_tde_full_compressed_bak: Path,
+        fixture_tde_full_pfx: Path,
+    ):
+        """tde_full_compressed.bak (TDE + enc + COMPRESSION) decrypts to probe row."""
+        rows = self._extract_probe(
+            fixture_tde_full_compressed_bak, fixture_tde_full_pfx
+        )
+        assert len(rows) == 1, f"Expected 1 row, got {len(rows)}: {rows}"
+        assert rows[0]["id"] == 1
+        assert rows[0]["val"] == "hello"
+
+    def test_tde_full_raises_without_cert(self, fixture_tde_full_bak: Path):
+        """Without a certificate, tde_full.bak must raise EncryptedBackupError."""
+        from mssqlbak.errors import EncryptedBackupError
+        from mssqlbak.extract.driver import extract_bak
+
+        with pytest.raises(EncryptedBackupError):
+            extract_bak(str(fixture_tde_full_bak), sink=_CollectingSink())
