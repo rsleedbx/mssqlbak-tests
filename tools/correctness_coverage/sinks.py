@@ -113,9 +113,10 @@ def _iter_pg_dir_tables(
 ) -> Iterator[tuple[str, pa.Table | object]]:
     """Stream pg_dir tables one at a time from the archive.
 
-    Accumulates batches for the current table and yields a complete Arrow
-    Table when the fqn changes.  Peak memory is bounded to one table's data
-    plus the next batch being decoded, not the whole archive.
+    Iterates every TABLE entry recorded in the TOC so that empty tables
+    (opened but never written by the extractor) are surfaced as 0-row Arrow
+    Tables with the correct schema.  This allows the coverage tool to verify
+    column count and names even when no rows were produced.
 
     Yields ``(\"__infra__\", _READBACK_ERROR)`` when the archive root is
     missing or the toc.dat cannot be opened (infra failure, not data
@@ -126,20 +127,39 @@ def _iter_pg_dir_tables(
         yield "__infra__", _READBACK_ERROR
         return
 
-    current_fqn: str | None = None
-    current_batches: list[pa.RecordBatch] = []
+    from pgdump.dir_reader import read_dir_archive
+
     try:
-        for qname, batch in iter_dir_batches(root):
-            if qname != current_fqn:
-                if current_fqn is not None and current_batches:
-                    yield current_fqn, pa.Table.from_batches(current_batches)
-                    current_batches = []
-                current_fqn = qname
-            current_batches.append(batch)
-        if current_fqn is not None and current_batches:
-            yield current_fqn, pa.Table.from_batches(current_batches)
+        archive = read_dir_archive(root)
     except Exception:
-        log.exception("Error streaming pg_dir tables from %s (last fqn: %s)", root, current_fqn)
+        log.exception("pg_dir readback: failed to open archive at %s", root)
+        yield "__infra__", _READBACK_ERROR
+        return
+
+    try:
+        for qualified, (tdef, entry) in archive.tables.items():
+            data_path = archive.path / entry.filename
+            batches: list[pa.RecordBatch] = []
+            if data_path.exists():
+                from pgdump.dir_reader import _decode_data_file, _iter_copy_batches
+                try:
+                    raw = _decode_data_file(data_path)
+                    for batch in _iter_copy_batches(raw, tdef, entry.copy_stmt or "", 65536):
+                        batches.append(batch)
+                except Exception:
+                    log.exception(
+                        "pg_dir readback: error reading data for %s from %s",
+                        qualified, data_path,
+                    )
+            if batches:
+                yield qualified, pa.Table.from_batches(batches)
+            else:
+                # Empty table: build a 0-row table with the correct schema from
+                # the CREATE TABLE DDL so col-count/col-name can be verified.
+                _schema = pa.schema([(cd.name, cd.arrow_type) for cd in tdef.columns])
+                yield qualified, _schema.empty_table()
+    except Exception:
+        log.exception("Error iterating pg_dir tables from %s", root)
 
 
 SINKS: dict[str, SinkSpec] = {

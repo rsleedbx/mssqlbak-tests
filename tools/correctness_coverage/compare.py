@@ -349,6 +349,22 @@ def _compare_tables(
         if missing_tbl and expected_rows > 0 and not xtp_skip:
             bad_columns.update(col_names)
 
+        # For empty tables that are present in the actual output, verify that the
+        # column names round-tripped correctly.  We only check this when the table
+        # is present (act is not None) and has 0 rows — non-empty tables get their
+        # columns validated through the null/min-max per-column loop below.
+        if act is not None and expected_rows == 0 and act["row_count"] == 0:
+            act_col_names = [normalize_col(c) for c in act["col_names"]]
+            exp_col_names = [normalize_col(c) for c in col_names]
+            for c_exp, c_act in zip(exp_col_names, act_col_names):
+                if c_exp != c_act:
+                    bad_columns.add(c_exp)
+            # Flag any extra-missing columns
+            if len(act_col_names) != len(exp_col_names):
+                bad_columns.update(
+                    set(exp_col_names) - set(act_col_names)
+                )
+
         for col_info in columns:
             col_name: str = col_info["name"]
             sql_type: str = col_info.get("sql_type", "")

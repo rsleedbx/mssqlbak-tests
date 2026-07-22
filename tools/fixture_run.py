@@ -1253,7 +1253,8 @@ _ALL_VERSIONS_SUITE = [
     "tabletype-cci-large",  # Gap K-1: CCI 1,200-row row group (real segment encoding)
     "delta-rowgroup",  # Gap C-1: CCI open delta store (compressed + uncompressed rows)
     "enc-bak",  # backup-level WITH ENCRYPTION decryption fixtures (AES_128 / AES_256)
-    "tde",  # Gap F-1: TDE-encrypted backup detect-and-fail
+    "tde",  # TDE-encrypted backup (backup-level + database-level chained decryption)
+    "tde-page",  # page-level TDE (database-encrypted pages, backup-level not encrypted)
     "boundary-datetime",  # Gap K-2: datetime/bit/decimal boundary values in enc=4 CCI segments
     "mixed-collation",  # Gap G-3: per-column collation override — Latin1/Greek/Hebrew/UTF-8
     "ncci-types",  # Gap K-5: NCCI type coverage — 19 types × 1,203 rows

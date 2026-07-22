@@ -1,0 +1,33 @@
+{
+  "sql_version": "Microsoft SQL Server 2025 (RTM-CU7) (KB5096981) - 17.0.4065.4 (X64)",
+  "bak": "tde_page_plain.bak",
+  "bak_size_bytes": 3657728,
+  "bak_size_mb": 3.488,
+  "bak_sha256": "42aaa2143fa8a02c76c09d4e03e671a8a85e6c2b289a1fac8b9a204a1216c181",
+  "database": "RegisterBak_tde_page_plain",
+  "registered_at": "2026-07-22T18:12:20.650388+00:00",
+  "sqlserver_restore_s": 3.027,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "probe",
+      "row_count": 3,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3"
+        },
+        {
+          "name": "val",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "hello",
+          "max_val": "world"
+        }
+      ]
+    }
+  ]
+}

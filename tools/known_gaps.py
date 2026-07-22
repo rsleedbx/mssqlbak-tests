@@ -97,14 +97,6 @@ KNOWN_GAPS: dict[str, Gap] = {
     # scan starts, so the scan landed mid-record and dropped them.  Fixed by also
     # scanning the [0, 0x48) prefix of OPEN blocks in _iter_cont_records
     # (mssqlbak/logtail.py).  Verified: tools/diag/_diag_cdv4_phantom.py.
-    # ── Encrypted backups (TDE) ───────────────────────────────────────────────
-    "tde_full": Gap(
-        "Transparent Data Encryption (TDE): SQL Server writes the MSSQLBAK "
-        "container but AES-encrypts every data page.  mssqlbak cannot decrypt "
-        "TDE-encrypted backups without the Database Encryption Key (DEK) and "
-        "the server certificate stored in master.  Extraction raises "
-        "EncryptedBackupError by design."
-    ),
     # ── enc=5 ARCHIVE sub-block: exact overflow-row pre_meta layout ───────────
     # [EMPIRICAL] — needs DBCC CSINDEX capture from a COLUMNSTORE_ARCHIVE fixture
     # (use tools/make_matrix_fixtures.py --suite arch2 + tools/diag/diag_dbcc_csindex.py)

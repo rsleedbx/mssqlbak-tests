@@ -1,0 +1,33 @@
+{
+  "sql_version": "Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64)",
+  "bak": "tde_full_compressed.bak",
+  "bak_size_bytes": 483328,
+  "bak_size_mb": 0.461,
+  "bak_sha256": "1fed35905ebf98268605d9db9549f3cb7861474d8095526d28dbde0800f20451",
+  "database": "RegisterBak_tde_full_compressed",
+  "registered_at": "2026-07-22T18:09:41.810632+00:00",
+  "sqlserver_restore_s": 2.951,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "probe",
+      "row_count": 1,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "1"
+        },
+        {
+          "name": "val",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "hello",
+          "max_val": "hello"
+        }
+      ]
+    }
+  ]
+}

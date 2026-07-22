@@ -1,0 +1,33 @@
+{
+  "sql_version": "Microsoft SQL Server 2019 (RTM-CU32-GDR) (KB5090407) - 15.0.4470.1 (X64)",
+  "bak": "enc_bak_aes256_compressed.bak",
+  "bak_size_bytes": 458752,
+  "bak_size_mb": 0.438,
+  "bak_sha256": "a89bf2606fc06ddd9ab2f9fbcb6516a336487483f85b6ff394eb141e9023bbfa",
+  "database": "RegisterBak_enc_bak_aes256_compressed",
+  "registered_at": "2026-07-22T18:10:16.896491+00:00",
+  "sqlserver_restore_s": 2.775,
+  "tables": [
+    {
+      "schema": "dbo",
+      "name": "probe",
+      "row_count": 3,
+      "columns": [
+        {
+          "name": "id",
+          "sql_type": "int",
+          "null_count": 0,
+          "min_val": "1",
+          "max_val": "3"
+        },
+        {
+          "name": "val",
+          "sql_type": "varchar",
+          "null_count": 0,
+          "min_val": "alpha",
+          "max_val": "gamma"
+        }
+      ]
+    }
+  ]
+}

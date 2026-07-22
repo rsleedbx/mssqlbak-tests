@@ -111,18 +111,30 @@ class _StreamingStatsSink:
         batches = self._batches_by_fqn.pop(fqn, [])
         schema = self._schemas_by_fqn.pop(fqn, None)
         if not batches:
+            # Table was opened (schema known) but never had any rows — record a
+            # schema-only entry so empty-table col-count/col-name can be checked.
+            # Set null_count=0 for all columns (a 0-row table has no nulls).
+            if schema is not None:
+                self.arrow_node[fqn] = {
+                    "kind": "arrow",
+                    "row_count": 0,
+                    "null_counts": {c: 0 for c in schema.names},
+                    "min_vals": {c: None for c in schema.names},
+                    "max_vals": {c: None for c in schema.names},
+                    "col_count": len(schema.names),
+                    "col_names": list(schema.names),
+                }
             return
         tbl = pa.Table.from_batches(batches, schema=schema)
-        if len(tbl) > 0:
-            self.arrow_node[fqn] = _node_stats_from_arrow_table(fqn, tbl)
-            if self._want_cells and self._cells_dir is not None:
-                entry = self._manifest_by_fqn.get(fqn)
-                if entry is not None:
-                    t_v = time.perf_counter()
-                    self.verify_results[fqn] = _verify_one(
-                        tbl, self._cells_dir, entry, self._verify_level
-                    )
-                    self.verify_s += time.perf_counter() - t_v
+        self.arrow_node[fqn] = _node_stats_from_arrow_table(fqn, tbl)
+        if len(tbl) > 0 and self._want_cells and self._cells_dir is not None:
+            entry = self._manifest_by_fqn.get(fqn)
+            if entry is not None:
+                t_v = time.perf_counter()
+                self.verify_results[fqn] = _verify_one(
+                    tbl, self._cells_dir, entry, self._verify_level
+                )
+                self.verify_s += time.perf_counter() - t_v
         del tbl
 
 
@@ -249,19 +261,15 @@ def _error_result(bak_path: Path, exc: BaseException) -> dict[str, Any]:
     }
 
 
-# Fixtures known to raise EncryptedBackupError by design (backup-level TDE
-# without a recoverable certificate).  Once tde_full is regenerated with
-# a saved cert, it moves out of this set — see enc_cert_resolver.py.
 _BACKUP_LEVEL_TDE_FIXTURES: frozenset[str] = frozenset()
 
 
 def _expected_encrypted_skip_result(bak_path: Path, exc: BaseException) -> dict[str, Any]:
     """Build a result dict for a fixture that is expected to be unreadable.
 
-    ``tde_full.bak`` uses backup-level WITH ENCRYPTION and is intentionally
-    unrestorable.  It verifies that mssqlbak raises EncryptedBackupError rather
-    than crashing.  Recording it as an expected skip (not a crash) keeps the
-    overall pass rate meaningful.
+    Used for backup-level encrypted fixtures where no certificate is available.
+    Records the expected EncryptedBackupError as a skip rather than a crash
+    so the overall pass rate remains meaningful.
     """
     return {
         "bak": bak_path.name,
@@ -497,19 +505,18 @@ def _run_one(
                 break
 
             assert isinstance(sink_tbl, pa.Table)  # narrow type for mypy
-            if len(sink_tbl) > 0:
-                t_s = time.perf_counter()
-                sink_node[fqn] = _node_stats_from_arrow_table(fqn, sink_tbl)
-                _stats += time.perf_counter() - t_s
+            t_s = time.perf_counter()
+            sink_node[fqn] = _node_stats_from_arrow_table(fqn, sink_tbl)
+            _stats += time.perf_counter() - t_s
 
-                if want_cells and manifest_by_fqn:
-                    entry = manifest_by_fqn.get(fqn)
-                    if entry is not None:
-                        t_v = time.perf_counter()
-                        sink_verify_results[fqn] = _verify_one(
-                            sink_tbl, cells_dir, entry, verify_level
-                        )
-                        _verify += time.perf_counter() - t_v
+            if len(sink_tbl) > 0 and want_cells and manifest_by_fqn:
+                entry = manifest_by_fqn.get(fqn)
+                if entry is not None:
+                    t_v = time.perf_counter()
+                    sink_verify_results[fqn] = _verify_one(
+                        sink_tbl, cells_dir, entry, verify_level
+                    )
+                    _verify += time.perf_counter() - t_v
 
             del sink_tbl
             _release_arrow_memory()

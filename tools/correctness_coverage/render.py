@@ -38,12 +38,15 @@ def _value_ok(t: dict[str, Any]) -> bool:
 
 
 def _table_ok(t: dict[str, Any]) -> bool:
+    # col_count is a free pass only when the table is genuinely absent (missing)
+    # or an XTP skip.  For 0-row tables that ARE present, col_count_ok reflects
+    # the actual schema comparison and must not be bypassed.
+    _col_ok = t["col_count_ok"] or t["missing"] or t["xtp_skip"]
     return (
         (t["row_ok"] or t["expected_rows"] == 0 or t["xtp_skip"])
         and t["null_ok"] == t["null_total"]
         and t["minmax_ok"] == t["minmax_total"]
-        # col_count only meaningful for non-empty tables (mssqlbak skips empty tables)
-        and (t["col_count_ok"] or t["expected_rows"] == 0 or t["xtp_skip"])
+        and _col_ok
         and _value_ok(t)
     )
 
@@ -177,7 +180,9 @@ def _render_edge_table_rows(lines: list[str], tables: list[dict[str, Any]]) -> N
             row_s = col_s = "—"
         else:
             row_s = "✓" if t["row_ok"] else ("—" if t["expected_rows"] == 0 else "✗")
-            col_s = "—" if t["expected_rows"] == 0 else "✓" if t["col_count_ok"] else "✗"
+            # col_count: show real result for present tables (incl. 0-row); "—" only
+            # when the table is fully absent (missing) so there's nothing to compare.
+            col_s = "—" if t["missing"] else ("✓" if t["col_count_ok"] else "✗")
         null_s = _fmt_count(t["null_ok"], t["null_total"])
         mm_s = _fmt_count(t["minmax_ok"], t["minmax_total"])
         ttype = t.get("table_type", "rowstore")
@@ -309,7 +314,7 @@ def _render(
                 if t["minmax_ok"] < t["minmax_total"]:
                     mm_fail += 1
                     edge_has_fail = True
-                if not (t.get("col_count_ok", True) or t["expected_rows"] == 0 or t["xtp_skip"]):
+                if not (t.get("col_count_ok", True) or t["missing"] or t["xtp_skip"]):
                     col_fail += 1
                     edge_has_fail = True
                 if not _value_ok(t):
@@ -447,7 +452,7 @@ def _render(
             mm_ok_n = sum(t["minmax_ok"] for t in tables)
             mm_total_n = sum(t["minmax_total"] for t in tables)
             col_ok_n = sum(
-                1 for t in tables if t["col_count_ok"] or t["expected_rows"] == 0 or t["xtp_skip"]
+                1 for t in tables if t["col_count_ok"] or t["missing"] or t["xtp_skip"]
             )
 
             row_s = _fmt_count(row_ok_n, row_total)

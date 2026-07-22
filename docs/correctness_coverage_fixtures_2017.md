@@ -5,9 +5,9 @@ Ground truth is recorded in `tests/fixtures/<name>.bak.stats.json` by
 `python -m tools.fixture_run register-bak <name>.bak` on a live SQL Server instance.
 **Generated** by `python -m tools.correctness_coverage --fixture-dir tests/fixtures_2017`.
 
-**134 fixtures · 133 pass · 1 xfail (known gap) · 0 fail**
+**141 fixtures · 141 pass · 0 xfail (known gap) · 0 fail**
 
-**Tables:** 2004/2004 pass · **Columns:** 19958/19958 pass
+**Tables:** 2050/2050 pass · **Columns:** 20058/20058 pass
 
 **Row count:** ✓ · **Null count:** ✓ · **Min/max:** ✓ · **Col count:** ✓ · **Cells:** ✓
 
@@ -29,7 +29,7 @@ Column key:
 
 Memory-optimized (In-Memory OLTP / XTP) tables store their data in XTP checkpoint file pairs (CFPs) rather than 8 KB pages.  mssqlbak decodes their rows from compact and WAL-style CFP blocks embedded in the backup, so they are scored normally against ground truth.
 
-**Metadata:** 1161/1161 fixture-categories pass (constraints: 129/129, indexes: 129/129, extended_properties: 129/129, modules: 129/129, schema_objects: 129/129, security: 129/129, statistics: 129/129, plan_guides: 129/129, query_store: 129/129)
+**Metadata:** 1224/1224 fixture-categories pass (constraints: 136/136, indexes: 136/136, extended_properties: 136/136, modules: 136/136, schema_objects: 136/136, security: 136/136, statistics: 136/136, plan_guides: 136/136, query_store: 136/136)
 
 ## Summary
 
@@ -150,11 +150,11 @@ Memory-optimized (In-Memory OLTP / XTP) tables store their data in XTP checkpoin
 | `cci_string_minmax_full.bak` | delta→arrow | 2,400 | 5 | **2/2** | **5/5** | **10/10** | **2/2** | digest | ✓ |
 | `cci_string_minmax_full.bak` | arrow→pg_dir | 2,400 | 5 | **2/2** | **5/5** | **10/10** | **2/2** | — | ✓ |
 | `cci_string_minmax_full.bak` | pg_dir→arrow | 2,400 | 5 | **2/2** | **5/5** | **10/10** | **2/2** | digest | ✓ |
-| `cci_switch_full.bak` | mssql→arrow | 2,400 | 7 | **3/3** | **4/4** | **8/8** | **3/3** | digest | ✓ |
-| `cci_switch_full.bak` | arrow→delta | 2,400 | 7 | **2/2** | **4/4** | **8/8** | **2/2** | — | ✓ |
-| `cci_switch_full.bak` | delta→arrow | 2,400 | 7 | **3/3** | **4/4** | **8/8** | **3/3** | digest | ✓ |
-| `cci_switch_full.bak` | arrow→pg_dir | 2,400 | 7 | **2/2** | **4/4** | **8/8** | **2/2** | — | ✓ |
-| `cci_switch_full.bak` | pg_dir→arrow | 2,400 | 7 | **3/3** | **4/4** | **8/8** | **3/3** | digest | ✓ |
+| `cci_switch_full.bak` | mssql→arrow | 2,400 | 7 | **3/3** | **7/7** | **8/8** | **3/3** | digest | ✓ |
+| `cci_switch_full.bak` | arrow→delta | 2,400 | 7 | **3/3** | **7/7** | **8/8** | **3/3** | — | ✓ |
+| `cci_switch_full.bak` | delta→arrow | 2,400 | 7 | **3/3** | **7/7** | **8/8** | **3/3** | digest | ✓ |
+| `cci_switch_full.bak` | arrow→pg_dir | 2,400 | 7 | **3/3** | **7/7** | **8/8** | **3/3** | — | ✓ |
+| `cci_switch_full.bak` | pg_dir→arrow | 2,400 | 7 | **3/3** | **7/7** | **8/8** | **3/3** | digest | ✓ |
 | `cci_types_large_full.bak` | mssql→arrow | 6,000 | 10 | **5/5** | **10/10** | **18/18** | **5/5** | digest | ✓ |
 | `cci_types_large_full.bak` | arrow→delta | 6,000 | 10 | **5/5** | **10/10** | **20/20** | **5/5** | — | ✓ |
 | `cci_types_large_full.bak` | delta→arrow | 6,000 | 10 | **5/5** | **10/10** | **18/18** | **5/5** | digest | ✓ |
@@ -225,11 +225,11 @@ Memory-optimized (In-Memory OLTP / XTP) tables store their data in XTP checkpoin
 | `dirtycoverage_addnotnull.bak` | delta→arrow | 60 | 4 | **1/1** | **4/4** | **8/8** | **1/1** | digest | ✓ |
 | `dirtycoverage_addnotnull.bak` | arrow→pg_dir | 60 | 4 | **1/1** | **4/4** | **8/8** | **1/1** | — | ✓ |
 | `dirtycoverage_addnotnull.bak` | pg_dir→arrow | 60 | 4 | **1/1** | **4/4** | **8/8** | **1/1** | digest | ✓ |
-| `dirtycoverage_alldirty.bak` | mssql→arrow | 0 | 3 | **1/1** | — | — | **1/1** | empty | ✓ |
-| `dirtycoverage_alldirty.bak` | arrow→delta | 0 | 3 | — | — | — | — | — | ✓ |
-| `dirtycoverage_alldirty.bak` | delta→arrow | 0 | 3 | **1/1** | — | — | **1/1** | empty | ✓ |
-| `dirtycoverage_alldirty.bak` | arrow→pg_dir | 0 | 3 | — | — | — | — | — | ✓ |
-| `dirtycoverage_alldirty.bak` | pg_dir→arrow | 0 | 3 | **1/1** | — | — | **1/1** | empty | ✓ |
+| `dirtycoverage_alldirty.bak` | mssql→arrow | 0 | 3 | **1/1** | **3/3** | — | **1/1** | empty | ✓ |
+| `dirtycoverage_alldirty.bak` | arrow→delta | 0 | 3 | **1/1** | **3/3** | — | **1/1** | — | ✓ |
+| `dirtycoverage_alldirty.bak` | delta→arrow | 0 | 3 | **1/1** | **3/3** | — | **1/1** | empty | ✓ |
+| `dirtycoverage_alldirty.bak` | arrow→pg_dir | 0 | 3 | **1/1** | **3/3** | — | **1/1** | — | ✓ |
+| `dirtycoverage_alldirty.bak` | pg_dir→arrow | 0 | 3 | **1/1** | **3/3** | — | **1/1** | empty | ✓ |
 | `dirtycoverage_altercol.bak` | mssql→arrow | 50 | 3 | **1/1** | **3/3** | **6/6** | **1/1** | digest | ✓ |
 | `dirtycoverage_altercol.bak` | arrow→delta | 50 | 3 | **1/1** | **3/3** | **6/6** | **1/1** | — | ✓ |
 | `dirtycoverage_altercol.bak` | delta→arrow | 50 | 3 | **1/1** | **3/3** | **6/6** | **1/1** | digest | ✓ |
@@ -395,11 +395,11 @@ Memory-optimized (In-Memory OLTP / XTP) tables store their data in XTP checkpoin
 | `dirtycoverage_switch.bak` | delta→arrow | 200 | 6 | **2/2** | **6/6** | **12/12** | **2/2** | digest | ✓ |
 | `dirtycoverage_switch.bak` | arrow→pg_dir | 200 | 6 | **2/2** | **6/6** | **12/12** | **2/2** | — | ✓ |
 | `dirtycoverage_switch.bak` | pg_dir→arrow | 200 | 6 | **2/2** | **6/6** | **12/12** | **2/2** | digest | ✓ |
-| `dirtycoverage_temporal_update.bak` | mssql→arrow | 20 | 8 | **2/2** | **4/4** | **8/8** | **2/2** | digest | ✓ |
-| `dirtycoverage_temporal_update.bak` | arrow→delta | 20 | 8 | **1/1** | **4/4** | **8/8** | **1/1** | — | ✓ |
-| `dirtycoverage_temporal_update.bak` | delta→arrow | 20 | 8 | **2/2** | **4/4** | **8/8** | **2/2** | digest | ✓ |
-| `dirtycoverage_temporal_update.bak` | arrow→pg_dir | 20 | 8 | **1/1** | **4/4** | **8/8** | **1/1** | — | ✓ |
-| `dirtycoverage_temporal_update.bak` | pg_dir→arrow | 20 | 8 | **2/2** | **4/4** | **8/8** | **2/2** | digest | ✓ |
+| `dirtycoverage_temporal_update.bak` | mssql→arrow | 20 | 8 | **2/2** | **8/8** | **8/8** | **2/2** | digest | ✓ |
+| `dirtycoverage_temporal_update.bak` | arrow→delta | 20 | 8 | **2/2** | **8/8** | **8/8** | **2/2** | — | ✓ |
+| `dirtycoverage_temporal_update.bak` | delta→arrow | 20 | 8 | **2/2** | **8/8** | **8/8** | **2/2** | digest | ✓ |
+| `dirtycoverage_temporal_update.bak` | arrow→pg_dir | 20 | 8 | **2/2** | **8/8** | **8/8** | **2/2** | — | ✓ |
+| `dirtycoverage_temporal_update.bak` | pg_dir→arrow | 20 | 8 | **2/2** | **8/8** | **8/8** | **2/2** | digest | ✓ |
 | `dirtycoverage_truncate.bak` | mssql→arrow | 500 | 3 | **1/1** | **3/3** | **6/6** | **1/1** | digest | ✓ |
 | `dirtycoverage_truncate.bak` | arrow→delta | 500 | 3 | **1/1** | **3/3** | **6/6** | **1/1** | — | ✓ |
 | `dirtycoverage_truncate.bak` | delta→arrow | 500 | 3 | **1/1** | **3/3** | **6/6** | **1/1** | digest | ✓ |
@@ -420,6 +420,26 @@ Memory-optimized (In-Memory OLTP / XTP) tables store their data in XTP checkpoin
 | `dirtycoverage_update.bak` | delta→arrow | 50 | 4 | **1/1** | **4/4** | **8/8** | **1/1** | digest | ✓ |
 | `dirtycoverage_update.bak` | arrow→pg_dir | 50 | 4 | **1/1** | **4/4** | **8/8** | **1/1** | — | ✓ |
 | `dirtycoverage_update.bak` | pg_dir→arrow | 50 | 4 | **1/1** | **4/4** | **8/8** | **1/1** | digest | ✓ |
+| `enc_bak_aes128_full.bak` | mssql→arrow | 3 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | digest | ✓ |
+| `enc_bak_aes128_full.bak` | arrow→delta | 3 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | — | ✓ |
+| `enc_bak_aes128_full.bak` | delta→arrow | 3 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | digest | ✓ |
+| `enc_bak_aes128_full.bak` | arrow→pg_dir | 3 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | — | ✓ |
+| `enc_bak_aes128_full.bak` | pg_dir→arrow | 3 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | digest | ✓ |
+| `enc_bak_aes256_compressed.bak` | mssql→arrow | 3 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | digest | ✓ |
+| `enc_bak_aes256_compressed.bak` | arrow→delta | 3 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | — | ✓ |
+| `enc_bak_aes256_compressed.bak` | delta→arrow | 3 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | digest | ✓ |
+| `enc_bak_aes256_compressed.bak` | arrow→pg_dir | 3 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | — | ✓ |
+| `enc_bak_aes256_compressed.bak` | pg_dir→arrow | 3 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | digest | ✓ |
+| `enc_bak_aes256_full.bak` | mssql→arrow | 3 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | digest | ✓ |
+| `enc_bak_aes256_full.bak` | arrow→delta | 3 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | — | ✓ |
+| `enc_bak_aes256_full.bak` | delta→arrow | 3 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | digest | ✓ |
+| `enc_bak_aes256_full.bak` | arrow→pg_dir | 3 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | — | ✓ |
+| `enc_bak_aes256_full.bak` | pg_dir→arrow | 3 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | digest | ✓ |
+| `enc_bak_plain.bak` | mssql→arrow | 3 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | digest | ✓ |
+| `enc_bak_plain.bak` | arrow→delta | 3 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | — | ✓ |
+| `enc_bak_plain.bak` | delta→arrow | 3 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | digest | ✓ |
+| `enc_bak_plain.bak` | arrow→pg_dir | 3 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | — | ✓ |
+| `enc_bak_plain.bak` | pg_dir→arrow | 3 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | digest | ✓ |
 | `filtered_ncci_full.bak` | mssql→arrow | 1,200 | 7 | **3/3** | **7/7** | **14/14** | **3/3** | digest | ✓ |
 | `filtered_ncci_full.bak` | arrow→delta | 1,200 | 7 | **3/3** | **7/7** | **14/14** | **3/3** | — | ✓ |
 | `filtered_ncci_full.bak` | delta→arrow | 1,200 | 7 | **3/3** | **7/7** | **14/14** | **3/3** | digest | ✓ |
@@ -640,7 +660,26 @@ Memory-optimized (In-Memory OLTP / XTP) tables store their data in XTP checkpoin
 | `tabletypecoverage_full.bak` | delta→arrow | 20 | 161 | **5/5** | **161/161** | **272/272** | **5/5** | digest | ✓ |
 | `tabletypecoverage_full.bak` | arrow→pg_dir | 20 | 161 | **5/5** | **162/162** | **282/282** | **5/5** | — | ✓ |
 | `tabletypecoverage_full.bak` | pg_dir→arrow | 20 | 161 | **5/5** | **161/161** | **272/272** | **5/5** | digest | ✓ |
-| `tde_full.bak` | — | — | — | — | — | — | — | — | ✓ |
+| `tde_full.bak` | mssql→arrow | 1 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | digest | ✓ |
+| `tde_full.bak` | arrow→delta | 1 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | — | ✓ |
+| `tde_full.bak` | delta→arrow | 1 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | digest | ✓ |
+| `tde_full.bak` | arrow→pg_dir | 1 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | — | ✓ |
+| `tde_full.bak` | pg_dir→arrow | 1 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | digest | ✓ |
+| `tde_full_compressed.bak` | mssql→arrow | 1 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | digest | ✓ |
+| `tde_full_compressed.bak` | arrow→delta | 1 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | — | ✓ |
+| `tde_full_compressed.bak` | delta→arrow | 1 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | digest | ✓ |
+| `tde_full_compressed.bak` | arrow→pg_dir | 1 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | — | ✓ |
+| `tde_full_compressed.bak` | pg_dir→arrow | 1 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | digest | ✓ |
+| `tde_page_full.bak` | mssql→arrow | 3 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | digest | ✓ |
+| `tde_page_full.bak` | arrow→delta | 3 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | — | ✓ |
+| `tde_page_full.bak` | delta→arrow | 3 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | digest | ✓ |
+| `tde_page_full.bak` | arrow→pg_dir | 3 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | — | ✓ |
+| `tde_page_full.bak` | pg_dir→arrow | 3 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | digest | ✓ |
+| `tde_page_plain.bak` | mssql→arrow | 3 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | digest | ✓ |
+| `tde_page_plain.bak` | arrow→delta | 3 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | — | ✓ |
+| `tde_page_plain.bak` | delta→arrow | 3 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | digest | ✓ |
+| `tde_page_plain.bak` | arrow→pg_dir | 3 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | — | ✓ |
+| `tde_page_plain.bak` | pg_dir→arrow | 3 | 2 | **1/1** | **2/2** | **4/4** | **1/1** | digest | ✓ |
 | `temporal_hidden_full.bak` | mssql→arrow | 14 | 16 | **4/4** | **16/16** | **32/32** | **4/4** | digest | ✓ |
 | `temporal_hidden_full.bak` | arrow→delta | 14 | 16 | **4/4** | **16/16** | **32/32** | **4/4** | — | ✓ |
 | `temporal_hidden_full.bak` | delta→arrow | 14 | 16 | **4/4** | **16/16** | **32/32** | **4/4** | digest | ✓ |
@@ -1770,7 +1809,7 @@ _SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.cci_switch_dst` | columnstore | 1,200 | ✓ | **3/3** | **6/6** | ✓ | cells digest ✓ |
-| `dbo.cci_switch_src` | columnstore | 0 | — | — | — | — |  |
+| `dbo.cci_switch_src` | columnstore | 0 | ✓ | **3/3** | — | ✓ |  |
 | `dbo.fkr__seed` | rowstore | 1,200 | ✓ | **1/1** | **2/2** | ✓ | cells digest ✓ |
 
 #### Stage: arrow→delta
@@ -1778,6 +1817,7 @@ _SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.cci_switch_dst` | columnstore | 1,200 | ✓ | **3/3** | **6/6** | ✓ |  |
+| `dbo.cci_switch_src` | columnstore | 0 | ✓ | **3/3** | — | ✓ |  |
 | `dbo.fkr__seed` | rowstore | 1,200 | ✓ | **1/1** | **2/2** | ✓ |  |
 
 #### Stage: delta→arrow
@@ -1785,7 +1825,7 @@ _SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.cci_switch_dst` | columnstore | 1,200 | ✓ | **3/3** | **6/6** | ✓ | cells digest ✓ |
-| `dbo.cci_switch_src` | columnstore | 0 | — | — | — | — |  |
+| `dbo.cci_switch_src` | columnstore | 0 | ✓ | **3/3** | — | ✓ |  |
 | `dbo.fkr__seed` | rowstore | 1,200 | ✓ | **1/1** | **2/2** | ✓ | cells digest ✓ |
 
 #### Stage: arrow→pg_dir
@@ -1793,6 +1833,7 @@ _SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.cci_switch_dst` | columnstore | 1,200 | ✓ | **3/3** | **6/6** | ✓ |  |
+| `dbo.cci_switch_src` | columnstore | 0 | ✓ | **3/3** | — | ✓ |  |
 | `dbo.fkr__seed` | rowstore | 1,200 | ✓ | **1/1** | **2/2** | ✓ |  |
 
 #### Stage: pg_dir→arrow
@@ -1800,7 +1841,7 @@ _SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.cci_switch_dst` | columnstore | 1,200 | ✓ | **3/3** | **6/6** | ✓ | cells digest ✓ |
-| `dbo.cci_switch_src` | columnstore | 0 | — | — | — | — |  |
+| `dbo.cci_switch_src` | columnstore | 0 | ✓ | **3/3** | — | ✓ |  |
 | `dbo.fkr__seed` | rowstore | 1,200 | ✓ | **1/1** | **2/2** | ✓ | cells digest ✓ |
 
 ### `cci_types_large_full.bak` — 2017 — ✓ pass
@@ -2492,29 +2533,31 @@ _SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
-| `dbo.alldirty_test` | rowstore | 0 | — | — | — | — |  |
+| `dbo.alldirty_test` | rowstore | 0 | ✓ | **3/3** | — | ✓ |  |
 
 #### Stage: arrow→delta
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.alldirty_test` | rowstore | 0 | ✓ | **3/3** | — | ✓ |  |
 
 #### Stage: delta→arrow
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
-| `dbo.alldirty_test` | rowstore | 0 | — | — | — | — |  |
+| `dbo.alldirty_test` | rowstore | 0 | ✓ | **3/3** | — | ✓ |  |
 
 #### Stage: arrow→pg_dir
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.alldirty_test` | rowstore | 0 | ✓ | **3/3** | — | ✓ |  |
 
 #### Stage: pg_dir→arrow
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
-| `dbo.alldirty_test` | rowstore | 0 | — | — | — | — |  |
+| `dbo.alldirty_test` | rowstore | 0 | ✓ | **3/3** | — | ✓ |  |
 
 ### `dirtycoverage_altercol.bak` — 2017 — ✓ pass
 
@@ -3677,33 +3720,35 @@ _SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.temporal_test` | rowstore | 20 | ✓ | **4/4** | **8/8** | ✓ | cells digest ✓ |
-| `dbo.temporal_test_history` | rowstore | 0 | — | — | — | — |  |
+| `dbo.temporal_test_history` | rowstore | 0 | ✓ | **4/4** | — | ✓ |  |
 
 #### Stage: arrow→delta
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.temporal_test` | rowstore | 20 | ✓ | **4/4** | **8/8** | ✓ |  |
+| `dbo.temporal_test_history` | rowstore | 0 | ✓ | **4/4** | — | ✓ |  |
 
 #### Stage: delta→arrow
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.temporal_test` | rowstore | 20 | ✓ | **4/4** | **8/8** | ✓ | cells digest ✓ |
-| `dbo.temporal_test_history` | rowstore | 0 | — | — | — | — |  |
+| `dbo.temporal_test_history` | rowstore | 0 | ✓ | **4/4** | — | ✓ |  |
 
 #### Stage: arrow→pg_dir
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.temporal_test` | rowstore | 20 | ✓ | **4/4** | **8/8** | ✓ |  |
+| `dbo.temporal_test_history` | rowstore | 0 | ✓ | **4/4** | — | ✓ |  |
 
 #### Stage: pg_dir→arrow
 
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.temporal_test` | rowstore | 20 | ✓ | **4/4** | **8/8** | ✓ | cells digest ✓ |
-| `dbo.temporal_test_history` | rowstore | 0 | — | — | — | — |  |
+| `dbo.temporal_test_history` | rowstore | 0 | ✓ | **4/4** | — | ✓ |  |
 
 ### `dirtycoverage_truncate.bak` — 2017 — ✓ pass
 
@@ -3840,6 +3885,142 @@ _SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (
 | Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
 |-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
 | `dbo.update_test` | rowstore | 50 | ✓ | **4/4** | **8/8** | ✓ | cells digest ✓ |
+
+### `enc_bak_aes128_full.bak` — 2017 — ✓ pass
+
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.559 MB_
+
+#### Stage: mssql→arrow
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.probe` | rowstore | 3 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
+
+#### Stage: arrow→delta
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.probe` | rowstore | 3 | ✓ | **2/2** | **4/4** | ✓ |  |
+
+#### Stage: delta→arrow
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.probe` | rowstore | 3 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
+
+#### Stage: arrow→pg_dir
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.probe` | rowstore | 3 | ✓ | **2/2** | **4/4** | ✓ |  |
+
+#### Stage: pg_dir→arrow
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.probe` | rowstore | 3 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
+
+### `enc_bak_aes256_compressed.bak` — 2017 — ✓ pass
+
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 0.41 MB_
+
+#### Stage: mssql→arrow
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.probe` | rowstore | 3 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
+
+#### Stage: arrow→delta
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.probe` | rowstore | 3 | ✓ | **2/2** | **4/4** | ✓ |  |
+
+#### Stage: delta→arrow
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.probe` | rowstore | 3 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
+
+#### Stage: arrow→pg_dir
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.probe` | rowstore | 3 | ✓ | **2/2** | **4/4** | ✓ |  |
+
+#### Stage: pg_dir→arrow
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.probe` | rowstore | 3 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
+
+### `enc_bak_aes256_full.bak` — 2017 — ✓ pass
+
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.559 MB_
+
+#### Stage: mssql→arrow
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.probe` | rowstore | 3 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
+
+#### Stage: arrow→delta
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.probe` | rowstore | 3 | ✓ | **2/2** | **4/4** | ✓ |  |
+
+#### Stage: delta→arrow
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.probe` | rowstore | 3 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
+
+#### Stage: arrow→pg_dir
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.probe` | rowstore | 3 | ✓ | **2/2** | **4/4** | ✓ |  |
+
+#### Stage: pg_dir→arrow
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.probe` | rowstore | 3 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
+
+### `enc_bak_plain.bak` — 2017 — ✓ pass
+
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.547 MB_
+
+#### Stage: mssql→arrow
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.probe` | rowstore | 3 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
+
+#### Stage: arrow→delta
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.probe` | rowstore | 3 | ✓ | **2/2** | **4/4** | ✓ |  |
+
+#### Stage: delta→arrow
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.probe` | rowstore | 3 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
+
+#### Stage: arrow→pg_dir
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.probe` | rowstore | 3 | ✓ | **2/2** | **4/4** | ✓ |  |
+
+#### Stage: pg_dir→arrow
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.probe` | rowstore | 3 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
 
 ### `filtered_ncci_full.bak` — 2017 — ✓ pass
 
@@ -5877,11 +6058,141 @@ _SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (
 | `dbo.tt_partition` | rowstore | 4 | ✓ | **34/34** | **56/56** | ✓ | cells digest ✓ |
 | `dbo.tt_plain` | rowstore | 4 | ✓ | **34/34** | **56/56** | ✓ | cells digest ✓ |
 
-### `tde_full.bak` — ✓ pass
+### `tde_full.bak` — 2017 — ✓ pass
 
-_SQL Server  · 0 MB_
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.559 MB_
 
-_No non-empty tables._
+#### Stage: mssql→arrow
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.probe` | rowstore | 1 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
+
+#### Stage: arrow→delta
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.probe` | rowstore | 1 | ✓ | **2/2** | **4/4** | ✓ |  |
+
+#### Stage: delta→arrow
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.probe` | rowstore | 1 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
+
+#### Stage: arrow→pg_dir
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.probe` | rowstore | 1 | ✓ | **2/2** | **4/4** | ✓ |  |
+
+#### Stage: pg_dir→arrow
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.probe` | rowstore | 1 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
+
+### `tde_full_compressed.bak` — 2017 — ✓ pass
+
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 0.461 MB_
+
+#### Stage: mssql→arrow
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.probe` | rowstore | 1 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
+
+#### Stage: arrow→delta
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.probe` | rowstore | 1 | ✓ | **2/2** | **4/4** | ✓ |  |
+
+#### Stage: delta→arrow
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.probe` | rowstore | 1 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
+
+#### Stage: arrow→pg_dir
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.probe` | rowstore | 1 | ✓ | **2/2** | **4/4** | ✓ |  |
+
+#### Stage: pg_dir→arrow
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.probe` | rowstore | 1 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
+
+### `tde_page_full.bak` — 2017 — ✓ pass
+
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.547 MB_
+
+#### Stage: mssql→arrow
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.probe` | rowstore | 3 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
+
+#### Stage: arrow→delta
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.probe` | rowstore | 3 | ✓ | **2/2** | **4/4** | ✓ |  |
+
+#### Stage: delta→arrow
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.probe` | rowstore | 3 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
+
+#### Stage: arrow→pg_dir
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.probe` | rowstore | 3 | ✓ | **2/2** | **4/4** | ✓ |  |
+
+#### Stage: pg_dir→arrow
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.probe` | rowstore | 3 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
+
+### `tde_page_plain.bak` — 2017 — ✓ pass
+
+_SQL Server Microsoft SQL Server 2017 (RTM-CU31-GDR) (KB5090354) - 14.0.3530.2 (X64) · 2.547 MB_
+
+#### Stage: mssql→arrow
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.probe` | rowstore | 3 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
+
+#### Stage: arrow→delta
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.probe` | rowstore | 3 | ✓ | **2/2** | **4/4** | ✓ |  |
+
+#### Stage: delta→arrow
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.probe` | rowstore | 3 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
+
+#### Stage: arrow→pg_dir
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.probe` | rowstore | 3 | ✓ | **2/2** | **4/4** | ✓ |  |
+
+#### Stage: pg_dir→arrow
+
+| Table | Type | Source rows | Row count | Null count | Min/max | Col count | Notes |
+|-------|------|------------:|:---------:|:----------:|:-------:|:---------:|-------|
+| `dbo.probe` | rowstore | 3 | ✓ | **2/2** | **4/4** | ✓ | cells digest ✓ |
 
 ### `temporal_hidden_full.bak` — 2017 — ✓ pass
 
@@ -6655,6 +6966,10 @@ Metadata ground truth is collected from the live SQL Server restore into `<bak>.
 | `dirtycoverage_two_tx.bak` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | `dirtycoverage_uncommitted.bak` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | `dirtycoverage_update.bak` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `enc_bak_aes128_full.bak` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `enc_bak_aes256_compressed.bak` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `enc_bak_aes256_full.bak` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `enc_bak_plain.bak` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | `filtered_ncci_full.bak` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | `float_extreme_full.bak` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | `forwarded_records_full.bak` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
@@ -6699,6 +7014,9 @@ Metadata ground truth is collected from the live SQL Server restore into `<bak>.
 | `tabletype_cci_large_full.bak` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | `tabletypecoverage_diff.bak` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | `tabletypecoverage_full.bak` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `tde_full_compressed.bak` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `tde_page_full.bak` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `tde_page_plain.bak` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | `temporal_hidden_full.bak` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | `torn_page_full.bak` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | `typecoverage_full.bak` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
@@ -6712,140 +7030,147 @@ Metadata ground truth is collected from the live SQL Server restore into `<bak>.
 
 | Backup | Extract | Verify | Wall time |
 |--------|---------|--------|-----------|
-| `alias_types_full.bak` | 0.077s | 0.188s | 0.265s |
-| `archive_columnstore_partition_full.bak` | 1.159s | 1.011s | 2.17s |
-| `archive_columnstore_types_full.bak` | 0.858s | 1.256s | 2.114s |
-| `archive_columnstore_types_random_full.bak` | 0.918s | 1.231s | 2.149s |
-| `archive_single_chunk_full.bak` | 0.089s | 0.181s | 0.27s |
-| `archive_single_chunk_random_full.bak` | 0.088s | 0.181s | 0.269s |
-| `archivenull_full.bak` | 0.305s | 0.352s | 0.657s |
-| `backup_blocksize_full.bak` | 0.097s | 0.199s | 0.296s |
-| `boundarycoverage_datetime_full.bak` | 0.49s | 0.653s | 1.143s |
-| `boundarycoverage_full.bak` | 0.139s | 0.292s | 0.431s |
-| `cci_binary_varbinary_compare_full.bak` | 0.093s | 0.187s | 0.28s |
-| `cci_bitpack_probe_bigint_full.bak` | 1.335s | 1.884s | 3.219s |
-| `cci_bitpack_probe_full.bak` | 0.307s | 0.615s | 0.922s |
-| `cci_bitpack_probe_highbase_full.bak` | 0.212s | 0.399s | 0.611s |
-| `cci_btree_nci_full.bak` | 0.102s | 0.199s | 0.301s |
-| `cci_computed_full.bak` | 0.104s | 0.206s | 0.31s |
-| `cci_enc5_largepool_full.bak` | 0.549s | 0.633s | 1.182s |
-| `cci_enc5_largepool_matrix_full.bak` | 8.403s | 1.774s | 10.177s |
-| `cci_extended_full.bak` | 0.133s | 0.285s | 0.418s |
-| `cci_lob_full.bak` | 0.127s | 0.239s | 0.366s |
-| `cci_reorganize_full.bak` | 0.111s | 0.213s | 0.324s |
-| `cci_string_dict_regression_full.bak` | 0.529s | 0.386s | 0.915s |
-| `cci_string_minmax_full.bak` | 0.098s | 0.218s | 0.316s |
-| `cci_switch_full.bak` | 0.115s | 0.199s | 0.314s |
-| `cci_types_large_full.bak` | 0.134s | 0.277s | 0.411s |
-| `cci_varbinary_micro_full.bak` | 0.123s | 0.201s | 0.324s |
-| `cci_varbinary_probe_full.bak` | 0.15s | 0.246s | 0.396s |
-| `columnstore_minimal.bak` | 1.828s | 1.647s | 3.475s |
-| `compressed_nvarchar_full.bak` | 0.074s | 0.188s | 0.262s |
-| `compressioncoverage_full.bak` | 0.633s | 0.777s | 1.41s |
-| `computedcoverage_full.bak` | 0.1s | 0.197s | 0.297s |
-| `constraintcoverage_full.bak` | 0.119s | 0.305s | 0.424s |
-| `covering_index_full.bak` | 0.101s | 0.2s | 0.301s |
-| `cs_lob_preamble.bak` | 0.135s | 0.192s | 0.327s |
-| `delta_rowgroup_full.bak` | 0.093s | 0.206s | 0.299s |
-| `dirtycoverage_aborted_xact.bak` | 0.097s | 0.176s | 0.273s |
-| `dirtycoverage_addcol.bak` | 0.099s | 0.196s | 0.295s |
-| `dirtycoverage_addnotnull.bak` | 0.093s | 0.175s | 0.268s |
-| `dirtycoverage_alldirty.bak` | 0.086s | 0.154s | 0.24s |
-| `dirtycoverage_altercol.bak` | 0.075s | 0.181s | 0.256s |
-| `dirtycoverage_altercol_rewrite.bak` | 0.097s | 0.187s | 0.284s |
-| `dirtycoverage_alterdb.bak` | 0.096s | 0.181s | 0.277s |
-| `dirtycoverage_cci_delete.bak` | 0.189s | 0.251s | 0.44s |
-| `dirtycoverage_cci_update.bak` | 0.201s | 0.239s | 0.44s |
-| `dirtycoverage_committed_delete.bak` | 0.075s | 0.266s | 0.341s |
-| `dirtycoverage_committed_delete_v2.bak` | 0.078s | 0.231s | 0.309s |
-| `dirtycoverage_committed_delete_v3.bak` | 0.161s | 0.257s | 0.418s |
-| `dirtycoverage_committed_delete_v4.bak` | 0.297s | 0.253s | 0.55s |
-| `dirtycoverage_committed_update.bak` | 0.084s | 0.18s | 0.264s |
-| `dirtycoverage_committed_update_v2.bak` | 0.084s | 0.183s | 0.267s |
-| `dirtycoverage_committed_update_v3.bak` | 0.18s | 0.262s | 0.442s |
-| `dirtycoverage_committed_update_v4.bak` | 0.345s | 0.299s | 0.644s |
-| `dirtycoverage_concurrent.bak` | 0.097s | 0.184s | 0.281s |
-| `dirtycoverage_createidx.bak` | 0.093s | 0.183s | 0.276s |
-| `dirtycoverage_createtable.bak` | 0.099s | 0.183s | 0.282s |
-| `dirtycoverage_delete.bak` | 0.096s | 0.182s | 0.278s |
-| `dirtycoverage_dropcol.bak` | 0.098s | 0.214s | 0.312s |
-| `dirtycoverage_dropidx.bak` | 0.099s | 0.184s | 0.283s |
-| `dirtycoverage_droptable.bak` | 0.102s | 0.201s | 0.303s |
-| `dirtycoverage_heap_forward.bak` | 0.106s | 0.173s | 0.279s |
-| `dirtycoverage_large_dirty.bak` | 0.414s | 0.228s | 0.642s |
-| `dirtycoverage_lob_update.bak` | 0.111s | 0.177s | 0.288s |
-| `dirtycoverage_maxrow.bak` | 0.079s | 0.188s | 0.267s |
-| `dirtycoverage_nchar_delete.bak` | 0.167s | 0.198s | 0.365s |
-| `dirtycoverage_nested.bak` | 0.096s | 0.225s | 0.321s |
-| `dirtycoverage_null_update.bak` | 0.095s | 0.195s | 0.29s |
-| `dirtycoverage_rebuildidx.bak` | 0.093s | 0.18s | 0.273s |
-| `dirtycoverage_rich_insert.bak` | 0.168s | 0.171s | 0.339s |
-| `dirtycoverage_rich_update.bak` | 0.157s | 0.169s | 0.326s |
-| `dirtycoverage_savepoint.bak` | 0.098s | 0.186s | 0.284s |
-| `dirtycoverage_snapshot_update.bak` | 0.092s | 0.183s | 0.275s |
-| `dirtycoverage_switch.bak` | 0.106s | 0.222s | 0.328s |
-| `dirtycoverage_temporal_update.bak` | 0.147s | 0.183s | 0.33s |
-| `dirtycoverage_truncate.bak` | 0.092s | 0.182s | 0.274s |
-| `dirtycoverage_two_tx.bak` | 0.098s | 0.183s | 0.281s |
-| `dirtycoverage_uncommitted.bak` | 0.097s | 0.182s | 0.279s |
-| `dirtycoverage_update.bak` | 0.098s | 0.183s | 0.281s |
-| `filtered_ncci_full.bak` | 0.107s | 0.207s | 0.314s |
-| `float_extreme_full.bak` | 0.076s | 0.187s | 0.263s |
-| `forwarded_records_full.bak` | 0.218s | 0.404s | 0.622s |
-| `ghost_records_full.bak` | 0.281s | 0.176s | 0.457s |
-| `heapcoverage_large.bak` | 0.101s | 0.189s | 0.29s |
-| `heapcoverage_large_50000.bak` | 0.288s | 0.583s | 0.871s |
-| `hierarchyid_extract_full.bak` | 0.079s | 0.183s | 0.262s |
-| `high_slot_density_full.bak` | 0.117s | 0.259s | 0.376s |
-| `identity_coverage_full.bak` | 0.135s | 0.293s | 0.428s |
-| `incrementalcoverage_diff_01.bak` | 0.113s | 0.2s | 0.313s |
-| `incrementalcoverage_diff_02.bak` | 0.11s | 0.208s | 0.318s |
-| `incrementalcoverage_diff_03.bak` | 0.111s | 0.204s | 0.315s |
-| `incrementalcoverage_diff_04.bak` | 0.104s | 0.203s | 0.307s |
-| `incrementalcoverage_diff_05.bak` | 0.104s | 0.212s | 0.316s |
-| `incrementalcoverage_diff_06.bak` | 0.101s | 0.197s | 0.298s |
-| `incrementalcoverage_full.bak` | 0.085s | 0.184s | 0.269s |
-| `layoutcoverage_full.bak` | 0.898s | 1.853s | 2.751s |
-| `max_row_width_full.bak` | 0.076s | 0.272s | 0.348s |
-| `mixed_collation_full.bak` | 0.073s | 0.189s | 0.262s |
-| `multi_rowgroup_full.bak` | 0.096s | 0.196s | 0.292s |
-| `ncci_heap_full.bak` | 0.105s | 0.199s | 0.304s |
-| `ncci_types_full.bak` | 0.608s | 0.876s | 1.484s |
-| `ndfcoverage_full.bak` | 0.079s | 0.2s | 0.279s |
-| `nvarchar_max_u21_full.bak` | 0.077s | 0.191s | 0.268s |
-| `pagecomp_anchor_full.bak` | 0.272s | 0.267s | 0.539s |
-| `pagecomp_long_prefix_full.bak` | 0.078s | 0.186s | 0.264s |
-| `pfor_columnstore_full.bak` | 0.557s | 0.888s | 1.445s |
-| `pfor_columnstore_random_full.bak` | 0.597s | 0.972s | 1.569s |
-| `realworld_numeric_digest_full.bak` | 0.163s | 0.268s | 0.431s |
-| `rowboundary_full.bak` | 0.117s | 0.198s | 0.315s |
-| `rowstore_hash_pii_full.bak` | 0.078s | 0.262s | 0.34s |
-| `rowstore_lob_image_full.bak` | 0.076s | 0.187s | 0.263s |
-| `rowstore_lob_markup_full.bak` | 0.09s | 0.191s | 0.281s |
-| `rowversion_extract_full.bak` | 0.083s | 0.194s | 0.277s |
-| `sparse_full.bak` | 0.218s | 0.244s | 0.462s |
-| `spatial_edge_full.bak` | 0.079s | 0.198s | 0.277s |
-| `spatial_index_full.bak` | 0.101s | 0.192s | 0.293s |
-| `sql_variant_extract_full.bak` | 0.076s | 0.192s | 0.268s |
-| `striped_full_1.bak` | 0.099s | 0.178s | 0.277s |
-| `striped_single.bak` | 0.089s | 0.177s | 0.266s |
-| `surrogate_pairs_full.bak` | 0.074s | 0.184s | 0.258s |
-| `tabletype_cci_large_full.bak` | 0.195s | 0.315s | 0.51s |
-| `tabletypecoverage_diff.bak` | 0.514s | 1.093s | 1.607s |
-| `tabletypecoverage_full.bak` | 0.393s | 1.068s | 1.461s |
-| `tde_full.bak` | 0s | 0.032s | 0.032s |
-| `temporal_hidden_full.bak` | 0.16s | 0.231s | 0.391s |
-| `torn_page_full.bak` | 0.078s | 0.181s | 0.259s |
-| `typecoverage_full.bak` | 0.416s | 0.98s | 1.396s |
-| `typed_xml_full.bak` | 0.075s | 0.18s | 0.255s |
-| `unicode_codepage_coverage.bak` | 0.206s | 0.457s | 0.663s |
-| `xml_index_full.bak` | 0.103s | 0.193s | 0.296s |
-| `xmlcoverage_full.bak` | 0.085s | 0.186s | 0.271s |
-| `xmlheap_full.bak` | 0.168s | 0.251s | 0.419s |
-| `xtp_checkpoint_straddle_full.bak` | 2.034s | 0.199s | 2.233s |
-| `xtp_probe_full.bak` | 0.148s | 0.129s | 0.277s |
-| `xtp_rich_full.bak` | 0.105s | 0.075s | 0.18s |
-| `xtp_simple_full.bak` | 0.111s | 0.08s | 0.191s |
+| `alias_types_full.bak` | 0.087s | 0.213s | 0.3s |
+| `archive_columnstore_partition_full.bak` | 1.493s | 1.107s | 2.6s |
+| `archive_columnstore_types_full.bak` | 0.815s | 1.326s | 2.141s |
+| `archive_columnstore_types_random_full.bak` | 0.924s | 1.091s | 2.015s |
+| `archive_single_chunk_full.bak` | 0.096s | 0.2s | 0.296s |
+| `archive_single_chunk_random_full.bak` | 0.112s | 0.234s | 0.346s |
+| `archivenull_full.bak` | 0.259s | 0.33s | 0.589s |
+| `backup_blocksize_full.bak` | 0.106s | 0.222s | 0.328s |
+| `boundarycoverage_datetime_full.bak` | 0.479s | 0.573s | 1.052s |
+| `boundarycoverage_full.bak` | 0.163s | 0.375s | 0.538s |
+| `cci_binary_varbinary_compare_full.bak` | 0.111s | 0.215s | 0.326s |
+| `cci_bitpack_probe_bigint_full.bak` | 1.938s | 2.116s | 4.054s |
+| `cci_bitpack_probe_full.bak` | 0.299s | 0.53s | 0.829s |
+| `cci_bitpack_probe_highbase_full.bak` | 0.259s | 0.378s | 0.637s |
+| `cci_btree_nci_full.bak` | 0.133s | 0.213s | 0.346s |
+| `cci_computed_full.bak` | 0.126s | 0.214s | 0.34s |
+| `cci_enc5_largepool_full.bak` | 0.616s | 0.57s | 1.186s |
+| `cci_enc5_largepool_matrix_full.bak` | 8.881s | 1.722s | 10.603s |
+| `cci_extended_full.bak` | 0.145s | 0.278s | 0.423s |
+| `cci_lob_full.bak` | 0.14s | 0.247s | 0.387s |
+| `cci_reorganize_full.bak` | 0.134s | 0.227s | 0.361s |
+| `cci_string_dict_regression_full.bak` | 0.51s | 0.343s | 0.853s |
+| `cci_string_minmax_full.bak` | 0.121s | 0.247s | 0.368s |
+| `cci_switch_full.bak` | 0.133s | 0.239s | 0.372s |
+| `cci_types_large_full.bak` | 0.14s | 0.278s | 0.418s |
+| `cci_varbinary_micro_full.bak` | 0.13s | 0.234s | 0.364s |
+| `cci_varbinary_probe_full.bak` | 0.156s | 0.232s | 0.388s |
+| `columnstore_minimal.bak` | 2.536s | 2.415s | 4.951s |
+| `compressed_nvarchar_full.bak` | 0.084s | 0.204s | 0.288s |
+| `compressioncoverage_full.bak` | 0.728s | 0.893s | 1.621s |
+| `computedcoverage_full.bak` | 0.101s | 0.249s | 0.35s |
+| `constraintcoverage_full.bak` | 0.226s | 0.337s | 0.563s |
+| `covering_index_full.bak` | 0.108s | 0.217s | 0.325s |
+| `cs_lob_preamble.bak` | 0.133s | 0.2s | 0.333s |
+| `delta_rowgroup_full.bak` | 0.116s | 0.255s | 0.371s |
+| `dirtycoverage_aborted_xact.bak` | 0.108s | 0.215s | 0.323s |
+| `dirtycoverage_addcol.bak` | 0.128s | 0.201s | 0.329s |
+| `dirtycoverage_addnotnull.bak` | 0.11s | 0.202s | 0.312s |
+| `dirtycoverage_alldirty.bak` | 0.092s | 0.197s | 0.289s |
+| `dirtycoverage_altercol.bak` | 0.095s | 0.198s | 0.293s |
+| `dirtycoverage_altercol_rewrite.bak` | 0.108s | 0.202s | 0.31s |
+| `dirtycoverage_alterdb.bak` | 0.103s | 0.203s | 0.306s |
+| `dirtycoverage_cci_delete.bak` | 0.219s | 0.264s | 0.483s |
+| `dirtycoverage_cci_update.bak` | 0.244s | 0.356s | 0.6s |
+| `dirtycoverage_committed_delete.bak` | 0.105s | 0.192s | 0.297s |
+| `dirtycoverage_committed_delete_v2.bak` | 0.088s | 0.256s | 0.344s |
+| `dirtycoverage_committed_delete_v3.bak` | 0.168s | 0.261s | 0.429s |
+| `dirtycoverage_committed_delete_v4.bak` | 0.292s | 0.273s | 0.565s |
+| `dirtycoverage_committed_update.bak` | 0.09s | 0.198s | 0.288s |
+| `dirtycoverage_committed_update_v2.bak` | 0.087s | 0.206s | 0.293s |
+| `dirtycoverage_committed_update_v3.bak` | 0.243s | 0.293s | 0.536s |
+| `dirtycoverage_committed_update_v4.bak` | 0.288s | 0.25s | 0.538s |
+| `dirtycoverage_concurrent.bak` | 0.107s | 0.202s | 0.309s |
+| `dirtycoverage_createidx.bak` | 0.132s | 0.195s | 0.327s |
+| `dirtycoverage_createtable.bak` | 0.105s | 0.216s | 0.321s |
+| `dirtycoverage_delete.bak` | 0.115s | 0.212s | 0.327s |
+| `dirtycoverage_dropcol.bak` | 0.107s | 0.188s | 0.295s |
+| `dirtycoverage_dropidx.bak` | 0.097s | 0.208s | 0.305s |
+| `dirtycoverage_droptable.bak` | 0.116s | 0.222s | 0.338s |
+| `dirtycoverage_heap_forward.bak` | 0.155s | 0.185s | 0.34s |
+| `dirtycoverage_large_dirty.bak` | 0.387s | 0.185s | 0.572s |
+| `dirtycoverage_lob_update.bak` | 0.128s | 0.233s | 0.361s |
+| `dirtycoverage_maxrow.bak` | 0.087s | 0.192s | 0.279s |
+| `dirtycoverage_nchar_delete.bak` | 0.107s | 0.196s | 0.303s |
+| `dirtycoverage_nested.bak` | 0.115s | 0.198s | 0.313s |
+| `dirtycoverage_null_update.bak` | 0.111s | 0.198s | 0.309s |
+| `dirtycoverage_rebuildidx.bak` | 0.115s | 0.199s | 0.314s |
+| `dirtycoverage_rich_insert.bak` | 0.197s | 0.192s | 0.389s |
+| `dirtycoverage_rich_update.bak` | 0.191s | 0.182s | 0.373s |
+| `dirtycoverage_savepoint.bak` | 0.112s | 0.207s | 0.319s |
+| `dirtycoverage_snapshot_update.bak` | 0.11s | 0.183s | 0.293s |
+| `dirtycoverage_switch.bak` | 0.131s | 0.239s | 0.37s |
+| `dirtycoverage_temporal_update.bak` | 0.163s | 0.217s | 0.38s |
+| `dirtycoverage_truncate.bak` | 0.119s | 0.215s | 0.334s |
+| `dirtycoverage_two_tx.bak` | 0.111s | 0.257s | 0.368s |
+| `dirtycoverage_uncommitted.bak` | 0.107s | 0.205s | 0.312s |
+| `dirtycoverage_update.bak` | 0.114s | 0.201s | 0.315s |
+| `enc_bak_aes128_full.bak` | 0.079s | 0.356s | 0.435s |
+| `enc_bak_aes256_compressed.bak` | 0.09s | 0.369s | 0.459s |
+| `enc_bak_aes256_full.bak` | 0.083s | 0.346s | 0.429s |
+| `enc_bak_plain.bak` | 0.126s | 0.199s | 0.325s |
+| `filtered_ncci_full.bak` | 0.132s | 0.235s | 0.367s |
+| `float_extreme_full.bak` | 0.08s | 0.193s | 0.273s |
+| `forwarded_records_full.bak` | 0.256s | 0.368s | 0.624s |
+| `ghost_records_full.bak` | 0.104s | 0.178s | 0.282s |
+| `heapcoverage_large.bak` | 0.125s | 0.199s | 0.324s |
+| `heapcoverage_large_50000.bak` | 0.32s | 0.502s | 0.822s |
+| `hierarchyid_extract_full.bak` | 0.089s | 0.202s | 0.291s |
+| `high_slot_density_full.bak` | 0.127s | 0.279s | 0.406s |
+| `identity_coverage_full.bak` | 0.151s | 0.361s | 0.512s |
+| `incrementalcoverage_diff_01.bak` | 0.132s | 0.241s | 0.373s |
+| `incrementalcoverage_diff_02.bak` | 0.119s | 0.217s | 0.336s |
+| `incrementalcoverage_diff_03.bak` | 0.116s | 0.225s | 0.341s |
+| `incrementalcoverage_diff_04.bak` | 0.123s | 0.269s | 0.392s |
+| `incrementalcoverage_diff_05.bak` | 0.138s | 0.229s | 0.367s |
+| `incrementalcoverage_diff_06.bak` | 0.125s | 0.216s | 0.341s |
+| `incrementalcoverage_full.bak` | 0.079s | 0.206s | 0.285s |
+| `layoutcoverage_full.bak` | 0.944s | 1.978s | 2.922s |
+| `max_row_width_full.bak` | 0.087s | 0.184s | 0.271s |
+| `mixed_collation_full.bak` | 0.096s | 0.189s | 0.285s |
+| `multi_rowgroup_full.bak` | 0.114s | 0.263s | 0.377s |
+| `ncci_heap_full.bak` | 0.121s | 0.237s | 0.358s |
+| `ncci_types_full.bak` | 0.878s | 0.857s | 1.735s |
+| `ndfcoverage_full.bak` | 0.121s | 0.206s | 0.327s |
+| `nvarchar_max_u21_full.bak` | 0.09s | 0.196s | 0.286s |
+| `pagecomp_anchor_full.bak` | 0.267s | 0.256s | 0.523s |
+| `pagecomp_long_prefix_full.bak` | 0.091s | 0.209s | 0.3s |
+| `pfor_columnstore_full.bak` | 0.503s | 1.11s | 1.613s |
+| `pfor_columnstore_random_full.bak` | 0.529s | 0.854s | 1.383s |
+| `realworld_numeric_digest_full.bak` | 0.21s | 0.32s | 0.53s |
+| `rowboundary_full.bak` | 0.121s | 0.234s | 0.355s |
+| `rowstore_hash_pii_full.bak` | 0.091s | 0.197s | 0.288s |
+| `rowstore_lob_image_full.bak` | 0.089s | 0.395s | 0.484s |
+| `rowstore_lob_markup_full.bak` | 0.105s | 0.193s | 0.298s |
+| `rowversion_extract_full.bak` | 0.108s | 0.222s | 0.33s |
+| `sparse_full.bak` | 0.232s | 0.27s | 0.502s |
+| `spatial_edge_full.bak` | 0.107s | 0.225s | 0.332s |
+| `spatial_index_full.bak` | 0.125s | 0.234s | 0.359s |
+| `sql_variant_extract_full.bak` | 0.087s | 0.193s | 0.28s |
+| `striped_full_1.bak` | 0.08s | 0.184s | 0.264s |
+| `striped_single.bak` | 0.111s | 0.213s | 0.324s |
+| `surrogate_pairs_full.bak` | 0.092s | 0.19s | 0.282s |
+| `tabletype_cci_large_full.bak` | 0.269s | 0.322s | 0.591s |
+| `tabletypecoverage_diff.bak` | 0.586s | 1.083s | 1.669s |
+| `tabletypecoverage_full.bak` | 0.466s | 0.961s | 1.427s |
+| `tde_full.bak` | 0.085s | 0.17s | 0.255s |
+| `tde_full_compressed.bak` | 0.095s | 0.3s | 0.395s |
+| `tde_page_full.bak` | 0.087s | 0.288s | 0.375s |
+| `tde_page_plain.bak` | 0.081s | 0.193s | 0.274s |
+| `temporal_hidden_full.bak` | 0.173s | 0.248s | 0.421s |
+| `torn_page_full.bak` | 0.088s | 0.189s | 0.277s |
+| `typecoverage_full.bak` | 0.716s | 1.051s | 1.767s |
+| `typed_xml_full.bak` | 0.109s | 0.201s | 0.31s |
+| `unicode_codepage_coverage.bak` | 0.221s | 0.451s | 0.672s |
+| `xml_index_full.bak` | 0.12s | 0.242s | 0.362s |
+| `xmlcoverage_full.bak` | 0.086s | 0.194s | 0.28s |
+| `xmlheap_full.bak` | 0.195s | 0.258s | 0.453s |
+| `xtp_checkpoint_straddle_full.bak` | 2.145s | 0.209s | 2.354s |
+| `xtp_probe_full.bak` | 0.173s | 0.142s | 0.315s |
+| `xtp_rich_full.bak` | 0.127s | 0.122s | 0.249s |
+| `xtp_simple_full.bak` | 0.116s | 0.082s | 0.198s |
 
 _Verify = wall − extract (Arrow conversion, ground-truth compare, cell verification, and confidence analysis). See **Sink read breakdown** below for the per-phase split._
 
@@ -6853,139 +7178,147 @@ _Verify = wall − extract (Arrow conversion, ground-truth compare, cell verific
 
 | Backup | pagestore | schema | catalog | constraints | logtail | xtp | data decode (net) | sink write | arrow verify | sink finish |
 |--------|----------:|-------:|--------:|------------:|--------:|---:|------------------:|-----------:|-------------:|------------:|
-| `alias_types_full.bak` | 0.025s | 0.022s | 0.0s | 0.0s | 0.007s | 0.0s | 0.001s | 0.017s | 0.014s | 0.017s |
-| `archive_columnstore_partition_full.bak` | 0.031s | 0.023s | 0.0s | 0.0s | 0.014s | 0.0s | 1.031s | 0.542s | 0.164s | 0.049s |
-| `archive_columnstore_types_full.bak` | 0.03s | 0.027s | 0.0s | 0.0s | 0.011s | 0.0s | 0.751s | 0.43s | 0.438s | 0.032s |
-| `archive_columnstore_types_random_full.bak` | 0.031s | 0.024s | 0.0s | 0.0s | 0.006s | 0.0s | 0.814s | 0.446s | 0.444s | 0.035s |
-| `archive_single_chunk_full.bak` | 0.025s | 0.023s | 0.0s | 0.0s | 0.008s | 0.0s | 0.012s | 0.016s | 0.013s | 0.017s |
-| `archive_single_chunk_random_full.bak` | 0.025s | 0.022s | 0.0s | 0.0s | 0.007s | 0.0s | 0.012s | 0.017s | 0.014s | 0.017s |
-| `archivenull_full.bak` | 0.029s | 0.027s | 0.0s | 0.0s | 0.009s | 0.0s | 0.111s | 0.065s | 0.113s | 0.122s |
-| `backup_blocksize_full.bak` | 0.037s | 0.027s | 0.0s | 0.0s | 0.005s | 0.0s | 0.016s | 0.021s | 0.014s | 0.006s |
-| `boundarycoverage_datetime_full.bak` | 0.029s | 0.025s | 0.0s | 0.0s | 0.025s | 0.0s | 0.389s | 0.307s | 0.241s | 0.015s |
-| `boundarycoverage_full.bak` | 0.026s | 0.024s | 0.0s | 0.0s | 0.009s | 0.0s | 0.055s | 0.056s | 0.025s | 0.018s |
-| `cci_binary_varbinary_compare_full.bak` | 0.025s | 0.023s | 0.0s | 0.0s | 0.007s | 0.0s | 0.013s | 0.017s | 0.016s | 0.019s |
-| `cci_bitpack_probe_bigint_full.bak` | 0.055s | 0.022s | 0.0s | 0.0s | 0.05s | 0.0s | 0.989s | 0.673s | 0.79s | 0.202s |
-| `cci_bitpack_probe_full.bak` | 0.032s | 0.025s | 0.0s | 0.0s | 0.012s | 0.0s | 0.202s | 0.098s | 0.166s | 0.029s |
-| `cci_bitpack_probe_highbase_full.bak` | 0.026s | 0.025s | 0.0s | 0.0s | 0.01s | 0.0s | 0.114s | 0.087s | 0.085s | 0.028s |
-| `cci_btree_nci_full.bak` | 0.025s | 0.022s | 0.0s | 0.0s | 0.009s | 0.0s | 0.035s | 0.02s | 0.014s | 0.006s |
-| `cci_computed_full.bak` | 0.026s | 0.022s | 0.0s | 0.0s | 0.026s | 0.0s | 0.021s | 0.019s | 0.014s | 0.006s |
-| `cci_enc5_largepool_full.bak` | 0.035s | 0.023s | 0.0s | 0.0s | 0.013s | 0.0s | 0.456s | 0.069s | 0.168s | 0.011s |
-| `cci_enc5_largepool_matrix_full.bak` | 0.043s | 0.024s | 0.0s | 0.0s | 0.024s | 0.0s | 8.194s | 0.62s | 0.57s | 0.104s |
-| `cci_extended_full.bak` | 0.026s | 0.023s | 0.0s | 0.0s | 0.009s | 0.0s | 0.051s | 0.049s | 0.019s | 0.018s |
-| `cci_lob_full.bak` | 0.023s | 0.022s | 0.0s | 0.0s | 0.03s | 0.0s | 0.035s | 0.035s | 0.016s | 0.012s |
-| `cci_reorganize_full.bak` | 0.024s | 0.023s | 0.0s | 0.0s | 0.026s | 0.0s | 0.026s | 0.022s | 0.015s | 0.007s |
-| `cci_string_dict_regression_full.bak` | 0.032s | 0.025s | 0.0s | 0.0s | 0.012s | 0.0s | 0.414s | 0.078s | 0.138s | 0.038s |
-| `cci_string_minmax_full.bak` | 0.025s | 0.022s | 0.0s | 0.0s | 0.009s | 0.0s | 0.03s | 0.021s | 0.014s | 0.007s |
-| `cci_switch_full.bak` | 0.029s | 0.023s | 0.0s | 0.0s | 0.026s | 0.0s | 0.025s | 0.02s | 0.013s | 0.006s |
-| `cci_types_large_full.bak` | 0.026s | 0.024s | 0.0s | 0.0s | 0.01s | 0.0s | 0.052s | 0.054s | 0.02s | 0.016s |
-| `cci_varbinary_micro_full.bak` | 0.025s | 0.023s | 0.0s | 0.0s | 0.024s | 0.0s | 0.034s | 0.035s | 0.014s | 0.012s |
-| `cci_varbinary_probe_full.bak` | 0.025s | 0.023s | 0.0s | 0.0s | 0.027s | 0.0s | 0.064s | 0.033s | 0.049s | 0.007s |
-| `columnstore_minimal.bak` | 0.029s | 0.023s | 0.0s | 0.0s | 0.022s | 0.0s | 0.292s | 1.136s | 1.573s | 1.455s |
-| `compressed_nvarchar_full.bak` | 0.026s | 0.022s | 0.0s | 0.0s | 0.003s | 0.0s | 0.001s | 0.017s | 0.014s | 0.017s |
-| `compressioncoverage_full.bak` | 0.03s | 0.032s | 0.0s | 0.0s | 0.027s | 0.0s | 0.527s | 0.369s | 0.387s | 0.01s |
-| `computedcoverage_full.bak` | 0.026s | 0.022s | 0.0s | 0.0s | 0.007s | 0.0s | 0.029s | 0.039s | 0.028s | 0.011s |
-| `constraintcoverage_full.bak` | 0.025s | 0.023s | 0.0s | 0.0s | 0.005s | 0.0s | 0.053s | 0.058s | 0.019s | 0.006s |
-| `covering_index_full.bak` | 0.026s | 0.023s | 0.0s | 0.0s | 0.021s | 0.0s | 0.02s | 0.019s | 0.016s | 0.003s |
-| `cs_lob_preamble.bak` | 0.049s | 0.022s | 0.0s | 0.0s | 0.005s | 0.0s | 0.027s | 0.024s | 0.021s | 0.025s |
-| `delta_rowgroup_full.bak` | 0.026s | 0.023s | 0.0s | 0.0s | 0.006s | 0.0s | 0.024s | 0.023s | 0.014s | 0.009s |
-| `dirtycoverage_aborted_xact.bak` | 0.026s | 0.022s | 0.0s | 0.0s | 0.025s | 0.0s | 0.002s | 0.016s | 0.016s | 0.017s |
-| `dirtycoverage_addcol.bak` | 0.03s | 0.022s | 0.0s | 0.0s | 0.025s | 0.0s | 0.002s | 0.017s | 0.013s | 0.016s |
-| `dirtycoverage_addnotnull.bak` | 0.025s | 0.023s | 0.0s | 0.0s | 0.023s | 0.0s | 0.002s | 0.015s | 0.013s | 0.015s |
-| `dirtycoverage_alldirty.bak` | 0.025s | 0.025s | 0.0s | 0.0s | 0.028s | 0.0s | 0.001s | 0.003s | 0.0s | 0.003s |
-| `dirtycoverage_altercol.bak` | 0.026s | 0.022s | 0.0s | 0.0s | 0.003s | 0.0s | 0.001s | 0.017s | 0.014s | 0.017s |
-| `dirtycoverage_altercol_rewrite.bak` | 0.025s | 0.022s | 0.0s | 0.0s | 0.023s | 0.0s | 0.002s | 0.02s | 0.015s | 0.02s |
-| `dirtycoverage_alterdb.bak` | 0.024s | 0.022s | 0.0s | 0.0s | 0.026s | 0.0s | 0.002s | 0.016s | 0.015s | 0.016s |
-| `dirtycoverage_cci_delete.bak` | 0.026s | 0.022s | 0.0s | 0.0s | 0.029s | 0.0s | 0.098s | 0.029s | 0.056s | 0.007s |
-| `dirtycoverage_cci_update.bak` | 0.026s | 0.022s | 0.0s | 0.0s | 0.033s | 0.0s | 0.107s | 0.032s | 0.066s | 0.008s |
-| `dirtycoverage_committed_delete.bak` | 0.024s | 0.023s | 0.0s | 0.0s | 0.003s | 0.0s | 0.001s | 0.018s | 0.017s | 0.018s |
-| `dirtycoverage_committed_delete_v2.bak` | 0.025s | 0.023s | 0.0s | 0.0s | 0.003s | 0.0s | 0.002s | 0.019s | 0.017s | 0.019s |
-| `dirtycoverage_committed_delete_v3.bak` | 0.025s | 0.022s | 0.0s | 0.0s | 0.009s | 0.0s | 0.008s | 0.04s | 0.087s | 0.092s |
-| `dirtycoverage_committed_delete_v4.bak` | 0.027s | 0.024s | 0.0s | 0.0s | 0.088s | 0.0s | 0.145s | 0.033s | 0.106s | 0.007s |
-| `dirtycoverage_committed_update.bak` | 0.027s | 0.027s | 0.0s | 0.0s | 0.007s | 0.0s | 0.001s | 0.016s | 0.013s | 0.016s |
-| `dirtycoverage_committed_update_v2.bak` | 0.025s | 0.023s | 0.0s | 0.0s | 0.008s | 0.0s | 0.002s | 0.021s | 0.018s | 0.022s |
-| `dirtycoverage_committed_update_v3.bak` | 0.024s | 0.024s | 0.0s | 0.0s | 0.004s | 0.0s | 0.013s | 0.056s | 0.105s | 0.11s |
-| `dirtycoverage_committed_update_v4.bak` | 0.026s | 0.025s | 0.0s | 0.0s | 0.106s | 0.0s | 0.172s | 0.041s | 0.112s | 0.009s |
-| `dirtycoverage_concurrent.bak` | 0.025s | 0.023s | 0.0s | 0.0s | 0.026s | 0.0s | 0.002s | 0.016s | 0.013s | 0.016s |
-| `dirtycoverage_createidx.bak` | 0.025s | 0.023s | 0.0s | 0.0s | 0.022s | 0.0s | 0.002s | 0.016s | 0.014s | 0.016s |
-| `dirtycoverage_createtable.bak` | 0.025s | 0.023s | 0.0s | 0.0s | 0.03s | 0.0s | 0.002s | 0.016s | 0.015s | 0.015s |
-| `dirtycoverage_delete.bak` | 0.025s | 0.022s | 0.0s | 0.0s | 0.027s | 0.0s | 0.002s | 0.015s | 0.012s | 0.015s |
-| `dirtycoverage_dropcol.bak` | 0.025s | 0.022s | 0.0s | 0.0s | 0.026s | 0.0s | 0.002s | 0.019s | 0.014s | 0.019s |
-| `dirtycoverage_dropidx.bak` | 0.029s | 0.022s | 0.0s | 0.0s | 0.024s | 0.0s | 0.002s | 0.014s | 0.014s | 0.015s |
-| `dirtycoverage_droptable.bak` | 0.027s | 0.022s | 0.0s | 0.0s | 0.024s | 0.0s | 0.019s | 0.02s | 0.015s | 0.005s |
-| `dirtycoverage_heap_forward.bak` | 0.024s | 0.022s | 0.0s | 0.0s | 0.021s | 0.0s | 0.001s | 0.02s | 0.031s | 0.032s |
-| `dirtycoverage_large_dirty.bak` | 0.03s | 0.026s | 0.0s | 0.0s | 0.327s | 0.0s | 0.003s | 0.02s | 0.017s | 0.02s |
-| `dirtycoverage_lob_update.bak` | 0.025s | 0.022s | 0.0s | 0.0s | 0.043s | 0.0s | 0.001s | 0.015s | 0.014s | 0.015s |
-| `dirtycoverage_maxrow.bak` | 0.027s | 0.022s | 0.0s | 0.0s | 0.008s | 0.0s | 0.001s | 0.017s | 0.015s | 0.017s |
-| `dirtycoverage_nchar_delete.bak` | 0.043s | 0.048s | 0.0s | 0.0s | 0.039s | 0.0s | 0.001s | 0.025s | 0.022s | 0.025s |
-| `dirtycoverage_nested.bak` | 0.025s | 0.022s | 0.0s | 0.0s | 0.027s | 0.0s | 0.002s | 0.016s | 0.015s | 0.016s |
-| `dirtycoverage_null_update.bak` | 0.025s | 0.022s | 0.0s | 0.0s | 0.026s | 0.0s | 0.001s | 0.018s | 0.016s | 0.018s |
-| `dirtycoverage_rebuildidx.bak` | 0.025s | 0.023s | 0.0s | 0.0s | 0.024s | 0.0s | 0.002s | 0.015s | 0.014s | 0.015s |
-| `dirtycoverage_rich_insert.bak` | 0.025s | 0.023s | 0.0s | 0.0s | 0.027s | 0.0s | 0.002s | 0.034s | 0.086s | 0.088s |
-| `dirtycoverage_rich_update.bak` | 0.025s | 0.022s | 0.0s | 0.0s | 0.026s | 0.0s | 0.002s | 0.036s | 0.075s | 0.077s |
-| `dirtycoverage_savepoint.bak` | 0.025s | 0.022s | 0.0s | 0.0s | 0.024s | 0.0s | 0.002s | 0.02s | 0.014s | 0.02s |
-| `dirtycoverage_snapshot_update.bak` | 0.024s | 0.022s | 0.0s | 0.0s | 0.024s | 0.0s | 0.001s | 0.016s | 0.014s | 0.017s |
-| `dirtycoverage_switch.bak` | 0.025s | 0.022s | 0.0s | 0.0s | 0.029s | 0.0s | 0.017s | 0.02s | 0.014s | 0.006s |
-| `dirtycoverage_temporal_update.bak` | 0.025s | 0.022s | 0.0s | 0.0s | 0.03s | 0.0s | 0.064s | 0.016s | 0.061s | 0.001s |
-| `dirtycoverage_truncate.bak` | 0.025s | 0.022s | 0.0s | 0.0s | 0.023s | 0.0s | 0.003s | 0.015s | 0.014s | 0.015s |
-| `dirtycoverage_two_tx.bak` | 0.026s | 0.022s | 0.0s | 0.0s | 0.028s | 0.0s | 0.001s | 0.015s | 0.013s | 0.015s |
-| `dirtycoverage_uncommitted.bak` | 0.025s | 0.023s | 0.0s | 0.0s | 0.027s | 0.0s | 0.002s | 0.016s | 0.015s | 0.016s |
-| `dirtycoverage_update.bak` | 0.025s | 0.022s | 0.0s | 0.0s | 0.029s | 0.0s | 0.001s | 0.016s | 0.014s | 0.017s |
-| `filtered_ncci_full.bak` | 0.025s | 0.023s | 0.0s | 0.0s | 0.026s | 0.0s | 0.021s | 0.027s | 0.014s | 0.007s |
-| `float_extreme_full.bak` | 0.025s | 0.024s | 0.0s | 0.0s | 0.007s | 0.0s | 0.001s | 0.016s | 0.013s | 0.015s |
-| `forwarded_records_full.bak` | 0.037s | 0.024s | 0.0s | 0.0s | 0.017s | 0.0s | 0.073s | 0.051s | 0.107s | 0.056s |
-| `ghost_records_full.bak` | 0.188s | 0.04s | 0.0s | 0.0s | 0.007s | 0.0s | 0.001s | 0.024s | 0.038s | 0.039s |
-| `heapcoverage_large.bak` | 0.026s | 0.022s | 0.0s | 0.0s | 0.007s | 0.0s | 0.018s | 0.026s | 0.037s | 0.022s |
-| `heapcoverage_large_50000.bak` | 0.033s | 0.023s | 0.0s | 0.0s | 0.015s | 0.0s | 0.097s | 0.074s | 0.163s | 0.112s |
-| `hierarchyid_extract_full.bak` | 0.025s | 0.023s | 0.0s | 0.0s | 0.008s | 0.0s | 0.001s | 0.017s | 0.013s | 0.017s |
-| `high_slot_density_full.bak` | 0.026s | 0.022s | 0.0s | 0.0s | 0.015s | 0.0s | 0.032s | 0.032s | 0.04s | 0.015s |
-| `identity_coverage_full.bak` | 0.025s | 0.023s | 0.0s | 0.0s | 0.022s | 0.0s | 0.049s | 0.059s | 0.016s | 0.011s |
-| `incrementalcoverage_diff_01.bak` | 0.052s | 0.022s | 0.0s | 0.0s | 0.012s | 0.0s | 0.001s | 0.022s | 0.013s | 0.022s |
-| `incrementalcoverage_diff_02.bak` | 0.051s | 0.022s | 0.0s | 0.0s | 0.015s | 0.0s | 0.001s | 0.019s | 0.015s | 0.018s |
-| `incrementalcoverage_diff_03.bak` | 0.048s | 0.023s | 0.0s | 0.0s | 0.019s | 0.0s | 0.001s | 0.015s | 0.012s | 0.015s |
-| `incrementalcoverage_diff_04.bak` | 0.046s | 0.023s | 0.0s | 0.0s | 0.016s | 0.0s | 0.001s | 0.015s | 0.012s | 0.015s |
-| `incrementalcoverage_diff_05.bak` | 0.05s | 0.022s | 0.0s | 0.0s | 0.008s | 0.0s | 0.001s | 0.017s | 0.013s | 0.018s |
-| `incrementalcoverage_diff_06.bak` | 0.048s | 0.022s | 0.0s | 0.0s | 0.006s | 0.0s | 0.001s | 0.02s | 0.014s | 0.02s |
-| `incrementalcoverage_full.bak` | 0.031s | 0.024s | 0.0s | 0.0s | 0.007s | 0.0s | 0.001s | 0.017s | 0.014s | 0.017s |
-| `layoutcoverage_full.bak` | 0.029s | 0.082s | 0.0s | 0.0s | 0.026s | 0.0s | 0.732s | 0.689s | 0.357s | 0.012s |
-| `max_row_width_full.bak` | 0.024s | 0.022s | 0.0s | 0.0s | 0.007s | 0.0s | 0.001s | 0.014s | 0.014s | 0.015s |
-| `mixed_collation_full.bak` | 0.025s | 0.023s | 0.0s | 0.0s | 0.003s | 0.0s | 0.001s | 0.016s | 0.013s | 0.016s |
-| `multi_rowgroup_full.bak` | 0.026s | 0.022s | 0.0s | 0.0s | 0.007s | 0.0s | 0.024s | 0.027s | 0.014s | 0.012s |
-| `ncci_heap_full.bak` | 0.026s | 0.023s | 0.0s | 0.0s | 0.025s | 0.0s | 0.02s | 0.025s | 0.018s | 0.007s |
-| `ncci_types_full.bak` | 0.03s | 0.028s | 0.0s | 0.0s | 0.033s | 0.0s | 0.497s | 0.449s | 0.283s | 0.011s |
-| `ndfcoverage_full.bak` | 0.021s | 0.023s | 0.0s | 0.0s | 0.008s | 0.0s | 0.016s | 0.021s | 0.015s | 0.005s |
-| `nvarchar_max_u21_full.bak` | 0.025s | 0.023s | 0.0s | 0.0s | 0.003s | 0.0s | 0.001s | 0.017s | 0.014s | 0.018s |
-| `pagecomp_anchor_full.bak` | 0.028s | 0.024s | 0.0s | 0.0s | 0.008s | 0.0s | 0.103s | 0.023s | 0.101s | 0.103s |
-| `pagecomp_long_prefix_full.bak` | 0.027s | 0.023s | 0.0s | 0.0s | 0.003s | 0.0s | 0.001s | 0.019s | 0.017s | 0.02s |
-| `pfor_columnstore_full.bak` | 0.03s | 0.024s | 0.0s | 0.0s | 0.011s | 0.0s | 0.274s | 0.161s | 0.373s | 0.213s |
-| `pfor_columnstore_random_full.bak` | 0.031s | 0.024s | 0.0s | 0.0s | 0.006s | 0.0s | 0.369s | 0.268s | 0.434s | 0.16s |
-| `realworld_numeric_digest_full.bak` | 0.025s | 0.023s | 0.0s | 0.0s | 0.026s | 0.0s | 0.074s | 0.055s | 0.053s | 0.01s |
-| `rowboundary_full.bak` | 0.025s | 0.027s | 0.0s | 0.0s | 0.004s | 0.0s | 0.046s | 0.041s | 0.044s | 0.01s |
-| `rowstore_hash_pii_full.bak` | 0.025s | 0.022s | 0.0s | 0.0s | 0.007s | 0.0s | 0.001s | 0.018s | 0.015s | 0.018s |
-| `rowstore_lob_image_full.bak` | 0.025s | 0.022s | 0.0s | 0.0s | 0.007s | 0.0s | 0.001s | 0.015s | 0.015s | 0.016s |
-| `rowstore_lob_markup_full.bak` | 0.026s | 0.024s | 0.0s | 0.0s | 0.006s | 0.0s | 0.002s | 0.025s | 0.023s | 0.025s |
-| `rowversion_extract_full.bak` | 0.026s | 0.023s | 0.0s | 0.0s | 0.009s | 0.0s | 0.014s | 0.019s | 0.015s | 0.006s |
-| `sparse_full.bak` | 0.027s | 0.022s | 0.0s | 0.0s | 0.011s | 0.0s | 0.051s | 0.021s | 0.1s | 0.101s |
-| `spatial_edge_full.bak` | 0.025s | 0.022s | 0.0s | 0.0s | 0.007s | 0.0s | 0.016s | 0.02s | 0.015s | 0.006s |
-| `spatial_index_full.bak` | 0.025s | 0.023s | 0.0s | 0.0s | 0.022s | 0.0s | 0.019s | 0.024s | 0.016s | 0.007s |
-| `sql_variant_extract_full.bak` | 0.024s | 0.022s | 0.0s | 0.0s | 0.008s | 0.0s | 0.001s | 0.015s | 0.012s | 0.015s |
-| `striped_full_1.bak` | 0.019s | 0.022s | 0.0s | 0.0s | 0.013s | 0.0s | 0.001s | 0.023s | 0.017s | 0.022s |
-| `striped_single.bak` | 0.038s | 0.024s | 0.0s | 0.0s | 0.004s | 0.0s | 0.001s | 0.017s | 0.013s | 0.017s |
-| `surrogate_pairs_full.bak` | 0.024s | 0.023s | 0.0s | 0.0s | 0.007s | 0.0s | 0.001s | 0.015s | 0.014s | 0.015s |
-| `tabletype_cci_large_full.bak` | 0.027s | 0.024s | 0.0s | 0.0s | 0.009s | 0.0s | 0.03s | 0.035s | 0.087s | 0.098s |
-| `tabletypecoverage_diff.bak` | 0.1s | 0.043s | 0.0s | 0.0s | 0.041s | 0.0s | 0.291s | 0.133s | 0.23s | 0.027s |
-| `tabletypecoverage_full.bak` | 0.031s | 0.028s | 0.0s | 0.0s | 0.031s | 0.0s | 0.27s | 0.098s | 0.224s | 0.027s |
-| `temporal_hidden_full.bak` | 0.025s | 0.023s | 0.0s | 0.0s | 0.007s | 0.0s | 0.09s | 0.046s | 0.087s | 0.008s |
-| `torn_page_full.bak` | 0.025s | 0.023s | 0.0s | 0.0s | 0.007s | 0.0s | 0.001s | 0.016s | 0.015s | 0.016s |
-| `typecoverage_full.bak` | 0.03s | 0.026s | 0.0s | 0.0s | 0.018s | 0.0s | 0.312s | 0.255s | 0.141s | 0.022s |
-| `typed_xml_full.bak` | 0.025s | 0.022s | 0.0s | 0.0s | 0.008s | 0.0s | 0.001s | 0.015s | 0.012s | 0.015s |
-| `unicode_codepage_coverage.bak` | 0.028s | 0.028s | 0.0s | 0.0s | 0.011s | 0.0s | 0.119s | 0.129s | 0.032s | 0.012s |
-| `xml_index_full.bak` | 0.026s | 0.023s | 0.0s | 0.0s | 0.025s | 0.0s | 0.017s | 0.022s | 0.015s | 0.008s |
-| `xmlcoverage_full.bak` | 0.024s | 0.022s | 0.0s | 0.0s | 0.008s | 0.0s | 0.001s | 0.025s | 0.017s | 0.025s |
-| `xmlheap_full.bak` | 0.028s | 0.022s | 0.0s | 0.0s | 0.01s | 0.0s | 0.014s | 0.02s | 0.086s | 0.087s |
-| `xtp_checkpoint_straddle_full.bak` | 0.189s | 0.023s | 0.0s | 0.0s | 0.006s | 1.628s | 0.09s | 0.112s | 0.035s | 0.085s |
-| `xtp_probe_full.bak` | 0.026s | 0.027s | 0.0s | 0.0s | 0.053s | 0.005s | 0.024s | 0.031s | 0.0s | 0.007s |
-| `xtp_rich_full.bak` | 0.028s | 0.023s | 0.0s | 0.0s | 0.03s | 0.004s | 0.001s | 0.014s | 0.0s | 0.014s |
-| `xtp_simple_full.bak` | 0.026s | 0.023s | 0.0s | 0.0s | 0.035s | 0.007s | 0.001s | 0.015s | 0.0s | 0.014s |
+| `alias_types_full.bak` | 0.03s | 0.023s | 0.0s | 0.0s | 0.007s | 0.0s | 0.001s | 0.02s | 0.017s | 0.021s |
+| `archive_columnstore_partition_full.bak` | 0.07s | 0.024s | 0.0s | 0.0s | 0.016s | 0.0s | 1.321s | 0.611s | 0.233s | 0.047s |
+| `archive_columnstore_types_full.bak` | 0.035s | 0.024s | 0.0s | 0.0s | 0.011s | 0.0s | 0.703s | 0.244s | 0.425s | 0.035s |
+| `archive_columnstore_types_random_full.bak` | 0.04s | 0.026s | 0.0s | 0.0s | 0.01s | 0.0s | 0.805s | 0.308s | 0.469s | 0.035s |
+| `archive_single_chunk_full.bak` | 0.031s | 0.024s | 0.0s | 0.0s | 0.003s | 0.0s | 0.014s | 0.019s | 0.018s | 0.019s |
+| `archive_single_chunk_random_full.bak` | 0.038s | 0.024s | 0.0s | 0.0s | 0.008s | 0.0s | 0.016s | 0.019s | 0.013s | 0.019s |
+| `archivenull_full.bak` | 0.033s | 0.023s | 0.0s | 0.0s | 0.009s | 0.0s | 0.096s | 0.043s | 0.089s | 0.091s |
+| `backup_blocksize_full.bak` | 0.032s | 0.029s | 0.0s | 0.0s | 0.009s | 0.0s | 0.021s | 0.029s | 0.018s | 0.009s |
+| `boundarycoverage_datetime_full.bak` | 0.038s | 0.024s | 0.0s | 0.0s | 0.017s | 0.0s | 0.384s | 0.323s | 0.225s | 0.011s |
+| `boundarycoverage_full.bak` | 0.04s | 0.024s | 0.0s | 0.0s | 0.009s | 0.0s | 0.072s | 0.063s | 0.03s | 0.01s |
+| `cci_binary_varbinary_compare_full.bak` | 0.034s | 0.024s | 0.0s | 0.0s | 0.008s | 0.0s | 0.015s | 0.023s | 0.022s | 0.024s |
+| `cci_bitpack_probe_bigint_full.bak` | 0.186s | 0.03s | 0.0s | 0.0s | 0.044s | 0.0s | 1.44s | 0.849s | 1.159s | 0.219s |
+| `cci_bitpack_probe_full.bak` | 0.045s | 0.023s | 0.0s | 0.0s | 0.007s | 0.0s | 0.181s | 0.092s | 0.15s | 0.03s |
+| `cci_bitpack_probe_highbase_full.bak` | 0.04s | 0.024s | 0.0s | 0.0s | 0.012s | 0.0s | 0.108s | 0.114s | 0.102s | 0.066s |
+| `cci_btree_nci_full.bak` | 0.034s | 0.025s | 0.0s | 0.0s | 0.009s | 0.0s | 0.049s | 0.032s | 0.022s | 0.011s |
+| `cci_computed_full.bak` | 0.033s | 0.025s | 0.0s | 0.0s | 0.028s | 0.0s | 0.03s | 0.025s | 0.018s | 0.006s |
+| `cci_enc5_largepool_full.bak` | 0.048s | 0.024s | 0.0s | 0.0s | 0.014s | 0.0s | 0.506s | 0.086s | 0.193s | 0.013s |
+| `cci_enc5_largepool_matrix_full.bak` | 0.126s | 0.026s | 0.0s | 0.0s | 0.029s | 0.0s | 8.576s | 0.512s | 0.759s | 0.107s |
+| `cci_extended_full.bak` | 0.039s | 0.023s | 0.0s | 0.0s | 0.009s | 0.0s | 0.06s | 0.044s | 0.02s | 0.008s |
+| `cci_lob_full.bak` | 0.038s | 0.023s | 0.0s | 0.0s | 0.026s | 0.0s | 0.039s | 0.035s | 0.018s | 0.008s |
+| `cci_reorganize_full.bak` | 0.031s | 0.023s | 0.0s | 0.0s | 0.028s | 0.0s | 0.036s | 0.035s | 0.023s | 0.012s |
+| `cci_string_dict_regression_full.bak` | 0.04s | 0.023s | 0.0s | 0.0s | 0.011s | 0.0s | 0.423s | 0.064s | 0.133s | 0.007s |
+| `cci_string_minmax_full.bak` | 0.031s | 0.023s | 0.0s | 0.0s | 0.01s | 0.0s | 0.038s | 0.033s | 0.016s | 0.014s |
+| `cci_switch_full.bak` | 0.034s | 0.024s | 0.0s | 0.0s | 0.028s | 0.0s | 0.033s | 0.03s | 0.019s | 0.009s |
+| `cci_types_large_full.bak` | 0.033s | 0.026s | 0.0s | 0.0s | 0.008s | 0.0s | 0.053s | 0.049s | 0.024s | 0.013s |
+| `cci_varbinary_micro_full.bak` | 0.031s | 0.024s | 0.0s | 0.0s | 0.029s | 0.0s | 0.035s | 0.034s | 0.015s | 0.007s |
+| `cci_varbinary_probe_full.bak` | 0.032s | 0.023s | 0.0s | 0.0s | 0.028s | 0.0s | 0.06s | 0.036s | 0.047s | 0.006s |
+| `columnstore_minimal.bak` | 0.038s | 0.027s | 0.0s | 0.0s | 0.021s | 0.0s | 0.521s | 2.304s | 1.669s | 1.92s |
+| `compressed_nvarchar_full.bak` | 0.029s | 0.023s | 0.0s | 0.0s | 0.008s | 0.0s | 0.001s | 0.018s | 0.014s | 0.017s |
+| `compressioncoverage_full.bak` | 0.036s | 0.026s | 0.0s | 0.0s | 0.027s | 0.0s | 0.625s | 0.439s | 0.514s | 0.008s |
+| `computedcoverage_full.bak` | 0.031s | 0.024s | 0.0s | 0.0s | 0.008s | 0.0s | 0.018s | 0.03s | 0.019s | 0.013s |
+| `constraintcoverage_full.bak` | 0.035s | 0.028s | 0.0s | 0.0s | 0.005s | 0.0s | 0.142s | 0.149s | 0.027s | 0.009s |
+| `covering_index_full.bak` | 0.031s | 0.022s | 0.0s | 0.0s | 0.021s | 0.0s | 0.023s | 0.023s | 0.018s | 0.005s |
+| `cs_lob_preamble.bak` | 0.043s | 0.024s | 0.0s | 0.0s | 0.004s | 0.0s | 0.03s | 0.025s | 0.025s | 0.026s |
+| `delta_rowgroup_full.bak` | 0.032s | 0.024s | 0.0s | 0.0s | 0.008s | 0.0s | 0.036s | 0.032s | 0.018s | 0.009s |
+| `dirtycoverage_aborted_xact.bak` | 0.032s | 0.024s | 0.0s | 0.0s | 0.027s | 0.0s | 0.001s | 0.018s | 0.015s | 0.018s |
+| `dirtycoverage_addcol.bak` | 0.046s | 0.028s | 0.0s | 0.0s | 0.025s | 0.0s | 0.002s | 0.019s | 0.015s | 0.019s |
+| `dirtycoverage_addnotnull.bak` | 0.035s | 0.023s | 0.0s | 0.0s | 0.026s | 0.0s | 0.002s | 0.019s | 0.016s | 0.018s |
+| `dirtycoverage_alldirty.bak` | 0.029s | 0.023s | 0.0s | 0.0s | 0.026s | 0.0s | 0.001s | 0.009s | 0.0s | 0.009s |
+| `dirtycoverage_altercol.bak` | 0.032s | 0.023s | 0.0s | 0.0s | 0.007s | 0.0s | 0.002s | 0.025s | 0.016s | 0.025s |
+| `dirtycoverage_altercol_rewrite.bak` | 0.032s | 0.024s | 0.0s | 0.0s | 0.025s | 0.0s | 0.002s | 0.021s | 0.018s | 0.021s |
+| `dirtycoverage_alterdb.bak` | 0.031s | 0.023s | 0.0s | 0.0s | 0.024s | 0.0s | 0.002s | 0.018s | 0.015s | 0.018s |
+| `dirtycoverage_cci_delete.bak` | 0.033s | 0.023s | 0.0s | 0.0s | 0.035s | 0.0s | 0.116s | 0.043s | 0.066s | 0.005s |
+| `dirtycoverage_cci_update.bak` | 0.034s | 0.023s | 0.0s | 0.0s | 0.035s | 0.0s | 0.137s | 0.057s | 0.08s | 0.007s |
+| `dirtycoverage_committed_delete.bak` | 0.046s | 0.024s | 0.0s | 0.0s | 0.008s | 0.0s | 0.001s | 0.02s | 0.019s | 0.02s |
+| `dirtycoverage_committed_delete_v2.bak` | 0.03s | 0.023s | 0.0s | 0.0s | 0.004s | 0.0s | 0.002s | 0.018s | 0.02s | 0.02s |
+| `dirtycoverage_committed_delete_v3.bak` | 0.03s | 0.023s | 0.0s | 0.0s | 0.007s | 0.0s | 0.009s | 0.047s | 0.089s | 0.094s |
+| `dirtycoverage_committed_delete_v4.bak` | 0.037s | 0.023s | 0.0s | 0.0s | 0.088s | 0.0s | 0.13s | 0.041s | 0.09s | 0.008s |
+| `dirtycoverage_committed_update.bak` | 0.03s | 0.025s | 0.0s | 0.0s | 0.008s | 0.0s | 0.001s | 0.021s | 0.02s | 0.022s |
+| `dirtycoverage_committed_update_v2.bak` | 0.029s | 0.023s | 0.0s | 0.0s | 0.008s | 0.0s | 0.002s | 0.019s | 0.019s | 0.02s |
+| `dirtycoverage_committed_update_v3.bak` | 0.031s | 0.025s | 0.0s | 0.0s | 0.008s | 0.0s | 0.014s | 0.079s | 0.149s | 0.159s |
+| `dirtycoverage_committed_update_v4.bak` | 0.035s | 0.025s | 0.0s | 0.0s | 0.091s | 0.0s | 0.128s | 0.032s | 0.079s | 0.004s |
+| `dirtycoverage_concurrent.bak` | 0.029s | 0.026s | 0.0s | 0.0s | 0.025s | 0.0s | 0.002s | 0.019s | 0.017s | 0.019s |
+| `dirtycoverage_createidx.bak` | 0.03s | 0.025s | 0.0s | 0.0s | 0.044s | 0.0s | 0.002s | 0.023s | 0.022s | 0.024s |
+| `dirtycoverage_createtable.bak` | 0.031s | 0.024s | 0.0s | 0.0s | 0.024s | 0.0s | 0.002s | 0.018s | 0.015s | 0.018s |
+| `dirtycoverage_delete.bak` | 0.032s | 0.027s | 0.0s | 0.0s | 0.028s | 0.0s | 0.003s | 0.02s | 0.016s | 0.019s |
+| `dirtycoverage_dropcol.bak` | 0.029s | 0.024s | 0.0s | 0.0s | 0.024s | 0.0s | 0.003s | 0.021s | 0.016s | 0.021s |
+| `dirtycoverage_dropidx.bak` | 0.03s | 0.023s | 0.0s | 0.0s | 0.02s | 0.0s | 0.002s | 0.017s | 0.016s | 0.017s |
+| `dirtycoverage_droptable.bak` | 0.034s | 0.023s | 0.0s | 0.0s | 0.025s | 0.0s | 0.021s | 0.026s | 0.016s | 0.009s |
+| `dirtycoverage_heap_forward.bak` | 0.03s | 0.024s | 0.0s | 0.0s | 0.027s | 0.0s | 0.003s | 0.05s | 0.063s | 0.064s |
+| `dirtycoverage_large_dirty.bak` | 0.029s | 0.024s | 0.0s | 0.0s | 0.311s | 0.0s | 0.003s | 0.016s | 0.013s | 0.016s |
+| `dirtycoverage_lob_update.bak` | 0.032s | 0.023s | 0.0s | 0.0s | 0.047s | 0.0s | 0.002s | 0.019s | 0.017s | 0.019s |
+| `dirtycoverage_maxrow.bak` | 0.029s | 0.023s | 0.0s | 0.0s | 0.009s | 0.0s | 0.001s | 0.02s | 0.02s | 0.021s |
+| `dirtycoverage_nchar_delete.bak` | 0.03s | 0.025s | 0.0s | 0.0s | 0.027s | 0.0s | 0.001s | 0.018s | 0.015s | 0.019s |
+| `dirtycoverage_nested.bak` | 0.035s | 0.023s | 0.0s | 0.0s | 0.028s | 0.0s | 0.002s | 0.022s | 0.015s | 0.022s |
+| `dirtycoverage_null_update.bak` | 0.032s | 0.024s | 0.0s | 0.0s | 0.028s | 0.0s | 0.001s | 0.018s | 0.015s | 0.018s |
+| `dirtycoverage_rebuildidx.bak` | 0.039s | 0.024s | 0.0s | 0.0s | 0.026s | 0.0s | 0.002s | 0.018s | 0.018s | 0.018s |
+| `dirtycoverage_rich_insert.bak` | 0.036s | 0.023s | 0.0s | 0.0s | 0.028s | 0.0s | 0.002s | 0.037s | 0.102s | 0.103s |
+| `dirtycoverage_rich_update.bak` | 0.032s | 0.025s | 0.0s | 0.0s | 0.025s | 0.0s | 0.002s | 0.041s | 0.1s | 0.101s |
+| `dirtycoverage_savepoint.bak` | 0.031s | 0.024s | 0.0s | 0.0s | 0.03s | 0.0s | 0.002s | 0.02s | 0.016s | 0.019s |
+| `dirtycoverage_snapshot_update.bak` | 0.03s | 0.025s | 0.0s | 0.0s | 0.029s | 0.0s | 0.001s | 0.019s | 0.015s | 0.019s |
+| `dirtycoverage_switch.bak` | 0.038s | 0.027s | 0.0s | 0.0s | 0.03s | 0.0s | 0.022s | 0.029s | 0.015s | 0.01s |
+| `dirtycoverage_temporal_update.bak` | 0.03s | 0.023s | 0.0s | 0.0s | 0.026s | 0.0s | 0.074s | 0.022s | 0.071s | 0.005s |
+| `dirtycoverage_truncate.bak` | 0.029s | 0.026s | 0.0s | 0.0s | 0.027s | 0.0s | 0.004s | 0.028s | 0.021s | 0.028s |
+| `dirtycoverage_two_tx.bak` | 0.032s | 0.023s | 0.0s | 0.0s | 0.029s | 0.0s | 0.002s | 0.02s | 0.017s | 0.02s |
+| `dirtycoverage_uncommitted.bak` | 0.03s | 0.024s | 0.0s | 0.0s | 0.028s | 0.0s | 0.002s | 0.017s | 0.015s | 0.018s |
+| `dirtycoverage_update.bak` | 0.032s | 0.024s | 0.0s | 0.0s | 0.03s | 0.0s | 0.002s | 0.019s | 0.015s | 0.019s |
+| `enc_bak_aes128_full.bak` | 0.02s | 0.03s | 0.0s | 0.0s | 0.006s | 0.0s | 0.001s | 0.017s | 0.014s | 0.017s |
+| `enc_bak_aes256_compressed.bak` | 0.029s | 0.03s | 0.0s | 0.0s | 0.005s | 0.0s | 0.001s | 0.019s | 0.017s | 0.019s |
+| `enc_bak_aes256_full.bak` | 0.019s | 0.031s | 0.0s | 0.0s | 0.007s | 0.0s | 0.001s | 0.017s | 0.014s | 0.018s |
+| `enc_bak_plain.bak` | 0.056s | 0.023s | 0.0s | 0.0s | 0.003s | 0.0s | 0.001s | 0.017s | 0.014s | 0.017s |
+| `filtered_ncci_full.bak` | 0.037s | 0.025s | 0.0s | 0.0s | 0.028s | 0.0s | 0.026s | 0.032s | 0.017s | 0.008s |
+| `float_extreme_full.bak` | 0.029s | 0.023s | 0.0s | 0.0s | 0.003s | 0.0s | 0.001s | 0.019s | 0.016s | 0.019s |
+| `forwarded_records_full.bak` | 0.053s | 0.029s | 0.0s | 0.0s | 0.015s | 0.0s | 0.083s | 0.06s | 0.121s | 0.065s |
+| `ghost_records_full.bak` | 0.029s | 0.023s | 0.0s | 0.0s | 0.008s | 0.0s | 0.001s | 0.026s | 0.037s | 0.038s |
+| `heapcoverage_large.bak` | 0.033s | 0.024s | 0.0s | 0.0s | 0.008s | 0.0s | 0.024s | 0.037s | 0.049s | 0.029s |
+| `heapcoverage_large_50000.bak` | 0.049s | 0.025s | 0.0s | 0.0s | 0.016s | 0.0s | 0.096s | 0.079s | 0.177s | 0.127s |
+| `hierarchyid_extract_full.bak` | 0.031s | 0.025s | 0.0s | 0.0s | 0.007s | 0.0s | 0.001s | 0.017s | 0.014s | 0.017s |
+| `high_slot_density_full.bak` | 0.033s | 0.023s | 0.0s | 0.0s | 0.006s | 0.0s | 0.041s | 0.042s | 0.051s | 0.018s |
+| `identity_coverage_full.bak` | 0.031s | 0.026s | 0.0s | 0.0s | 0.023s | 0.0s | 0.046s | 0.051s | 0.021s | 0.008s |
+| `incrementalcoverage_diff_01.bak` | 0.053s | 0.029s | 0.0s | 0.0s | 0.016s | 0.0s | 0.001s | 0.026s | 0.023s | 0.027s |
+| `incrementalcoverage_diff_02.bak` | 0.056s | 0.024s | 0.0s | 0.0s | 0.019s | 0.0s | 0.001s | 0.016s | 0.013s | 0.016s |
+| `incrementalcoverage_diff_03.bak` | 0.056s | 0.023s | 0.0s | 0.0s | 0.01s | 0.0s | 0.001s | 0.022s | 0.015s | 0.022s |
+| `incrementalcoverage_diff_04.bak` | 0.054s | 0.024s | 0.0s | 0.0s | 0.019s | 0.0s | 0.001s | 0.019s | 0.018s | 0.019s |
+| `incrementalcoverage_diff_05.bak` | 0.062s | 0.023s | 0.0s | 0.0s | 0.017s | 0.0s | 0.002s | 0.026s | 0.022s | 0.027s |
+| `incrementalcoverage_diff_06.bak` | 0.054s | 0.023s | 0.0s | 0.0s | 0.019s | 0.0s | 0.001s | 0.023s | 0.019s | 0.022s |
+| `incrementalcoverage_full.bak` | 0.025s | 0.023s | 0.0s | 0.0s | 0.003s | 0.0s | 0.001s | 0.019s | 0.015s | 0.019s |
+| `layoutcoverage_full.bak` | 0.043s | 0.089s | 0.0s | 0.0s | 0.021s | 0.0s | 0.772s | 0.726s | 0.284s | 0.012s |
+| `max_row_width_full.bak` | 0.031s | 0.024s | 0.0s | 0.0s | 0.007s | 0.0s | 0.001s | 0.018s | 0.016s | 0.018s |
+| `mixed_collation_full.bak` | 0.031s | 0.024s | 0.0s | 0.0s | 0.008s | 0.0s | 0.003s | 0.022s | 0.018s | 0.022s |
+| `multi_rowgroup_full.bak` | 0.032s | 0.025s | 0.0s | 0.0s | 0.01s | 0.0s | 0.03s | 0.027s | 0.019s | 0.009s |
+| `ncci_heap_full.bak` | 0.034s | 0.027s | 0.0s | 0.0s | 0.025s | 0.0s | 0.019s | 0.024s | 0.016s | 0.008s |
+| `ncci_types_full.bak` | 0.048s | 0.029s | 0.0s | 0.0s | 0.124s | 0.0s | 0.623s | 0.518s | 0.376s | 0.014s |
+| `ndfcoverage_full.bak` | 0.041s | 0.033s | 0.0s | 0.0s | 0.008s | 0.0s | 0.021s | 0.031s | 0.02s | 0.011s |
+| `nvarchar_max_u21_full.bak` | 0.03s | 0.023s | 0.0s | 0.0s | 0.008s | 0.0s | 0.002s | 0.023s | 0.021s | 0.023s |
+| `pagecomp_anchor_full.bak` | 0.029s | 0.022s | 0.0s | 0.0s | 0.008s | 0.0s | 0.102s | 0.018s | 0.099s | 0.1s |
+| `pagecomp_long_prefix_full.bak` | 0.032s | 0.023s | 0.0s | 0.0s | 0.008s | 0.0s | 0.001s | 0.02s | 0.018s | 0.02s |
+| `pfor_columnstore_full.bak` | 0.04s | 0.029s | 0.0s | 0.0s | 0.011s | 0.0s | 0.257s | 0.141s | 0.331s | 0.158s |
+| `pfor_columnstore_random_full.bak` | 0.038s | 0.023s | 0.0s | 0.0s | 0.012s | 0.0s | 0.296s | 0.162s | 0.358s | 0.151s |
+| `realworld_numeric_digest_full.bak` | 0.034s | 0.026s | 0.0s | 0.0s | 0.03s | 0.0s | 0.097s | 0.072s | 0.071s | 0.018s |
+| `rowboundary_full.bak` | 0.033s | 0.024s | 0.0s | 0.0s | 0.003s | 0.0s | 0.048s | 0.038s | 0.046s | 0.007s |
+| `rowstore_hash_pii_full.bak` | 0.031s | 0.025s | 0.0s | 0.0s | 0.008s | 0.0s | 0.001s | 0.019s | 0.018s | 0.02s |
+| `rowstore_lob_image_full.bak` | 0.029s | 0.023s | 0.0s | 0.0s | 0.007s | 0.0s | 0.002s | 0.02s | 0.02s | 0.021s |
+| `rowstore_lob_markup_full.bak` | 0.042s | 0.029s | 0.0s | 0.0s | 0.007s | 0.0s | 0.002s | 0.02s | 0.019s | 0.02s |
+| `rowversion_extract_full.bak` | 0.033s | 0.029s | 0.0s | 0.0s | 0.008s | 0.0s | 0.016s | 0.03s | 0.017s | 0.015s |
+| `sparse_full.bak` | 0.034s | 0.024s | 0.0s | 0.0s | 0.008s | 0.0s | 0.057s | 0.025s | 0.101s | 0.103s |
+| `spatial_edge_full.bak` | 0.028s | 0.028s | 0.0s | 0.0s | 0.008s | 0.0s | 0.024s | 0.033s | 0.022s | 0.011s |
+| `spatial_index_full.bak` | 0.032s | 0.025s | 0.0s | 0.0s | 0.024s | 0.0s | 0.023s | 0.032s | 0.019s | 0.012s |
+| `sql_variant_extract_full.bak` | 0.031s | 0.023s | 0.0s | 0.0s | 0.007s | 0.0s | 0.001s | 0.021s | 0.014s | 0.021s |
+| `striped_full_1.bak` | 0.02s | 0.023s | 0.0s | 0.0s | 0.001s | 0.0s | 0.001s | 0.019s | 0.014s | 0.019s |
+| `striped_single.bak` | 0.045s | 0.024s | 0.0s | 0.0s | 0.005s | 0.0s | 0.001s | 0.029s | 0.015s | 0.029s |
+| `surrogate_pairs_full.bak` | 0.033s | 0.028s | 0.0s | 0.0s | 0.008s | 0.0s | 0.001s | 0.018s | 0.014s | 0.017s |
+| `tabletype_cci_large_full.bak` | 0.036s | 0.025s | 0.0s | 0.0s | 0.01s | 0.0s | 0.033s | 0.048s | 0.151s | 0.159s |
+| `tabletypecoverage_diff.bak` | 0.091s | 0.034s | 0.0s | 0.0s | 0.034s | 0.0s | 0.392s | 0.121s | 0.335s | 0.027s |
+| `tabletypecoverage_full.bak` | 0.032s | 0.027s | 0.0s | 0.0s | 0.035s | 0.0s | 0.336s | 0.121s | 0.263s | 0.029s |
+| `tde_full.bak` | 0.029s | 0.029s | 0.0s | 0.0s | 0.002s | 0.0s | 0.001s | 0.018s | 0.015s | 0.018s |
+| `tde_full_compressed.bak` | 0.034s | 0.032s | 0.0s | 0.0s | 0.004s | 0.0s | 0.001s | 0.018s | 0.015s | 0.018s |
+| `tde_page_full.bak` | 0.021s | 0.034s | 0.0s | 0.0s | 0.008s | 0.0s | 0.001s | 0.019s | 0.014s | 0.019s |
+| `tde_page_plain.bak` | 0.03s | 0.023s | 0.0s | 0.0s | 0.003s | 0.0s | 0.002s | 0.02s | 0.016s | 0.019s |
+| `temporal_hidden_full.bak` | 0.029s | 0.023s | 0.0s | 0.0s | 0.008s | 0.0s | 0.1s | 0.053s | 0.098s | 0.007s |
+| `torn_page_full.bak` | 0.031s | 0.023s | 0.0s | 0.0s | 0.008s | 0.0s | 0.001s | 0.02s | 0.018s | 0.02s |
+| `typecoverage_full.bak` | 0.04s | 0.028s | 0.0s | 0.0s | 0.016s | 0.0s | 0.617s | 0.465s | 0.303s | 0.009s |
+| `typed_xml_full.bak` | 0.054s | 0.024s | 0.0s | 0.0s | 0.007s | 0.0s | 0.001s | 0.018s | 0.017s | 0.018s |
+| `unicode_codepage_coverage.bak` | 0.037s | 0.026s | 0.0s | 0.0s | 0.011s | 0.0s | 0.129s | 0.133s | 0.035s | 0.012s |
+| `xml_index_full.bak` | 0.04s | 0.024s | 0.0s | 0.0s | 0.023s | 0.0s | 0.021s | 0.025s | 0.017s | 0.006s |
+| `xmlcoverage_full.bak` | 0.03s | 0.024s | 0.0s | 0.0s | 0.008s | 0.0s | 0.001s | 0.017s | 0.017s | 0.017s |
+| `xmlheap_full.bak` | 0.043s | 0.023s | 0.0s | 0.0s | 0.01s | 0.0s | 0.015s | 0.024s | 0.094s | 0.096s |
+| `xtp_checkpoint_straddle_full.bak` | 0.213s | 0.023s | 0.0s | 0.0s | 0.002s | 1.623s | 0.16s | 0.152s | 0.058s | 0.108s |
+| `xtp_probe_full.bak` | 0.052s | 0.025s | 0.0s | 0.0s | 0.052s | 0.007s | 0.023s | 0.031s | 0.0s | 0.008s |
+| `xtp_rich_full.bak` | 0.036s | 0.025s | 0.0s | 0.0s | 0.036s | 0.005s | 0.002s | 0.017s | 0.0s | 0.016s |
+| `xtp_simple_full.bak` | 0.035s | 0.023s | 0.0s | 0.0s | 0.033s | 0.004s | 0.001s | 0.013s | 0.0s | 0.013s |
 
 _data decode (net) = data\_decode\_s (raw loop wall; sink writes and arrow verify overlap decode on a background writer thread and are drained in sink finish). catalog = recover\_catalog\_objects (indexes/FKs/constraints, pg\_dir only). arrow verify = cell verification run inside extraction (_StreamingStatsSink). verify=digest: per-column SHA-256 aggregate hash — fast, no GT parquet read, catches multiset-level corruption; also runs key-ordered digest (catches row transposition) when ordered\_digest is present in the manifest (populated by backfill\_ordered\_digest). Mismatches show as digest:col (multiset) or order:col (transposition). verify=full: exhaustive keyed row compare — also catches value-preserving row misalignment._
 
@@ -6993,139 +7326,147 @@ _data decode (net) = data\_decode\_s (raw loop wall; sink writes and arrow verif
 
 | Backup | delta write | delta read | pg_dir write | pg_dir read |
 |--------|-------:| ------: | -------:| ------:|
-| `alias_types_full.bak` | 0.009s | 0.028s | 0.008s | 0.006s |
-| `archive_columnstore_partition_full.bak` | 0.219s | 0.231s | 0.323s | 0.611s |
-| `archive_columnstore_types_full.bak` | 0.124s | 0.415s | 0.306s | 0.649s |
-| `archive_columnstore_types_random_full.bak` | 0.116s | 0.444s | 0.33s | 0.618s |
-| `archive_single_chunk_full.bak` | 0.01s | 0.028s | 0.006s | 0.008s |
-| `archive_single_chunk_random_full.bak` | 0.01s | 0.027s | 0.007s | 0.009s |
-| `archivenull_full.bak` | 0.018s | 0.078s | 0.047s | 0.108s |
-| `backup_blocksize_full.bak` | 0.012s | 0.034s | 0.009s | 0.011s |
-| `boundarycoverage_datetime_full.bak` | 0.05s | 0.272s | 0.257s | 0.208s |
-| `boundarycoverage_full.bak` | 0.037s | 0.092s | 0.019s | 0.045s |
-| `cci_binary_varbinary_compare_full.bak` | 0.01s | 0.03s | 0.007s | 0.011s |
-| `cci_bitpack_probe_bigint_full.bak` | 0.333s | 0.802s | 0.34s | 0.896s |
-| `cci_bitpack_probe_full.bak` | 0.047s | 0.18s | 0.051s | 0.176s |
-| `cci_bitpack_probe_highbase_full.bak` | 0.046s | 0.124s | 0.041s | 0.096s |
-| `cci_btree_nci_full.bak` | 0.012s | 0.038s | 0.008s | 0.011s |
-| `cci_computed_full.bak` | 0.01s | 0.04s | 0.009s | 0.012s |
-| `cci_enc5_largepool_full.bak` | 0.033s | 0.232s | 0.036s | 0.225s |
-| `cci_enc5_largepool_matrix_full.bak` | 0.105s | 0.736s | 0.515s | 0.837s |
-| `cci_extended_full.bak` | 0.033s | 0.075s | 0.016s | 0.05s |
-| `cci_lob_full.bak` | 0.022s | 0.055s | 0.013s | 0.023s |
-| `cci_reorganize_full.bak` | 0.013s | 0.043s | 0.009s | 0.018s |
-| `cci_string_dict_regression_full.bak` | 0.03s | 0.109s | 0.048s | 0.1s |
-| `cci_string_minmax_full.bak` | 0.013s | 0.039s | 0.008s | 0.016s |
-| `cci_switch_full.bak` | 0.012s | 0.035s | 0.008s | 0.016s |
-| `cci_types_large_full.bak` | 0.031s | 0.07s | 0.023s | 0.044s |
-| `cci_varbinary_micro_full.bak` | 0.026s | 0.039s | 0.009s | 0.013s |
-| `cci_varbinary_probe_full.bak` | 0.021s | 0.04s | 0.012s | 0.041s |
-| `columnstore_minimal.bak` | 0.044s | 0.736s | 1.092s | 0.759s |
-| `compressed_nvarchar_full.bak` | 0.009s | 0.029s | 0.008s | 0.008s |
-| `compressioncoverage_full.bak` | 0.109s | 0.338s | 0.26s | 0.242s |
-| `computedcoverage_full.bak` | 0.033s | 0.037s | 0.006s | 0.009s |
-| `constraintcoverage_full.bak` | 0.041s | 0.089s | 0.017s | 0.06s |
-| `covering_index_full.bak` | 0.011s | 0.039s | 0.008s | 0.012s |
-| `cs_lob_preamble.bak` | 0.015s | 0.028s | 0.009s | 0.007s |
-| `delta_rowgroup_full.bak` | 0.012s | 0.042s | 0.011s | 0.014s |
-| `dirtycoverage_aborted_xact.bak` | 0.007s | 0.027s | 0.009s | 0.006s |
-| `dirtycoverage_addcol.bak` | 0.007s | 0.03s | 0.01s | 0.007s |
-| `dirtycoverage_addnotnull.bak` | 0.006s | 0.028s | 0.009s | 0.006s |
-| `dirtycoverage_alldirty.bak` | 0.0s | 0.0s | 0.003s | 0.001s |
-| `dirtycoverage_altercol.bak` | 0.008s | 0.03s | 0.009s | 0.006s |
-| `dirtycoverage_altercol_rewrite.bak` | 0.014s | 0.035s | 0.006s | 0.006s |
-| `dirtycoverage_alterdb.bak` | 0.011s | 0.028s | 0.005s | 0.006s |
-| `dirtycoverage_cci_delete.bak` | 0.017s | 0.049s | 0.012s | 0.048s |
-| `dirtycoverage_cci_update.bak` | 0.013s | 0.048s | 0.019s | 0.044s |
-| `dirtycoverage_committed_delete.bak` | 0.01s | 0.029s | 0.008s | 0.009s |
-| `dirtycoverage_committed_delete_v2.bak` | 0.009s | 0.03s | 0.01s | 0.01s |
-| `dirtycoverage_committed_delete_v3.bak` | 0.009s | 0.053s | 0.031s | 0.027s |
-| `dirtycoverage_committed_delete_v4.bak` | 0.016s | 0.054s | 0.017s | 0.035s |
-| `dirtycoverage_committed_update.bak` | 0.01s | 0.028s | 0.006s | 0.006s |
-| `dirtycoverage_committed_update_v2.bak` | 0.01s | 0.03s | 0.011s | 0.008s |
-| `dirtycoverage_committed_update_v3.bak` | 0.016s | 0.064s | 0.04s | 0.049s |
-| `dirtycoverage_committed_update_v4.bak` | 0.023s | 0.068s | 0.018s | 0.05s |
-| `dirtycoverage_concurrent.bak` | 0.007s | 0.028s | 0.009s | 0.006s |
-| `dirtycoverage_createidx.bak` | 0.009s | 0.028s | 0.007s | 0.009s |
-| `dirtycoverage_createtable.bak` | 0.007s | 0.026s | 0.009s | 0.006s |
-| `dirtycoverage_delete.bak` | 0.007s | 0.026s | 0.008s | 0.007s |
-| `dirtycoverage_dropcol.bak` | 0.009s | 0.028s | 0.01s | 0.007s |
-| `dirtycoverage_dropidx.bak` | 0.006s | 0.029s | 0.008s | 0.006s |
-| `dirtycoverage_droptable.bak` | 0.01s | 0.035s | 0.01s | 0.013s |
-| `dirtycoverage_heap_forward.bak` | 0.007s | 0.01s | 0.013s | 0.007s |
-| `dirtycoverage_large_dirty.bak` | 0.011s | 0.034s | 0.009s | 0.008s |
-| `dirtycoverage_lob_update.bak` | 0.006s | 0.026s | 0.009s | 0.007s |
-| `dirtycoverage_maxrow.bak` | 0.007s | 0.03s | 0.01s | 0.008s |
-| `dirtycoverage_nchar_delete.bak` | 0.016s | 0.049s | 0.009s | 0.006s |
-| `dirtycoverage_nested.bak` | 0.007s | 0.026s | 0.009s | 0.008s |
-| `dirtycoverage_null_update.bak` | 0.008s | 0.031s | 0.01s | 0.007s |
-| `dirtycoverage_rebuildidx.bak` | 0.006s | 0.025s | 0.009s | 0.007s |
-| `dirtycoverage_rich_insert.bak` | 0.012s | 0.012s | 0.022s | 0.01s |
-| `dirtycoverage_rich_update.bak` | 0.009s | 0.012s | 0.027s | 0.009s |
-| `dirtycoverage_savepoint.bak` | 0.007s | 0.025s | 0.013s | 0.006s |
-| `dirtycoverage_snapshot_update.bak` | 0.011s | 0.029s | 0.005s | 0.006s |
-| `dirtycoverage_switch.bak` | 0.011s | 0.038s | 0.009s | 0.014s |
-| `dirtycoverage_temporal_update.bak` | 0.007s | 0.029s | 0.009s | 0.005s |
-| `dirtycoverage_truncate.bak` | 0.007s | 0.03s | 0.008s | 0.007s |
-| `dirtycoverage_two_tx.bak` | 0.007s | 0.028s | 0.008s | 0.007s |
-| `dirtycoverage_uncommitted.bak` | 0.008s | 0.029s | 0.008s | 0.007s |
-| `dirtycoverage_update.bak` | 0.007s | 0.027s | 0.009s | 0.006s |
-| `filtered_ncci_full.bak` | 0.015s | 0.039s | 0.012s | 0.015s |
-| `float_extreme_full.bak` | 0.009s | 0.032s | 0.007s | 0.006s |
-| `forwarded_records_full.bak` | 0.017s | 0.086s | 0.034s | 0.108s |
-| `ghost_records_full.bak` | 0.01s | 0.011s | 0.014s | 0.009s |
-| `heapcoverage_large.bak` | 0.014s | 0.021s | 0.012s | 0.016s |
-| `heapcoverage_large_50000.bak` | 0.033s | 0.138s | 0.041s | 0.191s |
-| `hierarchyid_extract_full.bak` | 0.011s | 0.028s | 0.006s | 0.007s |
-| `high_slot_density_full.bak` | 0.016s | 0.067s | 0.016s | 0.043s |
-| `identity_coverage_full.bak` | 0.041s | 0.086s | 0.018s | 0.046s |
-| `incrementalcoverage_diff_01.bak` | 0.019s | 0.028s | 0.003s | 0.007s |
-| `incrementalcoverage_diff_02.bak` | 0.012s | 0.029s | 0.007s | 0.006s |
-| `incrementalcoverage_diff_03.bak` | 0.008s | 0.029s | 0.007s | 0.006s |
-| `incrementalcoverage_diff_04.bak` | 0.011s | 0.028s | 0.004s | 0.007s |
-| `incrementalcoverage_diff_05.bak` | 0.01s | 0.034s | 0.007s | 0.005s |
-| `incrementalcoverage_diff_06.bak` | 0.01s | 0.027s | 0.01s | 0.006s |
-| `incrementalcoverage_full.bak` | 0.009s | 0.028s | 0.008s | 0.006s |
-| `layoutcoverage_full.bak` | 0.463s | 0.736s | 0.226s | 0.663s |
-| `max_row_width_full.bak` | 0.006s | 0.03s | 0.008s | 0.007s |
-| `mixed_collation_full.bak` | 0.007s | 0.03s | 0.009s | 0.009s |
-| `multi_rowgroup_full.bak` | 0.016s | 0.036s | 0.011s | 0.01s |
-| `ncci_heap_full.bak` | 0.019s | 0.038s | 0.006s | 0.01s |
-| `ncci_types_full.bak` | 0.107s | 0.34s | 0.342s | 0.356s |
-| `ndfcoverage_full.bak` | 0.01s | 0.035s | 0.011s | 0.011s |
-| `nvarchar_max_u21_full.bak` | 0.011s | 0.031s | 0.006s | 0.007s |
-| `pagecomp_anchor_full.bak` | 0.014s | 0.071s | 0.009s | 0.041s |
-| `pagecomp_long_prefix_full.bak` | 0.009s | 0.028s | 0.01s | 0.009s |
-| `pfor_columnstore_full.bak` | 0.049s | 0.367s | 0.112s | 0.349s |
-| `pfor_columnstore_random_full.bak` | 0.149s | 0.375s | 0.119s | 0.393s |
-| `realworld_numeric_digest_full.bak` | 0.024s | 0.065s | 0.031s | 0.049s |
-| `rowboundary_full.bak` | 0.022s | 0.025s | 0.019s | 0.024s |
-| `rowstore_hash_pii_full.bak` | 0.009s | 0.03s | 0.009s | 0.006s |
-| `rowstore_lob_image_full.bak` | 0.008s | 0.03s | 0.007s | 0.008s |
-| `rowstore_lob_markup_full.bak` | 0.016s | 0.03s | 0.009s | 0.006s |
-| `rowversion_extract_full.bak` | 0.011s | 0.036s | 0.008s | 0.01s |
-| `sparse_full.bak` | 0.011s | 0.056s | 0.01s | 0.038s |
-| `spatial_edge_full.bak` | 0.012s | 0.031s | 0.008s | 0.009s |
-| `spatial_index_full.bak` | 0.016s | 0.036s | 0.008s | 0.01s |
-| `sql_variant_extract_full.bak` | 0.008s | 0.031s | 0.007s | 0.005s |
-| `striped_full_1.bak` | 0.012s | 0.026s | 0.011s | 0.005s |
-| `striped_single.bak` | 0.008s | 0.025s | 0.009s | 0.007s |
-| `surrogate_pairs_full.bak` | 0.007s | 0.03s | 0.008s | 0.008s |
-| `tabletype_cci_large_full.bak` | 0.012s | 0.053s | 0.023s | 0.089s |
-| `tabletypecoverage_diff.bak` | 0.053s | 0.2s | 0.08s | 0.617s |
-| `tabletypecoverage_full.bak` | 0.044s | 0.2s | 0.054s | 0.62s |
-| `temporal_hidden_full.bak` | 0.028s | 0.045s | 0.018s | 0.031s |
-| `torn_page_full.bak` | 0.007s | 0.03s | 0.009s | 0.005s |
-| `typecoverage_full.bak` | 0.196s | 0.38s | 0.059s | 0.357s |
-| `typed_xml_full.bak` | 0.008s | 0.028s | 0.007s | 0.006s |
-| `unicode_codepage_coverage.bak` | 0.088s | 0.176s | 0.041s | 0.099s |
-| `xml_index_full.bak` | 0.01s | 0.037s | 0.012s | 0.009s |
-| `xmlcoverage_full.bak` | 0.009s | 0.03s | 0.016s | 0.006s |
-| `xmlheap_full.bak` | 0.01s | 0.055s | 0.01s | 0.033s |
-| `xtp_checkpoint_straddle_full.bak` | 0.032s | 0.066s | 0.08s | 0.112s |
-| `xtp_probe_full.bak` | 0.025s | 0.076s | 0.006s | 0.03s |
-| `xtp_rich_full.bak` | 0.01s | 0.048s | 0.004s | 0.009s |
-| `xtp_simple_full.bak` | 0.011s | 0.049s | 0.004s | 0.014s |
+| `alias_types_full.bak` | 0.01s | 0.05s | 0.01s | 0.007s |
+| `archive_columnstore_partition_full.bak` | 0.304s | 0.254s | 0.307s | 0.676s |
+| `archive_columnstore_types_full.bak` | 0.073s | 0.592s | 0.171s | 0.554s |
+| `archive_columnstore_types_random_full.bak` | 0.129s | 0.385s | 0.179s | 0.532s |
+| `archive_single_chunk_full.bak` | 0.014s | 0.032s | 0.005s | 0.011s |
+| `archive_single_chunk_random_full.bak` | 0.015s | 0.066s | 0.004s | 0.011s |
+| `archivenull_full.bak` | 0.014s | 0.07s | 0.029s | 0.108s |
+| `backup_blocksize_full.bak` | 0.025s | 0.041s | 0.004s | 0.015s |
+| `boundarycoverage_datetime_full.bak` | 0.057s | 0.221s | 0.266s | 0.175s |
+| `boundarycoverage_full.bak` | 0.046s | 0.126s | 0.017s | 0.072s |
+| `cci_binary_varbinary_compare_full.bak` | 0.011s | 0.034s | 0.012s | 0.012s |
+| `cci_bitpack_probe_bigint_full.bak` | 0.422s | 0.842s | 0.427s | 1.054s |
+| `cci_bitpack_probe_full.bak` | 0.044s | 0.187s | 0.048s | 0.178s |
+| `cci_bitpack_probe_highbase_full.bak` | 0.077s | 0.115s | 0.037s | 0.091s |
+| `cci_btree_nci_full.bak` | 0.02s | 0.042s | 0.012s | 0.015s |
+| `cci_computed_full.bak` | 0.019s | 0.043s | 0.006s | 0.013s |
+| `cci_enc5_largepool_full.bak` | 0.047s | 0.158s | 0.039s | 0.236s |
+| `cci_enc5_largepool_matrix_full.bak` | 0.211s | 0.666s | 0.301s | 0.798s |
+| `cci_extended_full.bak` | 0.031s | 0.073s | 0.013s | 0.042s |
+| `cci_lob_full.bak` | 0.025s | 0.061s | 0.01s | 0.028s |
+| `cci_reorganize_full.bak` | 0.023s | 0.053s | 0.012s | 0.019s |
+| `cci_string_dict_regression_full.bak` | 0.023s | 0.087s | 0.041s | 0.097s |
+| `cci_string_minmax_full.bak` | 0.021s | 0.047s | 0.012s | 0.019s |
+| `cci_switch_full.bak` | 0.019s | 0.054s | 0.011s | 0.024s |
+| `cci_types_large_full.bak` | 0.027s | 0.071s | 0.022s | 0.047s |
+| `cci_varbinary_micro_full.bak` | 0.022s | 0.052s | 0.012s | 0.024s |
+| `cci_varbinary_probe_full.bak` | 0.018s | 0.039s | 0.018s | 0.032s |
+| `columnstore_minimal.bak` | 0.04s | 0.906s | 2.264s | 1.323s |
+| `compressed_nvarchar_full.bak` | 0.01s | 0.029s | 0.008s | 0.005s |
+| `compressioncoverage_full.bak` | 0.112s | 0.331s | 0.327s | 0.313s |
+| `computedcoverage_full.bak` | 0.019s | 0.06s | 0.011s | 0.016s |
+| `constraintcoverage_full.bak` | 0.065s | 0.107s | 0.084s | 0.059s |
+| `covering_index_full.bak` | 0.016s | 0.042s | 0.007s | 0.017s |
+| `cs_lob_preamble.bak` | 0.013s | 0.032s | 0.012s | 0.009s |
+| `delta_rowgroup_full.bak` | 0.018s | 0.044s | 0.014s | 0.013s |
+| `dirtycoverage_aborted_xact.bak` | 0.01s | 0.057s | 0.008s | 0.006s |
+| `dirtycoverage_addcol.bak` | 0.011s | 0.032s | 0.008s | 0.007s |
+| `dirtycoverage_addnotnull.bak` | 0.01s | 0.032s | 0.009s | 0.009s |
+| `dirtycoverage_alldirty.bak` | 0.006s | 0.038s | 0.003s | 0.005s |
+| `dirtycoverage_altercol.bak` | 0.019s | 0.032s | 0.006s | 0.006s |
+| `dirtycoverage_altercol_rewrite.bak` | 0.012s | 0.036s | 0.009s | 0.009s |
+| `dirtycoverage_alterdb.bak` | 0.012s | 0.041s | 0.006s | 0.008s |
+| `dirtycoverage_cci_delete.bak` | 0.014s | 0.054s | 0.029s | 0.051s |
+| `dirtycoverage_cci_update.bak` | 0.023s | 0.051s | 0.034s | 0.051s |
+| `dirtycoverage_committed_delete.bak` | 0.009s | 0.033s | 0.011s | 0.007s |
+| `dirtycoverage_committed_delete_v2.bak` | 0.008s | 0.037s | 0.01s | 0.011s |
+| `dirtycoverage_committed_delete_v3.bak` | 0.017s | 0.056s | 0.03s | 0.041s |
+| `dirtycoverage_committed_delete_v4.bak` | 0.021s | 0.065s | 0.02s | 0.04s |
+| `dirtycoverage_committed_update.bak` | 0.012s | 0.03s | 0.009s | 0.006s |
+| `dirtycoverage_committed_update_v2.bak` | 0.01s | 0.039s | 0.009s | 0.014s |
+| `dirtycoverage_committed_update_v3.bak` | 0.015s | 0.088s | 0.064s | 0.05s |
+| `dirtycoverage_committed_update_v4.bak` | 0.015s | 0.056s | 0.017s | 0.044s |
+| `dirtycoverage_concurrent.bak` | 0.014s | 0.032s | 0.005s | 0.009s |
+| `dirtycoverage_createidx.bak` | 0.017s | 0.033s | 0.006s | 0.008s |
+| `dirtycoverage_createtable.bak` | 0.01s | 0.035s | 0.008s | 0.013s |
+| `dirtycoverage_delete.bak` | 0.011s | 0.033s | 0.009s | 0.009s |
+| `dirtycoverage_dropcol.bak` | 0.013s | 0.029s | 0.008s | 0.005s |
+| `dirtycoverage_dropidx.bak` | 0.009s | 0.032s | 0.008s | 0.008s |
+| `dirtycoverage_droptable.bak` | 0.015s | 0.042s | 0.011s | 0.014s |
+| `dirtycoverage_heap_forward.bak` | 0.014s | 0.015s | 0.036s | 0.008s |
+| `dirtycoverage_large_dirty.bak` | 0.007s | 0.028s | 0.009s | 0.005s |
+| `dirtycoverage_lob_update.bak` | 0.013s | 0.066s | 0.006s | 0.007s |
+| `dirtycoverage_maxrow.bak` | 0.013s | 0.034s | 0.007s | 0.006s |
+| `dirtycoverage_nchar_delete.bak` | 0.009s | 0.032s | 0.009s | 0.007s |
+| `dirtycoverage_nested.bak` | 0.013s | 0.034s | 0.009s | 0.008s |
+| `dirtycoverage_null_update.bak` | 0.011s | 0.031s | 0.007s | 0.008s |
+| `dirtycoverage_rebuildidx.bak` | 0.01s | 0.031s | 0.008s | 0.008s |
+| `dirtycoverage_rich_insert.bak` | 0.01s | 0.017s | 0.027s | 0.011s |
+| `dirtycoverage_rich_update.bak` | 0.012s | 0.015s | 0.029s | 0.011s |
+| `dirtycoverage_savepoint.bak` | 0.013s | 0.035s | 0.007s | 0.008s |
+| `dirtycoverage_snapshot_update.bak` | 0.015s | 0.027s | 0.004s | 0.006s |
+| `dirtycoverage_switch.bak` | 0.023s | 0.051s | 0.006s | 0.019s |
+| `dirtycoverage_temporal_update.bak` | 0.017s | 0.042s | 0.005s | 0.013s |
+| `dirtycoverage_truncate.bak` | 0.022s | 0.04s | 0.006s | 0.007s |
+| `dirtycoverage_two_tx.bak` | 0.013s | 0.084s | 0.007s | 0.006s |
+| `dirtycoverage_uncommitted.bak` | 0.009s | 0.031s | 0.008s | 0.006s |
+| `dirtycoverage_update.bak` | 0.011s | 0.03s | 0.008s | 0.008s |
+| `enc_bak_aes128_full.bak` | 0.01s | 0.034s | 0.007s | 0.009s |
+| `enc_bak_aes256_compressed.bak` | 0.01s | 0.041s | 0.009s | 0.042s |
+| `enc_bak_aes256_full.bak` | 0.009s | 0.093s | 0.008s | 0.008s |
+| `enc_bak_plain.bak` | 0.008s | 0.038s | 0.009s | 0.006s |
+| `filtered_ncci_full.bak` | 0.02s | 0.055s | 0.012s | 0.02s |
+| `float_extreme_full.bak` | 0.01s | 0.032s | 0.009s | 0.008s |
+| `forwarded_records_full.bak` | 0.027s | 0.091s | 0.033s | 0.11s |
+| `ghost_records_full.bak` | 0.01s | 0.012s | 0.016s | 0.009s |
+| `heapcoverage_large.bak` | 0.024s | 0.025s | 0.013s | 0.017s |
+| `heapcoverage_large_50000.bak` | 0.035s | 0.149s | 0.044s | 0.185s |
+| `hierarchyid_extract_full.bak` | 0.009s | 0.031s | 0.008s | 0.007s |
+| `high_slot_density_full.bak` | 0.024s | 0.071s | 0.018s | 0.055s |
+| `identity_coverage_full.bak` | 0.036s | 0.089s | 0.015s | 0.038s |
+| `incrementalcoverage_diff_01.bak` | 0.015s | 0.045s | 0.011s | 0.009s |
+| `incrementalcoverage_diff_02.bak` | 0.01s | 0.031s | 0.006s | 0.007s |
+| `incrementalcoverage_diff_03.bak` | 0.01s | 0.036s | 0.012s | 0.008s |
+| `incrementalcoverage_diff_04.bak` | 0.01s | 0.042s | 0.009s | 0.009s |
+| `incrementalcoverage_diff_05.bak` | 0.015s | 0.038s | 0.011s | 0.009s |
+| `incrementalcoverage_diff_06.bak` | 0.015s | 0.029s | 0.008s | 0.005s |
+| `incrementalcoverage_full.bak` | 0.01s | 0.034s | 0.009s | 0.007s |
+| `layoutcoverage_full.bak` | 0.48s | 0.962s | 0.246s | 0.619s |
+| `max_row_width_full.bak` | 0.01s | 0.029s | 0.008s | 0.007s |
+| `mixed_collation_full.bak` | 0.011s | 0.029s | 0.011s | 0.006s |
+| `multi_rowgroup_full.bak` | 0.019s | 0.048s | 0.008s | 0.014s |
+| `ncci_heap_full.bak` | 0.018s | 0.063s | 0.006s | 0.012s |
+| `ncci_types_full.bak` | 0.215s | 0.41s | 0.303s | 0.255s |
+| `ndfcoverage_full.bak` | 0.022s | 0.04s | 0.009s | 0.012s |
+| `nvarchar_max_u21_full.bak` | 0.01s | 0.033s | 0.013s | 0.006s |
+| `pagecomp_anchor_full.bak` | 0.009s | 0.057s | 0.009s | 0.044s |
+| `pagecomp_long_prefix_full.bak` | 0.012s | 0.038s | 0.008s | 0.008s |
+| `pfor_columnstore_full.bak` | 0.052s | 0.574s | 0.089s | 0.37s |
+| `pfor_columnstore_random_full.bak` | 0.062s | 0.334s | 0.1s | 0.338s |
+| `realworld_numeric_digest_full.bak` | 0.039s | 0.081s | 0.033s | 0.058s |
+| `rowboundary_full.bak` | 0.017s | 0.046s | 0.021s | 0.028s |
+| `rowstore_hash_pii_full.bak` | 0.011s | 0.034s | 0.008s | 0.006s |
+| `rowstore_lob_image_full.bak` | 0.011s | 0.098s | 0.009s | 0.035s |
+| `rowstore_lob_markup_full.bak` | 0.013s | 0.035s | 0.007s | 0.007s |
+| `rowversion_extract_full.bak` | 0.022s | 0.043s | 0.008s | 0.016s |
+| `sparse_full.bak` | 0.014s | 0.066s | 0.011s | 0.041s |
+| `spatial_edge_full.bak` | 0.02s | 0.048s | 0.013s | 0.017s |
+| `spatial_index_full.bak` | 0.025s | 0.055s | 0.007s | 0.016s |
+| `sql_variant_extract_full.bak` | 0.01s | 0.034s | 0.011s | 0.006s |
+| `striped_full_1.bak` | 0.009s | 0.031s | 0.01s | 0.007s |
+| `striped_single.bak` | 0.011s | 0.03s | 0.018s | 0.009s |
+| `surrogate_pairs_full.bak` | 0.01s | 0.03s | 0.008s | 0.006s |
+| `tabletype_cci_large_full.bak` | 0.017s | 0.051s | 0.031s | 0.091s |
+| `tabletypecoverage_diff.bak` | 0.041s | 0.214s | 0.08s | 0.583s |
+| `tabletypecoverage_full.bak` | 0.047s | 0.208s | 0.074s | 0.511s |
+| `tde_full.bak` | 0.01s | 0.034s | 0.008s | 0.008s |
+| `tde_full_compressed.bak` | 0.01s | 0.037s | 0.008s | 0.007s |
+| `tde_page_full.bak` | 0.01s | 0.037s | 0.009s | 0.007s |
+| `tde_page_plain.bak` | 0.012s | 0.032s | 0.008s | 0.008s |
+| `temporal_hidden_full.bak` | 0.027s | 0.058s | 0.026s | 0.034s |
+| `torn_page_full.bak` | 0.012s | 0.031s | 0.008s | 0.006s |
+| `typecoverage_full.bak` | 0.369s | 0.41s | 0.096s | 0.389s |
+| `typed_xml_full.bak` | 0.008s | 0.035s | 0.01s | 0.007s |
+| `unicode_codepage_coverage.bak` | 0.104s | 0.169s | 0.029s | 0.098s |
+| `xml_index_full.bak` | 0.015s | 0.046s | 0.01s | 0.014s |
+| `xmlcoverage_full.bak` | 0.011s | 0.03s | 0.006s | 0.008s |
+| `xmlheap_full.bak` | 0.012s | 0.059s | 0.012s | 0.037s |
+| `xtp_checkpoint_straddle_full.bak` | 0.048s | 0.069s | 0.104s | 0.115s |
+| `xtp_probe_full.bak` | 0.025s | 0.087s | 0.006s | 0.029s |
+| `xtp_rich_full.bak` | 0.012s | 0.08s | 0.005s | 0.016s |
+| `xtp_simple_full.bak` | 0.009s | 0.051s | 0.004s | 0.011s |
 
 _Write and read times are wall-clock estimates (coarse, not exact per-sink isolation)._
 
@@ -7133,142 +7474,150 @@ _Write and read times are wall-clock estimates (coarse, not exact per-sink isola
 
 | Backup | arrow verify | delta read | delta stats | delta verify | pg_dir read | pg_dir stats | pg_dir verify |
 |--------| -------: | -------: | -------: | -------: | -------: | -------: | -------:|
-| `alias_types_full.bak` | 0.014s | 0.022s | 0.0s | 0.0s | 0.001s | 0.0s | 0.0s |
-| `archive_columnstore_partition_full.bak` | 0.164s | 0.046s | 0.016s | 0.143s | 0.436s | 0.02s | 0.133s |
-| `archive_columnstore_types_full.bak` | 0.438s | 0.026s | 0.004s | 0.331s | 0.243s | 0.005s | 0.344s |
-| `archive_columnstore_types_random_full.bak` | 0.444s | 0.035s | 0.005s | 0.348s | 0.163s | 0.005s | 0.395s |
-| `archive_single_chunk_full.bak` | 0.013s | 0.021s | 0.0s | 0.001s | 0.003s | 0.0s | 0.001s |
-| `archive_single_chunk_random_full.bak` | 0.014s | 0.021s | 0.0s | 0.001s | 0.003s | 0.0s | 0.001s |
-| `archivenull_full.bak` | 0.113s | 0.006s | 0.001s | 0.058s | 0.043s | 0.002s | 0.056s |
-| `backup_blocksize_full.bak` | 0.014s | 0.022s | 0.0s | 0.001s | 0.001s | 0.0s | 0.001s |
-| `boundarycoverage_datetime_full.bak` | 0.241s | 0.051s | 0.002s | 0.115s | 0.018s | 0.001s | 0.115s |
-| `boundarycoverage_full.bak` | 0.025s | 0.043s | 0.001s | 0.009s | 0.006s | 0.001s | 0.008s |
-| `cci_binary_varbinary_compare_full.bak` | 0.016s | 0.022s | 0.0s | 0.002s | 0.004s | 0.0s | 0.002s |
-| `cci_bitpack_probe_bigint_full.bak` | 0.79s | 0.048s | 0.003s | 0.739s | 0.172s | 0.003s | 0.708s |
-| `cci_bitpack_probe_full.bak` | 0.166s | 0.03s | 0.0s | 0.132s | 0.022s | 0.001s | 0.138s |
-| `cci_bitpack_probe_highbase_full.bak` | 0.085s | 0.042s | 0.0s | 0.065s | 0.018s | 0.001s | 0.062s |
-| `cci_btree_nci_full.bak` | 0.014s | 0.026s | 0.0s | 0.001s | 0.002s | 0.0s | 0.001s |
-| `cci_computed_full.bak` | 0.014s | 0.027s | 0.0s | 0.001s | 0.002s | 0.0s | 0.001s |
-| `cci_enc5_largepool_full.bak` | 0.168s | 0.009s | 0.002s | 0.199s | 0.073s | 0.002s | 0.133s |
-| `cci_enc5_largepool_matrix_full.bak` | 0.57s | 0.075s | 0.009s | 0.574s | 0.213s | 0.007s | 0.546s |
-| `cci_extended_full.bak` | 0.019s | 0.034s | 0.0s | 0.004s | 0.008s | 0.001s | 0.005s |
-| `cci_lob_full.bak` | 0.016s | 0.03s | 0.0s | 0.002s | 0.003s | 0.0s | 0.002s |
-| `cci_reorganize_full.bak` | 0.015s | 0.027s | 0.0s | 0.001s | 0.002s | 0.0s | 0.001s |
-| `cci_string_dict_regression_full.bak` | 0.138s | 0.017s | 0.003s | 0.076s | 0.027s | 0.002s | 0.06s |
-| `cci_string_minmax_full.bak` | 0.014s | 0.025s | 0.0s | 0.001s | 0.004s | 0.0s | 0.001s |
-| `cci_switch_full.bak` | 0.013s | 0.022s | 0.0s | 0.001s | 0.002s | 0.0s | 0.001s |
-| `cci_types_large_full.bak` | 0.02s | 0.035s | 0.001s | 0.005s | 0.008s | 0.0s | 0.004s |
-| `cci_varbinary_micro_full.bak` | 0.014s | 0.025s | 0.0s | 0.001s | 0.002s | 0.0s | 0.001s |
-| `cci_varbinary_probe_full.bak` | 0.049s | 0.008s | 0.0s | 0.008s | 0.013s | 0.0s | 0.012s |
-| `columnstore_minimal.bak` | 1.573s | 0.017s | 0.003s | 0.687s | 0.032s | 0.003s | 0.695s |
+| `alias_types_full.bak` | 0.017s | 0.043s | 0.0s | 0.0s | 0.001s | 0.0s | 0.0s |
+| `archive_columnstore_partition_full.bak` | 0.233s | 0.051s | 0.017s | 0.153s | 0.484s | 0.018s | 0.145s |
+| `archive_columnstore_types_full.bak` | 0.425s | 0.093s | 0.006s | 0.432s | 0.165s | 0.004s | 0.326s |
+| `archive_columnstore_types_random_full.bak` | 0.469s | 0.027s | 0.004s | 0.306s | 0.159s | 0.005s | 0.32s |
+| `archive_single_chunk_full.bak` | 0.018s | 0.024s | 0.0s | 0.001s | 0.004s | 0.0s | 0.001s |
+| `archive_single_chunk_random_full.bak` | 0.013s | 0.056s | 0.0s | 0.001s | 0.004s | 0.0s | 0.001s |
+| `archivenull_full.bak` | 0.089s | 0.005s | 0.001s | 0.053s | 0.045s | 0.001s | 0.054s |
+| `backup_blocksize_full.bak` | 0.018s | 0.025s | 0.0s | 0.001s | 0.001s | 0.0s | 0.001s |
+| `boundarycoverage_datetime_full.bak` | 0.225s | 0.056s | 0.002s | 0.104s | 0.012s | 0.001s | 0.102s |
+| `boundarycoverage_full.bak` | 0.03s | 0.053s | 0.001s | 0.01s | 0.008s | 0.001s | 0.012s |
+| `cci_binary_varbinary_compare_full.bak` | 0.022s | 0.024s | 0.0s | 0.003s | 0.004s | 0.0s | 0.002s |
+| `cci_bitpack_probe_bigint_full.bak` | 1.159s | 0.055s | 0.003s | 0.766s | 0.183s | 0.003s | 0.84s |
+| `cci_bitpack_probe_full.bak` | 0.15s | 0.032s | 0.001s | 0.137s | 0.027s | 0.001s | 0.137s |
+| `cci_bitpack_probe_highbase_full.bak` | 0.102s | 0.036s | 0.0s | 0.061s | 0.016s | 0.0s | 0.059s |
+| `cci_btree_nci_full.bak` | 0.022s | 0.029s | 0.0s | 0.001s | 0.002s | 0.0s | 0.001s |
+| `cci_computed_full.bak` | 0.018s | 0.028s | 0.0s | 0.001s | 0.002s | 0.0s | 0.001s |
+| `cci_enc5_largepool_full.bak` | 0.193s | 0.012s | 0.002s | 0.126s | 0.075s | 0.002s | 0.134s |
+| `cci_enc5_largepool_matrix_full.bak` | 0.759s | 0.046s | 0.007s | 0.552s | 0.208s | 0.007s | 0.531s |
+| `cci_extended_full.bak` | 0.02s | 0.036s | 0.001s | 0.004s | 0.006s | 0.001s | 0.004s |
+| `cci_lob_full.bak` | 0.018s | 0.033s | 0.0s | 0.002s | 0.004s | 0.0s | 0.002s |
+| `cci_reorganize_full.bak` | 0.023s | 0.033s | 0.0s | 0.001s | 0.002s | 0.0s | 0.002s |
+| `cci_string_dict_regression_full.bak` | 0.133s | 0.01s | 0.003s | 0.061s | 0.025s | 0.002s | 0.059s |
+| `cci_string_minmax_full.bak` | 0.016s | 0.03s | 0.0s | 0.001s | 0.004s | 0.0s | 0.001s |
+| `cci_switch_full.bak` | 0.019s | 0.032s | 0.0s | 0.001s | 0.002s | 0.0s | 0.001s |
+| `cci_types_large_full.bak` | 0.024s | 0.035s | 0.001s | 0.005s | 0.011s | 0.0s | 0.004s |
+| `cci_varbinary_micro_full.bak` | 0.015s | 0.031s | 0.0s | 0.001s | 0.002s | 0.0s | 0.001s |
+| `cci_varbinary_probe_full.bak` | 0.047s | 0.01s | 0.0s | 0.01s | 0.005s | 0.0s | 0.009s |
+| `columnstore_minimal.bak` | 1.669s | 0.02s | 0.004s | 0.843s | 0.042s | 0.004s | 1.23s |
 | `compressed_nvarchar_full.bak` | 0.014s | 0.022s | 0.0s | 0.0s | 0.001s | 0.0s | 0.0s |
-| `compressioncoverage_full.bak` | 0.387s | 0.075s | 0.008s | 0.128s | 0.023s | 0.005s | 0.114s |
-| `computedcoverage_full.bak` | 0.028s | 0.025s | 0.0s | 0.001s | 0.001s | 0.0s | 0.001s |
-| `constraintcoverage_full.bak` | 0.019s | 0.039s | 0.001s | 0.003s | 0.005s | 0.001s | 0.004s |
-| `covering_index_full.bak` | 0.016s | 0.024s | 0.0s | 0.001s | 0.002s | 0.0s | 0.001s |
-| `cs_lob_preamble.bak` | 0.021s | 0.022s | 0.0s | 0.001s | 0.002s | 0.0s | 0.001s |
-| `delta_rowgroup_full.bak` | 0.014s | 0.029s | 0.0s | 0.001s | 0.001s | 0.0s | 0.001s |
-| `dirtycoverage_aborted_xact.bak` | 0.016s | 0.021s | 0.0s | 0.0s | 0.001s | 0.0s | 0.0s |
-| `dirtycoverage_addcol.bak` | 0.013s | 0.022s | 0.0s | 0.001s | 0.001s | 0.0s | 0.001s |
-| `dirtycoverage_addnotnull.bak` | 0.013s | 0.021s | 0.0s | 0.001s | 0.001s | 0.0s | 0.0s |
-| `dirtycoverage_alldirty.bak` | 0.0s | 0.0s | 0.0s | 0.0s | 0.0s | 0.0s | 0.0s |
-| `dirtycoverage_altercol.bak` | 0.014s | 0.024s | 0.0s | 0.0s | 0.001s | 0.0s | 0.001s |
-| `dirtycoverage_altercol_rewrite.bak` | 0.015s | 0.026s | 0.0s | 0.0s | 0.001s | 0.0s | 0.001s |
-| `dirtycoverage_alterdb.bak` | 0.015s | 0.021s | 0.0s | 0.0s | 0.001s | 0.0s | 0.0s |
-| `dirtycoverage_cci_delete.bak` | 0.056s | 0.008s | 0.001s | 0.027s | 0.008s | 0.0s | 0.028s |
-| `dirtycoverage_cci_update.bak` | 0.066s | 0.006s | 0.0s | 0.026s | 0.008s | 0.0s | 0.027s |
-| `dirtycoverage_committed_delete.bak` | 0.017s | 0.022s | 0.0s | 0.001s | 0.002s | 0.0s | 0.001s |
-| `dirtycoverage_committed_delete_v2.bak` | 0.017s | 0.022s | 0.0s | 0.002s | 0.002s | 0.0s | 0.002s |
-| `dirtycoverage_committed_delete_v3.bak` | 0.087s | 0.026s | 0.001s | 0.02s | 0.004s | 0.001s | 0.018s |
-| `dirtycoverage_committed_delete_v4.bak` | 0.106s | 0.027s | 0.0s | 0.018s | 0.009s | 0.0s | 0.017s |
-| `dirtycoverage_committed_update.bak` | 0.013s | 0.022s | 0.0s | 0.001s | 0.001s | 0.0s | 0.0s |
-| `dirtycoverage_committed_update_v2.bak` | 0.018s | 0.022s | 0.0s | 0.003s | 0.002s | 0.0s | 0.002s |
-| `dirtycoverage_committed_update_v3.bak` | 0.105s | 0.023s | 0.001s | 0.034s | 0.005s | 0.001s | 0.035s |
-| `dirtycoverage_committed_update_v4.bak` | 0.112s | 0.032s | 0.001s | 0.022s | 0.012s | 0.001s | 0.024s |
-| `dirtycoverage_concurrent.bak` | 0.013s | 0.022s | 0.0s | 0.001s | 0.001s | 0.0s | 0.0s |
-| `dirtycoverage_createidx.bak` | 0.014s | 0.02s | 0.0s | 0.001s | 0.002s | 0.0s | 0.001s |
-| `dirtycoverage_createtable.bak` | 0.015s | 0.02s | 0.0s | 0.0s | 0.001s | 0.0s | 0.0s |
-| `dirtycoverage_delete.bak` | 0.012s | 0.02s | 0.0s | 0.001s | 0.001s | 0.0s | 0.0s |
-| `dirtycoverage_dropcol.bak` | 0.014s | 0.022s | 0.0s | 0.0s | 0.001s | 0.0s | 0.0s |
-| `dirtycoverage_dropidx.bak` | 0.014s | 0.022s | 0.0s | 0.001s | 0.001s | 0.0s | 0.001s |
-| `dirtycoverage_droptable.bak` | 0.015s | 0.023s | 0.0s | 0.001s | 0.002s | 0.0s | 0.001s |
-| `dirtycoverage_heap_forward.bak` | 0.031s | 0.003s | 0.0s | 0.002s | 0.001s | 0.0s | 0.001s |
-| `dirtycoverage_large_dirty.bak` | 0.017s | 0.026s | 0.0s | 0.001s | 0.001s | 0.0s | 0.0s |
-| `dirtycoverage_lob_update.bak` | 0.014s | 0.02s | 0.0s | 0.001s | 0.001s | 0.0s | 0.001s |
-| `dirtycoverage_maxrow.bak` | 0.015s | 0.021s | 0.0s | 0.001s | 0.001s | 0.0s | 0.001s |
-| `dirtycoverage_nchar_delete.bak` | 0.022s | 0.044s | 0.0s | 0.001s | 0.001s | 0.0s | 0.0s |
-| `dirtycoverage_nested.bak` | 0.015s | 0.021s | 0.0s | 0.0s | 0.001s | 0.0s | 0.001s |
-| `dirtycoverage_null_update.bak` | 0.016s | 0.025s | 0.0s | 0.001s | 0.001s | 0.0s | 0.0s |
-| `dirtycoverage_rebuildidx.bak` | 0.014s | 0.019s | 0.0s | 0.001s | 0.001s | 0.0s | 0.0s |
-| `dirtycoverage_rich_insert.bak` | 0.086s | 0.004s | 0.0s | 0.002s | 0.001s | 0.0s | 0.002s |
-| `dirtycoverage_rich_update.bak` | 0.075s | 0.004s | 0.0s | 0.002s | 0.001s | 0.0s | 0.002s |
-| `dirtycoverage_savepoint.bak` | 0.014s | 0.019s | 0.0s | 0.0s | 0.001s | 0.0s | 0.0s |
-| `dirtycoverage_snapshot_update.bak` | 0.014s | 0.023s | 0.0s | 0.0s | 0.001s | 0.0s | 0.0s |
-| `dirtycoverage_switch.bak` | 0.014s | 0.025s | 0.0s | 0.001s | 0.002s | 0.0s | 0.001s |
-| `dirtycoverage_temporal_update.bak` | 0.061s | 0.024s | 0.0s | 0.001s | 0.001s | 0.0s | 0.001s |
-| `dirtycoverage_truncate.bak` | 0.014s | 0.023s | 0.0s | 0.001s | 0.001s | 0.0s | 0.001s |
-| `dirtycoverage_two_tx.bak` | 0.013s | 0.02s | 0.0s | 0.0s | 0.001s | 0.0s | 0.0s |
-| `dirtycoverage_uncommitted.bak` | 0.015s | 0.023s | 0.0s | 0.001s | 0.001s | 0.0s | 0.0s |
-| `dirtycoverage_update.bak` | 0.014s | 0.021s | 0.0s | 0.0s | 0.001s | 0.0s | 0.0s |
-| `filtered_ncci_full.bak` | 0.014s | 0.023s | 0.0s | 0.001s | 0.002s | 0.0s | 0.001s |
-| `float_extreme_full.bak` | 0.013s | 0.024s | 0.0s | 0.0s | 0.001s | 0.0s | 0.0s |
-| `forwarded_records_full.bak` | 0.107s | 0.008s | 0.001s | 0.064s | 0.028s | 0.001s | 0.066s |
-| `ghost_records_full.bak` | 0.038s | 0.004s | 0.0s | 0.002s | 0.001s | 0.0s | 0.002s |
-| `heapcoverage_large.bak` | 0.037s | 0.005s | 0.0s | 0.004s | 0.003s | 0.0s | 0.004s |
-| `heapcoverage_large_50000.bak` | 0.163s | 0.011s | 0.002s | 0.111s | 0.055s | 0.007s | 0.116s |
-| `hierarchyid_extract_full.bak` | 0.013s | 0.022s | 0.0s | 0.0s | 0.001s | 0.0s | 0.0s |
-| `high_slot_density_full.bak` | 0.04s | 0.029s | 0.0s | 0.025s | 0.005s | 0.0s | 0.024s |
-| `identity_coverage_full.bak` | 0.016s | 0.042s | 0.001s | 0.002s | 0.004s | 0.0s | 0.002s |
-| `incrementalcoverage_diff_01.bak` | 0.013s | 0.021s | 0.0s | 0.001s | 0.001s | 0.0s | 0.0s |
-| `incrementalcoverage_diff_02.bak` | 0.015s | 0.021s | 0.0s | 0.0s | 0.001s | 0.0s | 0.0s |
-| `incrementalcoverage_diff_03.bak` | 0.012s | 0.022s | 0.0s | 0.001s | 0.001s | 0.0s | 0.0s |
-| `incrementalcoverage_diff_04.bak` | 0.012s | 0.022s | 0.0s | 0.0s | 0.001s | 0.0s | 0.0s |
-| `incrementalcoverage_diff_05.bak` | 0.013s | 0.028s | 0.0s | 0.0s | 0.001s | 0.0s | 0.0s |
-| `incrementalcoverage_diff_06.bak` | 0.014s | 0.02s | 0.0s | 0.0s | 0.001s | 0.0s | 0.0s |
-| `incrementalcoverage_full.bak` | 0.014s | 0.021s | 0.0s | 0.0s | 0.001s | 0.0s | 0.0s |
-| `layoutcoverage_full.bak` | 0.357s | 0.255s | 0.026s | 0.094s | 0.074s | 0.026s | 0.155s |
-| `max_row_width_full.bak` | 0.014s | 0.024s | 0.0s | 0.001s | 0.001s | 0.0s | 0.001s |
-| `mixed_collation_full.bak` | 0.013s | 0.02s | 0.0s | 0.001s | 0.001s | 0.0s | 0.001s |
-| `multi_rowgroup_full.bak` | 0.014s | 0.025s | 0.0s | 0.001s | 0.001s | 0.0s | 0.001s |
-| `ncci_heap_full.bak` | 0.018s | 0.026s | 0.0s | 0.001s | 0.001s | 0.0s | 0.0s |
-| `ncci_types_full.bak` | 0.283s | 0.077s | 0.003s | 0.139s | 0.03s | 0.003s | 0.174s |
-| `ndfcoverage_full.bak` | 0.015s | 0.025s | 0.0s | 0.001s | 0.001s | 0.0s | 0.001s |
-| `nvarchar_max_u21_full.bak` | 0.014s | 0.023s | 0.0s | 0.0s | 0.001s | 0.0s | 0.0s |
-| `pagecomp_anchor_full.bak` | 0.101s | 0.032s | 0.0s | 0.031s | 0.007s | 0.0s | 0.028s |
-| `pagecomp_long_prefix_full.bak` | 0.017s | 0.021s | 0.0s | 0.0s | 0.001s | 0.0s | 0.001s |
-| `pfor_columnstore_full.bak` | 0.373s | 0.039s | 0.001s | 0.312s | 0.036s | 0.001s | 0.298s |
-| `pfor_columnstore_random_full.bak` | 0.434s | 0.03s | 0.004s | 0.327s | 0.039s | 0.001s | 0.327s |
-| `realworld_numeric_digest_full.bak` | 0.053s | 0.016s | 0.001s | 0.028s | 0.003s | 0.0s | 0.023s |
-| `rowboundary_full.bak` | 0.044s | 0.007s | 0.0s | 0.005s | 0.004s | 0.0s | 0.005s |
-| `rowstore_hash_pii_full.bak` | 0.015s | 0.023s | 0.0s | 0.001s | 0.001s | 0.0s | 0.001s |
-| `rowstore_lob_image_full.bak` | 0.015s | 0.023s | 0.0s | 0.001s | 0.003s | 0.0s | 0.001s |
-| `rowstore_lob_markup_full.bak` | 0.023s | 0.022s | 0.0s | 0.002s | 0.001s | 0.0s | 0.001s |
-| `rowversion_extract_full.bak` | 0.015s | 0.024s | 0.0s | 0.001s | 0.001s | 0.0s | 0.001s |
-| `sparse_full.bak` | 0.1s | 0.025s | 0.0s | 0.023s | 0.008s | 0.0s | 0.023s |
-| `spatial_edge_full.bak` | 0.015s | 0.021s | 0.0s | 0.001s | 0.001s | 0.0s | 0.001s |
-| `spatial_index_full.bak` | 0.016s | 0.024s | 0.0s | 0.001s | 0.002s | 0.0s | 0.001s |
-| `sql_variant_extract_full.bak` | 0.012s | 0.025s | 0.0s | 0.001s | 0.001s | 0.0s | 0.0s |
-| `striped_full_1.bak` | 0.017s | 0.02s | 0.0s | 0.001s | 0.001s | 0.0s | 0.0s |
-| `striped_single.bak` | 0.013s | 0.02s | 0.0s | 0.001s | 0.001s | 0.0s | 0.0s |
-| `surrogate_pairs_full.bak` | 0.014s | 0.024s | 0.0s | 0.0s | 0.002s | 0.0s | 0.0s |
-| `tabletype_cci_large_full.bak` | 0.087s | 0.033s | 0.001s | 0.012s | 0.071s | 0.001s | 0.01s |
-| `tabletypecoverage_diff.bak` | 0.23s | 0.027s | 0.005s | 0.135s | 0.419s | 0.01s | 0.146s |
-| `tabletypecoverage_full.bak` | 0.224s | 0.028s | 0.006s | 0.132s | 0.424s | 0.007s | 0.14s |
-| `temporal_hidden_full.bak` | 0.087s | 0.013s | 0.001s | 0.005s | 0.003s | 0.0s | 0.004s |
-| `torn_page_full.bak` | 0.015s | 0.023s | 0.0s | 0.001s | 0.001s | 0.0s | 0.001s |
-| `typecoverage_full.bak` | 0.141s | 0.124s | 0.005s | 0.036s | 0.124s | 0.003s | 0.044s |
-| `typed_xml_full.bak` | 0.012s | 0.021s | 0.0s | 0.0s | 0.001s | 0.0s | 0.0s |
-| `unicode_codepage_coverage.bak` | 0.032s | 0.069s | 0.002s | 0.007s | 0.01s | 0.003s | 0.008s |
-| `xml_index_full.bak` | 0.015s | 0.026s | 0.0s | 0.001s | 0.002s | 0.0s | 0.001s |
-| `xmlcoverage_full.bak` | 0.017s | 0.024s | 0.0s | 0.0s | 0.001s | 0.0s | 0.0s |
-| `xmlheap_full.bak` | 0.086s | 0.028s | 0.0s | 0.02s | 0.008s | 0.0s | 0.02s |
-| `xtp_checkpoint_straddle_full.bak` | 0.035s | 0.037s | 0.003s | 0.011s | 0.083s | 0.003s | 0.011s |
-| `xtp_probe_full.bak` | 0.0s | 0.048s | 0.0s | 0.0s | 0.003s | 0.0s | 0.0s |
-| `xtp_rich_full.bak` | 0.0s | 0.037s | 0.0s | 0.0s | 0.001s | 0.0s | 0.0s |
-| `xtp_simple_full.bak` | 0.0s | 0.038s | 0.0s | 0.0s | 0.002s | 0.0s | 0.0s |
+| `compressioncoverage_full.bak` | 0.514s | 0.065s | 0.007s | 0.117s | 0.027s | 0.007s | 0.126s |
+| `computedcoverage_full.bak` | 0.019s | 0.043s | 0.0s | 0.001s | 0.002s | 0.0s | 0.001s |
+| `constraintcoverage_full.bak` | 0.027s | 0.048s | 0.001s | 0.004s | 0.005s | 0.001s | 0.003s |
+| `covering_index_full.bak` | 0.018s | 0.028s | 0.0s | 0.002s | 0.002s | 0.0s | 0.002s |
+| `cs_lob_preamble.bak` | 0.025s | 0.023s | 0.0s | 0.001s | 0.002s | 0.0s | 0.001s |
+| `delta_rowgroup_full.bak` | 0.018s | 0.028s | 0.0s | 0.001s | 0.002s | 0.0s | 0.001s |
+| `dirtycoverage_aborted_xact.bak` | 0.015s | 0.05s | 0.0s | 0.001s | 0.001s | 0.0s | 0.0s |
+| `dirtycoverage_addcol.bak` | 0.015s | 0.026s | 0.0s | 0.001s | 0.001s | 0.0s | 0.001s |
+| `dirtycoverage_addnotnull.bak` | 0.016s | 0.024s | 0.0s | 0.001s | 0.001s | 0.0s | 0.0s |
+| `dirtycoverage_alldirty.bak` | 0.0s | 0.033s | 0.0s | 0.0s | 0.001s | 0.0s | 0.0s |
+| `dirtycoverage_altercol.bak` | 0.016s | 0.025s | 0.0s | 0.0s | 0.001s | 0.0s | 0.0s |
+| `dirtycoverage_altercol_rewrite.bak` | 0.018s | 0.026s | 0.0s | 0.001s | 0.002s | 0.0s | 0.001s |
+| `dirtycoverage_alterdb.bak` | 0.015s | 0.034s | 0.0s | 0.001s | 0.002s | 0.0s | 0.0s |
+| `dirtycoverage_cci_delete.bak` | 0.066s | 0.009s | 0.001s | 0.027s | 0.008s | 0.0s | 0.028s |
+| `dirtycoverage_cci_update.bak` | 0.08s | 0.012s | 0.0s | 0.027s | 0.008s | 0.0s | 0.027s |
+| `dirtycoverage_committed_delete.bak` | 0.019s | 0.025s | 0.0s | 0.001s | 0.001s | 0.0s | 0.001s |
+| `dirtycoverage_committed_delete_v2.bak` | 0.02s | 0.026s | 0.0s | 0.004s | 0.003s | 0.0s | 0.003s |
+| `dirtycoverage_committed_delete_v3.bak` | 0.089s | 0.027s | 0.001s | 0.021s | 0.005s | 0.001s | 0.026s |
+| `dirtycoverage_committed_delete_v4.bak` | 0.09s | 0.033s | 0.001s | 0.018s | 0.009s | 0.0s | 0.017s |
+| `dirtycoverage_committed_update.bak` | 0.02s | 0.023s | 0.0s | 0.001s | 0.001s | 0.0s | 0.001s |
+| `dirtycoverage_committed_update_v2.bak` | 0.019s | 0.028s | 0.0s | 0.003s | 0.003s | 0.0s | 0.003s |
+| `dirtycoverage_committed_update_v3.bak` | 0.149s | 0.028s | 0.001s | 0.052s | 0.005s | 0.001s | 0.034s |
+| `dirtycoverage_committed_update_v4.bak` | 0.079s | 0.026s | 0.0s | 0.021s | 0.011s | 0.0s | 0.022s |
+| `dirtycoverage_concurrent.bak` | 0.017s | 0.025s | 0.0s | 0.001s | 0.001s | 0.0s | 0.001s |
+| `dirtycoverage_createidx.bak` | 0.022s | 0.024s | 0.0s | 0.001s | 0.002s | 0.0s | 0.001s |
+| `dirtycoverage_createtable.bak` | 0.015s | 0.026s | 0.0s | 0.0s | 0.002s | 0.001s | 0.001s |
+| `dirtycoverage_delete.bak` | 0.016s | 0.025s | 0.0s | 0.001s | 0.001s | 0.0s | 0.0s |
+| `dirtycoverage_dropcol.bak` | 0.016s | 0.023s | 0.0s | 0.001s | 0.001s | 0.0s | 0.0s |
+| `dirtycoverage_dropidx.bak` | 0.016s | 0.025s | 0.0s | 0.001s | 0.001s | 0.0s | 0.001s |
+| `dirtycoverage_droptable.bak` | 0.016s | 0.027s | 0.0s | 0.001s | 0.002s | 0.0s | 0.001s |
+| `dirtycoverage_heap_forward.bak` | 0.063s | 0.006s | 0.0s | 0.001s | 0.001s | 0.0s | 0.002s |
+| `dirtycoverage_large_dirty.bak` | 0.013s | 0.021s | 0.0s | 0.0s | 0.001s | 0.0s | 0.001s |
+| `dirtycoverage_lob_update.bak` | 0.017s | 0.059s | 0.0s | 0.001s | 0.001s | 0.0s | 0.001s |
+| `dirtycoverage_maxrow.bak` | 0.02s | 0.026s | 0.0s | 0.001s | 0.001s | 0.0s | 0.001s |
+| `dirtycoverage_nchar_delete.bak` | 0.015s | 0.025s | 0.0s | 0.0s | 0.001s | 0.0s | 0.0s |
+| `dirtycoverage_nested.bak` | 0.015s | 0.028s | 0.0s | 0.001s | 0.001s | 0.0s | 0.0s |
+| `dirtycoverage_null_update.bak` | 0.015s | 0.024s | 0.0s | 0.0s | 0.002s | 0.0s | 0.0s |
+| `dirtycoverage_rebuildidx.bak` | 0.018s | 0.024s | 0.0s | 0.001s | 0.001s | 0.0s | 0.001s |
+| `dirtycoverage_rich_insert.bak` | 0.102s | 0.007s | 0.0s | 0.004s | 0.001s | 0.0s | 0.003s |
+| `dirtycoverage_rich_update.bak` | 0.1s | 0.005s | 0.0s | 0.004s | 0.002s | 0.0s | 0.003s |
+| `dirtycoverage_savepoint.bak` | 0.016s | 0.026s | 0.0s | 0.001s | 0.001s | 0.0s | 0.0s |
+| `dirtycoverage_snapshot_update.bak` | 0.015s | 0.022s | 0.0s | 0.0s | 0.001s | 0.0s | 0.0s |
+| `dirtycoverage_switch.bak` | 0.015s | 0.033s | 0.0s | 0.001s | 0.003s | 0.0s | 0.001s |
+| `dirtycoverage_temporal_update.bak` | 0.071s | 0.027s | 0.0s | 0.001s | 0.002s | 0.0s | 0.001s |
+| `dirtycoverage_truncate.bak` | 0.021s | 0.033s | 0.0s | 0.001s | 0.001s | 0.0s | 0.001s |
+| `dirtycoverage_two_tx.bak` | 0.017s | 0.077s | 0.0s | 0.001s | 0.001s | 0.0s | 0.0s |
+| `dirtycoverage_uncommitted.bak` | 0.015s | 0.025s | 0.0s | 0.0s | 0.001s | 0.0s | 0.001s |
+| `dirtycoverage_update.bak` | 0.015s | 0.022s | 0.0s | 0.001s | 0.001s | 0.0s | 0.001s |
+| `enc_bak_aes128_full.bak` | 0.014s | 0.025s | 0.0s | 0.0s | 0.001s | 0.0s | 0.0s |
+| `enc_bak_aes256_compressed.bak` | 0.017s | 0.024s | 0.0s | 0.0s | 0.012s | 0.0s | 0.0s |
+| `enc_bak_aes256_full.bak` | 0.014s | 0.08s | 0.0s | 0.0s | 0.001s | 0.0s | 0.0s |
+| `enc_bak_plain.bak` | 0.014s | 0.03s | 0.0s | 0.0s | 0.001s | 0.0s | 0.0s |
+| `filtered_ncci_full.bak` | 0.017s | 0.032s | 0.0s | 0.002s | 0.003s | 0.0s | 0.001s |
+| `float_extreme_full.bak` | 0.016s | 0.025s | 0.0s | 0.001s | 0.001s | 0.0s | 0.0s |
+| `forwarded_records_full.bak` | 0.121s | 0.012s | 0.001s | 0.065s | 0.025s | 0.001s | 0.069s |
+| `ghost_records_full.bak` | 0.037s | 0.004s | 0.0s | 0.002s | 0.001s | 0.0s | 0.002s |
+| `heapcoverage_large.bak` | 0.049s | 0.008s | 0.0s | 0.004s | 0.003s | 0.0s | 0.004s |
+| `heapcoverage_large_50000.bak` | 0.177s | 0.017s | 0.002s | 0.117s | 0.052s | 0.002s | 0.118s |
+| `hierarchyid_extract_full.bak` | 0.014s | 0.024s | 0.0s | 0.0s | 0.001s | 0.0s | 0.0s |
+| `high_slot_density_full.bak` | 0.051s | 0.029s | 0.0s | 0.028s | 0.01s | 0.0s | 0.031s |
+| `identity_coverage_full.bak` | 0.021s | 0.042s | 0.001s | 0.002s | 0.005s | 0.0s | 0.002s |
+| `incrementalcoverage_diff_01.bak` | 0.023s | 0.038s | 0.0s | 0.001s | 0.003s | 0.0s | 0.0s |
+| `incrementalcoverage_diff_02.bak` | 0.013s | 0.024s | 0.0s | 0.0s | 0.001s | 0.0s | 0.0s |
+| `incrementalcoverage_diff_03.bak` | 0.015s | 0.028s | 0.0s | 0.001s | 0.001s | 0.0s | 0.0s |
+| `incrementalcoverage_diff_04.bak` | 0.018s | 0.031s | 0.0s | 0.002s | 0.003s | 0.0s | 0.001s |
+| `incrementalcoverage_diff_05.bak` | 0.022s | 0.029s | 0.0s | 0.001s | 0.002s | 0.0s | 0.001s |
+| `incrementalcoverage_diff_06.bak` | 0.019s | 0.023s | 0.0s | 0.001s | 0.001s | 0.0s | 0.0s |
+| `incrementalcoverage_full.bak` | 0.015s | 0.027s | 0.0s | 0.001s | 0.001s | 0.0s | 0.0s |
+| `layoutcoverage_full.bak` | 0.284s | 0.347s | 0.035s | 0.123s | 0.084s | 0.027s | 0.096s |
+| `max_row_width_full.bak` | 0.016s | 0.023s | 0.0s | 0.001s | 0.001s | 0.0s | 0.001s |
+| `mixed_collation_full.bak` | 0.018s | 0.023s | 0.0s | 0.001s | 0.001s | 0.0s | 0.0s |
+| `multi_rowgroup_full.bak` | 0.019s | 0.029s | 0.0s | 0.001s | 0.002s | 0.0s | 0.001s |
+| `ncci_heap_full.bak` | 0.016s | 0.047s | 0.0s | 0.001s | 0.002s | 0.0s | 0.001s |
+| `ncci_types_full.bak` | 0.376s | 0.099s | 0.003s | 0.145s | 0.021s | 0.002s | 0.111s |
+| `ndfcoverage_full.bak` | 0.02s | 0.028s | 0.0s | 0.001s | 0.002s | 0.0s | 0.001s |
+| `nvarchar_max_u21_full.bak` | 0.021s | 0.026s | 0.0s | 0.0s | 0.001s | 0.0s | 0.0s |
+| `pagecomp_anchor_full.bak` | 0.099s | 0.022s | 0.0s | 0.029s | 0.006s | 0.0s | 0.029s |
+| `pagecomp_long_prefix_full.bak` | 0.018s | 0.031s | 0.0s | 0.0s | 0.001s | 0.0s | 0.0s |
+| `pfor_columnstore_full.bak` | 0.331s | 0.033s | 0.001s | 0.521s | 0.037s | 0.001s | 0.314s |
+| `pfor_columnstore_random_full.bak` | 0.358s | 0.032s | 0.001s | 0.288s | 0.033s | 0.001s | 0.29s |
+| `realworld_numeric_digest_full.bak` | 0.071s | 0.016s | 0.001s | 0.029s | 0.004s | 0.0s | 0.025s |
+| `rowboundary_full.bak` | 0.046s | 0.016s | 0.0s | 0.007s | 0.006s | 0.0s | 0.007s |
+| `rowstore_hash_pii_full.bak` | 0.018s | 0.026s | 0.0s | 0.001s | 0.001s | 0.0s | 0.001s |
+| `rowstore_lob_image_full.bak` | 0.02s | 0.069s | 0.0s | 0.004s | 0.022s | 0.0s | 0.002s |
+| `rowstore_lob_markup_full.bak` | 0.019s | 0.027s | 0.0s | 0.001s | 0.001s | 0.0s | 0.001s |
+| `rowversion_extract_full.bak` | 0.017s | 0.029s | 0.0s | 0.001s | 0.002s | 0.0s | 0.001s |
+| `sparse_full.bak` | 0.101s | 0.03s | 0.0s | 0.029s | 0.009s | 0.0s | 0.024s |
+| `spatial_edge_full.bak` | 0.022s | 0.029s | 0.0s | 0.001s | 0.001s | 0.0s | 0.001s |
+| `spatial_index_full.bak` | 0.019s | 0.04s | 0.0s | 0.001s | 0.002s | 0.0s | 0.001s |
+| `sql_variant_extract_full.bak` | 0.014s | 0.026s | 0.0s | 0.0s | 0.001s | 0.0s | 0.001s |
+| `striped_full_1.bak` | 0.014s | 0.023s | 0.0s | 0.001s | 0.001s | 0.0s | 0.0s |
+| `striped_single.bak` | 0.015s | 0.022s | 0.0s | 0.001s | 0.001s | 0.0s | 0.001s |
+| `surrogate_pairs_full.bak` | 0.014s | 0.024s | 0.0s | 0.0s | 0.001s | 0.0s | 0.0s |
+| `tabletype_cci_large_full.bak` | 0.151s | 0.025s | 0.001s | 0.014s | 0.072s | 0.001s | 0.011s |
+| `tabletypecoverage_diff.bak` | 0.335s | 0.029s | 0.006s | 0.141s | 0.375s | 0.006s | 0.16s |
+| `tabletypecoverage_full.bak` | 0.263s | 0.027s | 0.007s | 0.138s | 0.342s | 0.005s | 0.128s |
+| `tde_full.bak` | 0.015s | 0.024s | 0.0s | 0.001s | 0.001s | 0.0s | 0.0s |
+| `tde_full_compressed.bak` | 0.015s | 0.029s | 0.0s | 0.0s | 0.001s | 0.0s | 0.0s |
+| `tde_page_full.bak` | 0.014s | 0.03s | 0.0s | 0.0s | 0.002s | 0.0s | 0.0s |
+| `tde_page_plain.bak` | 0.016s | 0.025s | 0.0s | 0.0s | 0.001s | 0.0s | 0.0s |
+| `temporal_hidden_full.bak` | 0.098s | 0.027s | 0.001s | 0.005s | 0.004s | 0.0s | 0.006s |
+| `torn_page_full.bak` | 0.018s | 0.025s | 0.0s | 0.001s | 0.001s | 0.0s | 0.001s |
+| `typecoverage_full.bak` | 0.303s | 0.136s | 0.006s | 0.041s | 0.096s | 0.004s | 0.04s |
+| `typed_xml_full.bak` | 0.017s | 0.029s | 0.0s | 0.0s | 0.001s | 0.0s | 0.0s |
+| `unicode_codepage_coverage.bak` | 0.035s | 0.074s | 0.002s | 0.005s | 0.014s | 0.001s | 0.006s |
+| `xml_index_full.bak` | 0.017s | 0.031s | 0.0s | 0.001s | 0.002s | 0.0s | 0.001s |
+| `xmlcoverage_full.bak` | 0.017s | 0.023s | 0.0s | 0.0s | 0.001s | 0.0s | 0.0s |
+| `xmlheap_full.bak` | 0.094s | 0.031s | 0.0s | 0.023s | 0.009s | 0.0s | 0.02s |
+| `xtp_checkpoint_straddle_full.bak` | 0.058s | 0.037s | 0.003s | 0.012s | 0.084s | 0.003s | 0.012s |
+| `xtp_probe_full.bak` | 0.0s | 0.049s | 0.0s | 0.0s | 0.003s | 0.0s | 0.0s |
+| `xtp_rich_full.bak` | 0.0s | 0.067s | 0.0s | 0.0s | 0.002s | 0.0s | 0.0s |
+| `xtp_simple_full.bak` | 0.0s | 0.042s | 0.0s | 0.0s | 0.002s | 0.0s | 0.0s |
 
 _arrow verify = cell verification folded into extract_s. Sink read = pure I/O + decode. Stats = min/max/null compute. Sink verify = cell verification on the round-tripped data. Remainder of readback_s is GC / other._
 
 ---
 
-_Generated 2026-07-21 · 134 fixtures · 133 pass · 1 xfail · 0 fail_
+_Generated 2026-07-22 · 141 fixtures · 141 pass · 0 xfail · 0 fail_
